@@ -1,3 +1,5 @@
+require 'routingfilter'
+
 class ActionController::Base
     before_filter :set_view_paths
 
