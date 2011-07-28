@@ -11,4 +11,10 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
+<% if @total_hits %>
+  <%# we're on a search page; make it look to Google Analytics like we're using a query string, so it can track the search keywords %>
+ _gaq.push(['_trackPageview', '<%= request.request_uri %>?query=<%=u @query %>']);
+<% end %>
+
 </script>
+
