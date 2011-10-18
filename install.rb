@@ -8,7 +8,7 @@ if File.exists?(main_app_path)
 	puts "WARNING: #{main_app_path} already exists, the symbolic link won't be created"
 else # Create symlink
 	begin
-		print "Creating symbolink link from #{main_app_path} to #{plugin_path}... "
+		print "Creating symbolic link from #{main_app_path} to #{plugin_path}... "
 		File.symlink(plugin_path, main_app_path)
 		puts "done"
 	rescue NotImplemented
