@@ -1,0 +1,29 @@
+body {
+font-size:12px;
+}
+#orglogo {
+ overflow: hidden;
+}
+#banner_inner a#logo {
+    left: 55px;
+    top: 5px;
+    text-decoration: none;
+    color: #555;
+    font-style: italic;
+}
+#banner_inner a#logo img {
+ display: block;
+}
+#orglogo a {
+color: #F0F0F0;
+display: block;
+position: absolute;
+top: -10px;
+right: -148px;
+clear: none;
+height: 55px;
+width: 265px;
+background-repeat: no-repeat;
+background-position: 125px 15px;
+background-image: url(../images/mysoc-logo-header.png);
+}
