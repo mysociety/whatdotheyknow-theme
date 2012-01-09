@@ -1,3 +1,9 @@
+body {
+font-size:12px;
+}
+#orglogo {
+ overflow: hidden;
+}
 #banner_inner a#logo {
     left: 55px;
     top: 5px;
@@ -7,9 +13,6 @@
 }
 #banner_inner a#logo img {
  display: block;
-}
-#logged_in_bar {
-    font-size: 1em;
 }
 #orglogo a {
 color: #F0F0F0;
