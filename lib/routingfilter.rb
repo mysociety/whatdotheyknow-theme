@@ -6,13 +6,13 @@ require 'i18n'
 
 module RoutingFilter
     class Locale < Filter
-        def prepend_segment!(result, segment)         
+        def prepend_segment!(result, segment)
             # override the method in RoutingFilter::Locale so that we
             # don't prepend the locale for admin links
             url = result.is_a?(Array) ? result.first : result
             url.sub!(%r(^(http.?://[^/]*)?(.*))) { "#{$1}/#{segment}#{$2 == '/' ? '' : $2}" } if 
                 !url.match(/^\/admin/) 
-        end        
+        end
     end
 end
 
