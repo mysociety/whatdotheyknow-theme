@@ -1,5 +1,5 @@
-body {
-font-size:14px;
+body.front h3 {
+ font-size: 1.6em;
 }
 #orglogo {
  overflow: hidden;
