@@ -39,29 +39,33 @@ Dispatcher.to_prepare do
             @subject = "Can you help us improve WhatDoTheyKnow?"
             @body = { :count => count, :info_request => info_request, :url => url }
         end
-
-        # Send an email with a link to the survey a week after a request was made,
-        # if the user has not already completed the survey.
-        def alert_survey
-            puts "ALERT SURVEY"
-            for info_request in info_requests
-                alert_event_id = info_request.info_request_events[0]
-                
-                sent_already = UserInfoRequestSentAlert.find(:first, :conditions => [ "alert_type = ? and user_id = ? and info_request_id = ? and info_request_event_id = ?", 'survey_1', info_request.user_id, info_request.id, alert_event_id])
-                return if !sent_already.nil?
-                
-                store_sent = UserInfoRequestSentAlert.new
-                store_sent.info_request = info_request
-                store_sent.user = info_request.user
-                store_sent.alert_type = type_code
-                store_sent.info_request_event_id = alert_event_id
-                RequestMailer.deliver_survey_alert(info_request)
-                store_sent.save!
-            end
-        end
         
-        puts methods.sort
-        alias_method :alert_new_response_reminders_without_alert_survey, :alert_new_response_reminders
-        #alias_method_chain :alert_new_response_reminders, :alert_survey
+        class << self
+            # Send an email with a link to the survey a week after a request was made,
+            # if the user has not already completed the survey.
+            def alert_survey
+                for info_request in info_requests
+                    alert_event_id = info_request.info_request_events[0]
+                
+                    sent_already = UserInfoRequestSentAlert.find(:first, :conditions => [ "alert_type = ? and user_id = ? and info_request_id = ? and info_request_event_id = ?", 'survey_1', info_request.user_id, info_request.id, alert_event_id])
+                    return if !sent_already.nil?
+                
+                    store_sent = UserInfoRequestSentAlert.new
+                    store_sent.info_request = info_request
+                    store_sent.user = info_request.user
+                    store_sent.alert_type = 'survey_1'
+                    store_sent.info_request_event_id = alert_event_id
+                    RequestMailer.deliver_survey_alert(info_request)
+                    store_sent.save!
+                end
+            end
+            
+            def alert_new_response_reminders_with_alert_survey
+                alert_new_response_reminders_without_alert_survey
+                alert_survey
+            end
+            
+            alias_method_chain :alert_new_response_reminders, :alert_survey
+        end
     end
 end
