@@ -1,0 +1,22 @@
+<% @title = h("WhatDoTheyKnow user survey") %>
+
+<h1><%= @title %></h1>
+
+<% if @user.nil? %>
+    <p><strong>The survey is only available to logged-in users.</strong></p>
+<% elsif @user.survey.already_done? %>
+    <p>Thank you for completing the survey.</p>
+<% else %>
+    <p>
+        Thanks for agreeing to answer our quick survey.
+    </p>
+    
+    <% survey_form(@user.survey) do %>
+        <p>
+            <label for="survey-question_1">
+                This is the first question.
+            </label>
+            <input type="text" name="question_1" id="survey-question_1">
+        </p>
+    <% end %>
+<% end %>
