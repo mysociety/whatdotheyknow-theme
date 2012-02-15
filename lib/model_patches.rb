@@ -4,7 +4,6 @@
 # classes are reloaded, but initialization is not run each time.
 # See http://stackoverflow.com/questions/7072758/plugin-not-reloading-in-development-mode
 #
-require 'request_mailer'
 require 'dispatcher'
 Dispatcher.to_prepare do
     User.class_eval do
@@ -37,24 +36,38 @@ Dispatcher.to_prepare do
                     'X-Auto-Response-Suppress' => 'OOF'
             @recipients = user.name_and_email
             @subject = "Can you help us improve WhatDoTheyKnow?"
-            @body = { :count => count, :info_request => info_request, :url => url }
+            @body = { :info_request => info_request, :url => url }
         end
         
         class << self
-            # Send an email with a link to the survey a week after a request was made,
+            # Send an email with a link to the survey two weeks after a request was made,
             # if the user has not already completed the survey.
             def alert_survey
+                # Exclude requests made by users who have already been alerted about the survey
+                info_requests = InfoRequest.find(:all,
+                    :conditions => [ 
+                        " created_at between now() - '2 weeks + 1 day'::interval and now() - '2 weeks'::interval" +
+                        " and not exists (" +
+                        "     select *" +
+                        "     from user_info_request_sent_alerts" +
+                        "     where user_id = info_requests.user_id" +
+                        "      and  alert_type = 'survey_1'" +
+                        " )"
+                    ],
+                    :include => [ :user ]
+                )
                 for info_request in info_requests
-                    alert_event_id = info_request.info_request_events[0]
-                
-                    sent_already = UserInfoRequestSentAlert.find(:first, :conditions => [ "alert_type = ? and user_id = ? and info_request_id = ? and info_request_event_id = ?", 'survey_1', info_request.user_id, info_request.id, alert_event_id])
-                    return if !sent_already.nil?
-                
+                    # Exclude users who have already completed the survey
+                    next if info_request.user.survey.already_done?
+                    
                     store_sent = UserInfoRequestSentAlert.new
                     store_sent.info_request = info_request
                     store_sent.user = info_request.user
                     store_sent.alert_type = 'survey_1'
-                    store_sent.info_request_event_id = alert_event_id
+                    store_sent.info_request_event_id = info_request.info_request_events[0].id
+                    
+                    logger.info "[alert_survey] view_paths = #{ActionMailer::Base.view_paths.inspect}"
+
                     RequestMailer.deliver_survey_alert(info_request)
                     store_sent.save!
                 end
