@@ -16,3 +16,15 @@ end
   ActiveSupport::Dependencies.autoload_paths << path
   ActiveSupport::Dependencies.autoload_once_paths.delete(path)
 end
+
+# Monkey patch app code
+require 'controller_patches.rb'
+require 'model_patches.rb'
+require 'helper_patches.rb'
+require 'patch_mailer_paths.rb'
+
+# Extend routes
+require 'config/custom-routes.rb'
+
+# Plug theme-specific locale strings
+require 'gettext_setup.rb'
