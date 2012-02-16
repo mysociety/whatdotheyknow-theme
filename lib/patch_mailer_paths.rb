@@ -11,13 +11,17 @@ Dispatcher.to_prepare do
         class_inheritable_accessor :view_paths
     
         def self.prepend_view_path(path)
-          view_paths.unshift(*path)
-          ActionView::Base.process_view_paths(path)
+          if view_paths[0] != path
+              view_paths.unshift(*path)
+              ActionView::Base.process_view_paths(path)
+          end
         end
 
         def self.append_view_path(path)
-          view_paths.push(*path)
-          ActionView::Base.process_view_paths(path)
+          if view_paths[-1] != path
+              view_paths.push(*path)
+              ActionView::Base.process_view_paths(path)
+          end
         end
 
         def view_paths
@@ -38,4 +42,5 @@ Dispatcher.to_prepare do
     
     # Override mailer templates with theme ones.
     ActionMailer::Base.prepend_view_path File.join(File.dirname(__FILE__), "views")
+    Rails.logger.debug "view_paths: #{ActionMailer::Base.view_paths.inspect}"
 end

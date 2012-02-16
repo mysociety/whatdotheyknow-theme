@@ -58,6 +58,7 @@ Dispatcher.to_prepare do
                 )
                 for info_request in info_requests
                     # Exclude users who have already completed the survey
+                    logger.debug "[alert_survey] Considering #{info_request.user.url_name}"
                     next if info_request.user.survey.already_done?
                     
                     store_sent = UserInfoRequestSentAlert.new
@@ -65,8 +66,6 @@ Dispatcher.to_prepare do
                     store_sent.user = info_request.user
                     store_sent.alert_type = 'survey_1'
                     store_sent.info_request_event_id = info_request.info_request_events[0].id
-                    
-                    logger.info "[alert_survey] view_paths = #{ActionMailer::Base.view_paths.inspect}"
 
                     RequestMailer.deliver_survey_alert(info_request)
                     store_sent.save!
