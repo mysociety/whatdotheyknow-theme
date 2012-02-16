@@ -6,21 +6,18 @@ require 'dispatcher'
 Dispatcher.to_prepare do
     # See http://www.quirkey.com/blog/2008/08/28/actionmailer-hacking-multiple-template-paths/
     # and #comment-59867 thereon.
-    module ActionMailer
-      class Base
+    ActionMailer::Base.class_eval do
         class_inheritable_accessor :view_paths
     
         def self.prepend_view_path(path)
           if view_paths[0] != path
-              view_paths.unshift(*path)
-              ActionView::Base.process_view_paths(path)
+              self.view_paths = [path] + self.view_paths
           end
         end
 
         def self.append_view_path(path)
           if view_paths[-1] != path
-              view_paths.push(*path)
-              ActionView::Base.process_view_paths(path)
+              self.view_paths = self.view_paths + [path]
           end
         end
 
@@ -33,11 +30,12 @@ Dispatcher.to_prepare do
           @@view_paths||=ActionController::Base.view_paths
         end
     
-        def initialize_template_class(assigns)
-          ActionView::Base.new(view_paths, assigns, self)
+        def initialize_template_class_without_helper(assigns)
+          template = ActionView::Base.new(view_paths, assigns, self)
+          template.template_format = default_template_format
+          template
         end
 
-      end
     end
     
     # Override mailer templates with theme ones.
