@@ -61,11 +61,6 @@ Dispatcher.to_prepare do
                     logger.debug "[alert_survey] Considering #{info_request.user.url_name}"
                     next if info_request.user.survey.already_done?
                     
-                    # XXXX temporarily do not actually send anything XXXX
-                    logger.info "alert_survey: not sending email to #{info_request.user.url_name}"
-                    next
-                    # XXXX
-                    
                     store_sent = UserInfoRequestSentAlert.new
                     store_sent.info_request = info_request
                     store_sent.user = info_request.user
