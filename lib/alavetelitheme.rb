@@ -18,10 +18,10 @@ end
 end
 
 # Monkey patch app code
+require 'patch_mailer_paths.rb'
 require 'controller_patches.rb'
 require 'model_patches.rb'
 require 'helper_patches.rb'
-require 'patch_mailer_paths.rb'
 
 # Extend routes
 require 'config/custom-routes.rb'
