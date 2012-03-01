@@ -40,6 +40,7 @@ PublicBodyCategories.add(:en, [
             [ "university_owned_company", "University owned companies", "a university owned company" ],
             [ "hei", "Higher education institutions", "a higher educational institution" ],
             [ "fei", "Further education institutions", "a further educational institution" ],
+            [ "academies", "Academies", "an academy" ],
             [ "school", "Schools", "a school" ],
             [ "research_council", "Research councils", "a research council" ],
             [ "lib_board", "Education and library boards", "an education and library board" ],
