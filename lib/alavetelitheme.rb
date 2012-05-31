@@ -1,9 +1,9 @@
 require 'routingfilter'
 
 class ActionController::Base
-    before_filter :set_view_paths
+    before_filter :set_whatdotheyknow_view_paths
 
-    def set_view_paths
+    def set_whatdotheyknow_view_paths
         self.prepend_view_path File.join(File.dirname(__FILE__), "views")
     end
 end
@@ -18,13 +18,13 @@ end
 end
 
 # Monkey patch app code
-require 'patch_mailer_paths.rb'
-require 'controller_patches.rb'
-require 'model_patches.rb'
-require 'helper_patches.rb'
+for patch in ['patch_mailer_paths.rb',
+              'controller_patches.rb',
+              'model_patches.rb',
+              'helper_patches.rb',
+              'config/custom-routes.rb',
+              'gettext_setup.rb',
+              'controller_patches.rb']
+    require File.expand_path "../#{patch}", __FILE__
+end
 
-# Extend routes
-require 'config/custom-routes.rb'
-
-# Plug theme-specific locale strings
-require 'gettext_setup.rb'
