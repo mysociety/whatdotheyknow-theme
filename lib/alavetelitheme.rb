@@ -29,8 +29,8 @@ for patch in ['patch_mailer_paths.rb',
               'controller_patches.rb',
               'model_patches.rb',
               'helper_patches.rb',
-              'config/custom-routes.rb',
               'gettext_setup.rb']
     require File.expand_path "../#{patch}", __FILE__
 end
 
+$alaveteli_route_extensions << 'wdtk-routes.rb'
