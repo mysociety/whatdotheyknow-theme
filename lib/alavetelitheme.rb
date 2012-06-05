@@ -12,7 +12,7 @@ class ActionController::Base
     # may be themed correctly. Since whatdotheyknow-theme is a
     # primary theme that ought to style error pages, we define
     # this as an alias
-    alias :set_whatdotheyknow_view_paths :set_view_paths
+    alias :set_view_paths :set_whatdotheyknow_view_paths
 end
 
 # In order to have the theme lib/ folder ahead of the main app one,
