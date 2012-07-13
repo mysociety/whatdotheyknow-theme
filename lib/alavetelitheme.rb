@@ -34,3 +34,6 @@ for patch in ['patch_mailer_paths.rb',
 end
 
 $alaveteli_route_extensions << 'wdtk-routes.rb'
+
+# Create any necessary global Censor rules
+require 'censor_rules.rb'
