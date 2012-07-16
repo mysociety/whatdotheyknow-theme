@@ -17,4 +17,4 @@ else # Create symlink
 end
 
 # Create any necessary global Censor rules
-require 'censor_rules.rb'
+require 'lib/censor_rules.rb'
