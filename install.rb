@@ -15,6 +15,3 @@ else # Create symlink
 		puts "failed: symbolic links not supported"	
 	end
 end
-
-# Create any necessary global Censor rules
-require 'lib/censor_rules.rb'
