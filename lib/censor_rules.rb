@@ -10,7 +10,7 @@ rules_data = [{:text => '\*\*\*+\nPolly Tucker.*',
                   :last_edit_editor => 'system',
                   :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'},
 
-              {:text => '(Complaints and Corporate Affairs Officer},\s+Westminster Primary Care Trust.+',
+              {:text => '.Complaints and Corporate Affairs Officer.,\s+Westminster Primary Care Trust.+',
                   :replacement => 'Andy [mobile number]',
                   :regexp => true,
                   :last_edit_editor => 'system',
