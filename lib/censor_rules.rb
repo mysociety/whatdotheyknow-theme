@@ -13,7 +13,7 @@ rules_data = [{:text => '\*\*\*+\nPolly Tucker.*',
                   :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'},
 
               {:text => '.Complaints and Corporate Affairs Officer.,\s+Westminster Primary Care Trust.+',
-                  :replacement => 'Andy [mobile number]',
+                  :replacement => '\\1',
                   :regexp => true,
                   :info_request => InfoRequest.find_by_url_name('how_do_the_pct_deal_with_retirin_113')
                   :last_edit_editor => 'system',
