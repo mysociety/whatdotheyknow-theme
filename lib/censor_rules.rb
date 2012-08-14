@@ -35,7 +35,6 @@ rules_data.each do |d|
     rule = CensorRule.regexps.find_by_text(d[:text])
     if rule.nil?
         new_rule = CensorRule.new(d)
-        new_rule.allow_global = true
         new_rule.save!
     end
 end
