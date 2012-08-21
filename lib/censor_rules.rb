@@ -1,21 +1,21 @@
 rules_data = [{:text => '\*\*\*+\nPolly Tucker.*',
                   :replacement => '',
                   :regexp => true,
-                  :info_request => InfoRequest.find_by_url_name('total_number_of_objects_in_the_n_6')
+                  :info_request => InfoRequest.find_by_url_title('total_number_of_objects_in_the_n_6'),
                   :last_edit_editor => 'system',
                   :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'},
 
               {:text => 'Andy 079.*',
                   :replacement => 'Andy [mobile number]',
                   :regexp => true,
-                  :info_request => InfoRequest.find_by_url_name('cctv_data_retention_and_use')
+                  :info_request => InfoRequest.find_by_url_title('cctv_data_retention_and_use'),
                   :last_edit_editor => 'system',
                   :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'},
 
               {:text => '.Complaints and Corporate Affairs Officer.,\s+Westminster Primary Care Trust.+',
                   :replacement => '\\1',
                   :regexp => true,
-                  :info_request => InfoRequest.find_by_url_name('how_do_the_pct_deal_with_retirin_113')
+                  :info_request => InfoRequest.find_by_url_title('how_do_the_pct_deal_with_retirin_113'),
                   :last_edit_editor => 'system',
                   :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'},
 
