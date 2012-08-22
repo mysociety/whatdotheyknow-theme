@@ -32,7 +32,7 @@ rules_data = [{:text => '\*\*\*+\s+Polly Tucker.*',
                   :last_edit_editor => 'system',
                   :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'}]
 rules_data.each do |d|
-    rule = CensorRule.regexps.find_by_text(d[:text])
+    rule = CensorRule.find_by_text(d[:text])
     if rule.nil?
         new_rule = CensorRule.new(d)
         new_rule.save!
