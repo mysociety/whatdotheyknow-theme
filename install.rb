@@ -5,13 +5,13 @@ main_app_path = File.join(RAILS_ROOT, 'public', 'alavetelitheme')
 
 # If the symlink to be created exists, warn the user and do nothing
 if File.exists?(main_app_path)
-	puts "WARNING: #{main_app_path} already exists, the symbolic link won't be created"
+    puts "WARNING: #{main_app_path} already exists, the symbolic link won't be created"
 else # Create symlink
-	begin
-		print "Creating symbolic link from #{main_app_path} to #{plugin_path}... "
-		File.symlink(plugin_path, main_app_path)
-		puts "done"
-	rescue NotImplemented
-		puts "failed: symbolic links not supported"	
-	end
+    begin
+        print "Creating symbolic link from #{main_app_path} to #{plugin_path}... "
+        File.symlink(plugin_path, main_app_path)
+        puts "done"
+    rescue NotImplementedError
+        puts "failed: symbolic links not supported"
+    end
 end
