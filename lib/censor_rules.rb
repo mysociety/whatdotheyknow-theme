@@ -35,6 +35,8 @@ rules_data.each do |d|
     rule = CensorRule.find_by_text(d[:text])
     if rule.nil?
         new_rule = CensorRule.new(d)
-        new_rule.save!
+        if new_rule.info_request || new_rule.public_body
+            new_rule.save!
+        end
     end
 end
