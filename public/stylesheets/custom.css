@@ -6,10 +6,14 @@ body.front h3 {
 }
 #banner_inner a#logo {
     top: 5px;
+    width: 215px;
+    height: 41px;
     text-decoration: none;
     color: #F3F3F3;
     font-style: italic;
+    overflow:hidden;
 }
+
 #banner_inner a#logo img {
  display: block;
  cursor: hand;
