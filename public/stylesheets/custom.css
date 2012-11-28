@@ -60,3 +60,7 @@ div.lang {
   color: #444444;
   cursor: default;
 }
+
+#everypage .popup-close {
+margin: 0.3em;
+}
