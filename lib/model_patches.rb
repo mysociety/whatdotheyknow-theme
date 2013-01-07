@@ -46,6 +46,7 @@ Dispatcher.to_prepare do
                 info_requests = InfoRequest.find(:all,
                     :conditions => [
                         " created_at between now() - '2 weeks + 1 day'::interval and now() - '2 weeks'::interval" +
+                        " and user_id is not null" +
                         " and not exists (" +
                         "     select *" +
                         "     from user_info_request_sent_alerts" +
