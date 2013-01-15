@@ -6,29 +6,29 @@
 
     <% if !flash[:notice] %>
         <h1>Cysylltu ag awdurdod i gael gwybodaeth swyddogol</h1>
-        
+
 <ul>
-<li><a href="/new">Ewch yma</a> i wneud cais, yn gyhoeddus, am wybodaeth gan awdurdodau cyhoeddus yn y DU.</li> 
-<li> Yn gofyn am wybodaeth breifat amdanoch chi eich hun? Darllenwch ein tudalen gymorth am <a href="/help/requesting#data_protection">ddiogelu data</a> . </li> 
+<li><a href="<%= new_request_path %>">Ewch yma</a> i wneud cais, yn gyhoeddus, am wybodaeth gan awdurdodau cyhoeddus yn y DU.</li>
+<li> Yn gofyn am wybodaeth breifat amdanoch chi eich hun? Darllenwch ein tudalen gymorth am <a href="<%= help_requesting_path(:anchor => 'data_protection') %>">ddiogelu data</a> . </li>
 </ul>
 
-<h1>Codi mater gyda'r Llywodraeth</h1> 
+<h1>Codi mater gyda'r Llywodraeth</h1>
 
-<ul> 
-<li><a href="http://www.writetothem.com">Ysgrifennwch at eich AS, cynghorydd lleol neu gynrychiolydd arall</a></li> . 
-<li>Mae <a href="http://www.number10.gov.uk/">Rhif 10</a> yn lle da i ddechrau os hoffech gymryd mater gyda llywodraeth ganolog y DU. </li> 
-</ul> 
+<ul>
+<li><a href="http://www.writetothem.com">Ysgrifennwch at eich AS, cynghorydd lleol neu gynrychiolydd arall</a></li> .
+<li>Mae <a href="http://www.number10.gov.uk/">Rhif 10</a> yn lle da i ddechrau os hoffech gymryd mater gyda llywodraeth ganolog y DU. </li>
+</ul>
 
 
     <% end %>
 
-<h1>Cysylltu â thîm WhatDoTheyKnow</h1> 
+<h1>Cysylltu â thîm WhatDoTheyKnow</h1>
     <% if !flash[:notice] %>
 <ul>
-<li> Darllenwch y <a href="/help/about">dudalen gymorth</a> yn gyntaf, gan y gallai ateb eich cwestiwn yn gyflymach. </li> 
-<li>Byddem wrth ein bodd cael clywed sut brofiad gawsoch wrth ddefnyddio'r wefan hon. Naill ai llenwch y ffurflen hon, 
+<li> Darllenwch y <a href="<%= help_about_path %>">dudalen gymorth</a> yn gyntaf, gan y gallai ateb eich cwestiwn yn gyflymach. </li>
+<li>Byddem wrth ein bodd cael clywed sut brofiad gawsoch wrth ddefnyddio'r wefan hon. Naill ai llenwch y ffurflen hon,
 neu anfonwch e-bost at <a href="mailto:<%=@contact_email%>"><%=@contact_email%></a></li>
-<li>Rydym yn <strong>elusen</strong> ac nid yn rhan o'r Llywodraeth.</li> </ul> 
+<li>Rydym yn <strong>elusen</strong> ac nid yn rhan o'r Llywodraeth.</li> </ul>
 </ul>
     <% end %>
 </div>
@@ -49,32 +49,32 @@ neu anfonwch e-bost at <a href="mailto:<%=@contact_email%>"><%=@contact_email%><
     <% end %>
 
     <p>
-        <label class="form_label" for="contact_subject">Pwnc:</label> 
+        <label class="form_label" for="contact_subject">Pwnc:</label>
         <%= f.text_field :subject, :size => 50 %>
     </p>
 
     <p>
-        <label class="form_label" for="contact_message">Neges i'r wefan:</label> 
+        <label class="form_label" for="contact_message">Neges i'r wefan:</label>
         <%= f.text_area :message, :rows => 10, :cols => 60 %>
     </p>
 
     <% if !@last_request.nil? %>
         <p>
-            <label class="form_label" for="contact_message">Include link to request:</label> 
+            <label class="form_label" for="contact_message">Include link to request:</label>
             <%=request_link(@last_request) %>
             <%= submit_tag "remove", :name => 'remove' %>
         </p>
     <% end %>
     <% if !@last_body.nil? %>
         <p>
-            <label class="form_label" for="contact_message">Include link to authority:</label> 
+            <label class="form_label" for="contact_message">Include link to authority:</label>
             <%=public_body_link(@last_body) %>
             <%= submit_tag "remove", :name => 'remove' %>
         </p>
     <% end %>
 
     <p class="form_note">
-    Dim ond gyda <strong>phroblemau technegol</strong> y gallwn eich helpu, neu gyda chwestiynau am Ryddid Gwybodaeth. Gweler ben y dudalen hon os hoffech gysylltu â'r Llywodraeth. </p> 
+    Dim ond gyda <strong>phroblemau technegol</strong> y gallwn eich helpu, neu gyda chwestiynau am Ryddid Gwybodaeth. Gweler ben y dudalen hon os hoffech gysylltu â'r Llywodraeth. </p>
 
 
     <div class="form_button">
