@@ -16,7 +16,10 @@ Rails.configuration.to_prepare do
 
     # Now patch the validator for UserInfoRequestSentAlert.alert_type
     # to permit 'survey_1' as a new alert type.
-    UserInfoRequestSentAlert.validate_callback_chain[0].options[:in] << 'survey_1'
+
+    # FIXME: this doesn't work in Rails 3 - need to work out what the
+    # equivalent would be:
+    # UserInfoRequestSentAlert.validate_callback_chain[0].options[:in] << 'survey_1'
 
     # Add survey methods to RequestMailer
     RequestMailer.class_eval do
