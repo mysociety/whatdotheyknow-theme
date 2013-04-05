@@ -1,9 +1,9 @@
 # Here you can override or add to the pages in the core website
 
-ActionController::Routing::Routes.draw do |map|
+Rails.application.routes.draw do
     # Add a route for the survey
-    map.with_options :controller => 'user' do |user|
-        user.survey '/profile/survey', :action => 'survey'
-        user.survey_reset '/profile/survey/reset', :action => 'survey_reset'
+    scope '/profile/survey' do
+        match '' => 'user#survey', :as => :survey
+        match '/reset' => 'user#survey_reset', :as => :survey_reset
     end
 end
