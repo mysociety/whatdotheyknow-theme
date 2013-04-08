@@ -10,7 +10,7 @@ Rails.configuration.to_prepare do
         # Return this user’s survey
         def survey
             return @survey if @survey
-            @survey = MySociety::Survey.new(Configuration::site_name, self.email)
+            @survey = MySociety::Survey.new(AlaveteliConfiguration::site_name, self.email)
         end
     end
 
