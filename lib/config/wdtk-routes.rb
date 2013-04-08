@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
     # Add a route for the survey
     scope '/profile/survey' do
-        match '' => 'user#survey', :as => :survey
+        root :to => 'user#survey', :as => :survey
         match '/reset' => 'user#survey_reset', :as => :survey_reset
     end
 end
