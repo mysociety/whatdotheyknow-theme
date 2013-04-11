@@ -33,7 +33,7 @@ neu anfonwch e-bost at <a href="mailto:<%=@contact_email%>"><%=@contact_email%><
     <% end %>
 </div>
 
-<% form_for :contact do |f| %>
+<%= form_for :contact do |f| %>
 
     <% if not @user %>
         <p>
