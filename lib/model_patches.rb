@@ -6,6 +6,7 @@
 # See http://stackoverflow.com/questions/7072758/plugin-not-reloading-in-development-mode
 #
 Rails.configuration.to_prepare do
+
     User.class_eval do
         # Return this user’s survey
         def survey
@@ -17,9 +18,7 @@ Rails.configuration.to_prepare do
     # Now patch the validator for UserInfoRequestSentAlert.alert_type
     # to permit 'survey_1' as a new alert type.
 
-    # FIXME: this doesn't work in Rails 3 - need to work out what the
-    # equivalent would be:
-    # UserInfoRequestSentAlert.validate_callback_chain[0].options[:in] << 'survey_1'
+    UserInfoRequestSentAlert._validate_callbacks[0].options[:in] << 'survey_1'
 
     # Add survey methods to RequestMailer
     RequestMailer.class_eval do
