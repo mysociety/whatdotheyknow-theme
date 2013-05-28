@@ -5,5 +5,4 @@
 Rails.configuration.to_prepare do
     # Add theme templates to the mailer templates (not overriding the defaults).
     ActionMailer::Base.append_view_path File.join(File.dirname(__FILE__), "views")
-    Rails.logger.debug "patch_mailer_paths.rb: view_paths = #{ActionMailer::Base.view_paths.inspect}"
 end
