@@ -29,15 +29,15 @@ Rails.configuration.to_prepare do
                 :uri => survey_url,
                 :user_id => user.id)
             post_redirect.save!
-            url = confirm_url(:email_token => post_redirect.email_token)
+            @url = confirm_url(:email_token => post_redirect.email_token)
 
-            @from = contact_from_name_and_email
-            headers 'Return-Path' => blackhole_email, 'Reply-To' => @from, # not much we can do if the user's email is broken
+            headers('Return-Path' => blackhole_email, 'Reply-To' => contact_from_name_and_email, # not much we can do if the user's email is broken
                     'Auto-Submitted' => 'auto-generated', # http://tools.ietf.org/html/rfc3834
-                    'X-Auto-Response-Suppress' => 'OOF'
-            @recipients = user.name_and_email
-            @subject = "Can you help us improve WhatDoTheyKnow?"
-            @body = { :info_request => info_request, :url => url }
+                    'X-Auto-Response-Suppress' => 'OOF')
+            @info_request = info_request
+            mail(:to => user.name_and_email,
+                 :from => contact_from_name_and_email,
+                 :subject => "Can you help us improve WhatDoTheyKnow?")
         end
 
         class << self
