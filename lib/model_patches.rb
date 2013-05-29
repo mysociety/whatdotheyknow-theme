@@ -69,7 +69,7 @@ Rails.configuration.to_prepare do
                     store_sent.alert_type = 'survey_1'
                     store_sent.info_request_event_id = info_request.info_request_events[0].id
 
-                    RequestMailer.deliver_survey_alert(info_request)
+                    RequestMailer.survey_alert(info_request).deliver
                     store_sent.save!
                 end
             end
