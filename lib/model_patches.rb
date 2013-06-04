@@ -1,22 +1,24 @@
+# -*- coding: utf-8 -*-
 # Add a callback - to be executed before each request in development,
 # and at startup in production - to patch existing app classes.
 # Doing so in init/environment.rb wouldn't work in development, since
 # classes are reloaded, but initialization is not run each time.
 # See http://stackoverflow.com/questions/7072758/plugin-not-reloading-in-development-mode
 #
-require 'dispatcher'
-Dispatcher.to_prepare do
+Rails.configuration.to_prepare do
+
     User.class_eval do
         # Return this user’s survey
         def survey
             return @survey if @survey
-            @survey = MySociety::Survey.new(Configuration::site_name, self.email)
+            @survey = MySociety::Survey.new(AlaveteliConfiguration::site_name, self.email)
         end
     end
 
     # Now patch the validator for UserInfoRequestSentAlert.alert_type
     # to permit 'survey_1' as a new alert type.
-    UserInfoRequestSentAlert.validate_callback_chain[0].options[:in] << 'survey_1'
+
+    UserInfoRequestSentAlert._validate_callbacks[0].options[:in] << 'survey_1'
 
     # Add survey methods to RequestMailer
     RequestMailer.class_eval do
@@ -27,15 +29,15 @@ Dispatcher.to_prepare do
                 :uri => survey_url,
                 :user_id => user.id)
             post_redirect.save!
-            url = confirm_url(:email_token => post_redirect.email_token)
+            @url = confirm_url(:email_token => post_redirect.email_token)
 
-            @from = contact_from_name_and_email
-            headers 'Return-Path' => blackhole_email, 'Reply-To' => @from, # not much we can do if the user's email is broken
+            headers('Return-Path' => blackhole_email, 'Reply-To' => contact_from_name_and_email, # not much we can do if the user's email is broken
                     'Auto-Submitted' => 'auto-generated', # http://tools.ietf.org/html/rfc3834
-                    'X-Auto-Response-Suppress' => 'OOF'
-            @recipients = user.name_and_email
-            @subject = "Can you help us improve WhatDoTheyKnow?"
-            @body = { :info_request => info_request, :url => url }
+                    'X-Auto-Response-Suppress' => 'OOF')
+            @info_request = info_request
+            mail(:to => user.name_and_email,
+                 :from => contact_from_name_and_email,
+                 :subject => "Can you help us improve WhatDoTheyKnow?")
         end
 
         class << self
@@ -67,7 +69,7 @@ Dispatcher.to_prepare do
                     store_sent.alert_type = 'survey_1'
                     store_sent.info_request_event_id = info_request.info_request_events[0].id
 
-                    RequestMailer.deliver_survey_alert(info_request)
+                    RequestMailer.survey_alert(info_request).deliver
                     store_sent.save!
                 end
             end

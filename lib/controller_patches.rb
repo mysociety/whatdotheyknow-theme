@@ -1,11 +1,10 @@
-require 'dispatcher'
-Dispatcher.to_prepare do
+Rails.configuration.to_prepare do
     UserController.class_eval do
         require 'survey'
         
-        # "survey" does not need its own method, because the
-        # default behaviour is fine.
-        
+        def survey
+        end
+
         # Reset the state of the survey so it can be answered again.
         # Handy for testing; not allowed in production.
         def survey_reset
