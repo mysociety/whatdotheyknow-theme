@@ -20,6 +20,17 @@ Rails.configuration.to_prepare do
 
     UserInfoRequestSentAlert._validate_callbacks[0].options[:in] << 'survey_1'
 
+    InfoRequest.class_eval do
+        def email_subject_request
+            if self.public_body.url_name == 'general_register_office'
+                # without GQ in the subject, you just get an auto response
+                _('{{law_used_full}} request GQ - {{title}}',:law_used_full=>self.law_used_full,:title=>self.title.html_safe)
+            else
+                _('{{law_used_full}} request - {{title}}',:law_used_full=>self.law_used_full,:title=>self.title.html_safe)
+            end
+        end
+    end
+
     # Add survey methods to RequestMailer
     RequestMailer.class_eval do
         def survey_alert(info_request)
