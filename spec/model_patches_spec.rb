@@ -10,3 +10,18 @@ describe UserInfoRequestSentAlert, "when patched by the whatdotheyknow-theme" do
   end
 
 end
+
+describe InfoRequest, "when creating an email subject for a request" do
+
+    it 'should create a standard request subject' do
+        info_request = FactoryGirl.build(:info_request)
+        info_request.email_subject_request.should == "Freedom of Information request - #{info_request.title}"
+    end
+
+    it 'should create a special request subject for requests to the General Register Office' do
+        info_request = FactoryGirl.build(:info_request)
+        info_request.public_body.stub!(:url_name).and_return('general_register_office')
+        info_request.email_subject_request.should == "Freedom of Information request GQ - #{info_request.title}"
+    end
+
+end
