@@ -6,13 +6,22 @@ class ActionController::Base
     def set_whatdotheyknow_view_paths
         self.prepend_view_path File.join(File.dirname(__FILE__), "views")
     end
-    
+
     # Note that set_view_paths is called by Alaveteli from the
     # rescue_action_in_public method, in order that error pages
     # may be themed correctly. Since whatdotheyknow-theme is a
     # primary theme that ought to style error pages, we define
     # this as an alias
     alias :set_view_paths :set_whatdotheyknow_view_paths
+end
+
+# Prepend the asset directories in this theme to the asset path:
+['stylesheets', 'images', 'javascripts'].each do |asset_type|
+    theme_asset_path = File.join(File.dirname(__FILE__),
+                                 '..',
+                                 'assets',
+                                 asset_type)
+    Rails.application.config.assets.paths.unshift theme_asset_path
 end
 
 # In order to have the theme lib/ folder ahead of the main app one,
