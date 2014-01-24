@@ -28,7 +28,7 @@ body.front h3 {
     top: 5px;
     width: 215px;
     height: 41px;
-    background-image: url(../images/logo-trans.png);
+    background-image: image-url('logo-trans.png');
 }
 
 
@@ -41,7 +41,7 @@ body.front h3 {
   width: 160px;
   background-repeat: no-repeat;
   background-position: -2px 0;
-  background-image: url(../images/mysociety.png);
+  background-image: image-url('mysociety.png');
 }
 
 #topnav {
