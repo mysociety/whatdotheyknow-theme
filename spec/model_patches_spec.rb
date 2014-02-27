@@ -24,4 +24,13 @@ describe InfoRequest, "when creating an email subject for a request" do
         info_request.email_subject_request.should == "Freedom of Information request GQ - #{info_request.title}"
     end
 
+    it 'should be able to create an email subject request for a batch request template without
+        a public body' do
+        info_request = FactoryGirl.build(:info_request)
+        info_request.public_body = nil
+        info_request.is_batch_request_template = true
+        info_request.email_subject_request.should == "Freedom of Information request - #{info_request.title}"
+
+    end
+
 end
