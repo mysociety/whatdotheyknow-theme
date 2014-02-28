@@ -9,6 +9,18 @@ describe UserInfoRequestSentAlert, "when patched by the whatdotheyknow-theme" do
     info_request_sent_alert.valid?.should == true
   end
 
+  it 'should send survey alerts when SEND_SURVEY_MAILS is set' do
+      AlaveteliConfiguration.stub!(:send_survey_mails).and_return(true)
+      RequestMailer.should_receive(:alert_survey)
+      RequestMailer.alert_new_response_reminders
+  end
+
+  it 'should not send survey alerts when SEND_SURVEY_MAILS is not set' do
+      AlaveteliConfiguration.stub!(:send_survey_mails).and_return(false)
+      RequestMailer.should_not_receive(:alert_survey)
+      RequestMailer.alert_new_response_reminders
+  end
+
 end
 
 describe InfoRequest, "when creating an email subject for a request" do

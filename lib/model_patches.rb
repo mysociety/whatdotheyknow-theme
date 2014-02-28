@@ -87,7 +87,7 @@ Rails.configuration.to_prepare do
 
             def alert_new_response_reminders_with_alert_survey
                 alert_new_response_reminders_without_alert_survey
-                alert_survey
+                alert_survey if AlaveteliConfiguration::send_survey_mails
             end
 
             alias_method_chain :alert_new_response_reminders, :alert_survey
