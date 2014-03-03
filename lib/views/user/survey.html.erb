@@ -10,6 +10,8 @@
 
 <% if @user.nil? %>
     <p><strong>The survey is only available to logged-in users.</strong></p>
+<% elsif AlaveteliConfiguration::survey_url.blank? %>
+   <p>Sorry! The survey is currently unavailable, please check back later. </p>
 <% elsif @user.survey.already_done? %>
     <p>Thank you for completing the survey.</p>
 <% else %>
@@ -38,7 +40,7 @@
         <p>Your feedback will help us <strong>make the site better</strong> and help us tell more people about it.</p>
     </div>
     <hr />
-    
+
     <% survey_form(@user.survey) do %>
         <table>
             <colgroup>
@@ -448,7 +450,7 @@
             </tr>
             <tr>
                 <td class="us_label"><div class="us_label">
-                The incomes of households differ a lot in Britain today. 
+                The incomes of households differ a lot in Britain today.
                                   Which figures best represents the total income of your household before tax?
             </div></td>
                 <td>
