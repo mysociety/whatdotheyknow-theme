@@ -22,7 +22,7 @@ Rails.configuration.to_prepare do
 
     InfoRequest.class_eval do
         def email_subject_request
-            if self.public_body.url_name == 'general_register_office'
+            if (!self.is_batch_request_template?) && (self.public_body.url_name == 'general_register_office')
                 # without GQ in the subject, you just get an auto response
                 _('{{law_used_full}} request GQ - {{title}}',:law_used_full=>self.law_used_full,:title=>self.title.html_safe)
             else
