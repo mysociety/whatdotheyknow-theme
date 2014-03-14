@@ -1,13 +1,3 @@
-We're running a survey to help us understand who uses our sites.
-
-If you have 10-15 minutes to spare then we'd be grateful if you
-could take part:
-
-http://questions.mysociety.org/S/wtdk/e/
-
-Thank you!
-
-=======================
 <%
     # Construct the main text of the mail
     main_text = ''
@@ -67,8 +57,18 @@ Thank you!
         main_text += "\n"
     end
 
-%><%=raw main_text%><%= _("Alter your subscription")%>
+%><%=raw main_text%>
 =======================
+We're running a survey to help us understand who uses our sites.
+
+If you have 10-15 minutes to spare then we'd be grateful if you
+could take part:
+
+http://questions.mysociety.org/S/wtdk/e/
+
+Thank you!
+=======================
+<%= _("Alter your subscription")%>
 
 <% _("Please click on the link below to cancel or alter these emails.") %>
 <%=@unsubscribe_url%>
