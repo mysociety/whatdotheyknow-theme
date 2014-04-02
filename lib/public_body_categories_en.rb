@@ -36,6 +36,7 @@ PublicBodyCategories.add(:en, [
             [ "udc", "Urban Development Company", "an urban development company" ],
             [ "vjb", "Valuation joint boards (Scotland)", "a valuation joint board" ],
             [ "companies_owned_by_local_gov", "Companies owned by local government", "a company owned by local government" ],
+            [ "bodies_funded_by_local_gov", "Bodies funded by local government", "a body funded by local government" ],
         "Education",
             [ "university", "Universities", "a university" ],
             [ "university_college", "University colleges", "a university college" ],
