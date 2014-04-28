@@ -305,6 +305,8 @@ div.correspondence {
   border: none;
   border-top: 8px solid $incoming-correspondence-color;
   box-shadow: 0 3px 3px #d3d3d3;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
 }
 
 .outgoing.correspondence {
