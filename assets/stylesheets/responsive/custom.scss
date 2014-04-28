@@ -17,6 +17,10 @@ $main_menu-active_link_text: $main_menu-link_bg;
 $incoming-correspondence-color: #88bdab;
 $outgoing-correspondence-color: #e66800;
 
+$status-success: #24a378;
+$status-failure: #bd3200;
+$status-pending: #e66800;
+
 /* Mixin styles */
 
 /* Hide text when it's replaced by an image */
@@ -305,6 +309,52 @@ div.correspondence {
 
 .describe_state_form input[type="radio"] + label {
   display:inline;
+}
+
+/* Status lines and icons */
+.icon_waiting_response,.icon_waiting_classification,.icon_waiting_clarification {
+  background-image:image-url('status-pending.png');
+  color: $status-pending;
+}
+
+.icon_not_held, .icon_attention_requested {
+  background-image:image-url('status-not-held.png');
+  color: $status-pending;
+}
+
+.icon_successful,.icon_partially_successful {
+  background-image:image-url('status-complete.png');
+  color: $status-success;
+}
+
+.icon_requires_admin,.icon_waiting_response_overdue,.icon_waiting_response_very_overdue {
+  background-image:image-url('status-overdue.png');
+  color: $status-failure;
+}
+
+.icon_gone_postal {
+  background-image:image-url('status-gone-postal.png');
+  color: $status-pending;
+}
+
+.icon_error_message {
+  background-image:image-url('status-error.png');
+  color: $status-failure;
+}
+
+.icon_internal_review {
+  background-image:image-url('status-internal-review.png');
+  color: $status-pending;
+}
+
+.icon_user_withdrawn {
+  background-image:image-url('status-withdrawn.png');
+  color: $status-pending;
+}
+
+.icon_failed,.icon_rejected {
+  background-image:image-url('status-denied.png');
+  color: $status-failure;
 }
 
 /* User page */
