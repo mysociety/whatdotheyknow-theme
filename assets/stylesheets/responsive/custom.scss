@@ -4,6 +4,7 @@ $body-font-color: #222;
 $body-bg: #F4F4F4;
 $button-bg: #14c975;
 $heading-color: #572115;
+$font-family: "ff-tisa-sans-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 
 $main_menu-bg: #BD3213;
 $main_menu-search_text: #333;
@@ -73,6 +74,10 @@ body{
   background-color: $body-bg;
 }
 
+.entirebody {
+  font-family: $font-family;
+}
+
 a{
   color: $link-color;
 }
@@ -114,7 +119,8 @@ form input[type=submit], a.link_button_green, a.link_button_green_large {
   /* This style is expressed for all borders to avoid triggering an IE9 border rendering bug */
   border-style: solid; border-color: darken($button-bg, 15%); border-width: 0 0 4px 0;
   border-radius: 0;
-  padding: 5px 6px;
+  padding: 3px 7px;
+  line-height: normal;
   font-size: 1.1rem;
   /* Same height as form elements */
   height: 2.3125rem;
@@ -129,7 +135,7 @@ form input[type=submit], a.link_button_green, a.link_button_green_large {
 a.link_button_green_large {
   font-size: 2.2rem;
   height: inherit;
-  padding: 10px 12px;
+  padding: 0 10px;
 }
 /* Header */
 
