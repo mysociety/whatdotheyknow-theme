@@ -413,3 +413,13 @@ div.correspondence {
     margin-top:0.5em;
   }
 }
+
+/* Help pages */
+
+dt {
+  color: $heading-color;
+  font-weight: 700;
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    font-size: 2em;
+  }
+}
