@@ -22,6 +22,11 @@ $status-success: #24a378;
 $status-failure: #bd3200;
 $status-pending: #e66800;
 
+$notice-bg: #D1E4C6;
+$notice-border: #49A411;
+$error-bg: #EED4D0;
+$error-border: #DA5641;
+
 /* Mixin styles */
 
 /* Hide text when it's replaced by an image */
@@ -173,6 +178,43 @@ a.link_button_green_large {
         background-color: $main_menu-link_text;
     }
   }
+}
+
+/* Notices, errors */
+
+#notice, #error, .errorExplanation, #request_header_text, #hidden_request, .undescribed_requests {
+  border-top: 10px solid;
+  font-size: 1.2em;
+  border-radius: 0;
+  margin:1em 0;
+  padding: 1.5em;
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom:0;
+  }
+
+  ul {
+    margin: 0;
+  }
+}
+
+#notice, #request_header_text {
+  background-color: $notice-bg;
+  border-color: $notice-border;
+}
+
+#error, .errorExplanation, #hidden_request {
+  background-color: $error-bg;
+  border-color: $error-border;
+}
+
+.undescribed_requests {
+  background-color: $action-bg;
+  border-color: $action-border;
 }
 
 /* Logged and local options act like submenus */
