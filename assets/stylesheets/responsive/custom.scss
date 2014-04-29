@@ -142,6 +142,15 @@ a.link_button_green_large {
   height: inherit;
   padding: 0 10px;
 }
+
+/* Popups */
+
+.popup {
+  background-color: $notice-bg;
+  border: 3px solid $notice-border;
+}
+
+
 /* Header */
 
 #topnav {
