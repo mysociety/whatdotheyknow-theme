@@ -358,16 +358,42 @@ div.correspondence {
   box-shadow: 0 3px 3px #d3d3d3;
   font-family: "Courier New", Courier, monospace;
   font-size: 0.9rem;
+  a.link_to_this {
+    background-color: $incoming-correspondence-color;
+  }
 }
 
 .outgoing.correspondence {
   border: none;
   border-top: 8px solid $outgoing-correspondence-color;
   box-shadow: 0 3px 3px #d3d3d3;
+  a.link_to_this {
+    background-color: $outgoing-correspondence-color;
+  }
 }
 
 .describe_state_form input[type="radio"] + label {
   display:inline;
+}
+
+a.link_to_this {
+  background-image: image-url('link-icon.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+#link_box {
+  font-family: $font-family;
+  border-radius: 0;
+  border: 1px solid $heading-color;
+  .close-button {
+    background-color: #fff;
+    float: right;
+  }
 }
 
 /* Status lines and icons */
