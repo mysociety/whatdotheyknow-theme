@@ -512,6 +512,13 @@ a.link_to_this {
   color: $status-failure;
 }
 
+
+/* Attachments*/
+
+.view_html_prefix {
+  font-family: $font-family;
+}
+
 /* User page */
 #user_photo_on_profile {
   img, #set_photo {
