@@ -44,6 +44,9 @@ $action-border: #bf923a;
   text-decoration: none;
   background-color: $main_menu_link_bg;
   color: transparentize($main_menu-link_text, 0.2);
+  @include ie8 {
+    color: $main_menu-link_text;
+  }
   transition: background-color 0.5s ease-out;
 
   &:hover{
@@ -111,6 +114,14 @@ form input[type="tel"],
 form input[type="number"] {
     border-radius: 0;
     background-color: $main_menu-link_text;
+  /* Set a fixed height for text inputs in older IE 8 */
+    @include ie8{
+        height: 2.3125em;
+    }
+    /* Do the same in px for IE < 7 */
+    @include lte-ie7{
+        height: 22px;
+    }
 }
 
 input.use-datepicker[type=text] {
@@ -132,6 +143,10 @@ form input[type=submit], a.link_button_green, a.link_button_green_large {
   font-size: 1.1rem;
   /* Same height as form elements */
   height: 2.3125rem;
+  @include ie8 {
+     height: 2.3125em;
+     font-size: 1.1em;
+   }
   vertical-align: top;
   &:focus, &:hover{
     text-decoration: none;
@@ -140,10 +155,28 @@ form input[type=submit], a.link_button_green, a.link_button_green_large {
   }
 }
 
+@include lte-ie7{
+
+  a.link_button_green, a.link_button_green_large {
+    padding: 0 7px;
+    height: 31px;
+    font-weight: bold;
+  }
+
+  form input[type=submit] {
+    padding: 0;
+    height: 35px;
+  }
+}
+
 a.link_button_green_large {
   font-size: 2.2rem;
   height: inherit;
   padding: 0 10px;
+  @include ie8 {
+     font-size: 2.2em;
+     height: 66px;
+   }
 }
 
 /* Popups */
@@ -176,6 +209,18 @@ a.link_button_green_large {
       margin-top:0.313em;
       margin-bottom:0.313em;
       height: 1.875em;
+      @include ie8 {
+        height: 33px;
+        font-size: 1.1em;
+        padding: 0;
+      }
+    }
+  }
+
+  /* Vertically align the label image for older IE*/
+  @include ie8 {
+    img {
+      margin-top: 0.626em;
     }
   }
 
@@ -288,6 +333,7 @@ a.link_button_green_large {
         @include grid-column(5);
         @include lte-ie7 {
             width: 21.641em;
+            padding-bottom: 1.5em;
         }
       }
   }
@@ -320,6 +366,9 @@ a.link_button_green_large {
     @include respond-min( $main_menu-mobile_menu_cutoff ){
       background-image: image-url("mysociety-header_logo.png");
       background-position: 16px 10px;
+      @include ie8{
+        background-position: 5px 7px;
+      }
       background-repeat: no-repeat;
       background-size: 93px 19px;
       border-radius: 0 0 1.25em 1.25em;
@@ -361,6 +410,9 @@ div.correspondence {
   box-shadow: 0 3px 3px #d3d3d3;
   font-family: "Courier New", Courier, monospace;
   font-size: 0.9rem;
+  @include ie8 {
+    font-size: 0.9em;
+  }
   a.link_to_this {
     background-color: $incoming-correspondence-color;
   }
