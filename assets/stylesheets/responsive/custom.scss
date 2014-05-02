@@ -1,0 +1,306 @@
+$mysociety-banner: #424242;
+$link-color: #10639B;
+$body-font-color: #222;
+$body-bg: #F4F4F4;
+$button-bg: #14c975;
+
+$main_menu-bg: #BD3213;
+$main_menu-search_text: #333;
+$main_menu-link_text: #fff;
+$main_menu-search_bg: #eee;
+
+$main_menu-link_bg: $main_menu-bg;
+$main_menu-active_link_bg: $body-bg;
+$main_menu-active_link_text: $main_menu-link_bg;
+
+$incoming-correspondence-color: #88bdab;
+$outgoing-correspondence-color: #e66800;
+
+/* Mixin styles */
+
+/* Hide text when it's replaced by an image */
+.image-replacement {
+  overflow: hidden;
+  text-indent: 150%;
+  white-space: nowrap;
+}
+
+/* General styling of nav menu items */
+.menu-item {
+  text-decoration: none;
+  background-color: $main_menu_link_bg;
+  color: transparentize($main_menu-link_text, 0.2);
+  transition: background-color 0.5s ease-out;
+
+  &:hover{
+      background-color: darken($main_menu-bg, 5%);
+      color: transparentize($main_menu-link_text, 0);
+  }
+
+}
+
+/* Selected menu item */
+
+.selected-menu-item {
+  font-weight: bold;
+  color: $main_menu-active_link_text;
+  background-color: $main_menu-active_link_bg;
+  &:hover{
+      background-color: $main_menu-active_link_bg;
+  }
+}
+
+/* Styling if not part of the main menu on larger screens */
+.sub-menu-item {
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    background-color: $body-bg;
+    color: $link-color;
+    &:hover{
+        background-color: $body-bg;
+        color: #333;
+        text-decoration: underline;
+    }
+  }
+}
+
+/* General styles */
+body{
+  background-color: $body-bg;
+}
+
+a{
+  color: $link-color;
+}
+
+/* Let h1s be a little smaller on small screens */
+@media( max-width: $main_menu-mobile_menu_cutoff ){
+  h1 {
+    font-size: 2em;
+  }
+}
+
+/* Square corners for text type inputs */
+form input[type="text"],
+form input[type="password"],
+form input[type="search"],
+form input[type="email"],
+form input[type="url"],
+form input[type="tel"],
+form input[type="number"] {
+    border-radius: 0;
+    background-color: $main_menu-link_text;
+}
+
+input.use-datepicker[type=text] {
+  width: 130px;
+  background:image-url('calendar.png') no-repeat 100px 5px $main_menu-link_text;
+}
+
+form input[type=submit], a.link_button_green, a.link_button_green_large {
+  text-decoration: none;
+  color: #fff;
+  background-color: darken($button-bg, 5%);
+  display: inline-block;
+  cursor: pointer;
+  /* This style is expressed for all borders to avoid triggering an IE9 border rendering bug */
+  border-style: solid; border-color: darken($button-bg, 15%); border-width: 0 0 4px 0;
+  border-radius: 0;
+  padding: 5px 6px;
+  font-size: 1.1rem;
+  /* Same height as form elements */
+  height: 2.3125rem;
+  vertical-align: top;
+  &:focus, &:hover{
+    text-decoration: none;
+    background-color: darken($button-bg, 10%);
+    border-bottom: 4px solid darken($button-bg, 20%);
+  }
+}
+
+a.link_button_green_large {
+  font-size: 2.2rem;
+  height: inherit;
+  padding: 10px 12px;
+}
+/* Header */
+
+#topnav {
+  background-color: $main_menu-bg;
+}
+
+#navigation{
+  border-bottom: none;
+  a {
+    @extend .menu-item;
+  }
+  /* Show which section is currently selected */
+  li.selected a{
+    @extend .selected-menu-item;
+  }
+
+  /* Vertically align the search box */
+  #navigation_search{
+    input{
+      margin-top:0.313em;
+      margin-bottom:0.313em;
+      height: 1.875em;
+    }
+  }
+
+  #navigation_search_button{
+    background-color: mix($main_menu-search_bg, $main_menu-bg, 50%);
+    border: none;
+    transition: all 0.3s ease-out;
+    color: $main_menu-search_text;
+    border-radius: 0;
+    font-size: inherit;
+    &:focus{
+        background-color: $main_menu-link_text;
+    }
+  }
+}
+
+/* Logged and local options act like submenus */
+#logged_in_bar{
+  a {
+    @extend .menu-item;
+    @extend .sub-menu-item;
+  }
+}
+
+#user_locale_switcher {
+  a {
+    @extend .menu-item;
+    @extend .sub-menu-item;
+  }
+  /* Position to left of mysociety tab */
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    right: 10em;
+  }
+}
+
+
+#banner {
+  /* mysociety border */
+   border-top: 4px solid $mysociety-banner;
+
+  /* Hide the greeting on smaller devices */
+  .greeting {
+    display: none;
+  }
+
+  .rsp_menu_button{
+    position: absolute;
+    top: 0;
+    /* Width of #mysociety plus margin of 15px */
+    right: 60px;
+    @extend .image-replacement;
+    background-image: image-url('hamburger.png');
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    background-size: 28px 26px;
+    width: 44px;
+    height: 38px;
+    padding: 0;
+    /* Make sure clickable area covers image */
+    a {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* Pad evenly top and bottom on smaller devices */
+  #logo_wrapper{
+      @media(max-width: $main_menu-mobile_menu_cutoff ){
+        padding: 0.5em 0 0.5em 0.9375em;
+      }
+      /* Give some more room for the long logo */
+      @include respond-min( $main_menu-mobile_menu_cutoff ){
+        @include grid-column(5);
+        @include lte-ie7 {
+            width: 21.641em;
+        }
+      }
+  }
+  #logged_in_bar{
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+        @include grid-column(7);
+        @include lte-ie7 {
+           width: 32.211em;
+        }
+    }
+  }
+
+}
+
+.ms-header__logo {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  a{
+    background-color: $mysociety-banner;
+    background-image: image-url("mysociety-bloom.png");
+    background-position: 11px 7px;
+    background-repeat: no-repeat;
+    border-radius: 0 0 0.75em 0.75em;
+    display: block;
+    height: 38px;
+    width: 44px;
+    @extend .image-replacement;
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      background-image: image-url("mysociety-header_logo.png");
+      background-position: 16px 10px;
+      background-repeat: no-repeat;
+      background-size: 93px 19px;
+      border-radius: 0 0 1.25em 1.25em;
+      height: 39px;
+      width: 125px;
+      display: inline-block;
+    }
+  }
+}
+
+
+/* Footer */
+#footer {
+
+  background-color: #333;
+  color: #ccc;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+/* Request page */
+div.correspondence {
+  background-color: #fff;
+  padding-bottom: 0.5em;
+  .event_actions {
+    margin-bottom: 0;
+  }
+}
+
+.incoming.correspondence {
+  border: none;
+  border-top: 8px solid $incoming-correspondence-color;
+  box-shadow: 0 3px 3px #d3d3d3;
+}
+
+.outgoing.correspondence {
+  border: none;
+  border-top: 8px solid $outgoing-correspondence-color;
+  box-shadow: 0 3px 3px #d3d3d3;
+}
+
+.describe_state_form input[type="radio"] + label {
+  display:inline;
+}
+
+/* User page */
+#user_photo_on_profile {
+  img, #set_photo {
+    margin-top:0.5em;
+  }
+}
