@@ -3,6 +3,7 @@ $link-color: #10639B;
 $body-font-color: #222;
 $body-bg: #F4F4F4;
 $button-bg: #14c975;
+$heading-color: #572115;
 
 $main_menu-bg: #BD3213;
 $main_menu-search_text: #333;
@@ -70,6 +71,10 @@ body{
 
 a{
   color: $link-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $heading-color;
 }
 
 /* Let h1s be a little smaller on small screens */
