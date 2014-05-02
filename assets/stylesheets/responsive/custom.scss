@@ -467,51 +467,31 @@ a.link_to_this {
 }
 
 /* Status lines and icons */
-.icon_waiting_response,.icon_waiting_classification,.icon_waiting_clarification {
-  background-image:image-url('status-pending.png');
+
+.icon_waiting_classification,
+.icon_waiting_response,
+.icon_waiting_clarification,
+.icon_requires_admin,
+.icon_waiting_response_overdue,
+.icon_gone_postal,
+.icon_error_message,
+.icon_internal_review,
+.icon_user_withdrawn {
   color: $status-pending;
 }
 
-.icon_not_held, .icon_attention_requested {
-  background-image:image-url('status-not-held.png');
-  color: $status-pending;
+.icon_attention_requested,
+.icon_not_held,
+.icon_waiting_response_very_overdue,
+.icon_failed,
+.icon_rejected {
+  color: $status-failure;
 }
 
-.icon_successful,.icon_partially_successful {
-  background-image:image-url('status-complete.png');
+.icon_successful,
+.icon_partially_successful {
   color: $status-success;
 }
-
-.icon_requires_admin,.icon_waiting_response_overdue,.icon_waiting_response_very_overdue {
-  background-image:image-url('status-overdue.png');
-  color: $status-failure;
-}
-
-.icon_gone_postal {
-  background-image:image-url('status-gone-postal.png');
-  color: $status-pending;
-}
-
-.icon_error_message {
-  background-image:image-url('status-error.png');
-  color: $status-failure;
-}
-
-.icon_internal_review {
-  background-image:image-url('status-internal-review.png');
-  color: $status-pending;
-}
-
-.icon_user_withdrawn {
-  background-image:image-url('status-withdrawn.png');
-  color: $status-pending;
-}
-
-.icon_failed,.icon_rejected {
-  background-image:image-url('status-denied.png');
-  color: $status-failure;
-}
-
 
 /* Attachments*/
 
