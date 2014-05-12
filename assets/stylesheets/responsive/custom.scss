@@ -27,6 +27,9 @@ $notice-border: #49A411;
 $error-bg: #EED4D0;
 $error-border: #DA5641;
 
+$action-bg: #FFEECC;
+$action-border: #bf923a;
+
 /* Mixin styles */
 
 /* Hide text when it's replaced by an image */
@@ -191,7 +194,7 @@ a.link_button_green_large {
 
 /* Notices, errors */
 
-#notice, #error, .errorExplanation, #request_header_text, #hidden_request, .undescribed_requests {
+#notice, #error, .errorExplanation, #request_header_text, #hidden_request, .undescribed_requests, .describe_state_form form {
   border-top: 10px solid;
   font-size: 1.2em;
   border-radius: 0;
@@ -393,6 +396,21 @@ a.link_to_this {
   .close-button {
     background-color: #fff;
     float: right;
+  }
+}
+
+.describe_state_form {
+  padding: 0;
+
+  form{
+    background-color: $action-bg;
+    border-color: $action-border;
+    h2 {
+      margin-top: 0;
+    }
+    hr {
+      border-color: $action-border;
+    }
   }
 }
 
