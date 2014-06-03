@@ -177,6 +177,9 @@ a.link_button_green_large {
      font-size: 2.2em;
      height: 66px;
    }
+   @include lte-ie7 {
+     height: 45px;
+   }
 }
 
 /* Popups */
