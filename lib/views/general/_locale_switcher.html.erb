@@ -1,7 +1,7 @@
 <div class="ms-header__logo">
   <a href="http://mysociety.org">mySociety</a>
 </div>
-<% if FastGettext.default_available_locales.any? && !params.empty? %>
+<% if FastGettext.default_available_locales.length > 1 && !params.empty? %>
   <div id="user_locale_switcher">
     <div class="btn-group">
     <% FastGettext.default_available_locales.each do |possible_locale| %>
