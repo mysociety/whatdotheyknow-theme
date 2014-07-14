@@ -1,4 +1,4 @@
-<% if AlaveteliConfiguration::responsive_styling || params[:responsive] %>
+<% if AlaveteliConfiguration::responsive_styling || params[:responsive] || local_assigns[:responsive] == true %>
 <div class="ms-header__logo">
   <a href="http://mysociety.org">mySociety</a>
 </div>
