@@ -1,21 +1,3 @@
-<!-- Load the Content Experiment JavaScript API client for the experiment -->
-<script src="//www.google-analytics.com/cx/api.js?experiment=aAMRer1_RLyfIayGP3A1EA"></script>
-
-<script>
-  // Ask Google Analytics which variation to show the user.
-  var chosenVariation = cxApi.chooseVariation();
-</script>
-
-<script type="text/javascript">
-if (chosenVariation == 1){
-  var responsive_stylesheets = "<%= escape_javascript(render :partial => 'general/responsive_stylesheet_includes') %>";
-  var responsive_header = "<%= escape_javascript(render :partial => 'general/responsive_header', :locals => { :responsive => true }) %>";
-  var responsive_footer = "<%= escape_javascript(render :partial => 'general/responsive_footer') %>";
-  $('.main-stylesheet').attr('disabled', 'disabled');
-  document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0" />');
-  document.write(responsive_stylesheets);
-}
-</script>
 <script type="text/javascript" src="//use.typekit.net/csi1ugd.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
