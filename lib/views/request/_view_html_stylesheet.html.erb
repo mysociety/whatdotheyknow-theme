@@ -1,5 +1,16 @@
 <% if AlaveteliConfiguration::responsive_styling || params[:responsive] %>
- <%= render :partial => 'general/responsive_stylesheets' %>
+ <!--[if LTE IE 7]>
+ <link href="/assets/responsive/application-lte-ie7.css" media="all" rel="stylesheet" title="Main" type="text/css" />
+ <![endif]-->
+
+ <!--[if IE 8]>
+ <link href="/assets/responsive/application-ie8.css" media="all" rel="stylesheet" title="Main" type="text/css" />
+ <![endif]-->
+
+ <!--[if GT IE 8]><!-->
+ <link href="/assets/responsive/application.css" media="all" rel="stylesheet" title="Main" type="text/css" />
+ <!--<![endif]-->
+
  <script type="text/javascript" src="//use.typekit.net/csi1ugd.js"></script>
  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <% else %>
