@@ -17,6 +17,7 @@ $main_menu-active_link_text: $main_menu-link_bg;
 
 $incoming-correspondence-color: #88bdab;
 $outgoing-correspondence-color: #e66800;
+$comment-color: #ccc;
 
 $status-success: #24a378;
 $status-failure: #bd3200;
@@ -427,6 +428,12 @@ div.correspondence {
   box-shadow: 0 3px 3px #d3d3d3;
   a.link_to_this {
     background-color: $outgoing-correspondence-color;
+  }
+}
+
+.comment_in_request {
+  a.link_to_this {
+    background-color: $comment-color;
   }
 }
 
