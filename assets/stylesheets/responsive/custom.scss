@@ -16,7 +16,9 @@ $main_menu-active_link_bg: $body-bg;
 $main_menu-active_link_text: $main_menu-link_bg;
 
 $incoming-correspondence-color: #88bdab;
+$incoming-correspondence-background: #fff;
 $outgoing-correspondence-color: #e66800;
+$outgoing-correspondence-background: #fff1e6;
 
 $status-success: #24a378;
 $status-failure: #bd3200;
@@ -411,6 +413,7 @@ div.correspondence {
   border: none;
   border-top: 8px solid $incoming-correspondence-color;
   box-shadow: 0 3px 3px #d3d3d3;
+  background-color: $incoming-correspondence-background;
   font-family: "Courier New", Courier, monospace;
   font-size: 0.9rem;
   @include ie8 {
@@ -425,6 +428,7 @@ div.correspondence {
   border: none;
   border-top: 8px solid $outgoing-correspondence-color;
   box-shadow: 0 3px 3px #d3d3d3;
+  background-color: $outgoing-correspondence-background;
   a.link_to_this {
     background-color: $outgoing-correspondence-color;
   }
