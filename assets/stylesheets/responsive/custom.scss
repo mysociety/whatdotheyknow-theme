@@ -19,6 +19,7 @@ $incoming-correspondence-color: #88bdab;
 $incoming-correspondence-background: #fff;
 $outgoing-correspondence-color: #e66800;
 $outgoing-correspondence-background: #fff1e6;
+$comment-color: #ccc;
 
 $status-success: #24a378;
 $status-failure: #bd3200;
@@ -429,6 +430,12 @@ div.correspondence {
   background-color: $outgoing-correspondence-background;
   a.link_to_this {
     background-color: $outgoing-correspondence-color;
+  }
+}
+
+.comment_in_request {
+  a.link_to_this {
+    background-color: $comment-color;
   }
 }
 
