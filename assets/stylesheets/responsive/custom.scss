@@ -414,11 +414,6 @@ div.correspondence {
   border-top: 8px solid $incoming-correspondence-color;
   box-shadow: 0 3px 3px #d3d3d3;
   background-color: $incoming-correspondence-background;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.9rem;
-  @include ie8 {
-    font-size: 0.9em;
-  }
   a.link_to_this {
     background-color: $incoming-correspondence-color;
   }
