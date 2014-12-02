@@ -35,7 +35,13 @@ if ['info_requests', 'censor_rules'].all? { |table_name|
                       :public_body => PublicBody.find_by_url_name('home_office'),
                       :regexp => true,
                       :last_edit_editor => 'system',
-                      :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'}]
+                      :last_edit_comment => 'Refactored from remove_privacy_sensitive_things!'},
+                  {:text => 'https://foi.brighton-hove.gov.uk/c/[^\s]+',
+                      :replacement => '[feedback link]',
+                      :public_body => PublicBody.find_by_url_name('brighton_and_hove_city_council'),
+                      :regexp => true,
+                      :last_edit_editor => 'system',
+                      :last_edit_comment => 'Prevent publication of status update invitations'}]
     rules_data.each do |d|
         rule = CensorRule.find_by_text(d[:text])
         if rule.nil?
