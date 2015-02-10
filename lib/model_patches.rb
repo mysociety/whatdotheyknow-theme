@@ -21,12 +21,16 @@ Rails.configuration.to_prepare do
     UserInfoRequestSentAlert._validate_callbacks[0].options[:in] << 'survey_1'
 
     InfoRequest.class_eval do
-        def email_subject_request
-            if (!self.is_batch_request_template?) && (self.public_body.url_name == 'general_register_office')
+        def email_subject_request(opts = {})
+            html = opts.fetch(:html, true)
+            subject_title = html ? self.title : self.title.html_safe
+            if (!is_batch_request_template?) && (public_body.url_name == 'general_register_office')
                 # without GQ in the subject, you just get an auto response
-                _('{{law_used_full}} request GQ - {{title}}',:law_used_full=>self.law_used_full,:title=>self.title.html_safe)
+                _('{{law_used_full}} request GQ - {{title}}', :law_used_full => law_used_full,
+                                                              :title => subject_title)
             else
-                _('{{law_used_full}} request - {{title}}',:law_used_full=>self.law_used_full,:title=>self.title.html_safe)
+                _('{{law_used_full}} request - {{title}}', :law_used_full => law_used_full,
+                                                           :title => subject_title)
             end
         end
     end
