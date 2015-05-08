@@ -1,3 +1,11 @@
+<script>
+    jQuery('#user_locale_switcher').find('.ui-dropdown-list-trigger').each(function() {
+        jQuery(this).click(function(){
+            jQuery(this).parent().toggleClass('active');
+        });
+    });
+</script>
+
 <%# Google Analytics tracking code for WhatDoTheyKnow %>
 <% if @total_hits %>
     <%# we're on a search page; make it look to Google Analytics like we're using a query string, so it can track the search keywords %>
