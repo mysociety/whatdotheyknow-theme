@@ -1,14 +1,40 @@
 <div class="footer" id="footer">
-    <div id="footer-nav">
-      <ul>
-          <li><%= link_to _("Contact {{site_name}}", :site_name => site_name), help_contact_path %></li>
-          <% unless AlaveteliConfiguration::twitter_username.blank? %>
-            <li><a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>"><%= _("Follow us on twitter") %></a></li>
-          <% end %>
-
-          <%= render :partial => 'general/responsive_credits' %>
-
-      </ul>
-
+    <div class="row">
+        <div class="footer__about">
+            <h2><%= site_name %></h2>
+            <p><%= site_name %> is a mySociety project, <%= link_to 'run by Volunteers', help_credits_path(:anchor => 'helpus') %> and powered by <%= link_to 'Alaveteli',  help_alaveteli_path %></p>
+            </p>
+            <ul class="about__contact-links">
+                <li>
+                    <%= link_to 'Contact us', help_contact_path %>
+                </li>
+                <li>
+                     <%= link_to 'Help', help_path %>
+                </li>
+                <li>
+                     <%= link_to 'Privacy and cookies', help_privacy_path %>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer__final">
+        <div class="row">
+            <div class="final__dedication">
+                <p>Dedicated to <%= link_to 'Chris Lightfoot', "http://mk.ucant.org/archives/000129.html" %>.</p>
+            </div>
+            <div class="final__social-links">
+                <ul>
+                    <% unless AlaveteliConfiguration::twitter_username.blank? %>
+                    <li>
+                        <a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>" class="social-link social-link--twitter">@<%= AlaveteliConfiguration::twitter_username %></a>
+                    </li>
+                    <% end %>
+                    <li>
+                        <a href="https://facebook.com/whatdotheyknow" class="social-link social-link--facebook">/whatdotheyknow</a>
+                    </li>
+                </ul>
+            </div>
+            <p class="final__credits"><a href="https://www.flickr.com/photos/kozumel/2263021659">AlaveteliCon photo</a> by <a href="https://www.flickr.com/photos/kozumel/">Camilo Rueda López</a>, <a href="https://creativecommons.org/licenses/by-nd/2.0/">CC BY-ND 2.0</a></p>
+        </div>
     </div>
 </div>
