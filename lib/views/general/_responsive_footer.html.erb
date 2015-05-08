@@ -2,8 +2,7 @@
     <div class="row">
         <div class="footer__about">
             <h2><%= site_name %></h2>
-            <p><%= site_name %> is a mySociety project, <%= link_to 'run by Volunteers', help_credits_path(:anchor => 'helpus') %> and powered by <%= link_to 'Alaveteli',  help_alaveteli_path %></p>
-            </p>
+            <p><%= site_name %> is a <%= link_to 'mySociety', "https://www.mysociety.org" %> project, <%= link_to 'run by Volunteers', help_credits_path(:anchor => 'helpus') %> and powered by <%= link_to 'Alaveteli',  help_alaveteli_path %></p>
             <ul class="about__contact-links">
                 <li>
                     <%= link_to 'Contact us', help_contact_path %>
