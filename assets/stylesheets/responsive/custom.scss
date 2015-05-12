@@ -1,4 +1,4 @@
-$mysociety-banner: #424242;
+$mysociety-banner: #333333;
 $link-color: #10639B;
 $body-font-color: #222;
 $body-bg: #F4F4F4;
@@ -301,8 +301,6 @@ a.link_button_green_large {
 
 
 #banner {
-  /* mysociety border */
-   border-top: 4px solid $mysociety-banner;
 
   /* Hide the greeting on smaller devices */
   .greeting {
@@ -354,40 +352,40 @@ a.link_button_green_large {
 
 }
 
+.ms-header {
+  background-color: $mysociety-banner;
+  @extend .clearfix;
+}
+
+.ms-header__container {
+  @include grid-row();
+}
+
 .ms-header__logo {
-  position: absolute;
-  top: 0;
-  right: 15px;
+  @include grid-column(12);
+  text-align: center;
+  @include respond-min(15em){
+    @include grid-column(6,$offset:6);
+    text-align: right;
+  }
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    @include grid-column(2,$offset:10);
+  }
+  line-height: 0;
   a{
     background-color: $mysociety-banner;
-    background-image: image-url("mysociety-bloom.png");
-    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-      background-image: image-url("mysociety-bloom@2.png");
-    }
-    background-position: 11px 7px;
-    background-repeat: no-repeat;
-    background-size: 22px auto;
-    border-radius: 0 0 0.75em 0.75em;
-    display: block;
-    height: 38px;
-    width: 44px;
     @extend .image-replacement;
-    @include respond-min( $main_menu-mobile_menu_cutoff ){
-      background-image: image-url("mysociety-header_logo.png");
-      @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-        background-image: image-url("mysociety-header_logo@2.png");
-      }
-      background-position: 16px 10px;
-      @include ie8{
-        background-position: 5px 7px;
-      }
-      background-repeat: no-repeat;
-      background-size: 93px 19px;
-      border-radius: 0 0 1.25em 1.25em;
-      height: 39px;
-      width: 125px;
-      display: inline-block;
+    background-image: image-url("mysociety-header_logo.png");
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+      background-image: image-url("mysociety-header_logo@2.png");
     }
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 101px 21px;
+    display: inline-block;
+    width: 101px;
+    height: 21px;
+    margin: 10px 0;
   }
 }
 

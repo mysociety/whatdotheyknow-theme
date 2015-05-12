@@ -1,8 +1,3 @@
-<% if AlaveteliConfiguration::responsive_styling || params[:responsive] %>
-<div class="ms-header__logo">
-  <a href="http://mysociety.org">mySociety</a>
-</div>
-<% end %>
 <% if FastGettext.default_available_locales.length > 1 && !params.empty? %>
   <div id="user_locale_switcher">
     <div class="btn-group">
