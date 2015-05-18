@@ -100,6 +100,15 @@ h1, h2, h3, h4, h5, h6 {
   color: $heading-color;
 }
 
+.inline-list {
+  list-style: none outside none;
+  padding: 0;
+  li {
+    display: inline-block;
+    margin-right: 1.25em;
+  }
+}
+
 /* Let h1s be a little smaller on small screens */
 @media( max-width: $main_menu-mobile_menu_cutoff ){
   h1 {
@@ -392,13 +401,112 @@ a.link_button_green_large {
 
 /* Footer */
 #footer {
-
   background-color: #333;
-  color: #ccc;
-
+  color: #959287;
+  text-align: left;
+  padding: 2em 0;
+  font-size: 1em;
   a {
     text-decoration: none;
     color: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $button-bg;
+      text-decoration: underline;
+    }
+  }
+  .row {
+    @include grid-row();
+  }
+}
+
+.footer__about {
+  @include grid-column(12);
+  @media (min-width: 32em) {
+    @include grid-column(8);
+  }
+  @media (min-width: 54em) {
+    @include grid-column(5);
+  }
+  h2 {
+    color: #fff;
+    font-size: 1.4375em;
+  }
+  p {
+    font-size: 0.875em;
+  }
+}
+
+.about__contact-links {
+  @extend .inline-list;
+  font-size: 0.875em;
+}
+
+.footer__final {
+  .row {
+    border-top: 1px solid #4C4C4C;
+    padding-top: 1em;
+  }
+
+}
+
+.final__dedication {
+  margin-top: 0.25em;
+  @include grid-column(12);
+  @media (min-width: 32em) {
+    @include grid-column(6);
+  }
+  p {
+    font-size: 0.875em;
+  }
+}
+
+.final__social-links {
+  margin-top: 0.5em;
+  @include grid-column(12);
+  @media (min-width: 32em) {
+    @include grid-column(6);
+    text-align: right;
+  }
+
+  ul {
+    @extend .inline-list;
+    margin-top: 0;
+    li {
+      margin-right: 0;
+      margin-left: 1.25em;
+    }
+  }
+
+  a {
+    font-size: 0.875em;
+  }
+}
+
+.final__credits {
+  @include grid-column(12);
+  font-size: 0.75em;
+}
+
+.social-link {
+  padding: 0.5em 0.5em 0.5em 2.2em;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 22px 22px;
+}
+
+.social-link--twitter {
+  background-image: image-url('social-twitter.png');
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: image-url('social-twitter@2.png');
+  }
+}
+
+.social-link--facebook {
+  background-image: image-url('social-facebook.png');
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: image-url('social-facebook@2.png');
   }
 }
 
@@ -538,54 +646,54 @@ dt {
     text-align: left;
     margin-top: 0;
     border: none;
-    
+
     background: #606860 url(/assets/instituto-nacional-de-estadistica.jpg) 50% 50% no-repeat;
     background-size: cover;
-    
+
     .popup-content {
         display: block;
         float: none;
         margin: 0;
         width: auto;
-        
+
         background-color: rgba(0,0,0,0.6);
         padding: 2em 0;
         color: #fff;
         text-shadow: 0 1px 2px rgba(0,0,0,0.4);
         border-bottom: 1px solid #666;
     }
-    
+
     .popup-close {
         float: none;
         border: none;
-        
+
         position: absolute;
         top: 1em;
         right: 1em;
         background-image: url(/assets/small-white-cross.png);
     }
-    
+
     .container {
         max-width: 64em;
         margin: 0 auto;
         padding: 0 1em;
         position: relative;
     }
-    
+
     p, h2 {
         margin: 0;
         @include respond-min($main_menu-mobile_menu_cutoff) {
             padding-right: 10em;
         }
     }
-    
+
     .alavetelicon-banner__heading {
         color: inherit;
         font-weight: 600; // semibold
         font-size: 1.2em;
         line-height: 1.4em;
     }
-    
+
     .alavetelicon-banner__button {
         display: inline-block;
         padding: 0.5em 0.8em;
@@ -598,7 +706,7 @@ dt {
         border-color: rgba(200,200,200,0.4);
         border-radius: 0.3em;
         text-decoration: none;
-    
+
         &:hover,
         &:focus {
             background: #fff;
@@ -606,7 +714,7 @@ dt {
             border-color: #fff;
             text-shadow: none;
         }
-        
+
         @include respond-min($main_menu-mobile_menu_cutoff) {
             position: absolute;
             top: 50%;
