@@ -308,13 +308,12 @@ a.link_button_green_large {
 
   .rsp_menu_button{
     position: absolute;
-    top: 0;
-    /* Width of #mysociety plus margin of 15px */
-    right: 60px;
+    top: 0.66em;
+    right: 0.9375rem; //same as foundation's screen-edge gutter
     @extend .image-replacement;
     background-image: image-url('hamburger.png');
     background-repeat: no-repeat;
-    background-position: center 10px;
+    background-position: center;
     background-size: 28px 26px;
     width: 44px;
     height: 38px;
