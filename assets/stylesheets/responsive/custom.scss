@@ -222,14 +222,17 @@ a.link_button_green_large {
   /* Vertically align the search box */
   #navigation_search{
     input{
-      margin-top:0.313em;
-      margin-bottom:0.313em;
+      margin-top:0.688em;
+      margin-bottom:0.688em;
       height: 1.875em;
       @include ie8 {
         height: 33px;
         font-size: 1.1em;
         padding: 0;
       }
+    }
+    label {
+      margin-top: 0.375em;
     }
   }
 
