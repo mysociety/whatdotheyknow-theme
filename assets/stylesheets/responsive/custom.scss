@@ -327,20 +327,32 @@ a.link_button_green_large {
     }
   }
 
-  /* Pad evenly top and bottom on smaller devices */
-  #logo_wrapper{
-      @media(max-width: $main_menu-mobile_menu_cutoff ){
-        padding: 0.5em 0 0.5em 0.9375em;
+  .banner_site-title {
+    @include grid-column(12);
+    padding-top: 1.125em; //18px
+    padding-bottom: 1.125em;
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      @include grid-column(5);
+      padding-top: 1.6875em; //27px
+      padding-bottom: 1.6875em;
+    }
+    text-align: left;
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+      &:hover,
+      &:active,
+      &:focus {
+        color: transparentize($main_menu-link_text, 0.2);
       }
-      /* Give some more room for the long logo */
-      @include respond-min( $main_menu-mobile_menu_cutoff ){
-        @include grid-column(5);
-        @include lte-ie7 {
-            width: 21.641em;
-            padding-bottom: 1.5em;
-        }
-      }
+    }
+
   }
+
   #logged_in_bar{
     @include respond-min( $main_menu-mobile_menu_cutoff ){
         @include grid-column(7);
@@ -350,6 +362,25 @@ a.link_button_green_large {
     }
   }
 
+}
+
+.site-title__logo {
+  @extend .image-replacement;
+  width: 159px;
+  height: 18px;
+  background-size: 159px 18px;
+  background-image: image-url("wdtk-logo-white.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  display: block;
+  @include respond-min( 18.75em ){
+    width: 212px;
+    height: 24px;
+    background-size: 212px 24px;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: image-url("wdtk-logo-white@2.png");
+  }
 }
 
 .ms-header {
