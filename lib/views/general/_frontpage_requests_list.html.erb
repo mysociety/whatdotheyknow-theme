@@ -1,5 +1,5 @@
 <%- @request_events, @request_events_all_successful = InfoRequest.recent_requests %>
-<div id="examples_1">
+<div id="examples_1" class="latest-requests">
   <h3>
     <% if @request_events_all_successful %>
       <%= _("What information has been released?") %>
@@ -7,9 +7,11 @@
       <%= _("What information has been requested?") %>
     <% end %>
   </h3>
+  <h4>
    <%= _("{{site_name}} users have made {{number_of_requests}} requests, including:",
     :site_name => site_name,
     :number_of_requests => number_with_delimiter(InfoRequest.visible.count)) %>
+  </h4>
     <ul>
       <% @request_events.each do |event| %>
         <li class="request-listing">
