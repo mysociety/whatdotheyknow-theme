@@ -30,11 +30,5 @@
         </li>
       <% end %>
     </ul>
-    <p><strong>
-      <% if @request_events_all_successful %>
-        <%=link_to _('More successful requests...'), request_list_successful_path %>
-      <% else %>
-        <%=link_to _('More requests...'), request_list_all_path %>
-      <% end %>
-    </strong></p>
+    <%= link_to _("Browse all requests &rarr;"), request_list_all_path, :class => 'link_button_green' %>
 </div>
