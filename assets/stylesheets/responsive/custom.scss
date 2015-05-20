@@ -848,12 +848,34 @@ p.ui-dropdown-list-trigger {
   }
 }
 
+.request-listing {
+  padding: 1em 0;
+  a {
+    font-weight: bold;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  }
 }
 
 .request-listing__request-status-icon {
   float: left;
+  margin-top: 0.3em;
 }
 
 .request-listing__request-body {
-  margin-left: 37px;
+  margin-left: 32px;
+  p {
+    margin-bottom: 0;
+    line-height: 1.35em;
+  }
+}
+
+.request-body__time-ago {
+  font-size: 0.875em;
+  color: #9797A4;
+  margin-top: 0.25em;
 }
