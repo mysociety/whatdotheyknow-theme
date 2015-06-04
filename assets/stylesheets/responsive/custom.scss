@@ -670,8 +670,8 @@ dt {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: transparent;
     right: auto;
-    left: 380px;
-    top: 1.125em;
+    left: 260px;
+    top: 1.5em;
   }
 }
 
@@ -691,7 +691,7 @@ p.ui-dropdown-list-trigger {
   padding: 0.5em 1em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     margin-top: 0;
-    border: 1px solid #e9e9e9;
+    border: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
     border-radius: 3px;
     color: $link-color;
     padding: 0;
@@ -702,6 +702,7 @@ p.ui-dropdown-list-trigger {
   position: relative;
   z-index: 999;
   border-radius: 3px;
+  color: #fff;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.66em 2em 0.66em 0.66em;
   }
@@ -718,12 +719,9 @@ p.ui-dropdown-list-trigger {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   @include ie8 {
-    border-top: 5px solid #e9e9e9;
+    border-top: 5px solid #fff;
   }
-  border-top: 5px solid rgba(255,255,255,0.3);
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    border-top: 5px solid rgba(0,0,0,0.3);
-  }
+  border-top: 5px solid rgba(255,255,255,0.4);
 }
 
 .ui-dropdown-list-trigger .current-locale,
@@ -746,10 +744,11 @@ p.ui-dropdown-list-trigger {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: absolute;
     top: 30px;
-    left: 1px;
+    left: 0;
     z-index: 1000;
     border-radius: 3px;
     font-size: 1em;
+    width: 100%;
   }
 
 }
@@ -757,9 +756,16 @@ p.ui-dropdown-list-trigger {
 .ui-dropdown-list li {
   list-style-type: none;
   border-bottom: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    border-bottom-color: #555;
+  }
   &:last-child {
     @include respond-min($main_menu-mobile_menu_cutoff) {
       border-bottom: 0;
+      a {
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
     }
   }
 }
@@ -776,6 +782,9 @@ p.ui-dropdown-list-trigger {
   @include ie8 {
     color: $main_menu-link_text;
   }
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    background-color: #424242;
+  }
   transition: background-color 0.5s ease-out;
 }
 
@@ -783,6 +792,9 @@ p.ui-dropdown-list-trigger {
 .ui-dropdown-list .available-languages a:focus {
   border-bottom: none;
   background-color: darken($main_menu-bg, 5%);
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    background-color: darken(#424242, 10%);
+  }
   color: #fff;
 
 }
@@ -797,6 +809,12 @@ p.ui-dropdown-list-trigger {
   background-color: $main_menu-bg;
   color: #fff;
   border-color: $main_menu-bg;
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    background-color: #424242;
+    border-color: #333;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 .ui-dropdown-list.active .current-locale:after {
@@ -804,4 +822,8 @@ p.ui-dropdown-list-trigger {
     border-top-color: #fff;
   }
   border-top-color: rgba(255,255,255,0.4);
+}
+
+.ui-dropdown-list.active .ui-dropdown-list-trigger {
+  border: 0;
 }
