@@ -12,7 +12,9 @@
     :number_of_requests => number_with_delimiter(InfoRequest.visible.count)) %>
     <ul>
       <% @request_events.each do |event| %>
-        <li>
+        <li class="request-listing">
+          <div class="request-listing__request-status-icon bottomline icon_<%= event.info_request.calculate_status %> icon-standalone"></div>
+          <div class="request-listing__request-body">
           <% if @request_events_all_successful %>
             <%= _("{{public_body_link}} answered a request about",
                 :public_body_link => public_body_link(event.info_request.public_body)) %>
