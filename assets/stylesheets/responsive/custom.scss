@@ -849,6 +849,11 @@ p.ui-dropdown-list-trigger {
 
   a {
     color: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      color: rgba(255,255,255,0.6);
+    }
   }
 }
 
