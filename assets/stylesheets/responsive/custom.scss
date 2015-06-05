@@ -299,6 +299,9 @@ a.link_button_green_large {
     @extend .menu-item;
     @extend .sub-menu-item;
   }
+  #logged_in_links {
+    top: 1.7em;
+  }
 }
 
 
