@@ -916,4 +916,16 @@ p.ui-dropdown-list-trigger {
 
 .learn-more__content {
   @include grid-column(12);
+  a {
+    display: inline-block;
+    padding-left: 1.3em;
+    background-image: image-url('arrow-pointing-down.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 13px 13px;
+    text-decoration: none;
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+      background-image: image-url('arrow-pointing-down@2.png');
+    }
+  }
 }
