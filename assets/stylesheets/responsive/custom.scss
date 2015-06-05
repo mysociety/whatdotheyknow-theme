@@ -45,18 +45,15 @@ $action-border: #bf923a;
 /* General styling of nav menu items */
 .menu-item {
   text-decoration: none;
-  background-color: $main_menu_link_bg;
   color: transparentize($main_menu-link_text, 0.2);
   @include ie8 {
     color: $main_menu-link_text;
   }
   transition: background-color 0.5s ease-out;
-
   &:hover{
-      background-color: darken($main_menu-bg, 5%);
-      color: transparentize($main_menu-link_text, 0);
+    background-color: darken($main_menu-bg, 5%);
+    color: transparentize($main_menu-link_text, 0);
   }
-
 }
 
 /* Selected menu item */
@@ -73,12 +70,10 @@ $action-border: #bf923a;
 /* Styling if not part of the main menu on larger screens */
 .sub-menu-item {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
-    background-color: $body-bg;
-    color: $link-color;
+    color: $main_menu-link_text;
     &:hover{
-        background-color: $body-bg;
-        color: #333;
         text-decoration: underline;
+        background-color: transparent;
     }
   }
 }
@@ -206,12 +201,18 @@ a.link_button_green_large {
 
 #topnav {
   background-color: $main_menu-bg;
+  @media( min-width: $main_menu-mobile_menu_cutoff ) {
+    box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.1);
+  }
 }
 
 #navigation{
   border-bottom: none;
   a {
     @extend .menu-item;
+    @media( min-width: $main_menu-mobile_menu_cutoff ) {
+      padding: 0.875em 1em;
+    }
   }
   /* Show which section is currently selected */
   li.selected a{
@@ -221,14 +222,17 @@ a.link_button_green_large {
   /* Vertically align the search box */
   #navigation_search{
     input{
-      margin-top:0.313em;
-      margin-bottom:0.313em;
+      margin-top:0.688em;
+      margin-bottom:0.688em;
       height: 1.875em;
       @include ie8 {
         height: 33px;
         font-size: 1.1em;
         padding: 0;
       }
+    }
+    label {
+      margin-top: 0.375em;
     }
   }
 
@@ -295,11 +299,14 @@ a.link_button_green_large {
     @extend .menu-item;
     @extend .sub-menu-item;
   }
+  #logged_in_links {
+    top: 1.7em;
+  }
 }
 
 
 #banner {
-
+  background-color: $main_menu-bg;
   /* Hide the greeting on smaller devices */
   .greeting {
     display: none;
@@ -307,13 +314,12 @@ a.link_button_green_large {
 
   .rsp_menu_button{
     position: absolute;
-    top: 0;
-    /* Width of #mysociety plus margin of 15px */
-    right: 60px;
+    top: 0.66em;
+    right: 0.9375rem; //same as foundation's screen-edge gutter
     @extend .image-replacement;
     background-image: image-url('hamburger.png');
     background-repeat: no-repeat;
-    background-position: center 10px;
+    background-position: center;
     background-size: 28px 26px;
     width: 44px;
     height: 38px;
@@ -322,23 +328,36 @@ a.link_button_green_large {
     a {
       width: 100%;
       height: 100%;
+      color: #fff;
     }
   }
 
-  /* Pad evenly top and bottom on smaller devices */
-  #logo_wrapper{
-      @media(max-width: $main_menu-mobile_menu_cutoff ){
-        padding: 0.5em 0 0.5em 0.9375em;
+  .banner_site-title {
+    @include grid-column(12);
+    padding-top: 1.125em; //18px
+    padding-bottom: 1.125em;
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      @include grid-column(5);
+      padding-top: 1.6875em; //27px
+      padding-bottom: 1.6875em;
+    }
+    text-align: left;
+    h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+      &:hover,
+      &:active,
+      &:focus {
+        color: transparentize($main_menu-link_text, 0.2);
       }
-      /* Give some more room for the long logo */
-      @include respond-min( $main_menu-mobile_menu_cutoff ){
-        @include grid-column(5);
-        @include lte-ie7 {
-            width: 21.641em;
-            padding-bottom: 1.5em;
-        }
-      }
+    }
+
   }
+
   #logged_in_bar{
     @include respond-min( $main_menu-mobile_menu_cutoff ){
         @include grid-column(7);
@@ -348,6 +367,25 @@ a.link_button_green_large {
     }
   }
 
+}
+
+.site-title__logo {
+  @extend .image-replacement;
+  width: 159px;
+  height: 18px;
+  background-size: 159px 18px;
+  background-image: image-url("wdtk-logo-white.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  display: block;
+  @include respond-min( 18.75em ){
+    width: 212px;
+    height: 24px;
+    background-size: 212px 24px;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: image-url("wdtk-logo-white@2.png");
+  }
 }
 
 .ms-header {
@@ -635,8 +673,8 @@ dt {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: transparent;
     right: auto;
-    left: 380px;
-    top: 1.125em;
+    left: 260px;
+    top: 1.5em;
   }
 }
 
@@ -656,7 +694,7 @@ p.ui-dropdown-list-trigger {
   padding: 0.5em 1em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     margin-top: 0;
-    border: 1px solid #e9e9e9;
+    border: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
     border-radius: 3px;
     color: $link-color;
     padding: 0;
@@ -667,6 +705,7 @@ p.ui-dropdown-list-trigger {
   position: relative;
   z-index: 999;
   border-radius: 3px;
+  color: #fff;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.66em 2em 0.66em 0.66em;
   }
@@ -683,12 +722,9 @@ p.ui-dropdown-list-trigger {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   @include ie8 {
-    border-top: 5px solid #e9e9e9;
+    border-top: 5px solid #fff;
   }
-  border-top: 5px solid rgba(255,255,255,0.3);
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    border-top: 5px solid rgba(0,0,0,0.3);
-  }
+  border-top: 5px solid rgba(255,255,255,0.4);
 }
 
 .ui-dropdown-list-trigger .current-locale,
@@ -711,10 +747,11 @@ p.ui-dropdown-list-trigger {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: absolute;
     top: 30px;
-    left: 1px;
+    left: 0;
     z-index: 1000;
     border-radius: 3px;
     font-size: 1em;
+    width: 100%;
   }
 
 }
@@ -722,9 +759,16 @@ p.ui-dropdown-list-trigger {
 .ui-dropdown-list li {
   list-style-type: none;
   border-bottom: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    border-bottom-color: #555;
+  }
   &:last-child {
     @include respond-min($main_menu-mobile_menu_cutoff) {
       border-bottom: 0;
+      a {
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
     }
   }
 }
@@ -741,6 +785,9 @@ p.ui-dropdown-list-trigger {
   @include ie8 {
     color: $main_menu-link_text;
   }
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    background-color: #424242;
+  }
   transition: background-color 0.5s ease-out;
 }
 
@@ -748,6 +795,9 @@ p.ui-dropdown-list-trigger {
 .ui-dropdown-list .available-languages a:focus {
   border-bottom: none;
   background-color: darken($main_menu-bg, 5%);
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    background-color: darken(#424242, 10%);
+  }
   color: #fff;
 
 }
@@ -762,6 +812,12 @@ p.ui-dropdown-list-trigger {
   background-color: $main_menu-bg;
   color: #fff;
   border-color: $main_menu-bg;
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    background-color: #424242;
+    border-color: #333;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 .ui-dropdown-list.active .current-locale:after {
@@ -769,4 +825,8 @@ p.ui-dropdown-list-trigger {
     border-top-color: #fff;
   }
   border-top-color: rgba(255,255,255,0.4);
+}
+
+.ui-dropdown-list.active .ui-dropdown-list-trigger {
+  border: 0;
 }
