@@ -37,4 +37,6 @@
     <%= render :partial => 'general/responsive_topnav' %>
   </div>
 </div>
-
+<% if controller.action_name == 'frontpage' %>
+  <%= render :partial => "frontpage_hero" %>
+<% end %>
