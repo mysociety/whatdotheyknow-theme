@@ -827,6 +827,55 @@ p.ui-dropdown-list-trigger {
   border-top-color: rgba(255,255,255,0.4);
 }
 
+
 .ui-dropdown-list.active .ui-dropdown-list-trigger {
   border: 0;
+}
+
+.icon-standalone {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+.bodies-list,
+.latest-requests {
+  h4 {
+    font-size: 1.125em;
+    color: #9797A4;
+    font-weight: normal;
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+}
+
+.request-listing {
+  padding: 1em 0;
+  a {
+    font-weight: bold;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.request-listing__request-status-icon {
+  float: left;
+  margin-top: 0.3em;
+}
+
+.request-listing__request-body {
+  margin-left: 32px;
+  p {
+    margin-bottom: 0;
+    line-height: 1.35em;
+  }
+}
+
+.request-body__time-ago {
+  font-size: 0.875em;
+  color: #9797A4;
+  margin-top: 0.25em;
 }
