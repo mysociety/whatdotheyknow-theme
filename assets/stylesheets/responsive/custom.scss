@@ -366,6 +366,22 @@ a.link_button_green_large {
         }
     }
   }
+}
+
+.greeting {
+  //Truncate really long names
+  max-width: 19em;
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    max-width: 16em;
+  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block !important; //overrides the inline display in #logged_in_bar
+  //making the display inline-block means we must tweak the position to ...
+  // ... ensure it's always inline with the other links
+  position: relative;
+  top: 0.45em;
 
 }
 
