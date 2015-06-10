@@ -298,12 +298,25 @@ a.link_button_green_large {
   a {
     @extend .menu-item;
     @extend .sub-menu-item;
+    color: rgba(255, 255, 255, 0.8);
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+    }
   }
   #logged_in_links {
-    top: 1.7em;
+    top: 1.3em;
   }
 }
 
+ #logged_in_bar #logged_in_links a,
+ #logged_in_bar #logged_in_links .greeting {
+    font-weight: normal;
+    @media( min-width: $main_menu-mobile_menu_cutoff ) {
+      font-size: 0.875em;
+    }
+  }
 
 #banner {
   background-color: $main_menu-bg;
@@ -367,6 +380,7 @@ a.link_button_green_large {
 .greeting {
   //Truncate really long names
   max-width: 19em;
+  color: #fff;
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     max-width: 16em;
   }
@@ -377,8 +391,7 @@ a.link_button_green_large {
   //making the display inline-block means we must tweak the position to ...
   // ... ensure it's always inline with the other links
   position: relative;
-  top: 0.45em;
-
+  top: 0.5em;
 }
 
 .site-title__logo {
