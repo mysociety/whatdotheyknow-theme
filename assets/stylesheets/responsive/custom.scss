@@ -59,7 +59,7 @@ $action-border: #bf923a;
 /* Selected menu item */
 
 .selected-menu-item {
-  font-weight: bold;
+  font-weight: 600;
   color: $main_menu-active_link_text;
   background-color: $main_menu-active_link_bg;
   &:hover{
@@ -93,6 +93,7 @@ a{
 
 h1, h2, h3, h4, h5, h6 {
   color: $heading-color;
+  font-weight: 600; //semibold looks slightly better in source sans
 }
 
 .inline-list {
@@ -167,7 +168,7 @@ form input[type=submit], a.link_button_green, a.link_button_green_large {
   a.link_button_green, a.link_button_green_large {
     padding: 0 7px;
     height: 31px;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   form input[type=submit] {
@@ -851,7 +852,7 @@ p.ui-dropdown-list-trigger {
 .request-listing {
   padding: 1em 0;
   a {
-    font-weight: bold;
+    font-weight: 600;
     &:hover,
     &:active,
     &:focus {
