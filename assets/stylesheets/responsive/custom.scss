@@ -1126,4 +1126,8 @@ p.ui-dropdown-list-trigger {
 
 .learn-more-foi__link {
   display: inline-block;
+  // This fixes a bug with buttons in WDTK theme, but only here.
+  // We will return to fix it site-wide shortly
+  height: auto !important;
+  min-height: 2.3125rem;
 }
