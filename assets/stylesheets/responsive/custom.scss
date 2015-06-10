@@ -307,10 +307,6 @@ a.link_button_green_large {
 
 #banner {
   background-color: $main_menu-bg;
-  /* Hide the greeting on smaller devices */
-  .greeting {
-    display: none;
-  }
 
   .rsp_menu_button{
     position: absolute;
