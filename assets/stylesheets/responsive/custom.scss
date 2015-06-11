@@ -11,8 +11,6 @@ $colour_mid_grey: #959287;
 $colour_dark_grey: #6c6b68;
 $colour_black: #333333;
 
-$main_menu-bg: $colour_blue;
-$main_menu-search_text: $colour_black;
 $mysociety-banner: $colour_black;
 $link-color: $colour_blue;
 $body-font-color: $colour_black;
@@ -523,7 +521,7 @@ a.link_button_green_large {
 
 /* Footer */
 #footer {
-  background-color: #333;
+  background-color: $colour_black;
   color: #959287;
   text-align: left;
   padding: 2em 0;
@@ -927,7 +925,7 @@ p.ui-dropdown-list-trigger {
   border-color: $main_menu-bg;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: #424242;
-    border-color: #333;
+    border-color: $colour_black;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -994,7 +992,7 @@ p.ui-dropdown-list-trigger {
 }
 
 .homepage-hero {
-  background-color: #333;
+  background-color: $colour_black;
   background-image: image-url('homepage-background-small.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -1064,7 +1062,7 @@ p.ui-dropdown-list-trigger {
 }
 
 .new-request__content {
-  background-color: #333;
+  background-color: $colour_black;
   padding: 1.888888889em;
 }
 
