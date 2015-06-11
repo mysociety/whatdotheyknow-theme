@@ -39,13 +39,12 @@ $status-success: $colour_green;
 $status-failure: $colour_red;
 $status-pending: $colour_orange;
 
-$notice-bg: #D1E4C6;
-$notice-border: #49A411;
-$error-bg: #EED4D0;
-$error-border: #DA5641;
-
-$action-bg: #FFEECC;
-$action-border: #bf923a;
+$notice-bg: lighten($colour_green, 25%);
+$notice-border: $colour_green;
+$error-bg: lighten($colour_green, 25%);
+$error-border: $colour_red;
+$action-bg: lighten($colour_yellow, 25%);
+$action-border: $colour_yellow;
 
 /* Mixin styles */
 
