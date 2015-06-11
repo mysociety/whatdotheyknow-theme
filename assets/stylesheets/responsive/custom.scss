@@ -295,6 +295,11 @@ a.link_button_green_large {
 
 /* Logged and local options act like submenus */
 #logged_in_bar{
+  border-top: 2px solid rgba(0,0,0,0.1);
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  @media( min-width: $main_menu-mobile_menu_cutoff ) {
+    border: 0;
+  }
   a {
     @extend .menu-item;
     @extend .sub-menu-item;
