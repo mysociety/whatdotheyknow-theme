@@ -1,11 +1,3 @@
-$mysociety-banner: #333333;
-$link-color: #10639B;
-$body-font-color: #222;
-$body-bg: #F4F4F4;
-$button-bg: #14c975;
-$heading-color: #572115;
-$font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-
 $colour_orange: #f4a140;
 $colour_blue: #4faded;
 $colour_green: #62b356;
@@ -19,9 +11,8 @@ $colour_mid_grey: #959287;
 $colour_dark_grey: #6c6b68;
 $colour_black: #333333;
 
-
 $main_menu-bg: $colour_blue;
-$main_menu-search_text: #333;
+$main_menu-search_text: $colour_black;
 $mysociety-banner: $colour_black;
 $link-color: $colour_blue;
 $body-font-color: $colour_black;
@@ -29,6 +20,7 @@ $body-bg: $colour_off_white;
 $button-bg: $colour_blue;
 $heading-color: $colour_black;
 $font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
 
 $main_menu-bg: $colour_blue;
 $main_menu-search_text: $colour_black;
