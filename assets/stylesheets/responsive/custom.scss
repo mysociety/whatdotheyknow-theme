@@ -1130,6 +1130,7 @@ p.ui-dropdown-list-trigger {
 .homepage-how-it-works {
   background-color: #fff;
   padding: 2em 0;
+  margin-bottom: 2em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 3em 0 4em;
     position: relative;
@@ -1138,7 +1139,7 @@ p.ui-dropdown-list-trigger {
       content:"";
       display: block;
       width: 100%;
-      background-color: #f4f4f4;
+      background-color: $colour_off_white;
       height: 8px;
       position: absolute;
       top: 468px;
@@ -1164,7 +1165,7 @@ p.ui-dropdown-list-trigger {
 
 .hiw__subtitle {
   font-size: 1.125em;
-  color: #9797A4;
+  color: $colour_mid_grey;
   font-weight: normal;
   margin-top: 0;
   line-height: 1.5em;
@@ -1183,7 +1184,7 @@ p.ui-dropdown-list-trigger {
       content:"";
       display: block;
       width: 70%;
-      background-color: #4a4a4a;
+      background-color: $colour_black;
       height: 8px;
       position: absolute;
       top: 243px;
@@ -1249,7 +1250,7 @@ p.ui-dropdown-list-trigger {
   }
   p {
     border-radius: 38px;
-    background-color: #4A4A4A;
+    background-color: $colour_black;
     color: #fff;
     text-align: center;
     width: 76px;
