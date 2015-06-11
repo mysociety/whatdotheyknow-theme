@@ -72,14 +72,13 @@ $action-border: #bf923a;
 
 .button-secondary {
     @extend .button-base;
-    background-color: transparent;
-    color: $button-bg;
-    border: 1px solid transparentize(#4a4a4a, 0.85);
+    background-color: #ddd;
+    color: #333;
+    font-weight: normal;
     &:hover,
     &:active,
     &:focus {
-        color: darken($button-bg, 7.5%);
-        border-color: transparentize(#4a4a4a, 0.7);
+        background-color: darken(#edece8, 7.5%);
     }
 }
 
