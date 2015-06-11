@@ -29,10 +29,10 @@ $main_menu-link_bg: $main_menu-bg;
 $main_menu-active_link_bg: $body-bg;
 $main_menu-active_link_text: $main_menu-link_bg;
 
-$incoming-correspondence-color: #88bdab;
+$incoming-correspondence-color: $colour_violet;
 $incoming-correspondence-background: #fff;
-$outgoing-correspondence-color: #e66800;
-$outgoing-correspondence-background: #fff1e6;
+$outgoing-correspondence-color: $colour_orange;
+$outgoing-correspondence-background: #fff;
 $comment-color: #ccc;
 
 $status-success: $colour_green;
