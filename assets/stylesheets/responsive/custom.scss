@@ -4,7 +4,7 @@ $body-font-color: #222;
 $body-bg: #F4F4F4;
 $button-bg: #14c975;
 $heading-color: #572115;
-$font-family: "ff-tisa-sans-web-pro", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 $main_menu-bg: #BD3213;
 $main_menu-search_text: #333;
@@ -59,7 +59,7 @@ $action-border: #bf923a;
 /* Selected menu item */
 
 .selected-menu-item {
-  font-weight: bold;
+  font-weight: 600;
   color: $main_menu-active_link_text;
   background-color: $main_menu-active_link_bg;
   &:hover{
@@ -93,6 +93,7 @@ a{
 
 h1, h2, h3, h4, h5, h6 {
   color: $heading-color;
+  font-weight: 600; //semibold looks slightly better in source sans
 }
 
 .inline-list {
@@ -167,7 +168,7 @@ form input[type=submit], a.link_button_green, a.link_button_green_large {
   a.link_button_green, a.link_button_green_large {
     padding: 0 7px;
     height: 31px;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   form input[type=submit] {
@@ -881,7 +882,7 @@ p.ui-dropdown-list-trigger {
 .request-listing {
   padding: 1em 0;
   a {
-    font-weight: bold;
+    font-weight: 600;
     &:hover,
     &:active,
     &:focus {
@@ -1027,6 +1028,9 @@ p.ui-dropdown-list-trigger {
       height: 8px;
       position: absolute;
       top: 468px;
+      @include respond-min(61.875em) {
+        top: 441px;
+      }
       left: 0;
       z-index: 0;
     }
@@ -1097,6 +1101,7 @@ p.ui-dropdown-list-trigger {
     min-height: 190px;
     text-align: center;
     margin-bottom: 0;
+    padding: 1.25em;
     &:after {
       top: 100%;
       left: 50%;
@@ -1110,6 +1115,9 @@ p.ui-dropdown-list-trigger {
       border-top-color: $main_menu-bg;
       border-width: 16px;
       margin-left: -16px;
+    }
+    @include respond-min(62em) {
+      padding: 1.5em;
     }
   }
 
