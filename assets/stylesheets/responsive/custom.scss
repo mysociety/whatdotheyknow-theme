@@ -37,9 +37,9 @@ $outgoing-correspondence-color: #e66800;
 $outgoing-correspondence-background: #fff1e6;
 $comment-color: #ccc;
 
-$status-success: #24a378;
-$status-failure: #bd3200;
-$status-pending: #e66800;
+$status-success: $colour_green;
+$status-failure: $colour_red;
+$status-pending: $colour_orange;
 
 $notice-bg: #D1E4C6;
 $notice-border: #49A411;
