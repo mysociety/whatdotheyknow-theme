@@ -526,7 +526,7 @@ a.link_button_green_large {
 /* Footer */
 #footer {
   background-color: $colour_black;
-  color: #959287;
+  color: $colour_mid_grey;
   text-align: left;
   padding: 2em 0;
   font-size: 1em;
@@ -875,7 +875,7 @@ p.ui-dropdown-list-trigger {
   list-style-type: none;
   border-bottom: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    border-bottom-color: #555;
+    border-bottom-color: $colour_dark_grey;
   }
   &:last-child {
     @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -911,7 +911,7 @@ p.ui-dropdown-list-trigger {
   border-bottom: none;
   background-color: darken($main_menu-bg, 5%);
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: darken(#424242, 10%);
+    background-color: darken($colour_mid_grey, 10%);
   }
   color: #fff;
 
@@ -956,7 +956,7 @@ p.ui-dropdown-list-trigger {
 .latest-requests {
   h4 {
     font-size: 1.125em;
-    color: #9797A4;
+    color: $colour_mid_grey;
     font-weight: normal;
     margin-top: 0;
     line-height: 1.5em;
@@ -991,7 +991,7 @@ p.ui-dropdown-list-trigger {
 
 .request-body__time-ago {
   font-size: 0.875em;
-  color: #9797A4;
+  color: $colour_mid_grey;
   margin-top: 0.25em;
 }
 
