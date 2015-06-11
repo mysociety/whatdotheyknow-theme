@@ -1010,11 +1010,24 @@ p.ui-dropdown-list-trigger {
   }
 
   a {
-    color: #fff;
+    color: $colour_yellow;
     &:hover,
     &:active,
     &:focus {
-      color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+  }
+
+  .link_button_green {
+    color: #fff;
+    background-color: $colour_yellow;
+    border-color: darken($colour_yellow, 15%);
+    color: $colour_black;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $colour_blue;
+      border-color: darken($colour_blue, 15%);
     }
   }
 
@@ -1053,6 +1066,9 @@ p.ui-dropdown-list-trigger {
 
 .intro__browse {
   font-size: 1.3125em;
+  a {
+    font-weight: 600;
+  }
   @include respond-min($main_menu-mobile_menu_cutoff) {
     font-size: 1.6875em;
   }
