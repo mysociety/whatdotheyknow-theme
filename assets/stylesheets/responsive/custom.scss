@@ -1115,6 +1115,12 @@ p.ui-dropdown-list-trigger {
     background-position: left center;
     background-size: 13px 13px;
     text-decoration: none;
+    color: #fff;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $colour_yellow;
+    }
     @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       background-image: image-url('arrow-pointing-down@2.png');
     }
