@@ -1028,6 +1028,9 @@ p.ui-dropdown-list-trigger {
       height: 8px;
       position: absolute;
       top: 468px;
+      @include respond-min(61.875em) {
+        top: 441px;
+      }
       left: 0;
       z-index: 0;
     }
@@ -1098,6 +1101,7 @@ p.ui-dropdown-list-trigger {
     min-height: 190px;
     text-align: center;
     margin-bottom: 0;
+    padding: 1.25em;
     &:after {
       top: 100%;
       left: 50%;
@@ -1111,6 +1115,9 @@ p.ui-dropdown-list-trigger {
       border-top-color: $main_menu-bg;
       border-width: 16px;
       margin-left: -16px;
+    }
+    @include respond-min(62em) {
+      padding: 1.5em;
     }
   }
 
