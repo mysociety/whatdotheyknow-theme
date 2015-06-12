@@ -88,14 +88,14 @@ $action-border: $colour_yellow;
 .button-secondary,
 .button-secondary:visited {
     @extend .button-base;
-    background-color: #ddd;
-    color: #333;
+    background-color: $colour_light_grey;
+    color: $colour_black;
     font-weight: normal;
     &:hover,
     &:active,
     &:focus {
-        background-color: darken(#edece8, 7.5%);
         color: #333;
+        background-color: darken($colour_light_grey, 7.5%);
     }
 }
 
