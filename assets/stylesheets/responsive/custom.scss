@@ -20,7 +20,7 @@ $heading-color: $colour_black;
 $font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 
-$main_menu-bg: $colour_blue;
+$main_menu-bg: darken($colour_blue, 3%);
 $main_menu-search_text: $colour_black;
 $main_menu-link_text: #fff;
 $main_menu-search_bg: #eee;
@@ -267,7 +267,7 @@ a.link_button_green_large {
 /* Header */
 
 #topnav {
-  background-color: $main_menu-bg;
+  background-color: darken($main_menu-bg, 5%);
   @media( min-width: $main_menu-mobile_menu_cutoff ) {
     box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.1);
   }
