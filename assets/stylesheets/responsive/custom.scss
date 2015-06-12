@@ -1229,3 +1229,42 @@ dt {
 dd {
   margin-left: 0;
 }
+
+
+/* Display of sidebars */
+#header_right,
+#right_column {
+  h2 {
+    font-size: 0.777777778em; //14px
+    text-transform: uppercase;
+    color: #333;
+    margin-top: 3.125em;
+    margin-bottom: 1em;
+    font-weight: 600;
+  }
+  .link_button_green {
+    width: 100%;
+  }
+  small {
+    line-height: 1.5em;
+  }
+}
+
+/* #follow_box .feed_link is here to override specificity in the request sidebar,
+   normally .feed_link should be enough */
+#follow_box .feed_link,
+.feed_link {
+  text-align: left;
+  .link_button_green {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+}
+
+.authority__body__sidebar {
+  .feed_link_sidebar {
+    .link_button_green {
+      margin-top: 1em;
+    }
+  }
+}
