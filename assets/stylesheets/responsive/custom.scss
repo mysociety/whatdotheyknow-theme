@@ -132,7 +132,7 @@ $action-border: $colour_yellow;
   }
   transition: background-color 0.5s ease-out;
   &:hover{
-    background-color: darken($main_menu-bg, 5%);
+    background-color: darken($main_menu-bg, 10%);
     color: transparentize($main_menu-link_text, 0);
   }
 }
