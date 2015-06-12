@@ -1205,6 +1205,18 @@ p.ui-dropdown-list-trigger {
      */
     width: 32.1%;
   }
+  h2{
+    margin-top: 1em;
+    font-size: 0.777777778em; //14px
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 1em;
+    font-weight: 600;
+  }
+  ul {
+    list-style: none outside none;
+    padding: 0;
+  }
 }
 
 .controller_help {
