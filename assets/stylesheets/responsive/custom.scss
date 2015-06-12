@@ -116,8 +116,12 @@ a.button,
     border: none;
     &:hover,
     &:active,
-    &:focus {
-        background-color: darken($button-bg, 5%);
+    &:focus,
+    &:visited:hover,
+    &:visited:active,
+    &:visited:focus {
+        background-color: darken($button-bg, 10%);
+        color: #fff;
     }
 }
 
@@ -133,6 +137,7 @@ a.button-secondary,
     &:focus {
         color: #333;
         background-color: darken($colour_light_grey, 7.5%);
+        color: $colour_black;
     }
 }
 
