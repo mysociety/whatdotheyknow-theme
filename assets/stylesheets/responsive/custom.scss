@@ -1025,24 +1025,19 @@ p.ui-dropdown-list-trigger {
     }
   }
 
-  .link_button_green {
+  .button {
     color: #fff;
     background-color: $colour_yellow;
     border-color: darken($colour_yellow, 15%);
     color: $colour_black;
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: $colour_blue;
-      border-color: darken($colour_blue, 15%);
-    }
-  }
-
-  .button {
+    transition: color 300ms ease-out;
     &:hover,
     &:active,
     &:focus {
       color: #fff;
+      background-color: $colour_blue;
+      border-color: darken($colour_blue, 15%);
+      transition: color 300ms ease-out;
     }
   }
 }
