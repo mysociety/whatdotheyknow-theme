@@ -1,5 +1,5 @@
 $colour_orange: #f4a140;
-$colour_blue: #4faded;
+$colour_blue: #419BE8;
 $colour_green: #62b356;
 $colour_yellow: #ffd836;
 $colour_red: #e04b4b;
@@ -12,7 +12,7 @@ $colour_dark_grey: #6c6b68;
 $colour_black: #333333;
 
 $mysociety-banner: $colour_black;
-$link-color: darken($colour_blue, 5%);
+$link-color: darken($colour_blue, 20%);
 $body-font-color: $colour_black;
 $body-bg: $colour_off_white;
 $button-bg: $colour_blue;
@@ -271,7 +271,7 @@ a.link_button_green_large {
 /* Header */
 
 #topnav {
-  background-color: darken($main_menu-bg, 5%);
+  background-color: desaturate(darken($main_menu-bg, 2.5%), 5%);
   @media( min-width: $main_menu-mobile_menu_cutoff ) {
     box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.1);
   }
