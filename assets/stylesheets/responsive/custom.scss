@@ -987,6 +987,13 @@ p.ui-dropdown-list-trigger {
     margin-bottom: 0;
     line-height: 1.35em;
   }
+  a {
+    &:hover,
+    &:active,
+    &:focus {
+      color: $colour_black;
+    }
+  }
 }
 
 .request-body__time-ago {
