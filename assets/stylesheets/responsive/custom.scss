@@ -46,6 +46,41 @@ $error-border: $colour_red;
 $action-bg: lighten($colour_yellow, 25%);
 $action-border: $colour_yellow;
 
+/* General styles */
+body{
+  background-color: $body-bg;
+}
+
+.entirebody {
+  font-family: $font-family;
+}
+
+a,
+a:visited {
+  color: $link-color;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $colour_black;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $heading-color;
+  font-weight: 600; //semibold looks slightly better in source sans
+}
+
+.inline-list {
+  list-style: none outside none;
+  padding: 0;
+  li {
+    display: inline-block;
+    margin-right: 1.25em;
+  }
+}
+
+
+
 /* Mixin styles */
 
 /* Hide text when it's replaced by an image */
@@ -72,6 +107,7 @@ $action-border: $colour_yellow;
     }
 }
 
+a.button,
 .button,
 .button:visited {
     @extend .button-base;
@@ -85,6 +121,7 @@ $action-border: $colour_yellow;
     }
 }
 
+a.button-secondary,
 .button-secondary,
 .button-secondary:visited {
     @extend .button-base;
@@ -156,39 +193,6 @@ $action-border: $colour_yellow;
         text-decoration: underline;
         background-color: transparent;
     }
-  }
-}
-
-/* General styles */
-body{
-  background-color: $body-bg;
-}
-
-.entirebody {
-  font-family: $font-family;
-}
-
-a,
-a:visited {
-  color: $link-color;
-  &:hover,
-  &:active,
-  &:focus {
-    color: $colour_black;
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: $heading-color;
-  font-weight: 600; //semibold looks slightly better in source sans
-}
-
-.inline-list {
-  list-style: none outside none;
-  padding: 0;
-  li {
-    display: inline-block;
-    margin-right: 1.25em;
   }
 }
 
