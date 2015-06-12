@@ -702,16 +702,6 @@ a.link_to_this {
   }
 }
 
-/* Help pages */
-
-dt {
-  color: $heading-color;
-  font-weight: 700;
-  @include respond-min( $main_menu-mobile_menu_cutoff ){
-    font-size: 2em;
-  }
-}
-
 /* Authority page */
 .action-bar__follower-count {
   padding: 3px;
@@ -1195,6 +1185,7 @@ p.ui-dropdown-list-trigger {
 }
 
 /* Help pages */
+
 .help-sidebar {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: absolute;
@@ -1223,5 +1214,13 @@ p.ui-dropdown-list-trigger {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: relative;
     margin-left: 28%;
+  }
+}
+
+dt {
+  color: $heading-color;
+  font-weight: 700;
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    font-size: 2em;
   }
 }
