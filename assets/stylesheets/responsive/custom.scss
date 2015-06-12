@@ -37,7 +37,7 @@ $comment-color: #ccc;
 
 $status-success: $colour_green;
 $status-failure: $colour_red;
-$status-pending: $colour_orange;
+$status-pending: desaturate(darken($colour_orange, 15%), 2.5%);
 
 $notice-bg: lighten($colour_green, 25%);
 $notice-border: $colour_green;
