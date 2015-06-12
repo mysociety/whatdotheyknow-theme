@@ -12,7 +12,7 @@ $colour_dark_grey: #6c6b68;
 $colour_black: #333333;
 
 $mysociety-banner: $colour_black;
-$link-color: $colour_blue;
+$link-color: darken($colour_blue, 5%);
 $body-font-color: $colour_black;
 $body-bg: $colour_off_white;
 $button-bg: $colour_blue;
