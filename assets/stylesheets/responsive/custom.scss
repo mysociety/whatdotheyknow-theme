@@ -702,16 +702,6 @@ a.link_to_this {
   }
 }
 
-/* Help pages */
-
-dt {
-  color: $heading-color;
-  font-weight: 700;
-  @include respond-min( $main_menu-mobile_menu_cutoff ){
-    font-size: 2em;
-  }
-}
-
 /* Authority page */
 .action-bar__follower-count {
   padding: 3px;
@@ -1192,4 +1182,50 @@ p.ui-dropdown-list-trigger {
 
 .learn-more-foi__link {
 
+}
+
+/* Help pages */
+
+.help-sidebar {
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    position: absolute;
+    left: -39.1%;
+    /* Tricky maths here - we want the side bar to be roughly 25% of the total width
+       but our context here is .controller-help, which is 72% width already. So to get
+       ~25% of the width, we need ~35% of the context. Same applies to the positioning above
+     */
+    width: 32.1%;
+  }
+  h2{
+    margin-top: 1em;
+    font-size: 0.777777778em; //14px
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 1em;
+    font-weight: 600;
+  }
+  ul {
+    list-style: none outside none;
+    padding: 0;
+  }
+}
+
+.controller_help {
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    position: relative;
+    margin-left: 28%;
+  }
+}
+
+dt {
+  color: $heading-color;
+  font-weight: 600;
+  line-height: 1.5em;
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    font-size: 1.3125em;
+  }
+}
+
+dd {
+  margin-left: 0;
 }
