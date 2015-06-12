@@ -1268,3 +1268,17 @@ dd {
     }
   }
 }
+
+.request_short_listing {
+  h3 {
+    font-size: 1.125em;
+  }
+  p {
+    font-size: 0.875em;
+    line-height: 1.5em;
+  }
+  time {
+    display: block;
+    color: #777;
+  }
+}
