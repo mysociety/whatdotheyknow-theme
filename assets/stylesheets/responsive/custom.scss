@@ -1219,8 +1219,13 @@ p.ui-dropdown-list-trigger {
 
 dt {
   color: $heading-color;
-  font-weight: 700;
+  font-weight: 600;
+  line-height: 1.5em;
   @include respond-min( $main_menu-mobile_menu_cutoff ){
-    font-size: 2em;
+    font-size: 1.3125em;
   }
+}
+
+dd {
+  margin-left: 0;
 }
