@@ -1556,3 +1556,27 @@ div.pagination span.disabled {
   @extend .button-disabled;
   margin: 0 0.2em;
 }
+
+#sign_in_reason {
+  font-weight: 600;
+  font-size: 2.5em;
+  margin: 0.67em 0;
+}
+
+.sign-in-wrapper {
+  padding: 1em;
+  background-color: $colour_light_grey;
+  border-radius: 5px;
+  position: relative;
+  top: 2em;
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    padding: 1em 1.5em;
+  }
+  h2 {
+    margin-top: 0.4em;
+  }
+  p {
+    margin-bottom: 0.5em;
+  }
+}
+
