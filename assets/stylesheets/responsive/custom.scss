@@ -673,6 +673,27 @@ div.correspondence {
   }
 }
 
+.preview-pane {
+  .correspondence {
+    padding: 1em;
+    border: 1px solid $colour_light_grey;
+    border-radius: 5px;
+  }
+}
+
+.preview_subject,
+.preview_to {
+  font-weight: 600;
+  strong {
+    color: $colour_mid_grey;
+  }
+}
+
+input#reedit_button {
+  font-weight: normal;
+  color: $colour_dark_grey;
+}
+
 .comment_in_request {
   a.link_to_this {
     background-color: $comment-color;
