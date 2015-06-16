@@ -99,6 +99,7 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     transition: background-color 300ms ease-out;
     margin-bottom: 0;
+    font-family: $font-family;
     &:hover,
     &:active,
     &:focus {
