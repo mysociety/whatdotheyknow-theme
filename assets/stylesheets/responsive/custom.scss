@@ -1248,6 +1248,14 @@ dd {
   small {
     line-height: 1.5em;
   }
+  a[href$="/report/new"] {
+    // We aren't overriding the sidebar so can't get hold of this
+    // link easily, the selector above nest within #right_column
+    // should be enough
+    @extend .button-secondary;
+    text-align: center;
+    width: 100%;
+  }
 }
 
 /* #follow_box .feed_link is here to override specificity in the request sidebar,
