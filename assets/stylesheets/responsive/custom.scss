@@ -59,7 +59,8 @@ $action-border: #bf923a;
     }
 }
 
-.button {
+.button,
+.button:visited {
     @extend .button-base;
     color: #fff;
     background-color: $button-bg;
@@ -71,7 +72,8 @@ $action-border: #bf923a;
     }
 }
 
-.button-secondary {
+.button-secondary,
+.button-secondary:visited {
     @extend .button-base;
     background-color: #ddd;
     color: #333;
@@ -128,7 +130,8 @@ body{
   font-family: $font-family;
 }
 
-a{
+a,
+a:visited {
   color: $link-color;
 }
 
