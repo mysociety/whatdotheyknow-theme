@@ -1447,3 +1447,37 @@ a img.alignleft {
     margin: 0;
     padding: 0 0.33em 0.33em;
 }
+
+// Pagination
+div.pagination {
+  // using div.pagination here to override specificity
+  padding-top: 1em;
+  margin-bottom: 1em;
+}
+
+div.pagination span.current,
+div.pagination a,
+div.pagination a:visited,
+.pagination .previous_page,
+.pagination .next_page,
+.pagination .current {
+  @extend .button-secondary;
+  margin: 0 0.2em;
+}
+
+.pagination .current {
+  background-color: $main_menu-bg;
+  color: #fff;
+  &:hover,
+  &:active,
+  &:focus {
+    color: #fff;
+    background-color: $main_menu-bg;
+  }
+}
+
+div.pagination span.disabled {
+  @extend .button-tertiary;
+  @extend .button-disabled;
+  margin: 0 0.2em;
+}
