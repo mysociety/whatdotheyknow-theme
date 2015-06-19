@@ -80,6 +80,7 @@ $action-border: #bf923a;
     &:active,
     &:focus {
         background-color: darken(#edece8, 7.5%);
+        color: #333;
     }
 }
 
@@ -703,9 +704,37 @@ a.link_to_this {
 }
 
 /* Authority page */
+.action-bar__follow-button,
+.feed_link_sidebar {
+  .link_button_green {
+    @extend .button-secondary;
+  }
+}
+
+.authority__body__sidebar .list-filter-item input[type=submit] {
+  @extend .button-secondary;
+}
+
+.action-bar__follow-button {
+  .link_button_green {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
 .action-bar__follower-count {
-  padding: 3px;
-  font-size: 1.1rem;
+  color: #777;
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    padding: 0.5em 1.25em;
+    border: 1px solid #e9e9e9;
+    position: relative;
+    left: -16px;
+    line-height: 1em;
+    border-left: 0;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 /* LANGUAGE SWITCHER */
