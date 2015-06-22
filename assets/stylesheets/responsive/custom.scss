@@ -1325,6 +1325,13 @@ dd {
 .act_link {
   line-height: 1.5em;
   margin-bottom: 0.5em;
+  a[href$="&via=whatdotheyknow"] {
+    padding-left: 20px;
+    background-image: image-url('twitter-16.png');
+    background-size: 16px;
+    background-position: 0 3px;
+    background-repeat: no-repeat;
+  }
 }
 
 // blog
