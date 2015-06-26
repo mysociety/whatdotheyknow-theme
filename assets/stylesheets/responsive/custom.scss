@@ -648,6 +648,9 @@ a.link_button_green_large {
 div.correspondence {
   background-color: #fff;
   padding-bottom: 0.5em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  border-radius: 5px;
+  margin-bottom: 2.5em;
   .event_actions {
     margin-bottom: 0;
   }
@@ -656,7 +659,6 @@ div.correspondence {
 .incoming.correspondence {
   border: none;
   border-top: 8px solid $incoming-correspondence-color;
-  box-shadow: 0 3px 3px #d3d3d3;
   background-color: $incoming-correspondence-background;
   a.link_to_this {
     background-color: $incoming-correspondence-color;
@@ -666,7 +668,6 @@ div.correspondence {
 .outgoing.correspondence {
   border: none;
   border-top: 8px solid $outgoing-correspondence-color;
-  box-shadow: 0 3px 3px #d3d3d3;
   background-color: $outgoing-correspondence-background;
   a.link_to_this {
     background-color: $outgoing-correspondence-color;
@@ -767,6 +768,9 @@ a.link_to_this {
 }
 
 /* Attachments*/
+.attachments {
+  margin-bottom: 2em;
+}
 
 .view_html_prefix {
   font-family: $font-family;
