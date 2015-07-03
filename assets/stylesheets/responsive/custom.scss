@@ -1541,7 +1541,7 @@ div.pagination a:visited,
 .pagination .next_page,
 .pagination .current {
   @extend .button-secondary;
-  margin: 0 0.2em;
+  margin: 0 0.2em 0.5em;
 }
 
 .pagination .current {
@@ -1583,4 +1583,3 @@ div.pagination span.disabled {
     margin-bottom: 0.5em;
   }
 }
-
