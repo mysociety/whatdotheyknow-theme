@@ -1,50 +1,51 @@
-$colour_orange: #f4a140;
-$colour_blue: #419BE8;
-$colour_green: #62b356;
-$colour_yellow: #ffd836;
-$colour_red: #e04b4b;
-$colour_violet: #a94ca6;
-$colour_purple: #5c377f;
-$colour_off_white: #f3f1eb;
-$colour_light_grey: #e2dfd9;
-$colour_mid_grey: #959287;
-$colour_dark_grey: #6c6b68;
-$colour_black: #333333;
+$color_orange: #f4a140;
+$color_blue: #419BE8;
+$color_green: #62b356;
+$color_yellow: #ffd836;
+$color_red: #e04b4b;
+$color_violet: #a94ca6;
+$color_purple: #5c377f;
+$color_off_white: #f3f1eb;
+$color_light_grey: #e2dfd9;
+$color_mid_grey: #959287;
+$color_dark_grey: #6c6b68;
+$color_black: #333333;
+$color_white: #ffffff;
 
-$mysociety-banner: $colour_black;
-$link-color: darken($colour_blue, 20%);
-$body-font-color: $colour_black;
-$body-bg: $colour_off_white;
-$button-bg: $colour_blue;
-$heading-color: $colour_black;
+$mysociety-banner: $color_black;
+$link-color: darken($color_blue, 20%);
+$body-font-color: $color_black;
+$body-bg: $color_off_white;
+$button-bg: $color_blue;
+$heading-color: $color_black;
 $font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 
-$main_menu-bg: darken($colour_blue, 3%);
-$main_menu-search_text: $colour_black;
-$main_menu-link_text: #fff;
-$main_menu-search_bg: #eee;
+$main_menu-bg: darken($color_blue, 3%);
+$main_menu-search_text: $color_black;
+$main_menu-link_text: $color_white;
+$main_menu-search_bg: $color_light_grey;
 
 $main_menu-link_bg: $main_menu-bg;
 $main_menu-active_link_bg: $body-bg;
 $main_menu-active_link_text: $main_menu-link_bg;
 
-$incoming-correspondence-color: $colour_violet;
-$incoming-correspondence-background: #fff;
-$outgoing-correspondence-color: $colour_orange;
-$outgoing-correspondence-background: #fff;
-$comment-color: #ccc;
+$incoming-correspondence-color: $color_violet;
+$incoming-correspondence-background: $color_white;
+$outgoing-correspondence-color: $color_orange;
+$outgoing-correspondence-background: $color_white;
+$comment-color: darken($color_light_grey, 10%);
 
-$status-success: $colour_green;
-$status-failure: $colour_red;
-$status-pending: desaturate(darken($colour_orange, 15%), 2.5%);
+$status-success: $color_green;
+$status-failure: $color_red;
+$status-pending: desaturate(darken($color_orange, 15%), 2.5%);
 
-$notice-bg: lighten($colour_green, 25%);
-$notice-border: $colour_green;
-$error-bg: lighten($colour_green, 25%);
-$error-border: $colour_red;
-$action-bg: lighten($colour_yellow, 25%);
-$action-border: $colour_yellow;
+$notice-bg: lighten($color_green, 25%);
+$notice-border: $color_green;
+$error-bg: lighten($color_green, 25%);
+$error-border: $color_red;
+$action-bg: lighten($color_yellow, 25%);
+$action-border: $color_yellow;
 
 /* General styles */
 body{
@@ -61,7 +62,7 @@ a:visited {
   &:hover,
   &:active,
   &:focus {
-    color: $colour_black;
+    color: $color_black;
   }
 }
 
@@ -112,7 +113,7 @@ a.button,
 .button,
 .button:visited {
     @extend .button-base;
-    color: #fff;
+    color: $color_white;
     background-color: $button-bg;
     border: none;
     &:hover,
@@ -122,7 +123,7 @@ a.button,
     &:visited:active,
     &:visited:focus {
         background-color: darken($button-bg, 10%);
-        color: #fff;
+        color: $color_white;
     }
 }
 
@@ -130,29 +131,29 @@ a.button-secondary,
 .button-secondary,
 .button-secondary:visited {
     @extend .button-base;
-    background-color: $colour_light_grey;
-    color: $colour_black;
+    background-color: $color_light_grey;
+    color: $color_black;
     font-weight: normal;
     &:hover,
     &:active,
     &:focus {
-        color: #333;
-        background-color: darken($colour_light_grey, 7.5%);
-        color: $colour_black;
+        color: $color_black;
+        background-color: darken($color_light_grey, 7.5%);
+        color: $color_black;
     }
 }
 
 .button-tertiary {
     @extend .button-base;
     background-color: transparent;
-    color: #333;
+    color: $color_black;
     font-weight: normal;
-    border: 1px solid #e9e9e9;
+    border: 1px solid $color_light_grey;
     &:hover,
     &:active,
     &:focus {
-        background-color: darken(#edece8, 7.5%);
-        border: 1px solid #ddd;
+        background-color: darken($color_light_grey, 7.5%);
+        border: 1px solid darken($color_light_grey, 12.5%);
     }
 }
 
@@ -384,7 +385,7 @@ a.link_button_green_large {
     &:hover,
     &:active,
     &:focus {
-      color: #fff;
+      color: $color_white;
     }
   }
   #logged_in_links {
@@ -419,7 +420,7 @@ a.link_button_green_large {
     a {
       width: 100%;
       height: 100%;
-      color: #fff;
+      color: $color_white;
     }
   }
 
@@ -439,7 +440,7 @@ a.link_button_green_large {
     }
     a {
       text-decoration: none;
-      color: #fff;
+      color: $color_white;
       &:hover,
       &:active,
       &:focus {
@@ -462,7 +463,7 @@ a.link_button_green_large {
 .greeting {
   //Truncate really long names
   max-width: 19em;
-  color: #fff;
+  color: $color_white;
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     max-width: 16em;
   }
@@ -535,14 +536,14 @@ a.link_button_green_large {
 
 /* Footer */
 #footer {
-  background-color: $colour_black;
-  color: $colour_mid_grey;
+  background-color: $color_black;
+  color: $color_mid_grey;
   text-align: left;
   padding: 2em 0;
   font-size: 1em;
   a {
     text-decoration: none;
-    color: #fff;
+    color: $color_white;
     &:hover,
     &:active,
     &:focus {
@@ -564,7 +565,7 @@ a.link_button_green_large {
     @include grid-column(5);
   }
   h2 {
-    color: #fff;
+    color: $color_white;
     font-size: 1.4375em;
   }
   p {
@@ -646,7 +647,7 @@ a.link_button_green_large {
 
 /* Request page */
 div.correspondence {
-  background-color: #fff;
+  background-color: $color_white;
   padding-bottom: 0.5em;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
   border-radius: 5px;
@@ -677,7 +678,7 @@ div.correspondence {
 .preview-pane {
   .correspondence {
     padding: 1em;
-    border: 1px solid $colour_light_grey;
+    border: 1px solid $color_light_grey;
     border-radius: 5px;
   }
 }
@@ -686,13 +687,13 @@ div.correspondence {
 .preview_to {
   font-weight: 600;
   strong {
-    color: $colour_mid_grey;
+    color: $color_mid_grey;
   }
 }
 
 input#reedit_button {
   font-weight: normal;
-  color: $colour_dark_grey;
+  color: $color_dark_grey;
 }
 
 .comment_in_request {
@@ -720,7 +721,7 @@ a.link_to_this {
   border-radius: 0;
   border: 1px solid $heading-color;
   .close-button {
-    background-color: #fff;
+    background-color: $color_white;
     float: right;
   }
 }
@@ -803,10 +804,10 @@ a.link_to_this {
 }
 
 .action-bar__follower-count {
-  color: #777;
+  color: $color_dark_grey;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.5em 1.25em;
-    border: 1px solid #e9e9e9;
+    border: 1px solid $color_light_grey;
     position: relative;
     left: -16px;
     line-height: 1em;
@@ -839,7 +840,7 @@ a.link_to_this {
 
 p.ui-dropdown-list-trigger {
   margin-bottom: 0;
-  color: #fff;
+  color: $color_white;
   color: rgba(255, 255, 255, 0.8);
   padding: 0.5em 1em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -855,7 +856,7 @@ p.ui-dropdown-list-trigger {
   position: relative;
   z-index: 999;
   border-radius: 3px;
-  color: #fff;
+  color: $color_white;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.66em 2em 0.66em 0.66em;
   }
@@ -872,7 +873,7 @@ p.ui-dropdown-list-trigger {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   @include ie8 {
-    border-top: 5px solid #fff;
+    border-top: 5px solid $color_white;
   }
   border-top: 5px solid rgba(255,255,255,0.4);
 }
@@ -910,7 +911,7 @@ p.ui-dropdown-list-trigger {
   list-style-type: none;
   border-bottom: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    border-bottom-color: $colour_dark_grey;
+    border-bottom-color: $color_dark_grey;
   }
   &:last-child {
     @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -936,7 +937,7 @@ p.ui-dropdown-list-trigger {
     color: $main_menu-link_text;
   }
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: #424242;
+    background-color: darken($color_dark_grey, 10%);
   }
   transition: background-color 0.5s ease-out;
 }
@@ -946,9 +947,9 @@ p.ui-dropdown-list-trigger {
   border-bottom: none;
   background-color: darken($main_menu-bg, 5%);
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: darken($colour_mid_grey, 10%);
+    background-color: darken($color_mid_grey, 10%);
   }
-  color: #fff;
+  color: $color_white;
 
 }
 
@@ -960,11 +961,11 @@ p.ui-dropdown-list-trigger {
 
 .ui-dropdown-list.active .current-locale {
   background-color: $main_menu-bg;
-  color: #fff;
+  color: $color_white;
   border-color: $main_menu-bg;
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: #424242;
-    border-color: $colour_black;
+    background-color: darken($color_dark_grey, 10%);
+    border-color: $color_black;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
   }
@@ -972,7 +973,7 @@ p.ui-dropdown-list-trigger {
 
 .ui-dropdown-list.active .current-locale:after {
   @include ie8 {
-    border-top-color: #fff;
+    border-top-color: $color_white;
   }
   border-top-color: rgba(255,255,255,0.4);
 }
@@ -991,7 +992,7 @@ p.ui-dropdown-list-trigger {
 .latest-requests {
   h4 {
     font-size: 1.125em;
-    color: $colour_mid_grey;
+    color: $color_mid_grey;
     font-weight: normal;
     margin-top: 0;
     line-height: 1.5em;
@@ -1026,24 +1027,24 @@ p.ui-dropdown-list-trigger {
     &:hover,
     &:active,
     &:focus {
-      color: $colour_black;
+      color: $color_black;
     }
   }
 }
 
 .request-body__time-ago {
   font-size: 0.875em;
-  color: $colour_mid_grey;
+  color: $color_mid_grey;
   margin-top: 0.25em;
 }
 
 .homepage-hero {
-  background-color: $colour_black;
+  background-color: $color_black;
   background-image: image-url('homepage-background-small.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: #fff;
+  color: $color_white;
   padding: 2em 0 5em;
   position: relative;
   @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -1052,26 +1053,26 @@ p.ui-dropdown-list-trigger {
   }
 
   a {
-    color: $colour_yellow;
+    color: $color_yellow;
     &:hover,
     &:active,
     &:focus {
-      color: #fff;
+      color: $color_white;
     }
   }
 
   .button {
-    color: #fff;
-    background-color: $colour_yellow;
-    border-color: darken($colour_yellow, 15%);
-    color: $colour_black;
+    color: $color_white;
+    background-color: $color_yellow;
+    border-color: darken($color_yellow, 15%);
+    color: $color_black;
     transition: color 300ms ease-out;
     &:hover,
     &:active,
     &:focus {
-      color: #fff;
-      background-color: $colour_blue;
-      border-color: darken($colour_blue, 15%);
+      color: $color_white;
+      background-color: $color_blue;
+      border-color: darken($color_blue, 15%);
       transition: color 300ms ease-out;
     }
   }
@@ -1088,7 +1089,7 @@ p.ui-dropdown-list-trigger {
   margin: 0;
   font-size: 2em;
   line-height: 1.142857143em;
-  color: #fff;
+  color: $color_white;
   margin-bottom: 0.428571429em; //18px
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
   @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -1119,19 +1120,19 @@ p.ui-dropdown-list-trigger {
 }
 
 .new-request__content {
-  background-color: $colour_black;
+  background-color: $color_black;
   border-radius: 5px;
   padding: 1.888888889em;
 }
 
 .new-request__title {
-  color: #fff;
+  color: $color_white;
   font-size: 1.4375em;
   margin: 0 0 0.5em;
 }
 
 .new-request__description {
-  color: transparentize(#ffffff, 0.2);
+  color: transparentize($color_white, 0.2);
 }
 
 .hero__learn-more {
@@ -1153,11 +1154,11 @@ p.ui-dropdown-list-trigger {
     background-position: left center;
     background-size: 13px 13px;
     text-decoration: none;
-    color: #fff;
+    color: $color_white;
     &:hover,
     &:active,
     &:focus {
-      color: $colour_yellow;
+      color: $color_yellow;
     }
     @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       background-image: image-url('arrow-pointing-down@2.png');
@@ -1166,7 +1167,7 @@ p.ui-dropdown-list-trigger {
 }
 
 .homepage-how-it-works {
-  background-color: #fff;
+  background-color: $color_white;
   padding: 2em 0;
   margin-bottom: 2em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -1177,7 +1178,7 @@ p.ui-dropdown-list-trigger {
       content:"";
       display: block;
       width: 100%;
-      background-color: $colour_off_white;
+      background-color: $color_off_white;
       height: 8px;
       position: absolute;
       top: 468px;
@@ -1203,7 +1204,7 @@ p.ui-dropdown-list-trigger {
 
 .hiw__subtitle {
   font-size: 1.125em;
-  color: $colour_mid_grey;
+  color: $color_mid_grey;
   font-weight: normal;
   margin-top: 0;
   line-height: 1.5em;
@@ -1222,7 +1223,7 @@ p.ui-dropdown-list-trigger {
       content:"";
       display: block;
       width: 70%;
-      background-color: $colour_black;
+      background-color: $color_black;
       height: 8px;
       position: absolute;
       top: 243px;
@@ -1245,7 +1246,7 @@ p.ui-dropdown-list-trigger {
   padding: 1.5em;
   background-color: $main_menu-bg;
   border-radius: 5px;
-  color: #fff;
+  color: $color_white;
   line-height: 1.3em;
   font-size: 1.125em;
   position: relative;
@@ -1288,8 +1289,8 @@ p.ui-dropdown-list-trigger {
   }
   p {
     border-radius: 38px;
-    background-color: $colour_black;
-    color: #fff;
+    background-color: $color_black;
+    color: $color_white;
     text-align: center;
     width: 76px;
     height: 76px;
@@ -1297,7 +1298,7 @@ p.ui-dropdown-list-trigger {
     margin: 0 auto;
     font-weight: bold;
     font-size: 3em;
-    border: 5px solid #fff;
+    border: 5px solid $color_white;
     @include respond-min($main_menu-mobile_menu_cutoff) {
       border-radius: 33px;
       margin-top: 23px;
@@ -1335,7 +1336,7 @@ p.ui-dropdown-list-trigger {
     margin-top: 2em;
     font-size: 0.875em; //14px
     text-transform: uppercase;
-    color: $colour_black;
+    color: $color_black;
     margin-bottom: 1em;
     font-weight: 600;
   }
@@ -1371,7 +1372,7 @@ dd {
   h2 {
     font-size: 0.875em; //14px
     text-transform: uppercase;
-    color: #333;
+    color: $color_black;
     margin-top: 3.5em;
     margin-bottom: 0.875em;
     font-weight: 600;
@@ -1421,7 +1422,7 @@ dd {
   }
   time {
     display: block;
-    color: #777;
+    color: $color_dark_grey;
   }
 }
 
@@ -1439,7 +1440,7 @@ dd {
 
 // blog
 #blog {
-  background-color: #fff;
+  background-color: $color_white;
   padding: 1em 1.5em;
   margin-top: 2em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -1454,13 +1455,13 @@ dd {
 .blog_post {
   margin-bottom: 3em;
   padding-bottom: 2em;
-  border-bottom: 1px solid #e9e9e9;
+  border-bottom: 1px solid $color_light_grey;
   h2 a {
     text-decoration: none;
     &:hover,
     &:active,
     &:focus {
-      color: #333;
+      color: $color_black;
       text-decoration: underline;
     }
   }
@@ -1470,7 +1471,7 @@ dd {
   }
   .subtitle {
     font-size: 0.875em;
-    color: #777;
+    color: $color_dark_grey;
   }
   img {
     border: 0;
@@ -1504,8 +1505,8 @@ a img.alignleft {
 }
 
 .wp-caption {
-    background: #fff;
-    border: 1px solid #e9e9e9;
+    background: $color_white;
+    border: 1px solid $color_light_grey;
     max-width: 96%; /* Image does not overflow the content area */
     padding: 0.33em 0.2em 0.5em;
     text-align: center;
@@ -1546,11 +1547,11 @@ div.pagination a:visited,
 
 .pagination .current {
   background-color: $main_menu-bg;
-  color: #fff;
+  color: $color_white;
   &:hover,
   &:active,
   &:focus {
-    color: #fff;
+    color: $color_white;
     background-color: $main_menu-bg;
   }
 }
@@ -1569,7 +1570,7 @@ div.pagination span.disabled {
 
 .sign-in-wrapper {
   padding: 1em;
-  background-color: $colour_light_grey;
+  background-color: $color_light_grey;
   border-radius: 5px;
   position: relative;
   top: 2em;
