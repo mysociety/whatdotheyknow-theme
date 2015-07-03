@@ -1583,3 +1583,8 @@ div.pagination span.disabled {
     margin-bottom: 0.5em;
   }
 }
+
+.only-show-for-print {
+  display: none;
+  visibility: hidden;
+}
