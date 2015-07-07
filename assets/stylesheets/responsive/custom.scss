@@ -633,13 +633,9 @@ a.link_button_green_large {
 /* Request page */
 div.correspondence {
   background-color: $color_white;
-  padding-bottom: 0.5em;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
   border-radius: 5px;
   margin-bottom: 2.5em;
-  .event_actions {
-    margin-bottom: 0;
-  }
 }
 
 .incoming.correspondence {
