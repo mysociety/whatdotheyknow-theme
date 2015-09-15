@@ -1,3 +1,19 @@
 <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,400italic' rel='stylesheet' type='text/css'>
 
+<% %w(57 60 72 76 114 120 144 152 180).each do |size| -%>
+  <% sizes = "#{ size }x#{ size }" %>
+  <%= tag('link', :rel => 'apple-touch-icon',
+                  :sizes => sizes,
+                  :href => image_path("apple-touch-icon-#{ sizes }.png")) %>
+<% end %>
+<link rel="icon" type="image/png" href="<%= image_path('favicon-32x32.png') %>" sizes="32x32">
+<link rel="icon" type="image/png" href="<%= image_path('android-chrome-192x192.png') %>" sizes="192x192">
+<link rel="icon" type="image/png" href="<%= image_path('favicon-96x96.png') %>" sizes="96x96">
+<link rel="icon" type="image/png" href="<%= image_path('favicon-16x16.png') %>" sizes="16x16">
+<link rel="manifest" href="<%= asset_path('manifest.json') %>">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="<%= image_path('mstile-144x144.png') %>">
+<meta name="msapplication-config" content="<%= asset_path('browserconfig.xml') %>">
+<meta name="theme-color" content="#ffffff">
+
 <meta name="google-site-verification" content="DbAHEzh0igI0rZziSexQh5fTrbRfNPSw8BdmrmNY_70" />
