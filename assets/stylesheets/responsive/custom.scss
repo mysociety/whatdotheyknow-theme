@@ -42,7 +42,7 @@ $status-pending: desaturate(darken($color_orange, 15%), 2.5%);
 
 $notice-bg: lighten($color_green, 25%);
 $notice-border: $color_green;
-$error-bg: lighten($color_green, 25%);
+$error-bg: lighten($color_red, 25%);
 $error-border: $color_red;
 $action-bg: lighten($color_yellow, 25%);
 $action-border: $color_yellow;
