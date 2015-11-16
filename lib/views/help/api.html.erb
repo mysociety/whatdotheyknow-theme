@@ -37,7 +37,7 @@ These are the parameters you can add to those URLs, either in the URL or from a 
 use to get updates and links in XML format. Find the URL of the Atom feed in
 one of these ways:
 <ul>
-    <li>Look for the <img src="/images/feed-16.png" alt=""> RSS feed links.</li>
+    <li>Look for the <%= image_tag "feed-16.png", :alt => "RSS icon" %> RSS feed links.</li>
     <li>Examine the <tt>&lt;link rel="alternate" type="application/atom+xml"&gt;</tt> tag in the head of the HTML. </li>
     <li>Add <tt>/feed</tt> to the start of another URL.
 </ul>
@@ -75,7 +75,7 @@ A spreadsheet file listing every body in WhatDoTheyKnow is available:
 <h2> 5. Write API </h2>
 
 <p>
-The write API is designed to be used by authorities to create their own requests in the system. The API is currently used by mySociety's <a href="https://github.com/mysociety/foi-register">FOI Register software</a> to support using Alaveteli as a disclosure log for all FOI activity at a particular public body. More technical information about the write API is available on the <a href="https://github.com/mysociety/alaveteli/wiki/API#write-api">Alaveteli wiki</a>.
+The write API is designed to be used by authorities to create their own requests in the system. The API is currently used by mySociety's <a href="https://github.com/mysociety/foi-register">FOI Register software</a> to support using Alaveteli as a disclosure log for all FOI activity at a particular public body. More technical information about the write API is available on the <a href="http://alaveteli.org/docs/developers/api/">Alaveteli.org site</a>.
 </p>
 
 <hr>
