@@ -50,7 +50,7 @@ Interesting things that we know because of WhatDoTheyKnow</a>.
 
 <dt id="how_many">How many people use the site? <a href="#how_many">#</a> </dt>
 <dd>
-We have over 30,000 registered users and around 15% to 20% of requests to UK Central Government are made through the site.
+We have over <%= number_with_delimiter(User.count.round(-4), :locale => @locale) %> registered users and around 15% to 20% of requests to UK Central Government are made through the site.
 </dd>
 
 <dt id="who">Who makes WhatDoTheyKnow? <a href="#who">#</a> </dt>
