@@ -50,9 +50,11 @@ Rails.configuration.to_prepare do
         ret = $1.downcase
 
         # remove special email domains for UK Government addresses
-        ret.sub!(".gsi.", ".")
-        ret.sub!(".x.", ".")
-        ret.sub!(".pnn.", ".")
+        %w(gsi x pnn).each do |subdomain|
+          if ret =~ /.*\.*#{ subdomain }\.*.*\.gov\.uk$/
+            ret.sub!(".#{ subdomain }.", '.')
+          end
+        end
 
         return ret
       end

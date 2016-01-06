@@ -76,6 +76,18 @@ describe PublicBody do
       end
     end
 
+    it 'does not replace addresses similar to uk-specific government domains' do
+      emails = ['attacker@example.gov.gsi.uk',
+                'attacker@example.gov.x.uk',
+                'attacker@example.gov.pnn.uk',
+                'attacker@example.gsi.gov.uk.example.com']
+
+      emails.each do |email|
+        result = PublicBody.extract_domain_from_email(email)
+        expect(result).to_not eq('example.gov.uk')
+      end
+    end
+
   end
 
 end
