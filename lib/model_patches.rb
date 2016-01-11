@@ -35,6 +35,31 @@ Rails.configuration.to_prepare do
         end
     end
 
+    PublicBody.class_eval do
+      # Return the domain part of an email address, canonicalised and with common
+      # extra UK Government server name parts removed.
+      #
+      # TODO: Extract to library class
+      def self.extract_domain_from_email(email)
+        email =~ /@(.*)/
+        if $1.nil?
+          return nil
+        end
+
+        # take lower case
+        ret = $1.downcase
+
+        # remove special email domains for UK Government addresses
+        %w(gsi x pnn).each do |subdomain|
+          if ret =~ /.*\.*#{ subdomain }\.*.*\.gov\.uk$/
+            ret.sub!(".#{ subdomain }.", '.')
+          end
+        end
+
+        return ret
+      end
+    end
+
     # Add survey methods to RequestMailer
     RequestMailer.class_eval do
         def survey_alert(info_request)

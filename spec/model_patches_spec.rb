@@ -48,3 +48,46 @@ describe InfoRequest, "when creating an email subject for a request" do
     end
 
 end
+
+describe PublicBody do
+
+  describe '.extract_domain_from_email' do
+
+    it 'extracts the domain part of a valid email address' do
+      result = PublicBody.
+        extract_domain_from_email('some.email+address@example.com')
+      expect(result).to eq('example.com')
+    end
+
+    it 'returns nil if the email is invalid' do
+      result = PublicBody.
+        extract_domain_from_email('invalid.email+address.example.com')
+      expect(result).to be_nil
+    end
+
+    it 'replaces various uk-specific government domains' do
+      emails = ['person@example.gsi.gov.uk',
+                'person@example.x.gov.uk',
+                'person@example.pnn.gov.uk']
+
+      emails.each do |email|
+        result = PublicBody.extract_domain_from_email(email)
+        expect(result).to eq('example.gov.uk')
+      end
+    end
+
+    it 'does not replace addresses similar to uk-specific government domains' do
+      emails = ['attacker@example.gov.gsi.uk',
+                'attacker@example.gov.x.uk',
+                'attacker@example.gov.pnn.uk',
+                'attacker@example.gsi.gov.uk.example.com']
+
+      emails.each do |email|
+        result = PublicBody.extract_domain_from_email(email)
+        expect(result).to_not eq('example.gov.uk')
+      end
+    end
+
+  end
+
+end
