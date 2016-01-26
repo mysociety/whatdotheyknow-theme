@@ -26,13 +26,38 @@ Rails.configuration.to_prepare do
             subject_title = html ? self.title : self.title.html_safe
             if (!is_batch_request_template?) && (public_body.url_name == 'general_register_office')
                 # without GQ in the subject, you just get an auto response
-                _('{{law_used_full}} request GQ - {{title}}', :law_used_full => law_used_full,
+                _('{{law_used_full}} request GQ - {{title}}', :law_used_full => law_used_human(:full),
                                                               :title => subject_title)
             else
-                _('{{law_used_full}} request - {{title}}', :law_used_full => law_used_full,
+                _('{{law_used_full}} request - {{title}}', :law_used_full => law_used_human(:full),
                                                            :title => subject_title)
             end
         end
+    end
+
+    PublicBody.class_eval do
+      # Return the domain part of an email address, canonicalised and with common
+      # extra UK Government server name parts removed.
+      #
+      # TODO: Extract to library class
+      def self.extract_domain_from_email(email)
+        email =~ /@(.*)/
+        if $1.nil?
+          return nil
+        end
+
+        # take lower case
+        ret = $1.downcase
+
+        # remove special email domains for UK Government addresses
+        %w(gsi x pnn).each do |subdomain|
+          if ret =~ /.*\.*#{ subdomain }\.*.*\.gov\.uk$/
+            ret.sub!(".#{ subdomain }.", '.')
+          end
+        end
+
+        return ret
+      end
     end
 
     # Add survey methods to RequestMailer
