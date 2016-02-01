@@ -1420,6 +1420,10 @@ dd {
   }
 }
 
+.act_link--writetothem a {
+  background-image: image-url('writetothem.png');
+}
+
 // blog
 #blog {
   background-color: $color_white;
