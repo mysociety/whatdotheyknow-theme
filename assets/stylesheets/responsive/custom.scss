@@ -1589,6 +1589,7 @@ $color_asktheeu_dark_green: #C4DDB9;
   border: 1px solid $color_asktheeu_dark_green;
   border-radius: 3px;
   position: relative;
+  margin-bottom: 2em;
   p {
     font-size: 1.125em;
     @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -1599,11 +1600,13 @@ $color_asktheeu_dark_green: #C4DDB9;
     color: $color_asktheeu_mint_green;
     font-weight: bold;
     font-size: 1.4375em;
+    margin-top: 0;
   }
 }
 
 .asktheeu-promo--homepage {
   margin-top: 2em;
+  margin-bottom: 0;
 }
 
 .asktheeu-promo__image {
