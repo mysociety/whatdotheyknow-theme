@@ -4,8 +4,11 @@
       <div class="hiw-content__headings">
         <h2><%= _("How it works") %></h2>
         <p class="hiw__subtitle">
-        <%= _("You have the <strong>right</strong> to request information from any publicly-funded body, and get answers.
-          WhatDoTheyKnow helps you make a Freedom of Information request. It also publishes all requests online.") %>
+        <%= _("You have the <strong>right</strong> to request information " \
+              "from any publicly-funded body, and get answers. " \
+              "{{site_name}} helps you make a Freedom of Information " \
+              "request. It also publishes all requests online.",
+              :site_name => site_name) %>
         </p>
       </div>
       <div class="hiw-content__steps">
