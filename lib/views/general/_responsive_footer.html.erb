@@ -1,41 +1,41 @@
 <div class="footer" id="footer">
+  <div class="row">
+    <div class="footer__about">
+      <h2><%= site_name %></h2>
+      <p><%= site_name %> is a <%= link_to 'mySociety', "https://www.mysociety.org" %> project, <%= link_to 'run by Volunteers', help_credits_path(:anchor => 'helpus') %> and powered by <%= link_to 'Alaveteli',  help_alaveteli_path %></p>
+      <ul class="about__contact-links">
+        <li>
+          <%= link_to 'Contact us', help_contact_path %>
+        </li>
+        <li>
+          <%= link_to 'Help', help_path %>
+        </li>
+        <li>
+          <%= link_to 'Privacy and cookies', help_privacy_path %>
+        </li>
+        <li>
+          <%= link_to 'API', help_api_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__final">
     <div class="row">
-        <div class="footer__about">
-            <h2><%= site_name %></h2>
-            <p><%= site_name %> is a <%= link_to 'mySociety', "https://www.mysociety.org" %> project, <%= link_to 'run by Volunteers', help_credits_path(:anchor => 'helpus') %> and powered by <%= link_to 'Alaveteli',  help_alaveteli_path %></p>
-            <ul class="about__contact-links">
-                <li>
-                    <%= link_to 'Contact us', help_contact_path %>
-                </li>
-                <li>
-                     <%= link_to 'Help', help_path %>
-                </li>
-                <li>
-                     <%= link_to 'Privacy and cookies', help_privacy_path %>
-                </li>
-                <li>
-                     <%= link_to 'API', help_api_path %>
-                </li>
-            </ul>
-        </div>
+      <div class="final__dedication">
+        <p>Dedicated to <%= link_to 'Chris Lightfoot', "http://mk.ucant.org/archives/000129.html" %>.</p>
+      </div>
+      <div class="final__social-links">
+        <ul>
+          <% unless AlaveteliConfiguration::twitter_username.blank? %>
+            <li>
+              <a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>" class="social-link social-link--twitter">@<%= AlaveteliConfiguration::twitter_username %></a>
+            </li>
+          <% end %>
+          <li>
+            <a href="https://facebook.com/whatdotheyknowcom" class="social-link social-link--facebook">/whatdotheyknowcom</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="footer__final">
-        <div class="row">
-            <div class="final__dedication">
-                <p>Dedicated to <%= link_to 'Chris Lightfoot', "http://mk.ucant.org/archives/000129.html" %>.</p>
-            </div>
-            <div class="final__social-links">
-                <ul>
-                    <% unless AlaveteliConfiguration::twitter_username.blank? %>
-                    <li>
-                        <a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>" class="social-link social-link--twitter">@<%= AlaveteliConfiguration::twitter_username %></a>
-                    </li>
-                    <% end %>
-                    <li>
-                        <a href="https://facebook.com/whatdotheyknowcom" class="social-link social-link--facebook">/whatdotheyknowcom</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
