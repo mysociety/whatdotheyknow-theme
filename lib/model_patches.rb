@@ -33,6 +33,17 @@ Rails.configuration.to_prepare do
                                                            :title => subject_title)
             end
         end
+
+        alias_method :orig_late_calculator, :late_calculator
+
+        def late_calculator
+          @late_calculator ||=
+            if public_body.has_tag?('school')
+              SchoolLateCalculator.new
+            else
+              orig_late_calculator
+            end
+        end
     end
 
     PublicBody.class_eval do
