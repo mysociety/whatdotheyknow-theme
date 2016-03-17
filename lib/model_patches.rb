@@ -69,6 +69,10 @@ Rails.configuration.to_prepare do
 
         return ret
       end
+
+      def is_school?
+        has_tag?('school')
+      end
     end
 
     # Add survey methods to RequestMailer
