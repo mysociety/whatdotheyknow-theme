@@ -17,8 +17,15 @@
 
     <p>
       <strong>
-        <%= link_to _('Browse all authorities...'), list_public_bodies_default_path, :class => 'button-secondary' %>
+        <%= link_to _('Browse all authorities &rarr;'), list_public_bodies_default_path, :class => 'button-secondary' %>
       </strong>
     </p>
+
+    <div class="asktheeu-promo asktheeu-promo--homepage">
+      <h4 class="asktheeu-promo__header">Looking for an EU Authority?</h4>
+      <p>You can request <em>documents</em> directly from EU Institutions at our sister site <a href="http://www.asktheeu.org/">AskTheEU.org</a>. <a href="http://www.asktheeu.org/en/help/requesting">Find out more</a>.</p>
+      <a href="http://www.asktheeu.org/" class="asktheeu-promo__image"><img src="<%= image_path('ask-the-eu-logo.png') %>" alt="AskTheEU.org" /></a>
+    </div>
   </div>
 <% end %>
+
