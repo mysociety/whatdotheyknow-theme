@@ -522,7 +522,7 @@ a.link_button_green_large {
 /* Footer */
 
 $mysoc-footer-background-color: $color_black;
-$mysoc-footer-text-color: $color_mid_grey;
+$mysoc-footer-text-color: lighten($color_mid_grey, 4%); // tweak color to pass WCAG AA contrast check
 $mysoc-footer-site-name-text-color: #fff;
 $mysoc-footer-link-text-color: $color_white;
 $mysoc-footer-link-hover-text-color: $button-bg;

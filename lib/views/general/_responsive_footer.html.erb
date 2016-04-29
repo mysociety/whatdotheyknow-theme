@@ -58,7 +58,9 @@
                   <a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>" class="mysoc-footer__badge mysoc-footer__badge--twitter" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::TWITTER_EXIT, :label => 'Footer link')%>">@<%= AlaveteliConfiguration::twitter_username %></a>
                 </li>
               <% end %>
+              <% unless AlaveteliConfiguration::facebook_username.blank? %>
                 <li role="presentation"><a href="https://facebook.com/whatdotheyknowcom" class="mysoc-footer__badge mysoc-footer__badge--facebook" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::FACEBOOK_EXIT, :label => 'Footer link')%>">Facebook</a></li>
+              <% end %>
             </ul>
         </div>
 
