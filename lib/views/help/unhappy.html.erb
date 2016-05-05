@@ -38,7 +38,7 @@ to your request '<%=request_link(@info_request) %>'?
 
 <p>
 <% if !@info_request.nil? %>
-    Choose <%= link_to "request an internal review", show_response_no_followup_url(:id => @info_request.id, :incoming_message_id => nil) + "?internal_review=1#followup" %> and then write a message asking the authority to review your request.
+    Choose <%= link_to "request an internal review", new_request_followup_url(:request_id => @info_request.id) + "?internal_review=1#followup" %> and then write a message asking the authority to review your request.
 <% else %>
     At the bottom of the relevant request page on WhatDoTheyKnow choose
     "request an internal review". Then write a message asking for an internal
@@ -99,6 +99,7 @@ get the information by <strong>other means...</strong></p>
 documentation relating indirectly to matters in your refused request.
 <a href="<%= help_contact_path %>">Ask us for ideas</a> if you're stuck.</li>
 <li>If any <strong>other public authorities</strong> or publicly owned companies are involved,
+
 then make FOI requests to them.</li>
 <li>Write to <strong>your MP</strong> or other politician using <a
 href="http://www.writetothem.com">WriteToThem</a> and ask for their help
