@@ -85,6 +85,7 @@
   </div>
 </div>
 
+<% if Rails.env.production? && AlaveteliConfiguration.domain == 'www.whatdotheyknow.com' %>
 <!-- Google Code for WDTK Request Made Conversion Page -->
 <script type="text/javascript">
   /* <![CDATA[ */
@@ -103,3 +104,4 @@
     <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/1067468161/?label=M3mrCIGb9WQQgYuB_QM&amp;guid=ON&amp;script=0"/>
   </div>
 </noscript>
+<% end %>
