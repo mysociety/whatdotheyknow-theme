@@ -1,43 +1,68 @@
-<div class="footer" id="footer">
-  <div class="row">
-    <div class="footer__about">
-      <h2><%= site_name %></h2>
-      <p><%= site_name %> is a <%= link_to 'mySociety', "https://www.mysociety.org" %> project, <%= link_to 'run by Volunteers', help_credits_path(:anchor => 'helpus') %> and powered by <%= link_to 'Alaveteli',  help_alaveteli_path %></p>
-      <ul class="about__contact-links">
-        <li>
-          <%= link_to _('Contact us'), help_contact_path %>
-        </li>
-        <li>
-          <%= link_to _('Help'), help_path %>
-        </li>
-        <li>
-          <%= link_to _('Privacy and cookies'), help_privacy_path %>
-        </li>
-        <li>
-          <%= link_to _('API'), help_api_path %>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer__final">
+<div class="mysoc-footer" role="contentinfo">
     <div class="row">
-      <div class="final__dedication">
-        <p>Dedicated to <%= link_to 'Chris Lightfoot', "http://mk.ucant.org/archives/000129.html" %>.</p>
-      </div>
-      <div class="final__social-links">
-        <ul>
-          <% unless AlaveteliConfiguration::twitter_username.blank? %>
-          <li>
-            <a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>" class="social-link social-link--twitter" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::TWITTER_EXIT, :label => "Footer link")%>">@<%= AlaveteliConfiguration::twitter_username %></a>
-          </li>
-          <% end %>
-          <% unless AlaveteliConfiguration::facebook_username.blank? %>
-          <li>
-            <a href="https://facebook.com/<%= AlaveteliConfiguration::facebook_username %>" class="social-link social-link--facebook" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::FACEBOOK_EXIT, :label => "Footer link")%>">/<%= AlaveteliConfiguration::facebook_username %></a>
-          </li>
-          <% end %>
-        </ul>
-      </div>
+
+        <div class="col-sm-5">
+            <h2 class="mysoc-footer__site-name"><%= site_name %></h2>
+            <div class="mysoc-footer__site-description">
+                <p>A site to help anyone submit a Freedom of Information request. WhatDoTheyKnow also publishes and archives requests and reponses, building a massive archive of information.</p>
+                <p><%= link_to 'Run by Volunteers', help_credits_path(:anchor => 'helpus') %> and powered by <%= link_to 'Alaveteli',  help_alaveteli_path %>.</p>
+                <p>Dedicated to <%= link_to 'Chris Lightfoot', "http://mk.ucant.org/archives/000129.html" %>.</p>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <nav class="mysoc-footer__links">
+                <ul>
+                    <li role="presentation"><%= link_to 'Make a request', select_authority_path %></li>
+                    <li role="presentation"><%= link_to 'Browse requests', request_list_successful_path %></li>
+                    <li role="presentation"><%= link_to 'View authorities', list_public_bodies_default_path %></li>
+                </ul>
+                <ul>
+                    <li role="presentation"><%= link_to 'Help', help_path %></li>
+                    <li role="presentation"><%= link_to 'Contact us', help_contact_path %></li>
+                    <li role="presentation"><%= link_to 'Privacy and cookies', help_privacy_path %></li>
+                    <li role="presentation"><%= link_to 'API', help_api_path %></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="mysoc-footer__donate">
+                <p>Your donations keep this site and others like it running</p>
+                <a href="https://mysociety.org/donate" class="mysoc-footer__donate__button">Donate now</a>
+            </div>
+        </div>
     </div>
-  </div>
+    <hr class="mysoc-footer__divider" role="presentation">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="mysoc-footer__orgs">
+                <p class="mysoc-footer__org">
+                    Built by
+                    <a href="https://mysociety.org" class="mysoc-footer__org__logo mysoc-footer__org__logo--mysociety">mySociety</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="mysoc-footer__legal">
+                <p>mySociety Limited is a project of UK Citizens Online Democracy, a registered charity in England and Wales. For full details visit <a href="https://www.mysociety.org">mysociety.org</a>.</p>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <ul class="mysoc-footer__badges">
+                <li role="presentation"><a href="https://github.com/mysociety/whatdotheyknow-theme" class="mysoc-footer__badge mysoc-footer__badge--github">Github</a></li>
+              <% unless AlaveteliConfiguration::twitter_username.blank? %>
+                <li role="presentation">
+                  <a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>" class="mysoc-footer__badge mysoc-footer__badge--twitter" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::TWITTER_EXIT, :label => 'Footer link')%>">@<%= AlaveteliConfiguration::twitter_username %></a>
+                </li>
+              <% end %>
+              <% unless AlaveteliConfiguration::facebook_username.blank? %>
+                <li role="presentation"><a href="https://facebook.com/whatdotheyknowcom" class="mysoc-footer__badge mysoc-footer__badge--facebook" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::FACEBOOK_EXIT, :label => 'Footer link')%>">Facebook</a></li>
+              <% end %>
+            </ul>
+        </div>
+
+    </div>
 </div>
