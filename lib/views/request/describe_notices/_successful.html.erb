@@ -1,0 +1,27 @@
+
+<div class="request-sent-message__row">
+  <div class="request-sent-message__column-1">
+    <h1><%= _("Great result!") %></h1>
+    <% if AlaveteliConfiguration.enable_annotations %>
+    <p>
+      <%= _("Please come back and add annotations to update this page with any further news or links") %>
+    </p>
+    <% else %>
+    <p>
+      <%= _("We're glad you got all the information that you wanted.") %>
+    </p>
+    <% end %>
+
+  </div>
+  <div class="request-sent-message__column-2">
+    <% if AlaveteliConfiguration::donation_url.present? %>
+    <div class="what-next donate">
+      <h2 class="what-next__heading"><%= _("Help keep this site running") %></h2>
+      <p class="what-next__para"><%= _("Your donations help us continue to provide access to information.") %></p>
+      <%= _("<a class=\"button what-next__button\" href=\"{{donation_url}}\">" \
+            "Donate now</a>",
+            :donation_url => AlaveteliConfiguration::donation_url) %>
+    </div>
+    <% end %>
+  </div>
+</div>
