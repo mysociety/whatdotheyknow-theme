@@ -322,12 +322,11 @@ a.link_button_green_large {
 /* Notices, errors */
 
 #notice, #error, .errorExplanation, #request_header_text, #hidden_request, .undescribed_requests, .describe_state_form form {
-  border-top: 10px solid;
-  font-size: 1.2em;
-  border-radius: 0;
-  margin:1em 0;
-  padding: 1.5em;
-
+  border-top: 6px solid;
+  font-size: 1.125em;
+  margin: 2em 0 1em;
+  padding: 1em 1.5em;
+  border-bottom: 0;
   p:first-child {
     margin-top: 0;
   }
@@ -342,7 +341,7 @@ a.link_button_green_large {
 }
 
 #notice, #request_header_text {
-  background-color: $notice-bg;
+  background-color: $color_white;
   border-color: $notice-border;
 }
 
@@ -355,6 +354,46 @@ a.link_button_green_large {
   background-color: $action-bg;
   border-color: $action-border;
 }
+
+.share-link {
+  margin-right: 0.4em;
+}
+
+.request-sent-message__column-1 {
+  h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.request-sent-message__para {
+  font-size: 0.888888889em; //~16px
+}
+
+.what-next {
+  background-color: $error-bg;
+  margin-bottom: 1em;
+  .what-next__button {
+    background-color: $color_red;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: darken($color_red, 10%);
+    }
+  }
+}
+
+.what-next__heading {
+  font-size: 1.25em; //~20px
+  line-height: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.what-next__para {
+  font-size: 0.888888889em; //~16px
+}
+
+/*  */
 
 /* Logged and local options act like submenus */
 #logged_in_bar{
