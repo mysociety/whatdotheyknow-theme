@@ -100,8 +100,7 @@ Rails.configuration.to_prepare do
             # if the user has not already completed the survey.
             def alert_survey
                 # Exclude requests made by users who have already been alerted about the survey
-                info_requests = InfoRequest.find(:all,
-                    :conditions => [
+                info_requests = InfoRequest.where(
                         " created_at between now() - '2 weeks + 1 day'::interval and now() - '2 weeks'::interval" +
                         " and user_id is not null" +
                         " and not exists (" +
@@ -110,9 +109,8 @@ Rails.configuration.to_prepare do
                         "     where user_id = info_requests.user_id" +
                         "      and  alert_type = 'survey_1'" +
                         " )"
-                    ],
-                    :include => [ :user ]
-                )
+                ).includes(:user)
+
                 for info_request in info_requests
                     # Exclude users who have already completed the survey
                     logger.debug "[alert_survey] Considering #{info_request.user.url_name}"
