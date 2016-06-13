@@ -9,43 +9,116 @@ describe UserInfoRequestSentAlert, "when patched by the whatdotheyknow-theme" do
     expect(info_request_sent_alert).to be_valid
   end
 
-  it 'should send survey alerts when SEND_SURVEY_MAILS is set' do
+end
+
+describe RequestMailer, 'when patched by whatdotheyknow-theme' do
+
+  context 'when SEND_SURVEY_MAILS is set' do
+
+    before do
       allow(AlaveteliConfiguration).to receive(:send_survey_mails).and_return(true)
-      expect(RequestMailer).to receive(:alert_survey)
-      RequestMailer.alert_new_response_reminders
+      InfoRequest.destroy_all
+      ActionMailer::Base.deliveries = []
+    end
+
+    def get_surveyable_request
+      info_request = FactoryGirl.create(:info_request)
+      info_request.created_at = Time.now - (2.weeks + 1.hour)
+      info_request.save!
+      info_request
+    end
+
+    it 'sends survey alerts' do
+        expect(RequestMailer).to receive(:alert_survey)
+        RequestMailer.alert_new_response_reminders
+    end
+
+    context 'when there is a requester who has not been sent a survey alert' do
+
+      it 'sends a survey alert' do
+        allow_any_instance_of(User).to receive(:survey).
+          and_return(double('survey', :already_done? => false))
+        get_surveyable_request
+        RequestMailer.alert_new_response_reminders
+        expect(ActionMailer::Base.deliveries.size).to eq(1)
+      end
+
+      it 'records the sending of the alert' do
+        allow_any_instance_of(User).to receive(:survey).
+          and_return(double('survey', :already_done? => false))
+        info_request = get_surveyable_request
+        RequestMailer.alert_new_response_reminders
+        expect(info_request.user.user_info_request_sent_alerts.size).
+          to eq(1)
+      end
+
+    end
+
+    context 'when there is a requester who has been sent a survey alert' do
+
+      it 'does not send a survey alert' do
+        allow_any_instance_of(User).to receive(:survey).
+          and_return(double('survey', :already_done? => false))
+        info_request = get_surveyable_request
+        info_request.user.user_info_request_sent_alerts.
+          create(:alert_type => 'survey_1',
+                  :info_request_id => info_request.id)
+        RequestMailer.alert_new_response_reminders
+        expect(ActionMailer::Base.deliveries.size).to eq(0)
+      end
+
+    end
+
+    context 'when there is a requester who has previously filled in the survey' do
+
+      it 'does not send a survey alert' do
+        allow_any_instance_of(User).to receive(:survey).
+          and_return(double('survey', :already_done? => true))
+        get_surveyable_request
+        RequestMailer.alert_new_response_reminders
+        expect(ActionMailer::Base.deliveries.size).to eq(0)
+      end
+    end
   end
 
-  it 'should not send survey alerts when SEND_SURVEY_MAILS is not set' do
+  context 'when SEND_SURVEY_MAILS is not set' do
+
+    before do
       allow(AlaveteliConfiguration).to receive(:send_survey_mails).and_return(false)
+    end
+
+    it 'does not send survey alerts ' do
       expect(RequestMailer).not_to receive(:alert_survey)
       RequestMailer.alert_new_response_reminders
+    end
+
   end
 
 end
 
 describe InfoRequest, "when creating an email subject for a request" do
 
-    it 'should create a standard request subject' do
-        info_request = FactoryGirl.build(:info_request)
-        expect(info_request.email_subject_request)
-          .to eq("Freedom of Information request - #{info_request.title}")
-    end
+  it 'should create a standard request subject' do
+    info_request = FactoryGirl.build(:info_request)
+    expect(info_request.email_subject_request).
+      to eq("Freedom of Information request - #{info_request.title}")
+  end
 
-    it 'should create a special request subject for requests to the General Register Office' do
-        info_request = FactoryGirl.build(:info_request)
-        allow(info_request.public_body).to receive(:url_name).and_return('general_register_office')
-        expect(info_request.email_subject_request)
-          .to eq("Freedom of Information request GQ - #{info_request.title}")
-    end
+  it 'should create a special request subject for requests to the General Register Office' do
+    info_request = FactoryGirl.build(:info_request)
+    allow(info_request.public_body).to receive(:url_name).and_return('general_register_office')
+    expect(info_request.email_subject_request).
+      to eq("Freedom of Information request GQ - #{info_request.title}")
+  end
 
-    it 'should be able to create an email subject request for a batch request template without
-        a public body' do
-        info_request = FactoryGirl.build(:info_request)
-        info_request.public_body = nil
-        info_request.is_batch_request_template = true
-        expect(info_request.email_subject_request)
-          .to eq("Freedom of Information request - #{info_request.title}")
-    end
+  it 'should be able to create an email subject request for a batch request template without
+      a public body' do
+    info_request = FactoryGirl.build(:info_request)
+    info_request.public_body = nil
+    info_request.is_batch_request_template = true
+    expect(info_request.email_subject_request).
+      to eq("Freedom of Information request - #{info_request.title}")
+  end
 
 end
 
