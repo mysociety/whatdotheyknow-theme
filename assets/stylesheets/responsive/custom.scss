@@ -47,6 +47,8 @@ $error-border: $color_red;
 $action-bg: lighten($color_yellow, 25%);
 $action-border: $color_yellow;
 
+@import "responsive/houdini";
+
 /* General styles */
 body{
   background-color: $body-bg;
@@ -1282,6 +1284,78 @@ dt {
 dd {
   margin-left: 0;
 }
+
+.contact-page__goal {
+  label {
+    font-size: 0.6em;
+    color: inherit;
+    line-height: inherit;
+
+    background-color: mix($color_blue, $body-bg, 15%);
+    border: 1px solid mix($color_blue, $body-bg, 35%);
+    padding: 1em;
+    border-radius: 0.2em;
+
+    &:hover {
+      background-color: mix($color_blue, $body-bg, 20%);
+      border-color: mix($color_blue, $body-bg, 40%);
+    }
+  }
+}
+
+.contact-page__options {
+  margin-bottom: 3em;
+
+  li {
+    margin-bottom: 1em;
+  }
+}
+
+.contact-form {
+  background-color: mix($color_yellow, $body-bg, 15%);
+  padding: 1em;
+  margin-top: 1em;
+
+  @media(min-width: 30em){
+    padding: 2em;
+  }
+
+  label {
+    margin-bottom: 0.3em;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 20em;
+    max-width: 100%;
+  }
+
+  textarea,
+  input.message-subject {
+    width: 100%;
+  }
+}
+
+.contact-form__understand {
+  position: relative;
+  padding-left: 2em;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid mix($color_yellow, darken($body-bg, 20%), 15%);
+
+  input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0.4em;
+  }
+
+  label {
+    font-size: 1em;
+    margin-bottom: 0;
+  }
+}
+
+
 
 /* Display of sidebars */
 #header_right,

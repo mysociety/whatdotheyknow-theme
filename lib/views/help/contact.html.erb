@@ -2,109 +2,95 @@
 
 <%= foi_error_messages_for :contact %>
 
-<div id="contact_preamble">
+<%= render :partial => 'sidebar' %>
 
-    <% if !flash[:notice] %>
-        <h1>Contact an authority to get official information</h1>
+<h1>Contact us</h1>
+<p>Who do you need to contact?</p>
+
+<div class="contact-page">
+
+    <h2 class="contact-page__goal" id="government">
+        <label class="houdini-label" for="goal1">
+            I want to contact a <strong>government department</strong>
+            – for example, Visas and Immigration, the Home Office, HMRC,
+            or the Department for Work and Pensions.
+        </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal1">
+    <div class="houdini-target contact-page__options">
         <ul>
-            <li><a href="<%= new_request_path %>">Go here</a> to make a request, in public, for information
-            from UK public authorities.</li>
-
             <li>
-            Asking for private information about yourself?
-            Please read our help page about
-            <a href="<%= help_requesting_path(:anchor => 'data_protection') %>">data protection</a>.
+                If you want to make a public Freedom Of Information
+                request to a UK government department, you can
+                <a href="<%= select_authority_path %>">start here</a>.
+            </li>
+            <li>
+                If you need to discuss personal matters with a
+                UK government department, you should
+                <a href="https://www.gov.uk/">find them on GOV.UK</a>.
+            </li>
+            <li>
+                If you’re having trouble getting the service you require
+                from a government body then your MP’s office can often
+                help. You can <a href="https://www.writetothem.com/">write
+                to your MP on WriteToThem.com</a>.
             </li>
         </ul>
-
-        <h1>Take up an issue with Government</h1>
-
-        <ul>
-            <li><a href="http://www.writetothem.com">Write to your MP,
-            local councillor or other representative</a>.
-            <li><a href="http://www.number10.gov.uk/">Number 10</a> is a good place to start if you would like to take an issue up with central government. </li>
-        </ul>
-
-
-    <% end %>
-
-    <h1>Contact the WhatDoTheyKnow team</h1>
-    <% if !flash[:notice] %>
-            <ul>
-            <li>
-            Please read the  <a href="<%= help_about_path %>">help page</a> first, as it may
-            answer your question quicker.
-            </li>
-
-            <li>We'd love to hear how you've found using this site.
-               Either fill in this form, or send an email to <a
-               href="mailto:<%=@contact_email%>"><%=@contact_email%></a>
-            </li>
-
-            <li>We are a <strong>charity</strong> and not part of the
-            Government.</li>
-            </ul>
-    <% end %>
-</div>
-
-<%= form_for :contact do |f| %>
-
-    <% if not @user %>
-        <p>
-            <label class="form_label" for="contact_name">Your name:</label>
-            <%= f.text_field :name, :size => 20 %>
-            (or <%= link_to "sign in", signin_url(:r => request.fullpath) %>)
-        </p>
-
-        <p>
-            <label class="form_label" for="contact_email">Your email:</label>
-            <%= f.text_field :email, :size => 20 %>
-        </p>
-    <% end %>
-
-    <p>
-        <label class="form_label" for="contact_subject">Subject:</label>
-        <%= f.text_field :subject, :size => 50 %>
-    </p>
-
-    <p>
-        <label class="form_label" for="contact_message">Message to website:</label>
-        <%= f.text_area :message, :rows => 10, :cols => 60 %>
-    </p>
-
-    <p style="display:none;">
-        <%= f.label :comment, 'Do not fill in this field' %>
-        <%= f.text_field :comment %>
-    </p>
-
-    <% if !@last_request.nil? %>
-        <p>
-            <label class="form_label" for="contact_message">Include link to request:</label>
-            <%=request_link(@last_request) %>
-            <%= submit_tag "remove", :name => 'remove' %>
-        </p>
-    <% end %>
-    <% if !@last_body.nil? %>
-        <p>
-            <label class="form_label" for="contact_message">Include link to authority:</label>
-            <%=public_body_link(@last_body) %>
-            <%= submit_tag "remove", :name => 'remove' %>
-        </p>
-    <% end %>
-
-    <p class="form_note">
-    We can only help you with <strong>technical problems</strong>, or questions
-    about Freedom of Information. See the top of this page if you would like to
-    contact the Government.
-    </P>
-
-
-    <div class="form_button">
-        <%= hidden_field_tag(:submitted_contact_form, 1) %>
-        <%= submit_tag "Send message to the charity", :disable_with => "Sending..." %>
-        &lt;-- we run this site, not the Government!
     </div>
 
-<% end %>
+    <h2 class="contact-page__goal" id="authority">
+        <label class="houdini-label" for="goal2">
+            I want to contact a public authority, like my
+            <strong>local council, hospital, or school</strong>.
+        </label>
+    </h2>
 
+    <input class="houdini-input" type="radio" name="goals" id="goal2">
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                If you want to make a public Freedom Of Information
+                request to a UK council or public authority, you can
+                <a href="<%= select_authority_path %>">start here</a>.
+            </li>
+            <li>
+                If you need to discuss personal matters with a
+                UK council, you should <a href="https://www.gov.uk/">find
+                them on GOV.UK</a>.
+            </li>
+            <li>
+                If you want to write to your MP, local councillor, or
+                other representative, you can
+                <a href="https://www.writetothem.com/">write to your MP
+                on WriteToThem.com</a>.
+            </li>
+        </ul>
+    </div>
 
+    <h2 class="contact-page__goal" id="wdtk">
+        <label class="houdini-label" for="goal3">
+            I have another issue, or feedback relating to the
+            WhatDoTheyKnow.com website, that I want to raise with the
+            <strong>team that runs WhatDoTheyKnow</strong>.
+        </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal3">
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                First, try checking <a href="<%= help_about_path %>">our
+                extensive help pages</a>, which contain a solution for most
+                issues and questions you might have.
+            </li>
+            <li>
+                If your issue isn’t covered by our help pages, you can
+                directly contact the volunteers who run WhatDoTheyKnow:
+
+                <%= render :partial => "help/contact_form" %>
+            </li>
+        </ul>
+    </div>
+
+</div>
