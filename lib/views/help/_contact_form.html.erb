@@ -1,8 +1,8 @@
 <%= form_for :contact, :html => {:class => 'contact-form'} do |f| %>
 
     <p class="contact-form__understand">
-        <input type="checkbox" id="understand" required="required">
-        <label for="understand" class="form_label">
+        <%= f.check_box :understand %>
+        <label for="contact_understand" class="form_label">
             I understand that WhatDoTheyKnow is <strong>not</strong> run by the
             government, and the WhatDoTheyKnow volunteers <strong>cannot</strong>
             help me with personal matters relating to government services.

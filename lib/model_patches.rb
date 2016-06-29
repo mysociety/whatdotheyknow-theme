@@ -135,4 +135,17 @@ Rails.configuration.to_prepare do
             alias_method_chain :alert_new_response_reminders, :alert_survey
         end
     end
+
+    ContactValidator.class_eval do
+      attr_accessor :understand
+
+      validates_acceptance_of :understand,
+                              :message => N_("Please confirm that you " \
+                                             "understand that WhatDoTheyKnow " \
+                                             "is not run by the government, " \
+                                             "and the WhatDoTheyKnow " \
+                                             "volunteers cannot help you " \
+                                             "with personal matters relating " \
+                                             "to government services.")
+  end
 end
