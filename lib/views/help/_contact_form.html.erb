@@ -1,4 +1,6 @@
-<%= form_for :contact, :html => {:class => 'contact-form'} do |f| %>
+<%= form_for :contact,
+             :url => help_contact_path + '#wdtk',
+             :html => {:class => 'contact-form'} do |f| %>
 
     <p class="contact-form__understand">
         <%= f.check_box :understand %>

@@ -1,7 +1,5 @@
 <% @title = "Contact us" %>
 
-<%= foi_error_messages_for :contact %>
-
 <%= render :partial => 'sidebar' %>
 
 <h1>Contact us</h1>
@@ -75,6 +73,8 @@
             <strong>team that runs WhatDoTheyKnow</strong>.
         </label>
     </h2>
+
+    <%= foi_error_messages_for :contact %>
 
     <input class="houdini-input" type="radio" name="goals" id="goal3"
         <% if params["contact"] %>checked<% end %>>
