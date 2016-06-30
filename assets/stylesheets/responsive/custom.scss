@@ -358,6 +358,12 @@ a.link_button_green_large {
   border-color: $action-border;
 }
 
+.fieldWithErrors {
+  textarea, input {
+    border: solid 2px $color_red !important;
+  }
+}
+
 /* Logged and local options act like submenus */
 #logged_in_bar{
   border-top: 2px solid rgba(0,0,0,0.1);
@@ -1333,6 +1339,10 @@ dd {
   textarea,
   input.message-subject {
     width: 100%;
+  }
+
+  .fieldWithErrors {
+    padding: 0;
   }
 }
 

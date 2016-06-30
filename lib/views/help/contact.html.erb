@@ -74,8 +74,6 @@
         </label>
     </h2>
 
-    <%= foi_error_messages_for :contact %>
-
     <input class="houdini-input" type="radio" name="goals" id="goal3"
         <% if params["contact"] %>checked<% end %>>
     <div class="houdini-target contact-page__options">
@@ -88,6 +86,8 @@
             <li>
                 If your issue isn’t covered by our help pages, you can
                 directly contact the volunteers who run WhatDoTheyKnow:
+
+                <%= foi_error_messages_for :contact %>
 
                 <%= render :partial => "help/contact_form" %>
             </li>
