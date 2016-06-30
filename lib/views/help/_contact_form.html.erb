@@ -3,7 +3,7 @@
              :html => {:class => 'contact-form'} do |f| %>
 
     <p class="contact-form__understand">
-        <%= f.check_box :understand %>
+        <%= f.check_box :understand, :required => true %>
         <label for="contact_understand" class="form_label">
             I understand that WhatDoTheyKnow is <strong>not</strong> run by the
             government, and the WhatDoTheyKnow volunteers <strong>cannot</strong>
@@ -20,7 +20,7 @@
 
         <p>
             <label class="form_label" for="contact_email">My email:</label>
-            <%= f.text_field :email, :size => 20 %>
+            <%= f.text_field :email, :size => 20, :required => true %>
         </p>
     <% end %>
 
