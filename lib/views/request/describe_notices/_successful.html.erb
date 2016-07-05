@@ -48,9 +48,14 @@
     <div class="what-next donate">
       <h2 class="what-next__heading"><%= _("Help keep this site running") %></h2>
       <p class="what-next__para"><%= _("Your donations help us continue to provide access to information.") %></p>
+      <% donation_url = AlaveteliConfiguration::donation_url + "?" <<
+              { :utm_source => 'whatdotheyknow.com',
+                :utm_campaign => 'donation_drive_2016',
+                :utm_medium => 'link',
+                :utm_content => 'successful+request+donate+now' }.to_query %>
       <%= _("<a class=\"button what-next__button\" href=\"{{donation_url}}\">" \
             "Donate now</a>",
-            :donation_url => AlaveteliConfiguration::donation_url) %>
+            :donation_url => donation_url) %>
     </div>
     <% end %>
   </div>
