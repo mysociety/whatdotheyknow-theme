@@ -12,9 +12,11 @@
             <li><%= link_to_unless_current "Alaveteli", help_alaveteli_path %></li>
         </ul>
 
+        <% unless is_contact_page? %>
         <h2 id="contact">Cysylltwch â ni</h2>
         <p>Os nad yw eich cwestiwn yn cael ei ateb yma, neu eich bod jyst eisiau
     gadael i ni wybod rhywbeth am y wefan, <a href="<%= help_contact_path %>">cysylltwch â ni</a>.
         </p>
+        <% end %>
     </div>
 </div>
