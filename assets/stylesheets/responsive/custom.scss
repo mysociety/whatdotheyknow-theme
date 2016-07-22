@@ -1444,6 +1444,37 @@ dd {
   background-image: image-url('writetothem.png');
 }
 
+/* Donate cta in request sidebar
+ * (having to use some aggressive selectors here to override existing sidebar styles)
+ */
+
+#right_column .sidebar__donate-cta {
+  padding: 1em 1.5em 1.5em;
+  background-color: lighten($color_red, 25%);
+  margin-top: 1em;
+}
+
+#right_column h2.sidebar__donate-cta__header {
+  text-transform: none;
+  line-height: 1.3em;
+  font-weight: 600;
+  margin-top: 0;
+  font-size: 1.125em;
+}
+
+#right_column .sidebar__donate-cta__para {
+  line-height: 1.4em;
+}
+
+#right_column a.sidebar__donate-cta__button {
+  background-color: $color_red;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color_red, 10%);
+  }
+}
+
 // blog
 #blog {
   background-color: $color_white;
