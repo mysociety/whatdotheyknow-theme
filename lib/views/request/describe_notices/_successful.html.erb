@@ -1,0 +1,64 @@
+<h1><%= _("Great result!") %></h1>
+<div class="request-sent-message__row">
+  <div class="request-sent-message__column-1">
+
+    <% if AlaveteliConfiguration.enable_annotations %>
+    <p>
+      <%= _("Please come back and add annotations to update this page with any further news or links") %>
+    </p>
+    <% else %>
+    <p>
+      <%= _("We're glad you got all the information that you wanted.") %>
+    </p>
+    <% end %>
+    <%= link_to image_tag("next-step-twitter.png",
+                          :alt => _("Tweet it"),
+                          :width => "120",
+                          :height => "37"),
+                          "https://twitter.com/intent/tweet?" << {
+                            :url => request.url,
+                            :via => AlaveteliConfiguration.twitter_username,
+                            :text => "'#{ info_request.title }'",
+                            :related => _('mySociety:Helping people set ' \
+                                            'up sites like {{site_name}} ' \
+                                            'all over the world',
+                                          :site_name => site_name),
+                          }.to_query, :class => 'share-link',
+                                      :onclick => track_analytics_event(
+                                        AnalyticsEvent::Category::OUTBOUND,
+                                        AnalyticsEvent::Action::TWITTER_EXIT,
+                                        :label => "Share Request") %>
+
+
+    <%= link_to image_tag("next-step-facebook.png",
+                          :alt => _("Share on Facebook"),
+                          :width => "120",
+                          :height => "37"),
+                          "https://www.facebook.com/sharer/sharer.php?" << {
+                            :u => request.url
+                          }.to_query, :class => 'share-link',
+                                      :onclick => track_analytics_event(
+                                        AnalyticsEvent::Category::OUTBOUND,
+                                        AnalyticsEvent::Action::FACEBOOK_EXIT,
+                                        :label => "Share Request") %>
+
+  </div>
+  <div class="request-sent-message__column-2">
+    <% if AlaveteliConfiguration::donation_url.present? %>
+    <div class="what-next donate">
+      <h2 class="what-next__heading"><%= _("Help keep this site running") %></h2>
+      <p class="what-next__para"><%= _("Your donations help us make " \
+                                       "Freedom of Information more " \
+                                       "accessible, for everyone.") %></p>
+      <% donation_url = AlaveteliConfiguration::donation_url + "?" <<
+              { :utm_source => 'whatdotheyknow.com',
+                :utm_campaign => 'donation_drive_2016',
+                :utm_medium => 'link',
+                :utm_content => 'successful+request+donate+now' }.to_query %>
+      <%= _("<a class=\"button what-next__button\" href=\"{{donation_url}}\">" \
+            "Donate now</a>",
+            :donation_url => donation_url) %>
+    </div>
+    <% end %>
+  </div>
+</div>

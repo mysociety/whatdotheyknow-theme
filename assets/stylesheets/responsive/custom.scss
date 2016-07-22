@@ -324,12 +324,11 @@ a.link_button_green_large {
 /* Notices, errors */
 
 #notice, #error, .errorExplanation, #request_header_text, #hidden_request, .undescribed_requests, .describe_state_form form {
-  border-top: 10px solid;
-  font-size: 1.2em;
-  border-radius: 0;
-  margin:1em 0;
-  padding: 1.5em;
-
+  border-top: 6px solid;
+  font-size: 1.125em;
+  margin: 2em 0 1em;
+  padding: 1em 1.5em;
+  border-bottom: 0;
   p:first-child {
     margin-top: 0;
   }
@@ -341,10 +340,14 @@ a.link_button_green_large {
   ul {
     margin: 0;
   }
+
+  h1 {
+    margin-top: 0;
+  }
 }
 
 #notice, #request_header_text {
-  background-color: $notice-bg;
+  background-color: $color_white;
   border-color: $notice-border;
 }
 
@@ -363,6 +366,46 @@ a.link_button_green_large {
     border: solid 2px $color_red !important;
   }
 }
+
+.share-link {
+  margin-right: 0.4em;
+}
+
+.request-sent-message__column-1 {
+  h2 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.request-sent-message__para {
+  font-size: 0.888888889em; //~16px
+}
+
+.what-next {
+  background-color: $error-bg;
+  margin-bottom: 1em;
+  .what-next__button {
+    background-color: $color_red;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: darken($color_red, 10%);
+    }
+  }
+}
+
+.what-next__heading {
+  font-size: 1.25em; //~20px
+  line-height: 1.3em;
+  margin-bottom: 0.5em;
+}
+
+.what-next__para {
+  font-size: 0.888888889em; //~16px
+}
+
+/*  */
 
 /* Logged and local options act like submenus */
 #logged_in_bar{
@@ -1442,6 +1485,37 @@ dd {
 
 .act_link--writetothem a {
   background-image: image-url('writetothem.png');
+}
+
+/* Donate cta in request sidebar
+ * (having to use some aggressive selectors here to override existing sidebar styles)
+ */
+
+#right_column .sidebar__donate-cta {
+  padding: 1em 1.5em 1.5em;
+  background-color: lighten($color_red, 25%);
+  margin-top: 1em;
+}
+
+#right_column h2.sidebar__donate-cta__header {
+  text-transform: none;
+  line-height: 1.3em;
+  font-weight: 600;
+  margin-top: 0;
+  font-size: 1.125em;
+}
+
+#right_column .sidebar__donate-cta__para {
+  line-height: 1.4em;
+}
+
+#right_column a.sidebar__donate-cta__button {
+  background-color: $color_red;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color_red, 10%);
+  }
 }
 
 // blog
