@@ -10,7 +10,7 @@
 <% if @total_hits %>
     <%# we're on a search page; make it look to Google Analytics like we're using a query string, so it can track the search keywords %>
     <script type="text/javascript">
-        _gaq.push(['_gat._anonymizeIp']);
-        _gaq.push(['_trackPageview', '<%= request.fullpath %>?query=<%=u @query %>']);
+        ga('set', 'anonymizeIp', true)
+        ga('send', 'pageview', '<%= request.fullpath %>?query=<%=u @query %>');
     </script>
 <% end %>
