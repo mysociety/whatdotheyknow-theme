@@ -169,6 +169,13 @@ a.button-secondary,
   }
 }
 
+.cplink__button {
+  @extend .button-tertiary;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+  border-top-left-radius: 0;
+}
+
 /* General styling of nav menu items */
 .menu-item {
   text-decoration: none;
@@ -671,26 +678,6 @@ input#reedit_button {
 
 .describe_state_form input[type="radio"] + label {
   display:inline;
-}
-
-a.link_to_this {
-  background-image: image-url('link-icon.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 80% 80%;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-}
-
-#link_box {
-  font-family: $font-family;
-  border-radius: 0;
-  border: 1px solid $heading-color;
-  .close-button {
-    background-color: $color_white;
-    float: right;
-  }
 }
 
 .describe_state_form {
