@@ -57,7 +57,7 @@
   <% end %>
 
   <% content_for :javascript do %>
-    <% if Rails.env.production? && AlaveteliConfiguration.site_name == 'www.whatdotheyknow.com' %>
+    <% if Rails.env.production? && AlaveteliConfiguration.domain == 'www.whatdotheyknow.com' %>
       <script src="https://www.google-analytics.com/cx/api.js?experiment=1rpvs-HcTaiC_YS81PUgmA"></script>
       <script>
         if (typeof cxApi === 'undefined') {
