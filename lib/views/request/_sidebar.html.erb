@@ -68,6 +68,12 @@
 
         $(document).ready(function() {
           if (chosenVariation === 1) {
+            // Hack because we can't easily put the custom item inside the new
+            // sidebar__share div. Will fix when we end the experiment.
+            $('#experiment-act-vs-share-share .act_link--writetothem').
+              detach().
+                insertAfter('#experiment-act-vs-share-share .act_link--medium');
+
             $('#experiment-act-vs-share-act').hide();
             $('#experiment-act-vs-share-share').show();
           } else {
@@ -94,6 +100,14 @@
 
   <div id="experiment-act-vs-share-share" style="display: none;">
     <%= render :partial => 'request/share' %>
+    <div class="act_link act_link--writetothem">
+      <%= link_to 'Write to your politician',
+                  'http://www.writetothem.com',
+                  :onclick => track_analytics_event(
+                    AnalyticsEvent::Category::OUTBOUND,
+                    AnalyticsEvent::Action::WRITE_TO_THEM_EXIT,
+                    :label => 'Request sidebar') %>
+    </div>
   </div>
 
   <% cache_if_caching_fragments(@similar_cache_key, :expires_in => 3.days) do %>
