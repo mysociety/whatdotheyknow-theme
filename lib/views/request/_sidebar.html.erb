@@ -1,9 +1,11 @@
 <div id="right_column" class="sidebar right_column" role="complementary">
+  <% unless flash[:request_sent] %>
   <div class="sidebar__donate-cta">
     <h2 class="sidebar__donate-cta__header"><%= _('We work to defend the right to FOI for everyone') %></h2>
     <p class="sidebar__donate-cta__para"><%= _('Help us protect your right to hold public authorities to account. Donate and support our work.') %></p>
     <a href="https://www.mysociety.org/donate?utm_source=whatdotheyknow.com&utm_content=request+sidebar+donate+now&utm_medium=link&utm_campaign=donation_drive_2016" class="button sidebar__donate-cta__button">Donate now</a>
   </div>
+  <% end %>
   <div id="track-request" class="track-request">
     <h2><%= _('Follow this request') %></h2>
 
