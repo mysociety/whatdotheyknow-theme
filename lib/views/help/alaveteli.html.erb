@@ -2,6 +2,7 @@
 
 <%= render :partial => 'sidebar' %>
 
+<div id="left_column_flip" class="left_column_flip">
 <% if params[:country_name] %>
  <h1><%= _("Would you like to see a website like this in your country?") %></h1>
 <% else %>
@@ -27,3 +28,4 @@ website</a>, or <a href="mailto:hello@alaveteli.org">drop us an
 email</a>.</p>
 
 <div id="hash_link_padding"></div>
+</div>
