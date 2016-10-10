@@ -1,198 +1,131 @@
 <% @title = "Eich preifatrwydd" %>
-
 <%= render :partial => 'sidebar' %>
-
-<h1 id="privacy"><%= @title %> <a href="#privacy">#</a> </h1>
-
-<dl>
-
-<dt id="email_address">Pwy sy'n cael gweld fy nghyfeiriad e-bost? <a href="#email_address">#</a> </dt>
-
-<dd>
-
-<p>Ni fyddwn yn datgelu eich cyfeiriad e-bost i neb oni bai bod yn rhaid i ni yn ôl y gyfraith, neu i chi ofyn i ni wneud. Mae hyn yn cynnwys yr awdurdod cyhoeddus yr ydych chi'n anfon cais ato. Chân nhw weld dim ond cyfeiriad e-bost @whatdotheyknow.com sy'n benodol i'r cais hwnnw. </p>
-
-<p>Os byddwch yn anfon neges at ddefnyddiwr arall ar y wefan, yna bydd yn datgelu eich cyfeiriad e-bost iddynt. Byddwch yn cael gwybod bod hyn yn mynd i ddigwydd.</p> </dd>
-
-<dt id="nasty_spam">Fyddwch chi'n anfon sbam cas, ynfyd at fy nghyfeiriad e-bost? <a href="nasty_spam">#</a> </dt>
-
-<dd>Na fyddwn. Ar ôl i chi gofrestru â WhatDoTheyKnow ni fyddwn ond yn anfon negeseuon e-bost atoch chi sy'n ymwneud â chais a wnaethoch, rhybudd e-bost eich bod wedi cofrestru ar ei gyfer, neu am resymau eraill yr ydych yn awdurdodi yn benodol. Ni fyddwn byth yn rhoi neu'n gwerthu eich cyfeiriadau e-bost i neb arall, oni bai bod yn rhaid i yn ôl y gyfraith neu i chi ofyn i ni wneud. </dd>
-
-<dt id="public_request">Pam bydd fy enw ac fy nghais yn ymddangos yn gyhoeddus ar y wefan? <a href="#public_request">#</a> </dt>
-
-<dd>
-
-<p>Rydym yn cyhoeddi eich cais ar y Rhyngrwyd fel y gall unrhyw un ei ddarllen a defnyddio'r wybodaeth yr ydych wedi dod o hyd iddi. Nid ydym fel arfer yn dileu ceisiadau ( <a href="#delete_requests">mwy o fanylion</a> ). </p>
-
-<p> Mae eich enw ynghlwm yn eich cais, felly mae'n rhaid iddo gael ei gyhoeddi hefyd. Nid yw ond yn deg, gan ein bod ni'n mynd i gyhoeddi enw'r gwas sifil sy'n ysgrifennu yr ymateb i'ch cais. Mae defnyddio eich enw go iawn hefyd yn helpu pobl i ddod i gysylltiad â chi i'ch helpu gyda'ch gwaith ymchwil neu i ymgyrchu gyda chi. </p>
-
-<p>Yn ôl y gyfraith, rhaid i chi ddefnyddio eich enw go iawn ar gyfer y cais iddo fod cais Rhyddid Gwybodaeth dilys. Gweler y cwestiwn nesaf ar gyfer dewisiadau eraill os nad ydych am i'ch enw llawn gael ei gyhoeddi. </p> </dd>
-
-<dt id="real_name">A allaf wneud cais Rhyddid Gwybodaeth gan ddefnyddio ffugenw? <a href="#real_name">#</a> </dt>
-
-<dd>
-
-<p>Yn dechnegol, rhaid i chi ddefnyddio eich enw iawn ar gyfer eich cais iddo fod yn gais Rhyddid Gwybodaeth dilys yn ôl y gyfraith. Gweler y <a href="http://www.ico.org.uk/upload/documents/library/freedom_of_information/detailed_specialist_guides/name_of_applicant_fop083_v1.pdf">canllawiau hyn gan y Comisiynydd Gwybodaeth</a> (Ionawr 2009). </p>
-
-<p>Fodd bynnag, mae'r un canllawiau hefyd yn dweud ei fod yn arfer da i'r awdurdod cyhoeddus ystyried cais a wnaed gan ddefnyddio ffugenw amlwg. Dylech gyfeirio at hyn os bydd awdurdod cyhoeddus yn gwrthod cais am eich bod yn defnyddio ffugenw.</p>
-
-<p>Byddwch yn ofalus, serch hynny, hyd yn oed os yw'r awdurdod yn dilyn yr arfer da hwn, bydd y ffugenw yn ôl pob tebyg yn ei gwneud yn amhosibl i chi gwyno wrth y Comisiynydd Gwybodaeth yn ddiweddarach am y ffordd y cafodd eich cais ei drin. </p>
-
-<p>Mae yna nifer o ddewisiadau da eraill yn hytrach na defnyddio ffugenw.</p> <ul>
-<li>Defnyddiwch ffurf wahanol ar eich enw. Mae'r arweiniad yn dweud y gall "Mr Arthur Thomas Roberts" wneud cais dilys fel "Arthur Roberts", "AR Roberts", neu "Mr Roberts", ond <strong>nid</strong> fel "Arthur" neu "ATR". </li>
-<li>Gall menywod ddefnyddio eu henw cyn priodi.</li>
-<li>Yn y rhan fwyaf o achosion, gallwch ddefnyddio unrhyw enw yr ydych "adnabyddus trwyddo ac/neu sy'n cael ei ddefnyddio yn rheolaidd". </li>
-<li>Defnyddiwch enw corff neu sefydliad, enw cwmni, enw masnachu cwmni, neu enw masnachu unig fasnachwr. </li>
-<li>Gofynnwch i rywun arall i wneud y cais ar eich rhan. </li>
-<li>Gallwch, os ydych yn sownd mewn gwirionedd, ofyn i ni wneud y cais ar eich rhan. <a href="<%= help_contact_path %>">Cysylltwch â ni</a> â rheswm da pam na allwch chi wneud y cais eich hun ac na allwch ofyn i ffrind wneud ar eich rhan. Nid oes gennym yr adnoddau i wneud hyn i bawb. </li>
-</ul>
-
-<p>Peidiwch â cheisio dynwared rhywun arall.</p> </dd>
-
-<dt id="anonymous">Pam mae ceisiadau dienw ar y safle? <a href="#anonymous">#</a> </dt>
-<dd>
-Mae rhai awdurdodau cyhoeddus yn defnyddio <a href="https://github.com/mysociety/foi-register"> meddalwedd mySociety yn FOI Cofrestru </a> er mwyn defnyddio WhatDoTheyKnow fel log datgelu ar gyfer eu holl weithgarwch Rhyddid Gwybodaeth.   Pan fydd pobl yn gwneud cais i'r awdurdod y bydd eu henwau fel arfer yn cael ei ddal yn ôl rhag eu cyhoeddi union fel y byddent mewn log datgelu awdurdod ar wefan yr awdurdod.
-</dd>
-
-<dt id="full_address">Maen nhw wedi gofyn am fy nghyfeiriad post! <a href="#full_address">#</a> </dt>
-
-<dd>
-
-<p>Os bydd awdurdod cyhoeddus yn gofyn i chi am eich cyfeiriad llawn, corfforol, atebwch iddynt gan ddweud fod Adran 8.1.b y Ddeddf Rhyddid Gwybodaeth yn gofyn am "cyfeiriad ar gyfer gohebiaeth", a bod y cyfeiriad e-bost rydych yn ei ddefnyddio yn ddigonol. </p>
-
-<p> Mae gan y Weinyddiaeth Gyfiawnder <a href="http://www.justice.gov.uk/information-access-rights/foi-guidance-for-practitioners/procedural-guidance/foi-what-constitutes">ganllawiau ar hyn</a> - <em>"Yn ogystal â gohebiaeth copi caled ysgrifenedig, mae ceisiadau sy'n cael eu trosglwyddo yn electronig (er enghraifft, mewn e-byst) yn dderbyniol ...</em><em>Os bydd cais yn cael ei dderbyn trwy e-bost a chyfeiriad post ddim yn cael ei roi, dylai'r cyfeiriad e-bost gael ei drin fel y cyfeiriad dychwelyd. " </em> </p>
-
-<p>A fel petai hynny'n ddim yn ddigon, mae <a href="http://www.ico.org.uk/for_organisations/freedom_of_information/guide/receiving_a_request">Awgrymiadau ar gyfer Ymarferwyr</a> y Comisiynydd Gwybodaeth yn dweud <em>"Mae'n rhaid i gais ... gynnwys cyfeiriad ar gyfer gohebiaeth. Does dim rhaid iddo fod yn gyfeiriad preswyl nac yn gyfeiriad gwaith yr unigolyn - gellir defnyddio <strong>unrhyw gyfeiriad y gellir ysgrifennu ato</strong>, gan gynnwys cyfeiriad post neu <strong>gyfeiriad e-bost</strong>;"</em> </p> </dd>
-
-<dt id="postal_answer">Na, na, mae angen cyfeiriad post arnynt fel y gallant anfon ymateb bapur! <a href="#postal_answer">#</a> </dt>
-
-<dd>
-
-<p>Os dim ond copi papur o'r wybodaeth yr ydych ei eisiau sy gan yr awdurdod, efallai y byddant yn gofyn i chi am gyfeiriad post. I ddechrau, ceisiwch eu perswadio i sganio y dogfennau i chi. Gallwch hyd yn oed <a href="http://www.whatdotheyknow.com/request/car_parking_charges_policy_and_a#outgoing-532">gynnig rhoi sganiwr iddynt</a> , a oedd yn yr achos penodol hwnnw wedi codi embaras ar yr awdurdod a gwneud iddynt  ddod o hyd i un oedd ganddynt eisoes.</p>
-
-<p>Os nad yw hynny'n gweithio, a'ch bod am roi eich cyfeiriad post yn breifat er mwyn derbyn y dogfennau, nodwch ar eich cais fel "Maen nhw'n mynd i ymateb drwy'r post", a bydd yn rhoi cyfeiriad e-bost i ddefnyddio at y diben hwnnw.</p> </dd>
-
-<dt id="cwcis"> Beth am gwcis a gwasanaethau trydydd parti? <a href="#cookies">#</a> </dt>
-
-<dd>
-   <p> <strong> Ein defnydd o gwcis a gwasanaethau allanol: yr hyn y dylech ei wybod, a sut i ddewis peidio os ydych eisiau. </strong> </p>
-
-   <p> Crynodeb: Rydym yn gofalu llawer am breifatrwydd ein defnyddwyr. Rydym yn darparu manylion isod, ac rydym yn gwneud ein anoddaf i ofalu am y data preifat sydd gennym. Fel llawer o wefannau eraill, rydym weithiau'n defnyddio cwcis a Google Analytics i'n helpu i wneud ein gwefannau yn well. Mae'r offer hyn yn gyffredin iawn ac yn defnyddio gan nifer o safleoedd eraill, ond mae ganddynt oblygiadau preifatrwydd, ac fel elusen sy'n ymwneud â defnyddiau cadarnhaol yn gymdeithasol o'r rhyngrwyd, rydym yn credu ei bod yn bwysig i esbonio iddynt yn llawn. Os nad ydych am rannu eich gweithgareddau pori ar safleoedd mySociety â chwmnïau eraill, gallwch addasu eich defnydd neu osod ategion porwr optio allan.
-
-<p> <strong> Cwcis </strong> </p>
-
-  <p> I wneud ein gwasanaeth yn haws neu'n fwy defnyddiol, rydym weithiau yn rhoi ffeiliau data bach ar eich cyfrifiadur neu ffôn symudol, a elwir yn 'cookies'; mae llawer o wefannau yn gwneud hyn. Rydym yn defnyddio'r wybodaeth hon i, er enghraifft, cofiwch eich bod wedi logio i mewn fel nad oes angen i chi wneud hynny ar bob tudalen, neu i fesur sut mae pobl yn defnyddio'r wefan fel y gallwn ei wella a sicrhau ei fod yn gweithio'n iawn. Isod, rydym yn rhestru'r cwcis a gwasanaethau y gall y safle hwn yn eu defnyddio.
-
-  <table>
-  <tr> <th scope="col"> Enw </th> <th scope="col"> Cynnwys nodweddiadol </th> <th scope="col"> Yn dod i ben </th> </tr>
-  <tr> <td> _wdtk_cookie_session </td> <td> Mae dynodwr unigryw ar hap </td> <td> Pryd porwr gwe ar gau, neu 1 mis os 'Cofiwch fi' yn cael ei ddefnyddio </td> </tr>
-  <tr> <td> seen_foi2 </td> <td> The rhif 1 os ydych wedi gweld rhybudd </td> <td> 7 diwrnod </td> </tr>
-  <tr> <td> last_request_id </td> <td> Mae nifer, gan nodi'r cais Rhyddid Gwybodaeth diwethaf i chi edrych ar ar y safle </td> <td> Pryd porwr gwe ar gau </td> </tr>
-  <tr> <td> last_body_id </td> <td> Mae nifer, gan nodi'r awdurdod cyhoeddus diwethaf i chi edrych ar ar y safle </td> <td> Pryd porwr gwe ar gau </td> </tr>
-  </table>
-
-  <p> <strong> Mesur defnydd o'r wefan (Google Analytics) </strong> </p>
-<p>
-  Rydym yn defnyddio Google Analytics i gasglu gwybodaeth am sut mae pobl yn defnyddio'r safle hwn. Rydym yn gwneud hyn i wneud yn siŵr ei fod yn diwallu anghenion ei defnyddwyr 'ac i ddeall sut y gallwn wneud yn well. Mae Google Analytics yn storio gwybodaeth megis beth tudalennau rydych yn ymweld â, pa mor hir ydych chi ar y safle, sut y cawsoch yma, yr hyn yr ydych yn clicio ar, a gwybodaeth am eich porwr gwe. Cyfeiriadau IP yn cael eu cuddio (dim ond cyfran yn cael ei storio) a gwybodaeth bersonol yn unig yn cael ei adrodd gyda'i gilydd. Nid ydym yn caniatáu i Google i ddefnyddio neu rannu ein analytics data ar gyfer unrhyw ddiben ar wahân i roi gwybodaeth i ni analytics, ac rydym yn argymell bod unrhyw ddefnyddiwr o Google Analytics gwneud yr un peth.
-</p>
-  <p> Os ydych chi'n anhapus gyda data am eich ymweliad gael ei ddefnyddio yn y ffordd hon, gallwch osod y <a href="http://tools.google.com/dlpage/gaoptout"> ategyn porwr swyddogol ar gyfer blocio Google Analytics </a>.
-
-  <p> Mae'r cwcis a osodir gan Google Analytics fel a ganlyn:
-
-  <table>
-  <tr> <th scope="col"> Enw </th> <th scope="col"> Cynnwys nodweddiadol </th> <th scope="col"> Yn dod i ben </th> </tr>
-  <tr> <td> __ utma </td> <td> ID ymwelwyr dienw Unigryw </td> <td> 2 flynedd </td> </tr>
-  <tr> <td> __ utmb </td> <td> Sesiwn ID Unigryw anhysbys </td> <td> 30 munud </td> </tr>
-  <tr> <td> __ utmz </td> <td> Gwybodaeth am sut mae'r safle yn cyrraedd (ee yn uniongyrchol neu drwy ddolen / chwilio / hysbyseb) </td> <td> 6 mis </td> </tr>
-  <tr> <td> __ utmx </td> <td> Pa amrywiad o dudalen yr ydych yn gweld os ydym yn profi gwahanol fersiynau i weld pa un sydd orau </td> <td> 2 flynedd </td> </tr>
-  </table>
-
-  <h4> Google Datganiad Swyddogol am Analytics Data </h4>
-
-  <p> "Mae'r wefan hon yn defnyddio Google Analytics, gwasanaeth dadansoddi'r we a ddarperir gan Google, Inc. (" Google "). Google Analytics yn defnyddio "cwcis", sef ffeiliau testun a roddir ar eich cyfrifiadur, i helpu'r wefan i ddadansoddi sut mae defnyddwyr yn defnyddio'r safle. Bydd yr wybodaeth a gynhyrchir gan y cwci am eich defnydd o'r wefan (gan gynnwys eich cyfeiriad IP) yn cael ei throsglwyddo i ac yn storio gan Google ar weinyddion yn yr Unol Daleithiau. Bydd Google yn defnyddio'r wybodaeth hon at ddibenion gwerthuso eich defnydd o'r wefan, llunio adroddiadau ar weithgaredd gwefan ar gyfer gweithredwyr gwefan a darparu gwasanaethau eraill yn ymwneud â gweithgaredd gwefan a defnydd o'r rhyngrwyd. Gall Google hefyd drosglwyddo'r wybodaeth hon i drydydd parti pan ofynnir iddo wneud hynny yn ôl y gyfraith, neu lle mae trydydd partïon o'r fath yn prosesu'r wybodaeth ar ran Google. Ni fydd Google yn cysylltu eich cyfeiriad IP ag unrhyw ddata arall a gedwir gan Google. Efallai y byddwch yn gwrthod defnyddio cwcis drwy ddewis y gosodiadau priodol ar eich porwr, fodd bynnag, sylwer, os byddwch yn gwneud hyn efallai na fyddwch yn gallu defnyddio'r swyddogaeth lawn y wefan hon. Drwy ddefnyddio'r wefan hon, rydych yn rhoi caniatâd i brosesu data amdanoch chi gan Google yn y modd ac i'r dibenion a nodir uchod. "</p>
-
-
-<p> <strong> Mesur perfformiad gwefan (New Relic) </strong> </p>
-
-WhatDoTheyKnow yn defnyddio New Relic i gasglu data ar berfformiad y safle - pa mor gyflym y bydd yn anfon tudalennau a faint o gof a phŵer prosesu y mae'n ei gymryd ar y cyfrifiaduron sy'n rhedeg. Rydym yn gwneud hyn er mwyn sicrhau bod y safle yn rhedeg yn gyflym ac yn effeithlon. Relic newydd yn storio gwybodaeth am:
-<ul>
-<li>
-Pa tudalennau yr ymwelwyd â hwy ar y safle, a pha mor hir maent yn cymryd i lwytho.
-</li>
-<li>
-Mae strwythur, nid yw cynnwys, o ymholiadau cronfa ddata a wneir er mwyn cynnal y safle a pha mor hir maent yn cymryd i redeg.
-</li>
-<li>
-Cof a CPU defnydd ar y gweinyddion sy'n rhedeg y safle.
-</li>
-</ul>
-<p> Data Sampl am ymholiadau cronfa ddata, ceisiadau unigol ar gyfer tudalennau yn cael ei storio gan New crair am 7 diwrnod, data cyfanredol yn cael ei storio am uchafswm o 90 diwrnod. </p>
-<p> <a href="http://try.newrelic.com/rs/newrelic/images/NewRelic-Security.pdf"> Mae rhagor o wybodaeth gan New crair ar breifatrwydd a diogelwch </a> </p>
-  <p> <a href="https://www.mysociety.org/privacy/"> gwybodaeth fwy cyffredinol ar sut trydydd parti gwasanaethau gwaith </a> </p>
-
-<p> <strong> Ein logio hun </strong> </p>
-
-<p> Yn ychwanegol at y wybodaeth a roddwch i ni amdanoch eich hun er mwyn defnyddio'r safle (ee eich enw
-a chyfeiriad e-bost), rydym yn casglu a chofnodi gwybodaeth ychwanegol er mwyn dadansoddi a atgyweiria broblemau
-gyda'r safle. Mae ein logiau gweinydd gwe yn cadw hanes o geisiadau dudalen. Mae hyn yn cynnwys gwybodaeth am
-ceisiadau, gan gynnwys y cyfeiriad IP cleient, data a gyflwynwyd (a allai gynnwys eich cyfeiriad e-bost pan fydd
-fyddwch yn mewngofnodi ar y safle), dyddiad cais ac amser, tudalen y gofynnwyd amdani, fersiwn porwr a
-<a href="https://en.wikipedia.org/wiki/HTTP_referer"> </a> cyfeiriwr. Rydym fel mater o drefn yn cadw'r wybodaeth hon
-am 28 diwrnod.
-
-
-  <p> <strong> Credydau </strong> </p>
-
-  <p> darnau o eiriad a gymerwyd o'r <a href="http://gov.uk/help/cookies"> gov.uk dudalen cwcis </a> (o dan y Drwydded Llywodraeth Agored).
-</ Dd>
-
-<dt id="delete_requests">Allwch chi ddileu fy ngheisiadau, neu newid fy enw? <a href="#delete_requests">#</a> </dt>
-
-<dd>
-
-<p>Mae WhatDoTheyKnow yn archif barhaol, gyhoeddus o geisiadau Rhyddid Gwybodaeth. Er efallai na fyddwch bellach yn gweld defnydd i'r ateb gawsoch i gais, gallai fod o ddiddordeb i eraill. Am y rheswm hwn, ni fyddwn yn dileu ceisiadau. </p>
-
-<p>O dan amgylchiadau eithriadol efallai y byddwn yn tynnu neu'n newid eich enw ar y wefan, <a href="#takedown">gweler y cwestiwn nesaf</a>. Yn yr un modd, efallai y byddwn hefyd yn dileu gwybodaeth bersonol arall. </p>
-
-<p>Os ydych yn poeni am hyn cyn i chi wneud eich cais, gweler yr adran ar <a href="#real_name">ffugenwau</a> .</p> </dd>
-
-<dt id="takedown">A fedrwch chi dynnu gwybodaeth bersonol amdanaf? <a href="#takedown">#</a> </dt>
-
-<dd>
-
-<p>Os gwelwch unrhyw wybodaeth bersonol amdanoch chi ar y wefan yr hoffech i ni dtynnu neu guddio, yna rhowch <a href="<%= help_contact_path %>">wybod i ni</a> . Nodwch yn union pa wybodaeth yr ydych yn credu sy'n broblem a pham, a lle y mae'n ymddangos ar y wefan.</p>
-
-<p>Os yw'n wybodaeth bersonol sensitif sydd wedi cael ei phostio ar ddamwain, yna byddwn fel arfer yn ei dileu. Fel arfer, ni fyddwn ond yn ystyried ceisiadau i gael gwared ar wybodaeth bersonol a ddaw oddi wrth yr unigolyn dan sylw, ond am wybodaeth sensitif byddem yn gwerthfawrogi pe bai unrhyw un yn tynnu ein sylw ati.</p>
-
-<p>Mae gennych hawl o dan <a
-href="http://www.legislation.gov.uk/ukpga/1998/29/section/10">adran 10 y Ddeddf Ddiogelu Data</a>
-i ofyn i ni ddileu eich gwybodaeth bersonol ar y sail ei bod yn achosi difrod neu ofid sylweddol a
-diangen i chi. Byddwn ni'n ystyried unrhyw hysbysiad o'r fath, nad oes rhaid iddo'n sôn yn benodol
-am y Ddeddf, ac yn ei gydbwyso yn erbyn unrhyw fudd a ddeuai i'r cyhoedd o gyhoeddi'r deunydd.
-Ceir peth arweiniad ar yr hysbysiadau hyn <a
-href="https://ico.org.uk/for-organisations/guide-to-data-protection/principle-6-rights/damage-or-distress/">
-ar wefan y ICO</a>.
-
-</dd>
-
-<dt id="public_servant_takedown">Rwy&rsquo;n was cyhoeddus - a fedrwch dynnu gwybodaeth bersonol amdanaf i? <a href="#public_servant_takedown">#</a></dt>
-
-<dd>
-
-<p>Er bod gennym ragdybiaeth gyffredinol ei bod yn well fod yn fwy agored, byddwn yn ystyried ceisiadau i gael gwared ar enwau gweision cyhoeddus pan mae'n ymddangos yn annhebygol y bydd budd y cyhoedd yn cael ei niweidio drwy wneud hynny.</p>
-
-<p>Mae hyn yn golygu:
-  <ul>
-    <li>Os ydych yn rhywun sy'n gwneud penderfyniadau ac yn rhyw fath o radd uchel, neu os ydych yn ymateb i gais Rhyddid Gwybodaeth, ni fyddwn fel rheol yn tynnu eich manylion o ddogfennau ac e-byst a anfonwyd gan gorff cyhoeddus. Mae atebolrwydd y broses o wneud penderfyniad wrth wraidd llywodraethu da.</li>
-    <li>Os ydych yn dal swydd gradd isel, lle na gymerir penderfyniadau, byddwn yn ystyried ceisiadau i ddileu eich manylion. Mae cael gwared ar y manylion hyn yn anodd i'n gwirfoddolwyr ei wneud, felly rhowch wybod i ni pam mae hyn yn wirioneddol bwysig i chi. Os byddwn yn cytuno i gael gwared ar eich manylion byddwn yn cymryd camau rhesymol i wneud hynny, ond mewn rhai achosion efallai na fyddwn yn gallu am resymau technegol.</li>
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="privacy"><%= @title %> <a href="#privacy">#</a> </h1>
+  <dl>
+    <dt id="email_address">Pwy sy'n cael gweld fy nghyfeiriad e-bost? <a href="#email_address">#</a> </dt>
+    <dd>
+    <p>Ni fyddwn yn datgelu eich cyfeiriad e-bost i neb oni bai bod yn rhaid i ni yn ôl y gyfraith, neu i chi ofyn i ni wneud. Mae hyn yn cynnwys yr awdurdod cyhoeddus yr ydych chi'n anfon cais ato. Chân nhw weld dim ond cyfeiriad e-bost @whatdotheyknow.com sy'n benodol i'r cais hwnnw. </p>
+    <p>Os byddwch yn anfon neges at ddefnyddiwr arall ar y wefan, yna bydd yn datgelu eich cyfeiriad e-bost iddynt. Byddwch yn cael gwybod bod hyn yn mynd i ddigwydd.</p> </dd>
+    <dt id="nasty_spam">Fyddwch chi'n anfon sbam cas, ynfyd at fy nghyfeiriad e-bost? <a href="nasty_spam">#</a> </dt>
+    <dd>Na fyddwn. Ar ôl i chi gofrestru â WhatDoTheyKnow ni fyddwn ond yn anfon negeseuon e-bost atoch chi sy'n ymwneud â chais a wnaethoch, rhybudd e-bost eich bod wedi cofrestru ar ei gyfer, neu am resymau eraill yr ydych yn awdurdodi yn benodol. Ni fyddwn byth yn rhoi neu'n gwerthu eich cyfeiriadau e-bost i neb arall, oni bai bod yn rhaid i yn ôl y gyfraith neu i chi ofyn i ni wneud. </dd>
+    <dt id="public_request">Pam bydd fy enw ac fy nghais yn ymddangos yn gyhoeddus ar y wefan? <a href="#public_request">#</a> </dt>
+    <dd>
+    <p>Rydym yn cyhoeddi eich cais ar y Rhyngrwyd fel y gall unrhyw un ei ddarllen a defnyddio'r wybodaeth yr ydych wedi dod o hyd iddi. Nid ydym fel arfer yn dileu ceisiadau ( <a href="#delete_requests">mwy o fanylion</a> ). </p>
+    <p> Mae eich enw ynghlwm yn eich cais, felly mae'n rhaid iddo gael ei gyhoeddi hefyd. Nid yw ond yn deg, gan ein bod ni'n mynd i gyhoeddi enw'r gwas sifil sy'n ysgrifennu yr ymateb i'ch cais. Mae defnyddio eich enw go iawn hefyd yn helpu pobl i ddod i gysylltiad â chi i'ch helpu gyda'ch gwaith ymchwil neu i ymgyrchu gyda chi. </p>
+    <p>Yn ôl y gyfraith, rhaid i chi ddefnyddio eich enw go iawn ar gyfer y cais iddo fod cais Rhyddid Gwybodaeth dilys. Gweler y cwestiwn nesaf ar gyfer dewisiadau eraill os nad ydych am i'ch enw llawn gael ei gyhoeddi. </p> </dd>
+    <dt id="real_name">A allaf wneud cais Rhyddid Gwybodaeth gan ddefnyddio ffugenw? <a href="#real_name">#</a> </dt>
+    <dd>
+    <p>Yn dechnegol, rhaid i chi ddefnyddio eich enw iawn ar gyfer eich cais iddo fod yn gais Rhyddid Gwybodaeth dilys yn ôl y gyfraith. Gweler y <a href="http://www.ico.org.uk/upload/documents/library/freedom_of_information/detailed_specialist_guides/name_of_applicant_fop083_v1.pdf">canllawiau hyn gan y Comisiynydd Gwybodaeth</a> (Ionawr 2009). </p>
+    <p>Fodd bynnag, mae'r un canllawiau hefyd yn dweud ei fod yn arfer da i'r awdurdod cyhoeddus ystyried cais a wnaed gan ddefnyddio ffugenw amlwg. Dylech gyfeirio at hyn os bydd awdurdod cyhoeddus yn gwrthod cais am eich bod yn defnyddio ffugenw.</p>
+    <p>Byddwch yn ofalus, serch hynny, hyd yn oed os yw'r awdurdod yn dilyn yr arfer da hwn, bydd y ffugenw yn ôl pob tebyg yn ei gwneud yn amhosibl i chi gwyno wrth y Comisiynydd Gwybodaeth yn ddiweddarach am y ffordd y cafodd eich cais ei drin. </p>
+    <p>Mae yna nifer o ddewisiadau da eraill yn hytrach na defnyddio ffugenw.</p> <ul>
+    <li>Defnyddiwch ffurf wahanol ar eich enw. Mae'r arweiniad yn dweud y gall "Mr Arthur Thomas Roberts" wneud cais dilys fel "Arthur Roberts", "AR Roberts", neu "Mr Roberts", ond <strong>nid</strong> fel "Arthur" neu "ATR". </li>
+    <li>Gall menywod ddefnyddio eu henw cyn priodi.</li>
+    <li>Yn y rhan fwyaf o achosion, gallwch ddefnyddio unrhyw enw yr ydych "adnabyddus trwyddo ac/neu sy'n cael ei ddefnyddio yn rheolaidd". </li>
+    <li>Defnyddiwch enw corff neu sefydliad, enw cwmni, enw masnachu cwmni, neu enw masnachu unig fasnachwr. </li>
+    <li>Gofynnwch i rywun arall i wneud y cais ar eich rhan. </li>
+    <li>Gallwch, os ydych yn sownd mewn gwirionedd, ofyn i ni wneud y cais ar eich rhan. <a href="<%= help_contact_path %>">Cysylltwch â ni</a> â rheswm da pam na allwch chi wneud y cais eich hun ac na allwch ofyn i ffrind wneud ar eich rhan. Nid oes gennym yr adnoddau i wneud hyn i bawb. </li>
   </ul>
-</p>
-
-</dd>
-
-</dl>
-
-<p><strong>Dysgwch fwy</strong> o'r cymorth i <a href="<%= help_officers_path %>">swyddogion Rhyddid Gwybodaeth</a> -&gt;
-<div id="hash_link_padding"></div>
-
-
+  <p>Peidiwch â cheisio dynwared rhywun arall.</p> </dd>
+  <dt id="anonymous">Pam mae ceisiadau dienw ar y safle? <a href="#anonymous">#</a> </dt>
+  <dd>
+  Mae rhai awdurdodau cyhoeddus yn defnyddio <a href="https://github.com/mysociety/foi-register"> meddalwedd mySociety yn FOI Cofrestru </a> er mwyn defnyddio WhatDoTheyKnow fel log datgelu ar gyfer eu holl weithgarwch Rhyddid Gwybodaeth.   Pan fydd pobl yn gwneud cais i'r awdurdod y bydd eu henwau fel arfer yn cael ei ddal yn ôl rhag eu cyhoeddi union fel y byddent mewn log datgelu awdurdod ar wefan yr awdurdod.
+  </dd>
+  <dt id="full_address">Maen nhw wedi gofyn am fy nghyfeiriad post! <a href="#full_address">#</a> </dt>
+  <dd>
+  <p>Os bydd awdurdod cyhoeddus yn gofyn i chi am eich cyfeiriad llawn, corfforol, atebwch iddynt gan ddweud fod Adran 8.1.b y Ddeddf Rhyddid Gwybodaeth yn gofyn am "cyfeiriad ar gyfer gohebiaeth", a bod y cyfeiriad e-bost rydych yn ei ddefnyddio yn ddigonol. </p>
+  <p> Mae gan y Weinyddiaeth Gyfiawnder <a href="http://www.justice.gov.uk/information-access-rights/foi-guidance-for-practitioners/procedural-guidance/foi-what-constitutes">ganllawiau ar hyn</a> - <em>"Yn ogystal â gohebiaeth copi caled ysgrifenedig, mae ceisiadau sy'n cael eu trosglwyddo yn electronig (er enghraifft, mewn e-byst) yn dderbyniol ...</em><em>Os bydd cais yn cael ei dderbyn trwy e-bost a chyfeiriad post ddim yn cael ei roi, dylai'r cyfeiriad e-bost gael ei drin fel y cyfeiriad dychwelyd. " </em> </p>
+  <p>A fel petai hynny'n ddim yn ddigon, mae <a href="http://www.ico.org.uk/for_organisations/freedom_of_information/guide/receiving_a_request">Awgrymiadau ar gyfer Ymarferwyr</a> y Comisiynydd Gwybodaeth yn dweud <em>"Mae'n rhaid i gais ... gynnwys cyfeiriad ar gyfer gohebiaeth. Does dim rhaid iddo fod yn gyfeiriad preswyl nac yn gyfeiriad gwaith yr unigolyn - gellir defnyddio <strong>unrhyw gyfeiriad y gellir ysgrifennu ato</strong>, gan gynnwys cyfeiriad post neu <strong>gyfeiriad e-bost</strong>;"</em> </p> </dd>
+  <dt id="postal_answer">Na, na, mae angen cyfeiriad post arnynt fel y gallant anfon ymateb bapur! <a href="#postal_answer">#</a> </dt>
+  <dd>
+  <p>Os dim ond copi papur o'r wybodaeth yr ydych ei eisiau sy gan yr awdurdod, efallai y byddant yn gofyn i chi am gyfeiriad post. I ddechrau, ceisiwch eu perswadio i sganio y dogfennau i chi. Gallwch hyd yn oed <a href="http://www.whatdotheyknow.com/request/car_parking_charges_policy_and_a#outgoing-532">gynnig rhoi sganiwr iddynt</a> , a oedd yn yr achos penodol hwnnw wedi codi embaras ar yr awdurdod a gwneud iddynt  ddod o hyd i un oedd ganddynt eisoes.</p>
+  <p>Os nad yw hynny'n gweithio, a'ch bod am roi eich cyfeiriad post yn breifat er mwyn derbyn y dogfennau, nodwch ar eich cais fel "Maen nhw'n mynd i ymateb drwy'r post", a bydd yn rhoi cyfeiriad e-bost i ddefnyddio at y diben hwnnw.</p> </dd>
+  <dt id="cwcis"> Beth am gwcis a gwasanaethau trydydd parti? <a href="#cookies">#</a> </dt>
+  <dd>
+  <p> <strong> Ein defnydd o gwcis a gwasanaethau allanol: yr hyn y dylech ei wybod, a sut i ddewis peidio os ydych eisiau. </strong> </p>
+  <p> Crynodeb: Rydym yn gofalu llawer am breifatrwydd ein defnyddwyr. Rydym yn darparu manylion isod, ac rydym yn gwneud ein anoddaf i ofalu am y data preifat sydd gennym. Fel llawer o wefannau eraill, rydym weithiau'n defnyddio cwcis a Google Analytics i'n helpu i wneud ein gwefannau yn well. Mae'r offer hyn yn gyffredin iawn ac yn defnyddio gan nifer o safleoedd eraill, ond mae ganddynt oblygiadau preifatrwydd, ac fel elusen sy'n ymwneud â defnyddiau cadarnhaol yn gymdeithasol o'r rhyngrwyd, rydym yn credu ei bod yn bwysig i esbonio iddynt yn llawn. Os nad ydych am rannu eich gweithgareddau pori ar safleoedd mySociety â chwmnïau eraill, gallwch addasu eich defnydd neu osod ategion porwr optio allan.</p>
+  <p> <strong> Cwcis </strong> </p>
+  <p> I wneud ein gwasanaeth yn haws neu'n fwy defnyddiol, rydym weithiau yn rhoi ffeiliau data bach ar eich cyfrifiadur neu ffôn symudol, a elwir yn 'cookies'; mae llawer o wefannau yn gwneud hyn. Rydym yn defnyddio'r wybodaeth hon i, er enghraifft, cofiwch eich bod wedi logio i mewn fel nad oes angen i chi wneud hynny ar bob tudalen, neu i fesur sut mae pobl yn defnyddio'r wefan fel y gallwn ei wella a sicrhau ei fod yn gweithio'n iawn. Isod, rydym yn rhestru'r cwcis a gwasanaethau y gall y safle hwn yn eu defnyddio.</p>
+  <table>
+    <tr> <th scope="col"> Enw </th> <th scope="col"> Cynnwys nodweddiadol </th> <th scope="col"> Yn dod i ben </th> </tr>
+    <tr> <td> _wdtk_cookie_session </td> <td> Mae dynodwr unigryw ar hap </td> <td> Pryd porwr gwe ar gau, neu 1 mis os 'Cofiwch fi' yn cael ei ddefnyddio </td> </tr>
+    <tr> <td> seen_foi2 </td> <td> The rhif 1 os ydych wedi gweld rhybudd </td> <td> 7 diwrnod </td> </tr>
+    <tr> <td> last_request_id </td> <td> Mae nifer, gan nodi'r cais Rhyddid Gwybodaeth diwethaf i chi edrych ar ar y safle </td> <td> Pryd porwr gwe ar gau </td> </tr>
+    <tr> <td> last_body_id </td> <td> Mae nifer, gan nodi'r awdurdod cyhoeddus diwethaf i chi edrych ar ar y safle </td> <td> Pryd porwr gwe ar gau </td> </tr>
+  </table>
+  <p> <strong> Mesur defnydd o'r wefan (Google Analytics) </strong> </p>
+  <p>
+    Rydym yn defnyddio Google Analytics i gasglu gwybodaeth am sut mae pobl yn defnyddio'r safle hwn. Rydym yn gwneud hyn i wneud yn siŵr ei fod yn diwallu anghenion ei defnyddwyr 'ac i ddeall sut y gallwn wneud yn well. Mae Google Analytics yn storio gwybodaeth megis beth tudalennau rydych yn ymweld â, pa mor hir ydych chi ar y safle, sut y cawsoch yma, yr hyn yr ydych yn clicio ar, a gwybodaeth am eich porwr gwe. Cyfeiriadau IP yn cael eu cuddio (dim ond cyfran yn cael ei storio) a gwybodaeth bersonol yn unig yn cael ei adrodd gyda'i gilydd. Nid ydym yn caniatáu i Google i ddefnyddio neu rannu ein analytics data ar gyfer unrhyw ddiben ar wahân i roi gwybodaeth i ni analytics, ac rydym yn argymell bod unrhyw ddefnyddiwr o Google Analytics gwneud yr un peth.
+  </p>
+  <p> Os ydych chi'n anhapus gyda data am eich ymweliad gael ei ddefnyddio yn y ffordd hon, gallwch osod y <a href="http://tools.google.com/dlpage/gaoptout"> ategyn porwr swyddogol ar gyfer blocio Google Analytics </a>.
+  <p> Mae'r cwcis a osodir gan Google Analytics fel a ganlyn:
+    <table>
+      <tr> <th scope="col"> Enw </th> <th scope="col"> Cynnwys nodweddiadol </th> <th scope="col"> Yn dod i ben </th> </tr>
+      <tr> <td> __ utma </td> <td> ID ymwelwyr dienw Unigryw </td> <td> 2 flynedd </td> </tr>
+      <tr> <td> __ utmb </td> <td> Sesiwn ID Unigryw anhysbys </td> <td> 30 munud </td> </tr>
+      <tr> <td> __ utmz </td> <td> Gwybodaeth am sut mae'r safle yn cyrraedd (ee yn uniongyrchol neu drwy ddolen / chwilio / hysbyseb) </td> <td> 6 mis </td> </tr>
+      <tr> <td> __ utmx </td> <td> Pa amrywiad o dudalen yr ydych yn gweld os ydym yn profi gwahanol fersiynau i weld pa un sydd orau </td> <td> 2 flynedd </td> </tr>
+    </table>
+    <h4> Google Datganiad Swyddogol am Analytics Data </h4>
+    <p> "Mae'r wefan hon yn defnyddio Google Analytics, gwasanaeth dadansoddi'r we a ddarperir gan Google, Inc. (" Google "). Google Analytics yn defnyddio "cwcis", sef ffeiliau testun a roddir ar eich cyfrifiadur, i helpu'r wefan i ddadansoddi sut mae defnyddwyr yn defnyddio'r safle. Bydd yr wybodaeth a gynhyrchir gan y cwci am eich defnydd o'r wefan (gan gynnwys eich cyfeiriad IP) yn cael ei throsglwyddo i ac yn storio gan Google ar weinyddion yn yr Unol Daleithiau. Bydd Google yn defnyddio'r wybodaeth hon at ddibenion gwerthuso eich defnydd o'r wefan, llunio adroddiadau ar weithgaredd gwefan ar gyfer gweithredwyr gwefan a darparu gwasanaethau eraill yn ymwneud â gweithgaredd gwefan a defnydd o'r rhyngrwyd. Gall Google hefyd drosglwyddo'r wybodaeth hon i drydydd parti pan ofynnir iddo wneud hynny yn ôl y gyfraith, neu lle mae trydydd partïon o'r fath yn prosesu'r wybodaeth ar ran Google. Ni fydd Google yn cysylltu eich cyfeiriad IP ag unrhyw ddata arall a gedwir gan Google. Efallai y byddwch yn gwrthod defnyddio cwcis drwy ddewis y gosodiadau priodol ar eich porwr, fodd bynnag, sylwer, os byddwch yn gwneud hyn efallai na fyddwch yn gallu defnyddio'r swyddogaeth lawn y wefan hon. Drwy ddefnyddio'r wefan hon, rydych yn rhoi caniatâd i brosesu data amdanoch chi gan Google yn y modd ac i'r dibenion a nodir uchod. "</p>
+    <p> <strong> Mesur perfformiad gwefan (New Relic) </strong> </p>
+    WhatDoTheyKnow yn defnyddio New Relic i gasglu data ar berfformiad y safle - pa mor gyflym y bydd yn anfon tudalennau a faint o gof a phŵer prosesu y mae'n ei gymryd ar y cyfrifiaduron sy'n rhedeg. Rydym yn gwneud hyn er mwyn sicrhau bod y safle yn rhedeg yn gyflym ac yn effeithlon. Relic newydd yn storio gwybodaeth am:
+    <ul>
+      <li>
+        Pa tudalennau yr ymwelwyd â hwy ar y safle, a pha mor hir maent yn cymryd i lwytho.
+      </li>
+      <li>
+        Mae strwythur, nid yw cynnwys, o ymholiadau cronfa ddata a wneir er mwyn cynnal y safle a pha mor hir maent yn cymryd i redeg.
+      </li>
+      <li>
+        Cof a CPU defnydd ar y gweinyddion sy'n rhedeg y safle.
+      </li>
+    </ul>
+    <p> Data Sampl am ymholiadau cronfa ddata, ceisiadau unigol ar gyfer tudalennau yn cael ei storio gan New crair am 7 diwrnod, data cyfanredol yn cael ei storio am uchafswm o 90 diwrnod. </p>
+    <p> <a href="http://try.newrelic.com/rs/newrelic/images/NewRelic-Security.pdf"> Mae rhagor o wybodaeth gan New crair ar breifatrwydd a diogelwch </a> </p>
+    <p> <a href="https://www.mysociety.org/privacy/"> gwybodaeth fwy cyffredinol ar sut trydydd parti gwasanaethau gwaith </a> </p>
+    <p> <strong> Ein logio hun </strong> </p>
+    <p> Yn ychwanegol at y wybodaeth a roddwch i ni amdanoch eich hun er mwyn defnyddio'r safle (ee eich enw
+      a chyfeiriad e-bost), rydym yn casglu a chofnodi gwybodaeth ychwanegol er mwyn dadansoddi a atgyweiria broblemau
+      gyda'r safle. Mae ein logiau gweinydd gwe yn cadw hanes o geisiadau dudalen. Mae hyn yn cynnwys gwybodaeth am
+      ceisiadau, gan gynnwys y cyfeiriad IP cleient, data a gyflwynwyd (a allai gynnwys eich cyfeiriad e-bost pan fydd
+      fyddwch yn mewngofnodi ar y safle), dyddiad cais ac amser, tudalen y gofynnwyd amdani, fersiwn porwr a
+      <a href="https://en.wikipedia.org/wiki/HTTP_referer"> </a> cyfeiriwr. Rydym fel mater o drefn yn cadw'r wybodaeth hon
+      am 28 diwrnod.
+    </p>
+    <p> <strong> Credydau </strong> </p>
+    <p> darnau o eiriad a gymerwyd o'r <a href="http://gov.uk/help/cookies"> gov.uk dudalen cwcis </a> (o dan y Drwydded Llywodraeth Agored).
+    </dd>
+    <dt id="delete_requests">Allwch chi ddileu fy ngheisiadau, neu newid fy enw? <a href="#delete_requests">#</a> </dt>
+    <dd>
+    <p>Mae WhatDoTheyKnow yn archif barhaol, gyhoeddus o geisiadau Rhyddid Gwybodaeth. Er efallai na fyddwch bellach yn gweld defnydd i'r ateb gawsoch i gais, gallai fod o ddiddordeb i eraill. Am y rheswm hwn, ni fyddwn yn dileu ceisiadau. </p>
+    <p>O dan amgylchiadau eithriadol efallai y byddwn yn tynnu neu'n newid eich enw ar y wefan, <a href="#takedown">gweler y cwestiwn nesaf</a>. Yn yr un modd, efallai y byddwn hefyd yn dileu gwybodaeth bersonol arall. </p>
+    <p>Os ydych yn poeni am hyn cyn i chi wneud eich cais, gweler yr adran ar <a href="#real_name">ffugenwau</a> .</p> </dd>
+    <dt id="takedown">A fedrwch chi dynnu gwybodaeth bersonol amdanaf? <a href="#takedown">#</a> </dt>
+    <dd>
+    <p>Os gwelwch unrhyw wybodaeth bersonol amdanoch chi ar y wefan yr hoffech i ni dtynnu neu guddio, yna rhowch <a href="<%= help_contact_path %>">wybod i ni</a> . Nodwch yn union pa wybodaeth yr ydych yn credu sy'n broblem a pham, a lle y mae'n ymddangos ar y wefan.</p>
+    <p>Os yw'n wybodaeth bersonol sensitif sydd wedi cael ei phostio ar ddamwain, yna byddwn fel arfer yn ei dileu. Fel arfer, ni fyddwn ond yn ystyried ceisiadau i gael gwared ar wybodaeth bersonol a ddaw oddi wrth yr unigolyn dan sylw, ond am wybodaeth sensitif byddem yn gwerthfawrogi pe bai unrhyw un yn tynnu ein sylw ati.</p>
+    <p>Mae gennych hawl o dan <a
+    href="http://www.legislation.gov.uk/ukpga/1998/29/section/10">adran 10 y Ddeddf Ddiogelu Data</a>
+    i ofyn i ni ddileu eich gwybodaeth bersonol ar y sail ei bod yn achosi difrod neu ofid sylweddol a
+    diangen i chi. Byddwn ni'n ystyried unrhyw hysbysiad o'r fath, nad oes rhaid iddo'n sôn yn benodol
+    am y Ddeddf, ac yn ei gydbwyso yn erbyn unrhyw fudd a ddeuai i'r cyhoedd o gyhoeddi'r deunydd.
+    Ceir peth arweiniad ar yr hysbysiadau hyn <a
+      href="https://ico.org.uk/for-organisations/guide-to-data-protection/principle-6-rights/damage-or-distress/">
+    ar wefan y ICO</a>.
+    </dd>
+    <dt id="public_servant_takedown">Rwy&rsquo;n was cyhoeddus - a fedrwch dynnu gwybodaeth bersonol amdanaf i? <a href="#public_servant_takedown">#</a></dt>
+    <dd>
+    <p>Er bod gennym ragdybiaeth gyffredinol ei bod yn well fod yn fwy agored, byddwn yn ystyried ceisiadau i gael gwared ar enwau gweision cyhoeddus pan mae'n ymddangos yn annhebygol y bydd budd y cyhoedd yn cael ei niweidio drwy wneud hynny.</p>
+    <p>Mae hyn yn golygu:
+      <ul>
+        <li>Os ydych yn rhywun sy'n gwneud penderfyniadau ac yn rhyw fath o radd uchel, neu os ydych yn ymateb i gais Rhyddid Gwybodaeth, ni fyddwn fel rheol yn tynnu eich manylion o ddogfennau ac e-byst a anfonwyd gan gorff cyhoeddus. Mae atebolrwydd y broses o wneud penderfyniad wrth wraidd llywodraethu da.</li>
+        <li>Os ydych yn dal swydd gradd isel, lle na gymerir penderfyniadau, byddwn yn ystyried ceisiadau i ddileu eich manylion. Mae cael gwared ar y manylion hyn yn anodd i'n gwirfoddolwyr ei wneud, felly rhowch wybod i ni pam mae hyn yn wirioneddol bwysig i chi. Os byddwn yn cytuno i gael gwared ar eich manylion byddwn yn cymryd camau rhesymol i wneud hynny, ond mewn rhai achosion efallai na fyddwn yn gallu am resymau technegol.</li>
+      </ul>
+    </p>
+    </dd>
+  </dl>
+  <p><strong>Dysgwch fwy</strong> o'r cymorth i <a href="<%= help_officers_path %>">swyddogion Rhyddid Gwybodaeth</a> -&gt;
+  <div id="hash_link_padding"></div>
+</div>

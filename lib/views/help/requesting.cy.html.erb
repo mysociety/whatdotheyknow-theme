@@ -1,225 +1,178 @@
 <% @title = "Gwneud ceisiadau" %>
-
 <%= render :partial => 'sidebar' %>
-
-<h1 id="making_requests"><%= @title %> <a href="#making_requests">#</a> </h1>
-<dl>
-
-<dt id="which_authority">Dydw i ddim yn siŵr i ba awdurdod i wneud cais, sut y gallaf gael gwybod? <a href="#which_authority">#</a> </dt>
-
-<dd>
-<p>Gall fod yn anodd deall strwythur cymhleth y llywodraeth, a gweithio allan pwy sy'n gwybod
-y wybodaeth yr ydych ei heisiau. Dyma rai awgrymiadau:
-<ul>
-<li>Pori neu chwilio WhatDoTheyKnow gan chwilio am geisiadau tebyg i'ch un chi.</li>
-<li>Pan fyddwch wedi dod o hyd i awdurdod y credwch y gallai fod ganddo'r wybodaeth, defnyddiwch
-ddolen y "dudalen gartref" ar ochr dde eu dudalen i weld yr hyn y maent yn ei wneud ar eu gwefan.</li>
-<li>Cysylltwch â'r awdurdod dros y ffôn neu e-bost i ofyn a ydynt yn dal y math o
-wybodaeth yr hoffech ei chael.</li>
-<li>Peidiwch â phoeni'n ormodol am gael yr awdurdod cywir. Os ydych yn ei gael yn anghywir, dylent eich
-cynghori chi i bwy y dylech wneud y cais yn lle.
-</li>
-<li>Os oes gennych achos dyrys, cysylltwch <a href="<%= help_contact_path %>">â ni</a> am gymorth.</li>
-</ul>
-
-</dd>
-
-
-
-<dt id="missing_body">Does gennych chi mo'r awdurdod cyhoeddus yr wyf am
-wneud cais iddo! <a href="#missing_body">#</a> </dt>
-
-<dd>
-<p>Cysylltwch <a href="<%= new_change_request_path %>">â ni</a> gydag enw'r awdurdod cyhoeddus ac,
-os gallwch ddod o hyd ddo, eu cyswllt cyfeiriad e-bost ar gyfer ceisiadau
-Rhyddid Gwybodaeth.
-</p>
-<p>Os hoffech chi helpu i ychwanegu categori cyfan o awdurdodau cyhoeddus at y
-wefan, byddem wrth ein bodd cael clywed gennych hefyd.
-</p>
-
-</dd>
-
-<dt id="authorities">Pam eich bod yn cynnwys rhai awdurdodau nad ydynt yn ffurfiol
-yn ddarostyngedig i'r Ddeddf Rhyddid Gwybodaeth?<a href="#authorities">#</a> </dt>
-
-<dd>
-<p>Mae WhatDoTheyKnow yn gadael i chi wneud ceisiadau am wybodaeth i ystod o
-sefydliadau:</p>
-
-<ul>
-  <li> Rhai sy'n ddarostyngedig yn ffurfiol i'r Ddeddf Rhyddid Gwybodaeth</li>
-  <li> Rhai sy'n ddarostyngedig yn ffurfiol i'r Rheoliadau Amgylcheddol (grŵp
-nad yw wedi ei ddiffinio cystal)</li>
-  <li> Rhai sy'n cydymffurfio'n wirfoddol â'r Ddeddf Rhyddid Gwybodaeth</li>
-  <li> Rhai nad ydynt yn ddarostyngedig i'r Ddeddf, ond rydym yn meddwl y dylent
-fod, ar y sail fod ganddynt gyfrifoldebau cyhoeddus sylweddol
-  </li>
-</ul>
-
-<p>Yn yr achos olaf, rydym yn defnyddio'r safle i lobio am ehangu cwmpas y
-Ddeddf Rhyddid Gwybodaeth. Hyd yn oed os nad yw sefydliad yn rhwym yn gyfreithiol
-i ymateb i gais Rhyddid Gwybodaeth, gallant wneud hynny'n wirfoddol.
-</p>
-
-</dd>
-
-<dt id="focused">Pam mae'n rhaid i mi gadw fy nghais yn gryno? <a href="#focused">#</a> </dt>
-
-<dd>
-
-<p>
-Dim ond yr hyn sydd ei angen ddylai fod yn eich cais fel y gall rhywun ddeall
-yn hawdd pa wybodaeth rydych yn gofyn amdani. <i>Peidiwch</i> â chynnwys unrhyw
-un o'r canlynol:
-</p>
-
-<ul>
-<li>dadleuon am eich achos</li>
-<li>datganiadau a allai fwrw anfri neu sarhau eraill</li>
-</ul>
-
-<p>
-Os byddwch yn gwneud hyn, efallai y bydd yn rhaid i ni dynnu eich cais er mwyn
-osgoi problemau gyda chyfraith enllib sydd yn boen i chi ac i ni. Mae negeseuon
-byr cryno yn ei wneud yn haws i awdurdodau dddeall yn glir pa wybodaeth rydych
-yn gofyn amdani, sy'n golygu y byddwch yn cael ateb yn gynt.
-</p>
-
-<p>Os ydych am wybodaeth i gefnogi dadl neu ymgyrch, mae Rhyddid Gwybodaeth yn
-arf pwerus. Er na chewch ddefnyddio'r wefan hon i redeg eich ymgyrch, rydym yn
-eich annog i'w defnyddio i gael y wybodaeth rydych ei hangen. Rydym hefyd yn
-eich annog i redeg eich ymgyrch yn rhywle arall - un ffordd effeithiol a hawdd
-iawn yw i chi <%= link_to 'ddechrau eich blog eich hun', "http://cy.wordpress.com/"%>.
-Mae croeso i chi greu cysylltiad â'ch ymgyrch o'r wefan hon mewn nodyn i'ch
-cais (gallwch wneud nodiadau ar ôl cyflwyno'r cais).
-</p>
-
-</dd>
-
-<dt id="fees">Ydy'n costio i mi wneud cais? <a href="#fees">#</a> </dt>
-
-<dd>
-
-<p>Mae gwneud cais Rhyddid Gwybodaeth bron bob amser yn rhad ac am ddim.</p>
-
-<p>Bydd awdurdodau'n aml yn cynnwys llith ddiangen, frawychus, wrth gydnabod
-negeseuon yn dweud y "gallent" godi ffi. Anwybyddwch rybuddion o'r fath. Ni
-fyddant bron byth mewn gwirionedd yn codi ffi. Os byddant yn codi ffi, dim ond
-os ydych wedi cytuno'n benodol ymlaen llaw i dalu y gallant godi tâl arnoch.
-<a
-    href="https://ico.org.uk/for-organisations/guide-to-freedom-of-information/receiving-a-request/#15">Rhagor o fanylion</a>
-gan y Comisiynydd Gwybodaeth.</p>
-
-<p>Weithiau bydd awdurdod yn gwrthod eich cais, gan ddweud bod y gost o
-drin yn fwy na £600 (ar gyfer llywodraeth ganolog) neu £450 (ar gyfer pob
-awdurdod cyhoeddus arall). Yn y fan hon, gallwch fireinio eich cais. e.e.
-byddai'n llawer rhatach i awdurdod ddweud wrthych y swm a wariwyd ar malws
-melys y llynedd nag yn y deng mlynedd diwethaf.</p>
-
-</dd>
-
-
-<dt id="quickly_response">Pa mor gyflym y caf ymateb? <a href="#quickly_response">#</a> </dt>
-
-<dd>
-<p>Yn ôl y gyfraith, mae'n rhaid i awdurdodau cyhoeddus ymateb yn <strong>brydlon</strong>} i geisiadau.
-</p>
-
-<p>Hyd yn oed os nad ydynt yn brydlon, ym mron pob achos, rhaid iddynt ymateb
-o fewn 20 diwrnod gwaith. Os oedd rhaid i chi egluro eich cais, neu os oeddech
-wedi gofyn i ysgol, ac mewn achos neu ddau arall, yna mae'n bosibl y cânt fwy
-o amser (<a href="<%= help_officers_path(:anchor => 'days') %>">manylion llawn</a>).</p>
-
-<p>Bydd WhatDoTheyKnow yn anfon e-bost atoch os nad ydych yn cael ymateb amserol.
-Yna, gallwch anfon at yr awdurdod cyhoeddus neges i'w hatgoffa, ac yn dweud
-wrthynt os ydynt yn torri'r gyfraith.</p>
-
-</dd>
-
-<dt id="no_response">Beth os na fyddaf byth yn cael ymateb?<a href="#no_response">#</a> </dt>
-
-<dd>
-<p>Mae nifer o bethau y gallwch eu gwneud os ydych byth yn cael ymateb.</p>
-<ul>
-    <li>Weithiau, mae problem go iawn wedi digwydd  ac nid yw'r awdurdod erioed
-wedi derbyn y cais. Mae'n werth ffonio'r awdurdod a gwirio'n gwrtais eu bod
-wedi derbyn y cais. Cafodd ei anfon atynt drwy e-bost.
-    </li>
-    <li>Os nad ydynt wedi ei dderbyn, mwy na thebyg "hidlyddion sbam" fydd achos
-y broblem. Cyfeiriwch yr awdurdod at y mesurau yn yr ateb
-'<a href="<%= help_officers_path(:anchor => 'spam_problems') %>">gallaf weld cais ar WhatDoTheyKnow, ond
-chawsom ni mohono erioed drwy e-bost!</a>' yn yr adran i swyddogion rhyddid
-gwybodaeth yn yr adran help hon.</li>
-    <li>Os ydych chi'n dal heb unrhyw lwc, yna gallwch ofyn am adolygiad mewnol,
-ac yna gwyno i'r Comisiynydd Gwybodaeth am yr awdurdod. Darllenwch
-'<a href="<%= help_general_path(:action => 'unhappy') %>">ein tudalen Anhapus ynghylch yr ymateb a gawsoch?</a>'. </li>
-</ul>
-</dd>
-
-<dt id="not_satifised">Beth os nad wyf yn fodlon ā'r ymateb? <a href="#not_satifised">#</a> </dt>
-<dd>
-<p>Os na chawsoch y wybodaeth y gofynnoch amdani, neu os na dderbynioch chi
-hi mewn pryd, yna darllenwch ein tudalen '<a href="<%= help_general_path(:action => 'unhappy') %>">Anhapus ynghylch
-yr ymateb a gawsoch?</a>'.</p>
-
-</dd>
-
-<dt id="reuse">Mae'n dweud na chaf i ddim ail-ddefnyddio'r wybodaeth a gefais! <a href="#reuse">#</a> </dt>
-<dd>
-
-<p>Bydd awdurdodau yn aml yn ychwanegu llith gyfreithiol
-am "<a href="http://www.legislation.gov.uk/uksi/2005/1515/contents/made">Reoliadau
-Ail-Defnyddio Gwybodaeth y Sector Cyhoeddus 2005</a>", sydd ar yr olwg gyntaf
-yn awgrymu efallai na chewch chi wneud dim â'r wybodaeth.</p>
-
-<p>Fe gewch chi, wrth gwrs, ysgrifennu erthyglau am yr wybodaeth neu ei
-chrynhoi, neu dyfynnu rhannau ohoni. Rydym hefyd yn meddwl y dylech chi
-deimlo'n rhydd i ailgyhoeddi'r wybodaeth yn llawn, yn union fel rydym yn ei
-wneud, er mewn damcaniaeth efallai na fydd caniatâd gennych i wneud hynny.
-Gweler <a href="<%= help_officers_path(:anchor => 'copyright') %>">ein polisi ar hawlfraint</a>.</p>
-
-</dd>
-
-<dt id="ico_help">Allwch chi ddweud mwy wrthyf am fanion y broses o wneud ceisiadau? <a href="#ico_help">#</a> </dt>
-
-<dd>
-<p>Edrychwch ar dudalennau  <a href="https://ico.org.uk/for-the-public/official-information/">mynediad
-i wybodaeth swyddogol</a> ar wefan y Comisiynydd Gwybodaeth.</p>
-
-<p>Os ydych yn gwneud cais am wybodaeth gan awdurdod cyhoeddus
-yn yr Alban, mae'r broses yn debyg iawn. Mae gwahaniaethau o gwmpas y
-terfynau amser ar gyfer cydymffurfio. Gweler <a href="http://www.itspublicknowledge.info/YourRights/YourRights.aspx">canllawiau
-Comisiynydd Gwybodaeth yr Alban</a> am fanylion.</p>
-
-</dd>
-
-<dt id="data_protection">A gaf i wneud cais am wybodaeth amdanaf fi fy hun? <a href="#data_protection">#</a> </dt>
-<dd>
-<p>Na chewch. Mae ceisiadau sy'n cael eu gwneud gan ddefnyddio WhatDoTheyKnow yn gyhoeddus, ac yn cael eu gwneudd o dan y Ddeddf Rhyddid Gwybodaeth, ac ni allant eich helpu i ddod o hyd i wybodaeth am unigolyn preifat.</p>
-<p>Os hoffech wybod pa wybodaeth y mae awdurdod cyhoeddus yn ei chadw amdanoch chi eich hun, dylech wneud &quot;Cais Gwrthrych am Wybodaeth&quot; yn breifat gan ddefnyddio gyfraith Diogelu Data. Mae'r daflen &quot; <a href="http://www.ico.org.uk/upload/documents/library/data_protection/introductory/subject_access_rights.pdf">Sut i gael mynediad at eich gwybodaeth</a> &quot;(ar wefan y Comisiynydd Gwybodaeth) yn esbonio sut i wneud hyn.</p>
-<p>Os byddwch yn gweld fod rhywun wedi cynnwys gwybodaeth bersonol, yn ddiarwybod o bosibl, mewn cais, <a href="<%= help_contact_path %>">cysylltwch â ni</a> ar unwaith er mwyn i ni ei symud.</p> </dd>
-<dt id="private_requests">Hoffwn gadw fy nghais yn gyfrinachol! (O leiaf nes i mi gyhoeddi fy stori) <a href="#private_requests">#</a> </dt>
-<dd>
-<p>Mae WhatDoTheyKnow wedi ei chynllunio ar hyn o bryd yn unig ar gyfer ceisiadau cyhoeddus. Cyhoeddir yr holl ymatebion a dderbyniwn yn awtomatig ar y wefan i unrhyw un eu darllen. </p>
-<p>Dylech gysylltu â'r awdurdod cyhoeddus yn uniongyrchol os hoffech wneud cais yn breifat. Os oes gennych ddiddordeb mewn prynu system sy'n eich helpu i reoli ceisiadau Rhyddid Gwybodaeth yn y dirgel, ac yna <a href="<%= help_contact_path %>">cysylltwch â ni</a> . </p> </dd>
-<dt id="eir">Pam dim ond gwybodaeth am yr amgylchedd y gallaf ofyn amdani gan rai awdurdodau? <a href="#eir">#</a> </dt>
-<dd>
-<p>Mae rhai awdurdodau cyhoeddus, megis <a href="http://www.whatdotheyknow.com/body/milford_haven_port_authority">Milford Haven Port Authority</a>, nad ydynt yn dod o dan y Ddeddf Rhyddid Gwybodaeth, ond yn dod o dan ddeddf arall, sef y Rheoliadau Gwybodaeth Amgylcheddol (EIR). </p>
-<p>Mae'n gyfraith debyg iawn, ac fe wnewch gais iddynt gan ddefnyddio WhatDoTheyKnow yn union yr un ffordd â chais Rhyddid Gwybodaeth. Yr unig wahaniaeth yw y cewch eich atgoffa ar y dudalen lle byddwch yn ysgrifennu eich cais mai dim ond am &quot;wybodaeth amgylcheddol&quot; y cewch ofyn ac mae'n dweud wrthych beth mae hynny'n ei olygu. Mae'n eithaf eang. </p>
-<p>Gallwch, wrth gwrs, wneud cais am wybodaeth amgylcheddol gan awdurdodau eraill. Gwnewch gais Rhyddid Gwybodaeth (FOI) fel arfer. Mae'n ddyletswydd ar yr awdurdod i weithio allan ai'r Rheoliadau Gwybodaeth Amgylcheddol (EIR) yw'r ddeddfwriaeth fwyaf priodol iddynt ymateb o dani. </p> </dd>
-<dt id="multiple">A gaf i wneud yr un cais i lawer o awdurdodau, ee pob cyngor? <a href="#multiple">#</a> </dt>
-<dd>Rydym yn gofyn i chi yn gyntaf anfon fersiwn brawf o'ch cais i ychydig o awdurdodau. Bydd eu hymatebion yn eich helpu i wella geiriad eich cais, er mwyn i chi gael y wybodaeth orau pan fyddwch yn anfon y cais i bob un o'r awdurdodau. Ar hyn o bryd nid oes system awtomataidd ar gyfer anfon y cais i'r awdurdodau eraill, rhaid i chi gopïo a gludo â llaw. </dd>
-<dt id="offsite">Gwnes gais heb ddefnyddio'r wefan: sut y gallaf ei lwytho i'r archif?<a href="#offsite">#</a> </dt>
-<dd>Mae WhatDoTheyKnow yn archif o geisiadau a wnaethpwyd trwy'r wefan, ac nid yw'n ceisio bod yn archif o bob cais Rhyddid Gwybodaeth. Fyddwn ni byth yn cynnal llwytho ceisiadau eraill i fyny. Yn un peth, ni fyddem yn gallu cadarnhau bod ymatebion eraill mewn gwirionedd yn dod oddi wrth yr awdurdod. Os yw hyn yn wir yn bwysig i chi, gallwch chi bob amser wneud yr un cais eto drwy WhatDoTheyKnow. </dd>
-<dt id="moderation">Sut ydych chi'n cymedroli anodiadau ar gais? <a href="#moderation">#</a> </dt>
-<dd>
-<p>Mae anodiadau ar WhatDoTheyKnow i helpu pobl i gael y wybodaeth sy arnynt ei eisiau, neu i roi awgrymiadau i lefydd y gallant fynd i'w helpu i weithredu arno. Rydym yn cadw'r hawl i ddileu unrhyw beth arall. </p>
-<p>Nid yw trafodaethau gwleidyddol diddiwedd yn cael eu caniatáu. Postiwch ddolen i fforwm addas neu wefan ymgyrch mewn man arall.</p>
-<dd> </dd></dd></dl>
-
-<p><strong>Nesaf</strong>, darllenwch am <a href="<%= help_privacy_path %>">eich preifatrwydd</a> -&gt;
-
-<div id="hash_link_padding"></div>
-
-
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="making_requests"><%= @title %> <a href="#making_requests">#</a> </h1>
+  <dl>
+    <dt id="which_authority">Dydw i ddim yn siŵr i ba awdurdod i wneud cais, sut y gallaf gael gwybod? <a href="#which_authority">#</a> </dt>
+    <dd>
+    <p>Gall fod yn anodd deall strwythur cymhleth y llywodraeth, a gweithio allan pwy sy'n gwybod
+    y wybodaeth yr ydych ei heisiau. Dyma rai awgrymiadau:</p>
+    <ul>
+      <li>Pori neu chwilio WhatDoTheyKnow gan chwilio am geisiadau tebyg i'ch un chi.</li>
+      <li>Pan fyddwch wedi dod o hyd i awdurdod y credwch y gallai fod ganddo'r wybodaeth, defnyddiwch
+      ddolen y "dudalen gartref" ar ochr dde eu dudalen i weld yr hyn y maent yn ei wneud ar eu gwefan.</li>
+      <li>Cysylltwch â'r awdurdod dros y ffôn neu e-bost i ofyn a ydynt yn dal y math o
+      wybodaeth yr hoffech ei chael.</li>
+      <li>Peidiwch â phoeni'n ormodol am gael yr awdurdod cywir. Os ydych yn ei gael yn anghywir, dylent eich
+        cynghori chi i bwy y dylech wneud y cais yn lle.
+      </li>
+      <li>Os oes gennych achos dyrys, cysylltwch <a href="<%= help_contact_path %>">â ni</a> am gymorth.</li>
+    </ul>
+    </dd>
+    <dt id="missing_body">Does gennych chi mo'r awdurdod cyhoeddus yr wyf am
+    wneud cais iddo! <a href="#missing_body">#</a> </dt>
+    <dd>
+    <p>
+      Cysylltwch <a href="<%= new_change_request_path %>">â ni</a> gydag enw'r awdurdod cyhoeddus ac,
+      os gallwch ddod o hyd ddo, eu cyswllt cyfeiriad e-bost ar gyfer ceisiadau Rhyddid Gwybodaeth.
+    </p>
+    <p>
+      Os hoffech chi helpu i ychwanegu categori cyfan o awdurdodau cyhoeddus at y
+      wefan, byddem wrth ein bodd cael clywed gennych hefyd.
+    </p>
+    </dd>
+    <dt id="authorities">Pam eich bod yn cynnwys rhai awdurdodau nad ydynt yn ffurfiol
+    yn ddarostyngedig i'r Ddeddf Rhyddid Gwybodaeth?<a href="#authorities">#</a> </dt>
+    <dd>
+    <p>Mae WhatDoTheyKnow yn gadael i chi wneud ceisiadau am wybodaeth i ystod o
+    sefydliadau:</p>
+    <ul>
+      <li> Rhai sy'n ddarostyngedig yn ffurfiol i'r Ddeddf Rhyddid Gwybodaeth</li>
+      <li> Rhai sy'n ddarostyngedig yn ffurfiol i'r Rheoliadau Amgylcheddol (grŵp
+      nad yw wedi ei ddiffinio cystal)</li>
+      <li> Rhai sy'n cydymffurfio'n wirfoddol â'r Ddeddf Rhyddid Gwybodaeth</li>
+      <li> Rhai nad ydynt yn ddarostyngedig i'r Ddeddf, ond rydym yn meddwl y dylent
+        fod, ar y sail fod ganddynt gyfrifoldebau cyhoeddus sylweddol
+      </li>
+    </ul>
+    <p>Yn yr achos olaf, rydym yn defnyddio'r safle i lobio am ehangu cwmpas y
+      Ddeddf Rhyddid Gwybodaeth. Hyd yn oed os nad yw sefydliad yn rhwym yn gyfreithiol
+      i ymateb i gais Rhyddid Gwybodaeth, gallant wneud hynny'n wirfoddol.
+    </p>
+    </dd>
+    <dt id="focused">Pam mae'n rhaid i mi gadw fy nghais yn gryno? <a href="#focused">#</a> </dt>
+    <dd>
+    <p>
+      Dim ond yr hyn sydd ei angen ddylai fod yn eich cais fel y gall rhywun ddeall
+      yn hawdd pa wybodaeth rydych yn gofyn amdani. <i>Peidiwch</i> â chynnwys unrhyw
+      un o'r canlynol:
+    </p>
+    <ul>
+      <li>dadleuon am eich achos</li>
+      <li>datganiadau a allai fwrw anfri neu sarhau eraill</li>
+    </ul>
+    <p>
+      Os byddwch yn gwneud hyn, efallai y bydd yn rhaid i ni dynnu eich cais er mwyn
+      osgoi problemau gyda chyfraith enllib sydd yn boen i chi ac i ni. Mae negeseuon
+      byr cryno yn ei wneud yn haws i awdurdodau dddeall yn glir pa wybodaeth rydych
+      yn gofyn amdani, sy'n golygu y byddwch yn cael ateb yn gynt.
+    </p>
+    <p>Os ydych am wybodaeth i gefnogi dadl neu ymgyrch, mae Rhyddid Gwybodaeth yn
+      arf pwerus. Er na chewch ddefnyddio'r wefan hon i redeg eich ymgyrch, rydym yn
+      eich annog i'w defnyddio i gael y wybodaeth rydych ei hangen. Rydym hefyd yn
+      eich annog i redeg eich ymgyrch yn rhywle arall - un ffordd effeithiol a hawdd
+      iawn yw i chi <%= link_to 'ddechrau eich blog eich hun', "http://cy.wordpress.com/"%>.
+      Mae croeso i chi greu cysylltiad â'ch ymgyrch o'r wefan hon mewn nodyn i'ch
+      cais (gallwch wneud nodiadau ar ôl cyflwyno'r cais).
+    </p>
+    </dd>
+    <dt id="fees">Ydy'n costio i mi wneud cais? <a href="#fees">#</a> </dt>
+    <dd>
+    <p>Mae gwneud cais Rhyddid Gwybodaeth bron bob amser yn rhad ac am ddim.</p>
+    <p>Bydd awdurdodau'n aml yn cynnwys llith ddiangen, frawychus, wrth gydnabod
+      negeseuon yn dweud y "gallent" godi ffi. Anwybyddwch rybuddion o'r fath. Ni
+      fyddant bron byth mewn gwirionedd yn codi ffi. Os byddant yn codi ffi, dim ond
+      os ydych wedi cytuno'n benodol ymlaen llaw i dalu y gallant godi tâl arnoch.
+      <a
+      href="https://ico.org.uk/for-organisations/guide-to-freedom-of-information/receiving-a-request/#15">Rhagor o fanylion</a>
+    gan y Comisiynydd Gwybodaeth.</p>
+    <p>Weithiau bydd awdurdod yn gwrthod eich cais, gan ddweud bod y gost o
+      drin yn fwy na £600 (ar gyfer llywodraeth ganolog) neu £450 (ar gyfer pob
+      awdurdod cyhoeddus arall). Yn y fan hon, gallwch fireinio eich cais. e.e.
+      byddai'n llawer rhatach i awdurdod ddweud wrthych y swm a wariwyd ar malws
+    melys y llynedd nag yn y deng mlynedd diwethaf.</p>
+    </dd>
+    <dt id="quickly_response">Pa mor gyflym y caf ymateb? <a href="#quickly_response">#</a> </dt>
+    <dd>
+    <p>Yn ôl y gyfraith, mae'n rhaid i awdurdodau cyhoeddus ymateb yn <strong>brydlon</strong>} i geisiadau.
+    </p>
+    <p>Hyd yn oed os nad ydynt yn brydlon, ym mron pob achos, rhaid iddynt ymateb
+      o fewn 20 diwrnod gwaith. Os oedd rhaid i chi egluro eich cais, neu os oeddech
+      wedi gofyn i ysgol, ac mewn achos neu ddau arall, yna mae'n bosibl y cânt fwy
+      o amser (<a href="<%= help_officers_path(:anchor => 'days') %>">manylion llawn</a>).
+    </p>
+    <p>Bydd WhatDoTheyKnow yn anfon e-bost atoch os nad ydych yn cael ymateb amserol.
+      Yna, gallwch anfon at yr awdurdod cyhoeddus neges i'w hatgoffa, ac yn dweud
+    wrthynt os ydynt yn torri'r gyfraith.</p>
+    </dd>
+    <dt id="no_response">Beth os na fyddaf byth yn cael ymateb?<a href="#no_response">#</a> </dt>
+    <dd>
+    <p>Mae nifer o bethau y gallwch eu gwneud os ydych byth yn cael ymateb.</p>
+    <ul>
+      <li>Weithiau, mae problem go iawn wedi digwydd  ac nid yw'r awdurdod erioed
+        wedi derbyn y cais. Mae'n werth ffonio'r awdurdod a gwirio'n gwrtais eu bod
+        wedi derbyn y cais. Cafodd ei anfon atynt drwy e-bost.
+      </li>
+      <li>Os nad ydynt wedi ei dderbyn, mwy na thebyg "hidlyddion sbam" fydd achos
+        y broblem. Cyfeiriwch yr awdurdod at y mesurau yn yr ateb
+        '<a href="<%= help_officers_path(:anchor => 'spam_problems') %>">gallaf weld cais ar WhatDoTheyKnow, ond
+        chawsom ni mohono erioed drwy e-bost!</a>' yn yr adran i swyddogion rhyddid
+      gwybodaeth yn yr adran help hon.</li>
+      <li>Os ydych chi'n dal heb unrhyw lwc, yna gallwch ofyn am adolygiad mewnol,
+        ac yna gwyno i'r Comisiynydd Gwybodaeth am yr awdurdod. Darllenwch
+        '<a href="<%= help_general_path(:action => 'unhappy') %>">ein tudalen Anhapus ynghylch yr ymateb a gawsoch?</a>'.
+      </li>
+    </ul>
+    </dd>
+    <dt id="not_satifised">Beth os nad wyf yn fodlon ā'r ymateb? <a href="#not_satifised">#</a> </dt>
+    <dd>
+    <p>Os na chawsoch y wybodaeth y gofynnoch amdani, neu os na dderbynioch chi
+      hi mewn pryd, yna darllenwch ein tudalen '<a href="<%= help_general_path(:action => 'unhappy') %>">Anhapus ynghylch yr ymateb a gawsoch?</a>'.
+    </p>
+    </dd>
+    <dt id="reuse">Mae'n dweud na chaf i ddim ail-ddefnyddio'r wybodaeth a gefais! <a href="#reuse">#</a> </dt>
+    <dd>
+    <p>Bydd awdurdodau yn aml yn ychwanegu llith gyfreithiol
+      am "<a href="http://www.legislation.gov.uk/uksi/2005/1515/contents/made">Reoliadau
+      Ail-Defnyddio Gwybodaeth y Sector Cyhoeddus 2005</a>", sydd ar yr olwg gyntaf
+    yn awgrymu efallai na chewch chi wneud dim â'r wybodaeth.</p>
+    <p>Fe gewch chi, wrth gwrs, ysgrifennu erthyglau am yr wybodaeth neu ei
+      chrynhoi, neu dyfynnu rhannau ohoni. Rydym hefyd yn meddwl y dylech chi
+      deimlo'n rhydd i ailgyhoeddi'r wybodaeth yn llawn, yn union fel rydym yn ei
+      wneud, er mewn damcaniaeth efallai na fydd caniatâd gennych i wneud hynny.
+      Gweler <a href="<%= help_officers_path(:anchor => 'copyright') %>">ein polisi ar hawlfraint</a>.
+    </p>
+    </dd>
+    <dt id="ico_help">Allwch chi ddweud mwy wrthyf am fanion y broses o wneud ceisiadau? <a href="#ico_help">#</a> </dt>
+    <dd>
+    <p>Edrychwch ar dudalennau  <a href="https://ico.org.uk/for-the-public/official-information/">mynediad
+    i wybodaeth swyddogol</a> ar wefan y Comisiynydd Gwybodaeth.</p>
+    <p>Os ydych yn gwneud cais am wybodaeth gan awdurdod cyhoeddus yn yr Alban, mae'r broses yn debyg iawn. Mae gwahaniaethau o gwmpas y terfynau amser ar gyfer cydymffurfio. Gweler <a href="http://www.itspublicknowledge.info/YourRights/YourRights.aspx">canllawiau  Comisiynydd Gwybodaeth yr Alban</a> am fanylion.</p>
+    </dd>
+    <dt id="data_protection">A gaf i wneud cais am wybodaeth amdanaf fi fy hun? <a href="#data_protection">#</a> </dt>
+    <dd>
+    <p>Na chewch. Mae ceisiadau sy'n cael eu gwneud gan ddefnyddio WhatDoTheyKnow yn gyhoeddus, ac yn cael eu gwneudd o dan y Ddeddf Rhyddid Gwybodaeth, ac ni allant eich helpu i ddod o hyd i wybodaeth am unigolyn preifat.</p>
+    <p>Os hoffech wybod pa wybodaeth y mae awdurdod cyhoeddus yn ei chadw amdanoch chi eich hun, dylech wneud &quot;Cais Gwrthrych am Wybodaeth&quot; yn breifat gan ddefnyddio gyfraith Diogelu Data. Mae'r daflen &quot; <a href="http://www.ico.org.uk/upload/documents/library/data_protection/introductory/subject_access_rights.pdf">Sut i gael mynediad at eich gwybodaeth</a> &quot;(ar wefan y Comisiynydd Gwybodaeth) yn esbonio sut i wneud hyn.</p>
+    <p>Os byddwch yn gweld fod rhywun wedi cynnwys gwybodaeth bersonol, yn ddiarwybod o bosibl, mewn cais, <a href="<%= help_contact_path %>">cysylltwch â ni</a> ar unwaith er mwyn i ni ei symud.</p> </dd>
+    <dt id="private_requests">Hoffwn gadw fy nghais yn gyfrinachol! (O leiaf nes i mi gyhoeddi fy stori) <a href="#private_requests">#</a> </dt>
+    <dd>
+    <p>Mae WhatDoTheyKnow wedi ei chynllunio ar hyn o bryd yn unig ar gyfer ceisiadau cyhoeddus. Cyhoeddir yr holl ymatebion a dderbyniwn yn awtomatig ar y wefan i unrhyw un eu darllen. </p>
+    <p>Dylech gysylltu â'r awdurdod cyhoeddus yn uniongyrchol os hoffech wneud cais yn breifat. Os oes gennych ddiddordeb mewn prynu system sy'n eich helpu i reoli ceisiadau Rhyddid Gwybodaeth yn y dirgel, ac yna <a href="<%= help_contact_path %>">cysylltwch â ni</a> . </p> </dd>
+    <dt id="eir">Pam dim ond gwybodaeth am yr amgylchedd y gallaf ofyn amdani gan rai awdurdodau? <a href="#eir">#</a> </dt>
+    <dd>
+    <p>Mae rhai awdurdodau cyhoeddus, megis <a href="http://www.whatdotheyknow.com/body/milford_haven_port_authority">Milford Haven Port Authority</a>, nad ydynt yn dod o dan y Ddeddf Rhyddid Gwybodaeth, ond yn dod o dan ddeddf arall, sef y Rheoliadau Gwybodaeth Amgylcheddol (EIR). </p>
+    <p>Mae'n gyfraith debyg iawn, ac fe wnewch gais iddynt gan ddefnyddio WhatDoTheyKnow yn union yr un ffordd â chais Rhyddid Gwybodaeth. Yr unig wahaniaeth yw y cewch eich atgoffa ar y dudalen lle byddwch yn ysgrifennu eich cais mai dim ond am &quot;wybodaeth amgylcheddol&quot; y cewch ofyn ac mae'n dweud wrthych beth mae hynny'n ei olygu. Mae'n eithaf eang. </p>
+    <p>Gallwch, wrth gwrs, wneud cais am wybodaeth amgylcheddol gan awdurdodau eraill. Gwnewch gais Rhyddid Gwybodaeth (FOI) fel arfer. Mae'n ddyletswydd ar yr awdurdod i weithio allan ai'r Rheoliadau Gwybodaeth Amgylcheddol (EIR) yw'r ddeddfwriaeth fwyaf priodol iddynt ymateb o dani. </p> </dd>
+    <dt id="multiple">A gaf i wneud yr un cais i lawer o awdurdodau, ee pob cyngor? <a href="#multiple">#</a> </dt>
+    <dd>Rydym yn gofyn i chi yn gyntaf anfon fersiwn brawf o'ch cais i ychydig o awdurdodau. Bydd eu hymatebion yn eich helpu i wella geiriad eich cais, er mwyn i chi gael y wybodaeth orau pan fyddwch yn anfon y cais i bob un o'r awdurdodau. Ar hyn o bryd nid oes system awtomataidd ar gyfer anfon y cais i'r awdurdodau eraill, rhaid i chi gopïo a gludo â llaw. </dd>
+    <dt id="offsite">Gwnes gais heb ddefnyddio'r wefan: sut y gallaf ei lwytho i'r archif?<a href="#offsite">#</a> </dt>
+    <dd>Mae WhatDoTheyKnow yn archif o geisiadau a wnaethpwyd trwy'r wefan, ac nid yw'n ceisio bod yn archif o bob cais Rhyddid Gwybodaeth. Fyddwn ni byth yn cynnal llwytho ceisiadau eraill i fyny. Yn un peth, ni fyddem yn gallu cadarnhau bod ymatebion eraill mewn gwirionedd yn dod oddi wrth yr awdurdod. Os yw hyn yn wir yn bwysig i chi, gallwch chi bob amser wneud yr un cais eto drwy WhatDoTheyKnow. </dd>
+    <dt id="moderation">Sut ydych chi'n cymedroli anodiadau ar gais? <a href="#moderation">#</a> </dt>
+    <dd>
+    <p>Mae anodiadau ar WhatDoTheyKnow i helpu pobl i gael y wybodaeth sy arnynt ei eisiau, neu i roi awgrymiadau i lefydd y gallant fynd i'w helpu i weithredu arno. Rydym yn cadw'r hawl i ddileu unrhyw beth arall. </p>
+    <p>Nid yw trafodaethau gwleidyddol diddiwedd yn cael eu caniatáu. Postiwch ddolen i fforwm addas neu wefan ymgyrch mewn man arall.</p>
+    </dd>
+  </dl>
+  <p><strong>Nesaf</strong>, darllenwch am <a href="<%= help_privacy_path %>">eich preifatrwydd</a> -&gt;
+  <div id="hash_link_padding"></div>
+</div>

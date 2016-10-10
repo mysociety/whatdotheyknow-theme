@@ -1,36 +1,47 @@
 <% @title = "Cyflwyniad" %>
-
 <%= render :partial => 'sidebar' %>
-
-<h1 id="introduction"><%= @title %> <a href="#introduction">#</a> </h1>
-<dl>
-
-<dt id="purpose">Beth yw diben WhatDoTheyKnow? <a href="#purpose">#</a> </dt>
-
-<dd>Mae i'ch helpu i ddarganfod gwybodaeth fewnol am yr hyn y mae llywodraeth y DU yn ei wneud. </dd>
-
-<dt id="premise">Sut mae'r wefan yn gweithio? <a href="#premise">#</a> </dt>
-
-<dd>Rydych chi'n dewis yr awdurdod cyhoeddus yr hoffech wybodaeth oddi wrtho, yna'n ysgrifennu nodyn byr yn disgrifio yr hyn yr ydych am ei wybod. Yna byddwn yn anfon eich cais at yr awdurdod cyhoeddus. Caiff unrhyw ymateb ganddynt ei gyhoeddi yn awtomatig ar y wefan i chi ac unrhyw un arall i ddod o hyd iddo a'i ddarllen. </dd>
-
-<dt id="whybother_me">Pam fyddwn i'n trafferthu i wneud hyn? <a href="#whybother_me">#</a> </dt>
-
-<dd>Rydych chi'n talu trethi, a'r llywodraeth wedyn yn gwneud pethau gyda'r arian. Pob math o bethau sy'n effeithio ar eich bywyd, o ofal iechyd drwodd iat amddiffyn. Mae'n gwneud rhai pethau'n wael, rhai yn dda. Po fwyaf rydym yn dysgu am sut mae llywodraeth yn gweithio, po orau y gallwn wneud awgrymiadau i wella'r pethau a wneir yn wael,  ac i ddathlu'r pethau mae'n yn ei wneud yn dda. </dd>
-
-<dt id="whybother_them">Pam fyddai'r awdurdod cyhoeddus yn trafferthu i ymateb? <a href="#whybother_them">#</a> </dt>
-
-<dd>O dan gyfraith Rhyddid Gwybodaeth (FOI), mae'n rhaid iddynt ymateb. Bydd yr ymateb naill ai'n cynnwys y wybodaeth yr ydych ei heisiau, neu'n rhoi rheswm cyfreithiol dilys pam mae'n rhaid iddo gael ei gadw'n gyfrinachol. </dd>
-
-<dt id="who">Pwy sy'n gwneud WhatDoTheyKnow? <a href="#who">#</a> </dt>
-
-<dd>Cafodd WhatDoTheyKnow ei greu gan <a href="http://www.mysociety.org">mySociety</a> ac mae'n cael ei gynnal ganddi. Ar y dechrau cafodd <a href="http://www.mysociety.org/2006/12/06/funding-for-freedom-of-information/">ei ariannu gan Ymddiriedolaeth Elusennol JRSST</a>. Mae mySociety yn brosiect yr elusen gofrestredig <a href="https://www.mysociety.org/about/structure-and-governance/">Democratiaeth Dinasyddion Ar-lein y DG</a>. Os ydych yn hoffi'r hyn rydym yn ei wneud, yna gallwch <a href="https://secure.mysociety.org/donate/">roi rhodd</a>. </dd>
-
-<dt id="updates">Sut y gallaf gadw i fyny gyda newyddion am WhatDoTheyKnow?<a href="#updates">#</a> </dt>
-
-<dd>Mae gennym <a href="<%= blog_path %>">flog</a> a <a href="http://www.twitter.com/whatdotheyknow">ffrwd twitter</a>. </dd> </dl>
-
-<p><strong>Nesaf,</strong> darllenwch am <a href="<%= help_requesting_path %>">wneud ceisiadau</a> -&gt;
-
-<div id="hash_link_padding"></div>
-
-
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="introduction"><%= @title %> <a href="#introduction">#</a> </h1>
+  <dl>
+    <dt id="purpose">
+    Beth yw diben WhatDoTheyKnow? <a href="#purpose">#</a>
+    </dt>
+    <dd>
+    Mae i'ch helpu i ddarganfod gwybodaeth fewnol am yr hyn y mae llywodraeth y DU yn ei wneud.
+    </dd>
+    <dt id="premise">
+    Sut mae'r wefan yn gweithio? <a href="#premise">#</a>
+    </dt>
+    <dd>
+    Rydych chi'n dewis yr awdurdod cyhoeddus yr hoffech wybodaeth oddi wrtho, yna'n ysgrifennu nodyn byr yn disgrifio yr hyn yr ydych am ei wybod. Yna byddwn yn anfon eich cais at yr awdurdod cyhoeddus. Caiff unrhyw ymateb ganddynt ei gyhoeddi yn awtomatig ar y wefan i chi ac unrhyw un arall i ddod o hyd iddo a'i ddarllen.
+    </dd>
+    <dt id="whybother_me">
+    Pam fyddwn i'n trafferthu i wneud hyn? <a href="#whybother_me">#</a>
+    </dt>
+    <dd>
+    Rydych chi'n talu trethi, a'r llywodraeth wedyn yn gwneud pethau gyda'r arian. Pob math o bethau sy'n effeithio ar eich bywyd, o ofal iechyd drwodd iat amddiffyn. Mae'n gwneud rhai pethau'n wael, rhai yn dda. Po fwyaf rydym yn dysgu am sut mae llywodraeth yn gweithio, po orau y gallwn wneud awgrymiadau i wella'r pethau a wneir yn wael,  ac i ddathlu'r pethau mae'n yn ei wneud yn dda.
+    </dd>
+    <dt id="whybother_them">
+    Pam fyddai'r awdurdod cyhoeddus yn trafferthu i ymateb? <a href="#whybother_them">#</a>
+    </dt>
+    <dd>
+    O dan gyfraith Rhyddid Gwybodaeth (FOI), mae'n rhaid iddynt ymateb. Bydd yr ymateb naill ai'n cynnwys y wybodaeth yr ydych ei heisiau, neu'n rhoi rheswm cyfreithiol dilys pam mae'n rhaid iddo gael ei gadw'n gyfrinachol.
+    </dd>
+    <dt id="who">
+    Pwy sy'n gwneud WhatDoTheyKnow? <a href="#who">#</a>
+    </dt>
+    <dd>
+    Cafodd WhatDoTheyKnow ei greu gan <a href="http://www.mysociety.org">mySociety</a> ac mae'n cael ei gynnal ganddi. Ar y dechrau cafodd <a href="http://www.mysociety.org/2006/12/06/funding-for-freedom-of-information/">ei ariannu gan Ymddiriedolaeth Elusennol JRSST</a>. Mae mySociety yn brosiect yr elusen gofrestredig <a href="https://www.mysociety.org/about/structure-and-governance/">Democratiaeth Dinasyddion Ar-lein y DG</a>. Os ydych yn hoffi'r hyn rydym yn ei wneud, yna gallwch <a href="https://secure.mysociety.org/donate/">roi rhodd</a>.
+    </dd>
+    <dt id="updates">
+    Sut y gallaf gadw i fyny gyda newyddion am WhatDoTheyKnow?<a href="#updates">#</a>
+    </dt>
+    <dd>
+    Mae gennym <a href="<%= blog_path %>">flog</a> a <a href="http://www.twitter.com/whatdotheyknow">ffrwd twitter</a>.
+    </dd>
+  </dl>
+  <p>
+    <strong>Nesaf,</strong> darllenwch am <a href="<%= help_requesting_path %>">wneud ceisiadau</a> -&gt;
+  </p>
+  <div id="hash_link_padding"></div>
+</div>
