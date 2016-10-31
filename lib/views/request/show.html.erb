@@ -45,6 +45,13 @@
 <% if flash[:request_sent] %>
   <%= render :partial => 'request_sent',
              :locals => { :info_request => @info_request } %>
+  <% content_for :ga_pageview do %>
+    ga('send', 'pageview', '<%= show_new_request_path(@info_request.url_title) %>');
+  <% end %>
+<% else %>
+  <% content_for :ga_pageview do %>
+    ga('send', 'pageview', '<%= show_request_path(@info_request.url_title) %>');
+  <% end %>
 <% end %>
 
 <% if @info_request.prominence == 'hidden' %>
@@ -96,7 +103,7 @@
     <% end %>
   </p>
 
-  <p id="request_status" class="request_icon_line icon_<%= @info_request.calculate_status %>">
+  <p id="request_status" class="request-status-message request_icon_line icon_<%= @info_request.calculate_status %>">
     <% if @info_request.awaiting_description %>
       <% if @is_owning_user && !@info_request.is_external? && !@render_to_file %>
         <%= n_('Please <strong>answer the question above</strong> so we know ' \
