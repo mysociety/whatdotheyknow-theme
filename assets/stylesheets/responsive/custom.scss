@@ -717,6 +717,10 @@ input#reedit_button {
   color: $status-failure;
 }
 
+#request_status {
+  background-color: $body-bg;
+}
+
 .icon_successful,
 .icon_partially_successful {
   color: $status-success;
