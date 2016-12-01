@@ -553,6 +553,21 @@ a.link_button_green_large {
   }
 }
 
+.pro .site-title__logo {
+  background-image: image-url("alaveteli_professional/wdtk-logo-white.png");
+  width: 198px;
+  height: 18px;
+  background-size: 198px 18px;
+  @include respond-min( 18.75em ){
+    width: 231px;
+    height: 21px;
+    background-size: 231px 21px;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: image-url("alaveteli_professional/wdtk-logo-white@2.png");
+  }
+}
+
 .ms-header {
   background-color: $mysociety-banner;
   @extend .clearfix;
