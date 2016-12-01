@@ -337,6 +337,52 @@ a.link_button_green_large {
   border-bottom-left-radius: 3px;
 }
 
+#navigation .more-menu {
+  background-color: #333;
+}
+
+.account-link:after {
+  position: relative;
+  top: -0.15em;
+  margin-left: 1em;
+  font-size: 0.5em;
+  content: "▼";
+}
+
+.logged-in-menu {
+  color: black;
+  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+#navigation .logged-in-menu a,
+#navigation .logged-in-menu__signout-link a {
+  color: #197ace;
+  text-decoration: none;
+  transition: none;
+  &:hover {
+    color: #197ace;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+}
+
+#navigation .logged-in-menu__signout-link a {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
+  color: #888;
+  &:hover {
+    color: #888;
+  }
+}
+
+.pro-pill {
+  color: #567386;
+  font-weight: 600;
+  background-color: #FFFF00;
+}
+
+
 /* Notices, errors */
 
 #notice, #error, .errorExplanation, #request_header_text, #hidden_request, .undescribed_requests, .describe_state_form form {
@@ -432,7 +478,6 @@ a.link_button_green_large {
   }
   a {
     @extend .menu-item;
-    @extend .sub-menu-item;
     color: rgba(255, 255, 255, 0.8);
     &:hover,
     &:active,
@@ -498,16 +543,6 @@ a.link_button_green_large {
       &:focus {
         color: transparentize($main_menu-link_text, 0.2);
       }
-    }
-
-  }
-
-  #logged_in_bar{
-    @include respond-min( $main_menu-mobile_menu_cutoff ){
-        @include grid-column(7);
-        @include lte-ie7 {
-           width: 32.211em;
-        }
     }
   }
 }
