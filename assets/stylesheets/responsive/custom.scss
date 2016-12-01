@@ -293,6 +293,11 @@ a.link_button_green_large {
   }
 }
 
+#topnav.pro {
+  background-color: rgba(0,0,0,0.1);
+  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
 #navigation{
   border-bottom: none;
   a {
@@ -505,6 +510,11 @@ a.link_button_green_large {
         }
     }
   }
+}
+
+#banner.pro {
+  background-color: #4C888F;
+  background-image: linear-gradient(-46deg, #4C888F 0%, #4C888F 9%, #365B74 63%);
 }
 
 .greeting {
