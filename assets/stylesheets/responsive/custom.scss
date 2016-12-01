@@ -307,9 +307,13 @@ a.link_button_green_large {
   }
 }
 
+#navigation_search {
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    top: 1.5em;
+  }
+}
 #navigation_search_form {
   position: relative;
-  top: 0.5em;
   button {
     background-color: $color_black !important;
     border-top-right-radius: 3px;
