@@ -341,12 +341,14 @@ a.link_button_green_large {
   background-color: #333;
 }
 
-.account-link:after {
-  position: relative;
-  top: -0.15em;
-  margin-left: 1em;
-  font-size: 0.5em;
-  content: "▼";
+.js-loaded {
+  .account-link:after {
+    position: relative;
+    top: -0.15em;
+    margin-left: 1em;
+    font-size: 0.5em;
+    content: "▼";
+  }
 }
 
 .logged-in-menu {
@@ -366,13 +368,22 @@ a.link_button_green_large {
   }
 }
 
-#navigation .logged-in-menu__signout-link a {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.8em;
-  color: #888;
-  &:hover {
+.no-js {
+  #navigation .logged-in-menu a,
+  #navigation .logged-in-menu__signout-link a {
+    @extend .menu-item;
+  }
+}
+
+.js-loaded {
+    #navigation .logged-in-menu__signout-link a {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
     color: #888;
+    &:hover {
+      color: #888;
+    }
   }
 }
 
