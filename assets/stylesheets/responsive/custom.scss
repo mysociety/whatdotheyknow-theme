@@ -878,7 +878,6 @@ input#reedit_button {
 
 /* LANGUAGE SWITCHER */
 #user_locale_switcher {
-  background-color: $main_menu-bg;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: transparent;
     right: auto;
@@ -986,7 +985,6 @@ p.locale-list-trigger {
 .locale-list .available-languages a:link,
 .locale-list .available-languages a:visited {
   display: block;
-  background-color: $main_menu-bg;
   padding: 0.66em 1em;
   width: 100%;
   text-decoration: none;
@@ -1018,7 +1016,6 @@ p.locale-list-trigger {
 }
 
 .locale-list.active .current-locale {
-  background-color: $main_menu-bg;
   color: $color_white;
   border-color: $main_menu-bg;
   @include respond-min($main_menu-mobile_menu_cutoff) {
