@@ -360,6 +360,16 @@ a.link_button_green_large {
   }
 }
 
+.account-link {
+  background-color: desaturate(darken($main_menu-bg, 2.5%), 5%);
+}
+
+#banner.pro {
+  .account-link {
+    background: transparent;
+  }
+}
+
 #navigation .logged-in-menu a,
 #navigation .logged-in-menu__signout-link a {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
