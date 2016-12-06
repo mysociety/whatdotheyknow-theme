@@ -347,24 +347,30 @@ a.link_button_green_large {
     top: -0.15em;
     margin-left: 1em;
     font-size: 0.5em;
-    content: "▼";
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      content: "▼";
+    }
   }
 }
 
 .logged-in-menu {
-  color: black;
-  box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    color: black;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 #navigation .logged-in-menu a,
 #navigation .logged-in-menu__signout-link a {
-  color: #197ace;
-  text-decoration: none;
-  transition: none;
-  &:hover {
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
     color: #197ace;
-    background-color: transparent;
-    text-decoration: underline;
+    text-decoration: none;
+    transition: none;
+    &:hover {
+      color: #197ace;
+      background-color: transparent;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -377,12 +383,14 @@ a.link_button_green_large {
 
 .js-loaded {
     #navigation .logged-in-menu__signout-link a {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.8em;
-    color: #888;
-    &:hover {
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.8em;
       color: #888;
+      &:hover {
+        color: #888;
+      }
     }
   }
 }
