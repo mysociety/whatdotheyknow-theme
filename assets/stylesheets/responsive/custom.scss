@@ -296,6 +296,13 @@ a.link_button_green_large {
 .topnav--pro {
   background-color: rgba(0,0,0,0.1);
   box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
+  #navigation a {
+    &:hover,
+    &:active,
+    &:focus {
+      background: rgba(0,0,0,0.2);
+    }
+  }
 }
 
 #navigation{
