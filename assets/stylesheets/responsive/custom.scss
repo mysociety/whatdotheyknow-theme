@@ -286,14 +286,14 @@ a.link_button_green_large {
 
 /* Header */
 
-#topnav {
+.topnav {
   background-color: desaturate(darken($main_menu-bg, 2.5%), 5%);
   @media( min-width: $main_menu-mobile_menu_cutoff ) {
     box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.1);
   }
 }
 
-#topnav.pro {
+.topnav--pro {
   background-color: rgba(0,0,0,0.1);
   box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
 }
@@ -364,7 +364,7 @@ a.link_button_green_large {
   background-color: desaturate(darken($main_menu-bg, 2.5%), 5%);
 }
 
-#banner.pro {
+.banner--pro {
   .account-link {
     background: transparent;
   }
@@ -546,7 +546,7 @@ a.link_button_green_large {
   }
 }
 
-#banner.pro {
+.banner--pro {
   background-color: #4C888F;
   background-image: linear-gradient(-46deg, #4C888F 0%, #4C888F 9%, #365B74 63%);
 }
@@ -570,7 +570,7 @@ a.link_button_green_large {
   }
 }
 
-.pro .site-title__logo {
+.banner--pro .site-title__logo {
   background-image: image-url("alaveteli_professional/wdtk-logo-white.png");
   width: 198px;
   height: 18px;
