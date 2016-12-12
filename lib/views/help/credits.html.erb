@@ -1,89 +1,67 @@
 <% @title = "Credit where credit is due" %>
-
 <%= render :partial => 'sidebar' %>
-
-<h1 id="credits"><%= @title%> <a href="#credits">#</a> </h1>
-
-<p>WhatDoTheyKnow is a project of <a href="https://www.mysociety.org">mySociety</a>, a UK organisation. mySociety builds websites that empower citizens to hold authorities to account. And this is one of those sites.</p>
-
-<dl>
-
-<dt id="thanks">The original idea <a href="#thanks">#</a></dt>
-<dd>
-  <p>In 2006, mySociety ran a competition, inviting concepts for their next citizen-empowering website.</p>
-
-  <p>Two people came up with what proved to be the winning idea, a site for submitting FOI requests: Phil Rodgers and Francis Irving.</p>
-
-  <p>FOI activist and journalist Heather Brooke had already been campaigning for an archive of requests and replies, which helped shape our ideas.</p>
-
-  <p>mySociety developer Chris Lightfoot refined the concept with the model of intercepting email responses to requests and automatically publishing them. And so WhatDoTheyKnow in its current form was born.</p>
-</dd>
-
-<dt id="development">Development <a href="#development">#</a></dt>
-<dd>
-  <p>WhatDoTheyKnow was the foundation for the <a href="http://alaveteli.org/">Alaveteli software</a>, which enables anyone, anywhere, to run their own Freedom of Information website. Hearty cheers to <a href="http://alaveteli.org/">Alaveteli</a>&rsquo;s many <a href="https://github.com/mysociety/alaveteli/graphs/contributors">contributors</a>.</p>
-</dd>
-
-<dt id="funding">Funding <a href="#funding">#</a></dt>
-<dd>
-  <p>Original funding for WhatDoTheyKnow was provided by the Joseph Rowntree Trust.</p>
-</dd>
-
-
-<dt id="volunteers">Volunteers <a href="#volunteers">#</a></dt>
-<dd>
-  <p>An amazing team of volunteers run the site, answer your support emails, maintain the database of public authorities and <a href="https://www.mysociety.org/2009/10/13/behind-whatdotheyknow/">so much more</a>. Thanks to <a href="https://www.whatdotheyknow.com/user/helen_cross_2">Helen Cross</a>, <a href="https://www.whatdotheyknow.com/user/john_cross">John Cross</a>, <a href="https://www.whatdotheyknow.com/user/ben_harris">Ben Harris</a>, <a href="https://www.whatdotheyknow.com/user/adam_mcgreggor">Adam McGreggor</a>, <a href="https://www.whatdotheyknow.com/user/doug_paulley">Doug Paulley</a>, <a href="https://www.whatdotheyknow.com/user/ganesh_sittampalam">Ganesh Sittampalam</a>, <a href="https://www.whatdotheyknow.com/user/alex_skene">Alex Skene</a>, <a href="https://www.whatdotheyknow.com/user/alistair_p_sloan">Alistair Sloan</a>, <a href="https://www.whatdotheyknow.com/user/richard_taylor">Richard Taylor</a> and <a href="https://www.whatdotheyknow.com/user/peter_williams_2">Peter Williams</a>.</p>
-</dd>
-
-<dt id="more-thanks">Thanks are also due <a href="#more-thanks">#</a></dt>
-<dd>
-  <p>Many people — too many to mention, but we love you all — helped find the email addresses for public authorities, and gave the site a test run in its early days.</p>
-
-  <p>Francis Davey gave us invaluable legal advice for several years.</p>
-
-  <p>We also thank all the officers and servants who have answered the many requests made through the site. Their diligence, patience and professionalism is what has actually made the information that you see here. Thank them for helping make Government more transparent.</p>
-</dd>
-
-<dt id="helpus">How to help <a href="#helpus">#</a></dt>
-<dd>
-  <dt id="volunteer">Become a volunteer <a href="#volunteer">#</a></dt>
-  <dd>
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="credits"><%= @title%> <a href="#credits">#</a> </h1>
+  <p>WhatDoTheyKnow is a project of <a href="https://www.mysociety.org">mySociety</a>, a UK organisation. mySociety builds websites that empower citizens to hold authorities to account. And this is one of those sites.</p>
+  <dl>
+    <dt id="thanks">The original idea <a href="#thanks">#</a></dt>
+    <dd>
+    <p>In 2006, mySociety ran a competition, inviting concepts for their next citizen-empowering website.</p>
+    <p>Two people came up with what proved to be the winning idea, a site for submitting FOI requests: Phil Rodgers and Francis Irving.</p>
+    <p>FOI activist and journalist Heather Brooke had already been campaigning for an archive of requests and replies, which helped shape our ideas.</p>
+    <p>mySociety developer Chris Lightfoot refined the concept with the model of intercepting email responses to requests and automatically publishing them. And so WhatDoTheyKnow in its current form was born.</p>
+    </dd>
+    <dt id="development">Development <a href="#development">#</a></dt>
+    <dd>
+    <p>WhatDoTheyKnow was the foundation for the <a href="http://alaveteli.org/">Alaveteli software</a>, which enables anyone, anywhere, to run their own Freedom of Information website. Hearty cheers to <a href="http://alaveteli.org/">Alaveteli</a>&rsquo;s many <a href="https://github.com/mysociety/alaveteli/graphs/contributors">contributors</a>.</p>
+    </dd>
+    <dt id="funding">Funding <a href="#funding">#</a></dt>
+    <dd>
+    <p>Original funding for WhatDoTheyKnow was provided by the Joseph Rowntree Trust.</p>
+    </dd>
+    <dt id="volunteers">Volunteers <a href="#volunteers">#</a></dt>
+    <dd>
+    <p>An amazing team of volunteers run the site, answer your support emails, maintain the database of public authorities and <a href="https://www.mysociety.org/2009/10/13/behind-whatdotheyknow/">so much more</a>. Thanks to <a href="https://www.whatdotheyknow.com/user/helen_cross_2">Helen Cross</a>, <a href="https://www.whatdotheyknow.com/user/john_cross">John Cross</a>, <a href="https://www.whatdotheyknow.com/user/ben_harris">Ben Harris</a>, <a href="https://www.whatdotheyknow.com/user/adam_mcgreggor">Adam McGreggor</a>, <a href="https://www.whatdotheyknow.com/user/doug_paulley">Doug Paulley</a>, <a href="https://www.whatdotheyknow.com/user/ganesh_sittampalam">Ganesh Sittampalam</a>, <a href="https://www.whatdotheyknow.com/user/alex_skene">Alex Skene</a>, <a href="https://www.whatdotheyknow.com/user/alistair_p_sloan">Alistair Sloan</a>, <a href="https://www.whatdotheyknow.com/user/richard_taylor">Richard Taylor</a> and <a href="https://www.whatdotheyknow.com/user/peter_williams_2">Peter Williams</a>.</p>
+    </dd>
+    <dt id="more-thanks">Thanks are also due <a href="#more-thanks">#</a></dt>
+    <dd>
+    <p>Many people — too many to mention, but we love you all — helped find the email addresses for public authorities, and gave the site a test run in its early days.</p>
+    <p>Francis Davey gave us invaluable legal advice for several years.</p>
+    <p>We also thank all the officers and servants who have answered the many requests made through the site. Their diligence, patience and professionalism is what has actually made the information that you see here. Thank them for helping make Government more transparent.</p>
+    </dd>
+    <dt id="helpus">How to help <a href="#helpus">#</a></dt>
+    <dd>
+    <dt id="volunteer">Become a volunteer <a href="#volunteer">#</a></dt>
+    <dd>
     <p>If you have a passion for transparency, a great deal of patience, and a bit of spare time, consider becoming one of WhatDoTheyKnow’s volunteer admin team. Work includes user support, helping to resolve legal issues, and shaping the site’s direction, and is primarily managed via email.</p>
     <p>In the first instance, <%= link_to 'get in touch', help_contact_path %>.</p>
-  </dd>
-
-  <dt id="donate">Make a donation <a href="#donate">#</a></dt>
-  <dd>
+    </dd>
+    <dt id="donate">Make a donation <a href="#donate">#</a></dt>
+    <dd>
     <p>mySociety, WhatDoTheyKnow’s parent organisation, is a charity. WhatDoTheyKnow, our most-visited site, costs thousands of pounds each year, for overheads such as servers, maintenance and development.</p>
-
     <p>Your contributions, however small, really help. <a href="https://www.mysociety.org/donate/">Donate here</a>.</p>
-  </dd>
-
-  <dt id="classification">Sort things out <a href="#classification">#</a></dt>
-  <dd>
+    </dd>
+    <dt id="classification">Sort things out <a href="#classification">#</a></dt>
+    <dd>
     <p>Admin can be fun! Help people find successful requests, and monitor performance of authorities, by <a href="https://www.whatdotheyknow.com/categorise/play">playing the categorisation game</a>.</p>
-
     <p>Or be a dear, and find out FOI email addresses of <a href="https://www.whatdotheyknow.com/help/requesting#missing_body">authorities that we're missing</a>.</p>
-  </dd>
-
-  <dt id="promote">Spread the word <a href="#promote">#</a></dt>
-  <dd>
+    </dd>
+    <dt id="promote">Spread the word <a href="#promote">#</a></dt>
+    <dd>
     <p>We don’t have a massive marketing budget, so word of mouth really helps.</p>
-    <p>
-      <ul>
-        <li>Write a blog post about WhatDoTheyKnow, or an interesting request that you've found.</li>
-        <li>Post about the site, and what you can do with it, on a forum that you frequent.</li>
-        <li>Tell friends about it.</li>
-        <li>Let your local newspaper or community magazine know how useful we are.</li>
-        <li>Give a talk.</li>
-        <li><%= mail_to 'hello@mysociety.org', 'Ask us for leaflets', :encode => "javascript" %> to leave in your local library or coffee shop.</li>
-  </dd>
-</dd>
-
-  <dt id="code">Improve our code <a href="#code">#</a></dt>
-  <dd>
+    <ul>
+      <li>Write a blog post about WhatDoTheyKnow, or an interesting request that you've found.</li>
+      <li>Post about the site, and what you can do with it, on a forum that you frequent.</li>
+      <li>Tell friends about it.</li>
+      <li>Let your local newspaper or community magazine know how useful we are.</li>
+      <li>Give a talk.</li>
+      <li><%= mail_to 'hello@mysociety.org', 'Ask us for leaflets', :encode => "javascript" %> to leave in your local library or coffee shop.</li>
+    </ul>
+    </dd>
+    <dt id="code">Improve our code <a href="#code">#</a></dt>
+    <dd>
     <p>Seen something that could work better? If you're a programmer, <a href="https://github.com/mysociety/alaveteli/">get the source code</a> for our parent project, <a href="http://alaveteli.org/">Alaveteli</a> and send us a pull request. WhatDotheyKnow is coded in <a href="http://rubyonrails.org/">Ruby on Rails</a>.</p>
-  </dd>
-
-<div id="hash_link_padding"></div>
-
+    </dd>
+  </dl>
+  <div id="hash_link_padding"></div>
+</div>

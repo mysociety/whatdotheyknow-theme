@@ -717,6 +717,10 @@ input#reedit_button {
   color: $status-failure;
 }
 
+#request_status {
+  background-color: $body-bg;
+}
+
 .icon_successful,
 .icon_partially_successful {
   color: $status-success;
@@ -1279,15 +1283,6 @@ p.locale-list-trigger {
 /* Help pages */
 
 .help-sidebar {
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    position: absolute;
-    left: -39.1%;
-    /* Tricky maths here - we want the side bar to be roughly 25% of the total width
-       but our context here is .controller-help, which is 72% width already. So to get
-       ~25% of the width, we need ~35% of the context. Same applies to the positioning above
-     */
-    width: 32.1%;
-  }
   h2{
     margin-top: 2em;
     font-size: 0.875em; //14px
@@ -1299,13 +1294,6 @@ p.locale-list-trigger {
   ul {
     list-style: none outside none;
     padding: 0;
-  }
-}
-
-.controller_help {
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    position: relative;
-    margin-left: 28%;
   }
 }
 
@@ -1455,18 +1443,6 @@ dd {
   time {
     display: block;
     color: $color_dark_grey;
-  }
-}
-
-.act_link {
-  line-height: 1.5em;
-  margin-bottom: 0.5em;
-  a[href$="&via=whatdotheyknow"] {
-    padding-left: 20px;
-    background-image: image-url('twitter-16.png');
-    background-size: 16px;
-    background-position: 0 3px;
-    background-repeat: no-repeat;
   }
 }
 
