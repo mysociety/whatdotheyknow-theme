@@ -624,6 +624,40 @@ $mysoc-footer-breakpoint-sm: 42em;
 
 
 /* Request page */
+
+.request-header__action-bar {
+  .action-menu__button {
+    @extend .button-secondary;
+    &:after {
+      border-color: #a5a5a5 transparent transparent transparent;
+      right: 7%;
+    }
+  }
+
+    a.link_button_green,
+    a.track_action {
+      line-height: 1.5em;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-bottom: 0;
+    }
+
+  .action-bar__follower-count {
+    color: $color_dark_grey;
+    @include respond-min($main_menu-mobile_menu_cutoff) {
+      padding: 0.56em 1.25em;
+      border: 1px solid $color_light_grey;
+      position: relative;
+      left: -3px;
+      line-height: 1.6em;
+      border-left: 0;
+      border-radius: 3px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
 div.correspondence {
   background-color: $color_white;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
@@ -659,6 +693,7 @@ div.correspondence {
 
 .preview_subject,
 .preview_to {
+
   font-weight: 600;
   strong {
     color: $color_mid_grey;
@@ -743,37 +778,39 @@ input#reedit_button {
 }
 
 /* Authority page */
-.action-bar__follow-button,
-.feed_link_sidebar {
-  .link_button_green {
+.authority__header__action-bar {
+  .action-bar__follow-button,
+  .feed_link_sidebar {
+    .link_button_green {
+      @extend .button-secondary;
+    }
+  }
+
+  .authority__body__sidebar .list-filter-item input[type=submit] {
     @extend .button-secondary;
   }
-}
 
-.authority__body__sidebar .list-filter-item input[type=submit] {
-  @extend .button-secondary;
-}
-
-.action-bar__follow-button {
-  a.link_button_green {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-bottom: 0;
+  .action-bar__follow-button {
+    a.link_button_green {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      margin-bottom: 0;
+    }
   }
-}
 
-.action-bar__follower-count {
-  color: $color_dark_grey;
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    padding: 0.56em 1.25em;
-    border: 1px solid $color_light_grey;
-    position: relative;
-    left: -19px;
-    line-height: 1em;
-    border-left: 0;
-    border-radius: 3px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  .action-bar__follower-count {
+    color: $color_dark_grey;
+    @include respond-min($main_menu-mobile_menu_cutoff) {
+      padding: 0.56em 1.25em;
+      border: 1px solid $color_light_grey;
+      position: relative;
+      left: -19px;
+      line-height: 1em;
+      border-left: 0;
+      border-radius: 3px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }
 
