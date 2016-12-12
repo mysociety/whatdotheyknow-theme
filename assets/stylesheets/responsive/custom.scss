@@ -296,7 +296,7 @@ a.link_button_green_large {
 .topnav--pro {
   background-color: rgba(0,0,0,0.1);
   box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
-  #navigation a {
+  .navigation a {
     &:hover,
     &:active,
     &:focus {
@@ -305,7 +305,7 @@ a.link_button_green_large {
   }
 }
 
-#navigation{
+.navigation{
   border-bottom: none;
   a {
     @extend .menu-item;
@@ -320,6 +320,7 @@ a.link_button_green_large {
 }
 
 #navigation_search {
+  padding: 0 0.935rem;
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     top: 1.5em;
   }
@@ -344,20 +345,23 @@ a.link_button_green_large {
   border-bottom-left-radius: 3px;
 }
 
-#navigation .more-menu {
+.navigation .more-menu {
   background-color: #333;
 }
 
 .js-loaded {
-  .account-link:after {
-    position: relative;
-    top: -0.15em;
-    margin-left: 1em;
-    font-size: 0.5em;
+  .account-link {
+    padding-right: 2em;
     @include respond-min( $main_menu-mobile_menu_cutoff ){
-      content: "▼";
+      //make it appear like it's aligned with the grid, even though it isn't
+      margin-right: 0.935em;
+      &:after {
+        top: 2em;
+        right: 3em;
+      }
     }
   }
+
 }
 
 .logged-in-menu {
@@ -369,6 +373,7 @@ a.link_button_green_large {
 
 .account-link {
   background-color: desaturate(darken($main_menu-bg, 2.5%), 5%);
+  border-color: rgba(255,255,255,0.2);
 }
 
 .banner--pro {
@@ -377,8 +382,8 @@ a.link_button_green_large {
   }
 }
 
-#navigation .logged-in-menu a,
-#navigation .logged-in-menu__signout-link a {
+.navigation .logged-in-menu a,
+.navigation .logged-in-menu__signout-link a {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     color: #197ace;
     text-decoration: none;
@@ -392,14 +397,14 @@ a.link_button_green_large {
 }
 
 .no-js {
-  #navigation .logged-in-menu a,
-  #navigation .logged-in-menu__signout-link a {
+  .navigation .logged-in-menu a,
+  .navigation .logged-in-menu__signout-link a {
     @extend .menu-item;
   }
 }
 
 .js-loaded {
-    #navigation .logged-in-menu__signout-link a {
+    .navigation .logged-in-menu__signout-link a {
     @include respond-min( $main_menu-mobile_menu_cutoff ){
       text-transform: uppercase;
       font-weight: bold;
@@ -842,10 +847,13 @@ input#reedit_button {
 
 /* locale-list */
 .locale-list {
+  padding: 0 0.935em;
+  border-bottom: 0;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: absolute;
     left: 160px;
     top: 0.8em;
+    padding: 0;
   }
 }
 
@@ -920,7 +928,7 @@ p.locale-list-trigger {
 
 .locale-list li {
   list-style-type: none;
-  border-bottom: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   @include respond-min($main_menu-mobile_menu_cutoff) {
     border-bottom-color: $color_dark_grey;
   }
@@ -955,7 +963,7 @@ p.locale-list-trigger {
 .locale-list .available-languages a:hover,
 .locale-list .available-languages a:focus {
   border-bottom: none;
-  background-color: darken($main_menu-bg, 5%);
+  background-color: rgba(0,0,0,0.1);
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: darken($color_mid_grey, 10%);
   }
