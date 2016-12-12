@@ -371,6 +371,10 @@ a.link_button_green_large {
   }
 }
 
+.dashboard-profile__email {
+  color: #787774;
+}
+
 .account-link {
   background-color: desaturate(darken($main_menu-bg, 2.5%), 5%);
   border-color: rgba(255,255,255,0.2);
