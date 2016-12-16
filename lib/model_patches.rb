@@ -111,16 +111,23 @@ Rails.configuration.to_prepare do
                         " )"
                 ).includes(:user)
 
+                # TODO: change the initial query to iterate over users rather
+                # than info_requests rather than using an array to check whether
+                # we're about to send multiple emails to the same user_id
+                sent_to = []
                 for info_request in info_requests
-                    # Exclude users who have already completed the survey
+                    # Exclude users who have already completed the survey or
+                    # have already been sent a survey email in this run
                     logger.debug "[alert_survey] Considering #{info_request.user.url_name}"
-                    next if info_request.user.survey.already_done?
+                    next if info_request.user.survey.already_done? || sent_to.include?(info_request.user_id)
 
                     store_sent = UserInfoRequestSentAlert.new
                     store_sent.info_request = info_request
                     store_sent.user = info_request.user
                     store_sent.alert_type = 'survey_1'
                     store_sent.info_request_event_id = info_request.info_request_events[0].id
+
+                    sent_to << info_request.user_id
 
                     RequestMailer.survey_alert(info_request).deliver
                     store_sent.save!
