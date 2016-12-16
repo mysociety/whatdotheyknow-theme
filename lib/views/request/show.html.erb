@@ -35,7 +35,7 @@
   </script>
 <% end %>
 
-<% if @info_request.is_public? %>
+<% if @info_request.prominence(:decorate => true).is_public? %>
   <% content_for :open_graph_tags do %>
     <meta property="article:published_time" content="<%= @info_request.created_at.iso8601 %>" />
     <meta property="article:modified_time" content="<%= @info_request.updated_at.iso8601 %>" />
