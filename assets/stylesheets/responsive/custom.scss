@@ -658,6 +658,10 @@ $mysoc-footer-breakpoint-sm: 42em;
   }
 }
 
+.request-header__subtitle {
+  font-size: 1.125em;
+}
+
 div.correspondence {
   background-color: $color_white;
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
