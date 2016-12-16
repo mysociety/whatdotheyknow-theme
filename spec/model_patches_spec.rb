@@ -21,8 +21,12 @@ describe RequestMailer, 'when patched by whatdotheyknow-theme' do
       ActionMailer::Base.deliveries = []
     end
 
-    def get_surveyable_request
-      info_request = FactoryGirl.create(:info_request)
+    def get_surveyable_request(user=nil)
+      info_request = if user
+        FactoryGirl.create(:info_request, :user => user)
+      else
+        FactoryGirl.create(:info_request)
+      end
       info_request.created_at = Time.now - (2.weeks + 1.hour)
       info_request.save!
       info_request
@@ -79,6 +83,19 @@ describe RequestMailer, 'when patched by whatdotheyknow-theme' do
         expect(ActionMailer::Base.deliveries.size).to eq(0)
       end
     end
+
+    context 'when a user has made multiple qualifying requests' do
+
+      it 'does not send multiple alerts' do
+        allow_any_instance_of(User).to receive(:survey).
+          and_return(double('survey', :already_done? => false))
+        request = get_surveyable_request
+        get_surveyable_request(request.user)
+        RequestMailer.alert_new_response_reminders
+        expect(ActionMailer::Base.deliveries.size).to eq(1)
+      end
+    end
+
   end
 
   context 'when SEND_SURVEY_MAILS is not set' do
