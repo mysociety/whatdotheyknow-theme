@@ -184,7 +184,9 @@ a.button-secondary,
     color: $main_menu-link_text;
   }
   transition: background-color 0.5s ease-out;
-  &:hover{
+  &:hover,
+  &:active,
+  &:focus {
     background-color: darken($main_menu-bg, 10%);
     color: transparentize($main_menu-link_text, 0);
   }
@@ -196,7 +198,9 @@ a.button-secondary,
   font-weight: 600;
   color: $main_menu-active_link_text;
   background-color: $main_menu-active_link_bg;
-  &:hover{
+  &:hover,
+  &:active,
+  &:focus {
       background-color: $main_menu-active_link_bg;
   }
 }
@@ -205,7 +209,9 @@ a.button-secondary,
 .sub-menu-item {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     color: $main_menu-link_text;
-    &:hover{
+    &:hover,
+    &:active,
+    &:focus {
         text-decoration: underline;
         background-color: transparent;
     }
@@ -391,7 +397,9 @@ a.link_button_green_large {
     color: #197ace;
     text-decoration: none;
     transition: none;
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       color: #197ace;
       background-color: transparent;
       text-decoration: underline;
@@ -1382,7 +1390,9 @@ dd {
     padding: 1em;
     border-radius: 0.2em;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       background-color: mix($color_blue, $body-bg, 20%);
       border-color: mix($color_blue, $body-bg, 40%);
     }
