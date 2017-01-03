@@ -826,7 +826,27 @@ input#reedit_button {
 }
 
 /* Authority page */
+.authority__header {
+  border: 0;
+}
+
+.authority__header__action-bar-container {
+  background-color: #fff;
+  width: 100vw;
+  margin-left: calc(-1 * ((100vw - 100%) / 2));
+  margin-bottom: 1em;
+  margin-top: 1em;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
 .authority__header__action-bar {
+  max-width: 1024px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  border: 0;
+
   .action-bar__follow-button,
   .feed_link_sidebar {
     .link_button_green {
