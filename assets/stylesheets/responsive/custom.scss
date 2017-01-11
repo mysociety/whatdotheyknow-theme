@@ -644,17 +644,15 @@ $mysoc-footer-breakpoint-sm: 42em;
 
   .action-bar__follower-count {
     color: $color_dark_grey;
-    @include respond-min($main_menu-mobile_menu_cutoff) {
-      padding: 0.56em 1.25em;
-      border: 1px solid $color_light_grey;
-      position: relative;
-      left: -3px;
-      line-height: 1.6em;
-      border-left: 0;
-      border-radius: 3px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+    padding: 0.56em 1.25em;
+    border: 1px solid $color_light_grey;
+    position: relative;
+    left: -3px;
+    line-height: 1.6em;
+    border-left: 0;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
@@ -795,17 +793,15 @@ input#reedit_button {
 
   .action-bar__follower-count {
     color: $color_dark_grey;
-    @include respond-min($main_menu-mobile_menu_cutoff) {
-      padding: 0.56em 1.25em;
-      border: 1px solid $color_light_grey;
-      position: relative;
-      left: -3px;
-      line-height: 1.6em;
-      border-left: 0;
-      border-radius: 3px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+    padding: 0.56em 1.25em;
+    border: 1px solid $color_light_grey;
+    position: relative;
+    left: -3px;
+    line-height: 1.6em;
+    border-left: 0;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
@@ -840,17 +836,15 @@ input#reedit_button {
 
   .action-bar__follower-count {
     color: $color_dark_grey;
-    @include respond-min($main_menu-mobile_menu_cutoff) {
-      padding: 0.56em 1.25em;
-      border: 1px solid $color_light_grey;
-      position: relative;
-      left: -3px;
-      line-height: 1.6em;
-      border-left: 0;
-      border-radius: 3px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+    padding: 0.56em 1.25em;
+    border: 1px solid $color_light_grey;
+    position: relative;
+    left: -3px;
+    line-height: 1.6em;
+    border-left: 0;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
