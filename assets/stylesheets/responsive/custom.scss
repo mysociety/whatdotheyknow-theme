@@ -184,7 +184,9 @@ a.button-secondary,
     color: $main_menu-link_text;
   }
   transition: background-color 0.5s ease-out;
-  &:hover{
+  &:hover,
+  &:active,
+  &:focus {
     background-color: darken($main_menu-bg, 10%);
     color: transparentize($main_menu-link_text, 0);
   }
@@ -196,7 +198,9 @@ a.button-secondary,
   font-weight: 600;
   color: $main_menu-active_link_text;
   background-color: $main_menu-active_link_bg;
-  &:hover{
+  &:hover,
+  &:active,
+  &:focus {
       background-color: $main_menu-active_link_bg;
   }
 }
@@ -205,7 +209,9 @@ a.button-secondary,
 .sub-menu-item {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     color: $main_menu-link_text;
-    &:hover{
+    &:hover,
+    &:active,
+    &:focus {
         text-decoration: underline;
         background-color: transparent;
     }
@@ -286,14 +292,26 @@ a.link_button_green_large {
 
 /* Header */
 
-#topnav {
+.topnav {
   background-color: desaturate(darken($main_menu-bg, 2.5%), 5%);
   @media( min-width: $main_menu-mobile_menu_cutoff ) {
     box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.1);
   }
 }
 
-#navigation{
+.topnav--pro {
+  background-color: rgba(0,0,0,0.1);
+  box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
+  .navigation a {
+    &:hover,
+    &:active,
+    &:focus {
+      background: rgba(0,0,0,0.2);
+    }
+  }
+}
+
+.navigation{
   border-bottom: none;
   a {
     @extend .menu-item;
@@ -307,9 +325,14 @@ a.link_button_green_large {
   }
 }
 
+#navigation_search {
+  padding: 0 0.935rem;
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    top: 1.5em;
+  }
+}
 #navigation_search_form {
   position: relative;
-  top: 0.5em;
   button {
     background-color: $color_black !important;
     border-top-right-radius: 3px;
@@ -327,6 +350,90 @@ a.link_button_green_large {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+
+.navigation .more-menu {
+  background-color: #333;
+}
+
+.js-loaded {
+  .account-link {
+    padding-right: 2em;
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      //make it appear like it's aligned with the grid, even though it isn't
+      margin-right: 0.935em;
+      &:after {
+        top: 2em;
+        right: 3em;
+      }
+    }
+  }
+
+}
+
+.logged-in-menu {
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    color: black;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.dashboard-profile__email {
+  color: #787774;
+}
+
+.account-link {
+  border-color: rgba(255,255,255,0.2);
+}
+
+.banner--pro {
+  .account-link {
+    background: transparent;
+  }
+}
+
+.navigation .logged-in-menu a,
+.navigation .logged-in-menu__signout-link a {
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    color: #197ace;
+    text-decoration: none;
+    transition: none;
+    &:hover,
+    &:active,
+    &:focus {
+      color: #197ace;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
+}
+
+.no-js {
+  .navigation .logged-in-menu a,
+  .navigation .logged-in-menu__signout-link a {
+    @extend .menu-item;
+  }
+}
+
+.js-loaded {
+    .navigation .logged-in-menu__signout-link a {
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.8em;
+      color: #888;
+      &:hover {
+        color: #888;
+      }
+    }
+  }
+}
+
+.pro-pill {
+  color: #567386;
+  font-weight: 600;
+  background-color: #FFFF00;
+}
+
 
 /* Notices, errors */
 
@@ -412,37 +519,6 @@ a.link_button_green_large {
   font-size: 0.888888889em; //~16px
 }
 
-/*  */
-
-/* Logged and local options act like submenus */
-#logged_in_bar{
-  border-top: 2px solid rgba(0,0,0,0.1);
-  border-bottom: 2px solid rgba(0,0,0,0.1);
-  @media( min-width: $main_menu-mobile_menu_cutoff ) {
-    border: 0;
-  }
-  a {
-    @extend .menu-item;
-    @extend .sub-menu-item;
-    color: rgba(255, 255, 255, 0.8);
-    &:hover,
-    &:active,
-    &:focus {
-      color: $color_white;
-    }
-  }
-  #logged_in_links {
-    top: 1.3em;
-  }
-}
-
- #logged_in_bar #logged_in_links a,
- #logged_in_bar #logged_in_links .greeting {
-    font-weight: normal;
-    @media( min-width: $main_menu-mobile_menu_cutoff ) {
-      font-size: 0.875em;
-    }
-  }
 
 #banner {
   background-color: $main_menu-bg;
@@ -490,34 +566,12 @@ a.link_button_green_large {
         color: transparentize($main_menu-link_text, 0.2);
       }
     }
-
-  }
-
-  #logged_in_bar{
-    @include respond-min( $main_menu-mobile_menu_cutoff ){
-        @include grid-column(7);
-        @include lte-ie7 {
-           width: 32.211em;
-        }
-    }
   }
 }
 
-.greeting {
-  //Truncate really long names
-  max-width: 19em;
-  color: $color_white;
-  @include respond-min( $main_menu-mobile_menu_cutoff ){
-    max-width: 16em;
-  }
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inline-block !important; //overrides the inline display in #logged_in_bar
-  //making the display inline-block means we must tweak the position to ...
-  // ... ensure it's always inline with the other links
-  position: relative;
-  top: 0.5em;
+.banner--pro {
+  background-color: #4C888F;
+  background-image: linear-gradient(-46deg, #4C888F 0%, #4C888F 9%, #365B74 63%);
 }
 
 .site-title__logo {
@@ -536,6 +590,21 @@ a.link_button_green_large {
   }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     background-image: image-url("wdtk-logo-white@2.png");
+  }
+}
+
+.banner--pro .site-title__logo {
+  background-image: image-url("alaveteli_professional/wdtk-logo-white.png");
+  width: 198px;
+  height: 18px;
+  background-size: 198px 18px;
+  @include respond-min( 18.75em ){
+    width: 231px;
+    height: 21px;
+    background-size: 231px 21px;
+  }
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    background-image: image-url("alaveteli_professional/wdtk-logo-white@2.png");
   }
 }
 
@@ -850,7 +919,6 @@ input#reedit_button {
 
 /* LANGUAGE SWITCHER */
 #user_locale_switcher {
-  background-color: $main_menu-bg;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: transparent;
     right: auto;
@@ -861,10 +929,13 @@ input#reedit_button {
 
 /* locale-list */
 .locale-list {
+  padding: 0 0.935em;
+  border-bottom: 0;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: absolute;
     left: 160px;
     top: 0.8em;
+    padding: 0;
   }
 }
 
@@ -939,7 +1010,7 @@ p.locale-list-trigger {
 
 .locale-list li {
   list-style-type: none;
-  border-bottom: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   @include respond-min($main_menu-mobile_menu_cutoff) {
     border-bottom-color: $color_dark_grey;
   }
@@ -958,7 +1029,6 @@ p.locale-list-trigger {
 .locale-list .available-languages a:link,
 .locale-list .available-languages a:visited {
   display: block;
-  background-color: $main_menu-bg;
   padding: 0.66em 1em;
   width: 100%;
   text-decoration: none;
@@ -975,7 +1045,7 @@ p.locale-list-trigger {
 .locale-list .available-languages a:hover,
 .locale-list .available-languages a:focus {
   border-bottom: none;
-  background-color: darken($main_menu-bg, 5%);
+  background-color: rgba(0,0,0,0.1);
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: darken($color_mid_grey, 10%);
   }
@@ -990,7 +1060,6 @@ p.locale-list-trigger {
 }
 
 .locale-list.active .current-locale {
-  background-color: $main_menu-bg;
   color: $color_white;
   border-color: $main_menu-bg;
   @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -1392,7 +1461,9 @@ dd {
     padding: 1em;
     border-radius: 0.2em;
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       background-color: mix($color_blue, $body-bg, 20%);
       border-color: mix($color_blue, $body-bg, 40%);
     }
