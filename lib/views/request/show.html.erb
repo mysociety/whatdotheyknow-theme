@@ -69,20 +69,22 @@
     <% end %>
   <% end %>
 
-  <div class="asktheeu-promo asktheeu-promo--requestpage">
-    <h2 class="asktheeu-promo__header">Looking for an EU Authority?</h2>
-    <p>You can request <em>documents</em> directly from EU Institutions at our sister site
-      <a href="http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54">
-        AskTheEU.org
-      </a>.
-      <a href="http://www.asktheeu.org/en/help/requesting/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54">
-        Find out more
-      </a>.
-    </p>
-    <a href="http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54" class="asktheeu-promo__image">
-      <img src="<%= image_path('ask-the-eu-logo.png') %>" alt="AskTheEU.org" />
-    </a>
-  </div>
+  <% unless @user && @user.pro? %>
+    <div class="asktheeu-promo asktheeu-promo--requestpage">
+      <h2 class="asktheeu-promo__header">Looking for an EU Authority?</h2>
+      <p>You can request <em>documents</em> directly from EU Institutions at our sister site
+        <a href="http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54">
+          AskTheEU.org
+        </a>.
+        <a href="http://www.asktheeu.org/en/help/requesting/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54">
+          Find out more
+        </a>.
+      </p>
+      <a href="http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54" class="asktheeu-promo__image">
+        <img src="<%= image_path('ask-the-eu-logo.png') %>" alt="AskTheEU.org" />
+      </a>
+    </div>
+  <% end %>
 
   <% if @show_bottom_describe_state_form %>
     <div class="describe_state_form box" id="describe_state_form_2">
