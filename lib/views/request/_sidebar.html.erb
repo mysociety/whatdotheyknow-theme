@@ -1,5 +1,6 @@
 <div id="right_column" class="sidebar right_column" role="complementary">
-  <% unless flash[:request_sent] %>
+  <% unless flash[:request_sent] || \
+            (feature_enabled?(:alaveteli_pro) && current_user && current_user.pro?) %>
   <div class="sidebar__donate-cta">
     <h2 class="sidebar__donate-cta__header"><%= _('We work to defend the right to FOI for everyone') %></h2>
     <p class="sidebar__donate-cta__para"><%= _('Help us protect your right to hold public authorities to account. Donate and support our work.') %></p>
