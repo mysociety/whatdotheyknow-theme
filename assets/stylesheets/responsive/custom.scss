@@ -1604,6 +1604,16 @@ dd {
   background-image: image-url('writetothem.png');
 }
 
+.sidebar__section {
+    background-color: $color_light_grey;
+    padding: 2em 1.5em 1em;
+    border-radius: 3px;
+    margin-bottom: 2em;
+    h2 {
+      margin-top: 0 !important;
+    }
+}
+
 /* Donate cta in request sidebar
  * (having to use some aggressive selectors here to override existing sidebar styles)
  */
@@ -1832,3 +1842,16 @@ $color_asktheeu_dark_green: #C4DDB9;
   }
 
 }
+
+/*
+ * Houdini customisations
+ */
+
+ .houdini-label {
+   color: $link-color;
+   text-decoration: underline;
+ }
+
+ .houdini-target {
+   margin-top: 1.5em;
+ }
