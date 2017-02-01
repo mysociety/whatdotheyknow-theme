@@ -11,6 +11,7 @@ $color_mid_grey: #959287;
 $color_dark_grey: #6c6b68;
 $color_black: #333333;
 $color_white: #ffffff;
+$color_pro_blue: #5A7687;
 
 $mysociety-banner: $color_black;
 $link-color: darken($color_blue, 20%);
@@ -67,6 +68,13 @@ a:visited {
     color: $color_black;
   }
 }
+
+.alaveteli-pro {
+  a {
+    color: $color_pro_blue;
+  }
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   color: $heading-color;
@@ -216,6 +224,14 @@ a.button-secondary,
       background-color: $main_menu-active_link_bg;
   }
 }
+
+.topnav--pro {
+  // change this for alaveteli pro
+  .selected-menu-item {
+    color: $color_pro_blue;
+  }
+}
+
 
 /* Styling if not part of the main menu on larger screens */
 .sub-menu-item {
@@ -406,13 +422,16 @@ a.link_button_green_large {
 .navigation .logged-in-menu a,
 .navigation .logged-in-menu__signout-link a {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
-    color: #197ace;
+    color: $link-color;
     text-decoration: none;
     transition: none;
+    .alaveteli-pro & {
+      color: $color_pro_blue;
+    }
     &:hover,
     &:active,
     &:focus {
-      color: #197ace;
+      color: $color_black;
       background-color: transparent;
       text-decoration: underline;
     }
@@ -677,7 +696,9 @@ $mysoc-footer-breakpoint-sm: 42em;
 
 .mysoc-footer {
   margin-top: 5em;
-
+  a {
+    text-decoration: none;
+  }
   .row {
     @include grid-row();
   }
@@ -1848,7 +1869,7 @@ $color_asktheeu_dark_green: #C4DDB9;
  */
 
  .houdini-label {
-   color: $link-color;
+   color: $color_pro_blue;
    text-decoration: underline;
  }
 
