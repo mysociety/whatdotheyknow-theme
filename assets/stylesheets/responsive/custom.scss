@@ -127,6 +127,18 @@ a.button,
         background-color: darken($button-bg, 10%);
         color: $color_white;
     }
+    .alaveteli-pro & {
+      background-image: linear-gradient(-180deg, #4C858D 0%, #3E6D75 100%);
+      box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.22);
+      &:hover,
+      &:active,
+      &:focus,
+      &:visited:hover,
+      &:visited:active,
+      &:visited:focus {
+        box-shadow: 0 1px 0 0 rgba(0,0,0,0.22);
+      }
+    }
 }
 
 a.button-secondary,
