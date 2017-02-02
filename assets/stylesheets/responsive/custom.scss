@@ -942,6 +942,7 @@ input#reedit_button {
 
   .action-bar__follower-count {
     color: $color_dark_grey;
+    font-size: 1em; //16px
     padding: 0.56em 1.25em;
     border: 1px solid $color_light_grey;
     position: relative;
