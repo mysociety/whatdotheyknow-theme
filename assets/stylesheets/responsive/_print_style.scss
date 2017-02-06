@@ -171,6 +171,15 @@ p.subtitle {
     }
 }
 
+.request-header__action-bar {
+    border: 0;
+}
+
+.correspondence__footer,
+.asktheeu-promo--requestpage {
+    display: none;
+}
+
 // Authority page
 .authority__body__foi-results {
     width: 100%;
