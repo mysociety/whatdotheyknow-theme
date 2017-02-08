@@ -1,5 +1,6 @@
 <div id="right_column" class="sidebar right_column" role="complementary">
-  <% unless flash[:request_sent] %>
+  <% unless flash[:request_sent] || \
+            (feature_enabled?(:alaveteli_pro) && current_user && current_user.pro?) %>
   <div class="sidebar__donate-cta">
     <h2 class="sidebar__donate-cta__header"><%= _('We work to defend the right to FOI for everyone') %></h2>
     <p class="sidebar__donate-cta__para"><%= _('Help us protect your right to hold public authorities to account. Donate and support our work.') %></p>
@@ -9,13 +10,13 @@
 
   <div class="request__special-status">
   <% if @info_request.attention_requested %>
-    <% if @info_request.prominence == 'hidden' %>
+    <% if @info_request.prominence(:decorate => true).is_hidden? %>
       <h2><%= _('Request hidden') %></h2>
       <p>
         <%= _("This request has prominence 'hidden'. You can only see it " \
               "because you are logged in as a super user.") %>
       </p>
-    <% elsif @info_request.prominence == 'requester_only' %>
+    <% elsif @info_request.prominence(:decorate => true).is_requester_only? %>
       <h2><%= _('Request hidden') %></h2>
       <%# The eccentric formatting of the following string is in order that it be identical
           to the corresponding string in request/show.html.erb %>
