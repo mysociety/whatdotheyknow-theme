@@ -91,7 +91,7 @@
     </div>
   <% end %>
 
-  <% unless @user && @user.pro? %>
+  <% unless @user && @user.is_pro? %>
     <div class="asktheeu-promo asktheeu-promo--requestpage">
       <h2 class="asktheeu-promo__header">Looking for an EU Authority?</h2>
       <p>You can request <em>documents</em> directly from EU Institutions at our sister site
