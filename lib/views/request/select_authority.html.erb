@@ -21,6 +21,7 @@
 <h1><%= _('Find an authority') %></h1>
 
 <div id="authority_selection" class="authority_selection">
+  <%# This view is rendered from multiple urls, hence why the form action is blank %>
   <%= form_tag "", { :id => 'search_form', :method => 'get' } do %>
     <div>
       <p>

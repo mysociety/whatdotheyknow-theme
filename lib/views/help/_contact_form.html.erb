@@ -64,7 +64,7 @@
             }
         //--></script>
         <%= hidden_field_tag(:submitted_contact_form, 1) %>
-        <%= submit_tag "Send message to WhatDoTheyKnow volunteers", :disable_with => "Sending..." %>
+        <%= submit_tag "Send message to WhatDoTheyKnow volunteers", :data => { :disable_with => "Sending..." } %>
     </div>
 
 <% end %>

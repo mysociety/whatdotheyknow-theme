@@ -19,6 +19,7 @@ end
 ['stylesheets', 'images', 'javascripts'].each do |asset_type|
     theme_asset_path = File.join(File.dirname(__FILE__),
                                  '..',
+                                 'app',
                                  'assets',
                                  asset_type)
     Rails.application.config.assets.paths.unshift theme_asset_path
