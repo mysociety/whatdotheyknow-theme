@@ -1,5 +1,5 @@
 <% if AlaveteliConfiguration::responsive_styling || params[:responsive] %>
-  <% unless @user and @user.pro? %>
+  <% unless @user and @user.is_pro? %>
     <div class="ms-header">
       <div class="ms-header__container">
         <div class="ms-header__logo">
