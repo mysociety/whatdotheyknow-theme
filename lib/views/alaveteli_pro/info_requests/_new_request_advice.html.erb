@@ -1,0 +1,60 @@
+<p>
+  <strong>
+    <%= _("Are you sure the information you’re after isn’t available " \
+       "elsewhere?") %>
+  </strong>
+  <%= _("Check the authority’s disclosure logs, their responses on " \
+        "{{site_name}} or conduct a quick Internet search.",
+        site_name: site_name) %>
+</p>
+<p>
+  <strong>
+    <%= _("Section 12 of the FOI Act allows public authorities to refuse " \
+          "requests if they cost too much to comply with.") %>
+  </strong>
+
+
+
+  <%= _("The cost limit, calculated at £25 per hour, is £600 for government " \
+        "departments and £450 for other public bodies. For further " \
+        "information, see the Information Commissioner’s Office " \
+        "<a href=\"{{url}}\">guidelines</a>.",
+       url: "https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf") %>
+</p>
+<p>
+  <strong>
+    <%= _("Public authorities have a duty to provide advice and assistance to " \
+          "requesters.") %>
+  </strong>
+
+  <%= _("For further information, see the ICO’s <a href=\"{{url}}\">" \
+        "guidelines</a>.",
+        url: "https://ico.org.uk/media/for-organisations/documents/1624140/duty-to-provide-advice-and-assistance-foia-section-16.pdf") %>
+</p>
+<p>
+  <strong>
+    <%= _("If you are requesting datasets, state how you would like to " \
+          "receive the information e.g. in an Excel or CSV format.") %>
+  </strong>
+
+  <%= _("For more information on how public authorities must provide " \
+        "datasets in a re-usable form so far as reasonably practicable, " \
+        "see the ICO <a href=\"{{url}}\">guidelines</a> for more detail.",
+        url: "https://ico.org.uk/media/for-organisations/documents/1151/datasets-foi-guidance.pdf") %>
+</p>
+<p>
+  <%= _("Once you’re happy with your request, click preview and send.") %>
+  <strong>
+  <% if AlaveteliConfiguration::working_or_calendar_days == 'working' %>
+      <%= _("Remember, public authorities have {{late_number_of_days}} " \
+            "working days to respond to FOI requests.",
+            late_number_of_days: AlaveteliConfiguration::reply_late_after_days
+            ) %>
+  <% else %>
+      <%= _("Remember, public authorities have {{late_number_of_days}} " \
+            "calendar days to respond to FOI requests.",
+            late_number_of_days: AlaveteliConfiguration::reply_late_after_days,
+            ) %>
+  <% end %>
+  </strong>
+</p>
