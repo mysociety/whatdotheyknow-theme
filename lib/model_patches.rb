@@ -15,10 +15,22 @@ Rails.configuration.to_prepare do
         end
     end
 
-    # Now patch the validator for UserInfoRequestSentAlert.alert_type
-    # to permit 'survey_1' as a new alert type.
-
-    UserInfoRequestSentAlert._validate_callbacks[0].options[:in] << 'survey_1'
+    # HACK: Now patch the validator for UserInfoRequestSentAlert.alert_type
+    # to permit 'survey_1' as a new alert type. This uses unstable internal
+    # methods.
+    #
+    # TODO: This looks like its just adding another option to
+    # `validates_inclusion_of :alert_type, :in => ALERT_TYPES`. This would be
+    # better done by a `cattr_reader` so that themes could set the options on
+    # app boot in an initializer:
+    #
+    #    UserInfoRequestSentAlert.alert_types = %w(custom set of alerts)
+    #
+    # The validation macro would then be:
+    #
+    #    validates_inclusion_of :alert_type, :in => alert_types
+    #
+    UserInfoRequestSentAlert._validate_callbacks.first.filter.options[:in] << 'survey_1'
 
     InfoRequest.class_eval do
         def email_subject_request(opts = {})
