@@ -66,6 +66,29 @@
         </ul>
     </div>
 
+
+    <h2 class="contact-page__goal" id="writing-help">
+        <label class="houdini-label" for="goal4">
+            I need <strong>help writing a freedom of information request</strong>.
+        </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal4"
+        <% if params["contact"] && params[:current_form] == 'writing-help' %>checked<% end %>>
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                Directly contact the volunteers who run WhatDoTheyKnow:
+
+                <%= foi_error_messages_for :contact %>
+
+                <%= render :partial => "help/contact_form",
+                           :locals => { :form_id => 'writing-help' } %>
+            </li>
+        </ul>
+    </div>
+
+
     <h2 class="contact-page__goal" id="wdtk">
         <label class="houdini-label" for="goal3">
             I have another issue, or feedback relating to the
@@ -75,7 +98,7 @@
     </h2>
 
     <input class="houdini-input" type="radio" name="goals" id="goal3"
-        <% if params["contact"] %>checked<% end %>>
+        <% if params["contact"] && params[:current_form] == 'wdtk' %>checked<% end %>>
     <div class="houdini-target contact-page__options">
         <ul>
             <li>
@@ -94,7 +117,8 @@
 
                 <%= foi_error_messages_for :contact %>
 
-                <%= render :partial => "help/contact_form" %>
+                <%= render :partial => "help/contact_form",
+                           :locals => { :form_id => 'wdtk' } %>
             </li>
         </ul>
     </div>
