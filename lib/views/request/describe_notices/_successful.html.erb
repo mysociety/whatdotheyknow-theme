@@ -18,7 +18,7 @@
                           "https://twitter.com/intent/tweet?" << {
                             :url => request.url,
                             :via => AlaveteliConfiguration.twitter_username,
-                            :text => "'#{ info_request.title }'",
+                            :text => "'#{ InfoRequest.find(info_request_id).title }'",
                             :related => _('mySociety:Helping people set ' \
                                             'up sites like {{site_name}} ' \
                                             'all over the world',
