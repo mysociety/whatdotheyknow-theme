@@ -429,9 +429,6 @@ a.link_button_green_large {
     color: $link-color;
     text-decoration: none;
     transition: none;
-    .alaveteli-pro & {
-      color: $color_pro_blue;
-    }
     &:hover,
     &:active,
     &:focus {
@@ -442,14 +439,34 @@ a.link_button_green_large {
   }
 }
 
-.no-js {
-  .navigation .logged-in-menu a,
-  .navigation .logged-in-menu__signout-link a {
+.navigation .logged-in-menu a,
+.navigation .logged-in-menu__signout-link a {
+  .topnav--pro & {
+    .no-js & {
+      &:hover,
+      &:active,
+      &:focus {
+        background: rgba(0,0,0,0.2);
+      }
+    }
+  }
+  .no-js & {
     @extend .menu-item;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
   }
 }
 
+
 .js-loaded {
+    .navigation .logged-in-menu a {
+      .alaveteli-pro & {
+        color: $color_pro_blue;
+      }
+    }
     .navigation .logged-in-menu__signout-link a {
     @include respond-min( $main_menu-mobile_menu_cutoff ){
       text-transform: uppercase;
