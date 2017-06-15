@@ -1,5 +1,0 @@
-<% if Date.today < Date.parse('2017-05-09') %>
-Need a response before the General Election? Authorities have 20 working days to respond so <%= link_to 'make your request', select_authority_path %> before May 9<sup>th</sup>.
-<% elsif Date.today == Date.parse('2017-05-09') %>
-Need a response before the General Election? Authorities have 20 working days to respond so <%= link_to 'make your request', select_authority_path %> today!
-<% end %>
