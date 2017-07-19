@@ -14,7 +14,7 @@
     <% if not @user %>
         <p>
             <label class="form_label" for="contact_name">My name:</label>
-            <%= f.text_field :name, :size => 20 %>
+            <%= f.text_field :name, :size => 20, :required => true %>
             (or <%= link_to "sign in",
                             signin_url(
                               :r => request.fullpath + '#' + form_id) %>)
@@ -28,14 +28,17 @@
 
     <p>
         <label class="form_label" for="contact_subject">My message is about:</label>
-        <%= f.text_field :subject, :size => 50, :class => "message-subject" %>
+        <%= f.text_field :subject,
+                         :size => 50,
+                         :required => true,
+                         :class => "message-subject" %>
     </p>
 
     <p>
         <label class="form_label" for="contact_message">
             My message to the WhatDoTheyKnow volunteers:
         </label>
-        <%= f.text_area :message, :rows => 10, :cols => 60 %>
+        <%= f.text_area :message, :rows => 10, :cols => 60, :required => true %>
     </p>
 
     <p style="display:none;">
@@ -61,8 +64,11 @@
     <div class="form_button">
         <script><!--
             if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
-                $('#contact_email').removeAttr('required');
                 $('#contact_understand').removeAttr('required');
+                $('#contact_name').removeAttr('required');
+                $('#contact_email').removeAttr('required');
+                $('#contact_subject').removeAttr('required');
+                $('#contact_message').removeAttr('required');
             }
         //--></script>
         <%= hidden_field_tag(:current_form, form_id) %>
