@@ -1,5 +1,5 @@
 <%= form_for :contact,
-             :url => help_contact_path + '#wdtk',
+             :url => help_contact_path + '#' +  form_id,
              :html => {:class => 'contact-form'} do |f| %>
 
     <p class="contact-form__understand">
@@ -14,8 +14,10 @@
     <% if not @user %>
         <p>
             <label class="form_label" for="contact_name">My name:</label>
-            <%= f.text_field :name, :size => 20 %>
-            (or <%= link_to "sign in", signin_url(:r => request.fullpath + '#wdtk') %>)
+            <%= f.text_field :name, :size => 20, :required => true %>
+            (or <%= link_to "sign in",
+                            signin_url(
+                              :r => request.fullpath + '#' + form_id) %>)
         </p>
 
         <p>
@@ -26,14 +28,17 @@
 
     <p>
         <label class="form_label" for="contact_subject">My message is about:</label>
-        <%= f.text_field :subject, :size => 50, :class => "message-subject" %>
+        <%= f.text_field :subject,
+                         :size => 50,
+                         :required => true,
+                         :class => "message-subject" %>
     </p>
 
     <p>
         <label class="form_label" for="contact_message">
             My message to the WhatDoTheyKnow volunteers:
         </label>
-        <%= f.text_area :message, :rows => 10, :cols => 60 %>
+        <%= f.text_area :message, :rows => 10, :cols => 60, :required => true %>
     </p>
 
     <p style="display:none;">
@@ -59,10 +64,14 @@
     <div class="form_button">
         <script><!--
             if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
-                $('#contact_email').removeAttr('required');
                 $('#contact_understand').removeAttr('required');
+                $('#contact_name').removeAttr('required');
+                $('#contact_email').removeAttr('required');
+                $('#contact_subject').removeAttr('required');
+                $('#contact_message').removeAttr('required');
             }
         //--></script>
+        <%= hidden_field_tag(:current_form, form_id) %>
         <%= hidden_field_tag(:submitted_contact_form, 1) %>
         <%= submit_tag "Send message to WhatDoTheyKnow volunteers", :data => { :disable_with => "Sending..." } %>
     </div>
