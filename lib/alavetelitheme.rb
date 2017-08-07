@@ -25,6 +25,20 @@ end
     Rails.application.config.assets.paths.unshift theme_asset_path
 end
 
+# Append individual theme assets to the asset path
+theme_asset_path = File.join(File.dirname(__FILE__),
+                             '..',
+                             'app',
+                             'assets')
+theme_asset_path = Pathname.new(theme_asset_path).cleanpath.to_s
+
+LOOSE_THEME_ASSETS = lambda do |logical_path, filename|
+  filename.start_with?(theme_asset_path) &&
+  !['.js', '.css', ''].include?(File.extname(logical_path))
+end
+
+Rails.application.config.assets.precompile.unshift(LOOSE_THEME_ASSETS)
+
 # In order to have the theme lib/ folder ahead of the main app one,
 # inspired in Ruby Guides explanation: http://guides.rubyonrails.org/plugins.html
 %w{ . }.each do |dir|
