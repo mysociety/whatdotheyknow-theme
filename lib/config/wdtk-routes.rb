@@ -1,6 +1,8 @@
 # Here you can override or add to the pages in the core website
 
 Rails.application.routes.draw do
+  get '/london' => redirect('/body?tag=london', status: 302)
+
   # Add a route for the survey
   scope '/profile/survey' do
     root :to => 'user#survey', :as => :survey
