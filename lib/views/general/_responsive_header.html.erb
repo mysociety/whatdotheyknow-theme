@@ -1,14 +1,13 @@
-<% if AlaveteliConfiguration::responsive_styling || params[:responsive] %>
-  <% unless @user and @user.is_pro? %>
-    <div class="ms-header">
-      <div class="ms-header__container">
-        <div class="ms-header__logo">
-          <a href="http://mysociety.org">mySociety</a>
-        </div>
+<% unless @user and @user.is_pro? %>
+  <div class="ms-header">
+    <div class="ms-header__container">
+      <div class="ms-header__logo">
+        <a href="http://mysociety.org">mySociety</a>
       </div>
     </div>
-  <% end %>
+  </div>
 <% end %>
+
 <div id="banner" class="banner <%= @in_pro_area ? 'banner--pro' : '' %>" role="banner">
   <div id="banner_inner" class="banner_inner">
     <div id="banner_content" class="banner_content">
