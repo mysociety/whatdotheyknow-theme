@@ -48,6 +48,8 @@ $error-border: $color_red;
 $action-bg: lighten($color_yellow, 25%);
 $action-border: $color_yellow;
 
+@import "responsive/houdini";
+
 /* General styles */
 body{
   background-color: $body-bg;
