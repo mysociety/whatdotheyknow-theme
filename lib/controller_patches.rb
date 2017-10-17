@@ -19,6 +19,7 @@ Rails.configuration.to_prepare do
   HelpController.class_eval do
 
     def principles; end
+    def house_rules; end
 
   end
 
