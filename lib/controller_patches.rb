@@ -14,4 +14,12 @@ Rails.configuration.to_prepare do
             return redirect_to survey_url
         end
     end
+  end
+
+  HelpController.class_eval do
+
+    def principles; end
+
+  end
+
 end
