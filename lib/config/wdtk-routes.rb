@@ -20,4 +20,8 @@ Rails.application.routes.draw do
     :via => 'get',
     :as => 'help_house_rules'
 
+  get '/help/how'  => 'help#how',
+    :via => 'get',
+    :as => 'help_how'
+
 end

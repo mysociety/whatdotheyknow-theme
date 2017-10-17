@@ -20,6 +20,7 @@ Rails.configuration.to_prepare do
 
     def principles; end
     def house_rules; end
+    def how; end
 
   end
 
