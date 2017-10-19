@@ -22,6 +22,7 @@ Rails.configuration.to_prepare do
     def house_rules; end
     def how; end
     def complaints; end
+    def volunteers; end
 
   end
 

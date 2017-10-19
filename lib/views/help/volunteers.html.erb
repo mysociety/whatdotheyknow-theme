@@ -1,0 +1,101 @@
+<% @title = "Get involved" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1>
+    <%= @title %>
+  </h1>
+  <dl>
+    <dt id="volunteering">
+      Become a volunteer
+      <a href="#volunteering">#</a>
+    </dt>
+    <dd>
+      <p>
+        If you have a passion for transparency, a great deal of patience, and a
+        bit of spare time, consider becoming one of WhatDoTheyKnow’s volunteer
+        admin team. Work includes user support, helping to resolve legal issues,
+        and shaping the site’s direction, and is primarily managed via email.
+      </p>
+      <p>
+        In the first instance, <a href="<%=  help_contact_path %>">get in
+        touch</a>.
+      </p>
+    </dd>
+    <dt id="donation">
+      Make a donation
+      <a href="#donation">#</a>
+    </dt>
+    <dd>
+      <p>
+        mySociety, WhatDoTheyKnow’s parent organisation, is a charity.
+        WhatDoTheyKnow, our most-visited site, costs thousands of pounds each
+        year, for overheads such as servers, maintenance and development.
+      </p>
+      <p>
+        Your contributions, however small, really help. <a href="<%=
+        AlaveteliConfiguration::donation_url %>">Donate here</a>.
+      </p>
+    </dd>
+    <dt id="tasks">
+      Sort things out
+      <a href="#tasks">#</a>
+    </dt>
+    <dd>
+      <p>
+        Help identify successful requests, and monitor performance of
+        authorities, by <a href="<%= categorise_play_path %>">playing the
+        categorisation game</a>.
+      </p>
+      <p>
+        Or find out FOI email addresses of <a href="<%=
+        help_requesting_path(:anchor => 'missing_body') %>">authorities that
+        we’re missing</a>.
+      </p>
+    </dd>
+    <dt id="tellpeople">
+      Spread the word
+      <a href="#tellpeople">#</a>
+    </dt>
+    <dd>
+      <p>
+        We don’t have a massive marketing budget, so word of mouth really helps.
+      </p>
+      <ul>
+        <li>
+          Write a blog post about WhatDoTheyKnow, or an interesting request that
+          you’ve found.
+        </li>
+        <li>
+          Post about the site, and what you can do with it, on a forum that you
+          frequent.
+        </li>
+        <li>
+          Tell friends about it.
+        </li>
+        <li>
+          Let your local newspaper or community magazine know how useful we are.
+        </li>
+        <li>
+          Give a talk.
+        </li>
+        <li>
+          <a href="<%= help_contact_path %>">Ask us</a> for leaflets to leave
+          in your local library or coffee shop.
+        </li>
+      </ul>
+    </dd>
+    <dt id="code">
+      Improve our code
+      <a href="#code">#</a>
+    </dt>
+    <dd>
+      <p>
+        Seen something that could work better? If you’re a coder, <a
+        href="https://github.com/mysociety/alaveteli/">get the source code</a>
+        for our parent project <a href="http://alaveteli.org/">Alaveteli</a> and
+        send us a pull request. WhatDotheyKnow is coded in <a
+        href="http://rubyonrails.org/">Ruby on Rails</a>.
+      </p>
+    </dd>
+  </dl>
+</div>

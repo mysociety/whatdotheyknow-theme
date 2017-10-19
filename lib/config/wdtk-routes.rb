@@ -27,4 +27,9 @@ Rails.application.routes.draw do
   get '/help/complaints'  => 'help#complaints',
     :via => 'get',
     :as => 'help_complaints'
+
+  get '/help/volunteers'  => 'help#volunteers',
+    :via => 'get',
+    :as => 'help_volunteers'
+
 end
