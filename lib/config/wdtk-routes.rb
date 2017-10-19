@@ -24,4 +24,7 @@ Rails.application.routes.draw do
     :via => 'get',
     :as => 'help_how'
 
+  get '/help/complaints'  => 'help#complaints',
+    :via => 'get',
+    :as => 'help_complaints'
 end
