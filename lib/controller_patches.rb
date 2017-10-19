@@ -23,6 +23,7 @@ Rails.configuration.to_prepare do
     def how; end
     def complaints; end
     def volunteers; end
+    def beginners; end
 
   end
 

@@ -1,0 +1,27 @@
+<% @title = "Beginner’s Guide" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1>
+    <%= @title %>
+  </h1>
+  <p>
+
+    Detailed information on how to make a Freedom of Information request using
+    this website, can be found in this <a
+    href="https://www.mysociety.org/2014/08/15/how-to-make-a-freedom-of-information-request-with-whatdotheyknow/">
+    blog post</a>.
+  </p>
+  <p>
+    Advice on how to set up email alerts to follow Freedom of Information
+    requests made to your local council on WhatDoTheyKnow can be found in this
+    <a href="https://www.mysociety.org/2014/09/19/how-to-keep-up-with-hot-topics-in-your-local-area/">
+    blog post</a>. And <a
+    href="https://www.mysociety.org/2014/09/29/subscribe-to-foi-requests-on-any-topic/">
+    this blog post</a> explains how you can subscribe to receive email
+    alerts on FOI requests on any topic.
+  </p>
+  <p>
+    If you need further advice, you can <a href="<%=  help_contact_path
+    %>">contact</a> the WhatDoTheyKnow volunteer administration team.
+  </p>
+</div>

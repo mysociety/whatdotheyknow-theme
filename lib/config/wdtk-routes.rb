@@ -32,4 +32,7 @@ Rails.application.routes.draw do
     :via => 'get',
     :as => 'help_volunteers'
 
+  get '/help/beginners'  => 'help#beginners',
+    :via => 'get',
+    :as => 'help_beginners'
 end
