@@ -1,25 +1,49 @@
-<% @title = "Application Programming Interface - API" %>
+<% @title = "Tools for advanced users and coders" %>
 <%= render :partial => 'sidebar' %>
 <div id="left_column_flip" class="left_column_flip">
   <h1><%=@title %></h1>
   <h2> Introduction </h2>
-  <p>This page explains how programmers can make other websites and software
-    interact with WhatDoTheyKnow via an "API".
+  <p>
+    This page explains how developers can access data from WhatDoTheyKnow, or
+    allow other websites and software to interact with the site via an “API”.
   </p>
-  <p>WhatDoTheyKnow does not have a full API yet, but we are gradually adding
-    lots of things that are similar in use to an API as they are requested.
+  <p>
+    WhatDoTheyKnow does not have a full API, but we are gradually adding
+    features that will help you achieve the same results as an API would. If
+    there is something in particular that you would like, requesting it will
+    help us give it a higher development priority.
   </p>
   <hr>
   <h2> 1. Linking to new requests </h2>
-  <p>To encourage your users to make requests to a particular public authority, use URLs of the form:
-    <%= link_to new_request_to_body_url(:url_name => "liverpool_city_council") , new_request_to_body_url(:url_name => "liverpool_city_council") %>.
-    These are the parameters you can add to those URLs, either in the URL or from a form.
+  <p>
+    To encourage your users to make requests to a particular public authority,
+    use URLs of the form: <%= link_to new_request_to_body_url(:url_name =>
+    "liverpool_city_council") , new_request_to_body_url(:url_name =>
+    "liverpool_city_council") %>. As explained in this
+    <a
+    href="https://www.mysociety.org/2016/12/19/alaveteli-for-campaigners-how-to-create-pre-written-requests-for-your-supporters/?refferer=mailnotify&uid=138">
+    blog post</a> in detail, there are
+    several parameters you can add to those URLs, either in the URL or from a
+    form:
   </p>
   <ul>
-    <li> <strong>title</strong> - default summary of the new request.</li>
-    <li> <strong>default_letter</strong> - default text of the body of the letter. The salutation (Dear...) and signoff (Yours...) are wrapped round this. </li>
-    <li> <strong>body</strong> - as an alternative to default_letter, this sets the default entire text of the request, so you can customise the salutation and signoff. </li>
-    <li> <strong>tags</strong> - space separated list of tags, so you can find and link up any requests made later, e.g. <em>openlylocal spending_id:12345</em>. The : indicates it is a machine tag. The values of machine tags may also include colons, useful for URIs.
+    <li>
+      <strong>title</strong> - default summary of the new request.
+    </li>
+    <li>
+      <strong>default_letter</strong> - default text of the body of the letter.
+      The salutation (Dear...) and signoff (Yours...) are wrapped round this.
+    </li>
+    <li>
+      <strong>body</strong> - as an alternative to default_letter, this sets the
+      default entire text of the request, so you can customise the salutation
+      and signoff.
+    </li>
+    <li>
+      <strong>tags</strong> - space separated list of tags, so you can find and
+      link up any requests made later, e.g. <em>openlylocal
+      spending_id:12345</em>. The : indicates it is a machine tag. The values of
+      machine tags may also include colons, useful for URIs.
     </li>
   </ul>
   <hr>
@@ -29,40 +53,62 @@
     one of these ways:
   </p>
   <ul>
-    <li>Look for the <%= image_tag "feed-16.png", :alt => "RSS icon" %> RSS feed links.</li>
-    <li>Examine the <tt>&lt;link rel="alternate" type="application/atom+xml"&gt;</tt> tag in the head of the HTML. </li>
-    <li>Add <tt>/feed</tt> to the start of another URL.
-    </ul>
-    <p>In particular, even complicated search queries have Atom feeds.
-      You can do all sorts of things with them, such as query by authority, by file
-      type, by date range, or by status. See the <a href="<%= advanced_search_path %>">advanced search
-      tips</a> for details.
-    </p>
-    <hr>
-    <h2> 3. JSON structured data </h2>
-    <p>Quite a few pages have JSON versions, which let you download information about
-      objects in a structured form. Find them by:
-      <ul>
-        <li>Adding <tt>.json</tt> to the end of the URL. </li>
-        <li>Look for the <tt>&lt;link rel="alternate" type="application/json"&gt;</tt> tag in the head of the HTML. </li>
-      </ul>
-    </p>
-    <p>Requests, users and authorities all have JSON versions containing basic
-      information about them. Every Atom feed has a JSON equivalent, containing
-      information about the list of events in the feed.
-    </p>
-    <hr>
-    <h2> 4. Spreadsheet of all authorities </h2>
-    <p>
-      A spreadsheet file listing every body in WhatDoTheyKnow is available:
-      <%= link_to "all-authorities.csv", all_public_bodies_csv_url() %>
-    </p>
-    <h2> 5. Write API </h2>
-    <p>
-      The write API is designed to be used by authorities to create their own requests in the system. The API was used by mySociety's FOI Register software to support using Alaveteli as a disclosure log for all FOI activity at a particular public body. More technical information about the write API is available on the <a href="http://alaveteli.org/docs/developers/api/">Alaveteli.org site</a>.
-    </p>
-    <hr>
-    <p>Please <a href="<%= help_contact_path %>">contact us</a> if you need an API feature that isn't there yet. It's
-  very much a work in progress, and we do add things when people ask us to.</p>
+    <li>
+      Look for the <%= image_tag "feed-16.png", :alt => "RSS icon" %> RSS feed
+      links.
+    </li>
+    <li>
+      Examine the <tt>&lt;link rel="alternate" type="application/atom+xml"&gt;
+      </tt> tag in the head of the HTML.
+    </li>
+    <li>
+      Add <tt>/feed</tt> to the start of another URL.
+    </li>
+  </ul>
+  <p>Even complicated search queries have Atom feeds.
+    You can do all sorts of things with them, such as query by authority, by
+    file type, by date range, or by status. See the
+    <a href="<%= advanced_search_path %>">advanced search
+    tips</a> for details.
+  </p>
+  <hr>
+  <h2> 3. JSON structured data </h2>
+  <p>
+    Quite a few pages have JSON versions, which let you download information
+    about objects in a structured form. Find them by:
+  </p>
+  <ul>
+    <li>
+      Adding <tt>.json</tt> to the end of the URL.
+    </li>
+    <li>
+      Look for the <tt>&lt;link rel="alternate" type="application/json"&gt;</tt>
+      tag in the head of the HTML.
+    </li>
+  </ul>
+  <p>Requests, users and authorities all have JSON versions containing basic
+    information about them. Every Atom feed has a JSON equivalent, containing
+    information about the list of events in the feed.
+  </p>
+  <hr>
+  <h2> 4. Spreadsheet of all authorities </h2>
+  <p>
+    A spreadsheet file listing every body in WhatDoTheyKnow is available:
+    <%= link_to "all-authorities.csv", all_public_bodies_csv_url() %>
+  </p>
+  <h2> 5. Write API </h2>
+  <p>
+    The write API is designed to be used by authorities to create their own
+    requests in the system. The API was used by mySociety’s FOI Register
+    software to support using Alaveteli as a disclosure log for all FOI activity
+    at a particular public body. More technical information about the write API
+    is available on the <a
+    href="http://alaveteli.org/docs/developers/api/">Alaveteli.org site</a>.
+  </p>
+  <hr>
+  <p>
+    Please <a href="<%= help_contact_path %>">contact us</a> if you need a
+    feature that we don’t currently provide.
+  </p>
   <div id="hash_link_padding"></div>
 </div>
