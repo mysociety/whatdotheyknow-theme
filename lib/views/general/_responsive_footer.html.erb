@@ -22,6 +22,11 @@
                     <li role="presentation"><%= link_to 'Contact us', help_contact_path %></li>
                     <li role="presentation"><%= link_to 'Privacy and cookies', help_privacy_path %></li>
                     <li role="presentation"><%= link_to 'API', help_api_path %></li>
+                    <% if feature_enabled?(:pro_pricing) %>
+                      <li>
+                        <%= link_to 'Pro Terms', pro_page_path(:id => 'legal') %>
+                      </li>
+                    <% end %>
                 </ul>
             </nav>
         </div>
