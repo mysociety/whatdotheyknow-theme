@@ -2,14 +2,49 @@
   <div id="about_sidebar">
     <h2>Help pages</h2>
     <ul>
-      <li><%= link_to_unless_current "Introduction", help_about_path %></li>
-      <li><%= link_to_unless_current "Making requests", help_requesting_path %></li>
-      <li><%= link_to_unless_current "Your privacy", help_privacy_path %></li>
-      <li><%= link_to_unless_current "FOI officers", help_officers_path %></li>
-      <li><%= link_to_unless_current "Credits", help_credits_path %></li>
-      <li><%= link_to_unless_current "Programmers API", help_api_path %></li>
-      <li><%= link_to_unless_current "Advanced search", advanced_search_path %></li>
-      <li><%= link_to_unless_current "Alaveteli", help_alaveteli_path %></li>
+      <li>
+        <%= link_to_unless_current "Introduction", help_about_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Making requests", help_requesting_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Your privacy", help_privacy_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "FOI officers", help_officers_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Credits", help_credits_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Tools for advanced users and coders",
+                                   help_api_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Advanced search", advanced_search_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Alaveteli", help_alaveteli_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Principles", help_principles_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "How we run the site", help_how_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "House Rules", help_house_rules_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Making a complaint", help_complaints_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Get involved", help_volunteers_path %>
+      </li>
+      <li>
+        <%= link_to_unless_current "Beginner’s Guide", help_beginners_path %>
+      </li>
     </ul>
     <% unless is_contact_page? %>
     <h2 id="contact">Contact us</h2>
