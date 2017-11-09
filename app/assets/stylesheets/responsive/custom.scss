@@ -48,6 +48,8 @@ $error-border: $color_red;
 $action-bg: lighten($color_yellow, 25%);
 $action-border: $color_yellow;
 
+@import "mixins";
+
 /* General styles */
 body{
   background-color: $body-bg;
@@ -93,52 +95,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Mixin styles */
 
 /* Hide text when it's replaced by an image */
-@mixin image-replacement {
-  overflow: hidden;
-  text-indent: 150%;
-  white-space: nowrap;
-}
 .image-replacement {
   @include image-replacement;
 }
 
 /* Button styles */
-@mixin button-base {
-  padding: 0.5em 1.25em;
-  border-radius: 3px;
-  display: inline-block;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 300ms ease-out;
-  margin-bottom: 0;
-  font-family: $font-family;
-  &:hover,
-  &:active,
-  &:focus {
-      text-decoration: none;
-      transition: background-color 300ms ease-out;
-  }
-}
-
 .button-base {
   @include button-base;
-}
-
-
-@mixin button {
-  @include button-base;
-  color: $color_white;
-  background-color: $button-bg;
-  border: none;
-  &:hover,
-  &:active,
-  &:focus,
-  &:visited:hover,
-  &:visited:active,
-  &:visited:focus {
-      background-color: darken($button-bg, 10%);
-      color: $color_white;
-  }
 }
 
 a.button,
@@ -159,52 +122,14 @@ a.button,
     }
 }
 
-@mixin button-secondary {
-  @include button-base;
-  background-color: $color_light_grey;
-  color: $color_black;
-  font-weight: normal;
-  &:hover,
-  &:active,
-  &:focus {
-    color: $color_black;
-    background-color: darken($color_light_grey, 7.5%);
-    color: $color_black;
-  }
-}
-
 a.button-secondary,
 .button-secondary,
 .button-secondary:visited {
     @include button-secondary;
 }
 
-@mixin button-tertiary {
-  @include button-base;
-  background-color: transparent;
-  color: $color_black;
-  font-weight: normal;
-  border: 1px solid $color_light_grey;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: darken($color_light_grey, 7.5%);
-    border: 1px solid darken($color_light_grey, 12.5%);
-  }
-}
-
 .button-tertiary {
   @include button-tertiary;
-}
-
-@mixin button-disabled {
-  opacity: 0.333;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: inherit;
-    color: inherit;
-  }
 }
 
 .button-disabled {
@@ -219,39 +144,11 @@ a.button-secondary,
 }
 
 /* General styling of nav menu items */
-@mixin menu-item {
-  text-decoration: none;
-  color: transparentize($main_menu-link_text, 0.2);
-  @include ie8 {
-    color: $main_menu-link_text;
-  }
-  transition: background-color 0.5s ease-out;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: darken($main_menu-bg, 10%);
-    color: transparentize($main_menu-link_text, 0);
-  }
-}
-
-
 .menu-item {
   @include menu-item;
 }
 
 /* Selected menu item */
-
-@mixin selected-menu-item {
-  font-weight: 600;
-  color: $main_menu-active_link_text;
-  background-color: $main_menu-active_link_bg;
-  &:hover,
-  &:active,
-  &:focus {
-      background-color: $main_menu-active_link_bg;
-  }
-}
-
 .selected-menu-item {
   @include selected-menu-item;
 }
@@ -262,7 +159,6 @@ a.button-secondary,
     color: $color_pro_blue;
   }
 }
-
 
 /* Styling if not part of the main menu on larger screens */
 .sub-menu-item {
