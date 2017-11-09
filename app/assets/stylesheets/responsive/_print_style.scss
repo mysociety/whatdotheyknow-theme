@@ -128,7 +128,7 @@ ul, img {
 .controller_help {
     position: static;
     margin-left: 0;
-    @extend %expand-links;
+    @include expand-links;
     h1 a,
     dt a {
         display: none; // hide the hash links for linking to a title

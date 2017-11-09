@@ -100,27 +100,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Button styles */
+@mixin button-base {
+  padding: 0.5em 1.25em;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 300ms ease-out;
+  margin-bottom: 0;
+  font-family: $font-family;
+  &:hover,
+  &:active,
+  &:focus {
+      text-decoration: none;
+      transition: background-color 300ms ease-out;
+  }
+}
+
 .button-base {
-    padding: 0.5em 1.25em;
-    border-radius: 3px;
-    display: inline-block;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 300ms ease-out;
-    margin-bottom: 0;
-    font-family: $font-family;
-    &:hover,
-    &:active,
-    &:focus {
-        text-decoration: none;
-        transition: background-color 300ms ease-out;
-    }
+  @include button-base;
 }
 
 a.button,
 .button,
 .button:visited {
-    @extend .button-base;
+    @include button-base;
     color: $color_white;
     background-color: $button-bg;
     border: none;
@@ -150,7 +154,7 @@ a.button,
 a.button-secondary,
 .button-secondary,
 .button-secondary:visited {
-    @extend .button-base;
+    @include button-base;
     background-color: $color_light_grey;
     color: $color_black;
     font-weight: normal;
@@ -164,7 +168,7 @@ a.button-secondary,
 }
 
 .button-tertiary {
-    @extend .button-base;
+    @include button-base;
     background-color: transparent;
     color: $color_black;
     font-weight: normal;
