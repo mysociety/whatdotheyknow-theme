@@ -128,7 +128,6 @@ ul, img {
 .controller_help {
     position: static;
     margin-left: 0;
-    @include expand-links;
     h1 a,
     dt a {
         display: none; // hide the hash links for linking to a title
@@ -157,7 +156,6 @@ p.subtitle {
     border-top-width: 5px !important;
     color: black !important;
     margin-bottom: 2em !important;
-    @extend %expand-links;
 }
 
 .incoming.correspondence {
