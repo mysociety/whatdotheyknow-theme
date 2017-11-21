@@ -22,6 +22,11 @@
                     <li role="presentation"><%= link_to 'Contact us', help_contact_path %></li>
                     <li role="presentation"><%= link_to 'Privacy and cookies', help_privacy_path %></li>
                     <li role="presentation"><%= link_to 'API', help_api_path %></li>
+                    <% if feature_enabled?(:pro_pricing) %>
+                      <li>
+                        <%= link_to 'Pro Terms', pro_page_path(:id => 'legal') %>
+                      </li>
+                    <% end %>
                 </ul>
             </nav>
         </div>
@@ -29,7 +34,7 @@
         <div class="col-sm-3">
             <div class="mysoc-footer__donate">
                 <p>Your donations keep this site and others like it running</p>
-                <a href="https://mysociety.org/donate?utm_source=whatdotheyknow.com&utm_content=footer+donate+now&utm_medium=link&utm_campaign=mysoc_footer" class="mysoc-footer__donate__button">Donate now</a>
+                <a href="<%= AlaveteliConfiguration.donation_url %>?utm_source=whatdotheyknow.com&utm_content=footer+donate+now&utm_medium=link&utm_campaign=mysoc_footer" class="mysoc-footer__donate__button">Donate now</a>
             </div>
         </div>
     </div>
