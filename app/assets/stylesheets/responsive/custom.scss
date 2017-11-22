@@ -553,17 +553,17 @@ a.link_button_green_large {
 
 .site-title__logo {
   @include image-replacement;
-  width: 159px;
+  width: 165px;
   height: 18px;
-  background-size: 159px 18px;
+  background-size: 165px 18px;
   background-image: image-url("wdtk-logo-white.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   display: block;
   @include respond-min( 18.75em ){
-    width: 212px;
+    width: 220px;
     height: 24px;
-    background-size: 212px 24px;
+    background-size: 220px 24px;
   }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     background-image: image-url("wdtk-logo-white@2.png");
@@ -572,13 +572,13 @@ a.link_button_green_large {
 
 .banner--pro .site-title__logo {
   background-image: image-url("alaveteli-pro/wdtk-logo-white.png");
-  width: 198px;
+  width: 177px;
   height: 18px;
-  background-size: 198px 18px;
+  background-size: 177px 18px;
   @include respond-min( 18.75em ){
-    width: 231px;
-    height: 21px;
-    background-size: 231px 21px;
+    width: 236px;
+    height: 24px;
+    background-size: 236px 24px;
   }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     background-image: image-url("alaveteli-pro/wdtk-logo-white@2.png");
