@@ -1,0 +1,119 @@
+/* Hide text when it's replaced by an image */
+@mixin image-replacement {
+  overflow: hidden;
+  text-indent: 150%;
+  white-space: nowrap;
+}
+
+
+/* Buttons */
+@mixin button-base {
+  padding: 0.5em 1.25em;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 300ms ease-out;
+  margin-bottom: 0;
+  font-family: $font-family;
+  &:hover,
+  &:active,
+  &:focus {
+      text-decoration: none;
+      transition: background-color 300ms ease-out;
+  }
+}
+
+@mixin button {
+  @include button-base;
+  color: $color_white;
+  background-color: $button-bg;
+  border: none;
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited:hover,
+  &:visited:active,
+  &:visited:focus {
+      background-color: darken($button-bg, 10%);
+      color: $color_white;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $color_light_grey;
+  color: $color_black;
+  font-weight: normal;
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color_black;
+    background-color: darken($color_light_grey, 7.5%);
+    color: $color_black;
+  }
+}
+
+@mixin button-tertiary {
+  @include button-base;
+  background-color: transparent;
+  color: $color_black;
+  font-weight: normal;
+  border: 1px solid $color_light_grey;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color_light_grey, 7.5%);
+    border: 1px solid darken($color_light_grey, 12.5%);
+  }
+}
+
+@mixin button-disabled {
+  opacity: 0.333;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+@mixin button-pro {
+  background-image: linear-gradient(-180deg, #4C858D 0%, #3E6D75 100%);
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.22);
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited:hover,
+  &:visited:active,
+  &:visited:focus {
+    box-shadow: 0 1px 0 0 rgba(0,0,0,0.22);
+  }
+}
+
+/* Menu items */
+@mixin menu-item {
+  text-decoration: none;
+  color: transparentize($main_menu-link_text, 0.2);
+  @include ie8 {
+    color: $main_menu-link_text;
+  }
+  transition: background-color 0.5s ease-out;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($main_menu-bg, 10%);
+    color: transparentize($main_menu-link_text, 0);
+  }
+}
+
+@mixin selected-menu-item {
+  font-weight: 600;
+  color: $main_menu-active_link_text;
+  background-color: $main_menu-active_link_bg;
+  &:hover,
+  &:active,
+  &:focus {
+      background-color: $main_menu-active_link_bg;
+  }
+}

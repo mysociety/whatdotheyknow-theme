@@ -48,6 +48,8 @@ $error-border: $color_red;
 $action-bg: lighten($color_yellow, 25%);
 $action-border: $color_yellow;
 
+@import "mixins";
+
 /* General styles */
 body{
   background-color: $body-bg;
@@ -70,6 +72,11 @@ a:visited {
 .alaveteli-pro {
   a {
     color: $color_pro_blue;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color_black;
+    }
   }
 }
 
@@ -94,101 +101,39 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hide text when it's replaced by an image */
 .image-replacement {
-  overflow: hidden;
-  text-indent: 150%;
-  white-space: nowrap;
+  @include image-replacement;
 }
 
 /* Button styles */
 .button-base {
-    padding: 0.5em 1.25em;
-    border-radius: 3px;
-    display: inline-block;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 300ms ease-out;
-    margin-bottom: 0;
-    font-family: $font-family;
-    &:hover,
-    &:active,
-    &:focus {
-        text-decoration: none;
-        transition: background-color 300ms ease-out;
-    }
+  @include button-base;
 }
 
 a.button,
 .button,
 .button:visited {
-    @extend .button-base;
-    color: $color_white;
-    background-color: $button-bg;
-    border: none;
-    &:hover,
-    &:active,
-    &:focus,
-    &:visited:hover,
-    &:visited:active,
-    &:visited:focus {
-        background-color: darken($button-bg, 10%);
-        color: $color_white;
-    }
+  @include button;
     .alaveteli-pro & {
-      background-image: linear-gradient(-180deg, #4C858D 0%, #3E6D75 100%);
-      box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.22);
-      &:hover,
-      &:active,
-      &:focus,
-      &:visited:hover,
-      &:visited:active,
-      &:visited:focus {
-        box-shadow: 0 1px 0 0 rgba(0,0,0,0.22);
-      }
+      @include button-pro;
     }
 }
 
 a.button-secondary,
 .button-secondary,
 .button-secondary:visited {
-    @extend .button-base;
-    background-color: $color_light_grey;
-    color: $color_black;
-    font-weight: normal;
-    &:hover,
-    &:active,
-    &:focus {
-        color: $color_black;
-        background-color: darken($color_light_grey, 7.5%);
-        color: $color_black;
-    }
+    @include button-secondary;
 }
 
 .button-tertiary {
-    @extend .button-base;
-    background-color: transparent;
-    color: $color_black;
-    font-weight: normal;
-    border: 1px solid $color_light_grey;
-    &:hover,
-    &:active,
-    &:focus {
-        background-color: darken($color_light_grey, 7.5%);
-        border: 1px solid darken($color_light_grey, 12.5%);
-    }
+  @include button-tertiary;
 }
 
 .button-disabled {
-  opacity: 0.333;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: inherit;
-    color: inherit;
-  }
+  @include button-disabled;
 }
 
 .cplink__button {
-  @extend .button-tertiary;
+  @include button-tertiary;
   border-bottom-left-radius: 0;
   border-left: 0;
   border-top-left-radius: 0;
@@ -196,40 +141,13 @@ a.button-secondary,
 
 /* General styling of nav menu items */
 .menu-item {
-  text-decoration: none;
-  color: transparentize($main_menu-link_text, 0.2);
-  @include ie8 {
-    color: $main_menu-link_text;
-  }
-  transition: background-color 0.5s ease-out;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: darken($main_menu-bg, 10%);
-    color: transparentize($main_menu-link_text, 0);
-  }
+  @include menu-item;
 }
 
 /* Selected menu item */
-
 .selected-menu-item {
-  font-weight: 600;
-  color: $main_menu-active_link_text;
-  background-color: $main_menu-active_link_bg;
-  &:hover,
-  &:active,
-  &:focus {
-      background-color: $main_menu-active_link_bg;
-  }
+  @include selected-menu-item;
 }
-
-.topnav--pro {
-  // change this for alaveteli pro
-  .selected-menu-item {
-    color: $color_pro_blue;
-  }
-}
-
 
 /* Styling if not part of the main menu on larger screens */
 .sub-menu-item {
@@ -277,8 +195,12 @@ input.use-datepicker[type=text] {
 }
 
 form input[type=submit], a.link_button_green, a.link_button_green_large {
-  @extend .button;
+  @include button;
   text-decoration: none;
+  .alaveteli-pro & {
+    @include button-pro;
+  }
+
 }
 
 @include lte-ie7{
@@ -344,14 +266,21 @@ a.link_button_green_large {
 .navigation{
   border-bottom: none;
   a {
-    @extend .menu-item;
+    @include menu-item;
     @media( min-width: $main_menu-mobile_menu_cutoff ) {
       padding: 0.875em 1em;
     }
   }
   /* Show which section is currently selected */
   li.selected a{
-    @extend .selected-menu-item;
+    @include selected-menu-item;
+  }
+}
+
+.topnav--pro {
+  // change this for alaveteli pro
+  .navigation li.selected a {
+    color: $color_pro_blue;
   }
 }
 
@@ -449,7 +378,7 @@ a.link_button_green_large {
     }
   }
   .no-js & {
-    @extend .menu-item;
+    @include menu-item;
     &:hover,
     &:active,
     &:focus {
@@ -460,17 +389,15 @@ a.link_button_green_large {
 
 
 .js-loaded {
-    .navigation .logged-in-menu a {
-      .alaveteli-pro & {
-        color: $color_pro_blue;
-      }
-    }
-    .navigation .logged-in-menu__signout-link a {
+  .alaveteli-pro .navigation .logged-in-menu a {
+    color: $color_pro_blue;
+  }
+  .navigation .logged-in-menu__signout-link a {
     @include respond-min( $main_menu-mobile_menu_cutoff ){
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 0.8em;
-      color: #888;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #888;
       &:hover {
         color: #888;
       }
@@ -577,7 +504,7 @@ a.link_button_green_large {
     position: absolute;
     top: 0.66em;
     right: 0.9375rem; //same as foundation's screen-edge gutter
-    @extend .image-replacement;
+    @include image-replacement;
     background-image: image-url('hamburger.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -625,7 +552,7 @@ a.link_button_green_large {
 }
 
 .site-title__logo {
-  @extend .image-replacement;
+  @include image-replacement;
   width: 159px;
   height: 18px;
   background-size: 159px 18px;
@@ -660,7 +587,6 @@ a.link_button_green_large {
 
 .ms-header {
   background-color: $mysociety-banner;
-  @extend .clearfix;
 }
 
 .ms-header__container {
@@ -680,7 +606,7 @@ a.link_button_green_large {
   line-height: 0;
   a{
     background-color: $mysociety-banner;
-    @extend .image-replacement;
+    @include image-replacement;
     background-image: image-url("mysociety-header_logo.png");
     @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
       background-image: image-url("mysociety-header_logo@2.png");
@@ -748,7 +674,7 @@ $mysoc-footer-breakpoint-sm: 42em;
 
 .request-header__action-bar {
   .action-menu__button {
-    @extend .button-secondary;
+    @include button-secondary;
     &:after {
       border-color: #a5a5a5 transparent transparent transparent;
       right: 7%;
@@ -896,7 +822,7 @@ input#reedit_button {
 
 .request-footer__action-bar__actions {
   .action-menu__button {
-    @extend .button-secondary;
+    @include button-secondary;
     padding-right: 2em;
     &:after {
       border-color: #a5a5a5 transparent transparent transparent;
@@ -938,12 +864,12 @@ input#reedit_button {
   .action-bar__follow-button,
   .feed_link_sidebar {
     .link_button_green {
-      @extend .button-secondary;
+      @include button-secondary;
     }
   }
 
   .authority__body__sidebar .list-filter-item input[type=submit] {
-    @extend .button-secondary;
+    @include button-secondary;
   }
 
   .action-bar__follow-button {
@@ -1136,11 +1062,6 @@ p.locale-list-trigger {
   padding: 0;
 }
 
-.icon-standalone {
-  display: block;
-  width: 22px;
-  height: 22px;
-}
 .bodies-list,
 .latest-requests {
   h4 {
@@ -1602,7 +1523,7 @@ dd {
     // We aren't overriding the sidebar so can't get hold of this
     // link easily, the selector above nest within #right_column
     // should be enough
-    @extend .button-secondary;
+    @include button-secondary;
     text-align: center;
     width: 100%;
   }
@@ -1639,10 +1560,6 @@ dd {
     display: block;
     color: $color_dark_grey;
   }
-}
-
-.act_link--writetothem a {
-  background-image: image-url('writetothem.png');
 }
 
 .sidebar__section {
@@ -1789,13 +1706,15 @@ div.pagination a:visited,
 .pagination .previous_page,
 .pagination .next_page,
 .pagination .current {
-  @extend .button-secondary;
+  @include button-secondary;
   margin: 0 0.2em 0.5em;
 }
 
-.pagination .current {
+div.pagination .current {
   background-color: $main_menu-bg;
   color: $color_white;
+  font-style: none;
+  padding: 0.5em 1.25em;
   &:hover,
   &:active,
   &:focus {
@@ -1805,8 +1724,8 @@ div.pagination a:visited,
 }
 
 div.pagination span.disabled {
-  @extend .button-tertiary;
-  @extend .button-disabled;
+  @include button-tertiary;
+  @include button-disabled;
   margin: 0 0.2em;
 }
 
