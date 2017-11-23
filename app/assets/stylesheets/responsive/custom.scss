@@ -557,6 +557,9 @@ a.link_button_green_large {
   height: 18px;
   background-size: 165px 18px;
   background-image: image-url("wdtk-logo-white.png");
+  // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+  background-image: image-url("wdtk-logo-white.svg"),
+  linear-gradient(transparent, transparent);
   background-repeat: no-repeat;
   background-position: 0 0;
   display: block;
@@ -565,13 +568,13 @@ a.link_button_green_large {
     height: 24px;
     background-size: 220px 24px;
   }
-  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-    background-image: image-url("wdtk-logo-white@2.png");
-  }
 }
 
 .banner--pro .site-title__logo {
   background-image: image-url("alaveteli-pro/wdtk-logo-white.png");
+  // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+  background-image: image-url("alaveteli-pro/wdtk-logo-white.svg"),
+  linear-gradient(transparent, transparent);
   width: 177px;
   height: 18px;
   background-size: 177px 18px;
@@ -579,9 +582,6 @@ a.link_button_green_large {
     width: 236px;
     height: 24px;
     background-size: 236px 24px;
-  }
-  @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-    background-image: image-url("alaveteli-pro/wdtk-logo-white@2.png");
   }
 }
 
