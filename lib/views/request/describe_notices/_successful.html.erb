@@ -46,7 +46,7 @@
 
   </div>
   <div class="request-sent-message__column-2">
-    <% if AlaveteliConfiguration::donation_url.present? %>
+    <% if show_donation_button? %>
     <div class="what-next donate">
       <h2 class="what-next__heading"><%= _("Help keep this site running") %></h2>
       <p class="what-next__para"><%= _("Your donations help us make " \

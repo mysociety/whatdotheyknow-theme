@@ -5,6 +5,48 @@ require 'spec_helper'
 describe DonationHelper, type: :helper do
   include DonationHelper
 
+  describe '#show_donation_button?' do
+    subject { show_donation_button? }
+
+    context 'without donation URL' do
+      it { is_expected.to eq false }
+    end
+
+    context 'with donation URL' do
+      before do
+        allow(AlaveteliConfiguration).to receive(:donation_url).
+          and_return('http://example.com')
+      end
+
+      context 'Pro not enabled' do
+        it { is_expected.to eq true }
+      end
+
+      context 'with pro enabled' do
+        before(:each) do
+          allow(AlaveteliFeatures.backend).
+            to receive(:enabled?).with(:alaveteli_pro).and_return(true)
+        end
+
+        context 'no current user' do
+          let(:current_user) { nil }
+          it { is_expected.to eq true }
+        end
+
+        context 'current user is not a Pro' do
+          let(:current_user) { FactoryGirl.create(:user) }
+          it { is_expected.to eq true }
+        end
+
+        context 'current user is a Pro' do
+          let(:current_user) { FactoryGirl.create(:pro_user) }
+          it { is_expected.to eq false }
+        end
+      end
+    end
+
+  end
+
   describe '#donate_now_link' do
     before do
       allow(AlaveteliConfiguration).to receive(:donation_url).
