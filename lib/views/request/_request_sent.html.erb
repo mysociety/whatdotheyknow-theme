@@ -68,20 +68,12 @@
       </div>
 
       <div class="request-sent-message__column-2">
-        <% if AlaveteliConfiguration::donation_url.present? %>
+        <% if show_donation_button? %>
         <div class="what-next donate">
           <h2 class="what-next__heading"><%= _("We work to defend the right to FOI for everyone") %></h2>
           <p class="what-next__para"><%= _("Help us protect your right to hold public authorities to account. Donate and support our work.
 ") %></p>
-        <% donation_url = AlaveteliConfiguration::donation_url + "?" <<
-              { :utm_source => 'whatdotheyknow.com',
-                :utm_campaign => 'donation_drive_2016',
-                :utm_medium => 'link',
-                :utm_content => 'request+sent+donate+now' }.to_query %>
-
-        <%= _("<a class=\"button what-next__button\" href=\"{{donation_url}}\">" \
-              "Donate now</a>",
-              :donation_url => donation_url) %>
+          <%= donate_now_link 'request sent donate now', :class => 'button what-next__button' %>
         </div>
         <% end %>
       </div>
