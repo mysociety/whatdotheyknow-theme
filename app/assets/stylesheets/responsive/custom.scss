@@ -47,6 +47,7 @@ $error-bg: lighten($color_red, 25%);
 $error-border: $color_red;
 $action-bg: lighten($color_yellow, 25%);
 $action-border: $color_yellow;
+$popup-bg: #32b353;
 
 @import "mixins";
 
@@ -237,8 +238,15 @@ a.link_button_green_large {
 /* Popups */
 
 .popup {
-  background-color: $notice-bg;
-  border: 3px solid $notice-border;
+  background-color: $color_green;
+  border: 0;
+  color: #fff;
+  a, a:hover, a:active, a:focus, a:visited,
+  a:visited:hover,
+  a:visited:active,
+  a:visited:focus {
+    color: #fff;
+  }
 }
 
 
