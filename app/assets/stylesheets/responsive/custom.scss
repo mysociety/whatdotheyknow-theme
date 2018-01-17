@@ -608,6 +608,37 @@ a.link_button_green_large {
   }
 }
 
+/*
+ * Temporary change to language switcher for birthday period only 
+ */
+
+ .banner--pro {
+  #user_locale_switcher {
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      left: 274px;
+    }
+  }
+ }
+
+.banner--pro .birthday-logo {
+  @include image-replacement;
+  width: 201px;
+  height: 18px;
+  background-size: 201px 18px;
+  background-image: image-url("alaveteli-pro/wdtk-logo-bday.png");
+  // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+  background-image: image-url("alaveteli-pro/wdtk-logo-bday.svg"),
+  linear-gradient(transparent, transparent);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  display: block;
+  @include respond-min( 18.75em ){
+    width: 249px;
+    height: 24px;
+    background-size: 249px 24px;
+  }
+}
+
 .ms-header {
   background-color: $mysociety-banner;
 }
