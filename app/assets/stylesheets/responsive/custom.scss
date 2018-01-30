@@ -249,6 +249,11 @@ a.link_button_green_large {
   }
 }
 
+.popup + .popup {
+  /* Sometimes there is more than one message */
+  border-top: 1px solid darken($color_green, 10%);
+}
+
 
 /* Header */
 
