@@ -75,4 +75,12 @@
     <%= submit_tag _("Submit request") %>
   </div>
 
+  <div class="multiple-authorities">
+    <h3><%= _('Want to add several authorities?') %></h3>
+    <p>
+      <%= link_to _('Please contact us'), help_contact_path %>.
+      <%= _('When adding lots of authorities its often easier for us to deal ' \
+            'with a spreadsheet or CSV.') %>
+    </p>
+  </div>
 <% end %>
