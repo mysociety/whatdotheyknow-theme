@@ -79,6 +79,12 @@ a:visited {
       color: $color_black;
     }
   }
+
+  details {
+    summary {
+      color: $color_pro_blue;
+    }
+  }
 }
 
 
