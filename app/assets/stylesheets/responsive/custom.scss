@@ -1617,7 +1617,7 @@ dd {
 
 .sidebar__section {
     background-color: $color_light_grey;
-    padding: 2em 1.5em 1em;
+    padding: 1.25em 1.5em 1em;
     border-radius: 3px;
     margin-bottom: 2em;
     h2 {
@@ -1868,3 +1868,40 @@ $color_asktheeu_dark_green: #C4DDB9;
  .houdini-target {
    margin-top: 1.5em;
  }
+
+ // Pro sidebar styles 
+ .update-status {
+  // We're using sidebar__section to give out styles here but we don't want padding
+  // The elements contained within will provide the padding here 
+  padding: 0;
+    h2 {
+      padding: 1.5em 1.5em 0;
+    }
+    .status-picker__current-status {
+      padding: 0 1.5em;
+    }
+    .houdini-label {
+      padding: 0 1.5em 1.5em;
+    }
+    .houdini-target {
+      margin-top: 0;
+    }
+    .status-picker__options {
+      margin-top: 0;
+    }
+ }
+
+.status-picker__option label {
+  border-top: 1px solid darken($color_light_grey, 10%);
+  padding: 0.25em 0.25em 0.25em 1.5em;
+  &:last-child {
+    padding-bottom: 0.5em;
+  }
+  &:hover,
+  &:focus {
+    background-color: darken($color_light_grey, 5%);
+    .status-picker__option__label-text {
+      text-decoration: none !important;
+    }
+  }
+}
