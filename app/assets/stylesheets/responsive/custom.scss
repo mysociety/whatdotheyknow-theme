@@ -1812,6 +1812,12 @@ div.pagination .current {
     background-color: $main_menu-bg;
   }
 }
+.alaveteli-pro {
+  /* Change the colour of pagination for pro */
+  div.pagination .current {
+    background-color: #447785;
+  }
+}
 
 div.pagination span.disabled {
   @include button-tertiary;
