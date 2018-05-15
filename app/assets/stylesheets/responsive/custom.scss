@@ -657,42 +657,6 @@ a.link_button_green_large {
   }
 }
 
-.ms-header {
-  background-color: $mysociety-banner;
-}
-
-.ms-header__container {
-  @include grid-row();
-}
-
-.ms-header__logo {
-  @include grid-column(12);
-  text-align: center;
-  @include respond-min(15em){
-    @include grid-column(6,$offset:6);
-    text-align: right;
-  }
-  @include respond-min( $main_menu-mobile_menu_cutoff ){
-    @include grid-column(2,$offset:10);
-  }
-  line-height: 0;
-  a{
-    background-color: $mysociety-banner;
-    @include image-replacement;
-    background-image: image-url("mysociety-header_logo.png");
-    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-      background-image: image-url("mysociety-header_logo@2.png");
-    }
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 101px 21px;
-    display: inline-block;
-    width: 101px;
-    height: 21px;
-    margin: 10px 0;
-  }
-}
-
 
 /* Footer */
 
