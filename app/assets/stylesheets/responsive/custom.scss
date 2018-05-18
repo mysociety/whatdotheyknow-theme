@@ -106,6 +106,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Mixin styles */
 
+/* THe combined 'follow' button with follower count is built with the two following mixins */
+@mixin follow-button {
+  line-height: 1.5em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+}
+
+@mixin follow-count {
+  color: $color_dark_grey;
+  padding: 0.56em 1.25em;
+  border: 1px solid $color_light_grey;
+  position: relative;
+  left: -3px;
+  line-height: 1.6em;
+  border-left: 0;
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 /* Hide text when it's replaced by an image */
 .image-replacement {
   @include image-replacement;
@@ -657,42 +678,6 @@ a.link_button_green_large {
   }
 }
 
-.ms-header {
-  background-color: $mysociety-banner;
-}
-
-.ms-header__container {
-  @include grid-row();
-}
-
-.ms-header__logo {
-  @include grid-column(12);
-  text-align: center;
-  @include respond-min(15em){
-    @include grid-column(6,$offset:6);
-    text-align: right;
-  }
-  @include respond-min( $main_menu-mobile_menu_cutoff ){
-    @include grid-column(2,$offset:10);
-  }
-  line-height: 0;
-  a{
-    background-color: $mysociety-banner;
-    @include image-replacement;
-    background-image: image-url("mysociety-header_logo.png");
-    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-      background-image: image-url("mysociety-header_logo@2.png");
-    }
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    background-size: 101px 21px;
-    display: inline-block;
-    width: 101px;
-    height: 21px;
-    margin: 10px 0;
-  }
-}
-
 
 /* Footer */
 
@@ -755,23 +740,11 @@ $mysoc-footer-breakpoint-sm: 42em;
 
     a.link_button_green,
     a.track_action {
-      line-height: 1.5em;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      margin-bottom: 0;
+      @include follow-button();
     }
 
   .action-bar__follower-count {
-    color: $color_dark_grey;
-    padding: 0.56em 1.25em;
-    border: 1px solid $color_light_grey;
-    position: relative;
-    left: -3px;
-    line-height: 1.6em;
-    border-left: 0;
-    border-radius: 3px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    @include follow-count();
   }
 }
 
@@ -922,23 +895,11 @@ input#reedit_button {
 
   a.link_button_green,
   a.track_action {
-    line-height: 1.5em;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-bottom: 0;
+    @include follow-button();
   }
 
   .action-bar__follower-count {
-    color: $color_dark_grey;
-    padding: 0.56em 1.25em;
-    border: 1px solid $color_light_grey;
-    position: relative;
-    left: -3px;
-    line-height: 1.6em;
-    border-left: 0;
-    border-radius: 3px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    @include follow-count();
   }
 }
 
@@ -962,27 +923,15 @@ input#reedit_button {
     @include button-secondary;
   }
 
+ 
   .action-bar__follow-button {
     a.link_button_green {
-      line-height: 1.5em;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      margin-bottom: 0;
+      @include follow-button();
     }
   }
 
   .action-bar__follower-count {
-    color: $color_dark_grey;
-    font-size: 1em; //16px
-    padding: 0.56em 1.25em;
-    border: 1px solid $color_light_grey;
-    position: relative;
-    left: -3px;
-    line-height: 1.6em;
-    border-left: 0;
-    border-radius: 3px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    @include follow-count();
   }
 }
 
@@ -1810,6 +1759,12 @@ div.pagination .current {
   &:focus {
     color: $color_white;
     background-color: $main_menu-bg;
+  }
+}
+.alaveteli-pro {
+  /* Change the colour of pagination for pro */
+  div.pagination .current {
+    background-color: #447785;
   }
 }
 
