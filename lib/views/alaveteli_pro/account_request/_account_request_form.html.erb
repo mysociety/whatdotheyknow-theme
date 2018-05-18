@@ -1,5 +1,5 @@
 <label class="houdini-label input-beta-button button" for="input-beta">
-  Get access to the beta
+  <%= _('Get access to the beta') %>
 </label>
 <input class="houdini-input" type="checkbox" id="input-beta" <% if params[:account_request].present? %>checked="true"<% end %>>
 <%= form_for :account_request,
@@ -13,7 +13,7 @@ Successful applicants will receive free early access to WhatDoTheyKnow<sup>Pro</
   <div>
     <label for="account_request_email">
       <strong>
-        Email address
+        <%= _('Email address') %>
       </strong>
     </label>
     <%= f.email_field :email, :size => 20, :required => true %>
@@ -21,30 +21,33 @@ Successful applicants will receive free early access to WhatDoTheyKnow<sup>Pro</
   <div>
     <label for="account_request_reason">
       <strong>
-        Why do you want access?
+         <%= _('Why do you want access?') %>
       </strong>
-      Please include links to some examples of your journalism or blogging if you can.
+      <%= _('Please include links to some examples of your journalism or ' \
+            'blogging if you can.') %>
     </label>
     <%= f.text_area :reason, :rows => 10, :cols => 50, :required => true %>
   </div>
   <div>
     <label for="account_request_offer_code">
-      If you have an <strong>offer code</strong>, please enter it here:
+      <%= _('If you have an <strong>offer code</strong>, please enter it ' \
+            'here:') %>
     </label>
     <%= f.text_field :offer_code, :size => 20, :required => false %>
   </div>
   <div>
     <label for="account_request_training_emails">
-      Are you interested in free training, seminars and workshops about WhatDoTheyKnow<sup>Pro</sup>?
+      Are you interested in free training, seminars and workshops about
+      WhatDoTheyKnow<sup>Pro</sup>?
     </label>
     <div class="inline-elements">
       <label for="account_request_training_emails_yes" class="inline-element">
       <%= f.radio_button 'training_emails', 'yes', :required => true %>
-        Yes
+        <%= _("Yes") %>
       </label>
       <label for="account_request_training_emails_no" class="inline-element">
       <%= f.radio_button 'training_emails', 'no', :required => true %>
-      No
+        <%= _("No") %>
       </label>
     </div>
   </div>
@@ -55,11 +58,11 @@ Successful applicants will receive free early access to WhatDoTheyKnow<sup>Pro</
     <div class="inline-elements">
       <label for="account_request_marketing_emails_yes" class="inline-element">
       <%= f.radio_button 'marketing_emails', 'yes', :required => true %>
-        Yes
+        <%= _("Yes") %>
       </label>
       <label for="account_request_marketing_emails_no" class="inline-element">
-        <%= f.radio_button 'marketing_emails', 'no', :required => true %>
-        No
+      <%= f.radio_button 'marketing_emails', 'no', :required => true %>
+        <%= _("No") %>
       </label>
     </div>
   </div>
