@@ -6,6 +6,9 @@
 # See http://stackoverflow.com/questions/7072758/plugin-not-reloading-in-development-mode
 #
 Rails.configuration.to_prepare do
+    ReplyToAddressValidator.invalid_reply_addresses = %w(
+      FOIResponses@homeoffice.gsi.gov.uk
+    )
 
     User.class_eval do
         # Return this user’s survey
