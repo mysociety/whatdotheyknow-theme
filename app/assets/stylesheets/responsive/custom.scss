@@ -769,6 +769,11 @@ div.correspondence {
   border: none;
   border-top: 8px solid $incoming-correspondence-color;
   background-color: $incoming-correspondence-background;
+
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    margin-left: 5em;
+  }
+
   a.link_to_this {
     background-color: $incoming-correspondence-color;
   }
@@ -778,6 +783,11 @@ div.correspondence {
   border: none;
   border-top: 8px solid $outgoing-correspondence-color;
   background-color: $outgoing-correspondence-background;
+
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    margin-right: 5em;
+  }
+
   a.link_to_this {
     background-color: $outgoing-correspondence-color;
   }
@@ -820,6 +830,13 @@ input#reedit_button {
 .comment_in_request {
   a.link_to_this {
     background-color: $comment-color;
+  }
+}
+
+// `div` annoyingly required because overloaded selector in core
+div.comment_in_request {
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    margin-left: 5em;
   }
 }
 
