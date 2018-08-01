@@ -15,9 +15,11 @@
 <% if public_body.has_tag?('charity') %>
   <% public_body.get_tag_values('charity').each do |tag_value| %>
     <% if tag_value.match(/^SC/) %>
-      <%= link_to _('Charity registration'), "http://www.oscr.org.uk/CharityIndexDetails.aspx?id=#{ tag_value }" %><br>
+      <%= link_to _('Charity registration'),
+                    "https://www.oscr.org.uk/search/charity-details?number=#{ tag_value }" %><br>
     <% else %>
-      <%= link_to _('Charity registration'), "http://www.charity-commission.gov.uk/SHOWCHARITY/RegisterOfCharities/CharityFramework.aspx?RegisteredCharityNumber=#{ tag_value }" %><br>
+      <%= link_to _('Charity registration'),
+                    "http://beta.charitycommission.gov.uk/charity-details/?regid=#{ tag_value }&subid=0" %><br>
     <% end %>
   <% end %>
 <% end %>
