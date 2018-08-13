@@ -658,7 +658,7 @@ a.link_button_green_large {
 }
 
 /*
- * Temporary change to language switcher for birthday period only 
+ * Temporary change to language switcher for birthday period only
  */
 
  .banner--pro {
@@ -933,7 +933,7 @@ input#reedit_button {
     @include button-secondary;
   }
 
- 
+
   .action-bar__follow-button {
     a.link_button_green {
       @include follow-button();
@@ -1612,12 +1612,52 @@ dd {
 }
 
 .sidebar__section {
+    border-bottom: 1px solid darken($color_light_grey, 7%);
     margin-bottom: 1.5em;
     padding-bottom: 1.5em;
-    border-bottom: 1px solid $color_light_grey;
     h2 {
       margin-top: 0 !important;
     }
+}
+
+/* Sidebar request navigation */
+.request-navigation {
+  margin-bottom: 1.5em;
+}
+.request-navigation__button {
+  font-family: $font-family;
+  background-color: $color_light_grey;
+  padding-top: 0.6em;
+  padding-bottom: 0.6em;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color_light_grey, 10%);
+  }
+  &:disabled {
+    background-color: $color_light_grey;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $color_light_grey;
+    }
+  }
+}
+
+.request-navigation__button--prev {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 3.25em;
+}
+
+.request-navigation__button--next {
+  width: 3.2em;
+}
+
+.request-navigation__button--current {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 1em;
 }
 
 /* Donate cta in request sidebar
