@@ -365,7 +365,9 @@ a.link_button_green_large {
       }
     }
   }
-
+  .account-link--with-pro-pill {
+    padding-right: 3em;
+  }
 }
 
 .logged-in-menu {
@@ -448,6 +450,10 @@ a.link_button_green_large {
   color: #567386;
   font-weight: 600;
   background-color: #FFFF00;
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    top: 1.8em;
+  }
+
 }
 
 
