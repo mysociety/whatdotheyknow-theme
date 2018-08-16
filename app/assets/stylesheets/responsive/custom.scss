@@ -1855,6 +1855,11 @@ $color_asktheeu_dark_green: #C4DDB9;
  .houdini-label {
    color: $color_pro_blue;
    text-decoration: underline;
+   &:hover,
+   &:active,
+   &:focus {
+     color: $color_black;
+   }
  }
 
  .houdini-target {
