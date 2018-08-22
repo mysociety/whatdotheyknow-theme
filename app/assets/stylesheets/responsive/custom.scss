@@ -60,6 +60,10 @@ body{
   font-family: $font-family;
 }
 
+.skip-to-link {
+  color: white !important;
+}
+
 a,
 a:visited {
   color: $link-color;
