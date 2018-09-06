@@ -1612,10 +1612,9 @@ dd {
 }
 
 .sidebar__section {
-    background-color: $color_light_grey;
-    padding: 2em 1.5em 1em;
-    border-radius: 3px;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid $color_light_grey;
     h2 {
       margin-top: 0 !important;
     }
