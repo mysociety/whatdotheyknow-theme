@@ -1,25 +1,31 @@
-<div id="left_column" class="left_column">
 <% @title = "Unhappy about a Freedom of Information request?" %>
+
+<div id="left_column" class="left_column">
 <div class="unhappy-info">
   <% if !@info_request.nil? %>
-  <h1>Unhappy about the response you got
-  to your request &mdash; <%=request_link(@info_request) %>?
-  </h1>
+    <h1>Unhappy about the response you got
+    to your request &mdash; <%=request_link(@info_request) %>?
+    </h1>
   <% else %>
-  <h1>Unhappy about the response you got?</h1>
+    <h1>Unhappy about the response you got?</h1>
   <% end %>
+
   <p>If you <strong>didn’t get a reply within 20 working days</strong> you can:</p>
+
   <ul>
     <li>Complain directly to the <a href="#complaining">Information Commissioner</a>.</li>
   </ul>
+
   <p>If you <strong>did not get all of the information</strong> that you requested, 
   or your request was <strong>refused without a reason</strong> valid under the law you can:</p>
+
   <ul>
     <li>Ask for an <a href="#internal_review">internal review</a> at the public authority. If that doesn't help, complain to the <a href="#complaining">Information Commissioner</a>.</li>
     <li><a href="<%= select_authority_path %>">Make a new request</a> asking for more specific information or to a more appropriate authority</li>
     <li>or, <a href="#other_means">use other means</a> of asking your question</li>
   </ul>
 </div>
+
 <h2 id="internal_review">1. Asking for an internal review <a class="hover_a" href="#internal_review">#</a> </h2>
 <p>
   <% if !@info_request.nil? %>
@@ -39,6 +45,7 @@
   you originally requested, or you will be told that the review upholds the
   original decision.
 </p>
+
 <h2 id="complaining">2. Complaining to the Information Commissioner <a class="hover_a" href="#complaining">#</a> </h2>
 <p>If you are still unhappy after the public authority has done their internal review,
   then you can complain to the Information Commissioner. To do this, read
@@ -67,6 +74,7 @@ authorities to reply within a few weeks of receiving a complaint.</p>
   you want to help the fight to improve Freedom of Information, or maybe
   getting the information slowly is still worthwhile. You can also try and
 get the information by <strong>other means...</strong></p>
+
 <h2 id="other_means">3. Using other means to answer your question <a class="hover_a" href="#other_means">#</a> </h2>
 <p>You can try pursuing your problem or your research in other ways.
 </p>
