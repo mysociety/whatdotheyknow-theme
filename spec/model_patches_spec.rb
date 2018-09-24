@@ -23,9 +23,9 @@ describe RequestMailer, 'when patched by whatdotheyknow-theme' do
 
     def get_surveyable_request(user=nil)
       info_request = if user
-        FactoryGirl.create(:info_request, :user => user)
+        FactoryBot.create(:info_request, :user => user)
       else
-        FactoryGirl.create(:info_request)
+        FactoryBot.create(:info_request)
       end
       info_request.created_at = Time.now - (2.weeks + 1.hour)
       info_request.save!
@@ -116,13 +116,13 @@ end
 describe InfoRequest, "when creating an email subject for a request" do
 
   it 'should create a standard request subject' do
-    info_request = FactoryGirl.build(:info_request)
+    info_request = FactoryBot.build(:info_request)
     expect(info_request.email_subject_request).
       to eq("Freedom of Information request - #{info_request.title}")
   end
 
   it 'should create a special request subject for requests to the General Register Office' do
-    info_request = FactoryGirl.build(:info_request)
+    info_request = FactoryBot.build(:info_request)
     allow(info_request.public_body).to receive(:url_name).and_return('general_register_office')
     expect(info_request.email_subject_request).
       to eq("Freedom of Information request GQ - #{info_request.title}")
@@ -130,7 +130,7 @@ describe InfoRequest, "when creating an email subject for a request" do
 
   it 'should be able to create an email subject request for a batch request template without
       a public body' do
-    info_request = FactoryGirl.build(:info_request)
+    info_request = FactoryBot.build(:info_request)
     info_request.public_body = nil
     info_request.is_batch_request_template = true
     expect(info_request.email_subject_request).
@@ -142,7 +142,7 @@ end
 describe InfoRequest do
 
   describe '#late_calculator' do
-    subject { InfoRequest.new(:public_body => FactoryGirl.build(:public_body)) }
+    subject { InfoRequest.new(:public_body => FactoryBot.build(:public_body)) }
 
     it 'returns a DefaultLateCalculator' do
       expect(subject.late_calculator).
@@ -154,7 +154,7 @@ describe InfoRequest do
     end
 
     it 'returns a SchoolLateCalculator if the associated body is a school' do
-      subject.public_body = FactoryGirl.build(:public_body, :tag_string => 'school')
+      subject.public_body = FactoryBot.build(:public_body, :tag_string => 'school')
       expect(subject.late_calculator).
         to be_instance_of(SchoolLateCalculator)
     end

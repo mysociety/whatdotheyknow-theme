@@ -34,12 +34,12 @@ describe DonationHelper, type: :helper do
         end
 
         context 'current user is not a Pro' do
-          let(:current_user) { FactoryGirl.create(:user) }
+          let(:current_user) { FactoryBot.create(:user) }
           it { is_expected.to eq true }
         end
 
         context 'current user is a Pro' do
-          let(:current_user) { FactoryGirl.create(:pro_user) }
+          let(:current_user) { FactoryBot.create(:pro_user) }
           it { is_expected.to eq false }
         end
       end
