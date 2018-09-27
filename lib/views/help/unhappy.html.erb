@@ -10,31 +10,52 @@
     <h1>Unhappy about the response you got?</h1>
   <% end %>
 
-  <p>If you <strong>didn’t get a reply within 20 working days</strong> you can:</p>
+  <p>
+    If you <strong>didn’t get a reply within 20 working days</strong> you can:
+  </p>
 
   <ul>
-    <li>Refer your request to the <a href="#refer-to-ico">Information Commissioner</a>.</li>
+    <li>
+      Refer your request to the
+      <a href="#refer-to-ico">Information Commissioner</a>.
+    </li>
   </ul>
 
-  <p>If you <strong>did not get all of the information</strong> that you requested, 
-  or your request was <strong>refused without a reason</strong> valid under the law you can:</p>
+  <p>
+    If you <strong>did not get all of the information</strong> that you
+    requested, or your request was <strong>refused without a reason</strong>
+    valid under the law you can:
+  </p>
 
   <ul>
-    <li>Ask for an <a href="#internal_review">internal review</a> at the public authority. If that doesn't help, you can refer the request to the <a href="#refer-to-ico">Information Commissioner</a>.</li>
-    <li><a href="<%= select_authority_path %>">Make a new request</a> asking for more specific information or to a more appropriate authority</li>
-    <li>or, <a href="#other_means">use other means</a> of asking your question</li>
+    <li>
+      Ask for an <a href="#internal_review">internal review</a> at the public
+      authority. If that doesn't help, you can refer the request to the
+      <a href="#refer-to-ico">Information Commissioner</a>.
+    </li>
+    <li>
+      <a href="<%= select_authority_path %>">Make a new request</a> asking for
+      more specific information or to a more appropriate authority
+    </li>
+    <li>
+      or, <a href="#other_means">use other means</a> of asking your question
+    </li>
   </ul>
 </div>
 
 <h2 id="internal_review">1. Asking for an internal review <a class="hover_a" href="#internal_review">#</a> </h2>
 <p>
   <% if !@info_request.nil? %>
-  Choose <%= link_to "request an internal review", new_request_followup_url(:request_id => @info_request.id) + "?internal_review=1#followup" %> and then write a message asking the authority to review your request.
+    <% path = new_request_followup_url(request_id: @info_request.id) +
+              "?internal_review=1#followup" %>
+
+    Choose <%= link_to "request an internal review", path %> and then write a
+    message asking the authority to review your request.
   <% else %>
-  At the bottom of the relevant request page on WhatDoTheyKnow choose
-  "request an internal review". Then write a message asking for an internal
-  review of your request. You may want to include a link to the
-  request page, to make it clear which request you are talking about.
+    At the bottom of the relevant request page on WhatDoTheyKnow choose
+    "request an internal review". Then write a message asking for an internal
+    review of your request. You may want to include a link to the
+    request page, to make it clear which request you are talking about.
   <% end %>
 </p>
 <p>Internal reviews should be quick. If one takes longer than 20 working days
