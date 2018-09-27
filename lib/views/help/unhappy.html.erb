@@ -3,8 +3,9 @@
 <div id="left_column" class="left_column">
 <div class="unhappy-info">
   <% if !@info_request.nil? %>
-    <h1>Unhappy about the response you got
-    to your request &mdash; <%=request_link(@info_request) %>?
+    <h1>
+      Unhappy about the response you got to your request &mdash;
+      <%= request_link(@info_request) %>?
     </h1>
   <% else %>
     <h1>Unhappy about the response you got?</h1>
