@@ -325,11 +325,11 @@ a.link_button_green_large {
 }
 
 #navigation_search {
-  padding: 0 0.935rem;
   @include respond-min( $main_menu-mobile_menu_cutoff ){
-    top: 1.5em;
+    padding-top: 1.2em;
   }
 }
+
 #navigation_search_form {
   position: relative;
   button {
@@ -357,21 +357,84 @@ a.link_button_green_large {
 .js-loaded {
   .account-link {
     padding-right: 2em;
-    @include respond-min( $main_menu-mobile_menu_cutoff ){
-      //make it appear like it's aligned with the grid, even though it isn't
-      margin-right: 0.935em;
-      &:after {
-        top: 2em;
+    &:after {
+      border-top-color: rgba(255,255,255,0.4);
+      @include respond-min( $main_menu-mobile_menu_cutoff ) {
+        right: 5px;
       }
     }
   }
+  .account-link--with-pro-pill {
+    padding-right: 3em;
+  }
+}
 
+.logged_in_bar {
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    padding-top: 1.1em;
+  }
 }
 
 .logged-in-menu {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     color: black;
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+  }
+  li {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  a,
+  a:visited {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      color: $link-color;
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color_black;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+    }
+    .alaveteli-pro & {
+      @include respond-min( $main_menu-mobile_menu_cutoff ){
+        color: $color_pro_blue;
+        &:hover,
+        &:active,
+        &:focus {
+          color: $color_black;
+        }
+      }
+    }
+  }
+  .js-loaded & {
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      //positioned alongside the button
+      top: 3.5em;
+    }
+  }
+}
+
+.alaveteli-pro .account-link,
+.alaveteli-pro .account-link:visited,
+.account-link,
+.account-link:visited,
+.sign_in_link,
+.sign_in_link:visited {
+  color: #fff;
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &:focus {
+    color: #fff;
   }
 }
 
@@ -389,25 +452,9 @@ a.link_button_green_large {
   }
 }
 
-.navigation .logged-in-menu a,
-.navigation .logged-in-menu__signout-link a {
-  @include respond-min( $main_menu-mobile_menu_cutoff ){
-    color: $link-color;
-    text-decoration: none;
-    transition: none;
-    &:hover,
-    &:active,
-    &:focus {
-      color: $color_black;
-      background-color: transparent;
-      text-decoration: underline;
-    }
-  }
-}
-
-.navigation .logged-in-menu a,
-.navigation .logged-in-menu__signout-link a {
-  .topnav--pro & {
+.logged-in-menu a,
+.logged-in-menu__signout-link a {
+  .alaveteli-pro & {
     .no-js & {
       &:hover,
       &:active,
@@ -426,30 +473,11 @@ a.link_button_green_large {
   }
 }
 
-
-.js-loaded {
-  .alaveteli-pro .navigation .logged-in-menu a {
-    color: $color_pro_blue;
-  }
-  .navigation .logged-in-menu__signout-link a {
-    @include respond-min( $main_menu-mobile_menu_cutoff ){
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.8em;
-    color: #888;
-      &:hover {
-        color: #888;
-      }
-    }
-  }
-}
-
 .pro-pill {
   color: #567386;
   font-weight: 600;
   background-color: #FFFF00;
 }
-
 
 /* Notices, errors */
 
@@ -560,15 +588,6 @@ a.link_button_green_large {
   }
 
   .banner_site-title {
-    @include grid-column(12);
-    padding-top: 1.125em; //18px
-    padding-bottom: 1.125em;
-    @include respond-min( $main_menu-mobile_menu_cutoff ){
-      @include grid-column(5);
-      padding-top: 1.6875em; //27px
-      padding-bottom: 1.6875em;
-    }
-    text-align: left;
     h1 {
       font-size: 1.5em;
       margin: 0;
@@ -646,18 +665,6 @@ a.link_button_green_large {
     background-size: 249px 24px;
   }
 }
-
-/*
- * Temporary change to language switcher for birthday period only 
- */
-
- .banner--pro {
-  #user_locale_switcher {
-    @include respond-min( $main_menu-mobile_menu_cutoff ){
-      left: 274px;
-    }
-  }
- }
 
 .banner--pro .birthday-logo {
   @include image-replacement;
@@ -936,24 +943,14 @@ input#reedit_button {
 }
 
 /* LANGUAGE SWITCHER */
-#user_locale_switcher {
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: transparent;
-    right: auto;
-    left: 260px;
-    top: 1.5em;
-  }
-}
 
 /* locale-list */
 .locale-list {
-  padding: 0 0.935em;
-  border-bottom: 0;
+  border-color: rgba(0, 0, 0, 0.15);
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    position: absolute;
-    left: 160px;
-    top: 0.8em;
-    padding: 0;
+    position: relative;
+    background-color: transparent;
+    left: -80px;
   }
 }
 
@@ -961,7 +958,6 @@ p.locale-list-trigger {
   margin-bottom: 0;
   color: $color_white;
   color: rgba(255, 255, 255, 0.8);
-  padding: 0.5em 1em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     margin-top: 0;
     border: 1px solid desaturate(lighten($main_menu-bg, 3%), 5%);
@@ -979,22 +975,21 @@ p.locale-list-trigger {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.66em 2em 0.66em 0.66em;
   }
-}
-
-.locale-list-trigger .current-locale:after {
-  display: block;
-  position: absolute;
-  content: '';
-  right: 10px;
-  top: 12px;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  @include ie8 {
-    border-top: 5px solid $color_white;
+  &:after {
+    display: block;
+    position: absolute;
+    content: '';
+    right: 10px;
+    top: 12px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    @include ie8 {
+      border-top: 5px solid $color_white;
+    }
+    border-top: 5px solid rgba(255,255,255,0.4);
   }
-  border-top: 5px solid rgba(255,255,255,0.4);
 }
 
 .locale-list-trigger .current-locale,
@@ -1010,27 +1005,25 @@ p.locale-list-trigger {
 
 .locale-list .available-languages {
   display: none;
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: 0;
-  font-size: 0.8125em;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: absolute;
-    top: 30px;
-    left: 0;
+    top: 3.4375em;
+    left: 0.9375em;
     z-index: 1000;
     border-radius: 3px;
     font-size: 1em;
     width: 100%;
+    max-width: 10em;
   }
 
 }
 
 .locale-list li {
   list-style-type: none;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255,255,255,0.2);
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    border-bottom-color: $color_dark_grey;
+    border-color: $color_dark_grey;
+    display: block;
   }
   &:last-child {
     @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -1046,18 +1039,15 @@ p.locale-list-trigger {
 .locale-list .available-languages a,
 .locale-list .available-languages a:link,
 .locale-list .available-languages a:visited {
-  display: block;
-  padding: 0.66em 1em;
-  width: 100%;
   text-decoration: none;
-  color: transparentize($main_menu-link_text, 0.2);
-  @include ie8 {
-    color: $main_menu-link_text;
-  }
+  transition: background-color 0.5s ease-out;
+  color: #fff;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: darken($color_dark_grey, 10%);
+    display: block;
+    padding: 0.5em 1em;
+    width: 100%;
   }
-  transition: background-color 0.5s ease-out;
 }
 
 .locale-list .available-languages a:hover,
@@ -1095,11 +1085,13 @@ p.locale-list-trigger {
   border-top-color: rgba(255,255,255,0.4);
 }
 
-.locale-list .locale-list-trigger,
-.locale-list.active .locale-list-trigger {
-  border: 0;
-  padding: 0;
-}
+  .locale-list .locale-list-trigger,
+  .locale-list.active .locale-list-trigger {
+    @include respond-min($main_menu-mobile_menu_cutoff) {
+      border: 0;
+      padding: 0;
+    }
+  }
 
 .bodies-list,
 .latest-requests {
