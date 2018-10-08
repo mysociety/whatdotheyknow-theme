@@ -360,12 +360,8 @@ a.link_button_green_large {
 
 .js-loaded {
   .account-link {
-    padding-right: 2em;
     &:after {
       border-top-color: rgba(255,255,255,0.4);
-      @include respond-min( $main_menu-mobile_menu_cutoff ) {
-        right: 5px;
-      }
     }
   }
   .account-link--with-pro-pill {
