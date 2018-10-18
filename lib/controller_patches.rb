@@ -24,6 +24,18 @@ Rails.configuration.to_prepare do
     def volunteers; end
     def beginners; end
 
+    private
+
+    def set_recaptcha_required
+      @recaptcha_required =
+        AlaveteliConfiguration.contact_form_recaptcha &&
+        request_from_foreign_country?
+    end
+
+    def request_from_foreign_country?
+      country_from_ip != AlaveteliConfiguration.iso_country_code
+    end
+
   end
 
 end
