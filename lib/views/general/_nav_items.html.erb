@@ -14,6 +14,10 @@
   <li class="<%= 'selected' if controller?('general') && action?('blog') %>"><%= link_to _("Read blog"), blog_path %></li>
 <% end %>
 
-<li class="<%= 'selected' if controller?('help') %>">
+<li class="<%= 'selected' if controller?('help') && !action?('volunteers') %>">
   <%= link_to _("Help"), help_about_path %>
+</li>
+
+<li class="<%= 'selected' if controller?('help') && action?('volunteers') %>">
+  <%= link_to _("Volunteer"), help_volunteers_path %>
 </li>
