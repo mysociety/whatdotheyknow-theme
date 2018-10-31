@@ -61,6 +61,10 @@
         </p>
     <% end %>
 
+    <% if @recaptcha_required %>
+      <%= recaptcha_tags %><br />
+    <% end %>
+
     <div class="form_button">
         <script><!--
             if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
