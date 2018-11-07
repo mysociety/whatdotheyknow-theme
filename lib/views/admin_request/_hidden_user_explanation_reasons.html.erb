@@ -6,6 +6,12 @@
                             state: 'not_foi',
                             message: 'personal_information' %>
 
+<% if @info_request.public_body_id == 7 %>
+    <%= hidden_user_explanation label: 'Immigration correspondence',
+                                state: 'not_foi',
+                                message: 'immigration_correspondence' %>
+<% end %>
+
 <%= hidden_user_explanation label: 'A vexatious request',
                             state: 'vexatious',
                             message: 'vexatious' %>
