@@ -13,6 +13,18 @@ Rails.configuration.to_prepare do
       @user.survey.allow_new_survey
       return redirect_to survey_url
     end
+
+    private
+
+    def set_recaptcha_required
+      @recaptcha_required =
+        AlaveteliConfiguration.user_contact_form_recaptcha &&
+        request_from_foreign_country?
+    end
+
+    def request_from_foreign_country?
+       country_from_ip != AlaveteliConfiguration.iso_country_code
+     end
   end
 
   HelpController.class_eval do
