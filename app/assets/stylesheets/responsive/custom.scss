@@ -164,7 +164,8 @@ a.button-secondary,
   @include button-disabled;
 }
 
-.cplink__button {
+.cplink__button,
+.cplink__button.button {
   @include button-tertiary;
   border-bottom-left-radius: 0;
   border-left: 0;
