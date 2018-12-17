@@ -13,6 +13,9 @@ Rails.configuration.to_prepare do
       @user.survey.allow_new_survey
       return redirect_to survey_url
     end
+  end
+
+  Users::MessagesController.class_eval do
 
     private
 
@@ -23,8 +26,9 @@ Rails.configuration.to_prepare do
     end
 
     def request_from_foreign_country?
-       country_from_ip != AlaveteliConfiguration.iso_country_code
-     end
+      country_from_ip != AlaveteliConfiguration.iso_country_code
+    end
+
   end
 
   HelpController.class_eval do
