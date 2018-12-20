@@ -39,6 +39,8 @@ end
 
 Rails.application.config.assets.precompile.unshift(LOOSE_THEME_ASSETS)
 
+Rails.application.config.assets.precompile << ["tests.js"]
+
 # In order to have the theme lib/ folder ahead of the main app one,
 # inspired in Ruby Guides explanation: http://guides.rubyonrails.org/plugins.html
 %w{ . }.each do |dir|
