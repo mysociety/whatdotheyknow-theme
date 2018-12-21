@@ -63,6 +63,19 @@ describe DonationHelper, type: :helper do
       )
     end
 
+    it 'outputs anchor tag with custom utm params' do
+      params = { utm_campaign: 'new_campaign', utm_content: 'content',
+                 utm_medium: 'paper', utm_source: 'example.com' }
+
+      expect(donate_now_link('foo bar', utm_params: params)).to have_xpath(
+        '//a[@href="http://example.com/foo?' \
+          'utm_campaign=new_campaign&' \
+          'utm_content=content&' \
+          'utm_medium=paper&' \
+          'utm_source=example.com"]'
+      )
+    end
+
     it 'can set class attribute' do
       link = donate_now_link('content', class: 'foo')
       anchor = Nokogiri::HTML(link).xpath('//a')[0]
