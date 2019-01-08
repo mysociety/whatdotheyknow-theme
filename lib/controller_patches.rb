@@ -15,6 +15,22 @@ Rails.configuration.to_prepare do
     end
   end
 
+  Users::MessagesController.class_eval do
+
+    private
+
+    def set_recaptcha_required
+      @recaptcha_required =
+        AlaveteliConfiguration.user_contact_form_recaptcha &&
+        request_from_foreign_country?
+    end
+
+    def request_from_foreign_country?
+      country_from_ip != AlaveteliConfiguration.iso_country_code
+    end
+
+  end
+
   HelpController.class_eval do
 
     def principles; end
