@@ -1,8 +1,12 @@
 <div>
-  <p class="info">Unsure who to ask, or what to ask for?</p>
+  <p class="info"><%= _('Unsure who to ask, or what to ask for?') %></p>
   <p class="actions">
-    <a href="#">Get help making a request</a>
-    or <a href="">see our beginner’s guide</a>.
+    <% get_help = link_to('Get help making a request', help_requesting_path) %>
+    <% guide = link_to('see our beginner’s guide', help_beginners_path) %>
+
+    <%= _('{{get_help_link}} or {{beginners_guide_link}}',
+          get_help_link: get_help,
+          beginners_guide_link: guide) %>
   </p>
 </div>
 
@@ -18,9 +22,12 @@
 </div>
 
 <div>
-  <p class="info">Looking for an EU Authority?</p>
+  <p class="info"><% _('Looking for an EU Authority?') %></p>
   <p class="actions">
-    You can request documents directly from EU Institutions at our sister site
-    <a href="http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=select_authority&utm_campaign=alaveteli-experiments-54">AskTheEU.org</a>.
+    <% eu_link = link_to('AskTheEU.org', 'http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=select_authority&utm_campaign=alaveteli-experiments-54') %>
+
+    <%= _('You can request documents directly from EU Institutions at our ' \
+          'sister site {{ask_the_eu_link}}.',
+          ask_the_eu_link: eu_link) %>
   </p>
 </div>
