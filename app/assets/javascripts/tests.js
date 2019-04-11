@@ -22,7 +22,7 @@
           eventAction: 'click',
           eventLabel: document.title,
           hitCallback: function() {
-            window.location.href = $link;
+            window.location.href = $link.attr('href');
           }
         });
       }
