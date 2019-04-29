@@ -159,6 +159,14 @@ Rails.configuration.to_prepare do
         end
     end
 
+    User.class_eval do
+
+      def can_send_survey?
+        active? && !survey.already_done?
+      end
+
+    end
+
     ContactValidator.class_eval do
       attr_accessor :understand
 
