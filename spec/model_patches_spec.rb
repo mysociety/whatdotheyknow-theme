@@ -143,6 +143,20 @@ describe RequestMailer, 'when patched by whatdotheyknow-theme' do
       end
     end
 
+    context 'when a user is inactive' do
+
+      it 'does not send a survey alert' do
+        allow_any_instance_of(User).to receive(:survey).
+          and_return(double('survey', :already_done? => false))
+        allow_any_instance_of(User).to receive(:active?).
+          and_return(false)
+        get_surveyable_request
+        RequestMailer.alert_new_response_reminders
+        expect(ActionMailer::Base.deliveries.size).to eq(0)
+      end
+
+    end
+
   end
 
   context 'when SEND_SURVEY_MAILS is not set' do

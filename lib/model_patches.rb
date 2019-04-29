@@ -135,7 +135,7 @@ Rails.configuration.to_prepare do
                     # Exclude users who have already completed the survey or
                     # have already been sent a survey email in this run
                     logger.debug "[alert_survey] Considering #{info_request.user.url_name}"
-                    next if info_request.user.survey.already_done? || sent_to.include?(info_request.user_id)
+                    next if !info_request.user.can_send_survey? || sent_to.include?(info_request.user_id)
 
                     store_sent = UserInfoRequestSentAlert.new
                     store_sent.info_request = info_request
