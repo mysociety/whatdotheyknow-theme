@@ -145,7 +145,7 @@ Rails.configuration.to_prepare do
 
                     sent_to << info_request.user_id
 
-                    RequestMailer.survey_alert(info_request).deliver
+                    RequestMailer.survey_alert(info_request).deliver_now
                     store_sent.save!
                 end
             end
