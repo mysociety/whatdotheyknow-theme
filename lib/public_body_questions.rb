@@ -1,4 +1,6 @@
 Rails.configuration.to_prepare do
+  next unless ActiveRecord::Base.connection.data_source_exists?(:public_bodies)
+
   home_office = PublicBody.find_by_url_name('home_office')
 
   home_office_deny_response = _(
