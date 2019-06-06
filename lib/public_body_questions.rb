@@ -1,3 +1,4 @@
+Rails.configuration.to_prepare do
 home_office = PublicBody.find_by_url_name('home_office')
 
 home_office_deny_response = _(
@@ -42,3 +43,4 @@ PublicBodyQuestion.build(
               'that anyone could reasonably request and expect to receive?'),
   response: :allow
 )
+end
