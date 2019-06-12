@@ -135,7 +135,7 @@ Rails.configuration.to_prepare do
                     # Exclude users who have already completed the survey or
                     # have already been sent a survey email in this run
                     logger.debug "[alert_survey] Considering #{info_request.user.url_name}"
-                    next if info_request.user.survey.already_done? || sent_to.include?(info_request.user_id)
+                    next if !info_request.user.can_send_survey? || sent_to.include?(info_request.user_id)
 
                     store_sent = UserInfoRequestSentAlert.new
                     store_sent.info_request = info_request
@@ -145,7 +145,7 @@ Rails.configuration.to_prepare do
 
                     sent_to << info_request.user_id
 
-                    RequestMailer.survey_alert(info_request).deliver
+                    RequestMailer.survey_alert(info_request).deliver_now
                     store_sent.save!
                 end
             end
@@ -157,6 +157,14 @@ Rails.configuration.to_prepare do
 
             alias_method_chain :alert_new_response_reminders, :alert_survey
         end
+    end
+
+    User.class_eval do
+
+      def can_send_survey?
+        active? && !survey.already_done?
+      end
+
     end
 
     ContactValidator.class_eval do

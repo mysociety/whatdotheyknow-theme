@@ -11,6 +11,53 @@ describe UserInfoRequestSentAlert, "when patched by the whatdotheyknow-theme" do
 
 end
 
+describe User, 'when patched by whatdotheyknow-theme' do
+
+  describe '#can_send_survey?' do
+    let(:user) { FactoryBot.create(:user) }
+    subject { user.can_send_survey? }
+
+    before do
+      allow(AlaveteliConfiguration).
+        to receive(:send_survey_mails).and_return(true)
+    end
+
+    context 'a survey has not been sent to an active user' do
+
+      before do
+        allow(user).to receive(:survey).
+          and_return(double('survey', :already_done? => false))
+      end
+
+      it { is_expected.to eq(true) }
+
+    end
+
+    context 'a survey has already been sent' do
+
+      before do
+        allow(user).to receive(:survey).
+          and_return(double('survey', :already_done? => true))
+      end
+
+      it { is_expected.to eq(false) }
+
+    end
+
+    context 'the user is not active' do
+
+      before do
+        allow(user).to receive(:active?).and_return(false)
+      end
+
+      it { is_expected.to eq(false) }
+
+    end
+
+  end
+
+end
+
 describe RequestMailer, 'when patched by whatdotheyknow-theme' do
 
   context 'when SEND_SURVEY_MAILS is set' do
@@ -94,6 +141,20 @@ describe RequestMailer, 'when patched by whatdotheyknow-theme' do
         RequestMailer.alert_new_response_reminders
         expect(ActionMailer::Base.deliveries.size).to eq(1)
       end
+    end
+
+    context 'when a user is inactive' do
+
+      it 'does not send a survey alert' do
+        allow_any_instance_of(User).to receive(:survey).
+          and_return(double('survey', :already_done? => false))
+        allow_any_instance_of(User).to receive(:active?).
+          and_return(false)
+        get_surveyable_request
+        RequestMailer.alert_new_response_reminders
+        expect(ActionMailer::Base.deliveries.size).to eq(0)
+      end
+
     end
 
   end
