@@ -644,48 +644,6 @@ a.link_button_green_large {
   }
 }
 
-/*
- * 10th birthday logo
- */
-
-.birthday-logo {
-  @include image-replacement;
-  width: 187px;
-  height: 18px;
-  background-size: 186.5px 18px;
-  background-image: image-url("wdtk-logo-white-bday.png");
-  // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
-  background-image: image-url("wdtk-logo-white-bday.svg"),
-  linear-gradient(transparent, transparent);
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  display: block;
-  @include respond-min( 18.75em ){
-    width: 249px;
-    height: 24px;
-    background-size: 249px 24px;
-  }
-}
-
-.banner--pro .birthday-logo {
-  @include image-replacement;
-  width: 201px;
-  height: 18px;
-  background-size: 201px 18px;
-  background-image: image-url("alaveteli-pro/wdtk-logo-bday.png");
-  // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
-  background-image: image-url("alaveteli-pro/wdtk-logo-bday.svg"),
-  linear-gradient(transparent, transparent);
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  display: block;
-  @include respond-min( 18.75em ){
-    width: 249px;
-    height: 24px;
-    background-size: 249px 24px;
-  }
-}
-
 
 /* Footer */
 
