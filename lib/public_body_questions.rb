@@ -41,8 +41,8 @@ Rails.configuration.to_prepare do
   PublicBodyQuestion.build(
     public_body: home_office,
     key: :foi,
-    question: _('Asking for for recorded information held by a public body ' \
-                'that anyone could reasonably request and expect to receive?'),
+    question: _('Asking for recorded information held by a public body that ' \
+                'anyone could reasonably request and expect to receive?'),
     response: :allow
   )
 end
