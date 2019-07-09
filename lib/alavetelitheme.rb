@@ -15,16 +15,6 @@ class ActionController::Base
     alias :set_view_paths :set_whatdotheyknow_view_paths
 end
 
-# Prepend the asset directories in this theme to the asset path:
-['stylesheets', 'images', 'javascripts'].each do |asset_type|
-    theme_asset_path = File.join(File.dirname(__FILE__),
-                                 '..',
-                                 'app',
-                                 'assets',
-                                 asset_type)
-    Rails.application.config.assets.paths.unshift theme_asset_path
-end
-
 # Append individual theme assets to the asset path
 theme_asset_path = File.join(File.dirname(__FILE__),
                              '..',
@@ -39,6 +29,8 @@ end
 
 Rails.application.config.assets.precompile.unshift(LOOSE_THEME_ASSETS)
 
+Rails.application.config.assets.precompile << ["tests.js"]
+
 # In order to have the theme lib/ folder ahead of the main app one,
 # inspired in Ruby Guides explanation: http://guides.rubyonrails.org/plugins.html
 %w{ . }.each do |dir|
@@ -48,12 +40,29 @@ Rails.application.config.assets.precompile.unshift(LOOSE_THEME_ASSETS)
   ActiveSupport::Dependencies.autoload_once_paths.delete(path)
 end
 
+def prepend_theme_assets
+  # Prepend the asset directories in this theme to the asset path:
+  ['stylesheets', 'images', 'javascripts'].each do |asset_type|
+      theme_asset_path = File.join(File.dirname(__FILE__),
+                                   '..',
+                                   'app',
+                                   'assets',
+                                   asset_type)
+      Rails.application.config.assets.paths.unshift theme_asset_path
+  end
+end
+
+Rails.application.config.to_prepare do
+  prepend_theme_assets
+end
+
 # Monkey patch app code
 for patch in ['patch_mailer_paths.rb',
               'controller_patches.rb',
               'model_patches.rb',
               'helper_patches.rb',
-              'analytics_event.rb']
+              'analytics_event.rb',
+              'public_body_questions.rb']
     require File.expand_path "../#{patch}", __FILE__
 end
 
