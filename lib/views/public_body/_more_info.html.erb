@@ -22,6 +22,18 @@
                     "http://beta.charitycommission.gov.uk/charity-details/?regid=#{ tag_value }&subid=0" %><br>
     <% end %>
   <% end %>
+
+<% if public_body.has_tag?('ch') %>
+  <% public_body.get_tag_values('ch').each do |tag_value| %>
+      <%= link_to _('Company registration'),
+                    "https://beta.companieshouse.gov.uk/company/#{ tag_value }" %><br>
+  <% end %>
+
+<% if public_body.has_tag?('dpr') %>
+  <% public_body.get_tag_values('dpr').each do |tag_value| %>
+      <%= link_to _('Data Protection registration'),
+                    "https://ico.org.uk/ESDWebPages/Entry/#{ tag_value }" %><br>
+  <% end %>
 <% end %>
 
 <%= link_to _('View FOI email address'), view_public_body_email_path(public_body.url_name) %><br>
