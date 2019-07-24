@@ -106,4 +106,13 @@ Rails.configuration.to_prepare do
     end
   end
 
+  AlaveteliPro::PlansController.class_eval do
+    def index
+      default_plan_name = add_stripe_namespace('pro')
+      stripe_plan = Stripe::Plan.retrieve(default_plan_name)
+      @plan = AlaveteliPro::WithTax.new(stripe_plan)
+      @pro_site_name = "WhatDoTheyKnow<sup>Pro</sup>"
+    end
+  end
+
 end
