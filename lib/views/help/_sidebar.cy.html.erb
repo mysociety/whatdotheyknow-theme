@@ -10,6 +10,9 @@
       <li><%= link_to_unless_current "API Rhaglenwyr", help_api_path %></li>
       <li><%= link_to_unless_current "Chwiliad manwl", advanced_search_path %></li>
       <li><%= link_to_unless_current "Alaveteli", help_alaveteli_path %></li>
+      <% if feature_enabled?(:alaveteli_pro) %>
+        <li><%= link_to_unless_current "Pro", help_pro_path %></li>
+      <% end %>
     </ul>
     <% unless is_contact_page? %>
     <h2 id="contact">Cysylltwch â ni</h2>
