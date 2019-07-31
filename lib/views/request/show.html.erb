@@ -110,10 +110,12 @@
 
 <%- if @sidebar %><%= render :partial => @sidebar_template %><% end %>
 
+<%= content_for :ga_pageview do %>
+  ga('require', 'GTM-53XVLCX');
+  ga('send', 'pageview');
+<% end %>
+
 <%= content_for :javascript do %>
   <%= javascript_include_tag 'request-attachments.js' %>
-  <!-- Uncomment when we have an experiment to run.
-  <script src="//www.google-analytics.com/cx/api.js?experiment=Gt1sN3W0SRidPYU_pm-uuQ"></script>
   <%= javascript_include_tag 'tests.js' %>
-  -->
 <% end %>
