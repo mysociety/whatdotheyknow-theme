@@ -1503,6 +1503,9 @@ dd {
     margin-bottom: 0.875em;
     font-weight: 600;
   }
+  & > h2:first-child {
+    margin-top: 0;
+  }
   .link_button_green {
     width: 100%;
   }
@@ -1601,50 +1604,30 @@ dd {
   font-size: 1em;
 }
 
-/* Donate cta in request sidebar
- * (having to use some aggressive selectors here to override existing sidebar styles)
- */
+/* Donate cta banner, below correspondence on request page */
 
-.sidebar__donate-cta,
-#right_column .sidebar__donate-cta {
+.donate-cta {
   padding: 1em 1.5em 1.5em;
   background-color: lighten($color_red, 25%);
-  margin-top: 1em;
+  margin-top: 2em;
+  border-radius: 0.3em;
+
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    padding: 2em;
+  }
 }
 
-h2.sidebar__donate-cta__header,
-#right_column h2.sidebar__donate-cta__header {
-  text-transform: none;
-  line-height: 1.3em;
-  font-weight: 600;
+.donate-cta__header {
   margin-top: 0;
   font-size: 1.125em;
 }
 
-.sidebar__donate-cta__para,
-#right_column .sidebar__donate-cta__para {
-  line-height: 1.4em;
-}
-
-// `#left_column` here avoids weird background flash on :hover
-#left_column a.sidebar__donate-cta__button,
-#right_column a.sidebar__donate-cta__button {
+a.donate-cta__button {
   background-color: $color_red;
   &:hover,
   &:active,
   &:focus {
     background-color: darken($color_red, 10%);
-  }
-}
-
-// Part of our A/B experiment - needs to look a bit more polished
-// when no longer in #right_column.
-#left_column .sidebar__donate-cta {
-  border-radius: 0.3em;
-  margin-top: 2em;
-
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    padding: 2em;
   }
 }
 

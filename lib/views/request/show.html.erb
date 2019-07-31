@@ -93,13 +93,27 @@
     </div>
   <% end %>
 
+  <% if show_donation_button? && !flash[:request_sent] %>
+    <div class="donate-cta">
+      <h2 class="donate-cta__header"><%= _('We work to defend the right to FOI for everyone') %></h2>
+      <p class="donate-cta__para"><%= _('Help us protect your right to hold public authorities to account. Donate and support our work.') %></p>
+      <% utm_params_donate = { :utm_source => 'whatdotheyknow.com',
+                          :utm_medium => 'link',
+                          :utm_content => 'experiment_no_0',
+                          :utm_campaign => 'foi_request_page' } %>
+      <%= donate_now_link 'request page donate now', :class => 'button donate-cta__button', :utm_params => utm_params_donate %>
+
+    </div>
+  <% end %>
+
 </div>
 
 <%- if @sidebar %><%= render :partial => @sidebar_template %><% end %>
 
 <%= content_for :javascript do %>
   <%= javascript_include_tag 'request-attachments.js' %>
+  <!-- Uncomment when we have an experiment to run.
   <script src="//www.google-analytics.com/cx/api.js?experiment=Gt1sN3W0SRidPYU_pm-uuQ"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.1/URI.min.js" integrity="sha256-D3tK9Rf/fVqBf6YDM8Q9NCNf/6+F2NOKnYSXHcl0keU=" crossorigin="anonymous"></script>
   <%= javascript_include_tag 'tests.js' %>
+  -->
 <% end %>

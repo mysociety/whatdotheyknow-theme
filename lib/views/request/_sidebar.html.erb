@@ -1,25 +1,12 @@
 <div id="right_column" class="sidebar right_column" role="complementary">
-  <% if show_donation_button? && !flash[:request_sent] %>
-  <div class="sidebar__donate-cta">
-    <h2 class="sidebar__donate-cta__header"><%= _('We work to defend the right to FOI for everyone') %></h2>
-    <p class="sidebar__donate-cta__para"><%= _('Help us protect your right to hold public authorities to account. Donate and support our work.') %></p>
-    <% utm_params_donate = { :utm_source => 'whatdotheyknow.com',
-                        :utm_medium => 'link',
-                        :utm_content => 'experiment_no_0',
-                        :utm_campaign => 'foi_request_page' } %>
-    <%= donate_now_link 'request sidebar donate now', :class => 'button sidebar__donate-cta__button', :utm_params => utm_params_donate %>
-
-  </div>
-  <% end %>
-
   <% if (feature_enabled?(:alaveteli_pro) &&
          can?(:create_embargo, @info_request)) %>
     <%= render partial: "alaveteli_pro/info_requests/embargo_form",
                locals: { info_request: @info_request } %>
   <% end %>
 
-  <div class="request__special-status">
   <% if @info_request.attention_requested %>
+    <div class="request__special-status">
     <% if @info_request.prominence(:decorate => true).is_hidden? %>
       <h2><%= _('Request hidden') %></h2>
       <p>
@@ -42,8 +29,8 @@
                '<a href="{{url}}">contact us</a>.',
               :url => help_requesting_path.html_safe) %></p>
     <% end %>
+    </div>
   <% end %>
-  </div>
 
   <%= render :partial => 'request/act' %>
   <%= render :partial => 'request/next_actions' %>
