@@ -1,33 +1,42 @@
-(function($) {
-  $(function () {
-    window.cxVariation = cxApi.chooseVariation();
-    if(window.cxVariation === 1){
-      var $donate = $('.sidebar__donate-cta');
-      var $link = $('.sidebar__donate-cta__button', $donate);
-      var experimentHref = URI($link.attr('href')).removeSearch('utm_content').
-        addSearch('utm_content', 'experiment_no_' + window.cxVariation).
-        toString();
-      $link.attr('href', experimentHref)
+// https://support.google.com/optimize/answer/9059383
+function gtag() { dataLayer.push(arguments); };
 
-      $('.asktheeu-promo').replaceWith($donate)
-    }
-
-    $('.sidebar__donate-cta__button').on('click', function(e){
-      if( typeof ga !== 'undefined' && ga.loaded ){
-        e.preventDefault();
-        var $link = $(this);
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'sidebar__donate-cta',
-          eventAction: 'click',
-          eventLabel: document.title,
-          hitCallback: function() {
-            window.location.href = $link.attr('href');
-          }
-        });
-      }
+function donateButtonTextVariant(variant) {
+  if (variant === '0') {
+      $(document).ready(function(){
+        $('.donate-cta__button').text('Donate now');
+      });
+  } else if (variant === '1') {
+    $(document).ready(function(){
+      $('.donate-cta__button').text('Donate £5 now');
     });
+  } else if (variant === '2') {
+    $(document).ready(function(){
+      $('.donate-cta__button').text('Donate £10 now');
+    });
+  }
+};
+
+gtag('event', 'optimize.callback', {
+  name: 'XinKUWDjTuK7Yxyo3ZBS4g',
+  callback: donateButtonTextVariant
+});
+
+$(function(){
+  // Record an event whenever the donation button is clicked.
+  $('.donate-cta__button').on('click', function(){
+    if( typeof ga !== 'undefined' && ga.loaded ){
+      e.preventDefault();
+      var href = $(this).attr('href');
+      ga('send', {
+        hitType: 'event',
+        eventCategory: 'Request page donate button',
+        eventAction: 'click',
+        eventLabel: document.title,
+        hitCallback: function() {
+          window.location.href = href;
+        }
+      });
+    }
   });
-})(window.jQuery);
-
-
+});
