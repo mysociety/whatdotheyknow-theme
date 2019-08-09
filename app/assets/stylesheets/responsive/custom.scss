@@ -1556,13 +1556,45 @@ dd {
 }
 
 .sidebar__section {
-    border-bottom: 1px solid darken($color_light_grey, 7%);
-    margin-bottom: 1.5em;
-    padding-bottom: 1.5em;
-    h2 {
-      margin-top: 0 !important;
-    }
+  border-bottom: 1px solid darken($color_light_grey, 7%);
+  margin-bottom: 1.5em !important;
+  padding-bottom: 1.5em;
+  h2 {
+    margin-top: 0 !important;
+  }
 }
+
+.act_link:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar__similar-requests {
+  .request_short_listing__authority {
+    margin-bottom: 0;
+  }
+}
+
+.copyright-notice {
+  border-top: none;
+  margin-bottom: 0;
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 0.875em;
+  line-height: 1.5em;
+  small {
+    font-size: 1em;
+  }
+  a {
+    color: #777;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
 
 /* Sidebar request navigation */
 .request-navigation {
