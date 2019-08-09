@@ -1,4 +1,6 @@
 <div id="right_column" class="sidebar right_column" role="complementary">
+  <%= render partial: 'sidebar_pro_upsell' %>
+
   <% if (feature_enabled?(:alaveteli_pro) &&
          can?(:create_embargo, @info_request)) %>
     <%= render partial: "alaveteli_pro/info_requests/embargo_form",
