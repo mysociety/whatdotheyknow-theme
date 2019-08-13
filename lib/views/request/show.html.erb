@@ -6,6 +6,11 @@
 
 <% if flash[:request_sent] %><%= render :partial => 'request_sent' %><% end %>
 
+<% content_for :ga_pageview do %>
+  window.dataLayer = window.dataLayer || [];
+  ga('require', 'GTM-53XVLCX');
+<% end %>
+
 <%= render :partial => 'ga_events' %>
 
 <%= render :partial => 'hidden_request_messages' %>
@@ -109,11 +114,6 @@
 </div>
 
 <%- if @sidebar %><%= render :partial => @sidebar_template %><% end %>
-
-<%= content_for :ga_pageview do %>
-  ga('require', 'GTM-53XVLCX');
-  ga('send', 'pageview');
-<% end %>
 
 <%= content_for :javascript do %>
   <%= javascript_include_tag 'request-attachments.js' %>
