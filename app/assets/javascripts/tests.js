@@ -28,7 +28,7 @@ if ( typeof gtag !== 'undefined' ) {
 
 $(function(){
   // Record an event whenever the donation button is clicked.
-  $('.donate-cta__button').on('click', function(){
+  $('.donate-cta__button').on('click', function(e){
     if( typeof ga !== 'undefined' && ga.loaded ){
       e.preventDefault();
       var href = $(this).attr('href');
