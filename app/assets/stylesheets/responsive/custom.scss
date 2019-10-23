@@ -164,12 +164,14 @@ a.button-secondary,
   @include button-disabled;
 }
 
-.cplink__button,
-.cplink__button.button {
-  @include button-tertiary;
-  border-bottom-left-radius: 0;
-  border-left: 0;
-  border-top-left-radius: 0;
+a.cplink__button {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color_light_grey, 7.5%);
+    border: 1px solid darken($color_light_grey, 12.5%);
+    margin-left: -1px;
+  }
 }
 
 /* General styling of nav menu items */
