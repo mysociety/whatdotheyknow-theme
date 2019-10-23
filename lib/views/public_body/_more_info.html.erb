@@ -16,11 +16,25 @@
   <% public_body.get_tag_values('charity').each do |tag_value| %>
     <% if tag_value.match(/^SC/) %>
       <%= link_to _('Charity registration'),
-                    "https://www.oscr.org.uk/search/charity-details?number=#{ tag_value }" %><br>
+                    "https://www.oscr.org.uk/about-charities/search-the-register/charity-details?number=#{ tag_value }" %><br>
     <% else %>
       <%= link_to _('Charity registration'),
                     "http://beta.charitycommission.gov.uk/charity-details/?regid=#{ tag_value }&subid=0" %><br>
     <% end %>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('ch') %>
+  <% public_body.get_tag_values('ch').each do |tag_value| %>
+      <%= link_to _('Company registration'),
+                    "https://beta.companieshouse.gov.uk/company/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('dpr') %>
+  <% public_body.get_tag_values('dpr').each do |tag_value| %>
+      <%= link_to _('Data Protection registration'),
+                    "https://ico.org.uk/ESDWebPages/Entry/#{ tag_value }" %><br>
   <% end %>
 <% end %>
 

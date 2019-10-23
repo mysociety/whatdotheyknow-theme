@@ -22,6 +22,10 @@
       text-decoration: none;
       transition: background-color 300ms ease-out;
   }
+
+  &:disabled {
+    @include button-disabled;
+  }
 }
 
 @mixin button {
@@ -74,7 +78,6 @@
   &:active,
   &:focus {
     background-color: inherit;
-    color: inherit;
   }
 }
 
@@ -88,6 +91,10 @@
   &:visited:active,
   &:visited:focus {
     box-shadow: 0 1px 0 0 rgba(0,0,0,0.22);
+  }
+
+  &:disabled {
+    @include button-disabled;
   }
 }
 

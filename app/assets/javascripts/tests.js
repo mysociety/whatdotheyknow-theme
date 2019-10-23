@@ -1,6 +1,3 @@
-// https://support.google.com/optimize/answer/9059383
-function gtag() { dataLayer.push(arguments); };
-
 function donateButtonTextVariant(variant) {
   if (variant === '0') {
       $(document).ready(function(){
@@ -17,14 +14,21 @@ function donateButtonTextVariant(variant) {
   }
 };
 
-gtag('event', 'optimize.callback', {
-  name: 'XinKUWDjTuK7Yxyo3ZBS4g',
-  callback: donateButtonTextVariant
-});
+if ( typeof dataLayer === 'object' && typeof gtag === 'undefined' ) {
+  // https://support.google.com/optimize/answer/9059383
+  function gtag() { dataLayer.push(arguments); };
+}
+
+if ( typeof gtag !== 'undefined' ) {
+  gtag('event', 'optimize.callback', {
+    name: 'XinKUWDjTuK7Yxyo3ZBS4g',
+    callback: donateButtonTextVariant
+  });
+}
 
 $(function(){
   // Record an event whenever the donation button is clicked.
-  $('.donate-cta__button').on('click', function(){
+  $('.donate-cta__button').on('click', function(e){
     if( typeof ga !== 'undefined' && ga.loaded ){
       e.preventDefault();
       var href = $(this).attr('href');
