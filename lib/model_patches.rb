@@ -91,8 +91,7 @@ Rails.configuration.to_prepare do
       end
     end
 
-    # Add survey methods to RequestMailer
-    RequestMailer.class_eval do
+    module SurveyMethods
         def survey_alert(info_request)
             user = info_request.user
 
@@ -111,7 +110,7 @@ Rails.configuration.to_prepare do
                  :subject => "Can you help us improve WhatDoTheyKnow?")
         end
 
-        class << self
+        module ClassMethods
             # Send an email with a link to the survey two weeks after a request was made,
             # if the user has not already completed the survey.
             def alert_survey
@@ -149,13 +148,29 @@ Rails.configuration.to_prepare do
                     store_sent.save!
                 end
             end
+        end
 
-            def alert_new_response_reminders_with_alert_survey
-                alert_new_response_reminders_without_alert_survey
+        module OverrideClassMethods
+            def alert_new_response_reminders
+                super
                 alert_survey if AlaveteliConfiguration::send_survey_mails
             end
+        end
+    end
 
-            alias_method_chain :alert_new_response_reminders, :alert_survey
+    # Add survey methods to RequestMailer
+    RequestMailer.class_eval do
+        include SurveyMethods
+
+        class << self
+            # Class methods are spilt between two modules because of a RSpec
+            # mock issue.
+            # We're using `include` to allow the `alert_survey` method to still
+            # be mocked in our specs.
+            # Using `prepend` to allows us to override a method and call `super`
+            # to run the original implementation of the method in Alaveteli core
+            include SurveyMethods::ClassMethods
+            prepend SurveyMethods::OverrideClassMethods
         end
     end
 
