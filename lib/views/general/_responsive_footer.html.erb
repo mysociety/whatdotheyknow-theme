@@ -36,7 +36,7 @@
         <div class="col-sm-3">
             <div class="mysoc-footer__donate">
                 <p>Your donations keep this site and others like it running</p>
-                <a href="<%= AlaveteliConfiguration.donation_url %>?utm_source=whatdotheyknow.com&utm_content=footer+donate+now&utm_medium=link&utm_campaign=mysoc_footer" class="mysoc-footer__donate__button">Donate now</a>
+                <a href="<%= donation_url :utm_content => 'footer donate now', :utm_campaign => 'mysoc_footer' %>" class="mysoc-footer__donate__button">Donate now</a>
             </div>
         </div>
     </div>
