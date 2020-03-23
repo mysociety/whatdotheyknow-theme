@@ -45,6 +45,9 @@
       <li>
         <%= link_to_unless_current "Beginner’s Guide", help_beginners_path %>
       </li>
+      <% if feature_enabled?(:alaveteli_pro) %>
+        <li><%= link_to_unless_current "Pro", help_pro_path %></li>
+      <% end %>
     </ul>
     <% unless is_contact_page? %>
     <h2 id="contact">Contact us</h2>

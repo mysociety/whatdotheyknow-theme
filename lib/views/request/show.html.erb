@@ -6,6 +6,11 @@
 
 <% if flash[:request_sent] %><%= render :partial => 'request_sent' %><% end %>
 
+<% content_for :ga_pageview do %>
+  window.dataLayer = window.dataLayer || [];
+  ga('require', 'GTM-53XVLCX');
+<% end %>
+
 <%= render :partial => 'ga_events' %>
 
 <%= render :partial => 'hidden_request_messages' %>
@@ -93,30 +98,29 @@
     </div>
   <% end %>
 
-  <% unless @user && @user.is_pro? %>
-    <div class="asktheeu-promo asktheeu-promo--requestpage">
-      <h2 class="asktheeu-promo__header">Looking for an EU Authority?</h2>
-      <p>You can request <em>documents</em> directly from EU Institutions at our sister site
-        <a href="http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54">
-          AskTheEU.org
-        </a>.
-        <a href="http://www.asktheeu.org/en/help/requesting/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54">
-          Find out more
-        </a>.
-      </p>
-      <a href="http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=request_page&utm_campaign=alaveteli-experiments-54" class="asktheeu-promo__image">
-        <img src="<%= image_path('ask-the-eu-logo.png') %>" alt="AskTheEU.org" />
-      </a>
+  <% if show_donation_button? && !flash[:request_sent] %>
+    <div class="donate-cta">
+      <h2 class="donate-cta__header"><%= _('We work to defend the right to FOI for everyone') %></h2>
+      <p class="donate-cta__para"><%= _('Help us protect your right to hold public authorities to account. Donate and support our work.') %></p>
+      <% utm_params_donate = { :utm_source => 'whatdotheyknow.com',
+                          :utm_medium => 'link',
+                          :utm_content => 'experiment_no_0',
+                          :utm_campaign => 'foi_request_page' } %>
+      <%= donate_now_link 'request page donate now', :class => 'button donate-cta__button', :utm_params => utm_params_donate %>
+
     </div>
   <% end %>
 
 </div>
 
-<%- if @sidebar %><%= render :partial => @sidebar_template %><% end %>
+<%- if @sidebar %>
+  <%= render partial: @sidebar_template,
+             locals: { info_request: @info_request,
+                       similar_requests: @similar_requests,
+                       similar_more: @similar_more,
+                       citations: @citations } %>
+<% end %>
 
 <%= content_for :javascript do %>
   <%= javascript_include_tag 'request-attachments.js' %>
-  <script src="//www.google-analytics.com/cx/api.js?experiment=Gt1sN3W0SRidPYU_pm-uuQ"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.19.1/URI.min.js" integrity="sha256-D3tK9Rf/fVqBf6YDM8Q9NCNf/6+F2NOKnYSXHcl0keU=" crossorigin="anonymous"></script>
-  <%= javascript_include_tag 'tests.js' %>
 <% end %>

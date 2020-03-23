@@ -6,9 +6,9 @@
       :title => @info_request.title.html_safe)%><% if @info_request.public_body.is_school? %> <%= _('even during holidays')%><% end %>.
 
 <%= _('Click on the link below to send a message to {{public_body_name}} ' \
-      'telling them to reply to your request. You might like to ask for ' \
-      'an internal review, asking them to find out why response to the ' \
-      'request has been so slow.',
+      'asking them to confirm that they have received your request and ' \
+      'tell you when they are going to respond. You can also refer your ' \
+      'request to the Information Commissioner.',
       :public_body_name => @info_request.public_body.name.html_safe) %>
 
 <%= @url %>

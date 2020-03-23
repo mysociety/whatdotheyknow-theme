@@ -1,0 +1,195 @@
+<% @title = 'Pro' %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="pro">
+    <%= @title %>
+  </h1>
+
+  <ul>
+    <li><%= link_to 'Private requests', '#private-requests' %></li>
+    <li><%= link_to 'Batch', '#batch' %></li>
+  </ul>
+
+  <h2 id="private-requests">
+    Private requests
+   <a href="#private-requests">#</a>
+  </h2>
+
+  <p>
+    Pro users can set a privacy period on a request to delay publication while
+    you work on your story or investigation.
+  </p>
+
+  <p>
+    When a request is private we guarantee that it will only be visible on
+    <%= AlaveteliConfiguration.site_name %> for the period you select.
+    <%= AlaveteliConfiguration.pro_site_name %> administrators will also be able
+    to view your request, but will only do so in the event that they need to fix
+    a problem with it (e.g. failed delivery to the authority). They will not
+    reveal the contents of your request or any response you get to anyone else.
+    The authority may still publish it in a disclosure log as usual.
+  </p>
+
+  <h3 id="how-long-can-i-keep-requests-private">
+    How long can I keep requests private?
+   <a href="#how-long-can-i-keep-requests-private">#</a>
+  </h3>
+
+  <p>
+    Privacy periods can be set for 3, 6 and 12 month periods.
+  </p>
+
+  <p>
+    <%= image_tag 'alaveteli-pro/screenshot-embargo.jpg',
+                  alt: 'Adding a privacy period' %>
+  </p>
+
+  <p>
+    You will be automatically notified a week before the privacy period expires,
+    and on the date of expiry.
+  </p>
+
+  <p>
+    Once the privacy period ends, your request and following correspondence,
+    including <strong>your name</strong>, will be <strong>
+    <%= link_to 'displayed publicly',
+      help_privacy_path(anchor: 'public_request') %></strong> on this website.
+  </p>
+
+  <h3 id="i-need-more-time-can-i-extend-a-privacy-period">
+    I need more time. Can I extend a privacy period?
+   <a href="#i-need-more-time-can-i-extend-a-privacy-period">#</a>
+  </h3>
+
+  <p>
+    Privacy periods can be extended, but only in the week before the expiry
+    date.
+  </p>
+
+  <p>
+    <%= image_tag 'alaveteli-pro/screenshot-embargo-extension.jpg',
+                  alt: 'Extending a privacy period' %>
+  </p>
+
+  <p>
+    There is no limit to the number of times a privacy period may be extended,
+    but each extension requires manual confirmation.
+  </p>
+
+  <h3 id="how-do-i-publish-a-request">
+    How do I publish a request?
+   <a href="#how-do-i-publish-a-request">#</a>
+  </h3>
+
+  <p>
+    Requests can be published at any time.
+  </p>
+
+  <p>
+    <%= image_tag 'alaveteli-pro/screenshot-embargo-publish.jpg',
+                  alt: 'Publish a request' %>
+  </p>
+
+  <h3 id="can-i-make-private-batch-requests">
+    Can I make private batch requests?
+   <a href="#can-i-make-private-batch-requests">#</a>
+  </h3>
+
+  <p>
+    Privacy periods can also be set on batch requests, and their operation
+    follows the same principles as individual requests. Changes to a privacy
+    period on one request belonging to a batch are mirrored to all requests in
+    the batch.
+  </p>
+
+  <h2 id="batch">
+    Batch
+   <a href="#batch">#</a>
+  </h2>
+
+  <p>
+    Batch makes it easy to send and manage requests to multiple authorities.
+  </p>
+
+  <h3 id="how-do-i-make-a-batch-request">
+    How do I make a batch request?
+   <a href="#how-do-i-make-a-batch-request">#</a>
+  </h3>
+
+  <p>
+    Batch allows you to select a list of authorities and write a template
+    request. The request gets sent individually to each authority like a mail
+    merge.
+  </p>
+
+  <p>
+    <%= image_tag 'alaveteli-pro/screenshot-batch-selection.jpg',
+                  alt: 'Select authorities for a batch' %>
+  </p>
+
+  <p>
+    <%= image_tag 'alaveteli-pro/screenshot-batch-write.jpg',
+                  alt: 'Write a batch template' %>
+  </p>
+
+  <h3 id="how-do-i-manage-a-batch-request">
+    How do I manage a batch request?
+   <a href="#how-do-i-manage-a-batch-request">#</a>
+  </h3>
+
+  <p>
+    Progress of a batch can be managed with a convenient progress meter to see
+    how close you are to getting responses from all authorities and making it
+    easy to choose which action to take next.
+  </p>
+
+  <p>
+    <%= image_tag 'alaveteli-pro/screenshot-batch-list.jpg',
+                  alt: 'Managing batch requests' %>
+  </p>
+
+  <h3 id="how-do-i-manage-batch-privacy-periods">
+    How do I manage batch privacy periods?
+   <a href="#how-do-i-manage-batch-privacy-periods">#</a>
+  </h3>
+
+  <p>
+    Batches can be made private, and privacy periods easily managed across the
+    batch.
+  </p>
+
+  <p>
+    <%= image_tag 'alaveteli-pro/screenshot-batch-privacy.jpg',
+                  alt: 'Manage batch privacy' %>
+  </p>
+
+  <h3 id="how-many-authorities-can-i-add-to-a-batch">
+    How many authorities can I add to a batch?
+   <a href="#how-many-authorities-can-i-add-to-a-batch">#</a>
+  </h3>
+
+  <p>
+    The maximum number of authorities that can be added to a batch is
+    <%= AlaveteliConfiguration.pro_batch_authority_limit %>.
+  </p>
+
+  <h3 id="how-many-batch-requests-can-i-make">
+    How many batch requests can I make?
+   <a href="#how-many-batch-requests-can-i-make">#</a>
+  </h3>
+
+  <p>
+    We recommend sending a pilot batch to a sample of authorities to test the
+    request. Once you know the authorities hold the type of data that you’re
+    asking for you can then request from the remaining authorities.
+  </p>
+
+  <p>
+    There’s no limit to the number of batches that can be sent, but Pro users
+    are required to abide by our guidelines about writing
+    <%= link_to 'responsible requests',
+      help_requesting_path(anchor: 'responsible') %>.
+  </p>
+</div>

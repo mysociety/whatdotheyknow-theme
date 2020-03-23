@@ -164,12 +164,14 @@ a.button-secondary,
   @include button-disabled;
 }
 
-.cplink__button,
-.cplink__button.button {
-  @include button-tertiary;
-  border-bottom-left-radius: 0;
-  border-left: 0;
-  border-top-left-radius: 0;
+a.cplink__button {
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: darken($color_light_grey, 7.5%);
+    border: 1px solid darken($color_light_grey, 12.5%);
+    margin-left: -1px;
+  }
 }
 
 /* General styling of nav menu items */
@@ -1125,8 +1127,7 @@ p.locale-list-trigger {
     }
   }
 
-  .button {
-    color: $color_white;
+  a.button {
     background-color: $color_yellow;
     border-color: darken($color_yellow, 15%);
     color: $color_black;
@@ -1503,6 +1504,9 @@ dd {
     margin-bottom: 0.875em;
     font-weight: 600;
   }
+  & > h2:first-child {
+    margin-top: 0;
+  }
   .link_button_green {
     width: 100%;
   }
@@ -1553,13 +1557,51 @@ dd {
 }
 
 .sidebar__section {
-    border-bottom: 1px solid darken($color_light_grey, 7%);
-    margin-bottom: 1.5em;
-    padding-bottom: 1.5em;
-    h2 {
-      margin-top: 0 !important;
-    }
+  border-bottom: 1px solid darken($color_light_grey, 7%);
+  margin-bottom: 1.5em !important;
+  padding-bottom: 1.5em;
+  h2 {
+    margin-top: 0 !important;
+  }
 }
+
+.sidebar__section.pro-upsell {
+  background-color: #faf785;
+  border-bottom: none;
+  padding: 0.85em;
+}
+
+.act_link:last-child {
+  margin-bottom: 0;
+}
+
+.sidebar__similar-requests {
+  .request_short_listing__authority {
+    margin-bottom: 0;
+  }
+}
+
+.copyright-notice {
+  border-top: none;
+  margin-bottom: 0;
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 0.875em;
+  line-height: 1.5em;
+  small {
+    font-size: 1em;
+  }
+  a {
+    color: #777;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
 
 /* Sidebar request navigation */
 .request-navigation {
@@ -1601,50 +1643,30 @@ dd {
   font-size: 1em;
 }
 
-/* Donate cta in request sidebar
- * (having to use some aggressive selectors here to override existing sidebar styles)
- */
+/* Donate cta banner, below correspondence on request page */
 
-.sidebar__donate-cta,
-#right_column .sidebar__donate-cta {
+.donate-cta {
   padding: 1em 1.5em 1.5em;
   background-color: lighten($color_red, 25%);
-  margin-top: 1em;
+  margin-top: 2em;
+  border-radius: 0.3em;
+
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    padding: 2em;
+  }
 }
 
-h2.sidebar__donate-cta__header,
-#right_column h2.sidebar__donate-cta__header {
-  text-transform: none;
-  line-height: 1.3em;
-  font-weight: 600;
+.donate-cta__header {
   margin-top: 0;
   font-size: 1.125em;
 }
 
-.sidebar__donate-cta__para,
-#right_column .sidebar__donate-cta__para {
-  line-height: 1.4em;
-}
-
-// `#left_column` here avoids weird background flash on :hover
-#left_column a.sidebar__donate-cta__button,
-#right_column a.sidebar__donate-cta__button {
+a.donate-cta__button {
   background-color: $color_red;
   &:hover,
   &:active,
   &:focus {
     background-color: darken($color_red, 10%);
-  }
-}
-
-// Part of our A/B experiment - needs to look a bit more polished
-// when no longer in #right_column.
-#left_column .sidebar__donate-cta {
-  border-radius: 0.3em;
-  margin-top: 2em;
-
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    padding: 2em;
   }
 }
 
@@ -1836,8 +1858,7 @@ $color_asktheeu_dark_green: #C4DDB9;
   }
 }
 
-.asktheeu-promo--homepage,
-.asktheeu-promo--requestpage {
+.asktheeu-promo--homepage {
   margin-top: 2em;
   margin-bottom: 0;
 }

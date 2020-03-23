@@ -6,7 +6,9 @@
       :title => @info_request.title.html_safe) %><% if @info_request.public_body.is_school? %> <%=_('during term time')%> <% end %>.
 
 <%= _('Click on the link below to send a message to {{public_body}} ' \
-      'reminding them to reply to your request.',
+      'reminding them to reply to your request. You can also refer your ' \
+      'request to the Information Commissioner once the statutory deadline ' \
+      'has passed.',
       :public_body => @info_request.public_body.name.html_safe) %>
 
 <%= @url %>

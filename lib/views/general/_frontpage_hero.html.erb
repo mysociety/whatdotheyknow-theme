@@ -1,8 +1,7 @@
 <div class="homepage-hero">
   <div class="row">
     <div class="hero__intro">
-      <h1 class="intro__title"><%= _("Get answers from the government and public sector") %></h1>
-      <p class="intro__description"><%= _("Make a request for information to a UK public authority: by law, they have to respond") %></p>
+      <%= render :partial => "frontpage_intro_sentence" %>
       <p class="intro__browse">
         <%= _("Browse <a href=\"{{requests_url}}\">" \
               "{{number_of_requests}} requests</a> to " \
@@ -17,9 +16,7 @@
 
     <div class="hero__new-request">
       <div class="new-request__content">
-        <h2 class="new-request__title"><%= _("Want to know something?") %></h2>
-        <p class="new-request__description"><%= _("Start your own request") %></p>
-        <a class="button" href="<%= select_authority_path %>"><%= _("Make a request &raquo;") %></a>
+        <%= render :partial => "new_request" %>
       </div>
     </div>
   </div>
