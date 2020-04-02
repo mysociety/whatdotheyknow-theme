@@ -220,6 +220,13 @@ describe InfoRequest do
         to be_instance_of(SchoolLateCalculator)
     end
 
+    it 'returns a ScotlandLateCalculator if the associated body is in Scotland' do
+      subject.public_body =
+        FactoryBot.build(:public_body, tag_string: 'scotland')
+      expect(subject.late_calculator).
+        to be_instance_of(ScotlandLateCalculator)
+    end
+
   end
 
 end
