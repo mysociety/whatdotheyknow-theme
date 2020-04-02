@@ -9,6 +9,7 @@ Rails.configuration.to_prepare do
     ReplyToAddressValidator.invalid_reply_addresses = %w(
       FOIResponses@homeoffice.gsi.gov.uk
       FOIResponses@homeoffice.gov.uk
+      autoresponder@sevenoaks.gov.uk
     )
 
     User.class_eval do
