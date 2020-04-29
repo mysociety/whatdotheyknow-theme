@@ -9,6 +9,7 @@ Rails.configuration.to_prepare do
     ReplyToAddressValidator.invalid_reply_addresses = %w(
       FOIResponses@homeoffice.gsi.gov.uk
       FOIResponses@homeoffice.gov.uk
+      autoresponder@sevenoaks.gov.uk
     )
 
     User.class_eval do
@@ -54,7 +55,9 @@ Rails.configuration.to_prepare do
 
         def late_calculator
           @late_calculator ||=
-            if public_body.has_tag?('school')
+            if public_body.has_tag?('scotland')
+              ScotlandLateCalculator.new
+            elsif public_body.has_tag?('school')
               SchoolLateCalculator.new
             else
               orig_late_calculator
