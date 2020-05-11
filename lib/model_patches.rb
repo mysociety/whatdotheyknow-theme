@@ -10,6 +10,7 @@ Rails.configuration.to_prepare do
       FOIResponses@homeoffice.gsi.gov.uk
       FOIResponses@homeoffice.gov.uk
       autoresponder@sevenoaks.gov.uk
+      H&FInTouch@lbhf.gov.uk
     )
 
     User.class_eval do
