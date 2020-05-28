@@ -56,9 +56,7 @@ Rails.configuration.to_prepare do
 
         def late_calculator
           @late_calculator ||=
-            if public_body.has_tag?('scotland')
-              ScotlandLateCalculator.new
-            elsif public_body.has_tag?('school')
+            if public_body.has_tag?('school')
               SchoolLateCalculator.new
             else
               orig_late_calculator
