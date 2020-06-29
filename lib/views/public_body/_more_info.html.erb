@@ -38,6 +38,20 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('urn') %>
+  <% public_body.get_tag_values('urn').each do |tag_value| %>
+      <%= link_to _('Establishment information'),
+                    "http://get-information-schools.service.gov.uk/Establishments/Establishment/Details/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('matuid') %>
+  <% public_body.get_tag_values('matuid').each do |tag_value| %>
+      <%= link_to _('Establishment group information'),
+                    "https://get-information-schools.service.gov.uk/Groups/Group/Details/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <%= link_to _('View FOI email address'), view_public_body_email_path(public_body.url_name) %><br>
 
 <%= link_to _("Ask us to update FOI email"), new_change_request_body_path(:body => public_body.url_name) %><br>
