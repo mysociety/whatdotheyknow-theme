@@ -5,37 +5,20 @@
 # classes are reloaded, but initialization is not run each time.
 # See http://stackoverflow.com/questions/7072758/plugin-not-reloading-in-development-mode
 #
+# Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
-  ReplyToAddressValidator.invalid_reply_addresses = %w(
-    FOIResponses@homeoffice.gsi.gov.uk
-    FOIResponses@homeoffice.gov.uk
-    autoresponder@sevenoaks.gov.uk
-    H&FInTouch@lbhf.gov.uk
-    tfl@servicetick.com
-    cap-donotreply@worcestershire.gov.uk
-    NEW_FOISA@dundeecity.gov.uk
-    noreply@slc.co.uk
-    DoNotReply@dhsc.gov.uk
-    OSCTFOI@homeoffice.gov.uk
-    SOCGroup_Correspondence@homeoffice.gov.uk
-  )
+  ContactValidator.class_eval do
+    attr_accessor :understand
 
-  # HACK: Now patch the validator for UserInfoRequestSentAlert.alert_type
-  # to permit 'survey_1' as a new alert type. This uses unstable internal
-  # methods.
-  #
-  # TODO: This looks like its just adding another option to
-  # `validates_inclusion_of :alert_type, :in => ALERT_TYPES`. This would be
-  # better done by a `cattr_reader` so that themes could set the options on
-  # app boot in an initializer:
-  #
-  #    UserInfoRequestSentAlert.alert_types = %w(custom set of alerts)
-  #
-  # The validation macro would then be:
-  #
-  #    validates_inclusion_of :alert_type, :in => alert_types
-  #
-  UserInfoRequestSentAlert._validate_callbacks.first.filter.options[:in] << 'survey_1'
+    validates_acceptance_of :understand,
+      :message => N_("Please confirm that you " \
+                     "understand that WhatDoTheyKnow " \
+                     "is not run by the government, " \
+                     "and the WhatDoTheyKnow " \
+                     "volunteers cannot help you " \
+                     "with personal matters relating " \
+                     "to government services.")
+  end
 
   InfoRequest.class_eval do
     def email_subject_request(opts = {})
@@ -159,6 +142,20 @@ Rails.configuration.to_prepare do
     end
   end
 
+  ReplyToAddressValidator.invalid_reply_addresses = %w(
+    FOIResponses@homeoffice.gsi.gov.uk
+    FOIResponses@homeoffice.gov.uk
+    autoresponder@sevenoaks.gov.uk
+    H&FInTouch@lbhf.gov.uk
+    tfl@servicetick.com
+    cap-donotreply@worcestershire.gov.uk
+    NEW_FOISA@dundeecity.gov.uk
+    noreply@slc.co.uk
+    DoNotReply@dhsc.gov.uk
+    OSCTFOI@homeoffice.gov.uk
+    SOCGroup_Correspondence@homeoffice.gov.uk
+  )
+
   # Add survey methods to RequestMailer
   RequestMailer.class_eval do
     include SurveyMethods
@@ -187,16 +184,20 @@ Rails.configuration.to_prepare do
     end
   end
 
-  ContactValidator.class_eval do
-    attr_accessor :understand
-
-    validates_acceptance_of :understand,
-      :message => N_("Please confirm that you " \
-                     "understand that WhatDoTheyKnow " \
-                     "is not run by the government, " \
-                     "and the WhatDoTheyKnow " \
-                     "volunteers cannot help you " \
-                     "with personal matters relating " \
-                     "to government services.")
-  end
+  # HACK: Now patch the validator for UserInfoRequestSentAlert.alert_type
+  # to permit 'survey_1' as a new alert type. This uses unstable internal
+  # methods.
+  #
+  # TODO: This looks like its just adding another option to
+  # `validates_inclusion_of :alert_type, :in => ALERT_TYPES`. This would be
+  # better done by a `cattr_reader` so that themes could set the options on
+  # app boot in an initializer:
+  #
+  #    UserInfoRequestSentAlert.alert_types = %w(custom set of alerts)
+  #
+  # The validation macro would then be:
+  #
+  #    validates_inclusion_of :alert_type, :in => alert_types
+  #
+  UserInfoRequestSentAlert._validate_callbacks.first.filter.options[:in] << 'survey_1'
 end
