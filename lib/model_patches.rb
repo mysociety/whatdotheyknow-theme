@@ -20,14 +20,6 @@ Rails.configuration.to_prepare do
     SOCGroup_Correspondence@homeoffice.gov.uk
   )
 
-  User.class_eval do
-    # Return this user’s survey
-    def survey
-      return @survey if @survey
-      @survey = MySociety::Survey.new(AlaveteliConfiguration::site_name, self.email)
-    end
-  end
-
   # HACK: Now patch the validator for UserInfoRequestSentAlert.alert_type
   # to permit 'survey_1' as a new alert type. This uses unstable internal
   # methods.
@@ -184,11 +176,15 @@ Rails.configuration.to_prepare do
   end
 
   User.class_eval do
+    # Return this user’s survey
+    def survey
+      return @survey if @survey
+      @survey = MySociety::Survey.new(AlaveteliConfiguration::site_name, self.email)
+    end
 
     def can_send_survey?
       active? && !survey.already_done?
     end
-
   end
 
   ContactValidator.class_eval do
