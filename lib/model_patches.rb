@@ -13,6 +13,9 @@ Rails.configuration.to_prepare do
       H&FInTouch@lbhf.gov.uk
       tfl@servicetick.com
       cap-donotreply@worcestershire.gov.uk
+      NEW_FOISA@dundeecity.gov.uk
+      noreply@slc.co.uk
+      DoNotReply@dhsc.gov.uk
     )
 
     User.class_eval do
