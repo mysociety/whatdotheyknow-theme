@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/scotland' => redirect('/body?tag=scotland', status: 302)
   get '/cymru' => redirect('/cy/body?tag=wales', status: 302)
   get '/wales' => redirect('/body?tag=wales', status: 302)
+  get '/ni' => redirect('/body?tag=ni', status: 302)
+  get '/northern-ireland' => redirect('/body?tag=ni', status: 302)
 
   # Add a route for the survey
   scope '/profile/survey' do
