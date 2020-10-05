@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   get '/london' => redirect('/body?tag=london', status: 302)
   get '/scotland' => redirect('/body?tag=scotland', status: 302)
-  get '/cymru' => redirect('/body?tag=wales', status: 302)
+  get '/cymru' => redirect('/cy/body?tag=wales', status: 302)
   get '/wales' => redirect('/body?tag=wales', status: 302)
   get '/ni' => redirect('/body?tag=ni', status: 302)
   get '/northernireland' => redirect('/body?tag=ni', status: 302)
