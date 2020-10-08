@@ -1,38 +1,6 @@
+# Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
-  UserController.class_eval do
-    require 'survey'
-
-    def survey
-    end
-
-    # Reset the state of the survey so it can be answered again.
-    # Handy for testing; not allowed in production.
-    def survey_reset
-      raise "Not allowed in production" if ENV["RAILS_ENV"] == "production"
-      raise "Not logged in" if !@user
-      @user.survey.allow_new_survey
-      return redirect_to survey_url
-    end
-  end
-
-  Users::MessagesController.class_eval do
-
-    private
-
-    def set_recaptcha_required
-      @recaptcha_required =
-        AlaveteliConfiguration.user_contact_form_recaptcha &&
-        request_from_foreign_country?
-    end
-
-    def request_from_foreign_country?
-      country_from_ip != AlaveteliConfiguration.iso_country_code
-    end
-
-  end
-
   HelpController.class_eval do
-
     def principles; end
     def house_rules; end
     def how; end
@@ -51,9 +19,7 @@ Rails.configuration.to_prepare do
     def request_from_foreign_country?
       country_from_ip != AlaveteliConfiguration.iso_country_code
     end
-
   end
-
 
   RequestController.class_eval do
     before_action :check_spam_terms, only: [:new]
@@ -106,4 +72,33 @@ Rails.configuration.to_prepare do
     end
   end
 
+  UserController.class_eval do
+    require 'survey'
+
+    def survey
+    end
+
+    # Reset the state of the survey so it can be answered again.
+    # Handy for testing; not allowed in production.
+    def survey_reset
+      raise "Not allowed in production" if ENV["RAILS_ENV"] == "production"
+      raise "Not logged in" if !@user
+      @user.survey.allow_new_survey
+      return redirect_to survey_url
+    end
+  end
+
+  Users::MessagesController.class_eval do
+    private
+
+    def set_recaptcha_required
+      @recaptcha_required =
+        AlaveteliConfiguration.user_contact_form_recaptcha &&
+        request_from_foreign_country?
+    end
+
+    def request_from_foreign_country?
+      country_from_ip != AlaveteliConfiguration.iso_country_code
+    end
+  end
 end
