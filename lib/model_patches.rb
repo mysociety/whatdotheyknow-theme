@@ -154,6 +154,7 @@ Rails.configuration.to_prepare do
     DoNotReply@dhsc.gov.uk
     OSCTFOI@homeoffice.gov.uk
     SOCGroup_Correspondence@homeoffice.gov.uk
+    FOI-E&E@Oxfordshire.gov.uk
   )
 
   # Add survey methods to RequestMailer
