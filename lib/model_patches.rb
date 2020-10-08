@@ -16,6 +16,8 @@ Rails.configuration.to_prepare do
       NEW_FOISA@dundeecity.gov.uk
       noreply@slc.co.uk
       DoNotReply@dhsc.gov.uk
+      OSCTFOI@homeoffice.gov.uk
+      SOCGroup_Correspondence@homeoffice.gov.uk
     )
 
     User.class_eval do
