@@ -16,9 +16,16 @@ Rails.configuration.to_prepare do
       </p>
 
       <p>
-        Misusing our service, which makes all correspondence public, won't help
-        you pursue your individual case as the Home Office will not enter into
-        correspondence about individual cases via our service.
+        You could also try contacting the Home Office by email at: <a
+        href="mailto:public.enquiries@homeoffice.gov.uk">public.enquiries@
+        homeoffice.gov.uk</a>.
+      </p>
+
+      <p>
+        Misusing our service, <strong>which makes all correspondence
+        public</strong>, won't help you pursue your individual case as the Home
+        Office will not enter into correspondence about individual cases via our
+        service.
       </p>
     HTML
   )
