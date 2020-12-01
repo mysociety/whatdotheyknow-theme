@@ -156,6 +156,7 @@ Rails.configuration.to_prepare do
     SOCGroup_Correspondence@homeoffice.gov.uk
     FOI-E&E@Oxfordshire.gov.uk
     no-reply@bch.ecase.gsi.gov.uk
+    auto-reply@castlepoint.gov.uk
   )
 
   # Add survey methods to RequestMailer
