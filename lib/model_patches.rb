@@ -156,6 +156,8 @@ Rails.configuration.to_prepare do
     SOCGroup_Correspondence@homeoffice.gov.uk
     FOI-E&E@Oxfordshire.gov.uk
     no-reply@bch.ecase.gsi.gov.uk
+    new_foisa@dundeecity.gov.uk
+    noreply@aberdeencity.gov.uk
   )
 
   # Add survey methods to RequestMailer
