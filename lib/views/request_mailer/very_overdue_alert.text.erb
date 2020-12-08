@@ -2,8 +2,8 @@
 
 <%= _('They have not replied to your {{law_used_short}} request {{title}}, ' \
       'as normally required by law',
-      :law_used_short => @info_request.law_used_human(:short).html_safe,
-      :title => @info_request.title.html_safe)%><% if @info_request.public_body.is_school? %> <%= _('even during holidays')%><% end %>.
+      law_used_short: @info_request.legislation.to_s.html_safe,
+      title: @info_request.title.html_safe) %><% if @info_request.public_body.is_school? %> <%= _('even during holidays') %><% end %>.
 
 <%= _('Click on the link below to send a message to {{public_body_name}} ' \
       'asking them to confirm that they have received your request and ' \
