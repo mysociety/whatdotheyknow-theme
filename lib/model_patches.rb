@@ -158,6 +158,7 @@ Rails.configuration.to_prepare do
     no-reply@bch.ecase.gsi.gov.uk
     new_foisa@dundeecity.gov.uk
     noreply@aberdeencity.gov.uk
+    NoReply.FOI@worcester.gov.uk
   )
 
   # Add survey methods to RequestMailer
