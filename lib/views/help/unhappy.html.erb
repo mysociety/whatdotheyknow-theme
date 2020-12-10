@@ -1,5 +1,7 @@
 <% @title = "Unhappy about a Freedom of Information request?" %>
 
+<%= render partial: 'help/refusal_advice' %>
+
 <div id="left_column" class="left_column">
 <div class="unhappy-info">
   <% if !@info_request.nil? %>
@@ -145,16 +147,9 @@
 <p>You can try pursuing your problem or your research in other ways.
 </p>
 <ul>
-  <li>Make a <strong>new FOI request</strong> for summary information, or for
-    documentation relating indirectly to matters in your refused request.
-    <a href="<%= help_contact_path %>">Ask us for ideas</a> if you're stuck.</li>
-    <li>If any <strong>other public authorities</strong> or publicly owned companies are involved,
-    then make FOI requests to them.</li>
-    <li>Write to <strong>your MP</strong> or other politician using <a
-    href="http://www.writetothem.com">WriteToThem</a> and ask for their help
-    finding the answer. MPs can write directly to ministers or departments, and
-    can ask written questions in the House of Commons. Councillors in local authorities
-  can talk directly to council officers.</li>
+    <li><%= render partial: 'help/unhappy/make_new_request' %></li>
+    <li><%= render partial: 'help/unhappy/write_to_your_mp' %></li>
+
   <% if can_ask_the_eu?(@country_code) %>
   <li>
     Try <%= link_to 'asking for the information from the European Union',

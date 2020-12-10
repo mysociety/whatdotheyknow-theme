@@ -46,6 +46,33 @@ Rails.configuration.to_prepare do
     end
   end
 
+
+  Legislation.class_eval do
+    def self.all
+      [
+        new(
+          key: 'foi',
+          short: _('FOI'),
+          full: _('Freedom of Information'),
+          with_a: _('A Freedom of Information request'),
+          act: _('Freedom of Information Act'),
+          refusals: ['s 11', 's 12', 's 14', 's 21', 's 22', 's 22A', 's 23', 's 24',
+          's 26', 's 27', 's 28', 's 29', 's 30', 's 31', 's 32', 's 33',
+          's 34', 's 35', 's 36', 's 37', 's 38', 's 39', 's 40', 's 41',
+          's 42', 's 43', 's 44']
+        ),
+        new(
+          key: 'eir',
+          short: _('EIR'),
+          full: _('Environmental Information Regulations'),
+          with_a: _('An Environmental Information request'),
+          act: _('Environmental Information Regulations'),
+          refusals: []
+        )
+      ]
+    end
+  end
+
   PublicBody.class_eval do
     # Return the domain part of an email address, canonicalised and with common
     # extra UK Government server name parts removed.
