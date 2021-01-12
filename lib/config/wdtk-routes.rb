@@ -1,6 +1,7 @@
 # Here you can override or add to the pages in the core website
 
 Rails.application.routes.draw do
+  get '/england' => redirect('/body?tag=england', status: 302)
   get '/london' => redirect('/body?tag=london', status: 302)
   get '/scotland' => redirect('/body?tag=scotland', status: 302)
   get '/cymru' => redirect('/cy/body?tag=wales', status: 302)
