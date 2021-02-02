@@ -1,6 +1,8 @@
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
   HelpController.class_eval do
+    before_action :set_history
+
     def principles; end
     def house_rules; end
     def how; end
@@ -9,6 +11,12 @@ Rails.configuration.to_prepare do
     def beginners; end
 
     private
+
+    def set_history
+      @history ||= HelpPageHistory.new(
+        lookup_context.find_template("#{controller_path}/#{action_name}")
+      )
+    end
 
     def set_recaptcha_required
       @recaptcha_required =
