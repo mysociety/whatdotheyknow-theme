@@ -1,0 +1,231 @@
+foi:
+  questions:
+  - id: confirmed-information-held
+    show_if: &section-12
+    - { id: exemption, operator: is, value: section-12 }
+    options: &yes-no
+    - { label: "<%= 'Yes' %>", value: "yes" }
+    - { label: "<%= 'No' %>", value: "no" }
+    label:
+      plain: >
+        <%= _('Has the authority confirmed or denied whether they hold the information you have requested?') %>
+
+  - id: appropriate-limit
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Has the body given an indication of what information could be provided within the appropriate limit?') %>
+
+  - id: more-than-one
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Have you put in more than one request to the same authority within 60 working days, and if so, have they all been included in the calculation of costs?') %>
+
+  - id: calculation-includes-other-requests
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Does the calculation of costs include anyone else’s request(s) on a similar subject?') %>
+
+  - id: begun-search-before-cost-limit
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Has the authority begun the search before realising that it will cost more than the appropriate limit to complete it, and provided the information they’ve collected so far?') %>
+
+  - id: cost-of-confirming-or-denying
+    show_if:
+    - { id: confirmed-information-held, operator: is, value: "no" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Have they stated that the cost of confirming or denying would exceed the appropriate limit?') %>
+
+  - id: included-calculation
+    show_if:
+    - { id: confirmed-information-held, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Has the body included a calculation or explanation of the costs involved in providing the information?') %>
+
+  - id: included-exemptions-consideration-in-calculation
+    show_if:
+    - { id: included-calculation, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Does this calculation include the time taken in considering when exemptions apply, or time taken to redact parts of the information?') %>
+
+  - id: reasonable-calculation
+    show_if:
+    - { id: included-calculation, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Does it seem to be a reasonable estimate (“sensible and realistic”) that gathering the information you have requested (or checking whether they hold this information) will take more than 24 hours of staff time (where the request was made to central government, a legislative body, or the armed forces) or 18 hours (for all other public authorities), or otherwise cost more than £600/400 to locate, retrieve and extract?') %>
+    hint:
+      plain: >
+        <%= _('As well as staff time, reasonable costs may include the necessity of buying new equipment or software; travel required to retrieve the information, etc.') %>
+
+  - id: cheaper-ways
+    show_if:
+    - { id: reasonable-calculation, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Do you know of a way to find the information you have requested, which would be cheaper than what they authority is suggesting?') %>
+    hint:
+      plain: >
+        <%= _('For example, perhaps there’s a more refined search term you could give them, to more quickly find the information you need across their electronic files.') %>
+
+  - id: more-than-one-but-not-all-foi
+    show_if:
+    - { id: more-than-one, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Are they all FOI requests, or do any of them fall under a different regime, such as Environmental Information Requests, or Subject Access Requests?') %>
+
+  - id: more-than-one-but-different-subjects
+    show_if:
+    - { id: more-than-one, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Has the authority included requests in their calculation that are requests about demonstrably different subjects?') %>
+    hint:
+      plain: >
+        <%= _('Even if multiple requests are included in the same piece of correspondence, they still count as “separate requests” for the purpose of Section 12.') %>
+
+  - id: are-you-connected-to-other-requestors
+    show_if:
+    - { id: calculation-includes-other-requests, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Are you connected to the other person or people “in concert or in pursuance of a campaign”?') %>
+
+  - id: other-peoples-requests-within-60-days
+    show_if:
+    - { id: are-you-connected-to-other-requestors, operator: is, value: "yes" }
+    options: *yes-no
+    label:
+      plain: >
+        <%= _('Were their requests made to the same authority within 60 working days of yours?') %>
+
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: action-calculation-included-disallowed-costs
+      show_if:
+      - { id: included-exemptions-consideration-in-calculation, operator: is, value: "yes" }
+      response_template: section_12_calculation_included_disallowed_costs
+      advice:
+        html: >
+          <%= _('Section 12 cost calculations should not include the time taken in considering whether exemptions apply, or time taken to redact parts of the information – See <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">this ICO guidance</a> (PDF). You should ask for an internal review, to challenge this calculation.') %>
+
+    - id: action-calculation-not-reasonable
+      show_if:
+      - { id: reasonable-calculation, operator: is, value: "no" }
+      response_template: section_12_calculation_is_not_reasonable
+      advice:
+        plain: >
+          <%= _('If you believe the authority’s estimate of the time and cost required to answer your request is unreasonable, you might consider asking for an internal review to challenge their estimate.') %>
+
+    - id: action-challenge-aggregation-periods
+      show_if:
+      - { id: more-than-one, operator: is, value: "yes" }
+      response_template: section_12_aggregation_periods
+      advice:
+        html: >
+          <%= _('You may be able to argue against aggregation on the basis that by law, authorities must respond to requests within 20 working days. The ICO allow “the aggregation period to only run up to 20 days ‘forward’ from the date of any single request under consideration” and “up to 20 days ‘backwards’ from the date of any single request under consideration”, and “the total aggregation period (running either forwards or backwards or a combination of both) from the date of any single request must not exceed 60 working days”. You could ask for an internal review, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">this ICO guidance</a> (PDF) and challenging their aggregation of the costs.') %>
+
+    - id: action-not-all-foi-requests
+      show_if:
+      - { id: more-than-one-but-not-all-foi, operator: is, value: "no" }
+      response_template: section_12_not_all_foi_requests
+      advice:
+        html: >
+          <%= _('Authorities may not aggregate the cost of requests if they are made under different regimes (such as Environmental Information Requests, or Subject Access Requests). You should ask for an internal review, stating that the requests they have included in their cost calculation are not all FOI requests. You could ask for an internal review, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">this ICO guidance</a> (PDF) and challenging their aggregation of the costs.') %>
+
+    - id: more-than-one-but-different-subjects
+      show_if:
+      - { id: more-than-one-but-different-subjects, operator: is, value: "yes" }
+      response_template: section_12_not_all_on_same_subject
+      advice:
+        html: >
+          <%= _('Authorities are advised that requests may only be aggregated if they relate “to any extent” to the same or similar information. This is a wide description which you may be able to argue against. Ask for an internal review, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">this ICO guidance</a> (PDF).') %>
+
+    - id: action-not-connected-to-other-requestors
+      show_if:
+      - { id: are-you-connected-to-other-requestors, operator: is, value: "no" }
+      response_template: section_12_not_related_to_other_requestors
+      advice:
+        plain: >
+          <%= _('Authorities are not permitted to aggregate requests from people acting independently and not as part of a campaign. You should ask for an internal review, stating that you are unrelated to the other people who have made a request.') %>
+
+    - id: action-other-peoples-requests-not-within-60-days
+      show_if:
+      - { id: other-peoples-requests-within-60-days, operator: is, value: "no" }
+      response_template: section_12_aggregated_requests_more_and_60_days_apart
+      advice:
+        html: >
+          <%= _('Authorities are advised that requests can cannot be aggregated if they were made more than 60 working days apart. You could ask for an internal review, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">this ICO guidance</a> (PDF) and challenging their aggregation of the costs.') %>
+
+  - id: clarification
+    suggestions:
+    - id: action-no-confirmation-or-denial
+      show_if:
+      - { id: cost-of-confirming-or-denying, operator: is, value: "no" }
+      response_template: section_12_no_confirmation_or_denial
+      advice:
+        html: >
+          <%= _('<a href="https://www.legislation.gov.uk/ukpga/2000/36/section/1">Section 1(1) of the FOI Act</a> requires that an authority informs you "whether it holds information of the description specified in the request". If they have not confirmed or denied whether they hold the information, and if they have not cited the cost limit as the reason, reply to the authority, requesting clarification on this point.') %>
+
+    - id: action-calculation-not-included
+      show_if:
+      - { id: included-calculation, operator: is, value: "no" }
+      response_template: section_12_calculation_not_included
+      advice:
+        plain: >
+          <%= _('Although it is not a legal requirement, providing “arguments or evidence” for Section 12 cost refusals is considered good practice by the ICO. You could reply to the authority and ask for more detailed costings.') %>
+
+    - id: action-cheaper-ways-to-get-info
+      show_if:
+      - { id: reasonable-calculation, operator: is, value: "yes" }
+      response_template: section_12_i_know_a_cheaper_way_to_get_the_info
+      advice:
+        plain: >
+          <%= _('If you know of a cheaper way to get the information you have requested, you could reply to suggest it.') %>
+
+    - id: action-ask-for-what-would-be-within-appropriate-limit
+      show_if:
+      - { id: appropriate-limit, operator: is, value: "no" }
+      response_template: section_12_what_can_you_give_me
+      advice:
+        html: >
+          <%= _('Section 16 of the FOI Code of Practice advises that bodies should “provide advice and assistance, so far as it would be reasonable to expect the authority to do so” and <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">the ICO guidance</a> (PDF) interprets this as providing suggestions on what information <em>could</em> be provided within an appropriate limit, even if the original request exceeds the limit. You could try replying to the authority, asking for such advice.') %>
+
+    - id: action-state-which-information-you-prefer
+      show_if:
+      - { id: begun-search-before-cost-limit, operator: is, value: "yes" }
+      response_template: section_12_state_which_information_you_prefer
+      advice:
+        html: >
+          <%= _('The ICO considers it bad practice to provide a subset of the requested information without giving the requester a chance to define what part of the information they would like to receive. You could reply, asking for a particular part of the information, and linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">this ICO guidance</a> (PDF).') %>
+
+  - id: new_request
+    suggestions:
+    - id: action-reduce-scope
+      show_if:
+      - { id: reasonable-calculation, operator: is, value: "yes" }
+      advice:
+        plain: >
+          <%= _('Consider reducing the scope of your request or breaking your request request into smaller parts; getting someone else to make the other parts (but do not be seen to be working together as a \'campaign\'); or waiting 60 working days between requests.') %>
+
