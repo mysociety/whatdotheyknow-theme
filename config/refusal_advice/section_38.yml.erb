@@ -1,0 +1,169 @@
+foi:
+  questions:
+  - id: s38-q1
+    show_if: &section-38
+    - { id: exemption, operator: is, value: section-38 }
+    options: &yes-no
+    - { label: "<%= 'Yes' %>", value: "yes" }
+    - { label: "<%= 'No' %>", value: "no" }
+    label:
+      html: >
+        Has the authority performed a <a href="https://ico.org.uk/media/for-organisations/documents/1214/the_prejudice_test.pdf">prejudice test</a>?
+    hint:
+      plain: >
+        A prejudice test is required for this exemption. The authority must assess whether a causal link exists between disclosure of the information you have requested, and (in the case of Section 38) the likelihood of harm befalling an individual.
+
+  - id: s38-q1y1
+    show_if:
+    - { id: s38-q1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided details of this test and the conclusion reached?
+
+  - id: s38-q1y1y1
+    show_if:
+    - { id: s38-q1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority demonstrated a causal link between the release of the requested information, and endangerment of an individual?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1624339/health-and-safety-section-38-foia.pdf">ICO guidance</a> says that the authority must "show that disclosure would or would be likely to have a detrimental effect on the physical or mental health of any individual, or the safety of any individual. The effect must be more than trivial or insignificant."
+
+        It goes on to explain that 'would' indicates a 50% chance or higher, while 'would be likely to' requires a 'real and significant likelihood' of endangerment occurring.
+
+  - id: s38-q2
+    show_if: *section-38
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority conducted a public interest test?
+    hint:
+      html: >
+        The authority must show that it has considered the balance between the potential harm that could be caused by disclosure, against the public good.
+
+        <a href="https://ico.org.uk/media/for-organisations/documents/1624339/health-and-safety-section-38-foia.pdf">ICO guidance</a> lists some of the factors that might be considered to favour disclosure:
+        <ul>
+        <li>"Furthering the understanding and participation in the public debate
+          of issues of the day;</li>
+        <li>promoting accountability and transparency by public authorities for
+          decisions taken by them;</li>
+        <li>promoting accountability and transparency in the spending of public
+          money;</li>
+        <li>allowing individuals, companies and other bodies to understand
+          decisions made by public authorities which affect their lives;</li>
+        <li>bringing to light information affecting public health and safety;</li>
+        <li>circumstances where disclosing information would reduce potential
+          danger to people by making them aware of various risks and enabling
+          them to take appropriate action."</li>
+        </ul>
+
+  - id: s38-q2y1
+    show_if:
+    - { id: s38-q2, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided details of the test and explained the decision arrived at?
+
+  - id: s38-q3
+    show_if: *section-38
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority indicated that the disclosure of the information might endanger an individual's mental health?
+
+  - id: s38-q4
+    show_if: *section-38
+    options: *yes-no
+    label:
+      plain: >
+        Would disclosure bring new information into the public domain?
+    hint:
+      html: >
+        The authority should consider whether the information you have requested would bring new harm to the individual/s in question, or whether the same or similar information is already in the public domain. <a href="https://ico.org.uk/media/for-organisations/documents/1624339/health-and-safety-section-38-foia.pdf">ICO guidance</a> gives the example of scientists performing tests on animals: a request asking for the names of scientists involved in a recent round of tests would not cause additional harm if there is already a public record of their previous work performing tests on animals.
+
+  - id: s38-q5
+    show_if: *section-38
+    options: *yes-no
+    label:
+      plain: >
+        Has the exemption been applied to all of the information you requested?
+
+  - id: s38-q5n1
+    show_if:
+    - { id: s38-q5, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority released the rest of the information?
+
+  - id: s38-q5n1n1
+    show_if:
+    - { id: s38-q5n1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority applied another exemption to the rest of the information?
+
+  - id: s38-q5n1y1
+    show_if:
+    - { id: s38-q5n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is there a part of the information you have requested that could be released without causing harm to an individual?
+
+  - id: s38-q6
+    show_if: *section-38
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority confirmed or denied whether they hold the information you have requested?
+
+  - id: s38-q6n1
+    show_if:
+    - { id: s38-q6, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority cited Section 38 as the reason for not confirming or denying?
+    hint:
+      html: >
+        Under Section 38 of the FOI Act authorities are permitted not to <a href="https://ico.org.uk/media/for-organisations/documents/1166/when_to_refuse_to_confirm_or_deny_section_1_foia.pdf">confirm or deny</a> whether they hold information, IF doing so would disclose information that is likely to bring harm to an individual.
+
+  - id: s38-q6n1y1
+    show_if:
+    - { id: s38-q6n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they performed a prejudice test on the issue of whether to confirm or deny?
+    hint:
+      html: >
+        Where an authority uses Section 38 as a reason not to confirm or deny whether they hold information, they must also perform a prejudice test, demonstrating the causal link between confirming or denying, and the likelihood of harm to an individual. <a href="https://ico.org.uk/media/for-organisations/documents/1166/when_to_refuse_to_confirm_or_deny_section_1_foia.pdf">The ICO provides guidance to authorities about this here</a>.
+
+  - id: s38-q6n1y1y1
+    show_if:
+    - { id: s38-q6n1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they performed a public interest test on the matter of whether to confirm or deny?
+    hint:
+      html: >
+        Where an authority uses Section 38 as a reason not to confirm or deny whether they hold information, they must also perform a public interest test on this matter. The ICO <a href="https://ico.org.uk/media/for-organisations/documents/1166/when_to_refuse_to_confirm_or_deny_section_1_foia.pdf">provides guidance to authorities about confirming or denying  here</a>.
+
+  - id: s38-q7
+    show_if: *section-38
+    options: *yes-no
+    label:
+      plain: >
+        Are there any steps which the authority could easily take that would mitigate the potential harm they have identified?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1624339/health-and-safety-section-38-foia.pdf">ICO guidance</a> says, "Public authorities can of course always consider whether there are any steps they can take to mitigate or manage the risk that disclosure would cause".
+
+        Although this is clearly not a requirement, it may be worth citing. For example, if by redacting names from the requested documents, the authority could provide anonymised information that would not implicate the individuals in question but would still be useful to you, you could suggest this.

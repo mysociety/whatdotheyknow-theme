@@ -1,0 +1,110 @@
+foi:
+  questions:
+  - id: s12-q1
+    show_if: &section-12
+    - { id: exemption, operator: is, value: section-12 }
+    options: &yes-no
+    - { label: "<%= 'Yes' %>", value: "yes" }
+    - { label: "<%= 'No' %>", value: "no" }
+    label:
+      plain: >
+        Has the authority confirmed or denied whether they hold the information you have requested?
+
+  - id: s12-q1n1
+    show_if:
+    - { id: s12-q1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they stated that the cost of confirming or denying would exceed the appropriate limit? The Section 12 exemption relieves them of the 'confirm or deny' requirement if to do so would exceed the cost limit.
+
+  - id: s12-q1y1
+    show_if:
+    - { id: s12-q1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the body included a calculation or explanation of the costs involved in providing the information?
+
+  - id: s12-q1y1y1
+    show_if:
+    - { id: s12-q1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does this calculation include the time taken in considering when exemptions apply, or time taken to redact parts of the information?
+
+  - id: s12-q1y1y2
+    show_if:
+    - { id: s12-q1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does it seem to be a reasonable estimate ('sensible and realistic') that gathering the information you have requested (or checking whether they hold this information) will take more than 24 hours of staff time (where the request was made to central government, a legislative body, or the armed forces) or 18 hours (all other public authorities), or otherwise cost more than £600/400 to locate, retrieve and extract?  Notes: As well as staff time, reasonable costs may include the necessity of buying new equipment or software; travel required to retrieve the information, etc.
+
+  - id: s12-q2
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        Has the body given an indication of what information could be provided within the appropriate limit?
+
+  - id: s12-q3
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        Have you put in more than one request to the same authority within 60 working days, and if so, have they all been included in the calculation of costs?
+
+  - id: s12-q3y1
+    show_if:
+    - { id: s12-q3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Are they all FOI requests, or do any of them fall under a different regime, eg Environmental Information Regulations or Subject Access?  (Authorities may not aggregate requests unless they are all made within the same regime).
+
+  - id: s12-q3y2
+    show_if:
+    - { id: s12-q3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is each request on a demonstrably different subject? (Even if they are within the same request; note that "multiple requests within a single item of correspondence are separate requests for the purpose of section 12"). If so, has each been considered as a separate request?
+
+  - id: s12-q4
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        Does the calculation of costs include anyone else's request/s on a similar subject?
+
+  - id: s12-q4y1
+    show_if:
+    - { id: s12-q4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Are you connected to the other person or people "in concert or in pursuance of a campaign"? If so, the authority is permitted to aggregate your FOI requests and treat them as one for the purposes of this calculation.
+
+  - id: s12-q4y1y1
+    show_if:
+    - { id: s12-q4y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Were they made to the same authority within 60 working days of yours?
+  - id: s12-q5
+    show_if: *section-12
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority begun the search before realising that it will cost more than the appropriate limit to complete it?
+
+  - id: s12-q5y1
+    show_if:
+    - { id: s12-q5, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they provided the information collected so far? This is considered bad practice by the ICO, who state that the requester should be able to define which part of the information they would like to receive.

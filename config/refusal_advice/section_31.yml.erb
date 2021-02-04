@@ -1,0 +1,115 @@
+foi:
+  questions:
+  - id: s31-q1
+    show_if: &section-31
+    - { id: exemption, operator: is, value: section-31 }
+    options: &yes-no
+    - { label: "<%= 'Yes' %>", value: "yes" }
+    - { label: "<%= 'No' %>", value: "no" }
+    label:
+      plain: >
+        Has the authority conducted a prejudice test?
+    hint:
+      html: >
+        A prejudice test requires the authority to demonstrate that there would be a "causal link" between the release of the requested information, and prejudice (ie harm) to one of the interests (such as law enforcement or justice) listed in this exemption. <a href="https://www.legislation.gov.uk/ukpga/2000/36/section/31">See Sections 1 and 2 of exemption 31</a> for a full list of these interests. The authority must then go on to determine the likelihood of this prejudice arising were the information released.  You can find more information about prejudice tests in <a href="https://ico.org.uk/media/for-organisations/documents/1214/the_prejudice_test.pdf">this ICO guidance</a>.
+
+  - id: s31-q1y1
+    show_if:
+    - { id: s31-q1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      html: >
+        Has the authority stated which interest from the list in <a href="https://www.legislation.gov.uk/ukpga/2000/36/section/31">Sections 1 and 2 of exemption 31</a> it believes would be prejudiced by the release of the information you have requested?
+
+  - id: s31-q1y1y1
+    show_if:
+    - { id: s31-q1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority demonstrated that the prejudice is "real, actual or of substance", and that there would be a causal link between this prejudice and the release of the requested information?
+
+  - id: s31-q1y1y1y1
+    show_if:
+    - { id: s31-q1y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority determined the likelihood of this harm/prejudice arising?
+
+  - id: s31-q1y1y1y1y1
+    show_if:
+    - { id: s31-q1y1y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      html: >
+        Has the authority conducted a <a href="https://ico.org.uk/media/for-organisations/documents/1183/the_public_interest_test.pdf">public interest test</a>?
+    hint:
+      plain: >
+        The authority is obliged to consider whether the 'public good' that would arise from the release of the information would outweigh the identified prejudice (or harm) to the identified law enforcement interest.
+
+  - id: s31-q1y1y1y1y1y1
+    show_if:
+    - { id: s31-q1y1y1y1y1, operator: is, value: 'yes' }
+    label:
+      plain: >
+        Do you agree with the assessment?
+
+  - id: s31-q2
+    show_if: *section-31
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority cited exemption 31(1)(g), "the exercise by any public authority of its functions for any of the purposes specified in subsection (2)"?
+
+  - id: s31-q3y1
+    show_if:
+    - { id: s31-q2, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the response identify which public authority's activities would be subject to prejudice through the release of this information, and give supporting evidence for this conclusion?
+    hint:
+      html: >
+        According to <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a>, the authority must "identify the public authority that has been entrusted with a function to fulfil one of the purposes listed in subsection (2); confirm that the function has been specifically designed to fulfil that purpose, and explain how the disclosure would prejudice that function."
+
+  - id: s31-q3y1y1
+    show_if:
+    - { id: s31-q2y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is the identified authority a different one from that responding to your request?
+
+  - id: s31-q3y1y1y1
+    show_if:
+    - { id: s31-q2y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the responding authority consulted the other authority before coming to its conclusion?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> states that "Where one public authority claims that a disclosure would prejudice the functions of another the Information Commissioner would expect that public authority to have obtained evidence from the public authority affected by the disclosure."
+
+  - id: s31-q3
+    show_if: *section-31
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority confirmed or denied whether it holds this information?
+
+  - id: s31-q3n1
+    show_if:
+    - { id: s31-q3, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      html: >
+        Does the authority state that to confirm or deny whether they hold the information would, in itself, prejudice one of the interests laid out in <a href="https://www.legislation.gov.uk/ukpga/2000/36/section/31">Sections 1 and 2 of exemption 31</a>?
+
+  - id: s31-q4
+    show_if: *section-31
+    options: *yes-no
+    label:
+      plain: >
+        Is the information that you requested more than 100 years old?

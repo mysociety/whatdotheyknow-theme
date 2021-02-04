@@ -1,0 +1,160 @@
+foi:
+  questions:
+  - id: s40-q1
+    show_if: &section-40
+    - { id: exemption, operator: is, value: section-40 }
+    options: &yes-no
+    - { label: '<%= 'Yes' %>', value: 'yes' }
+    - { label: '<%= 'No' %>', value: 'no' }
+    label:
+      plain: >
+        Did you request personal information about yourself?
+    hint:
+      plain: >
+        This might include a request for the information the authority holds about you, such as correspondence, data records or documentation.
+
+  - id: s40-q1y1
+    show_if:
+    - { id: s40-q1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority stated that it will handle your request as a SAR?
+
+  - id: s40-q1n1
+    show_if:
+      - { id: s40-q1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request personal information about someone else?
+
+  - id: s40-q1n1y1
+    show_if:
+    - { id: s40-q1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is that person alive?
+
+  - id: s40-q1n1y1y1
+    show_if:
+    - { id: s40-q1n1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Can this person be identified?
+    hint:
+      plain: >
+        The ICO defines an 'identifiable individual' as someone who can be recognised by: "(a) an identifier such as a name, an identification number, location data or an online identifier, or (b) one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of the individual."
+
+  - id: s40-q1n1y1y1n1
+    show_if:
+    - { id: s40-q1n1y1y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Nonetheless, is it still possible to identify the person from the data requested?
+
+  - id: s40-q1n1y2
+    show_if:
+    - { id: s40-q1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      html: >
+        Have you requested '<a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/special-category-data/">special category</a>' or 'criminal offence' data?
+    hint:
+      plain: >
+        'Special category' means personal data about an individual’s race, ethnic origin, politics, religion, trade union membership, genetics, biometrics, health, sex life or sexual orientation.
+
+        'Criminal offence' data means "personal data relating to criminal convictions and offences or related security measures; the alleged commission of offences by the data subject; and proceedings for an offence committed or alleged to have been committed by the data subject or the disposal of such proceedings, including sentencing".
+
+  - id: s40-q1n1y2y1
+    show_if:
+    - { id: s40-q1n1y2, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the individual whose data it is given 'explicit consent' for its release, or already clearly made the data public?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/2614720/personal-information-section-40-and-regulation-13-version-21.pdf"">ICO guidance</a> states that for explicit consent, the authority "must have a record that shows that each of the individuals concerned has explicitly and specifically consented to their data being disclosed to the world in response to an FOI or EIR request"; and "there may be situations in which the individual has deliberately done something which has put their special category personal data into the public domain. An obvious example of this would be the political affiliations of a Member of Parliament."
+
+  - id: s40-q1n1y2y1y1
+    show_if:
+    - { id: s40-q1n1y2y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Was this data disclosed by a defendant in court?
+
+  - id: s40-q1n1y3
+    show_if:
+    - { id: s40-q1n1, operator: is, value: 'yes' }
+    - { id: exemption, operator: is, value: section-40 }
+    options: *yes-no
+    label:
+      html: >
+        Has the authority performed a '<a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/lawful-basis-for-processing/legitimate-interests/">legitimate interests</a>' test?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/2614720/personal-information-section-40-and-regulation-13-version-21.pdf">ICO guidance</a> says that an authority may consider the wider public good (or "pressing social need") to be gained from the release of information, against the rights and freedoms of the person whose information is being requested, "particularly their right to privacy and family life under the Human Rights Act 1998".
+
+  - id: s40-q1n1y3y1
+    show_if:
+    - { id: s40-q1n1y3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Did the authority find that there was a 'pressing social need' for the information to be released?
+
+  - id: s40-q1n1y4
+    show_if:
+    - { id: s40-q1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority confirmed or denied whether they hold the information?
+    hint:
+      html: >
+        There is more about confirming or denying in relation to personal data in this <a href="https://ico.org.uk/media/for-organisations/documents/2614719/neither-confirm-nor-deny-in-relation-to-personal-data-section-40-5-and-regulation-13-5-v20.pdf">ICO guidance</a>.
+
+  - id: s40-q1n1y4n1
+    show_if:
+    - { id: s40-q1n1y4, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they explained that the act of confirming or denying whether they hold the information would, in itself, release personal data?
+
+  - id: s40-q1n1y4n1y1
+    show_if:
+    - { id: s40-q1n1y4n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority stated which section of the GDPR they have applied in this decision?
+
+  - id: s40-q1n1y4n1y1y1
+    show_if:
+    - { id: s40-q1n1y4n1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority conducted a public interest test on the matter of whether to confirm or deny?
+
+  - id: s40-q1n1y4y1
+    show_if:
+    - { id: s40-q1n1y4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Have you requested more information, besides the information identified as personal data?
+
+  - id: s40-q1n1y4y1y1
+    show_if:
+    - { id: s40-q1n1y4y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority addressed the remainder of your request, either by providing the information or by citing another exemption that covers it?

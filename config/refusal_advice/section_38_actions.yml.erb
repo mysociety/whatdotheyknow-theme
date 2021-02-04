@@ -1,0 +1,136 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s38-a1
+      show_if:
+      - { id: s38-q1, operator: is, value: 'no' }
+      advice:
+        html: >
+          You have grounds for an internal review. Respond to the authority, citing the <a href="https://ico.org.uk/media/for-organisations/documents/1624339/health-and-safety-section-38-foia.pdf">ICO's guidance</a> and pointing out that they must provide details of a prejudice test and demonstrate the causal link between disclosure of the information and harm to an individual.
+
+    - id: s38-a3
+      show_if:
+      - { id: s38-q1y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point.
+
+          However, if you think there is a valid argument to be made against the conclusion reached, you may wish to respond, making this argument, and requesting an internal review.
+
+    - id: s38-a4
+      show_if:
+      - { id: s38-q2, operator: is, value: 'no' }
+      advice:
+        html: >
+          Request an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1624339/health-and-safety-section-38-foia.pdf">ICO guidance</a> and pointing out that the authority is obliged to conduct a public interest test when applying this exemption.
+
+    - id: s38-a5
+      show_if:
+      - { id: s38-q2y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point. However, a public interest test is always going to be subject to the thoughts and decisions of the member of staff who conducts it, so if you think you can make a strong argument for the public interest, you might consider requesting an internal review. This will mean that the request and the response you received will be examined by a different member of staff.
+
+    - id: s38-a6
+      show_if:
+      - { id: s38-q2y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Request an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1624339/health-and-safety-section-38-foia.pdf">ICO guidance</a> and pointing out that the authority is obliged to provide these details.
+
+    - id: s38-a7
+      show_if:
+      - { id: s38-q3, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          ICO guidance says, "Endangering mental health implies that the disclosure of information might lead to a psychological disorder or make mental illness worse. This means that it has a greater impact than stress or worry."
+
+          If you can demonstrate that the impact to the individual's mental health is likely to be low, you may wish to consider requesting an internal review.
+
+    - id: s38-a8
+      show_if:
+      - { id: s38-q4, operator: is, value: 'no' }
+      advice:
+        plain: >
+          If you can make a convincing argument that disclosure would not bring new information into the public domain, you may wish to request an internal review.
+
+    - id: s38-a9
+      show_if:
+      - { id: s38-q5n1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          The authority can only withhold the parts of the information to which the exemption applies. If there is additional information which would not cause harm to an individual to disclose, and to which no other exemption applies, they should release it.
+
+          Consider requesting an internal review, asking for the parts of the information which cannot be demonstrated as likely to cause harm.
+
+    - id: s38-a11
+      show_if:
+      - { id: s38-q5n1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority can only withhold the parts of the information to which the exemption applies. If there is additional information which would not cause harm to an individual to disclose, and to which no other exemption applies, they should release it.
+
+          Consider requesting an internal review, asking for the parts of the information which cannot be demonstrated as likely to cause harm.
+
+    - id: s38-a13
+      show_if:
+      - { id: s38-q6n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, asking the authority to confirm or deny whether they hold the information.
+
+    - id: s38-a14
+      show_if:
+      - { id: s38-q6n1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, citing ICO guidance and asking for details of the prejudice test used to inform the decision not to confirm or deny.
+
+  - id: clarification
+    suggestions:
+    - id: s38-a2
+      show_if:
+      - { id: s38-q1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Respond to the authority and ask them to provide details of the prejudice test.
+
+    - id: s38-a15
+      show_if:
+      - { id: s38-q6n1y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider responding to the authority to ask for details of the public interest test performed on the decision of whether to confirm or deny.
+
+    - id: s38-a17
+      show_if:
+      - { id: s38-q7, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Consider replying to the authority to suggest these measures. As this would be a case of the authority going out of their way to help, rather than a requirement of the FOI Act, this should be framed as a polite request.
+
+  - id: new_request
+    suggestions:
+  - id: generic
+    suggestions:
+    - id: s38-a10
+      show_if:
+      - { id: s38-q5n1n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          You may wish to consult our advice on the other exemptions.
+
+    - id: s38-a12
+      show_if:
+      - { id: s38-q6, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority has acted appropriately on this point.
+
+    - id: s38-a16
+      show_if:
+      - { id: s38-q6n1y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority has acted appropriately on this point.

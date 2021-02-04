@@ -1,0 +1,110 @@
+foi:
+  questions:
+  - id: s30-q1
+    show_if: &section-30
+    - { id: exemption, operator: is, value: section-30 }
+    options: &yes-no
+    - { label: '<%= 'Yes' %>', value: 'yes' }
+    - { label: '<%= 'No' %>', value: 'no' }
+    label:
+      plain: >
+        Is the authority itself responsible for the investigation or criminal proceedings that they claim would be prejudiced by the release of this information?
+    hint:
+      plain: >
+        Section 30 is applied where the authority is responsible for the investigation or criminal proceedings — if another body is responsible, the applicable exemption is Section 31.
+
+  - id: s30-q1y1
+    show_if:
+    - { id: s30-q1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority carried out a public interest test?
+    hint:
+      html: >
+        Some exemptions, including this one, require the authority to conduct a <a href="https://ico.org.uk/media/for-organisations/documents/1183/the_public_interest_test.pdf">public interest test</a>. Note that 'interest' here does not refer to whether the information would be interesting to the public. This requirement says that the authority must weigh up whether there is more 'public good' in disclosing the information than the harm that disclosure would cause (in this case, by prejudicing the prosecution or investigation, or compromising a confidential source). <a href="https://ico.org.uk/media/for-organisations/documents/1205/investigations-and-proceedings-foi-section-30.pdf">The ICO says</a>, "Where there would be no harm in releasing the information, or the public interest arguments in favour of disclosure outweigh those in favour of maintaining the exemption, it will need to be disclosed."
+
+  - id: s30-q1y1y1
+    show_if:
+    - { id: s30-q1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+         Does the public interest test relate only to the exemption/s being applied?
+    hint:
+      plain: >
+        When a public interest test is conducted, it must relate specifically to the exemption in use. In this case, the public interest test must relate only to the public good of withholding or releasing information in the light of criminal proceedings or investigations conducted by the authority.
+
+  - id: s30-q2
+    show_if: *section-30
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority stated that it has a 'duty' or 'statute' to investigate offences? (If so, they are likely to mention section 30(1)(a).)
+    hint:
+      html: >
+        A Section 30 exemption can only be applied by authorities that "have a duty to investigate whether someone should be charged with an offence, or the power to conduct such investigations and/or institute criminal proceedings".
+
+        <a href="https://ico.org.uk/media/for-organisations/documents/1205/investigations-and-proceedings-foi-section-30.pdf>The ICO says</a>, "When citing section 30(1)(a) public authorities need to explain not only how the duty to investigate arises but also which offence or offences, usually defined in common law or statute, are relevant in the particular circumstances [...]. Although the police are the most obvious users of section 30(1)(a), there may be other public authorities who have a duty to investigate offences which may lead to a suspect being charged."
+
+  - id: s30-q2y1
+    show_if:
+    - { id: s30-q2, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority explained the details mentioned above ("how the duty to investigate arises", and which offence applies) ?
+
+  - id: s30-q2n1
+    show_if:
+    - { id: s30-q2, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority stated that the information requested was provided to them by a 'confidential source' (if so they will probably mention section 30(2))?
+
+  - id: s30-q3
+    show_if: *section-30
+    options: *yes-no
+    label:
+      plain: >
+         Is the information you have requested a 'historical record'?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1205/investigations-and-proceedings-foi-section-30.pdf">The ICO says</a>: "Under section 63 of FOIA information contained in a historical record cannot be exempt under section 30(1)"
+
+        It defines historical records: "Originally, a historical record was one over 30 years old, or if forming part of a file, the last entry on that file must be over 30 years old. However, this has now been amended to 20 years by the Constitutional Reform and Governance Act 2010. This reduction is being phased in gradually over 10 years. In effect, from the end of 2013, the time limit is 29 years. It will reduce by another year, every year, until it reaches 20 years at the end of 2022".
+
+  - id: s30-q3y1
+    show_if:
+    - { id: s30-q3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority has applied Section 30(1)?
+
+  - id: s30-q4
+    show_if: *section-30
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority confirmed or denied whether it holds the information you requested?
+
+  - id: s30-q4n1
+    show_if:
+    - { id: s30-q4, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority stated that the act of confirming or denying would, in itself, mean disclosure of information which relate to an investigation or criminal proceedings, or compromise a confidential source?
+
+  - id: s30-q4n1y1
+    show_if:
+    - { id: s30-q4n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+         Has the authority applied the public interest test to  the question of whether to confirm or deny?
+    hint:
+      plain: >
+        If the authority does not confirm or deny whether they hold the information, it is obliged to apply the public interest test on this decision. This means that they must weigh up the public good to be gained from confirming or denying, against the harm that would be done to the investigation, criminal proceedings, or confidential source.

@@ -1,0 +1,153 @@
+foi:
+  questions:
+  - id: s14-q1
+    show_if: &section-14
+    - { id: exemption, operator: is, value: section-14 }
+    options: &yes-no
+    - { label: '<%= 'Yes' %>', value: 'yes' }
+    - { label: '<%= 'No' %>', value: 'no' }
+    label:
+      plain: >
+        Was your request placed with the intention of annoying or disrupting the authority (or could it reasonably be interpreted as such)?
+
+  - id: s14-q2
+    show_if: *section-14
+    options: *yes-no
+    label:
+      html: >
+        Does your request display one or more of the following qualities?
+        <ul>
+          <li>It contains abusive or aggressive language</li>
+          <li>It makes accusations against identifiable people or the authority</li>
+          <li>It makes clear that you have a personal grudge against the authority or the subject of the request</li>
+        <ul>
+
+  - id: s14-q2y1
+    show_if:
+    - { id: s14-q2, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is there any threatening, racist, insulting or otherwise unacceptable language directed at the authority's staff in your request?
+
+  - id: s14-q3
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        Have you turned down attempts or suggestions by the authority to assist with getting your request processed?
+
+  - id: s14-q4
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority stated that providing the information you have asked for would cause them a disproportionate or unjustified level of disruption, irritation or distress, or 'place an unreasonable burden' on them?
+
+  - id: s14-q4y1
+    show_if:
+    - { id: s14-q4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they provided any arguments or evidence supporting the assessment?
+  - id: s14-q4y1y1
+    show_if:
+    - { id: s14-q4y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has this assessment been based solely on cost?
+  - id: s14-q4y1y1y1
+    show_if:
+    - { id: s14-q4y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority suggested ways in which your request might be made less burdensome? This is not mandatory, but is 'best practice', according to the ICO.
+
+  - id: s14-q4y1y1n1
+    show_if:
+    - { id: s14-q4y1y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has this assessment been based on the consequences of the release, rather than the act of responding? ICO guidance states that Section 14(1) is concerned with the nature of the request rather than the consequences of releasing the requested information.
+
+  - id: s14-q5
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        Is the information you are requesting 'trivial'? The ICO states that a vexatious request may be one where "the matter being pursued by the requester is relatively trivial and the authority would have to expend a disproportionate amount of resources in order to meet their request". It also may be "frivolous" ("inane or extremely trivial subject matter").
+
+  - id: s14-q5n1
+    show_if:
+    - { id: s14-q5, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Can you demonstrate the 'serious purpose and value' (ICO) of this information to yourself or to the public, and that this justifies any disruption, irritation or distress on behalf of the authority in providing it?
+
+  - id: s14-q6
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        Does the authority's reason for categorising this request as vexatious focus on your behaviour or personality rather than the substance of the request?
+
+  - id: s14-q7
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority alleged that the request is part of a 'scattergun' approach or 'fishing expedition', ie, placed in order to see what comes up, rather than having a clear purpose in mind?
+
+  - id: s14-q7y1
+    show_if:
+    - { id: s14-q7, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is this a fair description of your approach?
+  - id: s14-q8
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority applied this exemption because you have made similar requests to other authorities (also known as 'round robin' requests)?
+
+  - id: s14-q9
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        Does the authority state that the request reopens an issue that has already been comprehensively dealt with, either generally in public, or in prior responses to requests (your own or others')?
+
+  - id: s14-q9y1
+    show_if:
+    - { id: s14-q9, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Do they provide guidance as to where this information can be found?
+  - id: s14-q9y1y1
+    show_if:
+    - { id: s14-q9y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the information they have pointed at answer your request in full?
+  - id: s14-q10
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        This exemption is applied where the user has made identical or substantially similar requests within a short period of time. Is this a reasonable assessment in your case?
+
+  - id: s14-q11
+    show_if: *section-14
+    options: *yes-no
+    label:
+      plain: >
+        A request may also be seen as vexatious when it is one of a 'long and frequent series'. Even though an individual request may not be vexatious in itself, it is part of an 'aggregated burden'. Is this a reasonable assessment in your case?

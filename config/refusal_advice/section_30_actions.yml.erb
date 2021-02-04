@@ -1,0 +1,101 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s30-a1
+      show_if:
+      - { id: s30-q1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          If the authority has misapplied an exemption, they may have made other errors too. Consider requesting an internal review, which will mean that your request is examined by a different member of staff.
+
+    - id: s30-a2
+      show_if:
+      - { id: s30-q1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Ask for an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1205/investigations-and-proceedings-foi-section-30.pdf">ICO guidance</a> and asking the authority to provide evidence that the public interest test was conducted in this case.
+
+    - id: s30-a3
+      show_if:
+      - { id: s30-q1y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Consider asking for an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a>.
+
+    - id: s30-a4
+      show_if:
+      - { id: s30-q1y1y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Of necessity, the Public Interest test will reflect the thought processes of the member of staff conducting it, and there may well be room for making a good case against them. <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a>, says, for example, says, for example, that "in a democratic society it is important that offences can be effectively investigated and prosecuted. However, the public needs to have confidence in the ability of the responsible public authorities to uphold the law and the public interest will be served by disclosures which serve that purpose". These considerations would be set against the effect upon the investigation or criminal proceedings; or against the potential effects on a confidential source, including the possibility that future confidential sources may be deterred from coming forward. If you think you may be able to make a good case for public interest based on one of these premises, read the ICO guidance linked above, and consider requesting an internal review.
+
+    - id: s30-a6
+      show_if:
+      - { id: s30-q2y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, citing the ICO guidance and asking for these details.
+
+    - id: s30-a7
+      show_if:
+      - { id: s30-q2n1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          ICO guidance says, "For information to be exempt under section 30(2) it must both relate to the public authority’s investigations or proceedings and relate to confidential sources."
+
+          Confidential sources are very well protected by FOI, in recognition of the danger they may face if their confidentiality is compromised.
+
+          However, the existence of a confidential source will not necessarily mean that other pieces of information cannot be released, if doing so will have no effect on that source. Consider the authority's response carefully, read the <a href="https://ico.org.uk/media/for-organisations/documents/1205/investigations-and-proceedings-foi-section-30.pdf">ICO guidance</a>, and if you think you can argue convincingly that the confidential source is not a relevant factor to the matter (for example, if the release of information will not impact the source negatively), there may be grounds for requesting an internal review.
+
+    - id: s30-a8
+      show_if:
+      - { id: s30-q3y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The age of the requested information is only relevant where the authority has used the Section 30(1) exemption and the information is a historical record, as defined above. Normally, information over a certain age cannot be exempted under Section 30, but note that even historical records are exempt where the authority is withholding information to protect a confidential source (in which case they would use Section 30(2)).
+
+          If the correct conditions apply, consider requesting an internal review.
+
+    - id: s30-a10
+      show_if:
+      - { id: s30-q4n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          You may wish to ask for an internal review, asking the authority to confirm or deny whether they hold the information.There is more information about confirming or denying in this <a href="https://ico.org.uk/media/for-organisations/documents/1166/when_to_refuse_to_confirm_or_deny_section_1_foia.pdf">ICO guidance</a>.
+
+    - id: s30-a11
+      show_if:
+      - { id: s30-q4n1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, stating that the authority must conduct a Public Interest test on the decision to confirm or deny.
+
+    - id: s30-a12
+      show_if:
+      - { id: s30-q4n1y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Of necessity, the Public Interest test will reflect the thought processes of the member of staff conducting it, and there may well be room for making a good case against them. <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a>, says, for example, that "in a democratic society it is important that offences can be effectively investigated and prosecuted. However, the public needs to have confidence in the ability of the responsible public authorities to uphold the law and the public interest will be served by disclosures which serve that purpose".
+
+          These considerations would, however, be set against the effect upon the investigation or criminal proceedings; or against the potential effects on a confidential source, including the possibility that future confidential sources may be deterred from coming forward. If you think you may be able to make a good case for public interest based on one of these premises, read the ICO guidance and consider requesting an internal review.
+
+  - id: clarification
+    suggestions:
+  - id: new_request
+    suggestions:
+  - id: generic
+    suggestions:
+    - id: s30-a5
+      show_if:
+      - { id: s30-q2y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point.
+
+    - id: s30-a9
+      show_if:
+      - { id: s30-q4, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point.

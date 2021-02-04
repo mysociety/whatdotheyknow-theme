@@ -1,0 +1,294 @@
+foi:
+  questions:
+  - id: s22-q1
+    show_if: &section-22
+    - { id: exemption, operator: is, value: section-22 }
+    options: &yes-no
+    - { label: "<%= 'Yes' %>", value: "yes" }
+    - { label: "<%= 'No' %>", value: "no" }
+    label:
+      plain: >
+        Has the authority confirmed or denied that they hold the information?
+    hint:
+      plain: >
+        This is normally a requirement, but in the case of Section 22, the authority does not have to confirm or deny if such a disclosure is also part of the planned publication.
+
+        For example, if you requested an agreement for work to be done on a public building by a specific contractor, to confirm or deny whether this contract was held would also reveal whether or not that contractor was going to be used.
+
+        If the authority had plans to publish all details of the contracted work at a future date, they would be able to argue that this exemption absolved them of the requirement to confirm or deny.
+
+  - id: s22-q1n1
+    show_if:
+    - { id: s22-q1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority conducted a public interest test on the decision whether to confirm or deny, and included details of this test?
+
+  - id: s22-q2
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority indicated that they have considered "whether it is reasonable, in all the circumstances, to withhold the information until the date of the publication"?
+    hint:
+      plain: >
+        The ICO states that the authority should consider whether withholding the information prior to publication is "sensible; in line with accepted practices; and fair to all concerned". Factors which they may consider include whether receiving the information ahead of publication would give you, the requester, an advantage; and whether time is needed for internal release before any external disclosure.
+
+  - id: s22-q3
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority indicated that they have performed a public interest test on whether or not to release the information?
+    hint:
+      plain: >
+        Some exemptions, including this one, require the authority to conduct a public interest test. Note that 'interest' here does not refer to whether the information would be interesting to the public. This requirement says that the authority must weigh up whether there is more 'public good' in withholding the information or in releasing it.
+
+  - id: s22-q3y1
+    show_if:
+    - { id: s22-q3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the public interest test relate only to the exemption/s being applied?
+    hint:
+      plain: >
+        When a public interest test is conducted, it must relate specifically to the exemption in use. In this case, the public interest test must relate only to the public good of withholding or releasing information because of, or despite the fact that it is planned for publication.
+
+  - id: s22-q3y1y1
+    show_if:
+    - { id: s22-q3y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        If there is any potential harm indicated by the public interest test, would this harm be caused only by release of the information prior to publication?
+    hint:
+      plain: >
+        The ICO says, "Any harm that could be said to arise from the disclosure of the requested information is only relevant if it results from the Information intended for future publication [...] ahead of its scheduled release date. Therefore arguments in favour of maintaining the exemption must relate to that".
+
+  - id: s22-q3y1y1y1
+    show_if:
+    - { id: s22-q3y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the authority use the argument that the information is too technical, complex, or open to misunderstanding by the public?
+    hint:
+      plain: >
+        The ICO says that this is only a valid argument if the authority is not able to explain or set the information in context, or if it is likely that such an explanation would not "limit the damage caused".
+
+  - id: s22-q3y1y1y2
+    show_if:
+    - { id: s22-q3y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request information about or deriving from a research programme?
+  - id: s22-q4
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        Does it seem that the plan for publication was made after, or in response to, your request?
+    hint:
+      plain: >
+        ICO guidance says that the intention to publish must predate the request.
+  - id: s22-q4n1
+    show_if:
+    - { id: s22-q4, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Is it clear that the information that is planned for publication is exactly the same as the information that you have requested?
+
+  - id: s22-q4n1n1
+    show_if:
+    - { id: s22-q4n1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request information from a research programme (ie, has exemption 22A been applied)?
+
+  - id: s22-q5
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        Is there any indication of a plan, date or trigger for the publication?
+    hint:
+      plain: >
+        ICO guidance states that Section 22 may be applied if:
+        <ul>
+          <li>there is a publication deadline: publication could be at any date before then; or</li>
+          <li>publication will take place once other actions have been completed; or</li>
+          <li>publication will take place by reference to other related events; or</li>
+          <li>there is a draft publication schedule that hasn’t been finalised.</li>
+        </ul>
+
+        The ICO also says "it is good practice to provide the requester with an anticipated date of publication. If the authority subsequently decides not to publish the information, it should inform the requester and ask if they wish to submit the request again."
+
+  - id: s22-q5y1
+    show_if:
+    - { id: s22-q5, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has this date already passed?
+
+  - id: s22-q5y1y1
+    show_if:
+    - { id: s22-q5y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the information been published?
+
+  - id: s22-q5y1y1y1
+    show_if:
+    - { id: s22-q5y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the information published include all the information that you requested?
+
+  - id: s22-q5y1y1y1n1
+    show_if:
+    - { id: s22-q5y1y1y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Does your request apply to information derived from, or about, a research programme?
+
+  - id: s22-q5n1
+    show_if:
+    - { id: s22-q5, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Is this date far into the future?
+    hint:
+      plain: >
+        The ICO says: "the public interest in releasing the information will often be stronger if the publication date is far in the future".
+
+  - id: s22-q6
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        When the information has been published, will it be available for everyone?
+    hint:
+      plain: >
+        ICO guidance says that "it is not sufficient" if the information will only be available to "a particular, restricted audience".
+
+  - id: s22-q7
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        Will the information be available only for inspection in person?
+
+  - id: s22-q7y1
+    show_if:
+    - { id: s22-q7, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is there 'appropriate and reasonable access' to it?
+    hint:
+      plain: >
+        ICO guidance says that information provided in this way should be "clearly advertised, readily available, accessible and easy for the public to use". It adds that a plan for transfer of the information to the National Archives (TNA) qualifies for this description.
+
+  - id: s22-q7y1y1
+    show_if:
+    - { id: s22-q7y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Are there personal circumstances which, although access might be practical for most people, would make it difficult or impossible for you?
+
+  - id: s22-q8
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        Did you request information relating to or derived from a research programme?
+    hint:
+      plain: >
+        The ICO says, "FOIA does not define ‘research’. The Commissioner will use the ordinary definition of the term research: a systematic investigation intended to establish facts, acquire new knowledge and reach new conclusions".
+
+  - id: s22-q8y1
+    show_if:
+    - { id: s22-q8, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is this research still ongoing?
+
+  - id: s22-q8y1n1
+    show_if:
+    - { id: s22-q8y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Have all planned reports been published?
+    hint:
+      plain: >
+        ICO guidance states that Section 22A can only be applied where the research is still ongoing and before all planned reports have been published.
+
+  - id: s22-q8y1y1
+    show_if:
+    - { id: s22-q8y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority demonstrated that release of the requested
+        information would prejudice the research or related interests?
+    hint:
+      plain: >
+        ICO guidance states that "the public authority must demonstrate that there is a risk that disclosure of the requested information before the envisaged date of publication would or would be likely to prejudice: the research programme [or] the interests of an individual participating in the programme [or] the interests of the authority holding the information or the interests of a different authority that is going to publish a research report."
+
+  - id: s22-q8y1y1y1
+    show_if:
+    - { id: s22-q8y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority identified the nature of the prejudice, showing that it is “real, actual or of substance”, and that there is a causal link between the disclosure and the prejudice claimed?
+
+  - id: s22-q8y1y1y1y1
+    show_if:
+    - { id: s22-q8y1y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority also decided on the likelihood of this prejudice arising?
+
+  - id: s22-q8y1y1y1y1y1
+    show_if:
+    - { id: s22-q8y1y1y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is the likelihood indicated at 50% or more?
+    hint:
+      plain: >
+        The ICO suggests that a 50% or above chance of a prejudice arising would constitute a 'likelihood'. Information about the prejudice test can be found here.
+
+  - id: s22-q9
+    show_if: *section-22
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority indicated that it is not them, but a different body, organisation or person, who will be publishing the information?
+
+  - id: s22-q9y1
+    show_if:
+    - { id: s22-q9, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the third party been consulted in this decision?
+    hint:
+      plain: >
+        ICO guidance says that such consultation is good practice, since "the third party will be in a better position to determine whether or not it would be reasonable in all the circumstances to withhold the information prior to its publication, and will also be able to advise on public interest considerations.

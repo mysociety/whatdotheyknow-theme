@@ -1,0 +1,110 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s31-a1
+      show_if:
+      - { id: s31-q1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Consider requesting an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> that this exemption requires a prejudice test to be conducted.
+
+    - id: s31-a2
+      show_if:
+      - { id: s31-q1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Consider requesting an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> that the authority must state the interest they believe will be prejudiced.
+
+    - id: s31-a3
+      show_if:
+      - { id: s31-q1y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          The authority is required to demonstrate the harm that would potentially be caused by release of the information, and how the release would cause such harm. <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> says that if 'the harm is only trivial, the exemption would not be engaged'. However, it also refers to the 'mosaic effect', the concept that the information released may be put together with other information already in the public domain, which would then satisfy the conditions of prejudice. Additionally, the authority is allowed to consider the 'precedent effect' where 'complying with one request would make it more difficult to refuse requests for similar information in the future'.
+
+          Consider requesting an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> and asking the authority to provide information about the perceived prejudice and the causal link to the release of information.
+
+    - id: s31-a4
+      show_if:
+      - { id: s31-q1y1y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> states: "Deciding whether the prejudice would occur or is only likely to occur is important. In this context the term “would prejudice” means that it has to be <i>more probable than not</i> that the prejudice would occur." [italics ours]
+
+          Consider requesting an internal review, citing this guidance.
+
+    - id: s31-a5
+      show_if:
+      - { id: s31-q1y1y1y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, noting that the authority has not mentioned that a public interest test has been conducted, and asking them to provide this information.
+
+    - id: s31-a6
+      show_if:
+      - { id: s31-q1y1y1y1y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          The ICO says, "Although there is a clear public interest in protecting the ability of public authorities to perform their law enforcement activities,the public interest test [...] requires that all the circumstances of the case are considered. This will include the significance of the information itself and the issues that it addresses."
+
+          It adds, "Public authorities cannot take account of either crimes or the consequences of those crimes which are too speculative or fanciful", but also that "each case needs to be considered on its own merits taking account of the actual harm that would be caused by disclosure together with all the circumstances of the case."
+
+          If you can argue plausibly that the public interest test should have come to the opposite conclusion, read the <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> on this section and then consider requesting an internal review, citing your reasons.
+
+    - id: s31-a7
+      show_if:
+      - { id: s31-q3y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, citing this guidance.
+
+    - id: s31-a9
+      show_if:
+      - { id: s31-q3y1y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, citing this guidance.
+
+    - id: s31-a11
+      show_if:
+      - { id: s31-q3n1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          You may wish to read the section on confirming or denying in the <a href="https://ico.org.uk/media/for-organisations/documents/1207/law-enforcement-foi-section-31.pdf">ICO guidance</a> and see whether you agree with this decision.
+
+    - id: s31-a12
+      show_if:
+      - { id: s31-q3n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          If the reason for not confirming or denying is not obvious from the context, consider replying to the authority and asking for clarification.
+
+    - id: s31-a13
+      show_if:
+      - { id: s31-q4, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          This exemption cannot be applied to information that is over 100 years old.
+
+          Consider requesting an internal review, citing ICO guidance.
+
+  - id: clarification
+    suggestions:
+  - id: new_request
+    suggestions:
+  - id: generic
+    suggestions:
+    - id: s31-a8
+      show_if:
+      - { id: s31-q3y1y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appear to have acted correctly on this point.
+
+    - id: s31-a10
+      show_if:
+      - { id: s31-q3, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point.
