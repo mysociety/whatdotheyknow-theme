@@ -167,6 +167,7 @@ Rails.configuration.to_prepare do
     noreply@aberdeencity.gov.uk
     NoReply.FOI@worcester.gov.uk
     auto-reply@castlepoint.gov.uk
+    lambethinformationrequests@lambeth.gov.uk
   )
 
   # Add survey methods to RequestMailer
