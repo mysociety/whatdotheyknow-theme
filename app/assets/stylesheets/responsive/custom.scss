@@ -1491,6 +1491,18 @@ dd {
   }
 }
 
+.changes {
+  background-color: darken($body-bg, 2%);
+  border-radius: 2px;
+  border: 1px solid darken($body-bg, 12%);
+  font-size: smaller;
+  margin-top: 2em;
+  padding: 0.1em 1.5em;
+
+  h2 {
+    font-size: 1.65em;
+  }
+}
 
 
 /* Display of sidebars */

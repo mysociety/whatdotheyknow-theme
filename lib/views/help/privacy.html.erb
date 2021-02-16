@@ -933,23 +933,12 @@
     gov.uk cookies page</a> (under the Open Government Licence).
   </p>
 
-  <h2 id="changes-to-privacy-notice">
-    Changes to our privacy policy
-    <a href="#changes-to-privacy-notice">#</a>
-  </h2>
-
-  <p>
-    We keep our privacy policy under review, and may make changes from time to
-    time to ensure that it remains up-to-date and accurate. You can find a
-    synopsis of changes we’ve made at our
-    <a href="https://git.io/JU14r" alt="Link to version history for WhatDoTheyKnow Privacy notice (hosted on GitHub)">GitHub repository</a>,
-    but if you have any questions, please do
-    <%= link_to 'contact us', help_contact_path %>.
-  </p>
-
-
   <p><strong>Learn more</strong> from the help for
     <a href="<%= help_officers_path %>">FOI officers</a> --&gt;
   </p>
+
+  <span id="changes-to-privacy-notice"></span>
+  <%= render partial: 'history' %>
+
   <div id="hash_link_padding"></div>
 </div>
