@@ -168,6 +168,7 @@ Rails.configuration.to_prepare do
     NoReply.FOI@worcester.gov.uk
     auto-reply@castlepoint.gov.uk
     system@share.ons.gov.uk
+    foi&dparequest@nmc-uk.org
   )
 
   # Add survey methods to RequestMailer
