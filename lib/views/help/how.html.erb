@@ -1,7 +1,10 @@
 <% @title = "How we run WhatDoTheyKnow" %>
 <%= render :partial => 'sidebar' %>
 <div id="left_column_flip" class="left_column_flip">
-  <h1><%= @title %></h1>
+  <h1 id="title">
+    <%= @title %>
+    <a href="#title">#</a>
+  </h1>
   <p>
     WhatDoTheyKnow is administered by a small group of dedicated
     <a href="<%= help_credits_path(:anchor => 'volunteers') %>">volunteers</a>
@@ -10,8 +13,9 @@
     these volunteers, with support from mySociety’s Chief Executive and
     <a href="<%= help_about_path(:anchor => 'who') %>">Trustees</a>.
   </p>
-  <h2>
+  <h2 id="reactive_moderation">
     Reactive moderation principle
+    <a href="#reactive_moderation">#</a>
   </h2>
   <p>
     It would be impossible for the WhatDoTheyKnow volunteer team to moderate all
@@ -32,8 +36,9 @@
     taking a view on if it is accurate or not, we don’t have the resources to
     investigate that.
   </p>
-  <h2>
+  <h2 id="what_happens">
     What happens once a request is reported for attention?
+    <a href="#what_happens">#</a>
   </h2>
   <p>
     Users report material on WhatDoTheyKnow for a wide range of different
@@ -41,24 +46,32 @@
   </p>
   <ul>
     <li>
-      Personal information which has been released by accident
+      <a href="#accidentally_released" title="Go to help section - Accidentally
+        released personal information">Personal information which has been
+        released by accident</a>
     </li>
     <li>
-      Potentially libellous or defamatory material published on the site
+      <a href="#potentially_libellous" title="Go to help section - Potentially
+        defamatory or libellous material">Potentially libellous or defamatory
+        material published on the site</a>
     </li>
     <li>
-      Copyright material
+      <a href="#copyright" title="Go to help section - Copyright">Copyright
+        material</a>
     </li>
     <li>
-      Vexatious requests
+      <a href="#vexatious_requests" title="Go to help section - How do we deal
+        with vexatious requests?">Vexatious requests</a>
     </li>
     <li>
-      Invalid requests, that is, requests that are not Freedom of Information
-      requests
+      <a href="#invalid_requests" title="Go to help section - How do we deal
+        with requests that are not valid? ">Invalid requests, that is, requests
+        that are not Freedom of Information requests</a>
     </li>
   </ul>
-  <h3>
+  <h3 id="policy">
     Policy as a guide, not a rigid set of rules
+    <a href="#policy">#</a>
   </h3>
   <p>
     Our policies have developed from the consideration and discussion of cases
@@ -77,9 +90,9 @@
     the team of other volunteers and specific mySociety staff. Discussion among
     this group then leads to an agreed course of action.
   </p>
-  <p>
-  <h3>
+  <h3 id="information_removal">
     Removal of information
+    <a href="#information_removal">#</a>
   </h3>
   <p>
     <strong>Our default is to keep unproblematic information online.</strong>
@@ -114,10 +127,10 @@
     If agreement cannot be reached for any reason, then mySociety’s Chief
     Executive will be the final arbiter.
   </p>
-    <strong>
-      Accidentally released personal information
-    </strong>
-  </p>
+  <h4 id="accidentally_released">
+    Accidentally released personal information
+    <a href="#accidentally_released">#</a>
+  </h4>
   <p>
     Sometimes public bodies mistakenly release personal information, in breach
     of the Data Protection Act. Once the admin team has received a
@@ -150,15 +163,21 @@
   </p>
   <p>
     The ICO requests that serious breaches of data protection are reported to
-    them; their guidance on what constitutes serious is at: <a
-    href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/personal-data-breaches/">
-    https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/personal-data-breaches/</a>.
+    them; their guidance on what constitutes serious is <a
+    href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/personal-data-breaches/"
+    title="View guidance on Personal data breaches on the ICO website"
+    alt="View guidance on Personal data breaches on the ICO website"
+    >outlined on their website</a>.
   </p>
   <p>
-    <strong>
-      Potentially defamatory or libellous material
-    </strong>
+    If you become aware of a potential data breach, please
+    <%= link_to 'get in touch', help_contact_path %> with us so that we can
+    review it and take any appropriate action.
   </p>
+  <h4 id="potentially_libellous">
+    Potentially defamatory or libellous material
+    <a href="#potentially_libellous">#</a>
+  </h4>
   <p>
     Unfortunately, some people use WhatDoTheyKnow to post potentially
     defamatory/libellous material. We take action, upon being informed, to
@@ -187,11 +206,10 @@
     the wider group, including mySociety’s CEO and Trustees</a>.
   </p>
 
-  <p>
-    <strong>
-      Requests to remove commercial information
-    </strong>
-  </p>
+  <h4 id="commercial_information">
+    Requests to remove commercial information
+    <a href="#commercial_information">#</a>
+  </h4>
   <p>
     Takedown requests on matters such as commercial sensitivity and confidential
     information such as contracts are infrequent but important. We deal with
@@ -202,11 +220,10 @@
     The law prohibiting a breach of confidence is our prime concern in such
     cases.
   </p>
-  <p>
-    <strong>
-      Copyright
-    </strong>
-  </p>
+  <h4 id="copyright">
+    Copyright
+    <a href="#copyright">#</a>
+  </h4>
   <p>
     It is legitimate to request copyrighted material under Freedom of
     Information law.
@@ -227,11 +244,10 @@
     get a copy of it. We also want to save taxpayers’ money by preventing
     duplicate requests.
   </p>
-  <p>
-    <strong>
-      How do we deal with vexatious requests?
-    </strong>
-  </p>
+  <h4 id="vexatious_requests">
+    How do we deal with vexatious requests?
+    <a href="#vexatious">#</a>
+  </h4>
   <p>
     We remove vexatious requests from our site when they are drawn to our
     attention.
@@ -244,11 +260,10 @@
     the ICO’s guidance on vexatious requests</a> and don’t always follow the
     position of the public body.
   </p>
-  <p>
-    <strong>
-      How do we deal with requests that are not valid?
-    </strong>
-  </p>
+  <h4 id="invalid_requests">
+    How do we deal with requests that are not valid?
+    <a href="#invalid_requests">#</a>
+  </h4>
   <p>
     When we are made aware of it, we remove any correspondence from our site
     which is not a request for  information that anyone could expect a
@@ -265,11 +280,10 @@
     on making Subject Access requests under the Data Protection Act</a> and
     try to help others find more appropriate means of contacting public bodies.
   </p>
-  <p>
-    <strong>
-      Why do we remove email addresses and mobile phone numbers from responses?
-    </strong>
-  </p>
+  <h4 id="email_addresses">
+    Why do we remove email addresses and mobile phone numbers from responses?
+    <a href="#email_addresses">#</a>
+  </h4>
   <p>
     To guard all parties against spam, and to encourage keeping all
     correspondence on WhatDoTheyKnow, we automatically remove most email
@@ -285,11 +299,10 @@
     Occasionally, an email address forms an important part of a response and if
     we’re asked to reveal it we may post it in an annotation.
   </p>
-  <p>
-    <strong>
-      How do we deal with requests that are not sent successfully?
-    </strong>
-  </p>
+  <h4 id="send_errors">
+    How do we deal with requests that are not sent successfully?
+    <a href="#send_errors">#</a>
+  </h4>
   <ul>
     <li>
       The admin team act to re-send requests/messages when we spot failed
@@ -307,11 +320,10 @@
       response.
     </li>
   </ul>
-  <p>
-    <h2>
-      Membership of the admin team
-    </h2>
-  </p>
+  <h2 id="admin_team">
+    Membership of the admin team
+    <a href="#admin_team">#</a>
+  </h2>
   <p>
     The majority of WhatDoTheyKnow’s admin team are volunteers, who are active
     users of the site.
@@ -338,18 +350,18 @@
     admin interface. If everyone concerned is comfortable, they may then be
     given access to the administration interface.
   </p>
-  <h2>
-      User accounts
+  <h2 id="user_accounts">
+    User accounts
+    <a href="#user_accounts">#</a>
   </h2>
   <p>
     If you sign up for an account on WhatDoTheyKnow, a profile listing any
     requests and annotations you have made will be publicly accessible.
   </p>
-  <p>
-    <strong>
-      Requests to remove or anonymise an account
-    </strong>
-  </p>
+  <h3 id="anonymise_account">
+    Requests to remove or anonymise an account
+    <a href="#anonymise_account">#</a>
+  </h3>
   <p>
     We think that well-written requests for information on important subjects
     form a positive element of anyone’s “online footprint”. We hope our users’
@@ -376,11 +388,10 @@
     requests and responses to be users’ personal information which they have a
     right to have removed from our service on request.
   </p>
-  <p>
-    <strong>
-      Banning users
-    </strong>
-  </p>
+  <h3 id="banning_users">
+    Banning users
+    <a href="#banning_users">#</a>
+  </h3>
   <p>
     We ban users for persistent misuse of our service (e.g. going against our
     <a
