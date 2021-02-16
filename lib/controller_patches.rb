@@ -1,7 +1,7 @@
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
   HelpController.class_eval do
-    before_action :set_history
+    before_action :set_history, except: :index
 
     def principles; end
     def house_rules; end
