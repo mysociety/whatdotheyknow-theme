@@ -169,6 +169,7 @@ Rails.configuration.to_prepare do
     auto-reply@castlepoint.gov.uk
     system@share.ons.gov.uk
     foi&dparequest@nmc-uk.org
+    lambethinformationrequests@lambeth.gov.uk
   )
 
   # Add survey methods to RequestMailer
