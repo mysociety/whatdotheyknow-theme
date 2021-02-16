@@ -560,8 +560,8 @@
   <p>
     In most cases our legal basis for processing personal information is
     "legitimate interest" (this is as laid out in <a
-    href="https://gdpr-info.eu/art-6-gdpr/">6(1)(f)</a> – of the GDPR, in force
-    from 25 May 2018). We believe that we are pursuing a legitimate interest in
+    href="https://www.legislation.gov.uk/eur/2016/679/article/6">6(1)(f)</a>
+    – of the UK GDPR. We believe that we are pursuing a legitimate interest in
     processing personal data to provide our service to benefit of our users and
     the benefit of society. There is a benefit to our users in that we offer an
     easy way to make, track and publish Freedom of Information requests. The
@@ -583,11 +583,12 @@
     On rare occasions the legal basis of "compliance with a legal obligation"
     will apply when we are legally obliged to hold material, for example where
     a court order has been issued (<a
-    href="https://gdpr-info.eu/art-6-gdpr/">6(1)(c)</a> of the GDPR).
+    href="https://www.legislation.gov.uk/eur/2016/679/article/6">6(1)(c)</a> of
+    the UK GDPR).
   </p>
   <p>
     In almost all cases our processing of personal information will be lawful
-    under Article 6 of the GDPR but we may also rely on <a
+    under Article 6 of the UK GDPR but we may also rely on <a
     href="http://www.legislation.gov.uk/ukpga/2018/12/part/6/crossheading/the-special-purposes/enacted"
     >the "special purposes" derogations in the Data Protection Act 2018</a>,
     especially those applying to academic and journalistic purposes. Often use
@@ -685,7 +686,7 @@
     for sensitive information or large volumes of breached personal data we
     would appreciate being notified by anyone.
   </p>
-  <h4>
+  <h4 id="takedown">
     Removal of public servants’ personal information from responses
     <a href="#takedown">#</a>
   </h4>
@@ -694,14 +695,15 @@
     automatically publish responses to requests made through the site in full.
     Where these responses include the personal information of public servants,
     we consider the legal basis for our processing of this information to be
-    that we have a legitimate interest as described in
-    <a href="https://gdpr-info.eu/art-6-gdpr/">Article 6(1)(f)</a>
-    of the GDPR). Our legitimate interest is in benefiting society by preserving and
-    promoting transparency and openness, and the accountability of those in
-    positions of power and in maintaining a historic public archive of Freedom of
-    Information requests and responses.  We will consider requests to remove the
-    names of public servants when it seems that the interests, rights and
-    freedoms of the data subject outweigh the public interest in publishing.
+    that we have a legitimate interest as described in <a
+    href="https://www.legislation.gov.uk/eur/2016/679/article/6">Article
+    6(1)(f)</a> of the UK GDPR). Our legitimate interest is in benefiting
+    society by preserving and promoting transparency and openness, and the
+    accountability of those in positions of power and in maintaining a historic
+    public archive of Freedom of Information requests and responses.  We will
+    consider requests to remove the names of public servants when it seems that
+    the interests, rights and freedoms of the data subject outweigh the public
+    interest in publishing.
   </p>
   <p>
     This means that:
@@ -737,10 +739,10 @@
     <a href="#right_to_access">#</a>
   </h3>
   <p>
-    You may contact us at any time to ask to see what personal data we hold
-    about you.  If you have used our service to make a request,  then the vast
-    majority of information we hold about you is shown publicly on our website
-    or visible to you on your user profile.
+    You may <%= link_to 'contact us', help_contact_path %> at any time to ask to
+    see what personal data we hold about you. If you have used our service to
+    make a request, then the vast majority of information we hold about you is
+    shown publicly on our website or visible to you on your user profile.
   </p>
   <h3 id="right_to_object">
     Your right to object
@@ -748,31 +750,49 @@
   </h3>
     <p>
     See also <a href="#erasure">your right to erasure</a>.
-    </p>
-    <p>
-    The General Data Protection Regulation gives you the right to object to our
-    processing of your personal information and to ask us to stop processing it.
-    However, it also gives us the right to continue to process it if we can demonstrate
-    compelling legitimate grounds for the processing that override your
-    interests, rights and freedoms. To exercise your right to object, you must
-    <a href="<%= help_contact_path %>">contact us</a>, giving
-    specific reasons why you are objecting to the processing of your personal data.
-    These reasons should be based upon your particular situation.
-    </p>
-
+  </p>
+  <p>
+    The General Data Protection Regulations (UK GDPR) give you the right to
+    object to our processing of your personal information and to ask us to stop
+    processing it.  However, it also gives us the right to continue to process
+    it if we can demonstrate compelling legitimate grounds for the processing
+    that override your interests, rights and freedoms. To exercise your right
+    to object, you must <%= link_to 'contact us', help_contact_path %>, giving
+    specific reasons why you are objecting to the processing of your personal
+    data. These reasons should be based upon your particular situation.
+  </p>
   </h3>
   <h3 id="right_to_complain">
     Your right to lodge a complaint
     <a href="#right_to_complain">#</a>
   </h3>
   <p>
-    You have the right to complain if you believe that we have mishandled your
-    personal data. For the UK, the relevant supervisory body is the Information
-    Commissioner’s Office. <a href="https://ico.org.uk/concerns/handling/">
-    You can report a concern here</a> (but do contact us
-    first, so that we can try and help — see our
-    <a href="https://www.whatdotheyknow.com/help/complaints">
-    complaints procedure here</a>).
+    You have the right to complain if you believe that we have mishandled
+    your personal data. Do <%= link_to 'contact us', help_contact_path %> first,
+    so that we can try and help (see our
+    <%= link_to 'complaints procedure here', help_complaints_path %>).
+  </p>
+  <p>
+    In the UK, the relevant supervisory body is the
+    Information Commissioner’s Office (ICO). Our data protection
+    registration number is <a href="https://ico.org.uk/ESDWebPages/Entry/Z9602302">
+    ZA9602302</a>.
+  </p>
+  <p>
+    You can contact the ICO using any of the following methods:
+    <ul>
+    <li>
+      Online:&nbsp;&nbsp; <a href="https://ico.org.uk/make-a-complaint/">
+      https://ico.org.uk/make-a-complaint/</a>
+    </li>
+    <li>
+      Phone:&nbsp;&nbsp; (0303) 123 1113
+    </li>
+    <li>
+      Post:&nbsp;&nbsp; Information Commissioner’s Office, Wycliffe House,
+      Water Lane, WILMSLOW, SK9 5AF
+    </li>
+    </ul>
   </p>
 
   <h2 id="cookies">
