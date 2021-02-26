@@ -1,0 +1,206 @@
+<% @title = "Guidance for ICO and OSIC officers" %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="officers">
+    <%= @title %>
+    <a href="#officers">#</a>
+  </h1>
+  <dl>
+    <dt id="top">
+      I am an officer at the Information Commissioner’s Office or the Office of
+      the Scottish Information Commissioner. What is this site?
+      <a href="#top">#</a>
+    </dt>
+    <dd>
+      <p>
+        Welcome! WhatDoTheyKnow is an online service that helps members of the
+        public make requests for information, and easily track and share the
+        responses from public bodies.
+      </p>
+      <p>
+        Since our beginnings, hundreds of thousands of requests have been sent,
+        processed, and published on WhatDoTheyKnow.
+        <%= link_to 'You can read more about the site here', help_about_path %>.
+      </p>
+      <p>
+        You may have come across us because one of our users has escalated
+        their request to you, needing your services for resolution. We also
+        sometimes have cause to report data breaches from authorities, released
+        in error in response to requests sent by our users; and, finally, like
+        all organisations, we are bound by the rules of GDPR and may be the
+        subject of queries sent to you about our processing of personal data.
+      </p>
+    </dd>
+    <dt id="handling_user_complaints">
+      I’m handling a complaint from a WhatDoTheyKnow user about an authority’s
+      treatment of an FOI request. Do I need to do anything special?
+      <a href="#handling_user_complaints">#</a>
+    </dt>
+    <dd>
+      <p>
+        Every request for information sent through WhatDoTheyKnow has its own
+        webpage, on which all correspondence between the requester and the
+        authority from which they are asking for information is published. If a
+        user decides to make a complaint to the ICO or OSIC, they may send you
+        the URL of their request page so that you can see the history of
+        correspondence between them and the authority.
+      </p>
+      <p>
+        You can handle this complaint as you would any other — but be aware
+        that the user might copy and paste, or summarise, your responses onto
+        their request’s webpage, to ensure that the complete history can be
+        seen.
+      </p>
+    </dd>
+    <dt id="handling_website_complaints">
+      I’m handling a complaint about information published on WhatDoTheyKnow
+      <a href="#handling_website_complaints">#</a>
+    </dt>
+    <dd>
+      <p>
+        We sometimes receive requests to remove part or all of a request or
+        response. These are considered in accordance with our
+        <%= link_to 'takedown policy', help_how_path(anchor: 'information_removal') %>.
+        In most cases, an individual or authority who has referred our handling
+        of data to the ICO or OSIC will have first made a complaint directly to
+        us, and we will have considered it in line with these policies,
+        balancing the impact on individuals’ rights, freedoms and interests
+        against our legitimate interest in running the WhatDoTheyKnow service.
+      </p>
+      <p>
+        We are always happy to discuss such cases with you: please do
+        <%= link_to 'get in touch', help_contact_path %>.
+      </p>
+    </dd>
+    <dt id="data_breach">
+      I’m handling a data protection breach that WhatDoTheyKnow reported to us
+      <a href="#data_breach">#</a>
+    </dt>
+    <dd>
+      <p>
+        With hundreds of requests processed by WhatDoTheyKnow every day, we
+        don’t check the contents of every single one — but under our policy of
+        <%= link_to 'reactive moderation', help_how_path(anchor: 'reactive_moderation') %>,
+        when we notice that an authority has accidentally released sensitive
+        information or someone reports a serious data breach to us, we take it
+        offline as soon as possible and report it to the ICO or OSIC where
+        applicable.
+      </p>
+      <p>
+        In such cases, we are happy to help you understand what has happened
+        and to provide any further details you require to help you handle the
+        report. Note that we are neither the subject of the data breach nor the
+        authority that released the sensitive data in such cases.
+      </p>
+      <p>
+        We try to help public bodies improve their processes so that accidental
+        releases like this don’t happen, and, abiding by the ICO’s own guidance
+        on when to do so, we report cases to you if applicable.
+      </p>
+    </dd>
+    <dt id="large_data_transfers">
+      I need you to transfer a large amount of personal data securely, for my
+      investigations into a data breach
+      <a href="#large_data_transfers">#</a>
+    </dt>
+    <dd>
+      <p>
+        Where appropriate, we can provide data to aid with your investigations.
+        Before we do so, we require details of how it will be used and why it
+        is needed, which will be considered according to our policies.
+      </p>
+      <p>
+        We have procedures to ensure that such data is transferred securely.
+        Please <%= link_to 'get in touch', help_contact_path %> with us to
+        discuss details.
+      </p>
+    </dd>
+    <dt id="requests_over_time">
+      I am trying to understand whether an authority is meeting its duties
+      under the law
+      <a href="#requests_over_time">#</a>
+    </dt>
+    <dd>
+      <p>
+        Because requests and responses are published openly on the site,
+        WhatDoTheyKnow can be a useful tool for assessing how authorities are
+        dealing with requests over time. Please do
+        <%= link_to 'get in touch', help_contact_path %> if you would like to
+        discuss this further.
+      </p>
+    </dd>
+
+    <dt id="useful_facts">
+      Some facts it’s useful for you to know
+      <a href="#useful_facts">#</a>
+    </dt>
+    <dd>
+      <ul>
+        <li>
+          The process of publishing FOI responses on WhatDoTheyKnow is
+          automatic. There is no human involvement, but we do promptly consider
+          any concerns to which our attention is drawn.
+        </li>
+        <li>
+          Requests are made by our users, not by the WhatDoTheyKnow.com admin
+          team.
+        </li>
+        <li>
+          If a request isn’t visible (say, you’ve clicked a link but it goes to
+          a ‘page not found’), it may have been removed. This can be due to one
+          of a number of reasons, including the removal of requests that are
+          vexatious, contain personal information or are not FOI requests. Some
+          requests, sent through our
+          <%= link_to 'Pro', account_request_index_path %> service, may be
+          hidden from the public until an embargo has expired.
+        </li>
+        <li>
+          WhatDoTheyKnow can act as a useful verification tool for the ICO or
+          OSIC. If you need to verify that a request was sent, and the precise
+          time and date that it was submitted,
+          <a href="https://www.mysociety.org/2016/07/29/the-small-symbol-that-tells-you-all-is-well">look for the green tick</a>
+          on the request page. This only appears when the request has been
+          received by the authority’s servers. On request we can provide the
+          delivery status notification logs.
+        </li>
+        <li>
+          Equally, responses from the public authority are published
+          immediately, together with the date of receipt, providing you with a
+          public record of exactly what was sent and when.
+        </li>
+        <li>
+          Once a request or a response has been published, it cannot be removed
+          by a user or by the public authority: this is a task that can only be
+          performed by the WhatDoTheyKnow admin team, who will apply our
+          <%= link_to 'Removal Of Information policy', help_how_path(anchor: 'information_removal') %>
+          to the decision of whether or not to retain it.
+        </li>
+        <li>
+          Sometimes authorities become aware of a data breach and raise
+          concerns by responding to the user’s initial request. While this will
+          alert the user, it does not automatically alert the WhatDoTheyKnow
+          admin team.
+        </li>
+        <li>
+          Finally, we welcome comments and thoughts from officers: please do
+          <%= link_to 'get in touch', help_contact_path %>.
+        </li>
+    </ul>
+    </dd>
+  </dl>
+
+  <p>
+    <strong>If you haven’t already</strong>, read
+    <%= link_to 'more about WhatDoTheyKnow, its aims and history', help_about_path %>
+    --&gt;
+    <br>
+    <strong>Otherwise</strong>, the <%= link_to 'credits', help_credits_path %>
+    --&gt;
+  </p>
+
+  <%= render partial: 'history' %>
+
+  <div id="hash_link_padding"></div>
+</div>

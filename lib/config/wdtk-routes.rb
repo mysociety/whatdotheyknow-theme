@@ -41,4 +41,8 @@ Rails.application.routes.draw do
   get '/help/beginners'  => 'help#beginners',
     :via => 'get',
     :as => 'help_beginners'
+
+  get '/help/ico_officers'  => 'help#ico_officers',
+    :via => 'get',
+    :as => 'help_ico_officers'
 end

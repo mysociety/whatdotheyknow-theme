@@ -9,6 +9,7 @@ Rails.configuration.to_prepare do
     def complaints; end
     def volunteers; end
     def beginners; end
+    def ico_officers; end
 
     private
 
