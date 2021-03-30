@@ -170,6 +170,7 @@ Rails.configuration.to_prepare do
     system@share.ons.gov.uk
     foi&dparequest@nmc-uk.org
     lambethinformationrequests@lambeth.gov.uk
+    myaccount@coventry.gov.uk
   )
 
   # Add survey methods to RequestMailer
