@@ -171,6 +171,8 @@ Rails.configuration.to_prepare do
     foi&dparequest@nmc-uk.org
     lambethinformationrequests@lambeth.gov.uk
     myaccount@coventry.gov.uk
+    C&PCCC@highwaysengland.co.uk
+    DONOTREPLY@3csharedservices.vuelio.co.uk
   )
 
   # Add survey methods to RequestMailer
