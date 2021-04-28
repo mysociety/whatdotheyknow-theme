@@ -1,0 +1,127 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s41-a1
+      show_if:
+      - { id: s41-q1, operator: is, value: 'no' }
+      advice:
+        html: >
+          This exemption appears to have been incorrectly applied.
+
+          Consider asking for an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1432163/information-provided-in-confidence-section-41.pdf">ICO guidance</a>.
+
+    - id: s41-a2
+      show_if:
+      - { id: s41-q1y1n1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          If you can argue that disclosure of the remaining material may not breach the source's confidence, consider asking for an internal review.
+
+    - id: s41-a3
+      show_if:
+      - { id: s41-q1y1y1y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1432163/information-provided-in-confidence-section-41.pdf">ICO guidance</a> refers to <a href="https://www.legislation.gov.uk/ukpga/2000/36/section/81">Section 81(2)(b) of the FOI Act</a>, and states; "In cases where the authority and confider are both government departments (or two Northern Ireland departments), the confider would not be able to rely upon this exemption."
+
+          Read the guidance and consider requesting an internal review.
+
+    - id: s41-a5
+      show_if:
+      - { id: s41-q2n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, asking the authority to confirm or deny whether they hold the information.
+
+    - id: s41-a8
+      show_if:
+      - { id: s41-q3, operator: is, value: 'no' }
+      advice:
+        plain: >
+          You have grounds for an internal review.
+
+          Request an internal review, asking the authority to provide this evidence
+
+    - id: s41-a9
+      show_if:
+      - { id: s41-q3y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          If you can argue the case convincingly that the information is already in the public domain, consider requesting an internal review. You may wish to cite Judge Megarry in Coco v A N Clark (Engineers) Limited [1968] FSR 415 (see point 35 of <a href="https://ico.org.uk/media/for-organisations/documents/1432163/information-provided-in-confidence-section-41.pdf">the ICO guidance</a>).
+
+    - id: s41-a10
+      show_if:
+      - { id: s41-q3y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Consider requesting an internal review, pointing out that the authority should provide the remainder of the information.
+
+    - id: s41-a11
+      show_if:
+      - { id: s41-q3y1y1n1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          The authority appears to have acted correctly on this point. However, if you think that you can argue convincingly that "there is a public interest in disclosure which overrides the competing public interest in maintaining the duty of confidence", you may like to request an internal review, stating your point. Read the <a href="https://ico.org.uk/media/for-organisations/documents/1432163/information-provided-in-confidence-section-41.pdf">ICO guidance</a> to understand this point in more detail.
+
+    - id: s41-a12
+      show_if:
+      - { id: s41-q3y1y1n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Read the <a href="https://ico.org.uk/media/for-organisations/documents/1432163/information-provided-in-confidence-section-41.pdf">ICO guidance</a> to understand this point in more detail. If you can argue the case that the release of the information would not be actionable, you may consider requesting an internal review, questioning this point.
+
+    - id: s41-a13
+      show_if:
+      - { id: s41-q4y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Consider requesting an internal review, citing the guidance above and pointing out that some or all of the contract may not be subject to a Section 41 exemption.
+
+    - id: s41-a14
+      show_if:
+      - { id: s41-q4y1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          You may have grounds for requesting an internal review.
+
+    - id: s41-a16
+      show_if:
+      - { id: s41-q5, operator: is, value: 'no' }
+      advice:
+        html: >
+          You may wish to read the <a href="https://ico.org.uk/media/for-organisations/documents/1202/information-about-the-deceased-foi-eir.pdf">ICO guidance relating to deceased people and Section 41 exemptions</a>. If, after doing so, you consider that the exemption has been incorrectly applied, you could request an internal review and cite this guidance.
+
+  - id: clarification
+    suggestions:
+    - id: s41-a6
+      show_if:
+      - { id: s41-q2n1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider responding to the authority to ask for details of the public interest test performed on the decision of whether to confirm or deny.
+
+  - id: new_request
+    suggestions:
+  - id: generic
+    suggestions:
+    - id: s41-a4
+      show_if:
+      - { id: s41-q2, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted appropriately on this point.
+
+    - id: s41-a7
+      show_if:
+      - { id: s41-q2n1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted appropriately on this point, but you may wish to consider whether you can make a valid argument in dispute of the conclusion of the public interest test.
+
+    - id: s41-a15
+      show_if:
+      - { id: s41-q4y1n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point, although there may be room to request a review if you can make a strong argument that they have overestimated the potential detrimental impact.

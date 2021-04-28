@@ -1,0 +1,253 @@
+foi:
+  questions:
+  - id: s35-q1
+    show_if: &section-35
+    - { id: exemption, operator: is, value: section-35 }
+    options: &yes-no
+    - { label: '<%= 'Yes' %>', value: 'yes' }
+    - { label: '<%= 'No' %>', value: 'no' }
+    label:
+      plain: >
+        Did you request information from a department of the UK, Wales or Northern Ireland central Governments?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> states that this exemption may only be applied to "information held by central government departments or the Welsh Assembly Government [...which includes any] Northern Ireland department, the Northern Ireland Court Service, and any other body or authority exercising statutory functions on behalf of the Crown (not including Scottish bodies or the security services)."
+
+  - id: s35-q1y1
+    show_if:
+    - { id: s35-q1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is the authority a 'non departmental public body' (NDPB)?
+    hint:
+      plain: >
+        Examples of NDPBs are the Independent Police Complaints Commission, the Law Commission and the ICO. Although they carry out governmental functions, they are independent of government.
+
+  - id: s35-q1n1
+    show_if:
+    - { id: s35-q1n1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority conducted a public interest test?
+    hint:
+      plain: >
+        The authority must show that it has considered whether the public interest in maintaining the exemption outweighs the public interest in disclosure.
+
+  - id: s35-q1n1y1
+    show_if:
+    - { id: s35-q1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided details of the test and explained the decision arrived at?
+
+  - id: s35-q1n1y1n1
+    show_if:
+    - { id: s35-q1n1y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority 'neither confirmed nor denied' (NCND) whether it holds the information you have requested?
+
+  - id: s35-q1n1y1n1y1
+    show_if:
+    - { id: s35-q1n1y1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority conducted a public interest test on the matter of whether to confirm or deny?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> says "Departments can only NCND if the public interest in concealing whether information is held outweighs the public interest in knowing whether information is held", and "a department must be able to explain in the public interest test exactly what a hypothetical confirmation or a hypothetical denial would reveal in the context of the particular request, and why at least one of these responses would be harmful to good government."
+
+  - id: s35-q2
+    show_if: *section-35
+    options: *yes-no
+    label:
+      plain: >
+        Is the information a historical record?
+    hint:
+      plain: >
+        This exemption cannot be applied to any information that is more than a certain number of years old: a new time limit is being phased in. The ICO says "From the end of 2013 the time limit is 29 years. It will reduce by another year every year until it reaches 20 years at the end of 2022."
+
+  - id: s35-q3
+    show_if: *section-35
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority also applied Section 36?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> says "if any part of section 35 is engaged, section 36 cannot apply".
+
+  - id: s35-q4
+    show_if: *section-35
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority applied Section 35(1)(a) (information relating to 'the formulation or development of government policy')?
+
+  - id: s35-q4y1
+    show_if:
+    - { id: s35-q4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request statistical information?
+    hint:
+      html: >
+        There is more information about what counts as statistical information in sections 162-168 of this <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a>.
+
+  - id: s35-q4y1y1
+    show_if:
+    - { id: s35-q4y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does this information relate to a policy decision that has now been made?
+
+  - id: s35-q4y1y1n1
+    show_if:
+    - { id: s35-q4y1y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Does it relate to policy-making at all?
+
+  - id: s35-q4n1
+    show_if:
+    - { id: s35-q4, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request information relating to the internal management of the department?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> says, "Departmental policies relating to the internal management and administration of individual departments (eg HR, information security, management structure, or administrative processes) are not government policy. All public and indeed private sector organisations need these sorts of policies in place. They are about managing the organisation, rather than governing the wider world.".
+
+  - id: s35-q4n1n1
+    show_if:
+    - { id: s35-q4n1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      html: >
+        Does the information you requested apply to the <i>formulation</i> of policy?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> states: "To be exempt, the information must relate to the formulation or development of government policy. The Commissioner understands these terms to broadly refer to the design of new policy, and the process of reviewing or improving existing policy. [...] However, the exemption will not cover information relating purely to the <i>application or implementation of established policy</i>." [italics ours].
+
+        It continues, "The Commissioner considers that the following factors will be key indicators of the formulation or development of government policy: the final decision will be made either by the Cabinetor the relevant minister; the government intends to achieve a particular outcome or change in the real world; and the consequences of the decision will be wide-ranging".
+
+  - id: s35-q4n1n1n1
+    show_if:
+    - { id: s35-q4n1n1, operator: is, value: 'yes' }
+    label:
+      html: >
+        Has the policy now been implemented?
+    advice:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> suggests that policy may be considered to have moved from formulation to implementation when it becomes legislation, when it is publicly announced, or when it is rolled out.
+
+  - id: s35-q5
+    show_if: *section-35
+    options: *yes-no
+    label:
+      plain: >
+        Did you request information relating to a decision made by a Minister?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> suggests that only Ministers have the final say on government policy, and "any decisions or adjustments made by someone else must therefore be implementation or management decisions, rather than policy development".
+
+  - id: s35-q5y1
+    show_if:
+    - { id: s35-q5, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        If a public interest test has been conducted, does it 'focus on protecting the policymaking process'?
+
+  - id: s35-q6
+    show_if: *section-35
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority applied Section 35(1)(b) (information relating to 'ministerial communications')?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> says, "The purpose of section 35(1)(b) is to protect the operation of government at ministerial level. It prevents disclosures which would significantly undermine ministerial unity and effectiveness or result in less robust, well-considered or effective ministerial debates and decisions. However, it should not be used simply to protect ministers from embarrassment,or from being held accountable for their decisions".
+
+  - id: s35-q6y1
+    show_if:
+    - { id: s35-q6, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request statistical information?
+    hint:
+      html: >
+        There is more information about what counts as statistical information in sections 162-168 of this <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a>.
+
+  - id: s35-q6y1y1
+    show_if:
+    - { id: s35-q6y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does this information relate to a policy decision that has now been made?
+
+  - id: s35-q6y2
+    show_if:
+    - { id: s35-q6, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has a public interest test has been conducted?
+
+  - id: s35-q6y2y1
+    show_if:
+    - { id: s35-q6y2, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does it 'focus on protecting ministerial unity and effectiveness, and protecting ministerial discussions and collective decision making processes'?
+
+  - id: s35-q7
+    show_if: *section-35
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority applied Section 35(1)(c) (information relating to 'the provision of advice by any of the Law Officers or any request for the provision of such advice')?
+    hint:
+      plain: >
+        ICO guidance says, "Section 35(1)(c) reflects the longstanding constitutional convention that government does not reveal whether Law Officers have or have not advised on a particular issue, or the content of any such advice. The underlying purpose of this confidentiality is to protect fully informed decision making by allowing government to seek legal advice in private, without fear of any adverse inferences being drawn from either the content of the advice or the fact that it was sought.It ensures that government is neither discouraged from seeking advice in appropriate cases, nor pressured to seek advice in inappropriate cases.".
+
+  - id: s35-q7y1
+    show_if:
+    - { id: s35-q7, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        If a public interest test has been conducted, does it 'focus on protecting ministerial unity and effectiveness, and protecting ministerial discussions and collective decision making processes'?
+
+  - id: s35-q8
+    show_if: *section-35
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority applied Section 35(1)(d) (information relating to 'the operation of any Ministerial private offices'?).
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> says that this exemption is rarely applied: "it is limited to information about routine administrative and management processes [and is]  likely to cover information such as routine emails, circulation lists, procedures for handling ministerial papers or prioritising issues, travel expenses, information about staffing, the minister’s diary, and any purely internal documents or discussions which have not been circulated outside the private office [...] However, the exemption will not automatically cover the content of a document just because it originated in or passed through the ministerial private office. In particular, it will not automatically cover the content of all ministerial papers, or details of ministerial meetings with third parties".
+
+  - id: s35-q8y1
+    show_if:
+    - { id: s35-q8, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has a public interest test been conducted?
+    hint:
+      html: >
+        You can find more information about this exemption and the public interest test in sections 152-160 of the <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a>, which says "The key public interest argument for this exemption is likely to relate to preserving a ‘safe space’ for the private office to focus on managing the minister’s work efficiently without external interference and distraction".

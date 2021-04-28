@@ -1,0 +1,173 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s35-a1
+      show_if:
+      - { id: s35-q1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          This exemption appears to have been incorrectly applied
+
+          Consider requesting an internal review.
+
+    - id: s35-a2
+      show_if:
+      - { id: s35-q1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          This exemption may have been incorrectly applied. Section 35 can only be applied to central government departments.
+
+          Consider requesting an internal review.
+
+    - id: s35-a3
+      show_if:
+      - { id: s35-q1n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Request an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> and pointing out that the authority is obliged to conduct a public interest test when applying this exemption.
+
+    - id: s35-a4
+      show_if:
+      - { id: s35-q1n1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point. However, a public interest test is always going to be subject to the thoughts and decisions of the member of staff who conducts it, so if you think you can make a strong argument for the public interest, you might consider requesting an internal review. This will mean that the request and the response you received will be examined by a different member of staff.
+
+    - id: s35-a5
+      show_if:
+      - { id: s35-q1n1y1n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Request an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> and pointing out that the authority is obliged to provide details of the public interest test and how the final decision was reached.
+
+    - id: s35-a6
+      show_if:
+      - { id: s35-q1n1y1n1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          You have grounds to request an internal review. Cite the ICO guidance and request that the authority provide the details of the NCND public interest test.
+
+    - id: s35-a7
+      show_if:
+      - { id: s35-q1n1y1n1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point. However, a public interest test is always going to be subject to the thoughts and decisions of the member of staff who conducts it, so if you think you can make a strong argument for the public interest, you might consider requesting an internal review. This will mean that the request and the response you received will be examined by a different member of staff.
+
+    - id: s35-a8
+      show_if:
+      - { id: s35-q2, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Request an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> and explaining that the exemption cannot be applied to historical records.
+
+    - id: s35-a9
+      show_if:
+      - { id: s35-q3, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          You have grounds for requesting an internal review. Quote the ICO guidance and ask which exemption is being applied.
+
+    - id: s35-a10
+      show_if:
+      - { id: s35-q4y1y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> states: "Once a policy decision has been made, the exemption cannot apply to any background statistical information".
+
+          Read the guidance in detail and then decide whether to go ahead and request an internal review.
+
+    - id: s35-a11
+      show_if:
+      - { id: s35-q4y1y1n1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> contains detailed consideration of what constitutes 'policy making'.
+
+          If you are unsure whether this exemption should have been applied to your request, you may wish to read it in more detail to see whether you can make a valid argument that you are not requesting information relating to the formulation or development of government policy.
+
+    - id: s35-a12
+      show_if:
+      - { id: s35-q4n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          You may have grounds for requesting an internal review.
+
+    - id: s35-a13
+      show_if:
+      - { id: s35-q4n1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          You may have grounds for requesting an internal review. We suggest reading the ICO guidance in detail to see whether you can make a strong argument in favour of disclosure on these grounds.
+
+    - id: s35-a14
+      show_if:
+      - { id: s35-q4n1n1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          It is possible that this exemption, which is for the formulation of policy, has been incorrectly applied. Read the ICO guidance and consider requesting an internal review.
+
+    - id: s35-a15
+      show_if:
+      - { id: s35-q5, operator: is, value: 'no' }
+      advice:
+        plain: >
+          You may have grounds for requesting an internal review. Read the ICO guidance carefully and consider whether you have a strong argument that the information you requested does not relate to the formulation or development of government policy.
+
+    - id: s35-a16
+      show_if:
+      - { id: s35-q5y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> sections 73-92 explain more about the public interest test when Section 35(1)(a) is applied. Among other advice, it notes "Arguments about other issues (eg the personal impact on individuals, or the commercial interests of stakeholders) are not relevant", and "arguments that ‘routine’ disclosure of a particular type of information would not be in the public interest are misconceived". There are also arguments about when the ideas of a 'safe space' or the 'chilling effect' can and cannot reasonably be applied.
+
+          Read <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">the guidance</a> carefully to see if you might be able to make a strong argument that the public interest test has arrived at the wrong decision, and, if so, consider requesting an internal review, laying out this argument.
+
+    - id: s35-a17
+      show_if:
+      - { id: s35-q6y1y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> states: "Once a policy decision has been made, the exemption cannot apply to any background statistical information,even if it is contained in a ministerial communication".
+
+          Read the guidance in detail and then decide whether to go ahead and request an internal review.
+
+    - id: s35-a18
+      show_if:
+      - { id: s35-q6y2y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> sections 108-117 explain more about the public interest test when Section 35(1)(b) is applied. Among other advice, it notes that "the relevance and weight of the public interest arguments will depend entirely on the content and sensitivity of the particular information in question and the effect its release would have in all the circumstances of the case".
+
+          Read <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">the guidance</a> carefully to see if you might be able to make a strong argument that the public interest test has arrived at the wrong decision, and, if so, consider requesting an internal review, laying out this argument.
+
+    - id: s35-a19
+      show_if:
+      - { id: s35-q7y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">ICO guidance</a> sections 132-141 explain more about the public interest test when Section 35(1)(c) is applied. Among other advice, it notes that 'Public interest arguments under section 35(1)(c) should focus on harm to government decision making processes. This reflects the underlying purpose of the exemption. Arguments about other issues will not be relevant."
+
+          Read <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">the guidance</a> carefully to see if you might be able to make a strong argument that the public interest test has arrived at the wrong decision, or that it focuses on issues other than harm to government decision-making processes and, if so, consider requesting an internal review, laying out this argument.
+
+    - id: s35-a20
+      show_if:
+      - { id: s35-q8y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Read <a href="https://ico.org.uk/media/for-organisations/documents/1200/government-policy-foi-section-35-guidance.pdf">the guidance</a> carefully to see if you might be able to make a strong argument that the public interest test has arrived at the wrong decision, and, if so, consider requesting an internal review, laying out this argument.
+
+    - id: s35-a21
+      show_if:
+      - { id: s35-q8y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          You have grounds for an internal review. This exemption requires the conducting of a public interest test.
+
+  - id: clarification
+    suggestions:
+  - id: new_request
+    suggestions:
+  - id: generic
+    suggestions:

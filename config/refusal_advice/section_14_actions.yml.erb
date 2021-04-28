@@ -1,0 +1,175 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s14-a9
+      show_if:
+      - { id: s14-q4y1y1n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Request an internal review, citing this guidance.
+
+    - id: s14-a10
+      show_if:
+      - { id: s14-q4y1y1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider objectively whether it is a reasonable assessment that responding to your request would require 'a disproportionate or unjustified level of disruption, irritation or distress, or place an unreasonable burden' on the authority. If you decide that it is not, gather your own arguments or evidence against this assessment, then include them when you ask for an internal review.
+
+    - id: s14-a11
+      show_if:
+      - { id: s14-q5n1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          A <a href="http://www.bailii.org/ew/cases/EWCA/Civ/2015/454.html">Court of Appeal case</a> stated that a request may not be vexatious if "the information sought would be of value to the requester or to the public or any section of the public".
+
+          Consider requesting an internal review, citing the <a href="https://ico.org.uk/media/for-organisations/documents/1198/dealing-with-vexatious-requests.pdf">ICO guidance</a> and stating the value this information would have if released.
+
+    - id: s14-a13
+      show_if:
+      - { id: s14-q6, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Consider requesting an internal review. The <a href="https://ico.org.uk/media/for-organisations/documents/1198/dealing-with-vexatious-requests.pdf">ICO guidance</a> states that an FOI service must be 'applicant blind'. Exemption 14(1) can only be applied to the request itself, and not the individual who submits it.
+
+    - id: s14-a15
+      show_if:
+      - { id: s14-q7y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Request an internal review, citing your reasons for contesting this allegation.
+
+    - id: s14-a16
+      show_if:
+      - { id: s14-q8, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Request an internal review, citing the <a href="https://ico.org.uk/media/for-organisations/documents/1198/dealing-with-vexatious-requests.pdf">ICO guidance</a>. Round robin requests can be a legitimate way to get a wider picture or consistent data from a range of authorities. Also, authorities may only consider the burden on themselves, not that which your other requests may place on other authorities.
+
+    - id: s14-a18
+      show_if:
+      - { id: s14-q9y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          request an internal review, explaining the difference between what you have asked for and what they have provided.
+
+    - id: s14-a19
+      show_if:
+      - { id: s14-q10, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Request an internal review, giving evidence as to why the assessment is incorrect (for example, explain why your other requests are substantially different, or that the current request is a follow-up because the previous one wasn't entirely responded to).
+
+    - id: s14-a22
+      show_if:
+      - { id: s14-q11, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, giving evidence as to why the assessment is incorrect.
+
+  - id: clarification
+    suggestions:
+    - id: s14-a5
+      show_if:
+      - { id: s14-q4, operator: is, value: 'yes' }
+      advice:
+        html: >
+          The ICO advises that "Public authorities must keep in mind that meeting their underlying commitment to transparency and openness may involve absorbing a <i>certain level</i> of disruption and annoyance" [italics ours].
+
+    - id: s14-a6
+      show_if:
+      - { id: s14-q4y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Reply and ask the authority to provide the arguments or evidence behind their assessment.
+
+    - id: s14-a7
+      show_if:
+      - { id: s14-q4y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority potentially should have cited Exemption 12, 'Appropriate limit'. Consider responding to clarify, and taking the steps advised for this exemption instead.
+
+    - id: s14-a8
+      show_if:
+      - { id: s14-q4y1y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Reply, citing <a href="https://ico.org.uk/media/for-organisations/documents/1198/dealing-with-vexatious-requests.pdf">ICO guidance</a> and asking for such suggestions.
+
+    - id: s14-a17
+      show_if:
+      - { id: s14-q9y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Reply and ask for clarification as to where this information can be found.
+
+  - id: new_request
+    suggestions:
+    - id: s14-a3
+      show_if:
+      - { id: s14-q2y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider removing any text that has a function other than conveying your request for information, and resubmitting. For example, remove any opinions, extraneous background information or emotional language. It might be worth apologising to the authority for the wording used in a previous request, and making your point in an objective way to highlight that your request does have a serious purpose and is being made in good faith.
+
+    - id: s14-a14
+      show_if:
+      - { id: s14-q7y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          A 'scattergun' approach is not inadmissible in and of itself, but may add an extra degree of irritation to the authority if it also displays other signs of vexatiousness, for example the subject matter is trivial or providing the information would be disruptive. You may have success if you can:
+          <ul>
+            <li>make the request as unburdensome as possible</li>
+            <li>demonstrate a valid line of enquiry, or the type of story you might hope to base on any information supplied</li>
+            <li>ask for assistance in narrowing down your request, based on the authority's knowledge of their own information and internal storage systems.</li>
+          </ul>xx
+
+    - id: s14-a21
+      show_if:
+      - { id: s14-q11, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Consider:
+          <ul>
+            <li>Only submitting those requests where you can demonstrate the value of the information's release</li>
+            <li>Waiting longer between requests</li>
+            <li>Getting someone else to make the other parts (but do not be seen to be working together as a 'campaign').</li>
+          </ul>
+
+  - id: generic
+    suggestions:
+    - id: s14-a1
+      show_if:
+      - { id: s14-q1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          It sounds like the exemption has been correctly applied: this is an improper use of FOI (and of WhatDoTheyKnow).
+
+    - id: s14-a2
+      show_if:
+      - { id: s14-q2y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          It sounds like the exemption has been correctly applied: this is an improper use of FOI (and of WhatDoTheyKnow).
+
+    - id: s14-a4
+      show_if:
+      - { id: s14-q3, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Consider accepting the authority's advice or help.
+
+    - id: s14-a12
+      show_if:
+      - { id: s14-q5n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          It sounds like the exemption has been correctly applied: this is an improper use of FOI (and of WhatDoTheyKnow).
+
+    - id: s14-a20
+      show_if:
+      - { id: s14-q10, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Check to see whether one of your other requests is progressing. Authorities will often issue a Section 14(2) assessment on all but one request, which they then deal with as normal.

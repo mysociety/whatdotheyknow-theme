@@ -1,0 +1,246 @@
+foi:
+  questions:
+  - id: s11-q1
+    show_if: &section-11
+    - { id: exemption, operator: is, value: section-11 }
+    options: &yes-no
+    - { label: "<%= 'Yes' %>", value: "yes" }
+    - { label: "<%= 'No' %>", value: "no" }
+    label:
+      plain: >
+        Was your preference for the format you would like the information provided in, or the means by which it should be conveyed, included in your initial request?
+
+  - id: s11-q2
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Did you request that the information be translated into a different language?
+    hint:
+      plain: >
+        The FOI Act does not oblige authorities to provide translations of information that they hold, so the authority has acted within its rights under the FOI Act.
+
+  - id: s11-q3
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Would the information that you requested meet the definition of 'a dataset'?
+    hint:
+      html: >
+        There is <a href="https://ico.org.uk/media/for-organisations/documents/1151/datasets-foi-guidance.pdf">ICO guidance</a> specifically about datasets. This defines a dataset as "a collection of factual information in electronic form to do with the services and functions of the authority that is neither the product of analysis or interpretation, nor an official statistic and has not been materially altered."
+
+  - id: s11-q3y1
+    show_if:
+    - { id: s11-q3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided the data in a reusable format?
+    hint:
+      html: >
+        The Explanatory Notes to the Protection of Freedoms Act 2012 say that “a re-usable format is one where the information is available in machine-readable form using open standards which enables its re-use and manipulation” (<a href="https://www.legislation.gov.uk/ukpga/2012/9/notes/contents">note 389</a>). A common example of this is CSV (comma separated values) data, which can be processed by all spreadsheet programs.
+
+        ICO guidance states that where the requester has asked for a dataset and stated a preference for the data to be provided in an electronic format (and elsewhere in the same guidance suggests that if no preference is stated, it can be assumed that a request made electronically can be seen as a preference for the response to be made in the same way), "the public authority must, so far as reasonably practicable, provide the information to the applicant in an electronic form which is capable of re-use [...]. The requester does not have to specify when submitting their request that they want a re-usable dataset. [...] If the requester has asked to receive the information in hard copy, then there is no duty to provide it in an electronic form capable of re-use".
+
+  - id: s11-q3y1n1
+    show_if:
+    - { id: s11-q3y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Is the data you requested already held in a digital format by the authority?
+
+  - id: s11-q3y1n1y1
+    show_if:
+    - { id: s11-q3y1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority stated that it would not be reasonably practicable to convert it into a reusable data format?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1151/datasets-foi-guidance.pdf">ICO guidance</a> says that time, cost, scope and technical issues can all be considerations. However "What is reasonably practicable is a decision for the public authority to make, taking account of all the circumstances of the case, including the purpose of the legislation, which is to promote open data. If the public authority decides that it is not reasonably practicable to provide the information in a re-usable form, the requester can ask the authority to review its decision and then, if they are not satisfied with the authority’s review, complain to the Information Commissioner."
+
+  - id: s11-q4
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority acknowledged your request for information to be provided in a specific format or via a specific means, but said that it is not reasonably practicable for them to do so?
+
+  - id: s11-q4y1
+    show_if:
+    - { id: s11-q4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they provided a reason for this judgement?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a> says "the relevant circumstances could include, but are not limited to "the cost of supplying the information in the format requested; how the information is held; the available resources of the authority, and "issues such as security restrictions or difficulties of physical access to records stores".
+
+  - id: s11-q4y1y1
+    show_if:
+    - { id: s11-q4y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the reason given by the authority apply to all of the information requested?
+    hint:
+      plain: >
+        The authority can only apply this exemption to the relevant part of the information — for example, if you have asked for information in an Excel spreadsheet, and it would not be reasonably practicable to convert a portion of it that only exists on paper, the authority can only apply the exemption to the paper documents.
+
+  - id: s11-q4y1y1n1
+    show_if:
+    - { id: s11-q4y1y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided the rest of the information in your requested format?
+
+  - id: s11-q4y1y1n1y1
+    show_if:
+    - { id: s11-q4y1y1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided, or offered to provide, the information in another format?
+
+  - id: s11-q4y1y1n1y1y1
+    show_if:
+    - { id: s11-q4y1y1n1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is this format acceptable to you?
+  - id: s11-q5
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority cited copyright or confidentiality as the reason that it is not reasonably practicable for them to provide the requested information in your preferred format?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a> states: "Arguments that providing information in the preferred form would allow unauthorised copying,and hence infringement of copyright, are not relevant to whether it is reasonably practicable to comply with the requester’s preference."
+
+  - id: s11-q6
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Did you request to inspect the information in person?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a> states that some instances where it is not 'reasonably practicable' for an authority to provide information for inspection include where the original documents are fragile; where redaction is needed.
+
+  - id: s11-q6y1
+    show_if:
+    - { id: s11-q6, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the authority provide reasons for not allowing inspection of this information?
+
+  - id: s11-q6y1y1
+    show_if:
+    - { id: s11-q6y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the authority provide the information electronically, or make a suggestion for an alternative means of accessing it?
+
+  - id: s11-q6y1y1y1
+    show_if:
+    - { id: s11-q6y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is this method reasonable in the circumstances?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a> says that the authority may communicate the information "by any means which are reasonable in the circumstances".
+
+  - id: s11-q7
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Did you ask for a digest or summary of information?
+  - id: s11-q7y1
+    show_if:
+    - { id: s11-q7, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request that the authority produce a new summary of existing information?
+    hint:
+      plain: >
+        There is a distinction between requesting a summary that already exists, and requesting a new summary to be created.
+
+  - id: s11-q7y1y1
+    show_if:
+    - { id: s11-q7y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the authority say that all the information in such a summary is exempt?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a> states that an authority is not obliged to create a new summary of information, but may do so at their discretion. The summary may sometimes be created by extracting parts of existing information.  If it is not 'reasonably practicable' to extract the required parts, the authority may decide to provide all the information instead.
+
+  - id: s11-q8
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority requested a fee for providing this information?
+  - id: s11-q8y1
+    show_if:
+    - { id: s11-q8, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Does this fee cover only the cost of providing the information in your preferred format, for example the cost of a memory stick, CD, DVD or postage?
+
+  - id: s11-q8y1n1
+    show_if:
+    - { id: s11-q8y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the fee also cover staff time spent in photocopying, printing or saving the information to your preferred media?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a> states that the authority must not include costs relating to staff time spent in providing the information in your preferred format. Costs other than this are covered by exemption 13 (see our advice on that exemption here).
+
+  - id: s11-q9
+    show_if: *section-11
+    options: *yes-no
+    label:
+      plain: >
+        Did the authority state that they have applied exemption 11 because the information is available via their publication scheme or another publicly-accessible part of their website?
+
+  - id: s11-q9y1
+    show_if:
+    - { id: s11-q9, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Did you request the same information that has been published, but in a different format?
+
+  - id: s11-q9y1n1
+    show_if:
+    - { id: s11-q9y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Does the information they have pointed to differ from the information you have requested?
+
+  - id: s11-q9y1n1n1
+    show_if:
+    - { id: s11-q9y1n1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided you with a link to where the information can be found?

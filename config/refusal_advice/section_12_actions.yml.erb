@@ -1,0 +1,111 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s12-a3
+      show_if:
+      - { id: s12-q1y1y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Ask for an internal review. Inform the authority that this should not be part of the calculation, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">ICO advice</a>.
+
+    - id: s12-a4
+      show_if:
+      - { id: s12-q1y1y2, operator: is, value: 'no' }
+      advice:
+        plain: >
+          If not, consider asking for an internal review to challenge this calculation.
+
+    - id: s12-a8
+      show_if:
+      - { id: s12-q3y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Ask for an internal review, stating that they are not all FOI requests.
+
+    - id: s12-a9
+      show_if:
+      - { id: s12-q3y2, operator: is, value: 'no' }
+      advice:
+        html: >
+          Authorities are advised that requests may only be aggregated if they relate “to any extent” to the same or similar information. This is a wide description which you may be able to argue against.
+
+          Ask for an internal review, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">ICO advice</a>.
+
+    - id: s12-a10
+      show_if:
+      - { id: s12-q3, operator: is, value: 'yes' }
+      advice:
+        html: >
+          You may be able to argue against aggregation on the basis that by law, authorities must respond to requests within 20 working days. The ICO allow "the aggregation period to only run up to 20 days ‘forward’ from the date of any single request under consideration" and "up to 20 days ‘backwards’ from the date of any single request under consideration" and "the total aggregation period (running either forwards or backwards or a combination of both) from the date of any single request must not exceed 60 working days".
+
+          Ask for an internal review, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">ICO advice</a>.
+
+    - id: s12-a11
+      show_if:
+      - { id: s12-q4y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Ask for an internal review, stating that you are unrelated to other people who have made a request.
+
+    - id: s12-a12
+      show_if:
+      - { id: s12-q4y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Ask for an internal review, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">ICO advice</a> which states that requests may not be aggregated if they were made more than 60 working days apart.
+
+  - id: clarification
+    suggestions:
+    - id: s12-a1
+      show_if:
+      - { id: s12-q1n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          <a href="https://www.legislation.gov.uk/ukpga/2000/36/section/1">Section 1(1) of the FOI Act</a> requires that an authority informs you "whether it holds information of the description specified in the request".
+
+          If they have not confirmed or denied whether they hold the information, and if they have not cited the cost limit as the reason, reply to the authority, requesting clarification on this point.
+
+    - id: s12-a2
+      show_if:
+      - { id: s12-q1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          This is not a requirement, but it is considered good practice by the ICO to provide 'arguments or evidence'. Note that the FOI Act states that it is "the duty of a public authority to provide advice and assistance, so far as it would be reasonable to expect the authority to do so".
+
+          Reply to the authority quoting this guidance and asking for more detail.
+
+    - id: s12-a5
+      show_if:
+      - { id: s12-q1y1y2, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Consider reducing the scope of your request or breaking your request into smaller parts; getting someone else to make the other parts (but do not be seen to be working together as a 'campaign'), or waiting 60 working days between requests.
+
+    - id: s12-a6
+      show_if:
+      - { id: s12-q1y1y2, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          If the authority has described how they intend to conduct the search, and you think there is a cheaper way of doing so which they have not considered, you can reply to suggest it (for example, a more refined search term to use across electronic files).
+
+    - id: s12-a7
+      show_if:
+      - { id: s12-q2, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Section 16 of the FOI Code of Practice advises that bodies should 'provide advice and assistance, so far as it would be reasonable to expect the authority to do so' and the ICO guidance interprets this as providing suggestions of this nature.
+
+          Respond to authority asking for such advice.
+
+    - id: s12-a13
+      show_if:
+      - { id: s12-q5y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Ask for the information you prefer, linking to <a href="https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf">ICO advice</a>.
+
+  - id: new_request
+    suggestions:
+  - id: generic
+    suggestions:

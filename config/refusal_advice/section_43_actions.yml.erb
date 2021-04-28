@@ -1,0 +1,158 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s43-a1
+      show_if:
+      - { id: s43-q1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, citing this guidance and pointing out that it is the authority's duty to demonstrate that disclosure would be prejudicial to business interests.
+
+    - id: s43-a2
+      show_if:
+      - { id: s43-q1y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Ask for an internal review, citing ICO guidance and asking the authority to provide evidence that the prejudice test was conducted in this case, and details of their findings.
+
+    - id: s43-a4
+      show_if:
+      - { id: s43-q1y1y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly in this case — but if you think that the decision arrived at after the prejudice test was conducted is the wrong one, and you can make a convincing argument, you may consider requesting an internal review.
+
+    - id: s43-a5
+      show_if:
+      - { id: s43-q1y1n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Consider whether you agree that the evidence is reasonable, and, if you can make a good argument that it is not, you may wish to request an internal review.
+
+    - id: s43-a6
+      show_if:
+      - { id: s43-q1y1n1n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          If you think you can make a good case that the arguments are not valid or are just speculation, consider requesting an internal review.
+
+    - id: s43-a7
+      show_if:
+      - { id: s43-q1y1n1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider asking for an internal review, requesting that the arguments to be provided.
+
+    - id: s43-a8
+      show_if:
+      - { id: s43-q2y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a> says that this argument can only be applied if future transactions are likely to have a 'degree of similarity' with the one you are asking about.
+
+          Consider whether this is the case - you may have grounds to request an internal review if it is not.
+
+    - id: s43-a9
+      show_if:
+      - { id: s43-q2y2, operator: is, value: 'no' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a> states that: "It is [...] important for a public authority to consider each clause within a contract, rather than view the contract as a whole. Arguments about the burden this may create are not relevant under section 43".
+
+          You may have grounds for requesting an internal review. Cite the ICO guidance and ask for the other parts of the contract to be released.
+
+    - id: s43-a10
+      show_if:
+      - { id: s43-q3, operator: is, value: 'no' }
+      advice:
+        html: >
+          Ask for an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a> and asking the authority to provide evidence that the public interest test was conducted in this case.
+
+    - id: s43-a11
+      show_if:
+      - { id: s43-q3y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Consider asking for an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a>.
+
+    - id: s43-a12
+      show_if:
+      - { id: s43-q3y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Of necessity, the Public Interest test will reflect the thought processes of the member of staff conducting it, and there may well be room for making a good case against them. <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a>, says, for example, that authorities should bear in mind that there is a "strong case for openness and transparency"; for "accountability for the spending of public money", for "promoting competition in procurement via transparency" and for "protect[ing] the public from unsafe products or dubious practices".
+
+          These would, however, be set against the commercial interests of, for example, competition, reputation, ability to generate income and impact on other negotiations.
+
+          If you think you may be able to make a good case for public interest based on one of these premises, read the ICO guidance and consider requesting an internal review.
+
+    - id: s43-a14
+      show_if:
+      - { id: s43-q4n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          You may wish to ask for an internal review, asking the authority to confirm or deny whether they hold the information.There is more information about confirming or denying in this <a href="https://ico.org.uk/media/for-organisations/documents/1166/when_to_refuse_to_confirm_or_deny_section_1_foia.pdf">ICO guidance</a>.
+
+    - id: s43-a15
+      show_if:
+      - { id: s43-q4n1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, stating that the authority must conduct a Public Interest test on the decision to confirm or deny.
+
+    - id: s43-a16
+      show_if:
+      - { id: s43-q4n1y1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Of necessity, the Public Interest test will reflect the thought processes of the member of staff conducting it, and there may well be room for making a good case against them. <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a>, says, for example, that authorities should bear in mind that there is a "strong case for openness and transparency"; for "accountability for the spending of public money", for "promoting competition in procurement via transparency" and for "protect[ing] the public from unsafe products or dubious practices".
+
+          These would, however, be set against the commercial interests of, for example, competition, reputation, ability to generate income and impact on other negotiations.
+
+          If you think you may be able to make a good case for public interest based on one of these premises, read the ICO guidance and consider requesting an internal review.
+
+    - id: s43-a17
+      show_if:
+      - { id: s43-q5y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider requesting an internal review, citing the ICO guidance and asking the authority to provide the parts of the contract which are not commercially sensitive.
+
+  - id: clarification
+    suggestions:
+    - id: s43-a3
+      show_if:
+      - { id: s43-q1y1y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">The ICO says</a>: "The public authority must decide the likelihood of prejudice arising on the facts of each case".
+
+          Consider asking for clarification, citing this guidance and requesting that the authority provide more details about their calculations in applying the prejudice test.
+
+  - id: new_request
+    suggestions:
+    - id: s43-a19
+      show_if:
+      - { id: s43-q6, operator: is, value: 'yes' }
+      advice:
+        html: >
+          <a href="https://ico.org.uk/media/for-organisations/documents/1178/commercial-interests-section-43-foia-guidance.pdf">ICO guidance</a> says, "The public authority must apply an exemption based on the circumstances that exist at the time the request is made. However information submitted during a tendering process is more likely to be commercially sensitive while the tendering process is ongoing, compared to once the contract has been awarded", although it does also note that some information will remain sensitive, for example if it reveals an approach to business which if known to the public could be commercially damaging.
+
+          You may wish to consider resubmitting your request once some time has passed.
+
+  - id: generic
+    suggestions:
+    - id: s43-a13
+      show_if:
+      - { id: s43-q4, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point.
+
+    - id: s43-a18
+      show_if:
+      - { id: s43-q5y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly in this instance.

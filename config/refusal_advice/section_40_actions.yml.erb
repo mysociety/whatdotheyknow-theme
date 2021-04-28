@@ -1,0 +1,132 @@
+foi:
+  actions:
+  - id: internal_review
+    suggestions:
+    - id: s40-a3
+      show_if:
+      - { id: s40-q1n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          This exemption only applies to <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/what-is-personal-data/">personal data</a> (your own or someone else's). If the information you have requested is not personal data, this exemption has not been applied correctly.
+
+          Ask for an internal review.
+
+    - id: s40-a4
+      show_if:
+      - { id: s40-q1n1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          This exemption only applies where the subject is alive.
+
+          Ask for an internal review.
+
+    - id: s40-a5
+      show_if:
+      - { id: s40-q1n1y1y1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          In this case you might be able to make the argument that the data you are requesting is not personal data.
+
+          Consider asking for an internal review.
+
+    - id: s40-a8
+      show_if:
+      - { id: s40-q1n1y2y1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Consider requesting an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/2614720/personal-information-section-40-and-regulation-13-version-21.pdf">ICO guidance</a>.
+
+    - id: s40-a9
+      show_if:
+      - { id: s40-q1n1y3y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Deciding upon the 'necessity' of release as part of a legitimate interests test is always going to rely, to some extent, on personal opinion. So you may consider requesting an internal review, if you think that you can argue persuasively that disclosure is necessary due to legitimate interests. <a href="https://ico.org.uk/media/for-organisations/documents/2614720/personal-information-section-40-and-regulation-13-version-21.pdf">Read the portion of this ICO guidance on legitimate interests first</a>.
+
+    - id: s40-a11
+      show_if:
+      - { id: s40-q1n1y4n1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Read this <a href="https://ico.org.uk/media/for-organisations/documents/2614719/neither-confirm-nor-deny-in-relation-to-personal-data-section-40-5-and-regulation-13-5-v20.pdf">ICO guidance</a>, and if you consider that the act of confirming or denying would not release personal data, consider requesting an internal review.
+
+    - id: s40-a14
+      show_if:
+      - { id: s40-q1n1y4n1y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          You may wish to request an internal review, noting that the authority does not appear to have conducted a public interest test.
+
+    - id: s40-a15
+      show_if:
+      - { id: s40-q1n1y4y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          The authority should only withhold the information covered by this, or another, exemption.
+
+          Consider asking for an internal review, stating that the authority is required to provide the remainder of the requested information.
+
+  - id: clarification
+    suggestions:
+    - id: s40-a2
+      show_if:
+      - { id: s40-q1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          ICO guidance states that the authority should treat the request as a SAR even if it was sent in the form of an FOI request — so long as your identity is clear and they can confirm that you are requesting your own data. Do check that the authority has not used WhatDoTheyKnow to complete processing this request, as, if they do so, your personal information will be published on our website.
+
+          Reply to the authority and tell them you will email them directly so that the SAR can be processed in private. You can use the 'Actions' button at the foot of the request page and select 'report this request' if a response contains anything personal that should be removed from the site.
+
+    - id: s40-a12
+      show_if:
+      - { id: s40-q1n1y4n1y1, operator: is, value: 'no' }
+      advice:
+        html: >
+          Read this <a href="https://ico.org.uk/media/for-organisations/documents/2614719/neither-confirm-nor-deny-in-relation-to-personal-data-section-40-5-and-regulation-13-5-v20.pdf">ICO guidance</a> and consider responding to ask for clarification on this point.
+
+  - id: new_request
+    suggestions:
+
+  - id: generic
+    suggestions:
+    - id: s40-a1
+      show_if:
+      - { id: s40-q1, operator: is, value: 'yes' }
+      advice:
+        html: >
+          Freedom of Information is not the correct channel for this type of request: you should have made a Subject Access Request (SAR) directly to the authority. <a href="https://ico.org.uk/your-data-matters/your-right-to-get-copies-of-your-data/">You can see more information about this here</a>.
+
+    - id: s40-a6
+      show_if:
+      - { id: s40-q1n1y2, operator: is, value: 'no' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point. Special category or criminal offence data cannot be released without the subject's consent.
+
+    - id: s40-a7
+      show_if:
+      - { id: s40-q1n1y2y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Information disclosed in court does not fall under this provision. The authority appears to have acted correctly on this point.
+
+    - id: s40-a10
+      show_if:
+      - { id: s40-q1n1y4, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point.
+
+    - id: s40-a13
+      show_if:
+      - { id: s40-q1n1y4n1y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point, although you may wish to consider whether their conclusion is correct.
+
+    - id: s40-a16
+      show_if:
+      - { id: s40-q1n1y4y1y1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          The authority appears to have acted correctly on this point.

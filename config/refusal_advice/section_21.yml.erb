@@ -1,0 +1,205 @@
+foi:
+  questions:
+  - id: s21-q1
+    show_if: &section-21
+    - { id: exemption, operator: is, value: section-21 }
+    options: &yes-no
+    - { label: "<%= 'Yes' %>", value: "yes" }
+    - { label: "<%= 'No' %>", value: "no" }
+    label:
+      plain: >
+        Having stated that this exemption applies, has the authority pointed you precisely to where the information can be found?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1203/information-reasonably-accessible-to-the-applicant-by-other-means-sec21.pdf">ICO guidance</a> states that the authority should either "[know] that the applicant has already found the information; or [be] able to provide the applicant with precise directions to the information so that it can be found without difficulty".
+
+  - id: s21-q1y1
+    show_if:
+    - { id: s21-q1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is it easy to understand the description of where the information can be found?
+
+  - id: s21-q1y1y1
+    show_if:
+    - { id: s21-q1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is the information somewhere that you can easily access?
+
+  - id: s21-q1y1y1n1
+    show_if:
+    - { id: s21-q1y1y1, operator: is, value: 'no' }
+    options: *yes-no
+    label:
+      plain: >
+        Are there specific or personal circumstances which prevent you from accessing this information?
+    hint:
+      html: >
+        This is one of the few exemptions where an authority may consider <a href="https://ico.org.uk/media/for-organisations/documents/1203/information-reasonably-accessible-to-the-applicant-by-other-means-sec21.pdf">your personal circumstances</a>, and there are many possible considerations. These may include: that you do not have free or easy access to the internet, when the information is accessible only online; not being able to access an address where the information is held because you live far away from it or have physical difficulty accessing it, or because your job does not allow you to visit during its opening hours.  The authority must also take into consideration their obligations under relevant legislation such as the Equalities Act and the Welsh Language Act.
+
+  - id: s21-q1y1y1n1y1
+    show_if:
+    - { id: s21-q1y1y1n1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is the authority aware of any personal circumstances which apply?
+
+  - id: s21-q2
+    show_if: *section-21
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority indicated that the information is available via another access to information regime, e.g. by the Access to Health Records Act 1990?
+
+  - id: s21-q2y1
+    show_if:
+    - { id: s21-q2, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority provided details of this regime and how it operates?
+
+  - id: s21-q2y1y1
+    show_if:
+    - { id: s21-q2y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority demonstrated, or is it obvious, that you have the right of access under this regime?
+
+  - id: s21-q2y1y1y1
+    show_if:
+    - { id: s21-q2y1y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Are there any restrictions to you as regards the use of the information once you have retrieved it from the other regime?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1203/information-reasonably-accessible-to-the-applicant-by-other-means-sec21.pdf">ICO guidance</a> states: "In order for section 21 to apply the applicant should be as free to use the information provided under any alternative access regime as they would be had it been disclosed under FOIA. This will include any conditions attached to further use that would apply when information is disclosed under FOIA, such as copyright restrictions".
+
+  - id: s21-q3
+    show_if: *section-21
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority indicated that this information is accessible to you through a law, eg The Companies Act or the Births and Deaths Registration Act?
+    hint:
+      plain: >
+        If so, they will be citing Exemption 21(2)(b).
+
+  - id: s21-q3y1
+    show_if:
+    - { id: s21-q3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Have they explained which law this is?
+
+  - id: s21-q3y1y
+    show_if:
+    - { id: s21-q3y1, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is the information only available 'for inspection'?
+
+  - id: s21-q3y2
+    options: *yes-no
+    label:
+      plain: >
+        Were you requesting access to court records, a court order or judgement?
+
+  - id: s21-q4
+    show_if: *section-21
+    options: *yes-no
+    label:
+      plain: >
+        Has the authority stated that the information is accessible via their own publication scheme?
+    hint:
+      html: >
+        A 'publication scheme' refers to an authority's practice of regularly publishing certain categories of data or information, usually on their website or via downloadable reports. Publication schemes must be ICO approved and adhere to the <a href="https://ico.org.uk/media/for-organisations/documents/1153/model-publication-scheme.pdf">model publication scheme</a>.
+
+  - id: s21-q4y1
+    show_if:
+    - { id: s21-q4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is it clear how to access the information?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1203/information-reasonably-accessible-to-the-applicant-by-other-means-sec21.pdf">ICO guidance</a> says: "As long as an authority draws the attention of the applicant to the scheme such that it is clear how the requested information can be accessed, its obligations in this respect will generally be fulfilled."
+
+  - id: s21-q4y2
+    show_if:
+    - { id: s21-q4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Do you suspect that this information may not be routinely published, and is only being published now because you have requested it?
+
+  - id: s21-q4y3
+    show_if:
+    - { id: s21-q4, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Is access to this information only available in person?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1203/information-reasonably-accessible-to-the-applicant-by-other-means-sec21.pdf">ICO guidance</a> says: "One requirement of the model publication scheme is that “only in exceptional circumstances” will information in the scheme be made available only by viewing in person".
+
+  - id: s21-q4y3y1
+    show_if:
+    - { id: s21-q4y3, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Would it cause significant difficulties for you to access the information in person? For example, are you far from the location where the information is held, or would you have physical barriers to access?
+    hint:
+      plain: >
+        The authority must consider relevant legislation such as the Equalities Act and the Welsh Language Act. They must also consider whether it would be “reasonable” for you to have to inspect the information in place, based on your personal circumstances.
+
+  - id: s21-q5
+    show_if: *section-21
+    options: *yes-no
+    label:
+      plain: >
+        If you wish to access the information via the route the authority has indicated, is payment required?
+    hint:
+      html: >
+        <a href="https://ico.org.uk/media/for-organisations/documents/1203/information-reasonably-accessible-to-the-applicant-by-other-means-sec21.pdf">ICO guidance</a> says: "Section 21(2)(a) states that information may be regarded as reasonably accessible to the applicant “even though it is accessible only on payment”."
+
+        WhatDoTheyKnow's opinion? We don't approve of this loophole, as in practice it means that if authorities wish to refuse access to information, they can apply a price to it! However, it is part of the Act.
+
+  - id: s21-q5y1
+    show_if:
+    - { id: s21-q5, operator: is, value: 'yes' }
+    options: *yes-no
+    label:
+      plain: >
+        Would the payment have been payable by anyone requesting this information without using FOI?
+    hint:
+      plain: >
+        The ICO guidance adds that it is 'reasonable' to charge for information accessed through legislation, or from an authority, that routinely charges for such access.
+
+        But it adds, "There will be some cases where the fact that there is a charge for information may mean that it is not reasonably accessible to the applicant. For instance, a public authority may be asked for information contained in its annual report. It is unlikely to be reasonable to require the applicant to purchase a copy of the report if the request is only for a small amount of the information contained in it."
+
+  - id: s21-q6
+    show_if: *section-21
+    options: *yes-no
+    label:
+      plain: >
+        Has this exemption been applied to only part of the information you have requested, and has the authority either provided the rest of the information you requested, or applied a different exemption to it?
+
+  - id: s21-q7
+    show_if: *section-21
+    options: *yes-no
+    label:
+      html: >
+        Has the authority <a href="https://ico.org.uk/media/for-organisations/documents/1166/when_to_refuse_to_confirm_or_deny_section_1_foia.pdf">confirmed or denied</a> whether they hold the information you have requested, or does the rest of their response make it clear whether they do or do not hold the information?
