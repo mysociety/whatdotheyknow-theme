@@ -1,8 +1,5 @@
 <% @title = "Unhappy about a Freedom of Information request?" %>
 
-<%= render partial: 'help/refusal_advice' %>
-
-<div id="left_column" class="left_column">
 <div class="unhappy-info">
   <% if !@info_request.nil? %>
     <h1>
@@ -47,7 +44,15 @@
       or, <a href="#other_means">use other means</a> of asking your question
     </li>
   </ul>
+
+  <p>
+    If you’re <strong>not sure how to respond</strong>, use our
+    <a href="#refusal-advice">refusal advice wizard</a> below. Answer the
+    questions and we’ll try to provide helpful advice for your specific request.
+  </p>
 </div>
+
+<%= render partial: 'help/refusal_advice' %>
 
 <h2 id="internal_review">1. Asking for an internal review <a class="hover_a" href="#internal_review">#</a> </h2>
 <p>
@@ -176,4 +181,3 @@
 </ul>
 
   <%= render partial: 'history' %>
-</div>
