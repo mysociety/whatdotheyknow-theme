@@ -22,9 +22,12 @@ foi:
     button: <%= _('Help me make a new request') %>
     target: { internal: 'new_request' }
 
-  - id: write_to_reprsentive
-    title: <%= _('Write to your MP') %>
-    target: { external: 'https://www.writetothem.com' }
+  - id: use_other_means
+    title: <%= _('Use other means') %>
+    header: <%= _('Using other means to answer your question') %>
+    body:
+      plain: <%= _('You can try pursuing your problem or your research in other ways.') %>
+    target: { external: '/help/unhappy#other_means' }
 
   - id: generic
     title: <%= _('Send a followup') %>
