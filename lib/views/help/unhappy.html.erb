@@ -1,7 +1,7 @@
-<% @title = "Unhappy about a Freedom of Information request?" %>
+<% @title = 'Unhappy about a Freedom of Information request?' %>
 
 <div class="unhappy-info">
-  <% if !@info_request.nil? %>
+  <% if @info_request %>
     <h1>
       Unhappy about the response you got to your request &mdash;
       <%= request_link(@info_request) %>?
@@ -32,14 +32,17 @@
       Ask for an <a href="#internal_review">internal review</a> at the public
       authority.
     </li>
+
     <li>
       If that doesn't help, you can refer the request to the
       <a href="#refer-to-ico">Information Commissioner</a>.
     </li>
+
     <li>
       <a href="<%= select_authority_path %>">Make a new request</a> asking for
       more specific information or to a more appropriate authority
     </li>
+
     <li>
       or, <a href="#other_means">use other means</a> of asking your question
     </li>
@@ -52,9 +55,10 @@
   </p>
 </div>
 
-<h2 id="internal_review">1. Asking for an internal review <a class="hover_a" href="#internal_review">#</a> </h2>
+<h2 id="internal_review">1. Asking for an internal review <a class="hover_a" href="#internal_review">#</a></h2>
+
 <p>
-  <% if !@info_request.nil? %>
+  <% if @info_request %>
     <% path = new_request_followup_url(request_id: @info_request.id) +
               "?internal_review=1#followup" %>
 
@@ -67,11 +71,13 @@
     request page, to make it clear which request you are talking about.
   <% end %>
 </p>
+
 <p>
   You don't need to ask for an internal review if the authority haven't responded
   to your request at all by the deadline. You can go straight to the Information
   Commissioner.
 </p>
+
 <p>
   There's a good chance an internal review will prompt a change in the public
   body's stance. <a href="https://research.mysociety.org/sites/foi/reviews/">
@@ -80,6 +86,7 @@
   and for <a href="https://research.mysociety.org/html/local-gov-foi/l/3.3333.8-wl5.tfyxv.xoob1.bz1hy">
   local government this figure is between 36-49%</a>.
 </p>
+
 <p>Internal reviews should be quick. If one takes longer than 20 working days
   then the authority should write and let you know, and it should never take
   longer than 40 working days (see this
@@ -91,6 +98,7 @@
 
 <a name="complaining"></a>
 <h2 id="refer-to-ico">2. Referring a request to the Information Commissioner <a class="hover_a" href="#refer-to-ico">#</a></h2>
+
 <p>
   If you are still unhappy after the public authority has done their internal
   review, then you can refer your request to the Information Commissioner, who
@@ -146,40 +154,55 @@
   and get the information by other means…
 </p>
 
-<h2 id="other_means">3. Using other means to answer your question <a class="hover_a" href="#other_means">#</a> </h2>
-<p>You can try pursuing your problem or your research in other ways.
-</p>
+<h2 id="other_means">3. Using other means to answer your question <a class="hover_a" href="#other_means">#</a></h2>
+
+<p>You can try pursuing your problem or your research in other ways.</p>
+
 <ul>
-  <li>Make a <strong>new FOI request</strong> for summary information, or for
+  <li>
+    Make a <strong>new FOI request</strong> for summary information, or for
     documentation relating indirectly to matters in your refused request.
-    <a href="<%= help_contact_path %>">Ask us for ideas</a> if you're stuck.</li>
-    <li>If any <strong>other public authorities</strong> or publicly owned companies are involved,
-    then make FOI requests to them.</li>
-    <li>Write to <strong>your MP</strong> or other politician using <a
+    <a href="<%= help_contact_path %>">Ask us for ideas</a> if you're stuck.
+  </li>
+
+  <li>
+    If any <strong>other public authorities</strong> or publicly owned
+    companies are involved, then make FOI requests to them.
+  </li>
+
+  <li>
+    Write to <strong>your MP</strong> or other politician using <a
     href="http://www.writetothem.com">WriteToThem</a> and ask for their help
     finding the answer. MPs can write directly to ministers or departments, and
-    can ask written questions in the House of Commons. Councillors in local authorities
-  can talk directly to council officers.</li>
-  <% if can_ask_the_eu?(@country_code) %>
-  <li>
-    Try <%= link_to 'asking for the information from the European Union',
-    'http://www.asktheeu.org' %>. Every one of the 500 million people
-    living in the European Union (both citizens and residents) has the
-    legally guaranteed right to ask for information from EU authorities.
-    <%= link_to 'AskTheEU.org', 'http://www.asktheeu.org' %> is a version of
-    this website for the European Union.
+    can ask written questions in the House of Commons. Councillors in local
+    authorities can talk directly to council officers.
   </li>
+
+  <% if can_ask_the_eu?(@country_code) %>
+    <li>
+      Try <%= link_to 'asking for the information from the European Union',
+      'http://www.asktheeu.org' %>. Every one of the 500 million people
+      living in the European Union (both citizens and residents) has the
+      legally guaranteed right to ask for information from EU authorities.
+      <%= link_to 'AskTheEU.org', 'http://www.asktheeu.org' %> is a version of
+      this website for the European Union.
+    </li>
   <% end %>
-  <li>Ask <strong>other researchers</strong> who are interested in a similar
+
+  <li>
+    Ask <strong>other researchers</strong> who are interested in a similar
     issue to yours for ideas. You can sometimes find them by browsing this site;
     contact any registered user from their page. There may be an Internet
-  forum or group that they hang out in. </li>
-  <li>You could form a small local campaign group and arrange a meeting
-  with staff from the authority.</li>
+    forum or group that they hang out in.
+  </li>
+
+  <li>
+    You could form a small local campaign group and arrange a meeting
+    with staff from the authority.
+  </li>
 </ul>
 
 <h2>4. Get help on refusals <a class="hover_a" href="#refusal-advice">#</a></h2>
-
 <%= render partial: 'help/refusal_advice' %>
 
 <%= render partial: 'history' %>
