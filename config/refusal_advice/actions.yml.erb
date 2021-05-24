@@ -14,7 +14,7 @@ foi:
 
   - id: refer_to_commissioner
     title: <%= _('Refer your request to the Information Commissioner') %>
-    target: { help_page: 'ico' }
+    target: { external: '/help/unhappy#refer-to-ico' }
 
   - id: new_request
     title: <%= _('Make a new request') %>
@@ -22,13 +22,16 @@ foi:
     button: <%= _('Help me make a new request') %>
     target: { internal: 'new_request' }
 
-  - id: write_to_reprsentive
-    title: <%= _('Write to your MP') %>
-    target: { external: 'https://www.writetothem.com' }
+  - id: use_other_means
+    title: <%= _('Use other means') %>
+    header: <%= _('Using other means to answer your question') %>
+    body:
+      plain: <%= _('You can try pursuing your problem or your research in other ways.') %>
+    target: { external: '/help/unhappy#other_means' }
 
   - id: generic
     title: <%= _('Send a followup') %>
     body:
       plain: >
-        We don't have any advice for your situation but you can send a followup
+        <%= _("We don't have any advice for your situation but you can send a followup.") %>
     target: { internal: 'followup' }
