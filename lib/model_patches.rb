@@ -46,6 +46,57 @@ Rails.configuration.to_prepare do
     end
   end
 
+  Legislation.class_eval do
+    class << self
+      alias_method :all_uk_minus_scotland, :all
+
+      def all
+        all_uk_minus_scotland + all_scotland
+      end
+
+      def all_scotland
+        [
+          new(
+            key: 'foisa',
+            short: _('FOISA'),
+            full: _('Freedom of Information'),
+            with_a: _('A Freedom of Information request'),
+            act: _('Freedom of Information (Scotland) Act'),
+            refusals: refusals['foisa']
+          ),
+          new(
+            key: 'eisr',
+            short: _('EIR'),
+            full: _('Environmental Information Regulations'),
+            with_a: _('An Environmental Information request'),
+            act: _('Environmental Information (Scotland) Regulations'),
+            refusals: refusals['eisr']
+          )
+        ]
+      end
+
+      def for_public_body(public_body)
+        if public_body.has_tag?('scotland')
+          return for_scottish_public_body(public_body)
+        end
+
+        if public_body.has_tag?('eir_only')
+          [find('eir')]
+        else
+          all_uk_minus_scotland
+        end
+      end
+
+      def for_scottish_public_body(public_body)
+        if public_body.has_tag?('eir_only')
+          [find('eisr')]
+        else
+          all_scotland
+        end
+      end
+    end
+  end
+
   Legislation.refusals = {
     foi: [
       's 12', 's 14', 's 21', 's 22', 's 30', 's 31', 's 35', 's 38', 's 40',
