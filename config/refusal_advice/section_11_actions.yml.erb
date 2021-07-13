@@ -2,36 +2,6 @@ foi:
   actions:
   - id: internal_review
     suggestions:
-  - id: clarification
-    suggestions:
-  - id: new_request
-    suggestions:
-    - id: s11-a1
-      show_if:
-      - { id: s11-q1, operator: is, value: 'no' }
-      advice:
-        plain: >
-          The authority only has a duty to consider your preferred format or means of provision if it was stated as part of your initial request.
-
-          If the format is vital to your needs, consider transferring it to your preferred format yourself. If this is not possible, you may wish to make the request again from scratch, making sure you include details of your required format.
-
-  - id: generic
-    suggestions:
-
-    - id: s11-a2
-      show_if:
-      - { id: s11-q2, operator: is, value: 'yes' }
-      advice:
-        plain: >
-          Depending on the circumstances, you may have rights under different legislation, such as the Welsh Language Act 1993.
-
-    - id: s11-a3
-      show_if:
-      - { id: s11-q3y1n1, operator: is, value: 'no' }
-      advice:
-        plain: >
-          The authority do not have an obligation to convert analogue data into a digital format.
-
     - id: s11-a4
       show_if:
       - { id: s11-q3y1n1y1, operator: is, value: 'no' }
@@ -54,13 +24,6 @@ foi:
       advice:
         html: >
           Consider asking for an internal review, citing <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a>.
-
-    - id: s11-a7
-      show_if:
-      - { id: s11-q4y1y1n1y1y1, operator: is, value: 'no' }
-      advice:
-        plain: >
-          If the information provided is of no use to you in the format offered, consider replying to the authority to discuss what compromises may be acceptable to both of you. For example, while they may not be able to offer you data in your preferred format, they may be able to provide it in a format that is easier for you to extract it from so that you can format it yourself.
 
     - id: s11-a8
       show_if:
@@ -96,6 +59,29 @@ foi:
 
           Request an internal review, citing this guidance.
 
+    - id: s11-a16
+      show_if:
+      - { id: s11-q8y1n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Request an internal review, citing the ICO guidance.
+
+    - id: s11-a18
+      show_if:
+      - { id: s11-q9y1n1, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Consider requesting an internal review, pointing out the difference/s.
+
+  - id: clarification
+    suggestions:
+    - id: s11-a7
+      show_if:
+      - { id: s11-q4y1y1n1y1y1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          If the information provided is of no use to you in the format offered, consider replying to the authority to discuss what compromises may be acceptable to both of you. For example, while they may not be able to offer you data in your preferred format, they may be able to provide it in a format that is easier for you to extract it from so that you can format it yourself.
+
     - id: s11-a12
       show_if:
       - { id: s11-q6y1y1y1, operator: is, value: 'no' }
@@ -109,6 +95,40 @@ foi:
       advice:
         plain: >
           Consider responding to the authority to clarify that you are not asking them to produce a new summary.
+
+    - id: s11-a19
+      show_if:
+      - { id: s11-q9y1n1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          Consider replying to ask for clarification.
+
+  - id: new_request
+    suggestions:
+    - id: s11-a1
+      show_if:
+      - { id: s11-q1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          The authority only has a duty to consider your preferred format or means of provision if it was stated as part of your initial request.
+
+          If the format is vital to your needs, consider transferring it to your preferred format yourself. If this is not possible, you may wish to make the request again from scratch, making sure you include details of your required format.
+
+  - id: generic
+    suggestions:
+    - id: s11-a2
+      show_if:
+      - { id: s11-q2, operator: is, value: 'yes' }
+      advice:
+        plain: >
+          Depending on the circumstances, you may have rights under different legislation, such as the Welsh Language Act 1993.
+
+    - id: s11-a3
+      show_if:
+      - { id: s11-q3y1n1, operator: is, value: 'no' }
+      advice:
+        plain: >
+          The authority do not have an obligation to convert analogue data into a digital format.
 
     - id: s11-a14
       show_if:
@@ -124,30 +144,9 @@ foi:
         plain: >
           The authority is within its rights to request this payment.
 
-    - id: s11-a16
-      show_if:
-      - { id: s11-q8y1n1, operator: is, value: 'yes' }
-      advice:
-        plain: >
-          Request an internal review, citing the ICO guidance.
-
     - id: s11-a17
       show_if:
       - { id: s11-q9y1, operator: is, value: 'yes' }
       advice:
         html: >
           According to <a href="https://ico.org.uk/media/for-organisations/documents/1163/means-of-communicating-information-foia-guidance.pdf">ICO guidance</a>, the authority is within its rights not to provide the information in your preferred format, and Section 21 may apply.
-
-    - id: s11-a18
-      show_if:
-      - { id: s11-q9y1n1, operator: is, value: 'yes' }
-      advice:
-        plain: >
-          Consider requesting an internal review, pointing out the difference/s.
-
-    - id: s11-a19
-      show_if:
-      - { id: s11-q9y1n1n1, operator: is, value: 'no' }
-      advice:
-        plain: >
-          Consider replying to ask for clarification.
