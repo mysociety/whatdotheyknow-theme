@@ -1,8 +1,8 @@
 # If defined, ALAVETELI_TEST_THEME will be loaded in
 # config/initializers/theme_loader
 ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
-require File.expand_path(File.join(File.dirname(__FILE__),'..','..','..','..','..','spec','spec_helper'))
-require File.expand_path(File.join(File.dirname(__FILE__),'..','..','..','..','..','spec','integration','alaveteli_dsl'))
+require 'spec_helper'
+require 'integration/alaveteli_dsl'
 
 RSpec.describe 'creating a request with spam terms' do
   let(:user) { FactoryBot.create(:user) }
