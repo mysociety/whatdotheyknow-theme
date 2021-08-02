@@ -2,7 +2,7 @@
 ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
 require 'spec_helper'
 
-describe DonationHelper, type: :helper do
+RSpec.describe DonationHelper, type: :helper do
   include DonationHelper
 
   describe '#show_donation_button?' do

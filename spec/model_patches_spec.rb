@@ -2,7 +2,7 @@
 ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
 require File.expand_path(File.join(File.dirname(__FILE__),'..','..','..','..','spec','spec_helper'))
 
-describe InfoRequest, "when creating an email subject for a request" do
+RSpec.describe InfoRequest, "when creating an email subject for a request" do
 
   it 'should create a standard request subject' do
     info_request = FactoryBot.build(:info_request)
@@ -28,7 +28,7 @@ describe InfoRequest, "when creating an email subject for a request" do
 
 end
 
-describe InfoRequest do
+RSpec.describe InfoRequest do
 
   describe '#late_calculator' do
     subject { InfoRequest.new(:public_body => FactoryBot.build(:public_body)) }
@@ -52,7 +52,7 @@ describe InfoRequest do
 
 end
 
-describe InfoRequest, "when calculating the status for a school" do
+RSpec.describe InfoRequest, "when calculating the status for a school" do
 
   before do
     @ir = info_requests(:naughty_chicken_request)
@@ -104,7 +104,7 @@ describe InfoRequest, "when calculating the status for a school" do
 
 end
 
-describe PublicBody do
+RSpec.describe PublicBody do
 
   describe '.extract_domain_from_email' do
 

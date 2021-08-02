@@ -2,7 +2,7 @@
 ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
 require File.expand_path(File.join(File.dirname(__FILE__),'..','..','..','..','spec','spec_helper'))
 
-describe HelpPageHistory do
+RSpec.describe HelpPageHistory do
   describe '#commits_url' do
     subject { described_class.new(template).commits_url }
 

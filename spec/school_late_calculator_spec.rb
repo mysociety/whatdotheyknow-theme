@@ -2,7 +2,7 @@
 ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
 require File.expand_path(File.join(File.dirname(__FILE__),'..','..','..','..','spec','spec_helper'))
 
-describe SchoolLateCalculator do
+RSpec.describe SchoolLateCalculator do
 
   describe '.description' do
 
