@@ -1,6 +1,4 @@
-# If defined, ALAVETELI_TEST_THEME will be loaded in config/initializers/theme_loader
-ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
-require 'spec_helper'
+require_relative 'spec_helper'
 
 RSpec.describe InfoRequest, "when creating an email subject for a request" do
 

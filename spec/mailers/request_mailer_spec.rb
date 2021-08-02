@@ -1,5 +1,4 @@
-ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
-require 'spec_helper'
+require_relative '../spec_helper'
 
 RSpec.describe RequestMailer do
 

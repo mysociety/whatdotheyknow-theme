@@ -1,7 +1,4 @@
-# If defined, ALAVETELI_TEST_THEME will be loaded in
-# config/initializers/theme_loader
-ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
-require 'spec_helper'
+require_relative '../spec_helper'
 require 'integration/alaveteli_dsl'
 
 RSpec.describe 'creating a request with spam terms' do
