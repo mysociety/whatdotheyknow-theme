@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 class SchoolLateCalculator
   def self.description
     %q(UK Schools have an extra 20 days to respond to FOI requests)

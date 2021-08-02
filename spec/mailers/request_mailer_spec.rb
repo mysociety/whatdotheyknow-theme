@@ -1,4 +1,3 @@
-# -*- encoding : utf-8 -*-
 ALAVETELI_TEST_THEME = 'whatdotheyknow-theme'
 require 'spec_helper'
 
