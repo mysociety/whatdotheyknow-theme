@@ -111,14 +111,4 @@ Rails.configuration.to_prepare do
     C&PCCC@highwaysengland.co.uk
     DONOTREPLY@3csharedservices.vuelio.co.uk
   )
-
-  User.class_eval do
-    require_relative Rails.root.join('commonlib/rblib/survey')
-
-    # Return this user’s survey
-    def survey
-      return @survey if @survey
-      @survey = MySociety::Survey.new(AlaveteliConfiguration::site_name, self.email)
-    end
-  end
 end

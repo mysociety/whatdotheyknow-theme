@@ -1,9 +1,7 @@
 # Load our helpers
-require 'helpers/user_helper'
 require 'helpers/donation_helper'
 
 Rails.configuration.to_prepare do
-  ActionView::Base.send(:include, UserHelper)
   ActionView::Base.send(:include, DonationHelper)
 
   ApplicationHelper.class_eval do
