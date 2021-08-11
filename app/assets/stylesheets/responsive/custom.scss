@@ -871,6 +871,21 @@ input#reedit_button {
   }
 }
 
+.action-bar__reply-button {
+  @include button;
+}
+
+.alaveteli-pro .action-bar__reply-button {
+  @include button-pro;
+  color: #fff;
+  &:visited,
+  &:active,
+  &:hover {
+    color: #fff;
+  }
+}
+
+
 /* User page */
 #user_photo_on_profile {
   img, #set_photo {

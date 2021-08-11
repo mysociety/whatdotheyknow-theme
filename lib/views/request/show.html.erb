@@ -63,6 +63,9 @@
                      locals: { info_request: @info_request,
                                last_response: @last_response } %>
         <% else %>
+          <%= render partial: 'request/reply',
+                     locals: { info_request: @info_request,
+                               last_response: @last_response } %>
           <%= render partial: 'request/after_actions',
                      locals: { info_request: @info_request,
                                track_thing: @track_thing,
