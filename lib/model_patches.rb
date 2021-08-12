@@ -110,5 +110,6 @@ Rails.configuration.to_prepare do
     myaccount@coventry.gov.uk
     C&PCCC@highwaysengland.co.uk
     DONOTREPLY@3csharedservices.vuelio.co.uk
+    D&TCDIO_Office@justice.gov.uk
   )
 end
