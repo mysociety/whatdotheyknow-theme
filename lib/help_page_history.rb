@@ -7,7 +7,7 @@ class HelpPageHistory
   end
 
   def commits_url
-    template.inspect.gsub(/lib\/themes\/whatdotheyknow-theme/, GITHUB_BASE)
+    template.short_identifier.gsub(/lib\/themes\/whatdotheyknow-theme/, GITHUB_BASE)
   end
 
   protected
