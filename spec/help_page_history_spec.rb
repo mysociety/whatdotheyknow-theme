@@ -6,8 +6,8 @@ RSpec.describe HelpPageHistory do
 
     context 'with a custom help page' do
       let(:template) do
-        double(inspect: 'lib/themes/whatdotheyknow-theme/lib/views/' \
-                        'help/house_rules.html.erb')
+        double(short_identifier: 'lib/themes/whatdotheyknow-theme/lib/views/' \
+                                 'help/house_rules.html.erb')
       end
 
       it do
