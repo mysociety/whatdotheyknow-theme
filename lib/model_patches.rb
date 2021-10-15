@@ -111,5 +111,7 @@ Rails.configuration.to_prepare do
     C&PCCC@highwaysengland.co.uk
     DONOTREPLY@3csharedservices.vuelio.co.uk
     D&TCDIO_Office@justice.gov.uk
+    FOI.Enquiries@ukaea.uk
+    mail@sf-notifications.com
   )
 end
