@@ -113,5 +113,6 @@ Rails.configuration.to_prepare do
     D&TCDIO_Office@justice.gov.uk
     FOI.Enquiries@ukaea.uk
     mail@sf-notifications.com
+    Paul.D.O'Shea@met.police.uk
   )
 end
