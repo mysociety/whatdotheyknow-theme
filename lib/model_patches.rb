@@ -115,4 +115,18 @@ Rails.configuration.to_prepare do
     mail@sf-notifications.com
     Paul.D.O'Shea@met.police.uk
   )
+
+  User::EmailAlerts.instance_eval do
+    module DisableWithProtection
+      def disable
+        if user.url_name == 'internal_admin_user'
+          raise "Email alerts should not be disabled for #{user.name}!"
+        end
+
+        super
+      end
+    end
+
+    prepend DisableWithProtection
+  end
 end
