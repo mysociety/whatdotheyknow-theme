@@ -144,3 +144,16 @@ RSpec.describe PublicBody do
   end
 
 end
+
+RSpec.describe User::EmailAlerts do
+  describe '#disable' do
+    context 'with the internal admin user' do
+      let(:user) { double(name: 'Admin', url_name: 'internal_admin_user') }
+
+      it 'prevents alerts being disabled' do
+        expect { described_class.new(user).disable }.
+          to raise_error('Email alerts should not be disabled for Admin!')
+      end
+    end
+  end
+end
