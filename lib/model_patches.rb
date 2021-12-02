@@ -114,6 +114,7 @@ Rails.configuration.to_prepare do
     FOI.Enquiries@ukaea.uk
     mail@sf-notifications.com
     Paul.D.O'Shea@met.police.uk
+    no-reply@somersetwestandtaunton.gov.uk
   )
 
   User::EmailAlerts.instance_eval do
