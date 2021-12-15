@@ -115,6 +115,7 @@ Rails.configuration.to_prepare do
     mail@sf-notifications.com
     Paul.D.O'Shea@met.police.uk
     no-reply@somersetwestandtaunton.gov.uk
+    csfinanceplanning&performance.briefingteam@hmrc.gov.uk
   )
 
   User::EmailAlerts.instance_eval do
