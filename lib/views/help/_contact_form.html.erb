@@ -6,7 +6,7 @@
         <%= f.check_box :understand, :required => true %>
         <label for="contact_understand" class="form_label">
             I understand that WhatDoTheyKnow is <strong>not</strong> run by the
-            government, and the WhatDoTheyKnow volunteers <strong>cannot</strong>
+            government, and the WhatDoTheyKnow team <strong>cannot</strong>
             help me with personal matters relating to government services.
         </label>
     </p>
@@ -36,7 +36,7 @@
 
     <p>
         <label class="form_label" for="contact_message">
-            My message to the WhatDoTheyKnow volunteers:
+            My message to the WhatDoTheyKnow team:
         </label>
         <%= f.text_area :message, :rows => 10, :cols => 60, :required => true %>
     </p>
@@ -77,7 +77,7 @@
         //--></script>
         <%= hidden_field_tag(:current_form, form_id) %>
         <%= hidden_field_tag(:submitted_contact_form, 1) %>
-        <%= submit_tag "Send message to WhatDoTheyKnow volunteers", :data => { :disable_with => "Sending..." } %>
+        <%= submit_tag "Send message to WhatDoTheyKnow team", :data => { :disable_with => "Sending..." } %>
     </div>
 
 <% end %>
