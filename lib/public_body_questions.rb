@@ -140,7 +140,7 @@ Rails.configuration.to_prepare do
             nidirect.gov.uk</a>
           </li>
           <li>
-            In Scotland, some benefits are managed directly by 
+            In <b>Scotland</b>, some benefits are managed directly by 
             <a href="/body/social_security_scotland">Social Security Scotland</a>.
             You can find information on
             <a href="https://www.mygov.scot/browse/benefits">mygov.scot</a>
@@ -161,13 +161,13 @@ Rails.configuration.to_prepare do
       <p>
         Information you might find useful:
         <ul>
-          <li>In <b>Northern Ireland</b> you need to contact the 
+          <li>In <b>Northern Ireland</b>, you need to contact the 
           <a href="/body/dfc">Department for Communities</a> to make your claim.
            You can find more information on:
            <a href="https://www.nidirect.gov.uk/services/get-your-state-pension">
            nidirect.gov.uk</a>.
           </li>
-          <li>If you are <b>outside the UK</b> you need to contact the 
+          <li>If you are <b>outside the UK</b>, you need to contact the 
           <a href="https://www.gov.uk/state-pension-if-you-retire-abroad">
           International Pensions Centre</a> to make your claim.
           </li>
@@ -254,7 +254,7 @@ Rails.configuration.to_prepare do
     question: _('Claim my State Pension'),
     response: dwp_deny_response_2
   )
-  
+
   PublicBodyQuestion.build(
     public_body: dwp,
     key: :foi,
