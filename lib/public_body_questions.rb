@@ -119,6 +119,7 @@ Rails.configuration.to_prepare do
   ## build public body questions
 
   dwp_deny_response_1 = _(<<-HTML.strip_heredoc.squish
+  dwp_deny_response_claim_benefits = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot make a claim using WhatDoTheyKnow</h3>
 
       <p>
@@ -129,20 +130,21 @@ Rails.configuration.to_prepare do
         Information you might find useful:
         <ul>
           <li>
-            You can use a <a href="https://www.gov.uk/benefits-calculators">
+            You can use an independent 
+            <a href="https://www.gov.uk/benefits-calculators">
             benefits calculator</a> to find out what you may be entitled to.
           </li>
           <li>
-            In <b>Northern Ireland</b>, some benefits are managed directly by
-            the <a href="/body/dfc">Department for Communities</a>. You can find
-            information on 
+            In <strong>Northern Ireland</strong>, some benefits are managed 
+            directly by the <a href="/body/dfc">Department for Communities</a>. 
+            You can find further information on 
             <a href="https://www.nidirect.gov.uk/campaigns/unclaimed-benefits">
             nidirect.gov.uk</a>
           </li>
           <li>
-            In <b>Scotland</b>, some benefits are managed directly by 
+            In <strong>Scotland</strong>, some benefits are managed directly by 
             <a href="/body/social_security_scotland">Social Security Scotland</a>.
-            You can find information on
+            You can find further information on
             <a href="https://www.mygov.scot/browse/benefits">mygov.scot</a>
           </li>
         </ul>
@@ -151,7 +153,7 @@ Rails.configuration.to_prepare do
     HTML
   )
 
-  dwp_deny_response_2 = _(<<-HTML.strip_heredoc.squish
+  dwp_deny_response_claim_pension = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot claim your State Pension using WhatDoTheyKnow</h3>
 
       <p>
@@ -245,16 +247,58 @@ Rails.configuration.to_prepare do
     public_body: dwp,
     key: :claim_benefits,
     question: _('Claim social security benefits'),
-    response: dwp_deny_response_1
+    response: dwp_deny_response_claim_benefits
   )
 
   PublicBodyQuestion.build(
     public_body: dwp,
     key: :claim_pension,
     question: _('Claim my State Pension'),
-    response: dwp_deny_response_2
+    response: dwp_deny_response_claim_pension
   )
 
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :contact_disabilitycentre,
+    question: _('Contact the Disability Service Centre (AA / ESA / PIP)'),
+    response: dwp_deny_response_contact_dwp
+  )
+  
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :contact_jcp,
+    question: _('Contact Jobcentre Plus'),
+    response: dwp_deny_response_contact_dwp
+  )
+  
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :contact_universalcredit,
+    question: _('Contact Universal Credit'),
+    response: dwp_deny_response_contact_dwp
+  )
+  
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :challenge_a_decision,
+    question: _('Challenge a decision'),
+    response: dwp_deny_response_challenge_dwp
+  )
+  
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :manage_child_maintenance,
+    question: _('Manage your Child Maintenance / Support case'),
+    response: dwp_deny_response_manage_csa
+  )
+  
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :make_dwp_complaint,
+    question: _('Make a complaint'),
+    response: dwp_deny_response_make_dwp_complaint
+  )
+  
   PublicBodyQuestion.build(
     public_body: dwp,
     key: :foi,
