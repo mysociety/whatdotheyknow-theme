@@ -178,6 +178,36 @@ Rails.configuration.to_prepare do
     HTML
   )
 
+  dwp_deny_response_contact_dwp = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot use WhatDoTheyKnow to do this.</h3>
+
+      <p>
+      </p>
+    HTML
+  )
+  dwp_deny_response_challenge_dwp = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot challenge a benefits decision using WhatDoTheyKnow</h3>
+
+      <p>
+      </p>
+    HTML
+  )
+  dwp_deny_response_manage_csa = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot use WhatDoTheyKnow to manage your Child Support case</h3>
+
+      <p>
+      </p>
+    HTML
+  )
+  dwp_deny_response_make_dwp_complaint = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot make a complaint using WhatDoTheyKnow</h3>
+
+      <p>
+      </p>
+    HTML
+  )
+
+
   PublicBodyQuestion.build(
     public_body: home_office,
     key: :visa,
