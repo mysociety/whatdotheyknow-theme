@@ -12,6 +12,7 @@ Rails.configuration.to_prepare do
   ## Generic boilerplate templates for reuse
 
   ## public body specific templates
+  dwp = PublicBody.find_by_url_name('dwp')
 
   home_office_deny_response = _(
     <<-HTML.strip_heredoc.squish
@@ -117,6 +118,64 @@ Rails.configuration.to_prepare do
 
   ## build public body questions
 
+  dwp_deny_response_1 = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot make a claim using WhatDoTheyKnow</h3>
+
+      <p>
+        You can find information about how to claim benefits on the
+        <a href="https://www.gov.uk/browse/benefits">gov.uk website</a>.
+      </p>
+      <p>
+        Information you might find useful:
+        <ul>
+          <li>
+            You can use a <a href="https://www.gov.uk/benefits-calculators">
+            benefits calculator</a> to find out what you may be entitled to.
+          </li>
+          <li>
+            In <b>Northern Ireland</b>, some benefits are managed directly by
+            the <a href="/body/dfc">Department for Communities</a>. You can find
+            information on 
+            <a href="https://www.nidirect.gov.uk/campaigns/unclaimed-benefits">
+            nidirect.gov.uk</a>
+          </li>
+          <li>
+            In Scotland, some benefits are managed directly by 
+            <a href="/body/social_security_scotland">Social Security Scotland</a>.
+            You can find information on
+            <a href="https://www.mygov.scot/browse/benefits">mygov.scot</a>
+          </li>
+        </ul>
+      </p>
+
+    HTML
+  )
+
+  dwp_deny_response_2 = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot claim your State Pension using WhatDoTheyKnow</h3>
+
+      <p>
+        You can find information about how to claim benefits on the
+        <a href="https://www.gov.uk/get-state-pension">gov.uk website</a>.
+      </p>
+      <p>
+        Information you might find useful:
+        <ul>
+          <li>In <b>Northern Ireland</b> you need to contact the 
+          <a href="/body/dfc">Department for Communities</a> to make your claim.
+           You can find more information on:
+           <a href="https://www.nidirect.gov.uk/services/get-your-state-pension">
+           nidirect.gov.uk</a>.
+          </li>
+          <li>If you are <b>outside the UK</b> you need to contact the 
+          <a href="https://www.gov.uk/state-pension-if-you-retire-abroad">
+          International Pensions Centre</a> to make your claim.
+          </li>
+        </ul>
+      </p>
+    HTML
+  )
+
   PublicBodyQuestion.build(
     public_body: home_office,
     key: :visa,
@@ -182,6 +241,24 @@ Rails.configuration.to_prepare do
     key: :foi,
     question: _('Ask for recorded information held by a public body ' \
                 '<strong>on any other topic</strong> that ' \
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :claim_benefits,
+    question: _('Claim social security benefits'),
+    response: dwp_deny_response_1
+  )
+
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :claim_pension,
+    question: _('Claim my State Pension'),
+    response: dwp_deny_response_2
+  )
+  
+  PublicBodyQuestion.build(
+    public_body: dwp,
+    key: :foi,
+    question: _('Asking for recorded information held by a public body that ' \
                 'anyone could reasonably request and expect to receive?'),
     response: :allow
   )
