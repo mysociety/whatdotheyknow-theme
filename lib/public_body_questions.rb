@@ -14,6 +14,7 @@ Rails.configuration.to_prepare do
   ## public body specific templates
   dfc = PublicBody.find_by_url_name('dfc')
   dwp = PublicBody.find_by_url_name('dwp')
+  socsecscot = PublicBody.find_by_url_name('social_security_scotland')
 
   home_office_deny_response = _(
     <<-HTML.strip_heredoc.squish
@@ -133,7 +134,16 @@ Rails.configuration.to_prepare do
     HTML
     # we reuse this multiple times with #{generic_deny_boilerplate}
   )
-
+  
+  generic_deny_askcouncil  = _(<<-HTML.strip_heredoc.squish
+      <p>
+        Your local Council might also offer a Welfare Rights 
+        service, or be able to signpost you to a service in your area 
+        that can help.
+      </p>
+    HTML
+    # we reuse this multiple times with #{generic_deny_askcouncil}
+  )
   generic_deny_gdpr_rightofaccess = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot do this using WhatDoTheyKnow</h3>
       <p>
@@ -192,13 +202,27 @@ Rails.configuration.to_prepare do
             <a href="https://www.mygov.scot/browse/benefits">mygov.scot</a>.
           </li>
           <li>
-            If you are unsure about benefits and need advice, contact 
-            <a href="https://www.adviceni.net/benefits">
-            Advice NI</a>, or your local 
-            <a href="https://www.adviceni.net/local-advice">Advice Agency</a> 
-            for independent help and support. <br><br>
-            Your local Council might also offer a Welfare Rights service, or be 
-            able to signpost you to a service in your area that can help.
+            If you are unsure about benefits and need advice, you could contact 
+            You can also seek independent advice, from:
+            <ul>
+              <li>
+                <a href="https://www.adviceni.net/benefits">
+                Advice NI</a>
+              <li>
+                your local 
+                <a href="https://www.adviceni.net/local-advice">
+                Advice Agency</a>
+              </li>
+              <li>
+              <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
+              </li>
+              <li>
+                or your local 
+                <a href="https://www.lawcentreni.org/">
+                Law Centre</a>.
+              </li>
+            </ul>
+            #{generic_deny_askcouncil}
           </li>
         </ul>
       </p>
@@ -213,7 +237,7 @@ Rails.configuration.to_prepare do
         You should contact the office that handles your claim directly with any 
         concerns that you might have. You'll find their details on the  
         <a href="https://www.communities-ni.gov.uk/social-security-phone-services">
-        Department for Communities website</a>, or below.<br><br>
+        Department for Communities website</a>, or below.
       </p>
       <hr>
         To contact the Department for Communities about your benefits, 
@@ -224,7 +248,7 @@ Rails.configuration.to_prepare do
       </p>
       <section>
       <h4>Employment and Support Allowance (ESA)</h4>
-       <ul>
+      <ul>
           <li>
             To contact <strong>Attendance Allowance</strong>, 
             <strong>Carers Allowance</strong>, or
@@ -296,7 +320,7 @@ Rails.configuration.to_prepare do
     HTML
   )
 
-  dfc_deny_response_make_dfc_complaint = _(<<-HTML.strip_heredoc.squish
+  dfc_deny_response_make_complaint = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot make a complaint using WhatDoTheyKnow</h3>
 
       <p>
@@ -317,10 +341,26 @@ Rails.configuration.to_prepare do
             write to your elected members</a> for help.
           </li>
           <li>
-            You can also seek independent advice, from 
-            <a href="https://www.adviceni.net/benefits">Advice NI</a>, a local 
-            <a href="https://www.adviceni.net/local-advice">Advice Agency</a>, 
-            or the <a href="https://www.lawcentreni.org/">Law Centre</a> 
+            You can also seek independent advice, from:
+            <ul>
+              <li>
+                <a href="https://www.adviceni.net/benefits">
+                Advice NI</a>
+              <li>
+                your local 
+                <a href="https://www.adviceni.net/local-advice">
+                Advice Agency</a>
+              </li>
+              <li>
+              <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
+              </li>
+              <li>
+                or your local 
+                <a href="https://www.lawcentreni.org/">
+                Law Centre</a>.
+              </li>
+            </ul>
+            #{generic_deny_askcouncil}
           </li>
         </ul> 
       </p>
@@ -385,8 +425,8 @@ Rails.configuration.to_prepare do
           <li>
             You can use an independent 
             <a href="https://www.gov.uk/benefits-calculators">
-            benefits calculator</a> to find out what benefits and services that 
-            you may be entitled to.
+            benefits calculator</a> to find out what benefits and services 
+            that you may be entitled to.
           </li>
           <li>
             In <strong>Northern Ireland</strong>, some benefits are managed 
@@ -396,18 +436,33 @@ Rails.configuration.to_prepare do
             nidirect.gov.uk</a>
           </li>
           <li>
-            In <strong>Scotland</strong>, some benefits are managed directly by 
-            <a href="/body/social_security_scotland">
+            In <strong>Scotland</strong>, some benefits are managed directly 
+            by <a href="/body/social_security_scotland">
             Social Security Scotland</a>. You can find further information on
             <a href="https://www.mygov.scot/browse/benefits">mygov.scot</a>
           </li>
           <li>
-            If you are unsure about benefits and need advice, contact 
-            <a href="https://www.citizensadvice.org.uk/benefits/">
-            Citizens Advice</a>, or your local Citizens Advice Bureaux for 
-            independent help and support. <br><br>
-            Your local Council might also offer a Welfare Rights service, or be 
-            able to signpost you to a service in your area that can help.
+            If you are unsure about benefits and need advice, you could get 
+            independent help and support by contacting:
+            <ul>
+              <li>
+                <a href="https://www.citizensadvice.org.uk/benefits/">
+                Citizens Advice</a>
+              <li>
+                your local 
+                <a href="https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/search-for-your-local-citizens-advice/">
+                Citizens Advice Bureaux</a>
+              </li>
+              <li>
+              <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
+              </li>
+              <li>
+                or your local 
+                <a href="https://www.lawcentres.org.uk/i-am-looking-for-advice">
+                Law Centre</a>.
+              </li>
+            </ul>
+            #{generic_deny_askcouncil}
           </li>
         </ul>
       </p>
@@ -464,9 +519,9 @@ Rails.configuration.to_prepare do
       #{dwp_deny_response_contact_boilerplate}
       <h4>Disability and Carers Benefits
         (<abbr title="Attendance Allowance">AA</abbr> /
-         <abbr title="Carers Allowance">CA</abbr> /
-         <abbr title="Disability Living Allowance">DLA</abbr> /
-         <abbr title="Personal Independence Payment">PIP</abbr>)</h4>
+        <abbr title="Carers Allowance">CA</abbr> /
+        <abbr title="Disability Living Allowance">DLA</abbr> /
+        <abbr title="Personal Independence Payment">PIP</abbr>)</h4>
       <p>
         <ul>
           <li>
@@ -699,7 +754,7 @@ Rails.configuration.to_prepare do
     HTML
   )
 
-  dwp_deny_response_make_dwp_complaint = _(<<-HTML.strip_heredoc.squish
+  dwp_deny_response_make_complaint = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot make a complaint using WhatDoTheyKnow</h3>
 
       <p>
@@ -750,6 +805,183 @@ Rails.configuration.to_prepare do
         <a class="button" 
         href="https://www.gov.uk/guidance/request-your-personal-information-from-the-department-for-work-and-pensions#if-you-need-a-copy-of-any-other-information-that-dwp-holds-about-you">
         Make a Right of Access request on the DWP website»</a>
+      </div>
+      &nbsp;
+      #{generic_deny_boilerplate}
+    HTML
+  )
+
+socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot do this using WhatDoTheyKnow</h3>
+
+      <p>
+        You can find information about how to claim benefits on the
+        <a href="https://www.mygov.scot/browse/benefits/how-to-find-out">
+        mygov.scot website</a>.
+      </p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="https://www.mygov.scot/browse/benefits/how-to-find-out">
+        Find out about benefits on mygov.scot »</a>
+      </div>
+      <p>
+        Information you might find useful:
+        <ul>
+          <li>
+            Not all benefits in Scotland are 
+            <a href="https://www.gov.scot/publications/responsibility-for-benefits-overview/">
+            devolved</a>, meaning that some are looked after by the 
+            <a href="/body/dwp">Department for Work and Pensions</a> instead.
+            <br><br>
+            You can find more infomation about other benefits on the
+            <a href="https://www.gov.uk/browse/benefits">gov.uk website</a>.
+          </li>
+          <li>
+            You can get free, independent advice on what benefits you may be   
+            entitled to from the 
+            <a href="https://moneytalkteam.org.uk/services/accessing-benefits">
+            Money Talk Team</a>, part of Citizens Advice Scotland.
+          </li>
+          <li>
+            You can use an independent 
+            <a href="https://www.gov.uk/benefits-calculators">
+            benefits calculator</a> to find out what benefits and services that 
+            you may be entitled to.
+          </li>
+          <li>
+            If you are unsure about benefits and need advice, you could get 
+            independent help and support by contacting:
+            <ul>
+              <li>
+                <a href="https://www.citizensadvice.org.uk/scotland/">
+                Citizens Advice Scotland</a>
+              <li>
+                your local 
+                <a href="https://www.cas.org.uk/bureaux">
+                Citizens Advice Bureaux</a>
+              </li>
+              <li>
+              <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
+              </li>
+              <li>
+                or your local 
+                <a href="https://scotland.shelter.org.uk/housing_advice/complaints_and_court_action/legal_representation/law_centres">
+                Law Centre</a>.
+              </li>
+            </ul>
+            #{generic_deny_askcouncil}
+          </li>
+        </ul>
+      </p>
+      #{generic_deny_boilerplate}
+    HTML
+  )
+  
+  socsecscot_deny_response_benefits_contact = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot do this using WhatDoTheyKnow</h3>
+
+      <p>
+        You should contact the office that handles your claim directly with any 
+        concerns that you might have. You'll find their details on the  
+        <a href="https://www.mygov.scot/contact-social-security-scotland">
+        mygov.scot website</a>. You can usually contact them via 
+        Web Chat, the telephone, Contact Scotland BSL, or by post.
+      </p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="https://www.mygov.scot/contact-social-security-scotland">
+        Contact Social Security Scotland »</a>
+      </div>
+      <section>
+        <h4>Are you contacting the correct agency?</h4>
+        <p>
+          Not all benefits in Scotland are 
+          <a href="https://www.gov.scot/publications/responsibility-for-benefits-overview/">
+          devolved</a>, meaning that some are looked after by the 
+          <a href="/body/dwp">Department for Work and Pensions</a> instead.
+        </p>
+        <p>
+          You can find more infomation on how to contact the DWP on the
+          <a href="https://www.gov.uk/browse/benefits">gov.uk website</a>
+        </p>
+      </section>
+      #{generic_deny_boilerplate}
+    HTML
+  )
+
+  socsecscot_deny_response_make_complaint = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot make a complaint using WhatDoTheyKnow</h3>
+
+      <p>
+        You should contact the office that handles your claim directly.
+        You can find their complaints procedure and contact details on the 
+        <a href="https://www.mygov.scot/complain-social-security-scotland">
+        mygov.scot website</a>.
+          <ul>
+          <li>
+            You could also try contacting the agency directly, using their web 
+            chat service at: 
+            <a href="https://chat.socialsecurity.gov.scot/">
+            chat.socialsecurity.gov.scot
+            </a>
+          </li>
+          <li>
+            You can make a complaint 
+            <a href="https://www.socialsecurity.gov.scot/contact/feedback/how-to-make-a-complaint">
+            online</a>, via the telephone, Contact Scotland BSL, or by post.
+          <li>
+            You can also <a onclick="if (ga) { ga('send','event','Outbound Link','Write To Them Exit','Public Body Questions',1) };" 
+            href="http://www.writetothem.com">
+            write to your elected members</a> for help.
+          </li>
+          <li>
+            You can also seek independent advice, from:
+            <ul>
+              <li>
+                <a href="https://www.citizensadvice.org.uk/scotland/">
+                Citizens Advice Scotland</a>
+              <li>
+                your local 
+                <a href="https://www.cas.org.uk/bureaux">
+                Citizens Advice Bureaux</a>
+              </li>
+              <li>
+              <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
+              </li>
+              <li>
+                or your local 
+                <a href="https://scotland.shelter.org.uk/housing_advice/complaints_and_court_action/legal_representation/law_centres">
+                Law Centre</a>.
+              </li>
+            </ul>
+            #{generic_deny_askcouncil}
+          </li>
+        </ul> 
+      </p>
+      #{generic_deny_boilerplate}
+    HTML
+  )
+
+  socsecscot_deny_response_rightofaccess = _(<<-HTML.strip_heredoc.squish 
+      #{generic_deny_gdpr_rightofaccess}
+      <h4>Getting access to information held by Social Security Scotland</h4>
+      <p>
+        Sometimes, you don't need to make a formal request - if you simply need 
+        proof of your benefits, contacting the Benefit Office that handles your 
+        claim can often be quicker.
+      </p>
+      <p>  
+        You can find details on how to make a <strong>Right of Access request
+        </strong> to the Social Security Scotland and its agencies 
+        <a href="https://www.mygov.scot/social-security-data">
+        on mygov.scot</a>.
+      </p>
+      <p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="https://www.socialsecurity.gov.scot/contact/subject-access">
+        Make a Right of Access request on the Social Security Scotland website»
+        </a>
       </div>
       &nbsp;
       #{generic_deny_boilerplate}
@@ -842,6 +1074,14 @@ Rails.configuration.to_prepare do
     question: _('Contact DfC about my Social Security benefits'),
     response: dfc_deny_response_benefits_contact
   )
+
+  PublicBodyQuestion.build(
+    public_body: dfc,
+    key: :manage_child_maintenance,
+    question: _('Manage your Child Maintenance / Support case'),
+    response: dwp_deny_response_manage_csa
+    # We reuse the DWP response here as it is substantively the same.
+  )
   
   PublicBodyQuestion.build(
     public_body: dfc,
@@ -854,7 +1094,7 @@ Rails.configuration.to_prepare do
     public_body: dfc,
     key: :make_dfc_complaint,
     question: _('Make a complaint'),
-    response: dfc_deny_response_make_dfc_complaint
+    response: dfc_deny_response_make_complaint
   )
 
   PublicBodyQuestion.build(
@@ -921,7 +1161,6 @@ Rails.configuration.to_prepare do
     response: dwp_deny_response_contact_dwp_other
   )
 
-
   PublicBodyQuestion.build(
     public_body: dwp,
     key: :manage_child_maintenance,
@@ -940,7 +1179,7 @@ Rails.configuration.to_prepare do
     public_body: dwp,
     key: :make_dwp_complaint,
     question: _('Make a complaint'),
-    response: dwp_deny_response_make_dwp_complaint
+    response: dwp_deny_response_make_complaint
   )
 
   PublicBodyQuestion.build(
@@ -954,6 +1193,58 @@ Rails.configuration.to_prepare do
     public_body: dwp,
     key: :foi,
     question: _('Ask for recorded information that <strong>anyone</strong> '\
+                'could reasonably request and expect to receive'),
+    response: :allow
+  )
+
+  PublicBodyQuestion.build(
+    public_body: socsecscot,
+    key: :socsecscot_claim_benefits,
+    question: _('Make a claim for Social Security benefits'),
+    response: socsecscot_deny_response_benefits_claim
+  )
+
+  PublicBodyQuestion.build(
+    public_body: socsecscot,
+    key: :socsecscot_claim_pension,
+    question: _('Claim my State Pension'),
+    response: dwp_deny_response_claim_pension
+    # We reuse the DWP response here as it isn't a devolved benefit
+  )
+
+  PublicBodyQuestion.build(
+    public_body: socsecscot,
+    key: :socsecscot_contact_benefits,
+    question: _('Contact Social Security Scotland about my benefits'),
+    response: socsecscot_deny_response_benefits_contact
+  )
+
+  PublicBodyQuestion.build(
+    public_body: socsecscot,
+    key: :manage_child_maintenance,
+    question: _('Manage your Child Maintenance / Support case'),
+    response: dwp_deny_response_manage_csa
+    # We reuse the DWP response here as it isn't a devolved service
+  )
+
+  PublicBodyQuestion.build(
+    public_body: socsecscot,
+    key: :socsecscot_contact_rightofaccess,
+    question: _('Get a copy of information held about me'),
+    response: socsecscot_deny_response_rightofaccess
+  )
+
+  PublicBodyQuestion.build(
+    public_body: socsecscot,
+    key: :make_socsecscot_complaint,
+    question: _('Make a complaint'),
+    response: socsecscot_deny_response_make_complaint
+  )
+
+  PublicBodyQuestion.build(
+    public_body: socsecscot,
+    key: :foi,
+    question: _('Ask for recorded information that <strong>anyone</strong> ' \
                 'could reasonably request and expect to receive'),
     response: :allow
   )
