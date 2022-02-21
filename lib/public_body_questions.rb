@@ -12,6 +12,7 @@ Rails.configuration.to_prepare do
   ## Generic boilerplate templates for reuse
 
   ## public body specific templates
+  dfc = PublicBody.find_by_url_name('dfc')
   dwp = PublicBody.find_by_url_name('dwp')
 
   home_office_deny_response = _(
@@ -149,6 +150,207 @@ Rails.configuration.to_prepare do
       <hr>
     HTML
     # we reuse this multiple times with #{generic_deny_gdpr_rightofaccess}
+  )
+
+  dfc_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot do this using WhatDoTheyKnow</h3>
+
+      <p>
+        You can find information about how to claim benefits on the
+        <a href="https://www.nidirect.gov.uk/campaigns/unclaimed-benefits">
+        NIDirect website</a>.
+      </p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="https://www.nidirect.gov.uk/campaigns/unclaimed-benefits">
+        Find out about benefits on NIDirect »</a>
+      </div>
+      <p>
+        Information you might find useful:
+        <ul>
+          <li>
+            You can get free advice on what benefits you may be entitled to  
+            from the 
+            <a href="https://www.nidirect.gov.uk/contacts/make-call-service">
+            Make the Call service</a>.
+          </li>
+          <li>
+            You can use an independent 
+            <a href="https://www.nidirect.gov.uk/articles/benefits-calculator">
+            benefits calculator</a> to find out what benefits and services that 
+            you may be entitled to.
+          </li>
+          <li>
+            In <strong>other parts of the UK</strong>, most benefits are managed 
+            directly by the 
+            <a href="/body/dwp">Department for Work and Pensions</a> or 
+            <a href="/body/social_security_scotland">
+            Social Security Scotland</a>. 
+            You can find further information on 
+            <a href="https://www.gov.uk/browse/benefits">
+            gov.uk</a> and 
+            <a href="https://www.mygov.scot/browse/benefits">mygov.scot</a>.
+          </li>
+          <li>
+            If you are unsure about benefits and need advice, contact 
+            <a href="https://www.adviceni.net/benefits">
+            Advice NI</a>, or your local 
+            <a href="https://www.adviceni.net/local-advice">Advice Agency</a> 
+            for independent help and support. <br><br>
+            Your local Council might also offer a Welfare Rights service, or be 
+            able to signpost you to a service in your area that can help.
+          </li>
+        </ul>
+      </p>
+      #{generic_deny_boilerplate}
+    HTML
+  )
+  
+  dfc_deny_response_benefits_contact = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot do this using WhatDoTheyKnow</h3>
+
+      <p>
+        You should contact the office that handles your claim directly with any 
+        concerns that you might have. You'll find their details on the  
+        <a href="https://www.communities-ni.gov.uk/social-security-phone-services">
+        Department for Communities website</a>, or below.<br><br>
+      </p>
+      <hr>
+        To contact the Department for Communities about your benefits, 
+        you will need to do so using another method. If you're unsure who to 
+        contact, ask the 
+        <a href="https://www.communities-ni.gov.uk/contacts/customer-service-social-security">
+        Customer Services team</a> for help.
+      </p>
+      <section>
+      <h4>Employment and Support Allowance (ESA)</h4>
+       <ul>
+          <li>
+            To contact <strong>Attendance Allowance</strong>, 
+            <strong>Carers Allowance</strong>, or
+            <strong>Disability Living Allowance</strong>, visit the
+            <a href="https://www.nidirect.gov.uk/contacts/employment-and-support-allowance-centre">
+            NIDirect website</a>.
+          </li>
+        </ul>
+      </section>
+      <section>
+      <h4>Jobs and Benefit Offices</h4>
+        <ul>
+          <li>
+            To contact your local Jobs and Benefit Office via phone, email, or 
+            Video Relay, find their details on the
+            <a href="https://www.nidirect.gov.uk/contacts/jobs-and-benefits-offices">
+            NIDirect website</a>
+          </li>
+        </ul>
+      </section>
+      <section>
+      <h4>Disability Benefits</h4>
+        <ul>
+          <li>
+            To contact <strong>Attendance Allowance</strong>, 
+            <strong>Carers Allowance</strong>, or
+            <strong>Disability Living Allowance</strong>, visit the
+            <a href="https://www.nidirect.gov.uk/contacts/disability-and-carers-service">
+            NIDirect website</a>.
+          </li>
+          <li>
+            <strong>Personal Independence Payment</strong> is handled by the 
+            PIP Centre. You can find their details 
+            <a href="https://www.nidirect.gov.uk/contacts/personal-independence-payment-pip-centre">
+            here</a>.
+          </li>
+        </ul>
+      </section>
+      <section>
+      <h4>Universal Credit</h4>
+      <p>
+        <ul>
+          <li>
+            You can find out more about Universal Credit on the 
+            <a href="https://www.nidirect.gov.uk/campaigns/universal-credit">
+            NIDirect website</a>.
+          </li>
+          <li>
+            If you've an <strong>existing claim</strong> you can manage it, and 
+            send messages to the Universal Credit Service Centre via the 
+            <a href="https://www.universal-credit.service.gov.uk/sign-in">
+            Universal Credit journal</a>.
+          </li>
+          <li>
+            You can also contact the 
+            <a href="https://www.nidirect.gov.uk/contacts/universal-credit-service-centre">
+            Universal Credit Service Centre</a> by phone or video relay.
+          </li>
+          <li>
+            You can also find details about <strong>other help and financial
+            support</strong> on the
+            <a href="https://www.adviceni.net/benefits/universal-credit">
+            Advice NI</a> website.
+          </li>
+        </ul>
+      </p>
+      </section>
+      #{generic_deny_boilerplate}
+    HTML
+  )
+
+  dfc_deny_response_make_dfc_complaint = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot make a complaint using WhatDoTheyKnow</h3>
+
+      <p>
+        You should contact the office that handles your claim directly.
+        You can find their complaints procedure and contact details on the 
+        <a href="https://www.communities-ni.gov.uk/social-security-complaints">
+        NIDirect website</a>.
+          <ul>
+          <li>
+            You could also try emailing DfC Customer Services team directly at 
+            <a href="mailto:customerservice.unit@communities-ni.gov.uk">
+            customerservice.unit@communities-ni.gov.uk
+            </a>
+          </li>
+          <li>
+            You can also <a onclick="if (ga) { ga('send','event','Outbound Link','Write To Them Exit','Public Body Questions',1) };" 
+            href="http://www.writetothem.com">
+            write to your elected members</a> for help.
+          </li>
+          <li>
+            You can also seek independent advice, from 
+            <a href="https://www.adviceni.net/benefits">Advice NI</a>, a local 
+            <a href="https://www.adviceni.net/local-advice">Advice Agency</a>, 
+            or the <a href="https://www.lawcentreni.org/">Law Centre</a> 
+          </li>
+        </ul> 
+      </p>
+      #{generic_deny_boilerplate}
+    HTML
+  )
+
+  dfc_deny_response_rightofaccess = _(<<-HTML.strip_heredoc.squish 
+      #{generic_deny_gdpr_rightofaccess}
+      <h4>Getting access to information held by Department for Communities</h4>
+      <p>
+        Sometimes, you don't need to make a formal request - if you simply need 
+        proof of your benefits, contacting the Benefit Office that handles your 
+        claim can often be quicker.
+      </p>
+      <p>  
+        You can find details on how to make a <strong>Right of Access request
+        </strong> to the Department for Communities and its agencies 
+        <a href="https://www.communities-ni.gov.uk/right-access-request">
+        on nidirect.gov.uk</a>.
+      </p>
+      <p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="https://www.communities-ni.gov.uk/right-access-request">
+        Make a Right of Access request on the DfC website»</a>
+      </div>
+      &nbsp;
+      #{generic_deny_boilerplate}
+    HTML
   )
 
   dwp_deny_response_contact_boilerplate = _(<<-HTML.strip_heredoc.squish
@@ -620,6 +822,50 @@ Rails.configuration.to_prepare do
     question: _('Ask for recorded information held by a public body ' \
                 '<strong>on any other topic</strong> that ' \
   PublicBodyQuestion.build(
+    public_body: dfc,
+    key: :dfc_claim_benefits,
+    question: _('Make a claim for Social Security benefits'),
+    response: dfc_deny_response_benefits_claim
+  )
+
+  PublicBodyQuestion.build(
+    public_body: dfc,
+    key: :dfc_claim_pension,
+    question: _('Claim my State Pension'),
+    response: dwp_deny_response_claim_pension
+    # We reuse the DWP response here as it is substantively the same.
+  )
+
+  PublicBodyQuestion.build(
+    public_body: dfc,
+    key: :dfc_contact_benefits,
+    question: _('Contact DfC about my Social Security benefits'),
+    response: dfc_deny_response_benefits_contact
+  )
+  
+  PublicBodyQuestion.build(
+    public_body: dfc,
+    key: :contact_rightofaccess,
+    question: _('Get a copy of information held about me'),
+    response: dfc_deny_response_rightofaccess
+  )
+
+  PublicBodyQuestion.build(
+    public_body: dfc,
+    key: :make_dfc_complaint,
+    question: _('Make a complaint'),
+    response: dfc_deny_response_make_dfc_complaint
+  )
+
+  PublicBodyQuestion.build(
+    public_body: dfc,
+    key: :foi,
+    question: _('Ask for recorded information that <strong>anyone</strong> ' \
+                'could reasonably request and expect to receive'),
+    response: :allow
+  )
+
+  PublicBodyQuestion.build(
     public_body: dwp,
     key: :claim_benefits,
     question: _('Claim social security benefits'),
@@ -707,8 +953,8 @@ Rails.configuration.to_prepare do
   PublicBodyQuestion.build(
     public_body: dwp,
     key: :foi,
-    question: _('Ask for recorded information held by a public body that ' \
-                'anyone could reasonably request and expect to receive'),
+    question: _('Ask for recorded information that <strong>anyone</strong> '\
+                'could reasonably request and expect to receive'),
     response: :allow
   )
 end
