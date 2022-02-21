@@ -42,6 +42,7 @@ Rails.configuration.to_prepare do
       </p>
     HTML
   )
+  ## Generic boilerplate templates for reuse
 
   ## LSE
 
@@ -134,7 +135,7 @@ Rails.configuration.to_prepare do
     HTML
     # we reuse this multiple times with #{generic_deny_boilerplate}
   )
-  
+
   generic_deny_askcouncil  = _(<<-HTML.strip_heredoc.squish
       <p>
         Your local Council might also offer a Welfare Rights 
@@ -160,6 +161,140 @@ Rails.configuration.to_prepare do
       <hr>
     HTML
     # we reuse this multiple times with #{generic_deny_gdpr_rightofaccess}
+  )
+  
+  home_office_deny_response_immi = _(
+    <<-HTML.strip_heredoc.squish
+      <h3>
+        You cannot do this using WhatDoTheyKnow
+      </h3>
+      <p>
+        We understand that it can be difficult to get a response from the Home
+        Office to personal immigration queries - but you must not use 
+        WhatDoTheyKnow to contact the Home Office about this.
+      </p>
+      <p>
+        You can contact the Home Office, or UK Visas and Immigration, by:
+        <ul>
+          <li>
+            contacting the 
+            <a href="https://www.gov.uk/contact-ukvi-inside-outside-uk">
+            UKVI helpline</a>
+          </li>
+          <li>
+            sending an email to 
+            <a href="mailto:public.enquiries@homeoffice.gov.uk">
+            public.enquiries@homeoffice.gov.uk</a>
+          </li>
+          <li>
+            calling or writing to the 
+            <a href="https://www.homeoffice.gov.uk#org-contacts">
+            Direct Communications Unit</a>
+          </li>
+        </ul>
+      </p>
+      <h4>If you're having trouble getting an answer</h4>
+      <section>
+      <p>
+        If you are in the UK, we suggest writing to the Home Office via a local 
+        Member of Parliament. Your MP (or their staff) can pass your query onto 
+        on to the Home Office and ensure you get a response. This has the 
+        benefit of highlighting difficulties communicating with the Home Office 
+        to MPs.
+      </p>
+      <div style="text-align:center">
+        <a class="button" 
+        onclick="if (ga) { ga('send','event','Outbound Link','Write To Them Exit','Public Body Questions',1) };" 
+        href="http://www.writetothem.com">
+        Send a message to your MP using WriteToThem »
+        </a>
+      </div>
+      <p>
+        You could also seek help from:
+        <ul>
+          <li>
+            <a href="https://www.migranthelpuk.org/contact">
+            Migrant Help</a>
+          </li>
+          <li>
+            <a href="https://www.citizensadvice.org.uk/immigration/">
+            Citizens Advice</a>
+          </li>
+          <li>
+            <a href="https://www.jcwi.org.uk/our-helplines">
+            the <abbr title="Joint Council for the Welfare of Immigrants">
+            JCWI</abbr> </a>
+          </li>
+          <li>
+            <a href="https://www.libertyhumanrights.org.uk/advice_information/i-need-immigration-advice/">
+            your local advice services</a>
+          </li>
+          <li>
+            <a href="https://www.gov.uk/find-an-immigration-adviser">
+            a registered Immigration Adviser
+            </a>
+          </li>
+        </ul>
+      <strong>Please note: WhatDoTheyKnow are unable to provide you with advice 
+      regarding Immigration matters.</strong>
+      </section>
+      &nbsp;
+      #{generic_deny_boilerplate}
+    HTML
+  )
+
+  home_office_deny_response_passport = _(<<-HTML.strip_heredoc.squish
+      <h3>
+        You cannot do this using WhatDoTheyKnow
+      </h3>
+      <p>
+        Passports are handled by 
+        <a href="/body/hm_passport_office">HM Passport Service</a>, 
+        which is an agency of the Home Office. 
+      </p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="https://www.gov.uk/browse/abroad/passports">
+        Find out about Passports on gov.uk »
+        </a>
+      </div>
+      <h4>How do I contact HM Passport Service?</h4>
+      <p>
+        You can find contact details for the Passport Advice Line on the 
+        <a href="https://www.gov.uk/passport-advice-line">gov.uk website</a>.
+      </p>
+      &nbsp;
+      #{generic_deny_boilerplate}
+    HTML
+  )
+
+  home_office_deny_response_rightofaccess = _(<<-HTML.strip_heredoc.squish 
+      #{generic_deny_gdpr_rightofaccess}
+      <h4>
+        Getting access to your personal information held by the Home Office 
+        and its agencies
+      </h4>
+      <p>
+        Sometimes, you don't need to make a formal request - if you simply need 
+        proof of your immigration status, or have a query, contacting the 
+        office that handles your case can often be quicker.
+      </p>
+      <p>  
+        You can find details on how to make a <strong>Right of Access request
+        </strong> to the Home Office and its agencies 
+        <a href="https://www.gov.uk/government/organisations/home-office/about/personal-information-charter#how-to-ask-for-your-personal-information">
+        on gov.uk</a>.
+      </p>
+      <p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="https://www.gov.uk/government/organisations/home-office/about/personal-information-charter#how-to-ask-for-your-personal-information">
+        Make a Right of Access request on the Home Office website»
+        </a>
+      </div>
+      &nbsp;
+      #{generic_deny_boilerplate}
+    HTML
   )
 
   dfc_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
@@ -991,23 +1126,44 @@ socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
   PublicBodyQuestion.build(
     public_body: home_office,
     key: :visa,
-    question: _('Asking about your Visa?'),
-    response: home_office_deny_response
+    question: _('Get information about my Visa'),
+    response: home_office_deny_response_immi
+  )
+
+  PublicBodyQuestion.build(
+    public_body: home_office,
+    key: :immigration,
+    question: _('Get advice on my immigration case'),
+    response: home_office_deny_response_immi
   )
 
   PublicBodyQuestion.build(
     public_body: home_office,
     key: :brp,
-    question: _('Asking about Biometric Residence Permit (BRP) replacements ' \
-                'or refunds?'),
-    response: home_office_deny_response
+    question: _('Find out about Biometric Residence Permit (BRP) ' \
+                'replacements or refunds?'),
+    response: home_office_deny_response_immi
+  )
+
+  PublicBodyQuestion.build(
+    public_body: home_office,
+    key: :passport,
+    question: _('Get or replace a passport'),
+    response: home_office_deny_response_passport
+  )
+
+  PublicBodyQuestion.build(
+    public_body: home_office,
+    key: :contact_rightofaccess,
+    question: _('Get a copy of information held about me'),
+    response: home_office_deny_response_rightofaccess
   )
 
   PublicBodyQuestion.build(
     public_body: home_office,
     key: :foi,
-    question: _('Asking for recorded information held by a public body that ' \
-                'anyone could reasonably request and expect to receive?'),
+    question: _('Ask for recorded information that <strong>anyone</strong> ' \
+                'could reasonably request and expect to receive'),
     response: :allow
   )
 
