@@ -7,6 +7,12 @@
 #
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
+  AlaveteliSpamTermChecker.default_spam_terms =
+    AlaveteliSpamTermChecker.default_spam_terms + [
+      /Tsai\s*Ing(-|\s)*Wen/i,
+      /Dr(.|\s){1,3}Tsai/i
+    ]
+
   ContactValidator.class_eval do
     attr_accessor :understand
 
