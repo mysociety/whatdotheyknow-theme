@@ -586,7 +586,12 @@ Rails.configuration.to_prepare do
               <li>
                 your local 
                 <a href="https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/search-for-your-local-citizens-advice/">
-                Citizens Advice Bureaux</a>
+                Citizens Advice Bureaux</a> (in England or Wales)
+              </li>
+              <li>
+                your local 
+                <a href="https://www.cas.org.uk/bureaux">
+                Citizens Advice Bureaux</a> (in Scotland)
               </li>
               <li>
               <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
@@ -801,9 +806,29 @@ Rails.configuration.to_prepare do
             for assistance</a>.
           </li>
           <li>
-            You can also ask a Welfare Rights service, an advocacy charity, or 
-            <a href="https://www.citizensadvice.org.uk/benefits/benefits-introduction/problems-with-benefits-and-tax-credits/challenging-benefit-decisions/">
-            Citizens Advice for help</a>.
+            You can ask for help from:
+            <ul>
+              <li>
+                <a href="https://www.citizensadvice.org.uk/benefits/benefits-introduction/problems-with-benefits-and-tax-credits/challenging-benefit-decisions/">
+                Citizens Advice</a>
+              <li>
+                your local 
+                <a href="https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/search-for-your-local-citizens-advice/">
+                Citizens Advice Bureaux</a> (in England or Wales)
+              </li>
+              <li>
+                your local 
+                <a href="https://www.cas.org.uk/bureaux">
+                Citizens Advice Bureaux</a> (in Scotland)
+              </li>
+              <li>
+              <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
+              </li>
+              <li>
+                an advocacy charity, Welfare Rights adviser, or law centre.
+              </li>
+            </ul>
+            #{generic_deny_askcouncil}
           </li>
           <li>
             You can also contact your <a onclick="if (ga) { ga('send','event','Outbound Link','Write To Them Exit','Public Body Questions',1) };" 
