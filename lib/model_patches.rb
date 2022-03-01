@@ -117,6 +117,7 @@ Rails.configuration.to_prepare do
     no-reply@somersetwestandtaunton.gov.uk
     csfinanceplanning&performance.briefingteam@hmrc.gov.uk
     foi.foi@lincs.police.uk
+    mft@cambridgeshire.gov.uk
   )
 
   User::EmailAlerts.instance_eval do
