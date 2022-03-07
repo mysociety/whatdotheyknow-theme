@@ -118,6 +118,7 @@ Rails.configuration.to_prepare do
     csfinanceplanning&performance.briefingteam@hmrc.gov.uk
     foi.foi@lincs.police.uk
     microsoftoffice365@messaging.microsoft.com
+    mft@cambridgeshire.gov.uk
   )
 
   User::EmailAlerts.instance_eval do
