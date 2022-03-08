@@ -86,6 +86,18 @@ Rails.configuration.to_prepare do
     end
   end
 
+  RawEmail.class_eval do
+    alias original_data data
+
+    def data
+      original_data.sub(/
+        ^(Date: [^\n]+\n)
+        \s+(To: [^\n]+\n)
+        \s+(From: [^\n]+)
+      /x, '\1\2\3')
+    end
+  end
+
   ReplyToAddressValidator.invalid_reply_addresses = %w(
     FOIResponses@homeoffice.gsi.gov.uk
     FOIResponses@homeoffice.gov.uk
