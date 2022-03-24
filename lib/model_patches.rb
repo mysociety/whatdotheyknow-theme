@@ -134,4 +134,14 @@ Rails.configuration.to_prepare do
 
     prepend DisableWithProtection
   end
+
+  ActiveStorage::Blob.class_eval do
+    def delete
+      service.delete(key)
+      # Prevent deletion of variants. We don't currently use variants and this
+      # causes timeouts (when doing a remote globs to find variant files to be
+      # deleted) when using a ActiveStorage SFTP service
+      # service.delete_prefixed("variants/#{key}/") if image?
+    end
+  end
 end
