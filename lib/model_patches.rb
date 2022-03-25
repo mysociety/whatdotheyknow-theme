@@ -119,6 +119,7 @@ Rails.configuration.to_prepare do
     foi.foi@lincs.police.uk
     microsoftoffice365@messaging.microsoft.com
     mft@cambridgeshire.gov.uk
+    hou&com.fois@bcpcouncil.gov.uk
   )
 
   User::EmailAlerts.instance_eval do
