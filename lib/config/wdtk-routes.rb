@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get "/help/ico-guidance-for-authorities" => redirect("https://ico.org.uk/media/for-organisations/documents/how-to-disclose-information-safely-removing-personal-data-from-information-requests-and-datasets/2013958/how-to-disclose-information-safely.pdf"),
       as: :ico_guidance
 
+  get "/help/ico-anonymisation-code" => redirect("https://ico.org.uk/media/1061/anonymisation-code.pdf"),
+     as: :ico_anonymisation_code
+
   get '/help/principles' => 'help#principles',
       as: :help_principles
 
