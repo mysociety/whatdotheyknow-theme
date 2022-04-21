@@ -47,7 +47,7 @@
 
 @mixin button-secondary {
   @include button-base;
-  background-color: $color_light_grey;
+  background-color: mix($color_light_grey, $color_yellow, 95%);
   color: $color_black;
   font-weight: normal;
   &:hover,

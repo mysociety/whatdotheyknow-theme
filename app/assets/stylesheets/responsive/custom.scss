@@ -839,7 +839,7 @@ $mysoc-footer-breakpoint-sm: 42em;
   .action-menu__button {
     @include button-secondary;
     &:after {
-      border-color: #a5a5a5 transparent transparent transparent;
+      border-color: #8c8a8a transparent transparent transparent;
       right: 7%;
     }
   }
