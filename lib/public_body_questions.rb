@@ -1267,6 +1267,9 @@ socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
     key: :foi,
     question: _('Ask for recorded information held by a public body ' \
                 '<strong>on any other topic</strong> that ' \
+                'anyone could reasonably request and expect to receive?'),
+    response: :allow
+  )
   ## Department for Communities
 
   PublicBodyQuestion.build(
