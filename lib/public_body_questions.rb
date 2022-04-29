@@ -122,6 +122,8 @@ Rails.configuration.to_prepare do
   ## build public body questions
 
   dwp_deny_response_1 = _(<<-HTML.strip_heredoc.squish
+  ## public body specific templates
+
   generic_deny_boilerplate = _(<<-HTML.strip_heredoc.squish
       <hr>  
       <p>
@@ -307,7 +309,10 @@ Rails.configuration.to_prepare do
       </p>
       <div style="text-align:center">
         <a class="button" 
-        href="https://www.nidirect.gov.uk/campaigns/unclaimed-benefits">
+        href="https://www.nidirect.gov.uk/campaigns/unclaimed-benefits"
+        target="_blank"
+        title="Find out more about benefits on the NIDirect website
+        (opens in a new window)">
         Find out about benefits on NIDirect »</a>
       </div>
       <p>
@@ -316,12 +321,17 @@ Rails.configuration.to_prepare do
           <li>
             You can get free advice on what benefits you may be entitled to  
             from the 
-            <a href="https://www.nidirect.gov.uk/contacts/make-call-service">
+            <a href="https://www.nidirect.gov.uk/contacts/make-call-service"
+            target="_blank"
+            title="Find out more about the Make the Call service on the 
+            NIDirect website (opens in a new window)">
             Make the Call service</a>.
           </li>
           <li>
             You can use an independent 
-            <a href="https://www.nidirect.gov.uk/articles/benefits-calculator">
+            <a href="https://www.nidirect.gov.uk/articles/benefits-calculator"
+            target="_blank"
+            title="Use a benefits calculator (opens in a new window)">
             benefits calculator</a> to find out what benefits and services that 
             you may be entitled to.
           </li>
@@ -332,28 +342,47 @@ Rails.configuration.to_prepare do
             <a href="/body/social_security_scotland">
             Social Security Scotland</a>. 
             You can find further information on 
-            <a href="https://www.gov.uk/browse/benefits">
+            <a href="https://www.gov.uk/browse/benefits"
+            target="_blank"
+            title="Find out about UK wide benefits on gov.uk 
+            (opens in a new window)">
             gov.uk</a> and 
-            <a href="https://www.mygov.scot/browse/benefits">mygov.scot</a>.
+            <a href="https://www.mygov.scot/browse/benefits" 
+            target="_blank"
+            title="Find out about benefits from Social Security Scotland  
+            on mygov.scot (opens in a new window)">
+            mygov.scot</a>.
           </li>
           <li>
             If you are unsure about benefits and need advice, you could contact 
             You can also seek independent advice, from:
             <ul>
               <li>
-                <a href="https://www.adviceni.net/benefits">
+                <a href="https://www.adviceni.net/benefits"
+                target="_blank"
+                title="Link to the Advice NI website (opens in a new window)">
                 Advice NI</a>
               <li>
                 your local 
-                <a href="https://www.adviceni.net/local-advice">
+                <a href="https://www.adviceni.net/local-advice"
+                target="_blank"
+                title="Find a local advice agency on the Advice NI website 
+                (opens in a new window)">
                 Advice Agency</a>
               </li>
               <li>
-              <a href="https://advicefinder.turn2us.org.uk/">Turn2Us</a>
+                <a href="https://advicefinder.turn2us.org.uk/"
+                target="_blank"
+                title="Link a local advice charity or service on the Turn2Us
+                website (opens in a new window)">
+                Turn2Us</a>
               </li>
               <li>
                 or your local 
-                <a href="https://www.lawcentreni.org/">
+                <a href="https://www.lawcentreni.org/"
+                target="_blank"
+                title="Link to the Law Centre NI website 
+                (opens in a new window)">
                 Law Centre</a>.
               </li>
             </ul>
@@ -1148,6 +1177,10 @@ socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
     HTML
   )
 
+  ## build public body questions
+
+  ## Home Office
+  
   PublicBodyQuestion.build(
     public_body: home_office,
     key: :visa,
@@ -1234,6 +1267,8 @@ socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
     key: :foi,
     question: _('Ask for recorded information held by a public body ' \
                 '<strong>on any other topic</strong> that ' \
+  ## Department for Communities
+
   PublicBodyQuestion.build(
     public_body: dfc,
     key: :dfc_claim_benefits,
@@ -1285,6 +1320,8 @@ socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
                 'could reasonably request and expect to receive'),
     response: :allow
   )
+
+  ## DWP
 
   PublicBodyQuestion.build(
     public_body: dwp,
@@ -1377,6 +1414,8 @@ socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
                 'could reasonably request and expect to receive'),
     response: :allow
   )
+
+  ## Social Security Scotland
 
   PublicBodyQuestion.build(
     public_body: socsecscot,
