@@ -121,7 +121,6 @@ Rails.configuration.to_prepare do
 
   ## build public body questions
 
-  dwp_deny_response_1 = _(<<-HTML.strip_heredoc.squish
   ## public body specific templates
 
   generic_deny_boilerplate = _(<<-HTML.strip_heredoc.squish
