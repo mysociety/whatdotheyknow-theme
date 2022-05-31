@@ -91,6 +91,35 @@
 
     <h2 class="contact-page__goal" id="wdtk">
         <label class="houdini-label" for="goal3">
+            I’d like to get involved and become a <strong>volunteer</strong>
+        </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal3"
+        <% if params["contact"] && params[:current_form] == 'wdtk' %>checked<% end %>>
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                Please use this form if you are interested in volunteering for
+                WhatDoTheyKnow
+            </li>
+            <li>
+                If you would like more information on what volunteering
+                involves, see
+                <%= link_to _("our get involved page"), help_volunteers_path %>.
+            </li>
+            <li>
+                <%= foi_error_messages_for :contact %>
+
+                <%= render :partial => "help/contact_volunteer_form",
+                           :locals => { :form_id => 'wdtk_volunteer' } %>
+            </li>
+        </ul>
+    </div>
+
+
+    <h2 class="contact-page__goal" id="wdtk">
+        <label class="houdini-label" for="goal3">
             I have another issue, or feedback relating to the
             WhatDoTheyKnow.com website, that I want to raise with the
             <strong>team that runs WhatDoTheyKnow</strong>.

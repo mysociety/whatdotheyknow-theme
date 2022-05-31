@@ -1454,6 +1454,14 @@ dd {
 
   label {
     margin-bottom: 0.3em;
+
+    input[type="radio"], input[type="checkbox"] {
+      margin: 0 3px 0 -20px
+    }
+
+    &.form_inline {
+      padding-left: 20px;
+    }
   }
 
   input[type="text"],

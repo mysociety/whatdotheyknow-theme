@@ -1,0 +1,91 @@
+<%= form_for :contact,
+             url: help_contact_path + '#' +  form_id,
+             html: { class: 'contact-form' } do |f| %>
+  <% if not @user %>
+    <p>
+      <label class="form_label" for="contact_name">My name:</label>
+      <%= f.text_field :name, size: 20, required: true %>
+      (or <%= link_to "sign in", signin_url(r: request.fullpath + '#' + form_id) %>)
+    </p>
+
+    <p>
+      <label class="form_label" for="contact_email">My email:</label>
+      <%= f.text_field :email, size: 20, required: true %>
+    </p>
+  <% end %>
+
+  <p>
+    <label class="form_label" for="contact_why">Why would you like to volunteer for us?</label>
+    <span class="form_item_note">
+      Please introduce yourself and tell us what interests you about FOI. If you are new to FOI and are interested in learning more through volunteering at WhatDoTheyKnow, that’s fine too!<br><br>
+    </span>
+    <%= f.text_area :why, rows: 10 %>
+  </p>
+
+  <p>
+    <label class="form_label" for="contact_tasks">What kind of tasks are you interested in?</label>
+    <%= f.fields_for :tasks do |t| %>
+      <% VolunteerContactForm::TASKS.each do |k, v| %>
+        <%= t.label k, class: 'form_inline' do %>
+          <%= t.check_box k, {}, v %>
+          <%= v %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
+    <label class="form_label" for="contact_experience">Do you have any previous relevant experience that you could tell us about?</label>
+
+    <span class="form_item_note">
+      There's a wide range of different jobs, hobbies or experiences that could be helpful in volunteering at WhatDoTheyKnow.<br><br>
+      Let us know of anything you think might be relevant: maybe a link to a  website you've contributed to, your social media, or campaigning that you've been involved in.<br><br>
+      Perhaps you're studying for a course that has a link to transparency or FOI, such as law or media; or you've had a job that involved working with the public. Even if you've never done anything directly linked to FOI, it'd be great to hear about anything that shows you have skills that can be applied to the sort of task you're interested in.<br><br>
+      Finally, if you've got a CV online, please do include the link.<br><br>
+    </span>
+
+    <%= f.text_area :experience, rows: 10 %>
+  </p>
+
+  <p>
+    <label class="form_label" for="contact_anything_else">Anything else?</label>
+
+    <span class="form_item_note">
+      Is there anything else that you’d like to tell us?<br><br>
+    </span>
+
+    <%= f.text_area :anything_else, rows: 10 %>
+  </p>
+
+  <p>
+    <label class="form_label" for="contact_age">How old are you?<label>
+
+    <span class="form_item_note">
+      We restrict some of our work to those aged 18 or over due to the fact it sometimes involves dealing with sensitive material, but we are still happy for people under 18 to help with some tasks.<br><br>
+    </span>
+
+    <%= f.label :age_under_18, class: 'form_inline' do %>
+      <%= f.radio_button :age, label = 'Under 18' %>
+      <%= label %>
+    <% end %>
+    <%= f.label :age_18_or_over, class: 'form_inline' do %>
+      <%= f.radio_button :age, label = '18 or over' %>
+      <%= label %>
+    <% end %>
+  </p>
+
+  <p style="display:none;">
+    <%= f.label :comment, 'Do not fill in this field' %>
+    <%= f.text_field :comment %>
+  </p>
+
+  <% if @recaptcha_required %>
+    <%= recaptcha_tags %><br>
+  <% end %>
+
+  <div class="form_button">
+    <%= hidden_field_tag(:current_form, form_id) %>
+    <%= hidden_field_tag(:submitted_contact_form, 1) %>
+    <%= submit_tag "Send message to WhatDoTheyKnow team", data: { disable_with: "Sending..." } %>
+  </div>
+<% end %>
