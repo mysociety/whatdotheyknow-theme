@@ -18,6 +18,10 @@
   <%= link_to _("Help"), help_about_path %>
 </li>
 
+<li class="<%= 'selected' if controller?('alaveteli_pro/account_request', 'alaveteli_pro/plans') %>">
+  <%= link_to _('Pro'), account_request_index_path %>
+</li>
+
 <li class="<%= 'selected' if controller?('help') && action?('volunteers') %>">
   <%= link_to _("Volunteer"), help_volunteers_path %>
 </li>
