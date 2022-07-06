@@ -4,99 +4,209 @@
   <h1>
     <%= @title %>
   </h1>
-  <dl>
-    <dt id="volunteering">
-      Become a volunteer
-      <a href="#volunteering">#</a>
-    </dt>
-    <dd>
+  <h2 id="volunteering">
+    Become a volunteer
+    <a href="#volunteering">#</a>
+  </h2>
+  <p>
+    mySociety's aim is to empower people everywhere to become informed and
+    active citizens, able to fully participate in shaping the decisions that
+    impact their lives, contribute to flourishing communities, and hold power
+    to account wherever it may lie. Running the public  Freedom of Information
+    service WhatDoTheyKnow is one of the key ways in which we seek to achieve
+    those aims.
+  </p>
+  <p>
+    We are always looking for new volunteers to help us work towards a fairer
+    society by assisting with the day to day running of the service
+  </p>
+  <p>
+    If you have a passion for transparency and a bit of spare time, consider
+    joining WhatDoTheyKnow's volunteer admin team, or helping out with a
+    specific project.
+  </p>
+  <p>
+    From answering the hundreds of user support emails we receive each month to
+    helping resolve legal issues and keeping our public bodies database and
+    requests states up to date, there is always plenty to do.
+  </p>
+  <p>
+    We are also always keen to find people that can help shape the direction of
+    the service, contribute to research to promote good use of the site or
+    craft  blog posts for us.
+  </p>
+  <p>
+    As a volunteer, you'll receive the training you need, and if you join the
+    admin team you'll be invited to join our regular team meetings and be
+    involved in our decision making process.
+  </p>
+  <p>
+    We don't ask for any specific time commitments from you and you can carry
+    out volunteer tasks at any time we are just grateful for whatever help you
+    can give. Everything operates online and via video calls, so you can do all
+    of this from your own space, with no travel commitments. All we ask is that
+    you keep us up to date with how you are getting on via our email and/or
+    chat channels.
+  </p>
+
+  <h2 id="current-projects">
+    Current Projects
+    <a href="#current-projects">#</a>
+  </h2>
+  <p>
+    We are actively recruiting for volunteers to join our admin team in these
+    roles:
+  </p>
+  <ul>
+    <li>
+      FOI database administrator
+    </li>
+    <li>
+      FOI content researcher
+    </li>
+    <li>
+      FOI help desk administrator
+    </li>
+  </ul>
+  <p>
+    You can read more about these and apply via the
+    <a href="FOI database administrator">mySociety jobs page</a>
+  </p>
+  <p>
+    We are also working on updating some of our site information. We need
+    people to help us research and find contact details for some authorities.
+    You could also search WhatDoTheyKnow for  your local area and make sure
+    that we've got all the authorities listed that should be.This kind of
+    activity makes up a vital part of our work to ensure that our information
+    is up to date to enable our users to continue making requests.
+  </p>
+
+  <h2 id="other-volunteering-opportunities">
+    Other volunteering opportunities
+    <a href="#other-volunteering-opportunities">#</a>
+  </h2>
+  <p>
+    If the opportunities listed above don't sound quite the right fit, we'd
+    still like to hear from you.
+  </p>
+  <p>
+    Let us know a bit about what interests you, how you'd like to help and what
+    experience you have (don't worry if that's 'none'!) and we'll try to find
+    something that matches your skills.
+  </p>
+  <p>
+    You can get in touch by using our
+    <%= link_to "I'd like to volunteer contact form",
+                help_contact_path(anchor: 'wdtk_volunteer') %>.
+  </p>
+
+  <h2 id="general-tasks">
+    General tasks
+    <a href="#general-tasks">#</a>
+  </h2>
+  <p>
+    Be an active member of the WhatDoTheyKnow user community.
+  </p>
+  <p>
+    If formal volunteering is not for you, there are still plenty of ways you
+    can help us run the site
+  </p>
+  <ul>
+    <li>
       <p>
-        If you have a passion for transparency, a great deal of patience, and a
-        bit of spare time, consider becoming one of WhatDoTheyKnow’s volunteer
-        admin team. Work includes user support, helping to resolve legal issues,
-        and shaping the site’s direction, and is primarily managed via email.
+        Help us identify successful requests so that everyone can see the state
+        of the request.
       </p>
       <p>
-        In the first instance, <a href="<%=  help_contact_path %>">get in
-        touch</a>.
-      </p>
-    </dd>
-    <dt id="donation">
-      Make a donation
-      <a href="#donation">#</a>
-    </dt>
-    <dd>
-      <p>
-        mySociety, WhatDoTheyKnow’s parent organisation, is a charity.
-        WhatDoTheyKnow, our most-visited site, costs thousands of pounds each
-        year, for overheads such as servers, maintenance and development.
+        You can do this through our <%= link_to 'categorisation game',
+          categorise_play_path %>
       </p>
       <p>
-        Your contributions, however small, really help. <a href="<%= donation_url %>">Donate here</a>.
-      </p>
-    </dd>
-    <dt id="tasks">
-      Sort things out
-      <a href="#tasks">#</a>
-    </dt>
-    <dd>
-      <p>
-        Help identify successful requests, and monitor performance of
-        authorities, by <a href="<%= categorise_play_path %>">playing the
-        categorisation game</a>.
-      </p>
-      <p>
-        Or find out FOI email addresses of <a href="<%=
-        help_requesting_path(:anchor => 'missing_body') %>">authorities that
-        we’re missing</a>.
-      </p>
-    </dd>
-    <dt id="tellpeople">
-      Spread the word
-      <a href="#tellpeople">#</a>
-    </dt>
-    <dd>
-      <p>
-        We don’t have a massive marketing budget, so word of mouth really helps.
+        It's really helpful to categorise requests, but if you want to provide
+        even more value, you can keep your eyes open as you go along.
       </p>
       <ul>
         <li>
-          Write a blog post about WhatDoTheyKnow, or an interesting request that
-          you’ve found.
+          You might notice some really interesting information that has been
+          received, which we could write up in a blog post
         </li>
         <li>
-          Post about the site, and what you can do with it, on a forum that you
-          frequent.
+          Perhaps you'll pick up on the performance of certain authorities —
+          it's always useful for us to be aware of which are responding well or
+          poorly
         </li>
         <li>
-          Tell friends about it.
-        </li>
-        <li>
-          Let your local newspaper or community magazine know how useful we are.
-        </li>
-        <li>
-          Give a talk.
-        </li>
-        <li>
-          <a href="<%= help_contact_path %>">Ask us</a> for leaflets to leave
-          in your local library or coffee shop.
+          Or you might find some content that breaks our house rules, let us
+          know about this by using the “report this request” option on the
+          request page.
         </li>
       </ul>
-    </dd>
-    <dt id="code">
-      Improve our code
-      <a href="#code">#</a>
-    </dt>
-    <dd>
-      <p>
-        Seen something that could work better? If you’re a coder, <a
-        href="https://github.com/mysociety/alaveteli/">get the source code</a>
-        for our parent project <a href="http://alaveteli.org/">Alaveteli</a> and
-        send us a pull request. WhatDotheyKnow is coded in <a
-        href="http://rubyonrails.org/">Ruby on Rails</a>.
-      </p>
-    </dd>
-  </dl>
+    </li>
+    <li>
+      We always need help with promoting the good use of WhatDoTheyKnow. If you
+      spot one of our requests being quoted in a news article or on a blog then
+      you can add a citation to the request. This helps us all to see how the
+      information has been used.
+    </li>
+    <li>
+      You might choose to write a blog post about WhatDoTheyKnow, or an
+      interesting request that you've found yourself, and we'd love to hear
+      about that if you do. You can let us know using the contact form (add
+      link to contact form page)
+    </li>
+    <li>
+      You can help other users by adding annotations with advice to requests
+      where people may be struggling to get the information that they have
+      asked for or with some links to similar information that may help them,
+    </li>
+    <li>
+      If you spot that we are not listing a public body, then
+      <%= link_to 'let us know', help_requesting_path(anchor: 'missing_body') %>
+    </li>
+    <li>
+      If you've found WhatDoTheyKnow useful, then simply telling your friends,
+      colleagues or perhaps your local newspaper or community magazine about
+      our service and your experience can help us to spread the word so that
+      more people know about us.
+    </li>
+    <li>
+      And for those more technically minded, if you have seen something that
+      could work better and you're a coder, get the
+      <a href="https://github.com/mysociety/alaveteli/">source code</a> for our
+      parent project <a href="http://alaveteli.org/">Alaveteli</a> and send us a
+      pull request. WhatDotheyKnow is coded in
+      <a href="https://rubyonrails.org/">Ruby on Rails</a>.
+    </li>
+  </ul>
+
+  <h2 id="other-ways-to-help">
+    Other ways that you can help
+    <a href="#other-ways-to-help">#</a>
+  </h2>
+
+  <h3 id="donation">
+    Make a donation
+    <a href="#donation">#</a>
+  </h3>
+  <p>
+    We know that your time is very precious and not everyone has the
+    opportunity to volunteer.
+  </p>
+  <p>
+    You can help us instead by making a donation.
+  </p>
+  <p>
+    mySociety, WhatDoTheyKnow's parent organisation, is a charity.
+    WhatDoTheyKnow, our most-visited site, costs thousands of pounds each year,
+    for overheads such as servers, maintenance and development.
+  </p>
+  <p>
+    Your contributions, however small, really help. <%= link_to 'Donate here',
+      donation_url(
+        utm_campaign: 'mysoc_footer', utm_content: 'footer donate now'
+      )
+    %>.
+  </p>
 
   <%= render partial: 'history' %>
 </div>
