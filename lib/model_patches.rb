@@ -121,6 +121,7 @@ Rails.configuration.to_prepare do
     mft@cambridgeshire.gov.uk
     hou&com.fois@bcpcouncil.gov.uk
     foi@dudley.gov.uk
+    no-reply@sharepointonline.com
   )
 
   User::EmailAlerts.instance_eval do
