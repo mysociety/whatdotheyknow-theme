@@ -1,0 +1,24 @@
+Name: <%= @contact.name %>
+Email: <%= @contact.email %>
+Age: <%= @contact.age %>
+
+Why:
+<%= @contact.why.strip.gsub(/^/, '> ') %>
+
+Tasks:
+<%= @contact.tasks.map { |t| '- ' + t }.join("\n") %>
+
+Experience:
+<%= @contact.experience.strip.gsub(/^/, '> ') %>
+
+Anything else:
+<%= @contact.anything_else.strip.gsub(/^/, '> ') %>
+
+---------------------------------------------------------------------
+<%= _('Message sent using {{site_name}} volunteer contact form, ',
+      :site_name => site_name.html_safe) %>
+<%= @logged_in_user ?
+  _("logged in as user {{user_name}}",
+    :user_name => user_url(@logged_in_user)) :
+  _("not logged in") %>
+---------------------------------------------------------------------
