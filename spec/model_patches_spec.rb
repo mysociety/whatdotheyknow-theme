@@ -15,15 +15,6 @@ RSpec.describe InfoRequest, "when creating an email subject for a request" do
       to eq("Freedom of Information request GQ - #{info_request.title}")
   end
 
-  it 'should be able to create an email subject request for a batch request template without
-      a public body' do
-    info_request = FactoryBot.build(:info_request)
-    info_request.public_body = nil
-    info_request.is_batch_request_template = true
-    expect(info_request.email_subject_request).
-      to eq("Freedom of Information request - #{info_request.title}")
-  end
-
 end
 
 RSpec.describe InfoRequest do
