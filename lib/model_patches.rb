@@ -24,7 +24,7 @@ Rails.configuration.to_prepare do
     def email_subject_request(opts = {})
       html = opts.fetch(:html, true)
       subject_title = html ? self.title : self.title.html_safe
-      if (!is_batch_request_template?) && (public_body && public_body.url_name == 'general_register_office')
+      if public_body && public_body.url_name == 'general_register_office'
         # without GQ in the subject, you just get an auto response
         _('{{law_used_full}} request GQ - {{title}}', law_used_full: legislation.to_s(:full),
           title: subject_title)
