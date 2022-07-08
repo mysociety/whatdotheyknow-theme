@@ -120,6 +120,9 @@ Rails.configuration.to_prepare do
     microsoftoffice365@messaging.microsoft.com
     mft@cambridgeshire.gov.uk
     hou&com.fois@bcpcouncil.gov.uk
+    foi@dudley.gov.uk
+    no-reply@sharepointonline.com
+    dvla.donotreply@dvla.gov.uk
   )
 
   User::EmailAlerts.instance_eval do
