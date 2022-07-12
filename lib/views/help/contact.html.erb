@@ -89,14 +89,14 @@
     </div>
 
 
-    <h2 class="contact-page__goal" id="wdtk">
+    <h2 class="contact-page__goal" id="wdtk-volunteer">
         <label class="houdini-label" for="goal4">
             I’d like to get involved and become a <strong>volunteer</strong>
         </label>
     </h2>
 
     <input class="houdini-input" type="radio" name="goals" id="goal4"
-        <% if params["contact"] && params[:current_form] == 'wdtk' %>checked<% end %>>
+        <% if params["contact"] && params[:current_form] == 'wdtk-volunteer' %>checked<% end %>>
     <div class="houdini-target contact-page__options">
         <ul>
             <li>
@@ -112,7 +112,7 @@
                 <%= foi_error_messages_for :contact %>
 
                 <%= render :partial => "help/contact_volunteer_form",
-                           :locals => { :form_id => 'wdtk_volunteer' } %>
+                           :locals => { :form_id => 'wdtk-volunteer' } %>
             </li>
         </ul>
     </div>

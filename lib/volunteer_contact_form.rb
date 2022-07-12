@@ -39,7 +39,7 @@ module VolunteerContactForm
     end
 
     def contact_volunteer_form?
-      params[:current_form] == 'wdtk_volunteer'
+      params[:current_form] == 'wdtk-volunteer'
     end
   end
 
