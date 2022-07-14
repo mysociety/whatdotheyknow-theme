@@ -79,7 +79,8 @@
         <ul>
             <li>
                 Directly contact the team that run WhatDoTheyKnow:
-
+            </li>
+            <li style="list-style-type:none;">
                 <%= foi_error_messages_for :contact %>
 
                 <%= render :partial => "help/contact_form",
@@ -108,7 +109,7 @@
                 involves, see
                 <%= link_to _("our get involved page"), help_volunteers_path %>.
             </li>
-            <li>
+            <li style="list-style-type:none;">
                 <%= foi_error_messages_for :contact %>
 
                 <%= render :partial => "help/contact_volunteer_form",
@@ -143,7 +144,8 @@
                     If your issue isn’t covered by our help pages, you can
                     directly contact the team that run WhatDoTheyKnow:
                 <% end %>
-
+            </li>
+            <li style="list-style-type:none;">
                 <%= foi_error_messages_for :contact %>
 
                 <%= render :partial => "help/contact_form",
