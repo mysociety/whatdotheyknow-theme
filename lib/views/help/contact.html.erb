@@ -76,9 +76,23 @@
     <input class="houdini-input" type="radio" name="goals" id="goal3"
         <% if params["contact"] && params[:current_form] == 'writing-help' %>checked<% end %>>
     <div class="houdini-target contact-page__options">
+        <h3>If you need help writing a request, we've got you covered.</h3>
         <ul>
             <li>
-                Directly contact the team that run WhatDoTheyKnow:
+                Our <%= link_to 'help pages', help_requesting_path %> have
+                guidance on how to make requests, including some top tips on
+                how you can get the best response.
+            </li>
+            <li>
+                You can also find inspiration for your request on
+                <%= link_to _("our blog"), blog_path %>.
+            </li>
+            <li>
+                If you still need help, you can contact the team that
+                run WhatDoTheyKnow.
+                <br>
+                It'd be helpful if you could let us know what information you
+                are looking for, and which body you think might hold it.
             </li>
             <li style="list-style-type:none;">
                 <%= foi_error_messages_for :contact %>
