@@ -46,6 +46,8 @@ module VolunteerContactForm
   module MailerMethods
     def volunteer_message(contact, logged_in_user)
       @contact = contact
+      # Setup a case reference so we can find this in the mailbox
+      @contact_caseref = "VAPP/#{Time.now.strftime('%Y%m%d')}-#{SecureRandom.base36(4).upcase}"
       @logged_in_user = logged_in_user
 
       # From is an address we control so that strict DMARC senders don't get
@@ -58,10 +60,16 @@ module VolunteerContactForm
       )
       set_reply_to_headers(nil, 'Reply-To' => reply_to_address)
 
+      # Set a header so we can filter in the mailbox
+      headers['X-WDTK-Contact'] = 'wdtk-volunteer'
+      headers['X-WDTK-CaseRef'] = @contact_caseref
+
       mail(
         from: from,
         to: contact_from_name_and_email,
-        subject: _('Message from WDTK volunteer contact form')
+        subject: _('Message from {{name}} via WDTK volunteer contact form [{{reference}}]',
+                   name: contact.name,
+                   reference: @contact_caseref)
       )
     end
   end
