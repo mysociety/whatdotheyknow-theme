@@ -67,7 +67,9 @@ module VolunteerContactForm
       mail(
         from: from,
         to: contact_from_name_and_email,
-        subject: _('Message from '+contact.name+' via WDTK volunteer contact form ['+@contact_caseref+']')
+        subject: _('Message from {{name}} via WDTK volunteer contact form [{{reference}}]',
+                   name: contact.name,
+                   reference: @contact_caseref)
       )
     end
   end
