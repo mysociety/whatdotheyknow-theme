@@ -88,13 +88,8 @@
                 <%= link_to _("our blog"), blog_path %>.
             </li>
             <li>
-                <% if @user && @user.is_pro? %>
-                    If you still need help, you can contact the team that 
-                    run WhatDoTheyKnow Pro. 
-                <% else %>
-                   If you still need help, you can contact the team that 
-                    run WhatDoTheyKnow.
-                <% end %>
+                If you still need help, you can contact the team that 
+                run WhatDoTheyKnow.
                 <br>
                 It'd be helpful if you could let us know what information you 
                 are looking for, and which body you think might hold it.
@@ -156,13 +151,8 @@
                 issues and questions you might have.
             </li>
             <li>
-                <% if @user && @user.is_pro? %>
-                    If your issue isn’t covered by our help pages, you can
-                    directly contact the team who run WhatDoTheyKnow Pro:
-                <% else %>
-                    If your issue isn’t covered by our help pages, you can
-                    directly contact the team that run WhatDoTheyKnow:
-                <% end %>
+                If your issue isn’t covered by our help pages, you can 
+                directly contact the team that run WhatDoTheyKnow:
             </li>
             <li style="list-style-type:none;">
                 <%= foi_error_messages_for :contact %>
