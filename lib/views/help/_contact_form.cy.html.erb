@@ -1,0 +1,83 @@
+<%= form_for :contact,
+             :url => help_contact_path + '#' +  form_id,
+             :html => {:class => 'contact-form'} do |f| %>
+
+    <p class="contact-form__understand">
+        <%= f.check_box :understand, :required => true %>
+        <label for="contact_understand" class="form_label">
+            Rwy'n deall <strong>nad yw WhatDoTheyKnow yn cael ei redeg gan y 
+            llywodraeth, ac ni fydd tîm WhatDoTheyKnow <b>yn gallu helpu</b> 
+            gyda materion personol sy'n gysylltiedig â gwasanaethau'r llywodraeth.
+        </label>
+    </p>
+    <% if not @user %>
+        <p>
+            <label class="form_label" for="contact_name">Eich enw:</label>    
+            <%= f.text_field :name, :size => 20, :required => true %>
+            (Neu  <%= link_to "fewngofnodwch",
+                            signin_url(
+                              :r => request.fullpath + '#' + form_id) %>)
+            <%= f.text_field :name, :size => 20 %>
+        </p>
+
+        <p>
+            <label class="form_label" for="contact_email">Eich e-bost:</label>
+            <%= f.text_field :email, :size => 20 %>
+        </p>
+    <% end %>
+
+    <p>
+        <label class="form_label" for="contact_subject">Pwnc:</label>
+        <%= f.text_field :subject,
+                         :size => 50,
+                         :required => true,
+                         :class => "message-subject" %>
+    </p>
+
+    <p>
+        <label class="form_label" for="contact_message">
+            Fy neges i dîm WhatDoTheyKnow:
+        </label>
+        <%= f.text_area :message, :rows => 10, :cols => 60, :required => true %>
+    </p>
+
+    <p style="display:none;">
+        <%= f.label :comment, 'Peidiwch â llenwi’r yn y maes hwn' %>
+        <%= f.text_field :comment %>
+    </p>
+
+    <% if !@last_request.nil? %>
+        <p>
+            <label class="form_label" for="contact_message">Cynnwys dolen i ofyn am:</label>
+            <%=request_link(@last_request) %>
+            <%= submit_tag "remove", :name => 'remove' %>
+        </p>
+    <% end %>
+    <% if !@last_body.nil? %>
+        <p>
+            <label class="form_label" for="contact_message">Cynnwys dolen i awdurdod:</label>
+            <%=public_body_link(@last_body) %>
+            <%= submit_tag "remove", :name => 'remove' %>
+        </p>
+    <% end %>
+
+    <% if @recaptcha_required %>
+      <%= recaptcha_tags %><br />
+    <% end %>
+
+    <div class="form_button">
+        <script><!--
+            if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
+                $('#contact_understand').removeAttr('required');
+                $('#contact_name').removeAttr('required');
+                $('#contact_email').removeAttr('required');
+                $('#contact_subject').removeAttr('required');
+                $('#contact_message').removeAttr('required');
+            }
+        //--></script>
+        <%= hidden_field_tag(:current_form, form_id) %>
+        <%= hidden_field_tag(:submitted_contact_form, 1) %>
+        <%= submit_tag "Anfon neges i dîm WhatDoTheyKnow", :data => { :disable_with => "Anfon…" } %>
+    </div>
+
+<% end %>
