@@ -123,6 +123,8 @@ Rails.configuration.to_prepare do
     foi@dudley.gov.uk
     no-reply@sharepointonline.com
     dvla.donotreply@dvla.gov.uk
+    noreply@my.tewkesbury.gov.uk
+    donotreply.foi@publicagroup.uk
   )
 
   User::EmailAlerts.instance_eval do
