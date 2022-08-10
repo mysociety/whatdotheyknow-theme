@@ -62,6 +62,18 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('mapit') %>
+  <% public_body.get_tag_values('mapit').each do |tag_value| %>
+    <%= link_to _('Area covered'), "https://mapit.mysociety.org/area/#{tag_value}.html" %>
+
+    <small>
+      [<%= link_to _('others in this area'), list_public_bodies_by_tag_path("mapit:#{tag_value}") %>]
+    </small>
+
+    <br>
+  <% end %>
+<% end %>
+
 <%= link_to _('View FOI email address'), view_public_body_email_path(public_body.url_name) %><br>
 
 <%= link_to _("Ask us to update FOI email"), new_change_request_body_path(:body => public_body.url_name) %><br>
