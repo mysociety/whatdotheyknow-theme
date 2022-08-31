@@ -14,6 +14,11 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="<%= image_path('mstile-144x144.png') %>">
 <meta name="msapplication-config" content="<%= asset_path('browserconfig.xml') %>">
-<meta name="theme-color" content="#ffffff">
+
+<% if @user&.is_pro? %>
+  <meta name="theme-color" content="#365B74">
+<% else %>
+  <meta name="theme-color" content="#3394e6">
+<% end %>
 
 <meta name="google-site-verification" content="DbAHEzh0igI0rZziSexQh5fTrbRfNPSw8BdmrmNY_70" />
