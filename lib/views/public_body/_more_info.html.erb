@@ -62,6 +62,13 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('cqc') %>
+  <% public_body.get_tag_values('cqc').each do |tag_value| %>
+      <%= link_to _('Care Quality Commission information'),
+                    "https://www.cqc.org.uk/provider/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('mapit') %>
   <% public_body.get_tag_values('mapit').each do |tag_value| %>
     <%= link_to _('Area covered'), "https://mapit.mysociety.org/area/#{tag_value}.html" %>
