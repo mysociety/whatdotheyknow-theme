@@ -125,6 +125,8 @@ Rails.configuration.to_prepare do
     dvla.donotreply@dvla.gov.uk
     noreply@my.tewkesbury.gov.uk
     donotreply.foi@publicagroup.uk
+    do_not_reply@icasework.com
+    mailer@donotreply.icasework.com
   )
 
   User::EmailAlerts.instance_eval do
