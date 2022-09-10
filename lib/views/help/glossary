@@ -1,0 +1,267 @@
+<% @title = "Freedom of information glossary" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="glossary">Freedom of information glossary<a href="#glossary">#</a> </h1>
+  <!-- We have not added all of the tags that are needed to make this a valid HTML file yet.-->
+  <p>Perhaps ironically, the field of freedom of information has developed its own jargon that may not be accessible to everyone. Here is an  attempt to explain some of the abbreviations and special terms used by FOI officers and transparency campaigners.
+This glossary also seeks to explain some of terms used in our help pages. </p>
+
+<h2 class="letter_in_glossary" id=”letter_A”>A</h2>
+
+<dl>
+<dt>Aarhus Convention</dt>
+<dd>The Aarhus Convention provides a right of access to environmental information. The Convention was signed in June 1998 in the Danish city of Aarhus. The full name of the Aarhus Convention is the UNECE Convention on Access to Information, Public Participation in Decision-making and Access to Justice in Environmental Matters.</dd>
+
+<dt>Absolute exemption</dt>
+<dd>An absolute exemption is one that is not subject to a public interest test.</dd>
+
+<dt>Alaveteli</dt>
+<dd>An open-source platform for making public [[#Freedom of information|freedom of information]] requests to [[#Public authority|public authorities]]. [[#WhatDoTheyKnow|WhatDoTheyKnow]] is powered by Alaveteli.</dd>
+
+<dt>Anonymisation</dt> 
+<dl>The process of removing names, National Insurance numbers and other identifiers from a dataset prior to release so that none of the information can be linked to a specific person. Anonymised data may be useful to researchers.</dl>
+
+<dt>API</dt>
+<dd>API stands for Application Programming Interface. An API is as a piece of software that allows two computer programmes to exchange information. See also: https://www.whatdotheyknow.com/help/api</d>
+
+<dt>Applicant blind</dt>
+<dd>The principle that the information released in response to an [[#EIR|EIR]] or [[#FOI|FOI]] request should be the same no matter who the requester is. In practice, public authorities can take the identity of the requester into account in certain situations e.g. when applying the cost limit.</dd>
+</dl>
+
+<h2 class="letter_in_glossary" id=”letter_B”>B</h2>
+
+<dl>
+<dd>Bulk request</dd>
+<dt>The term bulk request is normally use to refer to a [[#Request|request]] that is sent to a large number of public authorities, typically 20 or more.</dt>
+</dl>
+
+<h2 class="letter_in_glossary" id=”letter_C”>C</h2>
+
+<dd>Categorisation game</dd>
+<dt>WhatDoTheyKnow encourages users to classify their requests to indicate whether they were successful or not.  Any requests that are not classified by the user will after a period of time become available for any other user to classify. Classifying requests earns points in the categorisation game. See also: https://www.whatdotheyknow.com/categorise/play</dt>
+
+<dt>Cost limit</dt>
+<dd>Public authorities can refuse to answer FOI requests where the estimated cost of compliance exceeds the appropriate limit which is known as the cost limit. The cost limit is currently £600 for central government and £450 for all other public authorities. See also the ICO guidance document <a href=”https://ico.org.uk/media/for-organisations/documents/1199/costs_of_compliance_exceeds_appropriate_limit.pdf”>Requests where the cost of compliance exceeds the appropriate limit</a>.
+
+In Scotland, most authorities will be responding under the Freedom of Information (Scotland) Act, which sets a cost limit of £600. This is set out in the Freedom of Information (Fees for Required Disclosure) (Scotland) Regulations 2004 ([https://www.legislation.gov.uk/ssi/2004/467/contents/made SSI 2004 no. 467]). There is more information in the Scottish Information Commissioner's guidance document - [https://www.itspublicknowledge.info/sites/default/files/2022-03/FeesandExcessiveCostofComplianceBriefing.pdf Charging a fee or refusing to comply with a request on excessive cost grounds] - which also explains the circumstances in which a public authority might occasionally issue a "fees notice".</dd>
+
+<h2 class="letter_in_glossary" id=”letter_D”>D</h2>
+
+
+
+===Data sets===
+The term data set is normally used to refer to a large volume of information that is held in a structured form for example,  a table or directory.
+
+===Decision letter===
+A document issued by the ICO or Scottish Information Commissioner that sets out a formal decision that the organisation or individual a request was made to was not in fact a public authority and therefore not subject to EIR/FOI.
+
+===Decision notice===
+A document issued by the ICO or Scottish Information Commissioner that sets out a formal decision on what information should and should not be released to the requester.
+
+===Disclose===
+To make information available to the requester or to the general public.
+
+===Disclosed===
+
+Disclosed information is the information provided to the requester. The opposite of redacted and <a href=”#withheld”>withheld</a>.
+
+===Disclosure===
+Making information available or the information that has been made available. See also disclose
+
+===Disclosure log===
+A list or table published by public authorities showing the information they have released in response to EIR/FOI requests. A disclosure log helps to show what kinds of information the public authority holds and should reduce the chances that the same information is requested twice.
+
+Many FOI systems, such as [https://www.societyworks.org/services/foi/ FOIWorks] from SocietyWorks (mySociety's commercial arm), use disclosure logs as an integral part of the request journey. WhatDoTheyKnow, while not currently able to search disclosure logs, contains a wealth of information, so you might find the information you are looking for is already on-site.
+
+===DN===
+DN stands for decision notice.
+
+<h2 class="letter_in_glossary" id=”letter_E”>E</h2>
+===EIR===
+Environmental Information Regulations 2004 ([https://www.legislation.gov.uk/uksi/2004/3391/contents/made 2004 No. 3391]) or the Environmental Information (Scotland) Regulations 2004 ([https://www.legislation.gov.uk/uksi/2004/3391/contents SI 2004 No. 520]).
+
+===Environmental information===
+
+Information about the physical environment, including rural, urban and marine environments. The definition of environmental information contained in the EIR is wide and covers matters such as biodiversity, energy, land use, planning, pollution and waste as well as the impact of the environment on human health.
+
+===Environmental information regulations===
+Environmental Information Regulations 2004 ([https://www.legislation.gov.uk/uksi/2004/3391/contents/made 2004 No. 3391]) or the Environmental Information (Scotland) Regulations 2004 ([https://www.legislation.gov.uk/uksi/2004/3391/contents SI 2004 No. 520]).
+
+===Exemption===
+
+A reason that a public authority can use to withhold information from an FOI requester. For example, information can be withheld under the law enforcement exemption or the commercial interests exemption.
+
+===Exception===
+
+EIR provides requesters with a powerful right to access environmental information but this right is subject to certain exceptions. For example, there is an exception for information where disclosure would have an adverse impact on international relations, defence, national security or public safety;
+
+<h2 class="letter_in_glossary" id=”letter_F”>F</h2>
+
+===FOI===  
+Freedom of information
+===FOI Officer=== 
+Freedom of Information Officer - an employee or agent of a public authority whose job includes responding to FOI requests.
+
+===FOIA=== 
+FOIA stands for Freedom of Information Act. In the UK, FOIA refers to the Freedom of Information Act 2000.
+===FOISA===
+Freedom of Information (Scotland) Act 2002 - the act that applies to most public authorities in Scotland - save for those which are not devolved (e.g. the 
+Office of the Secretary of State for Scotland, which is part of HM Government).
+
+===Freedom of information=== 
+
+The principle that governments and other public sector organisations should operate transparently and make information available to the press, citizens etc. In the UK, legislation has been passed in support of this principle including the Freedom of Information Act 2000 and Freedom of Information (Scotland) Act 2002.
+
+
+<h2 class="letter_in_glossary" id=”letter_H”>H</h2>
+
+===House rules===
+
+The WhatDoTheyKnow House rules set out how we expect people to use and behave on the site. The rules are published on [https://www.whatdotheyknow.com/help/house_rules the House rules page].
+
+<h2 class="letter_in_glossary" id=”letter_G”>G</h2>
+
+===GDPR===
+
+General Data Protection Regulation - a law about data protection and privacy. Following Brexit, the UK has its own version of GDPR.
+
+<h2 class="letter_in_glossary" id=”letter_I”>I</h2>
+
+===ICO===
+
+Information Commissioner’s Office.
+
+===Information Commissioner===
+
+The Information Commissioners is the privacy and data protection regulator for the UK as a whole and the EIR/FOI regulator for UK Central Government, England, Northern Ireland and Wales. See also Scottish Information Commissioner.
+
+===Information Commissioner’s Office===
+
+The staff that supports the Information Commissioner. In practice, the terms Information Commissioner and the Information Commissioner's Office are used interchangeably. 
+
+===Internal review===
+[Text.]
+
+<h2 class="letter_in_glossary" id=”letter_M”>M</h2>
+
+===Maiden name===
+
+If a person changes their last name when they get married in order to have the same last name as their spouse, the person's previous name is called their maiden name. The [https://ico.org.uk/media/for-organisations/documents/1164/recognising-a-request-made-under-the-foia.pdf ICO guidance on recognising FOI requests] states that a married woman who uses her maiden name for professional reasons but is known by her married name outside work can make a valid FOI request using either name.
+
+===mySociety===
+
+mySociety is a registered charity in England and Wales (1076346) and a limited company (03277032). The charity runs a number of websites including WhatDoTheyKnow.
+
+<h2 class="letter_in_glossary" id=”letter_N”>N</h2>
+
+===NCND===
+
+Neither confirm nor deny. This refers to a situation where the public authority refuses to say whether or not it holds the information that has been requested.  Sometimes admitting a document exists can 'give the game away'. For example, if an authority admits to holding a copy of a complaint that A made about a new policy but refuses to release the complaint, the requester will still know that A complained.
+
+<h2 class="letter_in_glossary" id=”letter_P”>P</h2>
+
+===Personal data===
+
+===PIT===
+Public interest test.
+
+===Proactive disclosure===
+The practice adopted by some public authorities of making information available even in the absence of an EIR or FOI request. Often this is done by publishing documents on the public authority's website.
+
+===Pseudonym===
+A name used for a specific purpose that is not the person' real name. For example, some people make FOI requests using a pseudonym.
+
+===Public authority=== 
+
+A body such as a Government Department or local council that is subject to FOI law or to the Environmental Information Regulations or similar legislation. On WhatDoTheyKnow we also use the term public authorities for bodies we have added to the site even though they are not subject to EIR or FOI because of their public responsibilities. 
+===Public interest=== 
+
+Something that will benefit the public. Not necessarily something the public will find interesting. The term is difficult to define but anything that would be likely protect or improve the welbeing, the rights, health, or finances of the public would normally be viewed as being in the public interest. In FOI law certain exemptions cannot be used to
+===Public interest test===
+
+The assessment as to whether the release of specific information would be in the public interest
+===Publication scheme===
+
+Freedom of Information law requires every public authority to have a publication scheme. The publication scheme must be approved by the ICO. The publication scheme sets out a public authority’s commitment to make some types of information routinely available on request.The public authority is required publish information in line with the publication scheme.
+
+<h2 class="letter_in_glossary" id=”letter_Q”>Q</h2>
+
+===Qualified exemption===
+
+An [[#Exemption |exemption]] that is subject to a public interest test.
+
+===Qualified person===
+
+A public authority that wishes to withhold information under section 36 of the Freedom of Information Act 2000 will need to get the qualified person to sign an opinion.
+
+<h2 class="letter_in_glossary" id=”letter_R”>R</h2>
+
+===Redacted=== 
+Information contained in a document that has not been made available to the requester.  For example, text may have been removed or covered with a black box. Opposite of disclosed.
+===Redaction=== 
+The act of removing or masking information contained in a document such that it wso that it cannot be seen by the requester. See also redacted, withheld.
+===Released===
+Means the same  as disclosed. Opposite of redacted and withheld.
+===Response=== 
+The public authorities reply to an EIR or FOI request. The term is not normally used for emails acknowledging receipt.
+===Request=== 
+An email, letter or other communication requesting recorded information from a public authority. See also bulk request, requester
+===Requester=== 
+The person or organisation that sent the request to the public authority. See also request.
+
+<h2 class="letter_in_glossary" id=”letter_S”>S</h2>
+<dl>
+<dt>S</dt>
+<dd>The word section is sometimes abbreviated to “s” or “S”. For example, s40 of the FOIA can  section 40 of the Freedom of Information Act 2000.</dd>
+
+
+===SAR===
+
+Subject access request, also known as a "Right of Access" request.
+
+===Subject access request===
+A request someone has made for their own personal data. Subject access requests should not be made using WhatDoTheyKnow.
+</dl>
+
+<h2 class="letter_in_glossary" id=”letter_T”>T</h2>
+
+===Tribunal=== 
+
+A tribunal is a panel chaired by a judge. If the requester or a public authority disagrees with a decision made by the ICO than they can appear to  the First-tier Tribunal.
+
+<h2 class="letter_in_glossary" id=”letter_V”>V</h2>
+
+===Vexatious===
+Likely to cause irritation or annoyance or place a disproportionate burden on public authorities. Public authorities can withhold information under Section 14 of the Freedom of Information Act 2000 is the request is vexatious.
+
+<h2 class="letter_in_glossary" id=”letter_W”>W</h2>
+<dl>
+<dt>WhatDoTheyKnow</dt>
+<dd>A website that can be used to make FOI and EIR requests in public.</dd>
+
+<dt>WhatDoTheyKnowPro</dt>
+<dd>WhatDoTheyKnow Professional - a version of WhatDoTheyKnow made available to journalists and campaigners on payment of a subscription fee.</dd>
+
+<dt id=”withheld”>Withheld</dt>
+<dd>Information contained in a document that has not been made available to the requester. For example, text may have been removed or covered with a black box. Means the same as withheld. Means the opposite of disclosed and released.</dd>
+
+<dt>Working day</dt> 
+<dd>Normally, FOI requests have to be answered within twenty working days. A working day is a day other than a Saturday or Sunday that is not a public authority in any part of the United Kingdom. In the UK, public holidays are often called bank holidays.</dd>
+
+<h2 class="letter_in_glossary" id=”letter_Z”>Z</h2>
+<dl>
+<dt>ZIP file</dt>
+<dd>ZIP is an archive file format used for data compression. Public authorities sometime send very large datasets to requester using a ZIP file because there is a limit to the file size that they can send by email.</dd>
+</dl>
+
+    
+   
+  <p>
+    <strong>Next</strong>, read about
+    <a href="<%= help_requesting_path %>">making requests</a> --&gt;
+  </p>
+
+  <%= render partial: 'history' %>
+
+  <div id="hash_link_padding"></div>
+</div>
