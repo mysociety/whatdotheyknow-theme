@@ -35,4 +35,7 @@ Rails.application.routes.draw do
 
   get '/help/ico_officers' => 'help#ico_officers',
       as: :help_ico_officers
+
+  get '/help/glossary' => 'help#glossary',
+      as: :help_glossary
 end

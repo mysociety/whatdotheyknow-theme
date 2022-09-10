@@ -12,6 +12,7 @@ Rails.configuration.to_prepare do
     def volunteers; end
     def beginners; end
     def ico_officers; end
+    def glossary; end
 
     private
 
