@@ -1,0 +1,101 @@
+<% @title = "Rheolau tŷ" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1><%=@title %></h1>
+  <h2>
+    Sut rydym yn disgwyl i bobl ddefnyddio’r wefan ac ymddwyn wrth wneud hynny
+  </h2>
+  <p>
+    Mae torri unrhyw un o'r rheolau isod yn debygol o arwain at atal eich 
+    cyfrif, ac ni fyddwch yn gallu gwneud ceisiadau na diweddariadau ar 
+    WhatDoTheyKnow.
+  </p>
+  <p>
+    Mewn rhai achosion, gallai torri’r rheolau hyn arwain at gamau cyfreithiol 
+    yn cael eu cymryd yn eich erbyn gan yr awdurdodau neu barti tramgwyddedig.
+  </p>
+  <p>
+    Yn ogystal, mae tor-rheolau yn aml yn cymryd cryn dipyn o amser 
+    gwirfoddolwyr i ddelio â nhw ac yn peryglu gallu mySociety i redeg y 
+    gwasanaeth.
+  </p>
+  <ul>
+    <li>
+      Dylech ddefnyddio WhatDoTheyKnow dim ond i ofyn am wybodaeth benodol, 
+      nid ar gyfer gohebiaeth gyffredinol ag awdurdodau cyhoeddus, ac yn sicr 
+      nid ar gyfer gohebiaeth bersonol.
+    </li>
+    <li>
+      Peidiwch â chynnwys sylwadau a allai fod yn ddifenwol/enllibus (fel 
+      honiadau) yn eich ceisiadau ac anodiadau.
+    </li>
+    <li>
+      Peidiwch â phostio gwybodaeth sy’n anghyfreithlon, yn aflonyddu, yn 
+      ddifenwol, yn ddifrïol, yn fygythiol, yn niweidiol, yn anweddus, yn 
+      wahaniaethol neu’n halogedig
+    </li>
+    <li>
+      Dylech ddefnyddio WhatDoTheyKnow i ofyn am wybodaeth y gallai unrhyw un 
+      ddisgwyl ei chael pe byddent yn gofyn amdani yn unig. Os oes gennych hawl 
+      benodol i wybodaeth, er enghraifft oherwydd eich bod yn ceisio eich 
+      gwybodaeth bersonol eich hun, yna dylech ohebu’n breifat â’r corff 
+      cyhoeddus dan sylw i ofyn amdani. Gelwir ceisiadau am eich gwybodaeth 
+      bersonol eich hun yn Geisiadau Gwrthrych am Wybodaeth ac 
+      <a href="https://cy.ico.org.uk/your-data-matters/your-right-to-get-copies-of-your-data/"
+      title="Canllawiau gan y Comisiynydd Gwybodaeth ar eich hawl i gael mynediad">
+      mae'r Comisiynydd Gwybodaeth wedi cyhoeddi cyngor ar wneud ceisiadau o'r fath</a>.
+    </li>
+    <li>
+      Cadwch negeseuon a anfonir trwy ein gwasanaeth yn gryno ac yn 
+      canolbwyntio'n dynn ar destun y cais am wybodaeth. Gwrandewch ar ein 
+      <%= link_to help_requesting_path(anchor: 'responsible') do -%>
+        cyngor ar wneud ceisiadau cyfrifol ac effeithiol.
+      <% end %>
+    </li>
+    <li>
+      Peidiwch â cheisio dynwared rhywun arall.
+    </li>
+    <li>
+      Peidiwch â defnyddio unrhyw iaith sy'n debygol o dramgwyddo yn eich 
+      ceisiadau ac anodiadau.
+    </li>
+    <li>
+      Dim sbamio.
+    </li>
+    <li>
+      Rhaid gwneud ceisiadau mewn llythrennau cymysg, h.y. nid pob un mewn 
+      priflythrennau ac nid pob un mewn llythrennau bach (mae hyn yn cael ei 
+      orfodi'n awtomatig gan y feddalwedd y mae WhatDoTheyKnow yn rhedeg arni).
+    </li>
+    <li>
+      Peidiwch â gwneud ceisiadau blinderus (ceisiadau heb unrhyw ddiben 
+      difrifol, neu y bwriedir iddynt amharu ar weithrediad corff cyhoeddus). 
+      Mae gan yr ICO ganllawiau ar geisiadau blinderus 
+      <a href="https://cy.ico.org.uk/for-organisations/guidance-index/freedom-of-information-and-environmental-information-regulations/dealing-with-vexatious-requests-section-14/"
+      title="Canllawiau gan y Comisiynydd Gwybodaeth ar geisiadau blinderus">
+      yma</a>.
+    </li>
+    <li>
+      Peidiwch â defnyddio ein gwasanaeth i ofyn am wybodaeth bersonol pobl 
+      eraill a pheidiwch â chynnwys gwybodaeth o'r fath mewn ceisiadau, 
+      anodiadau neu ddilyniannau, oni bai ei bod yn deg gwneud hynny.
+    </li>
+    <li>
+      Peidiwch â cheisio osgoi gweithredoedd gweinyddwyr safle trwy, er 
+      enghraifft, greu cyfrifon newydd i osgoi gwaharddiad, neu gap cyfyngu ar 
+      gyfraddau, neu drwy ailgyhoeddi deunydd y gwyddoch sydd wedi'i ddileu gan 
+      gymedrolwyr.
+    </li>
+  </ul>
+  <p>
+    Drwy dorri’r rheolau uchod, rydych mewn perygl o gael eich gwahardd rhag 
+    defnyddio’r wefan, a/neu eich ceisiadau/anodiadau’n cael eu dileu. Mewn 
+    achosion lle mae’n amlwg nad yw eich bwriadau yn faleisus, byddwn yn c
+    ysylltu â chi yn gyntaf fel y gallwn roi cyngor ar sut i ddefnyddio’r 
+    gwasanaeth yn well.
+  </p>
+
+  <%= render partial: 'history' %>
+
+  <div id="hash_link_padding"></div>
+</div>
