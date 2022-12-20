@@ -41,6 +41,13 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('ofs') %>
+  <% public_body.get_tag_values('ofs').each do |tag_value| %>
+      <%= link_to _('Provider register'),
+                    "https://www.officeforstudents.org.uk/advice-and-guidance/the-register/the-ofs-register/#/provider/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('urn') %>
   <% public_body.get_tag_values('urn').each do |tag_value| %>
       <%= link_to _('Establishment information'),
