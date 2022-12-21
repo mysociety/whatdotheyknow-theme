@@ -106,7 +106,33 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+a.external-link {
+  padding-right: 24px;
+  text-decoration: none;
+  position: relative;
+  &:after {
+    content:"";
+    position: absolute;
+    background-image: image-url("external-link-blue.png");
+    // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+    background-image: image-url("external-link-blue.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    right: 0;
+  }
 
+  &:hover {
+    text-decoration: underline;
+    &:after {
+      background-image: image-url("external-link-black.png");
+      // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+      background-image: image-url("external-link-black.svg");
+    }
+  }
+}
 
 /* Mixin styles */
 
