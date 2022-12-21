@@ -72,6 +72,16 @@
   <% end %>
 <% end %>
 
+# A Legal Entity Identifier or LEI is a unique global identifier used for legal entities entering into financial transactions.
+# Each LEI is a 20-character alpha-numeric code.
+# This part of the code adds a link to openleis.com for authorities tagged with 'lei:'.
+<% if public_body.has_tag?('lei') %>
+  <% public_body.get_tag_values('lei').each do |tag_value| %>
+      <%= link_to _('Legal Entity Identifier'),
+                    "http://openleis.com/legal_entities/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('mapit') %>
   <% public_body.get_tag_values('mapit').each do |tag_value| %>
     <%= link_to _('Area covered'), "https://mapit.mysociety.org/area/#{tag_value}.html" %>
