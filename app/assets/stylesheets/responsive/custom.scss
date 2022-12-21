@@ -1445,6 +1445,40 @@ p.locale-list-trigger {
 
 }
 
+.homepage-video-section {
+  padding: 2em 0;
+  .vs-content__headings {
+    text-align: center;
+  }
+  
+  .vs-content__video-grid {
+    margin-bottom: 3rem;
+    .video-grid__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .video-grid__item-heading {
+        font-size: 1.1em;
+        line-height: 130%;
+      }
+      .video-grid__img {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.col-3-grid {
+  display: grid;
+  column-gap: 3rem;
+  row-gap: 1.5rem;
+  padding: 0 0.9375rem; //same as foundation's screen-edge gutter;
+  @media (min-width: $main_menu-mobile_menu_cutoff ) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Help pages */
 
 .help-sidebar {

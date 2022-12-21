@@ -1,0 +1,38 @@
+<% 
+    @research_videos = [
+    { title: 'The FOI Clearing House: an openDemocracy investigation into FOI at the heart of government',
+        url: 'https://www.youtube.com/watch?v=wXbhBHfeOzk',
+        img: 'ask-the-eu-logo.png',
+        alt: 'Everyone participating'},
+    { title: 'Longer title, but not too much The FOI Clearing House: an openDemocracy investigation into FOI at the heart of government',
+        url: 'https://www.youtube.com/watch?v=wXbhBHfeOzk',
+        img: 'ask-the-eu-logo.png',
+        alt: 'Everyone participating'},
+    { title: 'Shorter title The FOI Clearing House',
+        url: 'https://www.youtube.com/watch?v=wXbhBHfeOzk',
+        img: 'ask-the-eu-logo.png',
+        alt: 'Everyone participating'},
+    ]
+%>
+
+<div class="homepage-video-section" id="homepage-video">
+    <div class="row homepage-video-section__vs-contet">
+        <div class="vs-content__headings ">
+            <h2><%= _("Recent videos") %></h2>
+        </div>
+        <div class="vs-content__video-grid col-3-grid">
+            <% @research_videos.sample(3).each do |article| %>
+                <div class="video-grid__item">
+                <img class="item-content__img" src="<%= image_path(article[:img]) %>" alt="<%= article[:alt] %>" loading="lazy">
+                    <div class="video-grid__item-content">
+                        <h3 class="item-content__heading"><%= article[:title] %></h3>
+                        <a class="external-link link-with-icon youtube-icon" href="<%= article[:url] %>" target="_blank">Watch on YouTube</a>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div style="text-align: center;">
+            <a class="button" href="https://www.youtube.com/mysociety">Browse more</a>
+        </div>
+    </div>
+</div>
