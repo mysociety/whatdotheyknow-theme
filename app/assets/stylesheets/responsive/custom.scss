@@ -134,6 +134,24 @@ a.external-link {
   }
 }
 
+a.link-with-icon {
+  padding-left: 30px;
+  background-position: left 0 center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &.youtube-icon { 
+    background-image: image-url("youtube-blue.png");
+    // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+    background-image: image-url("youtube-blue.svg");
+  }
+
+  &:hover {
+    background-image: image-url("youtube-black.png");
+    background-image: image-url("youtube-black.svg");
+  }
+}
+
 /* Mixin styles */
 
 /* THe combined 'follow' button with follower count is built with the two following mixins */
