@@ -44,8 +44,8 @@
 # The Office for Students (OfS) is a regulator that maintains a register listing all the higher education providers officially recognised by the OfS.
 # This part of the code adds a link to the OfS register for all bodies with a 'UKPRN:' tag.
 
-<% if public_body.has_tag?('UKPRN') %>
-  <% public_body.get_tag_values('UKPRN').each do |tag_value| %>
+<% if public_body.has_tag?('ukprn') %>
+  <% public_body.get_tag_values('ukprn').each do |tag_value| %>
       <%= link_to _('Provider register'),
                     "https://www.officeforstudents.org.uk/advice-and-guidance/the-register/the-ofs-register/#/provider/#{ tag_value }" %><br>
   <% end %>
