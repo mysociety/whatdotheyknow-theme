@@ -84,6 +84,17 @@
   <% end %>
 <% end %>
 
+#On Wikidata, items which are also called Q-items are given unique codes.
+#For example, the Cabinet Office code is Q5995(see https://www.wikidata.org/wiki/Q5995)
+#Each Wikidata item code begins with a "Q" which is followed by a numerical code
+#This part of the code adds a link to https://www.wikidata.org/wiki/ for authorities tagged with 'wikidata:'.
+<% if public_body.has_tag?('wikidata') %>
+  <% public_body.get_tag_values('wikidata').each do |tag_value| %>
+      <%= link_to _('Wikidata page'),
+                    "https://www.wikidata.org/wiki/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('mapit') %>
   <% public_body.get_tag_values('mapit').each do |tag_value| %>
     <%= link_to _('Area covered'), "https://mapit.mysociety.org/area/#{tag_value}.html" %>
