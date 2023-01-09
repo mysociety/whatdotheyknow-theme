@@ -2,7 +2,7 @@
     @research_videos = [
     { title: 'Reforming Freedom of Information: mySociety policy paper launch event',
         url: 'https://www.youtube.com/watch?v=AbXowwJDn3M',
-        img: 'reforming-freedom-of-information.jpeg',
+        img: 'http://img.youtube.com/vi/AbXowwJDn3M/hqdefault.jpg',
         alt: 'Session screenshot: Reforming Freedom of Information'},
     { title: 'The FOI Clearing House: an openDemocracy investigation into FOI at the heart of government',
         url: 'https://www.youtube.com/watch?v=wXbhBHfeOzk',
@@ -16,7 +16,7 @@
 %>
 
 <div class="homepage-video-section" id="homepage-video">
-    <div class="row homepage-video-section__vs-contet">
+    <div class="row homepage-video-section__vs-content">
         <div class="vs-content__headings ">
             <h2><%= _("Recent videos") %></h2>
         </div>
@@ -31,8 +31,9 @@
                 </div>
             <% end %>
         </div>
-        <div style="text-align: center;">
-            <a class="button" href="https://www.youtube.com/mysociety">Browse more</a>
+        <div class="cta-button-wrapper">
+            <a class="button" href="https://www.mysociety.org/donate/?utm_medium=link&how-much=10">Donate £10</a>
+            <span>to support our research or <a href="https://www.youtube.com/mysociety">browse more</a></span>
         </div>
     </div>
 </div>

@@ -1515,6 +1515,7 @@ p.locale-list-trigger {
         width: 100%;
         height: 150px;
         margin-bottom: 0rem;
+        object-fit: cover;
       }
       .video-grid__item-content {
         display: flex;
@@ -1542,6 +1543,13 @@ p.locale-list-trigger {
   padding: 0 0.9375rem; //same as foundation's screen-edge gutter;
   @media (min-width: $main_menu-mobile_menu_cutoff ) {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cta-button-wrapper {
+  text-align: center;
+  a.button {
+    margin-right: 0.25rem;
   }
 }
 
