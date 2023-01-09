@@ -1,17 +1,11 @@
 <% 
     @research_videos = [
     { title: 'Reforming Freedom of Information: mySociety policy paper launch event',
-        url: 'https://www.youtube.com/watch?v=AbXowwJDn3M',
-        img: 'http://img.youtube.com/vi/AbXowwJDn3M/hqdefault.jpg',
-        alt: 'Session screenshot: Reforming Freedom of Information'},
+        id: 'AbXowwJDn3M'},
     { title: 'The FOI Clearing House: an openDemocracy investigation into FOI at the heart of government',
-        url: 'https://www.youtube.com/watch?v=wXbhBHfeOzk',
-        img: 'the-FOI-clearing-house.jpeg',
-        alt: 'Session screenshot: The FOI Clearing House'},
+        id: 'wXbhBHfeOzk'},
     { title: 'Workshop: What can you do with FOI?',
-        url: 'https://www.youtube.com/watch?v=meaLp7p2Yok',
-        img: 'what-can-you-do-with-FOI.jpeg',
-        alt: 'Session screenshot: Workshop: What can you do with FOI?'},
+        id: 'meaLp7p2Yok'},
     ]
 %>
 
@@ -23,10 +17,10 @@
         <div class="vs-content__video-grid col-3-grid">
             <% @research_videos.sample(3).each do |article| %>
                 <div class="video-grid__item">
-                <img class="item-content__img" src="<%= image_path(article[:img]) %>" alt="<%= article[:alt] %>" loading="lazy">
+                <img class="item-content__img" src="http://img.youtube.com/vi/<%= article[:id] %>/hqdefault.jpg" alt="<%= article[:title] %>" loading="lazy">
                     <div class="video-grid__item-content">
                         <h3 class="item-content__heading"><%= article[:title] %></h3>
-                        <a class="external-link link-with-icon youtube-icon" href="<%= article[:url] %>" target="_blank">Watch on YouTube</a>
+                        <a class="external-link link-with-icon youtube-icon" href="https://www.youtube.com/watch?v=<%= article[:id] %>" target="_blank">Watch on YouTube</a>
                     </div>
                 </div>
             <% end %>
