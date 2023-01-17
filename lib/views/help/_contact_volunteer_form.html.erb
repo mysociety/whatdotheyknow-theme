@@ -14,6 +14,11 @@
     </p>
   <% end %>
 
+  <p hidden>
+    <%= f.label :comment %>
+    <%= f.text_field :comment %>
+  </p>
+
   <p>
     <label class="form_label" for="contact_why">Why would you like to volunteer for us?</label>
     <span class="form_item_note">
@@ -72,11 +77,6 @@
       <%= f.radio_button :age, label = '18 or over' %>
       <%= label %>
     <% end %>
-  </p>
-
-  <p style="display:none;">
-    <%= f.label :comment, 'Do not fill in this field' %>
-    <%= f.text_field :comment %>
   </p>
 
   <% if @recaptcha_required %>
