@@ -1,7 +1,7 @@
 module VolunteerContactForm
   TASKS = {
     admin: _('Administration tasks such as updating our database of public authorities'),
-    comms: _('Communications tasks such as blog writing or updating public notes on the site'),
+    comms: _('Communications tasks such as updating public notes on the site'),
     legal: _('Legal tasks such as being involved in reviewing GDPR requests'),
     user_support: _('User assistance tasks, such as responding to requests for help and advice in using WhatDoTheyKnow or making requests'),
     campaign: _('Campaign-focused tasks such as helping to shape and put into effect  our activism around FOI'),
