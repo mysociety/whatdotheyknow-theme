@@ -439,12 +439,14 @@
     </dt>
     <dd>
       <p>
-        After three months of inactivity, WhatDoTheyKnow limits who can respond
-        to a request to stop spammers targeting old requests. At that point, the
-        request can only be responded to by someone who’s from the authority.
-        After six months, the request is closed to responses from anyone. If you
-        need an old request to be re-opened so that you can respond to it,
-        please <a href="<%= help_contact_path %>"> contact us</a>.
+        After <%= InfoRequest.requests_old_after_months %> months of inactivity,
+        WhatDoTheyKnow limits who can respond to a request to stop spammers
+        targeting old requests. At that point, the request can only be responded
+        to by someone who’s from the authority. After 
+        <%= InfoRequest.requests_very_old_after_months %> months, the request
+        is closed to responses from anyone. If you need an old request to be
+        re-opened so that you can respond to it, please
+        <a href="<%= help_contact_path %>"> contact us</a>.
       </p>
     </dd>
   </dl>
