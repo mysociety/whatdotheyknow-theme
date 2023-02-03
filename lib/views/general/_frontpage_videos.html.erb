@@ -1,11 +1,11 @@
-<% 
+<%
     @research_videos = [
-    { title: 'Reforming Freedom of Information: mySociety policy paper launch event',
-        id: 'AbXowwJDn3M'},
-    { title: 'The FOI Clearing House: an openDemocracy investigation into FOI at the heart of government',
-        id: 'wXbhBHfeOzk'},
-    { title: 'Workshop: What can you do with FOI?',
-        id: 'meaLp7p2Yok'},
+      { title: 'Reforming Freedom of Information: mySociety policy paper launch event',
+        id: 'AbXowwJDn3M' },
+      { title: 'The FOI Clearing House: an openDemocracy investigation into FOI at the heart of government',
+        id: 'wXbhBHfeOzk' },
+      { title: 'Workshop: What can you do with FOI?',
+        id: 'meaLp7p2Yok' },
     ]
 %>
 
@@ -14,17 +14,22 @@
         <div class="vs-content__headings ">
             <h2><%= _("Recent videos") %></h2>
         </div>
+
         <div class="vs-content__video-grid col-3-grid">
             <% @research_videos.sample(3).each do |article| %>
                 <div class="video-grid__item">
                 <img class="item-content__img" src="http://img.youtube.com/vi/<%= article[:id] %>/hqdefault.jpg" alt="<%= article[:title] %>" loading="lazy">
                     <div class="video-grid__item-content">
-                        <h3 class="item-content__heading"><%= article[:title] %></h3>
+                        <h3 class="item-content__heading">
+                          <%= article[:title] %>
+                        </h3>
+
                         <a class="external-link link-with-icon youtube-icon" href="https://www.youtube.com/watch?v=<%= article[:id] %>" target="_blank">Watch on YouTube</a>
                     </div>
                 </div>
             <% end %>
         </div>
+
         <div class="cta-button-wrapper">
             <a class="button" href="https://www.mysociety.org/donate/?utm_medium=link&how-much=10">Donate £10</a>
             <span>to support our research or <a href="https://www.youtube.com/mysociety">browse more</a></span>
