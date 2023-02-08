@@ -1,24 +1,36 @@
-<%  @research_articles = JSON.parse(Net::HTTP.get(URI('https://research.mysociety.org/embed/foi/limit:10/format:json/'))). with_indifferent_access[:items]. map { |item| item.slice(:title, :url, :thumbnail) } %>
+<%
+    uri = URI('https://research.mysociety.org/embed/foi/limit:10/format:json/')
+
+    JSON.parse(Net::HTTP.get(uri)).
+      with_indifferent_access[:items].
+      map { |item| item.slice(:title, :url, :thumbnail) }
+%>
 
 <div class="homepage-article-section" id="homepage-article">
   <div class="row homepage-article-section__ar-contet">
     <div class="ar-content__headings ">
-      <h2><%= _("Our Freedom of Information Research") %></h2>
+      <h2><%= _('Our Freedom of Information Research') %></h2>
     </div>
+
     <div class="ar-content__article-grid col-2-grid">
       <% @research_articles.sample(6).each do |article| %>
         <div class="article-grid__item">
-        <img class="item-content__img" src="<%= image_path(article[:thumbnail]) %>" alt="Cover for: <%= article[:title] %>" loading="lazy">
+          <%= image_tag article[:thumbnail], alt: _('Cover for: {{article_title}}', article_title: article[:title]), class: 'item-content__img', loading: 'lazy' %>
+
           <div class="article-grid__item-content">
-            <h3 class="item-content__heading"><%= article[:title] %></h3>
-            <a href="<%= article[:url] %>" target="_blank">Read article</a>
+            <h3 class="item-content__heading">
+              <%= article[:title] %>
+            </h3>
+
+            <%= link_to _('Read article'), article[:url] %>
           </div>
         </div>
       <% end %>
     </div>
+
     <div class="cta-button-wrapper">
       <a class="button" href="https://www.mysociety.org/donate/?utm_medium=link&how-much=10">Donate £10</a>
-      <span>to support our research or <a href="https://research.mysociety.org/section/foi">Browse more</a></span>
+      <span>to support our research or <a href="https://research.mysociety.org/section/foi">browse more</a></span>
     </div>
   </div>
 </div>
