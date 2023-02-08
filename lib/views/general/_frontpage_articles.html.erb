@@ -9,7 +9,7 @@
       else
         JSON.parse(response).
           with_indifferent_access[:items].
-          map { |item| item.slice(:title, :url, :thumbnail) }
+          map { |item| item.slice(:title, :desc, :url, :thumbnail) }
       end
   end
 %>
@@ -30,6 +30,10 @@
             <h3 class="item-content__heading">
               <%= article[:title] %>
             </h3>
+
+            <p>
+              <%= article[:desc] %>
+            </p>
 
             <%= link_to _('Read article'), article[:url] %>
             </div>
