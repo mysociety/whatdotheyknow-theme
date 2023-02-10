@@ -10,12 +10,28 @@ module VolunteerContactForm
   }.freeze
 
   module ControllerMethods
+    def contact
+      super
+
+      return unless contact_volunteer_form?
+      return unless params[:submitted_contact_form]
+      return if flash.now[:error] # return if reCAPTCHA hasn't passed
+
+      # Volunteer form spam tends to have repeated text in the why, experience,
+      # or anything_else fields, if this happens then fake sending form
+      if contact_validator.errors.added?(:base, :repeated_text)
+        flash[:notice] = _("Your message has been sent. Thank you for " \
+                           "getting in touch! We'll get back to you soon.")
+        redirect_to frontpage_url
+      end
+    end
+
     private
 
     def contact_validator
       return super unless contact_volunteer_form?
 
-      ContactVolunteerValidator.new(contact_params)
+      @contact_validator ||= ContactVolunteerValidator.new(contact_params)
     end
 
     def contact_mailer
@@ -86,6 +102,7 @@ module VolunteerContactForm
     validates_presence_of :experience, :message => N_("Please list any relevant experience")
     validates_presence_of :age, :message => N_("Please confim your age")
     validate :email_format
+    validate :repeated_text
 
     def initialize(attributes = {})
       attributes.each do |name, value|
@@ -96,9 +113,13 @@ module VolunteerContactForm
     private
 
     def email_format
-      unless MySociety::Validate.is_valid_email(email)
-        errors.add(:email, _("Email doesn't look like a valid address"))
-      end
+      return if MySociety::Validate.is_valid_email(email)
+      errors.add(:email, _("Email doesn't look like a valid address"))
+    end
+
+    def repeated_text
+      return if why != experience || why != anything_else
+      errors.add(:base, :repeated_text)
     end
   end
 end
