@@ -141,6 +141,7 @@ Rails.configuration.to_prepare do
     mailer@donotreply.icasework.com
     website@digital.sthelens.gov.uk
     noreply@m.onetrust.com
+    no-reply@notify.microsoft.com
   )
 
   User::EmailAlerts.instance_eval do
