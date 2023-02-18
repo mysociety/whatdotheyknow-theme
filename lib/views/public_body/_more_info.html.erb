@@ -41,11 +41,6 @@
   <% end %>
 <% end %>
 
-# A UKPRN is a UK Provider Reference Number.
-# The Office for Students (OfS) is a regulator that maintains a register listing all the higher education providers officially recognised by the OfS.
-# This part of the code adds a link to the OfS register for all bodies with a 'ofs:' tag.
-# The ofs tag should not be used for bodies with a UKPRN that are not on the OfS register (e.g. some academies).
-
 <% if public_body.has_tag?('ofs') %>
   <% public_body.get_tag_values('ofs').each do |tag_value| %>
       <%= link_to _('Provider register'),
@@ -74,24 +69,10 @@
   <% end %>
 <% end %>
 
-# A Legal Entity Identifier or LEI is a unique global identifier used for legal entities entering into financial transactions.
-# Each LEI is a 20-character alpha-numeric code.
-# This part of the code adds a link to openleis.com for authorities tagged with 'lei:'.
 <% if public_body.has_tag?('lei') %>
   <% public_body.get_tag_values('lei').each do |tag_value| %>
       <%= link_to _('Legal Entity Identifier'),
                     "http://openleis.com/legal_entities/#{ tag_value }" %><br>
-  <% end %>
-<% end %>
-
-#On Wikidata, items which are also called Q-items are given unique codes.
-#For example, the Cabinet Office code is Q5995(see https://www.wikidata.org/wiki/Q5995)
-#Each Wikidata item code begins with a "Q" which is followed by a numerical code
-#This part of the code adds a link to https://www.wikidata.org/wiki/ for authorities tagged with 'wikidata:'.
-<% if public_body.has_tag?('wikidata') %>
-  <% public_body.get_tag_values('wikidata').each do |tag_value| %>
-      <%= link_to _('Wikidata page'),
-                    "https://www.wikidata.org/wiki/#{ tag_value }" %><br>
   <% end %>
 <% end %>
 
