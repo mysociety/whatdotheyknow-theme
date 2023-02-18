@@ -139,6 +139,8 @@ Rails.configuration.to_prepare do
     donotreply.foi@publicagroup.uk
     do_not_reply@icasework.com
     mailer@donotreply.icasework.com
+    website@digital.sthelens.gov.uk
+    noreply@m.onetrust.com
   )
 
   User::EmailAlerts.instance_eval do
