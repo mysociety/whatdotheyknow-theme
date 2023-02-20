@@ -7,6 +7,18 @@
 #
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
+  SPAM_TERMS_CONFIG = Rails.root + 'config/spam_terms.txt'
+
+  if File.exist?(SPAM_TERMS_CONFIG)
+    custom_terms =
+      File.read(SPAM_TERMS_CONFIG).
+        split("\n").
+        reject { |line| line.starts_with?('#') || line.empty? }
+
+    AlaveteliSpamTermChecker.default_spam_terms =
+      AlaveteliSpamTermChecker::DEFAULT_SPAM_TERMS + custom_terms
+  end
+
   ContactValidator.class_eval do
     attr_accessor :understand
 
