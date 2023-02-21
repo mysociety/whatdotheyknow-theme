@@ -156,6 +156,14 @@ Rails.configuration.to_prepare do
     no-reply@notify.microsoft.com
   )
 
+  User.class_eval do
+    private
+
+    def exceeded_user_message_limit?
+      !Time.zone.now.between?(Time.zone.parse('9am'), Time.zone.parse('5pm'))
+    end
+  end
+
   User::EmailAlerts.instance_eval do
     module DisableWithProtection
       def disable
