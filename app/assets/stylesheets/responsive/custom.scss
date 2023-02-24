@@ -1485,6 +1485,24 @@ p.locale-list-trigger {
   @include grid-column(12);
 }
 
+.newsletter-signup {
+  text-align: center;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  padding: 4em 3em;
+  margin: 2rem 0;
+  &__image {
+    opacity: 0.7;
+    max-width: 250px;
+  }
+  &__title {
+    margin-top: 1.75rem;
+  }
+  &__subtitle {
+    font-size: 1.125em;
+  }
+}
+
 .learn-more-foi__link {
 
 }
