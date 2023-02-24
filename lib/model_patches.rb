@@ -154,6 +154,7 @@ Rails.configuration.to_prepare do
     website@digital.sthelens.gov.uk
     noreply@m.onetrust.com
     no-reply@notify.microsoft.com
+    MPSdataoffice-IRU-DONOTREPLY@met.police.uk
   )
 
   User.class_eval do
