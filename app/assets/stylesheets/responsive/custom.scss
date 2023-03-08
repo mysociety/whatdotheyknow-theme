@@ -453,6 +453,14 @@ a.link_button_green_large {
   .account-link {
     background: transparent;
   }
+
+  .sign_in_link {
+    color: white;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }
 
 .logged-in-menu a,
