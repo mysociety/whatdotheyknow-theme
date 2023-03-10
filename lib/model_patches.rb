@@ -7,6 +7,18 @@
 #
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
+  SPAM_TERMS_CONFIG = Rails.root + 'config/spam_terms.txt'
+
+  if File.exist?(SPAM_TERMS_CONFIG)
+    custom_terms =
+      File.read(SPAM_TERMS_CONFIG).
+        split("\n").
+        reject { |line| line.starts_with?('#') || line.empty? }
+
+    AlaveteliSpamTermChecker.default_spam_terms =
+      AlaveteliSpamTermChecker::DEFAULT_SPAM_TERMS + custom_terms
+  end
+
   ContactValidator.class_eval do
     attr_accessor :understand
 
@@ -141,7 +153,17 @@ Rails.configuration.to_prepare do
     mailer@donotreply.icasework.com
     website@digital.sthelens.gov.uk
     noreply@m.onetrust.com
+    no-reply@notify.microsoft.com
+    MPSdataoffice-IRU-DONOTREPLY@met.police.uk
   )
+
+  User.class_eval do
+    private
+
+    def exceeded_user_message_limit?
+      !Time.zone.now.between?(Time.zone.parse('9am'), Time.zone.parse('5pm'))
+    end
+  end
 
   User::EmailAlerts.instance_eval do
     module DisableWithProtection
