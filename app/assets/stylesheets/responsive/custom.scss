@@ -1546,6 +1546,48 @@ p.locale-list-trigger {
   }
 }
 
+.homepage-article-section {
+  padding: 2em 0;
+  border-bottom: 1px solid darken($color_light_grey, 7%);;
+  margin-bottom: 2rem;
+  .ar-content__headings {
+    text-align: center;
+    margin-bottom: 3rem;
+    h2 {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+  .col-2-grid {
+    margin-bottom: 3rem;
+  }
+}
+
+.article-grid__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  .item-content__img {
+    max-width: 25%;
+    object-fit: contain;
+    margin-right: 1rem;
+  }
+  .item-content__heading {
+    margin-top: 0;
+    font-size: 1.1em;
+  }
+}
+
+.col-2-grid {
+  display: grid;
+  column-gap: 4rem;
+  row-gap: 2rem;
+  padding: 0 0.9375rem; //same as foundation's screen-edge gutter;
+  @media (min-width: $main_menu-mobile_menu_cutoff ) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .cta-button-wrapper {
   text-align: center;
   a.button {
