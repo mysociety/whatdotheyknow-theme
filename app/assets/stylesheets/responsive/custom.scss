@@ -1564,7 +1564,8 @@ p.locale-list-trigger {
   }
 }
 
-.homepage-article-section {
+.homepage-article-section,
+.homepage-blog-section {
   padding: 2em 0;
   border-bottom: 1px solid darken($color_light_grey, 7%);;
   margin-bottom: 2rem;
@@ -1581,7 +1582,8 @@ p.locale-list-trigger {
   }
 }
 
-.article-grid__item {
+.article-grid__item,
+.blog-post-grid__item {
   display: flex;
   flex-direction: row;
   align-items: flex-start;

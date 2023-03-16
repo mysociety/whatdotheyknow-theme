@@ -1,0 +1,34 @@
+<% cache_if_caching_fragments("frontpage-blog-#{@locale}", expires_in: 1.hour) do %>
+  <% if blog_posts_for_frontpage.any? %>
+    <div class="homepage-blog-section" id="homepage-blog">
+      <div class="row homepage-blog-section__ar-contet">
+        <div class="ar-content__headings ">
+          <h2><%= _('Latest news and campaigns') %></h2>
+        </div>
+
+        <div class="ar-content__blog-grid col-2-grid">
+          <% blog_posts_for_frontpage.each do |post| %>
+            <div class="blog-post-grid__item">
+              <div class="blog-post-grid__item-content">
+                <h3 class="item-content__heading">
+                  <%= post.title %>
+                </h3>
+
+                <p>
+                  <%= post.description.truncate_words(30) %>
+                </p>
+
+                <%= link_to _('Read post'), post.url %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="cta-button-wrapper">
+          <a class="button" href="<%= donation_url(utm_content: 'homepage donate', utm_campaign: 'wdtk-homepage-blog-posts') %>">Donate now</a>
+          <span>to support our work or <%= link_to 'browse more', blog_path %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
