@@ -1,0 +1,49 @@
+<%
+    @research_videos = [
+      { title: 'Reforming Freedom of Information: mySociety policy paper launch event',
+        id: 'AbXowwJDn3M' },
+      { title: 'The FOI Clearing House: an openDemocracy investigation into FOI at the heart of government',
+        id: 'wXbhBHfeOzk' },
+      { title: 'Workshop: What can you do with FOI?',
+        id: 'meaLp7p2Yok' },
+      { title: 'A change in the law for school starters in Scotland',
+        id: 'u8wM2wJ7N4o' },
+      { title: 'Source & manage Freedom of Information data for impactful investigations & campaigns with Alaveteli',
+        id: 'n7CUaEdbRM0' },
+      { title: 'How a crowdsourced FOI campaign improved EU transparency',
+        id: 'g46SsdTahaQ' },
+      { title: 'Regulating Access to Information',
+        id: 'aDfh0IH4K3U' },
+      { title: 'Civic Tech Surgery: Accessing quality information',
+        id: 'fVrAYctN7sY' }
+    ]
+%>
+
+<div class="homepage-video-section" id="homepage-video">
+  <div class="row homepage-video-section__vs-content">
+    <div class="vs-content__headings ">
+      <h2><%= _('Our videos about Freedom of Information') %></h2>
+    </div>
+
+    <div class="vs-content__video-grid col-3-grid">
+      <% @research_videos.sample(3).each do |article| %>
+        <div class="video-grid__item">
+          <img class="item-content__img" src="https://img.youtube.com/vi/<%= article[:id] %>/hqdefault.jpg" alt="<%= article[:title] %>" loading="lazy">
+
+          <div class="video-grid__item-content">
+            <h3 class="item-content__heading">
+              <%= article[:title] %>
+            </h3>
+
+            <a class="external-link link-with-icon youtube-icon" href="https://www.youtube.com/watch?v=<%= article[:id] %>" target="_blank">Watch on YouTube</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="cta-button-wrapper">
+      <a class="button" href="<%= donation_url(utm_content: 'homepage donate', utm_campaign: 'wdtk-homepage-videos') %>">Make a donation</a>
+      <span>to support our research or <a href="https://www.youtube.com/mysociety">watch more</a></span>
+    </div>
+  </div>
+</div>

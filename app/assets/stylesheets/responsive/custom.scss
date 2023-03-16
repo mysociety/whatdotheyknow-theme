@@ -106,7 +106,51 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+a.external-link {
+  padding-right: 24px;
+  text-decoration: none;
+  position: relative;
+  &:after {
+    content:"";
+    position: absolute;
+    background-image: image-url("external-link-blue.png");
+    // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+    background-image: image-url("external-link-blue.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    right: 0;
+  }
 
+  &:hover {
+    text-decoration: underline;
+    &:after {
+      background-image: image-url("external-link-black.png");
+      // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+      background-image: image-url("external-link-black.svg");
+    }
+  }
+}
+
+a.link-with-icon {
+  padding-left: 30px;
+  background-position: left 0 center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &.youtube-icon { 
+    background-image: image-url("youtube-blue.png");
+    // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+    background-image: image-url("youtube-blue.svg");
+  }
+
+  &:hover {
+    background-image: image-url("youtube-black.png");
+    background-image: image-url("youtube-black.svg");
+  }
+}
 
 /* Mixin styles */
 
@@ -1443,6 +1487,70 @@ p.locale-list-trigger {
 
 .learn-more-foi__link {
 
+}
+
+.homepage-video-section {
+  $border-radius: 5px;
+  padding: 2em 0;
+   border-bottom: 1px solid darken($color_light_grey, 7%);;
+   margin-bottom: 2rem;
+   .vs-content__headings {
+     text-align: center;
+     margin-bottom: 3rem;
+     h2 {
+       margin-bottom: 0;
+       margin-top: 0;
+     }
+   }
+
+  .vs-content__video-grid {
+    margin-bottom: 3rem;
+    .video-grid__item {
+      background-color: $color_white;
+      border-radius: $border-radius;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 150px 1fr;
+      .item-content__img {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 0rem;
+        object-fit: cover;
+      }
+      .video-grid__item-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        .item-content__heading {
+          margin-top: 0;
+          font-size: 1.1em;
+          line-height: 130%;
+        }
+        a {
+          display: inline-block;
+          align-self: flex-start;
+        }
+      }
+    }
+  }
+}
+
+.col-3-grid {
+  display: grid;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  padding: 0 0.9375rem; //same as foundation's screen-edge gutter;
+  @media (min-width: $main_menu-mobile_menu_cutoff ) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cta-button-wrapper {
+  text-align: center;
+  a.button {
+    margin-right: 0.25rem;
+  }
 }
 
 /* Help pages */
