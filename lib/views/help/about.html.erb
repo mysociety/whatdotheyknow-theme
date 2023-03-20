@@ -161,7 +161,9 @@
       </p>
       <p>
         If you like what we’re doing, then you can
-        <a href="<%= donation_url %>">make a donation</a>.
+          <%= link_to 'make a donation', donation_url(
+             utm_campaign: 'wdtk-help', utm_content: 'about-who-makes-wdtk'
+          ) %>.
       </p>
     </dd>
     <dt id="updates">
