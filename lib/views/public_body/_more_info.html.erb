@@ -83,6 +83,13 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('lcnaf') %>
+  <% public_body.get_tag_values('lcnaf').each do |tag_value| %>
+      <%= link_to _('Library of Congress Authority ID'),
+                    "http://id.loc.gov/authorities/names/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('mapit') %>
   <% public_body.get_tag_values('mapit').each do |tag_value| %>
     <%= link_to _('Area covered'), "https://mapit.mysociety.org/area/#{tag_value}.html" %>

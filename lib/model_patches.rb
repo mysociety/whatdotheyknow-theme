@@ -156,6 +156,7 @@ Rails.configuration.to_prepare do
     no-reply@notify.microsoft.com
     MPSdataoffice-IRU-DONOTREPLY@met.police.uk
     noreply@rugby.gov.uk
+    no-reply@cheshire.pnn.police.uk
   )
 
   User.class_eval do
