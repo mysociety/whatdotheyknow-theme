@@ -51,6 +51,9 @@
       <li>
         <%= link_to_unless_current "Glossary", help_glossary_path %>
       </li>
+      <li>
+        <%= link_to_unless_current "Environmental Information", help_environmental_information_path %>
+      </li>
       <% if feature_enabled?(:alaveteli_pro) %>
         <li><%= link_to_unless_current "Pro", help_pro_path %></li>
       <% end %>
