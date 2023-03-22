@@ -22,7 +22,7 @@
                     "https://www.charitycommissionni.org.uk/charity-details/?regId=#{ tag_value.gsub(/^NIC/, '') }" %><br>
     <% elsif tag_value.match(/^exempt/) %>
       <%= link_to _("Exempt charity - <i>what's that?</i>"),
-                    "https://www.gov.uk/government/publications/exempt-charities-cc23/exempt-charities#list-of-exempt-charities" %><br>
+                    "https://www.gov.uk/government/publications/exempt-charities-cc23/exempt-charities" %><br>
     <% else %>
       <%= link_to _('Charity registration'),
                     "https://register-of-charities.charitycommission.gov.uk/charity-search/-/results/page/1/delta/20/keywords/#{ tag_value }" %><br>
