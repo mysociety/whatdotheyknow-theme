@@ -13,7 +13,8 @@ Rails.configuration.to_prepare do
     def beginners; end
     def ico_officers; end
     def glossary; end
-
+    def environmental_information; end
+    
     private
 
     def set_history
