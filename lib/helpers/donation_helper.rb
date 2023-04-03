@@ -16,7 +16,6 @@ module DonationHelper
   def donation_url(options = {})
     AlaveteliConfiguration::donation_url + "?" << options.reverse_merge(
       :utm_source => 'whatdotheyknow.com',
-      :utm_campaign => 'donation_drive_2016',
       :utm_medium => 'link'
     ).to_query
   end

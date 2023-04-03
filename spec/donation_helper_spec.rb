@@ -54,7 +54,6 @@ RSpec.describe DonationHelper, type: :helper do
     it 'outputs anchor tag with escaped utm_content param' do
       expect(donate_now_link('foo bar')).to have_xpath(
         '//a[@href="http://example.com/foo?' \
-          'utm_campaign=donation_drive_2016&' \
           'utm_content=foo%2Bbar&' \
           'utm_medium=link&' \
           'utm_source=whatdotheyknow.com"]'
