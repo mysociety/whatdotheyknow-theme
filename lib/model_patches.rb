@@ -159,6 +159,12 @@ Rails.configuration.to_prepare do
     no-reply@cheshire.pnn.police.uk
   )
 
+  User.content_limits = {
+    info_requests: AlaveteliConfiguration.max_requests_per_user_per_day,
+    comments: AlaveteliConfiguration.max_requests_per_user_per_day,
+    user_messages: 2
+  }
+
   User.class_eval do
     private
 
