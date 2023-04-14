@@ -56,4 +56,7 @@ Rails.application.routes.draw do
 
   get '/help/search_engines' => 'help#search_engines',
       as: :help_search_engines
+
+  get '/help/about_foisa' => 'help#about_foisa',
+      as: :help_about_foisa
 end
