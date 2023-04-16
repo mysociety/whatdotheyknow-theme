@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get "/help/ico-anonymisation-code" => redirect("https://ico.org.uk/media/1061/anonymisation-code.pdf"),
      as: :ico_anonymisation_code
 
+  get "/how-have-you-used-wdtk" => redirect("https://survey.alchemer.com/s3/7276877/How-have-you-used-WDTK"),
+     as: :how_have_you_used_wdtk
+
   get '/help/principles' => 'help#principles',
       as: :help_principles
 
