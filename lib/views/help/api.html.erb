@@ -2,7 +2,10 @@
 <%= render :partial => 'sidebar' %>
 <div id="left_column_flip" class="left_column_flip">
   <h1><%=@title %></h1>
-  <h2> Introduction </h2>
+  <h2 id="introduction"> 
+    Introduction 
+    <a href="#introduction">#</a>
+  </h2>
   <p>
     This page explains how developers can access data from WhatDoTheyKnow, or
     allow other websites and software to interact with the site via an “API”.
@@ -14,7 +17,10 @@
     help us give it a higher development priority.
   </p>
   <hr>
-  <h2> 1. Linking to new requests </h2>
+  <h2 id="new_requests">
+    1. Linking to new requests 
+    <a href="#new_requests">#</a>
+  </h2>
   <p>
     To encourage your users to make requests to a particular public authority,
     use URLs of the form: <%= link_to new_request_to_body_url(:url_name =>
@@ -47,7 +53,10 @@
     </li>
   </ul>
   <hr>
-  <h2> 2. RSS (actually, Atom) feeds </h2>
+  <h2 id="rss_feeds"> 
+    2. RSS (actually, Atom) feeds 
+    <a href="#rss_feeds">#</a>
+  </h2>
   <p>There are Atom feeds on most pages which list FOI requests, which you can
     use to get updates and links in XML format. Find the URL of the Atom feed in
     one of these ways:
@@ -72,7 +81,10 @@
     tips</a> for details.
   </p>
   <hr>
-  <h2> 3. JSON structured data </h2>
+  <h2 id="json"> 
+    3. JSON structured data 
+    <a href="#json">#</a>
+  </h2>
   <p>
     Quite a few pages have JSON versions, which let you download information
     about objects in a structured form. Find them by:
@@ -91,12 +103,18 @@
     information about the list of events in the feed.
   </p>
   <hr>
-  <h2> 4. Spreadsheet of all authorities </h2>
+  <h2 id="all_authorities"> 
+    4. Spreadsheet of all authorities 
+    <a href="#all_authorities">#</a>
+  </h2>
   <p>
     A spreadsheet file listing every body in WhatDoTheyKnow is available:
     <%= link_to "all-authorities.csv", all_public_bodies_csv_url() %>
   </p>
-  <h2> 5. Write API </h2>
+  <h2 id="write_api"> 
+    5. Write API 
+    <a href="#write_api">#</a>
+  </h2>
   <p>
     The write API is designed to be used by authorities to create their own
     requests in the system. The API was used by mySociety’s FOI Register
