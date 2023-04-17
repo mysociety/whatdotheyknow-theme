@@ -1,0 +1,79 @@
+<% @title = "Accessing information" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1>
+    <%= @title %>
+  </h1>
+  <h2 id="how_to">
+    How to make the most of our content
+    <a href="#how_to">#</a>
+  </h2>
+  <p>Many FOI requests are made every day through WhatDoTheyKnow, contributing to a vast and ever-growing archive of information, available for anyone to access for free.</p>
+  <p>If you're a journalist, campaigner or an interested citizen, the site provides fertile ground for research — but the sheer amount of data available can also be daunting at first. With that in mind, here are some useful ways to locate exactly what you're looking for.</p>
+  
+  <h2 id="content_type">
+    Search by content type
+    <a href="#content_type">#</a>
+  </h2>
+  <p><strong>The search box</strong> at the top of every page delivers results from all the core content on the site, from names of authorities to text within the documents they disclose. </p>
+  <p>Once you've searched, you can use the tabs below the search box to narrow results down: are you more interested in finding your search term within requests and responses, the names of users, or the names of authorities?</p>
+  
+  <h2 id="advanced">
+    Advanced search
+    <a href="#advanced">#</a>
+  </h2>
+  <p>To narrow your results down further, try using <a href="https://www.whatdotheyknow.com/advancedsearch">advanced search</a>, linked from the right of the search box.</p>
+  <p>Advanced Search allows you to apply one or more filters. You might want to keep results within specified dates; to only return requests that have a specific status (eg 'successful'); to find responses that are provided in a specific format — or perhaps a combination of these.</p>
+  <p>Advice on different ways to search is listed on the <a href="https://www.whatdotheyknow.com/advancedsearch">advanced search page</a>.</p>
+  <h2 id="authority_search">
+    Search within an authority
+    <a href="#rauthority_search">#</a>
+  </h2>
+  <p>When you visit an authority's page, you'll see an additional search box, lower down and to the right, which provides an easy way to search only requests made to that body, and to narrow them by date range if required.</p>
+  <p>You can also narrow results down using the tabs at the top of the results, so you only see requests which have been successful, unsuccessful or which are still awaiting a resolution. Note that we depend on users to classify requests themselves, so successful or unsuccessful requests may not all be discoverable in this way.</p>
+  <h3 id="why_search">
+    Why use search?
+    <a href="#similar">#</a>  
+  </h3>
+  <p>WhatDoTheyKnow has been running since 2008, and contains many thousands of pieces of information. By searching around your subject of interest, you can discover:</p>
+  <uL>
+    <li>whether anyone else has already requested the information you're interested in, or perhaps information you hadn't considered;</li>
+    <li>how previous FOI requests have succeeded or failed, to inform any further request you might make;</li>
+    <li>which other people or organisations are investigating your topic (and maybe follow them — see below — or even make contact if there's scope for collaboration);</li>
+    <li>if there are new angles, wording or ideas for requests that hadn't occurred to you.</li>
+  </ul>
+  <h2 id="similar">
+    Find similar requests
+    <a href="#similar">#</a>
+  </h2>
+  <p>To the right of every FOI request on the site, you'll see a list of 'requests like this': these are automated links to requests which contain a high degree of similarities, and can be a useful way of discovering requests which haven't surfaced via search.</p>
+
+  <h2 id="track">
+    Let the information come to you
+    <a href="#track">#</a>
+  </h2>
+  <p>You don't have to keep returning to the site to see whether there have been any new requests or responses on the topic you're interested in: WhatDoTheyKnow can automatically send you an email every time it occurs in a request or response.</p>
+  <p>In this way, you can follow:</p>
+  <ul>
+    <li>an authority: be alerted of every request made to them</li>
+    <li>a user or organisation whose requests are of interest</li>
+    <li>a key word or phrase that accords with your journalistic, campaigning or personal interests.</li>
+  </ul>
+  <p>Here's how: every time you make a search, you'll see the option to "track" it to the right of the page:</p>
+  <p>Click the "follow" button and you'll automatically receive email alerts whenever there are new results for your search term (you'll have to create an account if you don't have one already, but it's a quick and simple process).</p>
+  <p>If you prefer not to receive emails, you can click the link that appears and then you'll just see the results on your 'wall' when you visit the site and log in.</p>
+  <h3 id="why_track">
+    Why use tracking? 
+    <a href="#why_track">#</a>
+  </h3>
+  <p>If you're a regional journalist, it's a very easy way to discover stories or topics of local interest: you might subscribe to your council, university, schools, hospitals and other authorities in the area.</p>
+  <p>Or as a campaigner or activist, it's ideal for keeping on top of your subject of interest, gleaning facts and figures you may not have considered, and checking who else is active in the area. If you discover scope for collaboration, you could use WhatDoTheyKnow's private messaging system: click on the user's name and you'll see the option to send them a private message.</p>
+ 
+  <h2 id="add_authority">
+    If you can't find the authority you're interested in
+    <a href="#add_authority">#</a>
+  </h2>
+  <p>There are more than 38,000 public bodies listed on WhatDoTheyKnow, but we know we don't yet have every single authority in the UK that's subject to FOI.</p>
+  <p>If there's an authority you're particularly interested in and you can't find it on the site, <a href="https://www.whatdotheyknow.com/change_request/new">please let us know</a> and we'll do our best to add it. In some cases, we even <a href="https://www.whatdotheyknow.com/help/requesting#authorities">add authorities that are not subject to FOI</a>, if there's a strong argument that they should be.</p>
+  <%= render partial: 'history' %>
+</div>
