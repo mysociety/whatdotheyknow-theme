@@ -16,20 +16,32 @@
     <a href="#content_type">#</a>
   </h2>
   <p><strong>The search box</strong> at the top of every page delivers results from all the core content on the site, from names of authorities to text within the documents they disclose. </p>
+  <p>
+  <%= image_tag 'accessing_information/search_results.png',
+                alt: 'A section of a screenshot from the search results page, showing the search button. Below it are four tabs: requests, users, authorities and everything.' %>
+  </p>
   <p>Once you've searched, you can use the tabs below the search box to narrow results down: are you more interested in finding your search term within requests and responses, the names of users, or the names of authorities?</p>
   
   <h2 id="advanced">
     Advanced search
     <a href="#advanced">#</a>
   </h2>
-  <p>To narrow your results down further, try using <a href="https://www.whatdotheyknow.com/advancedsearch">advanced search</a>, linked from the right of the search box.</p>
+  <p>To narrow your results down further, try using <a href="/advancedsearch">advanced search</a>, linked from the right of the search box.</p>
+  <p>
+  <%= image_tag 'accessing_information/search.png',
+                alt: 'A section of a screenshot showing that search button and the advanced search link next to it' %>
+  </p>
   <p>Advanced Search allows you to apply one or more filters. You might want to keep results within specified dates; to only return requests that have a specific status (eg 'successful'); to find responses that are provided in a specific format — or perhaps a combination of these.</p>
-  <p>Advice on different ways to search is listed on the <a href="https://www.whatdotheyknow.com/advancedsearch">advanced search page</a>.</p>
+  <p>Advice on different ways to search is listed on the <a href="/advancedsearch">advanced search page</a>.</p>
   <h2 id="authority_search">
     Search within an authority
     <a href="#rauthority_search">#</a>
   </h2>
   <p>When you visit an authority's page, you'll see an additional search box, lower down and to the right, which provides an easy way to search only requests made to that body, and to narrow them by date range if required.</p>
+  <p>
+  <%= image_tag 'accessing_information/authority_search.png',
+                alt: 'A section of a screenshot from a public authority page, showing the search options on the right hand side that allow you to filter requests by date.' %>
+  </p>
   <p>You can also narrow results down using the tabs at the top of the results, so you only see requests which have been successful, unsuccessful or which are still awaiting a resolution. Note that we depend on users to classify requests themselves, so successful or unsuccessful requests may not all be discoverable in this way.</p>
   <h3 id="why_search">
     Why use search?
@@ -47,7 +59,10 @@
     <a href="#similar">#</a>
   </h2>
   <p>To the right of every FOI request on the site, you'll see a list of 'requests like this': these are automated links to requests which contain a high degree of similarities, and can be a useful way of discovering requests which haven't surfaced via search.</p>
-
+  <p>
+  <%= image_tag 'accessing_information/related_requests.png',
+                alt: 'A section of a screenshot of related FOI requests from the sidebar on a request page.' %>
+  </p>
   <h2 id="track">
     Let the information come to you
     <a href="#track">#</a>
@@ -60,6 +75,10 @@
     <li>a key word or phrase that accords with your journalistic, campaigning or personal interests.</li>
   </ul>
   <p>Here's how: every time you make a search, you'll see the option to "track" it to the right of the page:</p>
+  <p>
+  <%= image_tag 'accessing_information/track_search.png',
+                alt: 'A section of a screenshot showing the search field on the left hand side of the page, and the follow button on the right hand side of the page. The Follow button is under the heading "Track this search".' %>
+  </p>
   <p>Click the "follow" button and you'll automatically receive email alerts whenever there are new results for your search term (you'll have to create an account if you don't have one already, but it's a quick and simple process).</p>
   <p>If you prefer not to receive emails, you can click the link that appears and then you'll just see the results on your 'wall' when you visit the site and log in.</p>
   <h3 id="why_track">
@@ -74,6 +93,6 @@
     <a href="#add_authority">#</a>
   </h2>
   <p>There are more than 38,000 public bodies listed on WhatDoTheyKnow, but we know we don't yet have every single authority in the UK that's subject to FOI.</p>
-  <p>If there's an authority you're particularly interested in and you can't find it on the site, <a href="https://www.whatdotheyknow.com/change_request/new">please let us know</a> and we'll do our best to add it. In some cases, we even <a href="https://www.whatdotheyknow.com/help/requesting#authorities">add authorities that are not subject to FOI</a>, if there's a strong argument that they should be.</p>
+  <p>If there's an authority you're particularly interested in and you can't find it on the site, <a href="/change_request/new">please let us know</a> and we'll do our best to add it. In some cases, we even <a href="requesting#authorities">add authorities that are not subject to FOI</a>, if there's a strong argument that they should be.</p>
   <%= render partial: 'history' %>
 </div>
