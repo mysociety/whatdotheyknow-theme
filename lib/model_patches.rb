@@ -160,6 +160,12 @@ Rails.configuration.to_prepare do
   )
 
   User.class_eval do
+    alias_method :orig_can_make_comments?, :can_make_comments?
+    def can_make_comments?
+      return true if no_limit?
+      orig_can_make_comments?
+    end
+
     private
 
     def exceeded_user_message_limit?
