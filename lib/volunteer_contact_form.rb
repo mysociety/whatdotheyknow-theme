@@ -19,7 +19,8 @@ module VolunteerContactForm
 
       # Volunteer form spam tends to have repeated text in the why, experience,
       # or anything_else fields, if this happens then fake sending form
-      if contact_validator.errors.added?(:base, :repeated_text)
+      if contact_validator.mock_send?
+        sleep 1
         flash[:notice] = _("Your message has been sent. Thank you for " \
                            "getting in touch! We'll get back to you soon.")
         redirect_to frontpage_url
@@ -103,11 +104,16 @@ module VolunteerContactForm
     validates_presence_of :age, :message => N_("Please confim your age")
     validate :email_format
     validate :repeated_text
+    validate :external_links
 
     def initialize(attributes = {})
       attributes.each do |name, value|
         send("#{name}=", value)
       end
+    end
+
+    def mock_send?
+      !valid? && errors.added?(:base, :mock_send)
     end
 
     private
@@ -118,8 +124,18 @@ module VolunteerContactForm
     end
 
     def repeated_text
-      return if why != experience || why != anything_else
-      errors.add(:base, :repeated_text)
+      texts = [why, experience, anything_else].select { |t| t.present? }
+      return if texts.count <= 1 || texts.uniq.count == texts.count
+      errors.add(:base, :mock_send)
+    end
+
+    def external_links
+      spam_term = /\bcutt\.ly\b/
+      return if why !~ spam_term &&
+        experience !~ spam_term &&
+        anything_else !~ spam_term
+
+      errors.add(:base, :mock_send)
     end
   end
 end
