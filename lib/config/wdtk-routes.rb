@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get '/help/house_rules' => 'help#house_rules',
       as: :help_house_rules
 
+  get '/help/:house_rules_resolve' => redirect("/help/house_rules", status: 302),
+        as: :help_house_rules_resolve,
+        constraints: { house_rules_resolve: /conditions_of_use|site_rules|terms_and_conditions|terms_of_service|terms_of_use|the_legal_stuff|the_rules/ }
+      
   get '/help/how' => 'help#how',
       as: :help_how
 
