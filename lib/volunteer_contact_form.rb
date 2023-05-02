@@ -124,7 +124,8 @@ module VolunteerContactForm
     end
 
     def repeated_text
-      return if why != experience || why != anything_else
+      texts = [why, experience, anything_else].select { |t| t.present? }
+      return if texts.count <= 1 || texts.uniq.count == texts.count
       errors.add(:base, :mock_send)
     end
 
