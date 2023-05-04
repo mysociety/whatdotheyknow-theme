@@ -10,6 +10,10 @@ module VolunteerContactForm
   }.freeze
 
   module ControllerMethods
+    def self.prepended(mod)
+      mod.helper_method :contact_volunteer_form?
+    end
+
     def contact
       super
 
