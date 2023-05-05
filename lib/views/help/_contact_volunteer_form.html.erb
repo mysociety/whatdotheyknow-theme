@@ -1,4 +1,4 @@
-<%= form_for @contact_validator || :contact,
+<%= form_for contact_volunteer_form? && @contact_validator || :contact,
              as: :contact,
              url: help_contact_path + '#' +  form_id,
              html: { class: 'contact-form' } do |f| %>
