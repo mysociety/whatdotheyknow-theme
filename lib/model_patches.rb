@@ -160,6 +160,12 @@ Rails.configuration.to_prepare do
     Information-rights@nhsbsa.nhs.uk
   )
 
+  User.content_limits = {
+    info_requests: AlaveteliConfiguration.max_requests_per_user_per_day,
+    comments: AlaveteliConfiguration.max_requests_per_user_per_day,
+    user_messages: 2
+  }
+
   User.class_eval do
     alias_method :orig_can_make_comments?, :can_make_comments?
     def can_make_comments?
