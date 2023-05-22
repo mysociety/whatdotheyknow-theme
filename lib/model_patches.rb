@@ -159,6 +159,7 @@ Rails.configuration.to_prepare do
     no-reply@cheshire.pnn.police.uk
     Information-rights@nhsbsa.nhs.uk
     noreply-horsham@axlr8.com
+    donotreply@plymouth.gov.uk
   )
 
   User.content_limits = {
