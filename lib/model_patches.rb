@@ -160,6 +160,7 @@ Rails.configuration.to_prepare do
     Information-rights@nhsbsa.nhs.uk
     noreply-horsham@axlr8.com
     donotreply@plymouth.gov.uk
+    request@ig.northlincs.gov.uk
   )
 
   User.content_limits = {
