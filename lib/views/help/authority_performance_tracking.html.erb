@@ -1,0 +1,153 @@
+<% @title = 'Authority performance tracking' %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1><%= @title %></h1>
+
+  <p>
+    We use tags to help us to keep an eye on poor handling of Freedom of
+    Information (<abbr>FOI</abbr>) requests by public authorities. This could
+    be things like them insisting that you have to use their special webform to
+    ask your question, to claiming that they are not subject to
+    <abbr>FOI</abbr> at all. We tag individual requests when we want to track a
+    specific instance of a poor practice, and we apply the tag to the authority
+    when we believe that the poor practice is an ongoing and regular issue with
+    that authority.  These performance tags are explained in the table below.
+  </p>
+
+  <table class="tag-table">
+    <thead>
+        <tr>
+            <th rowspan="2" scope="col">Problem</th>
+            <th colspan="2" scope="col">Tag</th>
+        </tr>
+        <tr>
+            <th scope="col">For authorities</th>
+            <th scope="col">For requests</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Authority releases material via a link</td>
+        <td><b><a href="/body/list/response_link"><%= pluralize(PublicBody.visible.with_tag('response_link').size, 'Authority') %></b> tagged <code>response_link</code></td>
+            </a></td>
+            <td><b><a href="/search/tag:response_link/requests"><%= pluralize(InfoRequest.is_public.with_tag('response_link').size, 'Request') %></b> tagged <code>response_link</code></a></td></a></td>
+      </tr>
+      <tr>
+        <td>Authority sends a misleading auto-response implying they won’t respond via email (but then do correspond via email)</td>
+        <td><b><a href="/body/list/implies_webform_required"><%= pluralize(PublicBody.visible.with_tag('implies_webform_required').size, 'Authority') %></b> tagged <code>implies_webform_required</code></a></td>
+        <td><b><a href="/search/tag:implies_webform_required/requests"><%= pluralize(InfoRequest.is_public.with_tag('implies_webform_required').size, 'Request') %></b> tagged <code>implies_webform_required</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority outright refuses to engage with requests not made on their web form</td>
+        <td><b><a href="/body/list/refuses_emailed_request"><%= pluralize(PublicBody.visible.with_tag('refuses_emailed_request').size, 'Authority') %></b> tagged <code>refuses_emailed_request</code></a></td>
+        <td><b><a href="/search/tag:refuses_emailed_request/requests"><%= pluralize(InfoRequest.is_public.with_tag('refuses_emailed_request').size, 'Request') %></b> tagged <code>refuses_emailed_request</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority denies being subject to <abbr>FOI</abbr></td>
+        <td><b><a href="/body/list/claims_not_apply"><%= pluralize(PublicBody.visible.with_tag('claims_not_apply').size, 'Authority') %></b> tagged <code>claims_not_apply</code></a></td>
+        <td><b><a href="/search/tag:claims_not_apply/requests"><%= pluralize(InfoRequest.is_public.with_tag('claims_not_apply').size, 'Request') %></b> tagged <code>claims_not_apply</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority denies being subject to <abbr title="Environmental Information Regulations">EIR</abbr></td>
+        <td><b><a href="/body/list/claims_eir_no"><%= pluralize(PublicBody.visible.with_tag('claims_eir_no').size, 'Authority') %></b> tagged <code>claims_eir_no</code></a></td>
+        <td><b><a href="/search/tag:claims_eir_no/requests"><%= pluralize(InfoRequest.is_public.with_tag('claims_eir_no').size, 'Request') %></b> tagged <code>claims_eir_no</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority isn’t subject to <abbr>FOI</abbr> due to minority non-public sector owner(s)/member(s)</td>
+        <td><b><a href="/body/list/poisoned"><%= pluralize(PublicBody.visible.with_tag('poisoned').size, 'Authority') %></b> tagged <code>poisoned</code></a></td>
+        <td><b><a href="/search/tag:poisoned/requests"><%= pluralize(InfoRequest.is_public.with_tag('poisoned').size, 'Request') %></b> tagged <code>poisoned</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority denies existing</td>
+        <td><b><a href="/body/list/denies_existing"><%= pluralize(PublicBody.visible.with_tag('denies_existing').size, 'Authority') %></b> tagged <code>denies_existing</code></a></td>
+        <td><b><a href="/search/tag:denies_existing/requests"><%= pluralize(InfoRequest.is_public.with_tag('denies_existing').size, 'Request') %></b> tagged <code>denies_existing</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority says it responded but we didn’t get a response</td>
+        <td><b><a href="/body/list/claims_to_have_responded"><%= pluralize(PublicBody.visible.with_tag('claims_to_have_responded').size, 'Authority') %></b> tagged <code>claims_to_have_responded</code></a></td>
+        <td><b><a href="/search/tag:claims_to_have_responded/requests"><%= pluralize(InfoRequest.is_public.with_tag('claims_to_have_responded').size, 'Request') %></b> tagged <code>claims_to_have_responded</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority says it hasn’t received request(s)</td>
+        <td><b><a href="/body/list/claims_not_received"><%= pluralize(PublicBody.visible.with_tag('claims_not_received').size, 'Authority') %></b> tagged <code>claims_not_received</code></a></td>
+        <td><b><a href="/search/tag:claims_not_received/requests"><%= pluralize(InfoRequest.is_public.with_tag('claims_not_received').size, 'Request') %></b> tagged <code>claims_not_received</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority repeatedly delays responding to a request to consider the public interest</td>
+        <td><b><a href="/body/list/pit_delay"><%= pluralize(PublicBody.visible.with_tag('pit_delay').size, 'Authority') %></b> tagged <code>pit_delay</code></a></td>
+        <td><b><a href="/search/tag:pit_delay/requests"><%= pluralize(InfoRequest.is_public.with_tag('pit_delay').size, 'Request') %></b> tagged <code>pit_delay</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority responds to personal email address</td>
+        <td><b><a href="/body/list/response_offsite"><%= pluralize(PublicBody.visible.with_tag('response_offsite').size, 'Authority') %></b> tagged <code>response_offsite</code></a></td>
+        <td><b><a href="/search/tag:response_offsite/requests"><%= pluralize(InfoRequest.is_public.with_tag('response_offsite').size, 'Request') %></b> tagged <code>response_offsite</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority inappropriately requests ID from requesters</td>
+        <td><b><a href="/body/list/requests_id"><%= pluralize(PublicBody.visible.with_tag('requests_id').size, 'Authority') %></b> tagged <code>requests_id</code></a></td>
+        <td><b><a href="/search/tag:requests_id/requests"><%= pluralize(InfoRequest.is_public.with_tag('requests_id').size, 'Request') %></b> tagged <code>requests_id</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority makes statements about fees and charges which could frighten requesters</td>
+        <td><b><a href="/body/list/fee_scare"><%= pluralize(PublicBody.visible.with_tag('fee_scare').size, 'Authority') %></b> tagged <code>fee_scare</code></a></td>
+        <td><b><a href="/search/tag:fee_scare/requests"><%= pluralize(InfoRequest.is_public.with_tag('fee_scare').size, 'Request') %></b> tagged <code>fee_scare</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority refuses to recognise valid <abbr>FOI</abbr> requests</td>
+        <td><b><a href="/body/list/foi_refuse"><%= pluralize(PublicBody.visible.with_tag('foi_refuse').size, 'Authority') %></b> tagged <code>foi_refuse</code></a></td>
+        <td><b><a href="/search/tag:foi_refuse/requests"><%= pluralize(InfoRequest.is_public.with_tag('foi_refuse').size, 'Request') %></b> tagged <code>foi_refuse</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority refuses to carry out an internal review</td>
+        <td><b><a href="/body/list/refuses_internal_review"><%= pluralize(PublicBody.visible.with_tag('refuses_internal_review').size, 'Authority') %></b> tagged <code>refuses_internal_review</code></a></td>
+        <td><b><a href="/search/tag:refuses_internal_review/requests"><%= pluralize(InfoRequest.is_public.with_tag('refuses_internal_review').size, 'Request') %></b> tagged <code>refuses_internal_review</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority wrongly rejects requests made on behalf of an organisation for want of a personal name</td>
+        <td><b><a href="/body/list/rejects_org_request"><%= pluralize(PublicBody.visible.with_tag('rejects_org_request').size, 'Authority') %></b> tagged <code>rejects_org_request</code></a></td>
+        <td><b><a href="/search/tag:rejects_org_request/requests"><%= pluralize(InfoRequest.is_public.with_tag('rejects_org_request').size, 'Request') %></b> tagged <code>rejects_org_request</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority requires requests be sent again, often with a specific subject line, to be considered</td>
+        <td><b><a href="/body/list/requires_resend"><%= pluralize(PublicBody.visible.with_tag('requires_resend').size, 'Authority') %></b> tagged <code>requires_resend</code></a></td>
+        <td><b><a href="/search/tag:requires_resend/requests"><%= pluralize(InfoRequest.is_public.with_tag('requires_resend').size, 'Request') %></b> tagged <code>requires_resend</code></a></td>
+      </tr>
+      <tr>
+        <td>Authority charges for access to Environmental Information</td>
+        <td><b><a href="/body/list/eir_charges"><%= pluralize(PublicBody.visible.with_tag('eir_charges').size, 'Authority') %></b> tagged <code>eir_charges</code></a></td>
+        <td><b><a href="/search/tag:eir_charges/requests"><%= pluralize(InfoRequest.is_public.with_tag('eir_charges').size, 'Request') %></b> tagged <code>eir_charges</code></a></td>
+      </tr>
+    </tbody>
+</table>
+
+<p>
+  Tags are applied manually on a best efforts basis, and may not reflect the
+  current situation, or capture all instances of poor performance by public
+  authorities.  If you notice any examples of the issues that are listed here,
+  or think that an authority is wrongly tagged because their performance has
+  improved, please <a href="/help/contact">let us know</a>.
+</p>
+
+<h2>Want to know more?</h2>
+
+  <p>
+    <b>Great, so do we!</b>
+    <br><br>
+    mySociety, the charity that runs the WhatDoTheyKnow service, conducts research on <abbr>FOI</abbr>, and <abbr>EIR</abbr>. If you'd like to know more about the research we do, please do <a href="https://research.mysociety.org/section/foi">visit the research pages</a> on our website.
+  </p>
+
+  <h3>Stay in the loop</h3>
+
+  <p>
+    You can also stay in the know, on all things <abbr>FOI</abbr>, including
+    case studies, research, and more, by <a
+    href="https://www.mysociety.org/subscribe/">signing up to our <b>free</b>
+    newsletter</a>.
+  </p>
+
+  <%= render partial: 'history' %>
+
+  <div id="hash_link_padding"></div>
+</div>

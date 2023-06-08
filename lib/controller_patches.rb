@@ -16,6 +16,7 @@ Rails.configuration.to_prepare do
     def environmental_information; end
     def accessing_information; end
     def exemptions; end
+    def authority_performance_tracking; end
 
     private
 

@@ -50,4 +50,7 @@ Rails.application.routes.draw do
 
   get '/help/exemptions' => 'help#exemptions',
       as: :help_exemptions
+
+  get '/help/authority_performance_tracking' => 'help#authority_performance_tracking',
+      as: :help_authority_performance_tracking
 end
