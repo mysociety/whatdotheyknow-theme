@@ -14,6 +14,7 @@ Rails.configuration.to_prepare do
     def ico_officers; end
     def glossary; end
     def environmental_information; end
+    def exemptions; end
     
     private
 
