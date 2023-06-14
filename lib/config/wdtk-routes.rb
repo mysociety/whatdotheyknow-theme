@@ -44,4 +44,7 @@ Rails.application.routes.draw do
   
   get '/help/environmental_information' => 'help#environmental_information',
       as: :help_environmental_information
+  
+  get '/help/exemptions' => 'help#exemptions',
+      as: :help_exemptions
 end
