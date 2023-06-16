@@ -15,7 +15,8 @@ Rails.configuration.to_prepare do
     def glossary; end
     def environmental_information; end
     def accessing_information; end
-    
+    def exemptions; end
+
     private
 
     def set_history
