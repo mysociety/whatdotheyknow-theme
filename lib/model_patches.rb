@@ -161,6 +161,7 @@ Rails.configuration.to_prepare do
     noreply-horsham@axlr8.com
     donotreply@plymouth.gov.uk
     do_not_reply@sandwell.gov.uk
+    request@ig.northlincs.gov.uk
   )
 
   User.content_limits = {
