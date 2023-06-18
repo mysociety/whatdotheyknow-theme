@@ -72,6 +72,13 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('su_parent') %>
+  <% public_body.get_tag_values('su_parent').each do |tag_value| %>
+      <%= link_to _('Parent institution'),
+                    "https://www.whatdotheyknow.com/body/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('lei') %>
   <% public_body.get_tag_values('lei').each do |tag_value| %>
       <%= link_to _('Legal Entity Identifier'),
