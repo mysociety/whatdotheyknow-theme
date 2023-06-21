@@ -2156,3 +2156,20 @@ $color_asktheeu_dark_green: #C4DDB9;
     visibility: hidden;
   }
 }
+
+.tag-table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.tag-table th,
+.tag-table td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.tag-table th {
+  background-color: $color_light_grey;
+  text-align: left;
+}
