@@ -53,4 +53,7 @@ Rails.application.routes.draw do
 
   get '/help/authority_performance_tracking' => 'help#authority_performance_tracking',
       as: :help_authority_performance_tracking
+
+  get '/help/search_engines' => 'help#search_engines',
+      as: :help_search_engines
 end

@@ -17,6 +17,7 @@ Rails.configuration.to_prepare do
     def accessing_information; end
     def exemptions; end
     def authority_performance_tracking; end
+    def search_engines; end
 
     private
 
