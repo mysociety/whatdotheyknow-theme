@@ -1659,6 +1659,10 @@ p.locale-list-trigger {
   ul {
     list-style: none outside none;
     padding: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
