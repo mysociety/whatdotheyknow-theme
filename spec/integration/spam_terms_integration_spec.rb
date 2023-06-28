@@ -9,6 +9,7 @@ RSpec.describe 'creating a request with spam terms' do
 
   before do
     File.write(Rails.root + 'tmp/spam_terms.txt', "Potato\n")
+    stub_request(:get, /research\.mysociety\.org/)
   end
 
   it 'redirects to home page if the user is not signed in' do
