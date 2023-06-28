@@ -162,6 +162,7 @@ Rails.configuration.to_prepare do
     donotreply@plymouth.gov.uk
     do_not_reply@sandwell.gov.uk
     request@ig.northlincs.gov.uk
+    nhsbsa.foirequests@nhs.net
   )
 
   User.content_limits = {
