@@ -8,11 +8,6 @@
   <%= render partial: 'request_sent' %>
 <% end %>
 
-<% content_for :ga_pageview do %>
-  window.dataLayer = window.dataLayer || [];
-  ga('require', 'GTM-53XVLCX');
-<% end %>
-
 <%= render partial: 'request/ga_events' %>
 
 <%= render partial: 'request/hidden_request_messages' %>

@@ -8,5 +8,13 @@ Rails.configuration.to_prepare do
     def is_contact_page?
       controller.controller_name == 'help' && controller.action_name == 'contact'
     end
+
+    def request_url_with_query
+      uri = URI.parse(request.original_url);
+      uri.query = URI.encode_www_form(
+        URI.decode_www_form(String(uri.query)).push(['query', @query])
+      );
+      uri.to_s
+    end
   end
 end
