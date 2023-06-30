@@ -164,6 +164,7 @@ Rails.configuration.to_prepare do
     request@ig.northlincs.gov.uk
     noreply@infreemation.co.uk
     noreply@leeds.gov.uk
+    nhsbsa.foirequests@nhs.net
   )
 
   User.content_limits = {
