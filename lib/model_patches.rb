@@ -163,6 +163,7 @@ Rails.configuration.to_prepare do
     do_not_reply@sandwell.gov.uk
     request@ig.northlincs.gov.uk
     noreply@infreemation.co.uk
+    noreply@leeds.gov.uk
   )
 
   User.content_limits = {
