@@ -1763,6 +1763,14 @@ dd {
   }
 }
 
+#help_glossary {
+  .glossary-letters {
+    .no-entries {
+      color: $color_mid_grey;
+    }
+  }
+}
+
 .changes {
   background-color: darken($body-bg, 2%);
   border-radius: 2px;
