@@ -13,3 +13,5 @@ To run tests, in the Alaveteli Rails.root (with this theme installed):
     bundle exec rspec lib/themes/whatdotheyknow-theme/spec
 
 Copyright (c) 2013 mySociety, released under the MIT license
+
+Test edit
