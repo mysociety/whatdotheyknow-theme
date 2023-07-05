@@ -1,0 +1,35 @@
+# If linting checks pass ok, push to the git.mysociety.org mirror
+# Note: the git.mysociety.org repo pushes to this repo, and has priority.
+# Force pushes will need to be made through other means.
+
+name: Mirror to git.mysociety.org
+
+on:
+  push:
+
+jobs:
+
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  rubocop:
+    uses: ./.github/workflows/rubocop.yml
+
+  mirror:
+    needs: [ci, rubocop]
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+
+    - name: Push branch to git.mysociety.org
+      id: push_to_mirror
+      uses: mysociety/action-git-pusher@v1.1.1
+      with:
+        git_ssh_key: ${{ secrets.PUBLICCVS_GIT_KEY }}
+        ssh_known_hosts: ${{ secrets.GIT_KNOWN_HOSTS }}
+        tag: ${{ github.ref_name }}
+        remote: 'ssh://gh-public@git.mysociety.org/data/git/public/whatdotheyknow-theme.git'
