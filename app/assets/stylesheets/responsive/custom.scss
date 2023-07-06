@@ -1763,6 +1763,29 @@ dd {
   }
 }
 
+#help_glossary {
+  .glossary-letters {
+    margin-bottom: 1em;
+
+    a, .no-entries {
+      padding: 0.25em 0.3em;
+      border: 1px dotted $color_mid_grey;
+      font-family: monospace;
+
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+      background-color: $color_yellow;
+    }
+
+    .no-entries {
+      color: $color_mid_grey;
+    }
+  }
+}
+
 .changes {
   background-color: darken($body-bg, 2%);
   border-radius: 2px;
