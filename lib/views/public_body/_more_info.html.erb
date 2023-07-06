@@ -74,8 +74,8 @@
 
 <% if public_body.has_tag?('su_parent') %>
   <% public_body.get_tag_values('su_parent').each do |tag_value| %>
-      <%= link_to _('Parent institution'),
-                    "https://www.whatdotheyknow.com/body/#{ tag_value }" %><br>
+    <%= link_to _('Parent institution'),
+                show_public_body_path(url_name: tag_value) %><br>
   <% end %>
 <% end %>
 
