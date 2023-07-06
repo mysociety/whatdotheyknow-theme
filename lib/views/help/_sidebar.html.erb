@@ -61,6 +61,9 @@
         <%= link_to_unless_current "Exemptions", help_exemptions_path %>
       </li>
       <li>
+        <%= link_to_unless_current "About FOI", help_about_foi_path %>
+      </li>
+      <li>
         <%= link_to_unless_current "About FOI in Scotland", help_about_foisa_path %>
       </li>
       <% if feature_enabled?(:alaveteli_pro) %>

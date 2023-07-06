@@ -1,0 +1,131 @@
+<% @title = "The Freedom of Information Act 2000" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="Freedom_of_Information_Act"><%= @title %></h1>
+
+  <h2 id="what_is_FOIA">
+    What is the Freedom of Information Act 2000?
+    <a href="#what_is_FOIA">#</a>
+  </h2>
+  <p>
+    The Freedom of Information Act 2000, commonly referred to as FOI or FOIA, is a law that provides you the right to access 
+    information held by public authorities.
+  </p>
+  <p>
+    Different laws apply to <a href="<%= help_about_foisa_path %>">public authorities in Scotland</a> 
+    and to request for <a href="<%= help_environmental_information_path %>">environmental information</a>.
+  </p>
+  
+  <h2 id="who_is_covered">
+    What organisations are covered?
+    <a href="#who_is_covered">#</a>
+  </h2>
+  <p>The Freedom of Information Act applies to a wide range of public authorities, including:</p>
+  <ul>
+    <li>All local authorities in England, Wales and Northern Ireland;</li>
+    <li>Government departments, Parliament, and various committees and executive agencies;</li>
+    <li>Universities, schools, colleges, and other higher and further education institutions;</li>
+    <li>NHS bodies including GPs, Health Trusts, Pharmacists, NHS Dentists and opticians;</li>
+    <li>Police and fire services; and</li>
+    <li>Companies that are wholly owned by public authorities</li>
+  </ul>
+  <p>Some public authorities are only subject to the act in respect of certain public functions that they perform.</p>
+
+  <h2 id="What_can_I_ask_for">
+    What can I ask for?
+    <a href="#What_can_I_ask_for">#</a>
+  </h2>
+  <p>
+    The Freedom of Information Act gives you the right to request recorded information from public authorities. As well as documents 
+    and emails, it also covers things like videos and photographs.
+  </p>
+  <p>You could ask:
+  <ul>
+    <li>Your local council about <a href="https://www.whatdotheyknow.com/request/libraries_25">library fines</a>.</li>
+    <li>Your local fire service about
+    <a href="https://www.whatdotheyknow.com/request/incident_attended_in_2021_2022">incidents they have 
+    attended</a>.</li>
+    <li>A Government department about
+    <a href="https://www.whatdotheyknow.com/request/kwasi_kwarteng_saudi_arabia_trip">meetings held by Government Ministers</a>.</li>
+    <li>Your local Police force about 
+    <a href="https://www.whatdotheyknow.com/request/central_ticket_office_nov_22_feb">about speeding tickets</a>.</li>
+    <li>Your local NHS Trust about 
+    <a href="https://www.whatdotheyknow.com/request/current_waiting_times_for_adults">waiting times</a>.</li>
+  </ul>
+  </p>
+
+  <h2 id="exemptions">
+    Are there any exemptions?
+    <a href="#exemptions">#</a>
+  </h2>
+  <p>
+    There are a number of exemptions in FOI that allow public authorities to withhold information from you. You can read more
+    about these on our <a href="<%= help_exemptions_path %>">dedicated help page</a>.
+  </p>
+
+  <h2 id="how_long">
+    How long does it take to receive a response?
+    <a href="#how_long">#</a>
+  </h2>
+  <p>
+    By law, requests have to be answered promplty and within 20 working days. This deadline can be extended in limited circumstances, 
+    such as when an authority needs more time to consider the public interest in releasing information.
+  </p>
+
+  <h2 id="how_do_I_make_a_request">
+    How do I make a request?
+    <a href="#how_do_I_make_a_request">#</a>
+  </h2>
+  <p>
+    Requests are quick and easy to make using WhatDoTheyKnow. You can get started by  
+    <a href="<%= select_authority_path %>">searching for the authority</a> that you would like to ask for information. We have lots of tips and 
+    guidance about how to make an effective request on our <a href="<%= help_requesting_path %>">help page</a>. To be valid, requests
+    need to be made in writing, include the name of the person making the request, and describe the information that is being requested.
+  </p>
+
+  <h2 id="unhappy">
+    What if I am unhappy with my response?
+    <a href="#unhappy">#</a>
+  </h2>
+  <p>
+    We provide detailed advice about what to do if you are <a href="<%= help_unhappy_path %>">unhappy with a response</a> that you have received. The first step is usually
+    to ask the public authority to reconsider the response that they have given. This is known as an internal review. If the authority
+    hasn't replied to your request at all, you do not need to ask for an internal review, and can complain straight to the Information
+    Commissioner's Office (ICO)
+  <p>
+
+  <h2 id="ico">
+    What is the ICO?
+    <a href="ico">#</a>
+  </h2>
+  <p>
+   The Information Commissioner's Office (ICO) is the UK's independent authority responsible for upholding information rights, 
+   including the enforcement of the Freedom of Information Act. It exists to promote transparency by public bodies, handle 
+   complaints regarding how freedom of information requests have been handled, and, where necessary, take enforcement action 
+   to ensure that the act is being complied with.
+  </p>
+
+  <h2 id="Appeal">
+    How do I appeal to the ICO?
+    <a href="#appeal">#</a>
+  </h2>
+  <p>
+    You can appeal to the ICO by email on <code>
+    <a href="mailto:ICOCasework@ico.org.uk?subject=FOI%2FEIR%20Complaint">
+    icocasework@ico.org.uk</a></code>, using the 
+    <a href="https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/foi-and-eir-complaints/">online form</a>, 
+    or by post:
+  </p>
+  <p>
+    Information Commissioner's Office<br>
+    Wycliffe House<br>
+    Water Lane<br>
+    Wilmslow<br>
+    Cheshire<br>
+    SK9 5AF<br>
+  </p>
+
+  <%= render partial: 'history' %>
+
+  <div id="hash_link_padding"></div>
+</div>
