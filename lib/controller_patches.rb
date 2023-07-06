@@ -18,6 +18,7 @@ Rails.configuration.to_prepare do
     def exemptions; end
     def authority_performance_tracking; end
     def search_engines; end
+    def about_foisa; end
 
     private
 
