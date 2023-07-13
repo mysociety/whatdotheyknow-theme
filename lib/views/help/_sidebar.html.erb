@@ -59,6 +59,11 @@
       </li>
 
       <li>
+      <%= link_to_unless_current 'Didn’t get a response?',
+                                 help_no_response_path %>
+      </li>
+     
+      <li>
         <%= link_to_unless_current 'Environmental Information',
                                    help_environmental_information_path %>
       </li>
