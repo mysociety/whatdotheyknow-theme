@@ -1,0 +1,53 @@
+name: Labeller
+
+on:
+  pull_request_review:
+    types: [review_requested, submitted]
+
+jobs:
+  add-remove-labels:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Add awaiting-review label
+      if: github.event.action == 'review_requested'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.removeLabel({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            name: 'awaiting-deploy'
+          });
+          github.rest.issues.addLabels({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            labels: ['awaiting-review']
+          })
+
+    - name: Check reviews and manage labels
+      if: github.event.action == 'submitted' && github.event.review.state == 'approved'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const reviews = await github.rest.pulls.listReviews({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: context.issue.number
+          });
+          const unapproved = reviews.data.find(review => review.state !== 'approved');
+          if (!unapproved) {
+            github.rest.issues.removeLabel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              name: 'awaiting-review'
+            });
+            github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['awaiting-deploy']
+            });
+          }
