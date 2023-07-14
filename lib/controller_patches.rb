@@ -20,6 +20,7 @@ Rails.configuration.to_prepare do
     def search_engines; end
     def about_foi; end
     def about_foisa; end
+    def no_response; end
 
     private
 

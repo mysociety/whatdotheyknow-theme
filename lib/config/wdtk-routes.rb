@@ -62,4 +62,7 @@ Rails.application.routes.draw do
 
   get '/help/about_foisa' => 'help#about_foisa',
       as: :help_about_foisa
+
+  get '/help/no_response' => 'help#no_response',
+      as: :help_no_response
 end
