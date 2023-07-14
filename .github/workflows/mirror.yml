@@ -5,18 +5,13 @@
 name: Mirror to git.mysociety.org
 
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types:
+      - completed
 
 jobs:
-
-  ci:
-    uses: ./.github/workflows/ci.yml
-
-  rubocop:
-    uses: ./.github/workflows/rubocop.yml
-
   mirror:
-    needs: [ci, rubocop]
     runs-on: ubuntu-latest
     steps:
 
