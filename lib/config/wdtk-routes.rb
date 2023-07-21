@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   get '/ni' => redirect('/body?tag=ni', status: 302)
   get '/northern-ireland' => redirect('/body?tag=ni', status: 302)
 
+  get '/help/report-a-data-breach' => 'help#report_a_data_breach',
+      as: :help_report_a_data_breach
+  post '/help/report-a-data-breach' => 'help#report_a_data_breach_handle_form_submission',
+      as: :help_report_a_data_breach_handle_form_submission
+  get '/help/report-a-data-breach/thank-you' => 'help#report_a_data_breach_thank_you',
+      as: :help_report_a_data_breach_thank_you
+
   get "/help/ico-guidance-for-authorities" => redirect("https://ico.org.uk/media/for-organisations/documents/how-to-disclose-information-safely-removing-personal-data-from-information-requests-and-datasets/2013958/how-to-disclose-information-safely.pdf"),
       as: :ico_guidance
 
