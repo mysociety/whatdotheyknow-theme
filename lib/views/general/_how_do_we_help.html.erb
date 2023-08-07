@@ -1,0 +1,61 @@
+<div class="homepage-article-section" id="homepage-article">
+  <div class="row homepage-article-section__ar-contet">
+    <div class="ar-content__headings ">
+      <h2><%= _('How does WhatDoTheyKnow help?') %></h2>
+    </div>
+
+    <div class="ar-content__article-grid col-2-grid">
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('<strong>🔀 Find the right authority:</strong> A database of 46,000+ public bodies, kept up to date by a team of staff and volunteers.') %>
+          </p>
+        </div>
+      </div>
+
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('<strong>🗂️ Public archive:</strong> A permanent, searchable, public record of hundreds of thousands of information requests and responses.') %>
+          <p>
+        </div>
+      </div>
+
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('<strong>✍️ Write your request:</strong> Inline guidance and a collection of help pages to help write your request.') %>
+          <p>
+        </div>
+      </div>
+
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('<strong>🤖 Automate bureaucracy:</strong> Built in assistance and reminders to manage your request from submission to completion.') %>
+          <p>
+        </div>
+      </div>
+
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('<strong>🏟️ Correspond in public:</strong> Requests and responses are automatically published online with proof of delivery to hold authorities accountable to respond.') %>
+          <p>
+        </div>
+      </div>
+
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('<strong>🛑 Refusal advice:</strong> Encouragement, support, guidance and snippets to help challenge refusals at internal review, regulator appeal and tribunal<sup>(soon)</sup>.') %>
+          <p>
+        </div>
+      </div>
+    </div>
+
+    <p class="ar-content__lede">
+      <%= _('<a href="{{help_link}}">Learn more about {{site_name}}</a>. Want to know something? <a href="{{select_authority_link}}"> Start your own request &rarr;</a>', help_link: help_about_path, site_name: site_name, select_authority_link: select_authority_path) %>
+    </p>
+  </div>
+</div>
