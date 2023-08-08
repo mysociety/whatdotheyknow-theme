@@ -1,0 +1,42 @@
+<div class="homepage-article-section" id="homepage-article">
+  <div class="row homepage-article-section__ar-contet">
+    <div class="ar-content__headings ">
+      <h2><%= _('What is Freedom of Information?') %></h2>
+
+      <p class="ar-content__lede">
+        <%= _('Make a request for information to a UK public authority.') %><br>
+        <%= _('By law, they have to respond.') %>
+      </p>
+    </div>
+
+    <div class="ar-content__article-grid col-2-grid">
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('The Freedom of Information Act, also known as <strong>FOI gives you the right to <a href="{{help_link}}">request recorded information</a> from public authorities</strong>.', help_link: help_requesting_path) %>
+          </p>
+
+          <p>
+            <%= _('As well as documents and emails, it also covers things like spreadsheets, presentations, maps, videos and photographs.') %>
+          </p>
+        </div>
+      </div>
+
+      <div class="article-grid__item">
+        <div class="article-grid__item-content">
+          <p>
+            <%= _('By law <strong>requests have to be answered promptly</strong> and within <a href="{{help_link}}">20 working days</a>.', help_link: help_requesting_path(anchor: 'quickly_response')) %>
+          <p>
+
+          <p>
+            <%= _('<strong>In most cases information should be released</strong>, but various <a href="{{help_link}}">exemptions</a> allow authorities to withhold information.', help_link: help_exemptions_path) %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="ar-content__lede">
+      <%= link_to _('Learn more about the Freedom of Information act &rarr;'), help_about_foi_path %>
+    </p>
+  </div>
+</div>
