@@ -166,6 +166,7 @@ Rails.configuration.to_prepare do
     noreply@leeds.gov.uk
     nhsbsa.foirequests@nhs.net
     donotreply@hillingdon.gov.uk
+    no-reply@fcdo.ecase.co.uk
   )
 
   User.content_limits = {
