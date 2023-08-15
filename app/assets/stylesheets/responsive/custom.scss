@@ -868,6 +868,11 @@ div.correspondence {
     border-top: 8px solid $outgoing-correspondence-color;
   }
 
+  /* If admin banner shown at the top, it overlaps body content, so move the sticky down */
+  .admin + .entirebody & {
+    top: 41px;
+  }
+
   /* This is so you can't see the text box under the rounded corners of the
    * sticky header. Can all be removed if you don't have rounded corners. */
   &::before, &::after {
