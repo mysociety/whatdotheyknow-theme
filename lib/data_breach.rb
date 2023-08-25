@@ -53,6 +53,9 @@ module DataBreach
       from = MailHandler.address_from_name_and_email(
         'WhatDoTheyKnow.com data breach report', blackhole_email
       )
+      if report.contact_email
+        set_reply_to_headers(nil, 'Reply-To' => report.contact_email)
+      end
 
       # Set a header so we can filter in the mailbox
       headers['X-WDTK-Contact'] = 'wdtk-data-breach-report'
