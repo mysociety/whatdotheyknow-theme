@@ -1,0 +1,94 @@
+<h1>Report a data breach</h1>
+
+<% @title = "Report a data breach" %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h2>Defnyddiwch y ffurflen hon i roi gwybod am dor diogelwch data</h2>
+
+  <p>Os ydych yn credu eich bod wedi nodi achos o dor diogelwch data mewn 
+  ymateb a ddarparwyd i gais a wnaed drwy WhatDoTheyKnow, defnyddiwch y 
+  ffurflen hon i adrodd am y digwyddiad.</p>
+
+  <%= form_with model: @report, url: help_report_a_data_breach_handle_form_submission_path, html: { class: 'contact-form' } do |f| %>
+
+    <%= foi_error_messages_for :report %>
+
+    <p>
+      <%= f.label :url, "Rhowch ddolen i'r cais neu'r atodiad sy'n cynnwys yr achos o dor diogelwch data." %>
+      <span class="form_item_note">
+        Fel arall, gallwch ddarparu cyfeiriad e-bost y cais, os yw'n hysbys.
+        <br>
+        <br>
+      </span>
+      <%= f.text_field :url %>
+    </p>
+
+    <p>
+      <%= f.label :message, "Rhowch fanylion am yr achos hwn o dor diogelwch data" %>
+      <%= f.text_area :message, rows: 3 %>
+    </p>
+
+    <p>
+        <%= f.check_box :special_category_or_criminal_offence_data, id: 'special_category_or_criminal_offence_data' %>
+        <label for="special_category_or_criminal_offence_data" class="form_label">
+          Mae'r achos hwn o dor diogelwch data yn cynnwys data categori 
+          arbennig neu ddata am drosedd
+        </label>
+    </p>
+
+    <p>
+      <%= f.label :contact_email, "Rhowch gyfeiriad e-bost y Swyddog Diogelu Data (os yw'n hysbys):" %>
+      <%= f.text_field :contact_email %>
+    </p>
+
+    <p>
+        <label>A ydych yn adrodd ar ran y corff cyhoeddus sy'n gyfrifol am yr achos o dor diogelwch data?</label>
+        <%= f.label :is_public_body_yes, class: 'form_inline' do %>
+          <%= f.radio_button :is_public_body, true %>
+          Ydw
+        <% end %>
+        <%= f.label :is_public_body, class: 'form_inline' do %>
+          <%= f.radio_button :is_public_body, false %>
+          Nac ydw
+        <% end %>
+    </p>
+
+    <div class="actions">
+      <%= f.submit "Send" %>
+    </div>
+
+    <%= render partial: 'contact_form_privacy_notice' %>
+  <% end %>
+
+  <h2 id="report_breach_further_information">
+    Further information
+    <a href="#report_breach_further_information">#</a>
+  </h2>
+
+  <p>
+    We take all incidents reported via this form extremely seriously, and aim to acknowledge and investigate all reports promptly.
+  </p>
+  <p>
+    Special Category data and Criminal Offence data are defined by Section 10 of the Data Protection Act 2018.
+  </p>
+  <p>
+    Special Category information includes personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, health, information about a person’s sex life or sexual orientation.
+  </p>
+  <p>
+    Criminal Offence data includes the personal information of offenders or suspected offenders, relating to criminal convictions and offences, including the investigation of, or proceedings for, any offence or alleged offence.
+  </p>
+  <p>
+    Please see the relevant ICO Guidance for more information:
+    <ul>
+      <li><a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/lawful-basis-for-processing/special-category-data/">Special Category data</a></li>
+      <li><a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/lawful-basis-for-processing/criminal-offence-data/">Criminal Offence data</a></li>
+    </ul>
+  </p>
+
+
+  <%= render partial: 'history' %>
+
+  <div id="hash_link_padding"></div>
+</div>
