@@ -91,7 +91,7 @@
 
     <h2 class="contact-page__goal" id="wdtk-volunteer">
         <label class="houdini-label" for="goal4">
-            Hoffwn gymryd rhan a dod yn <strong>wirfoddolwr</strong>
+            Hoffwn gymryd rhan a dod yn <strong>wirfoddolwr</strong>.
         </label>
     </h2>
 
@@ -115,17 +115,40 @@
             </li>
         </ul>
     </div>
-    
+
+    <h2 class="contact-page__goal" id="report-data-breach">
+      <label class="houdini-label" for="goal5">
+        Hoffwn <strong>adrodd am dor diogelwch data</strong>.
+      </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal5"
+      <% if params["contact"] && params[:current_form] == 'report-data-breach' %>checked<% end %>>
+    <div class="houdini-target contact-page__options">
+      <ul>
+        <li>
+          Rydym yn awyddus i ddeall eich pryderon, a byddwn yn gweithredu yn 
+          unol 
+          <%= link_to "â'n gweithdrefn ar drin gwybodaeth bersonol a ryddhawyd yn ddamweiniol", help_how_path(anchor: 'accidentally_released') %>.
+        </li>
+
+        <li style="font-size: larger;">
+          Er mwyn caniatáu i ni helpu'n gyflymach, defnyddiwch ein ffurflen 
+          <%= link_to 'adrodd am dor diogelwch data', help_report_a_data_breach_path %>
+          form.
+        </li>
+      </ul>
+    </div>
 
     <h2 class="contact-page__goal" id="wdtk">
-        <label class="houdini-label" for="goal5">
+        <label class="houdini-label" for="goal6">
             Mae gen i fater arall, neu adborth yn ymwneud â'r
             WhatDoTheyKnow.com wefan, fy mod am godi gyda'r
             <strong>tîm sy'n rhedeg WhatDoTheyKnow</strong>.
         </label>
     </h2>
 
-   <input class="houdini-input" type="radio" name="goals" id="goal5"
+   <input class="houdini-input" type="radio" name="goals" id="goal6"
         <% if params["contact"] && params[:current_form] == 'wdtk' %>checked<% end %>>
     <div class="houdini-target contact-page__options">
         <ul>
