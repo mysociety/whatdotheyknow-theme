@@ -2181,10 +2181,19 @@ div.pagination span.disabled {
   margin: 0 0.2em;
 }
 
-#sign_in_reason {
+#sign_in_reason,
+#request_upload_response .request-header__closed_to_correspondence {
   font-weight: 600;
   font-size: 2.5em;
   margin: 0.67em 0;
+
+  a {
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color_black;
+    }
+  }
 }
 
 .sign-in-wrapper {
