@@ -69,6 +69,10 @@ Rails.configuration.to_prepare do
     ]
   }
 
+  ProAccount.class_eval do
+    prepend ProAccountBans::ModelMethods
+  end
+
   PublicBody.class_eval do
     # Return the domain part of an email address, canonicalised and with common
     # extra UK Government server name parts removed.
