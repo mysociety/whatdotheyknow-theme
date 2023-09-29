@@ -15,7 +15,7 @@ module ProAccountBans
       bans_config.any? do |ban|
         ban.all? do |k, banned_value|
           value = @token.card[k]
-          value.upcase.gsub(/\S/, '') if k == 'address_key'
+          value = value.upcase.gsub(/\s/, '') if k == 'address_zip'
           value == banned_value
         end
       end
