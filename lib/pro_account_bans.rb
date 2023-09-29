@@ -5,6 +5,7 @@ module ProAccountBans
     def update_source
       return super unless pro_account_banned?
 
+      sleep (4...10).to_a.sample unless Rails.env.test? # simulate random delay
       raise ProAccount::CardError, _("The card issuer couldn't authorize " \
                                      "payment.")
     end
