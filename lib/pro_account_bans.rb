@@ -11,7 +11,7 @@ module ProAccountBans
     end
 
     def pro_account_banned?
-      return false unless bans_config
+      return false unless bans_config && @token
 
       bans_config.any? do |ban|
         ban.all? do |k, banned_value|
