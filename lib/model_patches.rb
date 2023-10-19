@@ -73,6 +73,23 @@ Rails.configuration.to_prepare do
     prepend ProAccountBans::ModelMethods
   end
 
+  PublicBody.excluded_calculated_home_page_domains += %w[
+    aol.co.uk
+    blueyonder.co.uk
+    btconnect.com
+    btinternet.com
+    btopenworld.com
+    hotmail.co.uk
+    live.co.uk
+    ntlworld.com
+    sky.com
+    talk21.com
+    talktalk.net
+    tiscali.co.uk
+    virginmedia.com
+    yahoo.co.uk
+  ]
+
   PublicBody.class_eval do
     # Return the domain part of an email address, canonicalised and with common
     # extra UK Government server name parts removed.
