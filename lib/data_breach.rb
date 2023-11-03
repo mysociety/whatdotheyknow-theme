@@ -63,7 +63,8 @@ module DataBreach
       mail(
         from: from,
         to: contact_from_name_and_email,
-        subject: _('New data breach report'),
+        subject: _('New data breach report [{{reference}}]',
+                   reference: case_reference('BR'))
       )
     end
   end
