@@ -68,7 +68,7 @@ module VolunteerContactForm
     def volunteer_message(contact, logged_in_user)
       @contact = contact
       # Setup a case reference so we can find this in the mailbox
-      @contact_caseref = "VAPP/#{Time.now.strftime('%Y%m%d')}-#{SecureRandom.base36(4).upcase}"
+      @contact_caseref = case_reference('VAPP')
       @logged_in_user = logged_in_user
 
       # From is an address we control so that strict DMARC senders don't get
