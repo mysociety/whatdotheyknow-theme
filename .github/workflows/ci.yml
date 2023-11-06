@@ -45,8 +45,10 @@ jobs:
     - name: Extract associated required Alaveteli PR number
       id: pr_alaveteli_number
       run: |
-        PR_DESCRIPTION=$(gh pr view https://github.com/mysociety/whatdotheyknow-theme/pull/${{ github.event.pull_request.number }} --json body -q '.body')
-        echo "PR_ALAVETELI_NUMBER=$(echo $PR_DESCRIPTION | grep -o 'https://github.com/mysociety/alaveteli/pull/[0-9]*' | grep -o '[0-9]*$')" >> $GITHUB_ENV
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          PR_DESCRIPTION=$(gh pr view https://github.com/mysociety/whatdotheyknow-theme/pull/${{ github.event.pull_request.number }} --json body -q '.body')
+          echo "PR_ALAVETELI_NUMBER=$(echo $PR_DESCRIPTION | grep -o 'https://github.com/mysociety/alaveteli/pull/[0-9]*' | grep -o '[0-9]*$')" >> $GITHUB_ENV
+        fi
 
     - name: Get Alaveteli branch name
       id: pr_alaveteli_branch
