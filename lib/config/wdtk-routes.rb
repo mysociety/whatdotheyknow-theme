@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/help/report-a-data-breach/thank-you' => 'help#report_a_data_breach_thank_you',
       as: :help_report_a_data_breach_thank_you
 
-  get "/help/ico-guidance-for-authorities" => redirect("https://ico.org.uk/media/for-organisations/documents/how-to-disclose-information-safely-removing-personal-data-from-information-requests-and-datasets/2013958/how-to-disclose-information-safely.pdf"),
+  get "/help/ico-guidance-for-authorities" => redirect("https://ico.org.uk/media/for-organisations/documents/2021/2618998/how-to-disclose-information-safely-20201224.pdf"),
       as: :ico_guidance
 
   get "/help/ico-anonymisation-code" => redirect("https://ico.org.uk/media/1061/anonymisation-code.pdf"),
