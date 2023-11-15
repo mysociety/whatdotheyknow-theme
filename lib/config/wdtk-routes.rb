@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get "/help/ico-guidance-for-authorities" => redirect("https://ico.org.uk/media/for-organisations/documents/2021/2618998/how-to-disclose-information-safely-20201224.pdf"),
       as: :ico_guidance
 
+  get "/help/microsoft-hidden-data" => redirect("http://support.microsoft.com/en-us/office/remove-hidden-data-and-personal-information-by-inspecting-documents-presentations-or-workbooks-356b7b5d-77af-44fe-a07f-9aa4d085966f#ID0EBBD=Excel"),
+      as: :excel_guidance      
+
   get "/help/ico-anonymisation-code" => redirect("https://ico.org.uk/media/1061/anonymisation-code.pdf"),
      as: :ico_anonymisation_code
 
