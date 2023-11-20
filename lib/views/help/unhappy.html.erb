@@ -11,7 +11,7 @@
   <% end %>
 
   <p>
-    If you <strong>didn’t get a reply within 20 working days</strong> you can:
+    If you <strong>didn’t get a response to your request within 20 working days</strong> you can:
   </p>
 
   <ul>
@@ -68,13 +68,14 @@
     <% else %>
       At the bottom of the relevant request page on WhatDoTheyKnow choose
       "request an internal review". Then write a message asking for an internal
-      review of your request. You may want to include a link to the
-      request page, to make it clear which request you are talking about.
+      review of your request. You should be as specific as possible about the reasons 
+      you are unhappy with the way your request was handled. It may be helpful to include
+      a link to the request page, to make it clear which request you are talking about. 
     <% end %>
   </summary>
 
   <p>
-    You don't need to ask for an internal review if the authority haven't
+    You don't need to ask for an internal review if the authority hasn't
     responded to your request at all by the deadline. You can go straight to
     the Information Commissioner.
   </p>
@@ -104,28 +105,37 @@
 
 <details>
   <summary>
-    If you are still unhappy after the public authority has done their internal
-    review, then you can refer your request to the Information Commissioner, who
-    is empowered to uphold access to information laws.
+    If the authority hasn't <%= link_to 'responded to your request at all',
+    help_no_response_path %> after 20 working days, you can complain straight
+    to the Information Commissioner without needing to request an internal
+    review. If the public authority has done their internal review and you
+    are unhappy with their response, or if the public authority has refused
+    to carry out an internal review, you can refer your request to the
+    Information Commissioner.
   </summary>
 
   <p>
     To make a referral,
-    start by reading <a href="https://ico.org.uk/make-a-complaint/official-information-concerns-report/">the
+    start by reading <a href="https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/foi-and-eir-complaints/">the
     Information Commissioner's advice for those with concerns about accessing
-    information</a> which links to their form. If you requested information
-    from a Scottish authority, then it is
-    <a href="http://www.itspublicknowledge.info/YourRights/YourRights.asp">the
-    Scottish Information Commissioner</a> who you will need to contact.
+    information</a>, which links to their form. If you requested information
+    from a Scottish authority, then you should contact
+    <a href="https://www.itspublicknowledge.info/appeal">the
+    Scottish Information Commissioner</a> instead.
   </p>
 
   <p>
-    While the Information Commissioner asks for their form to be completed and
-    evidence supporting a referral to be attached in practice we are aware they
-    routinely consider referrals made via a simple email setting out the
-    issues, containing a link to the request on WhatDoTheyKnow.com to provide
-    evidence of the full history of the correspondence related to the request.
-    If you do wish to download copies of correspondence, and attachments, to
+    While the Information Commissioner suggestd that you fill out their form 
+    and attach any supporting evidence, in practice they also consider referrals 
+    made via email, to <strong><code>
+    <a href="mailto:ICOCasework@ico.org.uk?subject=FOI%2FEIR%20Complaint">
+    icocasework@ico.org.uk</a></code></strong>, and accept a link to your request 
+    on WhatDoTheyKnow.com as evidence of the correspondence related to the request
+    You should clearly explain what part of the response you wish to challenge and why. 
+    For example, if you think that the authority has not fully considered all of the public 
+    interest arguments in favour of releasing the information, or if you disagree with how
+    they have applied a particular exemption, you should state this.
+    If you wish to download copies of correspondence, and attachments, to
     send to the Information Commissioner the <code>.zip</code> download
     feature, accessed via "Actions" may assist.
   </p>

@@ -2,8 +2,9 @@
 Rails.configuration.to_prepare do
   HelpController.class_eval do
     prepend VolunteerContactForm::ControllerMethods
+    prepend DataBreach::ControllerMethods
 
-    before_action :set_history, except: :index
+    before_action :set_history, except: [:index, :report_a_data_breach_handle_form_submission]
 
     def principles; end
     def house_rules; end
@@ -12,6 +13,15 @@ Rails.configuration.to_prepare do
     def volunteers; end
     def beginners; end
     def ico_officers; end
+    def glossary; end
+    def environmental_information; end
+    def accessing_information; end
+    def exemptions; end
+    def authority_performance_tracking; end
+    def search_engines; end
+    def about_foi; end
+    def about_foisa; end
+    def no_response; end
 
     private
 

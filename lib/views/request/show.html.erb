@@ -8,11 +8,6 @@
   <%= render partial: 'request_sent' %>
 <% end %>
 
-<% content_for :ga_pageview do %>
-  window.dataLayer = window.dataLayer || [];
-  ga('require', 'GTM-53XVLCX');
-<% end %>
-
 <%= render partial: 'request/ga_events' %>
 
 <%= render partial: 'request/hidden_request_messages' %>
@@ -40,6 +35,8 @@
                      old_unclassified: @old_unclassified } %>
 
 <div id="left_column" class="left_column">
+  <%= render_notes(@info_request.all_notes) %>
+
   <% @info_request.info_request_events.each do |info_request_event| %>
     <% if info_request_event.visible %>
       <%= render partial: 'request/correspondence',

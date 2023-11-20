@@ -10,12 +10,12 @@
     <dd>
       <p>
         Under the Freedom of Information Act, it’s everyone’s right to request
-        information from UK Government and UK public bodies.
+        information from the UK Government and other UK public bodies.
       </p>
       <p>
         WhatDoTheyKnow shows you how to make a Freedom of Information request and
         access information about central government, local government, Parliament,
-        the NHS, the armed forces, state funded schools and universities and other
+        the NHS, the armed forces, state-funded schools and universities and other
         public authorities.
       </p>
       <p>
@@ -26,10 +26,19 @@
     <dt id="premise">How does the site work? <a href="#premise">#</a> </dt>
     <dd>
       You choose the public authority that you would like information from, then
-      write a brief note describing what you want to know. We then send your
+      write a brief note describing what you want to know. We will then send your
       request to the public authority. Both your request, and any response
       received, are automatically published on the website for you and anyone
       else to find and read.
+    </dd>
+     <dt id="does_it_cost_money">Does it cost money to get an account on the site? <a href="#does_it_cost_money">#</a> </dt>
+    <dd>
+      <p>No. You can create an account on the site for free. Once you have an account, 
+      you can make up to ten freedom of information requests free of charge each day. 
+        The ten a day limit is more than enough for almost all of our users.</p>
+      <p>We do offer a paid service for journalists and others who may need to make
+      a higher number of requests or have other special requirements. 
+      The paid services is called <a href="https://www.whatdotheyknow.com/pro">WhatDoTheyKnow Pro</a>.</p>
     </dd>
     <dt id="whybother_me">
       Why would I bother to do this?
@@ -130,7 +139,7 @@
         WhatDoTheyKnow is run and maintained by
         <a href="http://www.mysociety.org/?utm_source=whatdotheyknow.com&utm_medium=link">mySociety</a>.
         mySociety is a registered charity in England and Wales (no.
-        <a href="http://apps.charitycommission.gov.uk/Showcharity/RegisterOfCharities/CharityWithPartB.aspx?RegisteredCharityNumber=1076346&SubsidiaryNumber=0">
+        <a href="https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/3078648">
         1076346</a>).
         mySociety is also a limited company registered in England and Wales (no.
         <a href="http://opencorporates.com/companies/gb/03277032">03277032</a>)
@@ -152,7 +161,9 @@
       </p>
       <p>
         If you like what we’re doing, then you can
-        <a href="<%= donation_url %>">make a donation</a>.
+          <%= link_to 'make a donation', donation_url(
+             utm_campaign: 'wdtk-help', utm_content: 'about-who-makes-wdtk'
+          ) %>.
       </p>
     </dd>
     <dt id="updates">

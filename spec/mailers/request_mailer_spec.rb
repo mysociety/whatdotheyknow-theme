@@ -16,11 +16,12 @@ RSpec.describe RequestMailer do
       expected = <<-EOF.strip_heredoc
         -- the Test team
 
-        ----------------------------------------------------------
+        --------------------------------------------------------------------------------
 
-        Help WDTK - http://test.host/en/help/volunteers
+        WhatDoTheyKnow is a project of mySociety run by a small team of staff and
+        dedicated volunteers.
         EOF
-      expect(mail.body).to include(expected)
+      expect(mail.body.to_s.gsub(/\r/, '')).to include(expected)
     end
 
   end

@@ -106,7 +106,51 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+a.external-link {
+  padding-right: 24px;
+  text-decoration: none;
+  position: relative;
+  &:after {
+    content:"";
+    position: absolute;
+    background-image: image-url("external-link-blue.png");
+    // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+    background-image: image-url("external-link-blue.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    right: 0;
+  }
 
+  &:hover {
+    text-decoration: underline;
+    &:after {
+      background-image: image-url("external-link-black.png");
+      // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+      background-image: image-url("external-link-black.svg");
+    }
+  }
+}
+
+a.link-with-icon {
+  padding-left: 30px;
+  background-position: left 0 center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &.youtube-icon { 
+    background-image: image-url("youtube-blue.png");
+    // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
+    background-image: image-url("youtube-blue.svg");
+  }
+
+  &:hover {
+    background-image: image-url("youtube-black.png");
+    background-image: image-url("youtube-black.svg");
+  }
+}
 
 /* Mixin styles */
 
@@ -334,6 +378,8 @@ a.link_button_green_large {
 #navigation_search {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     padding-top: 1.2em;
+    position: absolute;
+    right: 0;
   }
 }
 
@@ -453,6 +499,14 @@ a.link_button_green_large {
   .account-link {
     background: transparent;
   }
+
+  .sign_in_link {
+    color: white;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
 }
 
 .logged-in-menu a,
@@ -507,7 +561,7 @@ a.link_button_green_large {
   }
 }
 
-#notice, #request_header_text {
+#notice {
   background-color: $color_white;
   border-color: $notice-border;
 }
@@ -590,7 +644,40 @@ a.link_button_green_large {
     }
   }
 
+
+  $mysoc-badge-mobile-width:    55px;
+  $mysoc-badge-desktop-width:   83px;
+  $badge-horizontal-shadow-mobile: 10px; 
+  $badge-horizontal-shadow-desktop: 8px; 
+  #mysociety-badge {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: $badge-horizontal-shadow-mobile; // Align with container
+      width: $mysoc-badge-mobile-width;
+
+      img {
+          width: 100%;
+          height: auto;
+      }
+      .badge-desktop {
+          display: none;
+      }
+      @include respond-min( $main_menu-mobile_menu_cutoff ) {
+        width: $mysoc-badge-desktop-width;
+        left: $badge-horizontal-shadow-desktop; // Align with container
+        .badge-mobile {
+            display: none;
+        }
+        .badge-desktop {
+            display: block;
+        }
+      }
+  }
+
   .banner_site-title {
+    margin-left: $mysoc-badge-mobile-width;
+    width: auto;
     h1 {
       font-size: 1.5em;
       margin: 0;
@@ -602,6 +689,23 @@ a.link_button_green_large {
       &:active,
       &:focus {
         color: transparentize($main_menu-link_text, 0.2);
+      }
+    }
+    @include respond-min( $main_menu-mobile_menu_cutoff ) {
+      margin-left: $mysoc-badge-desktop-width;
+    }
+  }
+
+  #user_locale_switcher {
+    @include respond-min( $main_menu-mobile_menu_cutoff ) {
+      left: 0;
+    }
+  }
+
+  .navigation li {
+    @include respond-min( $main_menu-mobile_menu_cutoff ) {
+      &:first-child {
+        margin-left: $mysoc-badge-desktop-width;
       }
     }
   }
@@ -725,17 +829,17 @@ div.correspondence {
   box-shadow: 0 1px 2px rgba(0,0,0,0.25);
   border-radius: 5px;
   margin-bottom: 2.5em;
+  position: relative; // So we can position the rounded corners below
 
   &.collapsed {
     .correspondence__header {
-      border-radius: 0 0 5px 5px;
+      border-radius: 5px;
     }
   }
 }
 
 .incoming.correspondence {
   border: none;
-  border-top: 8px solid $incoming-correspondence-color;
   background-color: $incoming-correspondence-background;
   a.link_to_this {
     background-color: $incoming-correspondence-color;
@@ -744,10 +848,73 @@ div.correspondence {
 
 .outgoing.correspondence {
   border: none;
-  border-top: 8px solid $outgoing-correspondence-color;
   background-color: $outgoing-correspondence-background;
   a.link_to_this {
     background-color: $outgoing-correspondence-color;
+  }
+}
+
+/* Make the header sticky so it's always visible as you scroll through a
+ * message. */
+.correspondence__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-radius: 5px 5px 0 0;
+  .incoming & {
+    border-top: 8px solid $incoming-correspondence-color;
+  }
+  .outgoing & {
+    border-top: 8px solid $outgoing-correspondence-color;
+  }
+
+  /* If admin banner shown at the top, it overlaps body content, so move the sticky down */
+  .admin + .entirebody & {
+    top: 41px;
+  }
+
+  /* This is so you can't see the text box under the rounded corners of the
+   * sticky header. Can all be removed if you don't have rounded corners. */
+  &::before, &::after {
+    background-position: top left;
+    background-size: 7px 8px;
+    background-repeat: no-repeat;
+    width: 7px;
+    height: 8px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+  }
+  &::before {
+    left: -2px;
+  }
+  &::after {
+    right: -2px;
+  }
+  .incoming &::before {
+    background-image:
+      linear-gradient(to right, $body-bg 2px, transparent 0),
+      linear-gradient(to bottom, transparent 5px, $incoming-correspondence-color 0),
+      radial-gradient(circle at 7px 5px, $incoming-correspondence-color 5px, $body-bg 0);
+  }
+  .outgoing &::before {
+    background-image:
+      linear-gradient(to right, $body-bg 2px, transparent 0),
+      linear-gradient(to bottom, transparent 5px, $outgoing-correspondence-color 0),
+      radial-gradient(circle at 7px 5px, $outgoing-correspondence-color 5px, $body-bg 0);
+  }
+  .incoming &::after {
+    background-image:
+      linear-gradient(to left, $body-bg 2px, transparent 0),
+      linear-gradient(to bottom, transparent 5px, $incoming-correspondence-color 0),
+      radial-gradient(circle at 0 5px, $incoming-correspondence-color 5px, $body-bg 0);
+  }
+  .outgoing &::after {
+    background-image:
+      linear-gradient(to left, $body-bg 2px, transparent 0),
+      linear-gradient(to bottom, transparent 5px, $outgoing-correspondence-color 0),
+      radial-gradient(circle at 0 5px, $outgoing-correspondence-color 5px, $body-bg 0);
   }
 }
 
@@ -1381,8 +1548,173 @@ p.locale-list-trigger {
   @include grid-column(12);
 }
 
+.newsletter-signup {
+  text-align: center;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  padding: 4em 3em;
+  margin: 2rem 0;
+  &__image {
+    opacity: 0.7;
+    max-width: 250px;
+  }
+  &__title {
+    margin-top: 1.75rem;
+  }
+  &__subtitle {
+    font-size: 1.125em;
+  }
+}
+
 .learn-more-foi__link {
 
+}
+
+.homepage-video-section {
+  $border-radius: 5px;
+  padding: 2em 0;
+   border-bottom: 1px solid darken($color_light_grey, 7%);;
+   margin-bottom: 2rem;
+   .vs-content__headings {
+     text-align: center;
+     margin-bottom: 3rem;
+     h2 {
+       margin-bottom: 0;
+       margin-top: 0;
+     }
+   }
+
+  .vs-content__video-grid {
+    margin-bottom: 3rem;
+    .video-grid__item {
+      background-color: $color_white;
+      border-radius: $border-radius;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 150px 1fr;
+      .item-content__img {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 0rem;
+        object-fit: cover;
+      }
+      .video-grid__item-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        .item-content__heading {
+          margin-top: 0;
+          font-size: 1.1em;
+          line-height: 130%;
+        }
+        a {
+          display: inline-block;
+          align-self: flex-start;
+        }
+      }
+    }
+  }
+}
+
+.col-3-grid {
+  display: grid;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  padding: 0 0.9375rem; //same as foundation's screen-edge gutter;
+  @media (min-width: $main_menu-mobile_menu_cutoff ) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.homepage-article-section,
+.homepage-blog-section {
+  padding: 2em 0;
+  border-bottom: 1px solid darken($color_light_grey, 7%);;
+  margin-bottom: 2rem;
+  .ar-content__headings {
+    text-align: center;
+    margin-bottom: 3rem;
+    h2 {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  .ar-content__lede {
+    font-size: large;
+    font-style: italic;
+    margin: 1em auto;
+    max-width:80%;
+    text-align: center;
+  }
+
+  .col-2-grid {
+    margin-bottom: 3rem;
+  }
+}
+
+.article-grid__item,
+.blog-post-grid__item {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  .item-content__img {
+    max-height: 250px;
+    object-fit: contain
+  }
+  .item-content__heading {
+    margin-top: 0;
+    font-size: 1.1em;
+  }
+
+  &.with-background {
+    background-color: white;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+    .article-grid__item-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .item-content__img {
+      object-fit: cover;
+    }
+
+    @media (min-width: $main_menu-mobile_menu_cutoff ) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.col-2-grid {
+  display: grid;
+  column-gap: 4rem;
+  row-gap: 2rem;
+  padding: 0 0.9375rem; //same as foundation's screen-edge gutter;
+  @media (min-width: $main_menu-mobile_menu_cutoff ) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article-grid__item {
+    align-items: flex-start;
+    .item-content__img {
+      margin-right: 1rem;
+      max-width: 25%;
+    }
+  }
+}
+
+.cta-button-wrapper {
+  text-align: center;
+  a.button {
+    margin-right: 0.25rem;
+  }
 }
 
 /* Help pages */
@@ -1399,6 +1731,10 @@ p.locale-list-trigger {
   ul {
     list-style: none outside none;
     padding: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
@@ -1496,6 +1832,29 @@ dd {
   label {
     font-size: 1em;
     margin-bottom: 0;
+  }
+}
+
+#help_glossary {
+  .glossary-letters {
+    margin-bottom: 1em;
+
+    a, .no-entries {
+      padding: 0.25em 0.3em;
+      border: 1px dotted $color_mid_grey;
+      font-family: monospace;
+
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+      background-color: $color_yellow;
+    }
+
+    .no-entries {
+      color: $color_mid_grey;
+    }
   }
 }
 
@@ -1822,10 +2181,19 @@ div.pagination span.disabled {
   margin: 0 0.2em;
 }
 
-#sign_in_reason {
+#sign_in_reason,
+#request_upload_response .request-header__closed_to_correspondence {
   font-weight: 600;
   font-size: 2.5em;
   margin: 0.67em 0;
+
+  a {
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color_black;
+    }
+  }
 }
 
 .sign-in-wrapper {
@@ -1926,3 +2294,25 @@ $color_asktheeu_dark_green: #C4DDB9;
     visibility: hidden;
   }
 }
+
+.tag-table {
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.tag-table th,
+.tag-table td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.tag-table th {
+  background-color: $color_light_grey;
+  text-align: left;
+}
+
+.message-text-length {
+  margin: 0.4em 0 0 0;
+}
+

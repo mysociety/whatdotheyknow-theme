@@ -7,6 +7,18 @@
 #
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
+  SPAM_TERMS_CONFIG = Rails.root + 'config/spam_terms.txt'
+
+  if File.exist?(SPAM_TERMS_CONFIG)
+    custom_terms =
+      File.read(SPAM_TERMS_CONFIG).
+        split("\n").
+        reject { |line| line.starts_with?('#') || line.empty? }
+
+    AlaveteliSpamTermChecker.default_spam_terms =
+      AlaveteliSpamTermChecker::DEFAULT_SPAM_TERMS + custom_terms
+  end
+
   ContactValidator.class_eval do
     attr_accessor :understand
 
@@ -57,6 +69,27 @@ Rails.configuration.to_prepare do
     ]
   }
 
+  ProAccount.class_eval do
+    prepend ProAccountBans::ModelMethods
+  end
+
+  PublicBody.excluded_calculated_home_page_domains += %w[
+    aol.co.uk
+    blueyonder.co.uk
+    btconnect.com
+    btinternet.com
+    btopenworld.com
+    hotmail.co.uk
+    live.co.uk
+    ntlworld.com
+    sky.com
+    talk21.com
+    talktalk.net
+    tiscali.co.uk
+    virginmedia.com
+    yahoo.co.uk
+  ]
+
   PublicBody.class_eval do
     # Return the domain part of an email address, canonicalised and with common
     # extra UK Government server name parts removed.
@@ -83,6 +116,18 @@ Rails.configuration.to_prepare do
 
     def is_school?
       has_tag?('school')
+    end
+  end
+
+  RawEmail.class_eval do
+    alias original_data data
+
+    def data
+      original_data.sub(/
+        ^(Date: [^\n]+\n)
+        \s+(To: [^\n]+\n)
+        \s+(From: [^\n]+)
+      /x, '\1\2\3')
     end
   end
 
@@ -125,7 +170,46 @@ Rails.configuration.to_prepare do
     dvla.donotreply@dvla.gov.uk
     noreply@my.tewkesbury.gov.uk
     donotreply.foi@publicagroup.uk
+    do_not_reply@icasework.com
+    mailer@donotreply.icasework.com
+    website@digital.sthelens.gov.uk
+    noreply@m.onetrust.com
+    no-reply@notify.microsoft.com
+    MPSdataoffice-IRU-DONOTREPLY@met.police.uk
+    noreply@rugby.gov.uk
+    no-reply@cheshire.pnn.police.uk
+    Information-rights@nhsbsa.nhs.uk
+    noreply-horsham@axlr8.com
+    donotreply@plymouth.gov.uk
+    do_not_reply@sandwell.gov.uk
+    request@ig.northlincs.gov.uk
+    noreply@infreemation.co.uk
+    noreply@leeds.gov.uk
+    nhsbsa.foirequests@nhs.net
+    donotreply@hillingdon.gov.uk
+    no-reply@fcdo.ecase.co.uk
+    foiresponses_NO-REPLY@york.gov.uk
   )
+
+  User.content_limits = {
+    info_requests: AlaveteliConfiguration.max_requests_per_user_per_day,
+    comments: AlaveteliConfiguration.max_requests_per_user_per_day,
+    user_messages: 2
+  }
+
+  User.class_eval do
+    alias_method :orig_can_make_comments?, :can_make_comments?
+    def can_make_comments?
+      return true if no_limit?
+      orig_can_make_comments?
+    end
+
+    private
+
+    def exceeded_user_message_limit?
+      !Time.zone.now.between?(Time.zone.parse('9am'), Time.zone.parse('5pm'))
+    end
+  end
 
   User::EmailAlerts.instance_eval do
     module DisableWithProtection

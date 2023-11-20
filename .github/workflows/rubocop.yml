@@ -1,0 +1,39 @@
+name: RuboCop
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout Alaveteli
+      uses: actions/checkout@v2
+      with:
+        repository: mysociety/alaveteli
+        ref: develop
+        submodules: true
+        fetch-depth: 0
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        path: lib/themes/whatdotheyknow-theme
+
+    - name: Install Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.0
+        bundler-cache: true
+
+    - name: Run RuboCop linter
+      uses: reviewdog/action-rubocop@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        rubocop_flags: -DES lib/themes/whatdotheyknow-theme
+        rubocop_version: gemfile
+        rubocop_extensions: rubocop-performance:gemfile rubocop-rails:gemfile
+        level: warning

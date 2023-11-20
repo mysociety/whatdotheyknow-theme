@@ -1,0 +1,103 @@
+<% @title = "Search engines" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="title">
+    <%= @title %>
+    <a href="#title">#</a>
+  </h1>
+  <p>
+    We are often asked about search engines, and how they work. This page is designed to provide some information about
+    how search engines "find" information that is held on our website, and what you can do if you are concerned about
+    their listings.
+  </p>
+  <p>
+    Please keep in mind that we do not control search engines, so we cannot guarantee that they will remove
+    information; but we've provided some information below, as a courtesy. If you need help, the
+    <a href="#unhappy">Information Commissioner's Office (ICO)</a> has a free helpline, and can provide advice.
+  </p>
+  <p>
+    Finally, if you are concerned about information that is held on our website, please see our
+    <%= link_to 'Privacy Notice', help_privacy_path(anchor: 'your_rights') %> for more information.
+  </p>
+  <hr>
+  <h2 id="why">
+    Why do they have my data?
+    <a href="#why">#</a>
+  </h2>
+  <p>
+    Search Engines, such as Google, “crawl” the internet in order to populate their databases. In doing so, they create
+    “cached copies” of the information, so that they can provide search results, when people look for information.
+  </p>
+  <p>
+    If you are concerned about search engine results you can contact them directly and they have a duty to consider requests
+    to remove your personal information from their results.
+  </p>
+  <h2 id="cached">
+    Cached copies - what does that mean?
+    <a href="#cached">#</a>
+  </h2>
+  <p>
+    Cached copies are copies of information that the search engine uses to provide results when you search for information.
+    These are sometimes copies of entire documents, “snippets” of data, or a copy of parts of the information. These copies
+    are either controlled by the search engine provider, or a provider that is supplying them with data. This means that they
+    may contain data that is no longer present on our website; however, generally, these caches are refreshed on a periodic basis,
+    so if data is updated on our website, it will eventually update on the search engine.
+  </p>
+  <h2 id="remove_data">
+    Can we remove data?
+    <a href="#remove_data">#</a>
+  </h2>
+  <p>
+    We cannot compel the search engines to remove cached copies; however, where it is possible to do so, we can ask them to
+    consider doing so. When we’ve made a request, it is usually processed by the search engine reasonably quickly; but we
+    can’t guarantee how long it will take, nor, can we guarantee that they will agree to remove the data.
+  </p>
+  <h2 id="data_still_there">
+    But, what if the data is still there - do they have to remove it?
+    <a href="#data_still_there">#</a>
+  </h2>
+  <p>
+    <b>It depends</b>. You do have rights, under Article 17 of the UK General Data Protection Regulation (UK GDPR) to exercise your right
+    to erasure (RtE), often known as your right to be forgotten (RtBF). The search engine provider will consider your request - but,
+    they don’t always have to comply, depending on the circumstances.
+  </p>
+  <h2 id="contact_search_engines">
+    How do I contact the Search Engine providers?
+    <a href="#contact_search_engines">#</a>
+  </h2>
+  <p>
+    Most search engines will have a contact form for legal requests, often linked from their “Privacy Notice” or “Privacy Policy”.
+    As a courtesy, we’ve provided a link to some of the common providers below:
+  </p>
+  <ul>
+    <li><b>Google</b>: <a href="https://reportcontent.google.com/forms/rtbf">https://reportcontent.google.com/forms/rtbf</a></li>
+    <li><b>Microsoft (Bing)</b>: <a href="https://www.bing.com/webmaster/tools/eu-privacy-request">https://www.bing.com/webmaster/tools/eu-privacy-request</a></li>
+    <li><b>Yahoo</b>: <a href="https://uk.help.yahoo.com/kb/learn-options-sln28252.html">https://uk.help.yahoo.com/kb/learn-options-sln28252.html</a> - click the blue "Submit form" link at the bottom</li>
+  </ul>
+  <p>
+    Please note that we do not control what appears on search engines, nor how long it would take for any changes / updates to be
+    reflected.
+  </p>
+  <h2 id="unhappy">
+    What if I’m not happy with their response?
+    <a href="#unhappy">#</a>
+  </h2>
+  <p>
+    You can ask for help from the “relevant supervisory authority” - in other words, the data protection regulator, in the country
+    where the search engine is located. In the UK, this is the Information Commissioner’s Office (ICO).
+  </p>
+  <p>
+    The ICO has a help page which explains the process. You can find it at:
+    <a href="https://ico.org.uk/for-the-public/online/internet-search-results/">https://ico.org.uk/for-the-public/online/internet-search-results/</a>
+  </p>
+  <p>
+    If you need help, you can also contact them, over the phone, on 0303 123 1113, or via web-chat and email webform at:
+    <a href="https://ico.org.uk/global/contact-us/">https://ico.org.uk/global/contact-us/</a>
+  </p>
+  <p>
+    You do also have the right to take
+    action, via the courts. We cannot offer legal advice; however, you may find that you can obtain this via your local Citizens Advice.
+  </p>
+
+  <%= render partial: 'history' %>
+</div>

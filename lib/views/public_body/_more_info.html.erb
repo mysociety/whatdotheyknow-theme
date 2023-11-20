@@ -19,7 +19,10 @@
                     "https://www.oscr.org.uk/about-charities/search-the-register/charity-details?number=#{ tag_value }" %><br>
     <% elsif tag_value.match(/^NIC/) %>
       <%= link_to _('Charity registration'),
-                    "https://www.charitycommissionni.org.uk/charity-search/?regId=#{ tag_value.gsub(/^NIC/, '') }" %><br>
+                    "https://www.charitycommissionni.org.uk/charity-details/?regId=#{ tag_value.gsub(/^NIC/, '') }" %><br>
+    <% elsif tag_value.match(/^exempt/) %>
+      <%= link_to _("Exempt charity - <i>what's that?</i>"),
+                    "https://www.gov.uk/government/publications/exempt-charities-cc23/exempt-charities" %><br>
     <% else %>
       <%= link_to _('Charity registration'),
                     "https://register-of-charities.charitycommission.gov.uk/charity-search/-/results/page/1/delta/20/keywords/#{ tag_value }" %><br>
@@ -48,6 +51,13 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('ofs') %>
+  <% public_body.get_tag_values('ofs').each do |tag_value| %>
+      <%= link_to _('Provider register'),
+                    "https://www.officeforstudents.org.uk/advice-and-guidance/the-register/the-ofs-register/#/provider/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('matuid') %>
   <% public_body.get_tag_values('matuid').each do |tag_value| %>
       <%= link_to _('Establishment group information'),
@@ -59,6 +69,34 @@
   <% public_body.get_tag_values('spuid').each do |tag_value| %>
       <%= link_to _('Establishment group information (sponsor)'),
                     "https://get-information-schools.service.gov.uk/Groups/Group/Details/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('su_parent') %>
+  <% public_body.get_tag_values('su_parent').each do |tag_value| %>
+    <%= link_to _('Parent institution'),
+                show_public_body_path(url_name: tag_value) %><br>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('lei') %>
+  <% public_body.get_tag_values('lei').each do |tag_value| %>
+      <%= link_to _('Legal Entity Identifier'),
+                    "http://openleis.com/legal_entities/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('wikidata') %>
+  <% public_body.get_tag_values('wikidata').each do |tag_value| %>
+      <%= link_to _('Wikidata page'),
+                    "https://www.wikidata.org/wiki/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('lcnaf') %>
+  <% public_body.get_tag_values('lcnaf').each do |tag_value| %>
+      <%= link_to _('Library of Congress Authority ID'),
+                    "http://id.loc.gov/authorities/names/#{ tag_value }" %><br>
   <% end %>
 <% end %>
 

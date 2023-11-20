@@ -1,4 +1,5 @@
-<%= form_for :contact,
+<%= form_for contact_volunteer_form? && @contact_validator || :contact,
+             as: :contact,
              url: help_contact_path + '#' +  form_id,
              html: { class: 'contact-form' } do |f| %>
   <% if not @user %>
@@ -13,6 +14,11 @@
       <%= f.text_field :email, size: 20, required: true %>
     </p>
   <% end %>
+
+  <p hidden>
+    <%= f.label :comment %>
+    <%= f.text_field :comment %>
+  </p>
 
   <p>
     <label class="form_label" for="contact_why">Why would you like to volunteer for us?</label>
@@ -74,11 +80,6 @@
     <% end %>
   </p>
 
-  <p style="display:none;">
-    <%= f.label :comment, 'Do not fill in this field' %>
-    <%= f.text_field :comment %>
-  </p>
-
   <% if @recaptcha_required %>
     <%= recaptcha_tags %><br>
   <% end %>
@@ -88,4 +89,5 @@
     <%= hidden_field_tag(:submitted_contact_form, 1) %>
     <%= submit_tag "Send message to WhatDoTheyKnow team", data: { disable_with: "Sending..." } %>
   </div>
+  <%= render :partial => "contact_form_privacy_notice" %>
 <% end %>

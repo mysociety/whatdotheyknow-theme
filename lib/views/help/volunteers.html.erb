@@ -147,17 +147,24 @@
         </li>
       </ul>
     </li>
+
+    <li>
+      Help us <%= link_to 'find email addresses', 'https://www.mysociety.org/2022/09/26/help-whatdotheyknow-find-contact-addresses-for-public-authorities/' %>
+      for authorities where we're missing them.
+    </li>
+
     <li>
       We always need help with promoting the good use of WhatDoTheyKnow. If you
-      spot one of our requests being quoted in a news article or on a blog then
-      you can add a citation to the request. This helps us all to see how the
-      information has been used.
+      spot one of our requests being quoted in the news, in a research paper
+      or on a blog then you can add an annotation to the request (if it is 
+      your own request you can use the citation feature). This helps the  
+      site's users and the admin team to see how the information has been used.
     </li>
     <li>
       You might choose to write a blog post about WhatDoTheyKnow, or an
       interesting request that you've found yourself, and we'd love to hear
-      about that if you do. You can let us know using the contact form (add
-      link to contact form page)
+      about that if you do. You can let us know using the the 
+      <%= link_to "contact form here", help_contact_path %>.
     </li>
     <li>
       You can help other users by adding annotations with advice to requests
@@ -168,6 +175,7 @@
       If you spot that we are not listing a public body, then
       <%= link_to 'let us know', help_requesting_path(anchor: 'missing_body') %>
     </li>
+
     <li>
       If you've found WhatDoTheyKnow useful, then simply telling your friends,
       colleagues or perhaps your local newspaper or community magazine about
@@ -208,7 +216,7 @@
   <p>
     Your contributions, however small, really help. <%= link_to 'Donate here',
       donation_url(
-        utm_campaign: 'mysoc_footer', utm_content: 'footer donate now'
+        utm_campaign: 'wdtk-help', utm_content: 'volunteer-make-a-donation'
       )
     %>.
   </p>

@@ -31,15 +31,6 @@ Rails.application.config.assets.precompile.unshift(LOOSE_THEME_ASSETS)
 
 Rails.application.config.assets.precompile << ["tests.js"]
 
-# In order to have the theme lib/ folder ahead of the main app one,
-# inspired in Ruby Guides explanation: http://guides.rubyonrails.org/plugins.html
-%w{ . }.each do |dir|
-  path = File.join(File.dirname(__FILE__), dir)
-  $LOAD_PATH.insert(0, path)
-  ActiveSupport::Dependencies.autoload_paths << path
-  ActiveSupport::Dependencies.autoload_once_paths.delete(path)
-end
-
 def prepend_theme_assets
   # Prepend the asset directories in this theme to the asset path:
   ['stylesheets', 'images', 'javascripts'].each do |asset_type|
@@ -63,8 +54,12 @@ for patch in ['patch_mailer_paths.rb',
               'helper_patches.rb',
               'mailer_patches.rb',
               'analytics_event.rb',
+              'help_page_history.rb',
+              'pro_account_bans.rb',
               'public_body_questions.rb',
-              'volunteer_contact_form.rb']
+              'school_late_calculator.rb',
+              'volunteer_contact_form.rb',
+              'data_breach.rb']
     require File.expand_path "../#{patch}", __FILE__
 end
 

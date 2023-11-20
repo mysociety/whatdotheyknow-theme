@@ -52,7 +52,13 @@
       <p class="what-next__para"><%= _("Your donations help us make " \
                                        "Freedom of Information more " \
                                        "accessible, for everyone.") %></p>
-      <%= donate_now_link 'successful request donate now', :class => 'button what-next__button' %>
+
+      <%= donate_now_link 'successful request donate now',
+                          utm_params: {
+                            utm_content: 'successful request donate now',
+                            utm_campaign: 'successful_request'
+                          },
+                          class: 'button what-next__button' %>
     </div>
     <% end %>
   </div>

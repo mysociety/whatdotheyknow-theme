@@ -1,0 +1,18 @@
+<% if @history %>
+  <div class="changes">
+    <h2 id="changes">
+      Newidiadau <a href="#changes">#</a>
+    </h2>
+
+    <p>
+      Byddwn yn adolygu'r tudalennau hyn yn gyson, a gallwn wneud newidiadau 
+      o bryd i'w gilydd er mwyn sicrhau eu bod yn parhau'n gyfredol ac yn gywir.
+      Gallwch ddod o hyd i grynodeb o'r newidiadau yr ydym wedi'u gwneud yn 
+      ein <%= link_to 'storfa GitHub',
+        @history.commits_url,
+        alt: "Dolen i fersiwn hanes ar gyfer WhatDoTheyKnow #{@title} (cynhaliwyd ar GitHub)" %>
+      ond os oes gennych unrhyw gwestiynau, gwnewch
+      <%= link_to 'cysylltu â ni', help_contact_path %>.
+    </p>
+  </div>
+<% end %>

@@ -3,6 +3,43 @@
 <div id="left_column_flip" class="left_column_flip">
   <h1 id="privacy"><%= @title %> <a href="#privacy">#</a> </h1>
   <dl>
+    <div class="changes">
+      <span style="font-size:16px">
+      <p>
+        <strong>Pennau i fyny!</strong> Rydym yn gwybod nad yw'r dudalen hon mor gyfoes ag y dymunwn. 
+        Rydyn ni'n ceisio datrys hyn; ond os na allwch ddod o hyd i'r hyn sydd ei angen arnoch yma, 
+        rhowch gynnig ar ein prif <a href="/help/privacy">Hysbysiad Preifatrwydd</a>, sydd yn Saesneg.
+      </p>
+      <p>
+        Os hoffech chi, gallwch weld cyfieithiad awtomataidd, drwy ddefnyddio
+        <a href="https://www-whatdotheyknow-com.translate.goog/help/privacy?_x_tr_sl=auto&_x_tr_tl=cy&_x_tr_hl=en&_x_tr_pto=wapp">
+        Google Translate</a>.
+      </p>
+      </span>
+    </div>
+    <dd>
+      <p>
+        Mae WhatDoTheyKnow yn cael ei redeg gan yr elusen mySociety.
+      </p>
+      <p>
+        Am fanylion llawn strwythur, llywodraethu, a manylion mySociety, a manylion y
+        cofrestriadau perthnasol gyda'r Comisiynydd Gwybodaeth a'r Elusen
+        Comisiwn gweler: 
+        <%= link_to 'Sef yn gwneud WhatDoTheyKnow?', help_about_path  %>
+      </p>
+      <p>
+        Gweithio ym meysydd tryloywder ac atebolrwydd, mySociety
+        yn meddwl yn galed ac yn gofalu'n fawr am breifatrwydd a diogelwch ein defnyddwyr:
+        mae hyd y polisi preifatrwydd hwn yn un canlyniad o hynny. Ni wyddom nad oes neb
+        yn mynd trwy bolisïau preifatrwydd am hwyl, er hynny, rydym wedi ceisio ei gadw'n
+        darllen clir a gweddol gyflym.
+      </p>
+      <p>
+        Gobeithio ei fod yn cwmpasu popeth sydd angen i chi ei wybod, ond os oes gennych chi unrhyw un o hyd
+        cwestiynau mae croeso i chi <%= link_to 'gysylltu â ni', help_contact_path %>.
+      </p>
+    </dd>
+  
     <dt id="email_address">Pwy sy’n cael gweld fy nghyfeiriad e-bost? <a href="#email_address">#</a> </dt>
     <dd>
     <p>Ni fyddwn yn datgelu eich cyfeiriad e-bost i neb oni bai bod yn rhaid i ni yn ôl y gyfraith, neu i chi ofyn i ni wneud. Mae hyn yn cynnwys yr awdurdod cyhoeddus yr ydych chi’n anfon cais ato. Chân nhw weld dim ond cyfeiriad e-bost @whatdotheyknow.com sy’n benodol i’r cais hwnnw. </p>
@@ -16,7 +53,7 @@
     <p>Yn ôl y gyfraith, rhaid i chi ddefnyddio eich enw go iawn ar gyfer y cais iddo fod cais Rhyddid Gwybodaeth dilys. Gweler y cwestiwn nesaf ar gyfer dewisiadau eraill os nad ydych am i’ch enw llawn gael ei gyhoeddi. </p> </dd>
     <dt id="real_name">A allaf wneud cais Rhyddid Gwybodaeth gan ddefnyddio ffugenw? <a href="#real_name">#</a> </dt>
     <dd>
-    <p>Yn dechnegol, rhaid i chi ddefnyddio eich enw iawn ar gyfer eich cais iddo fod yn gais Rhyddid Gwybodaeth dilys yn ôl y gyfraith. Gweler y <a href="http://www.ico.org.uk/upload/documents/library/freedom_of_information/detailed_specialist_guides/name_of_applicant_fop083_v1.pdf">canllawiau hyn gan y Comisiynydd Gwybodaeth</a> (Ionawr 2009). </p>
+    <p>Yn dechnegol, rhaid i chi ddefnyddio eich enw iawn ar gyfer eich cais iddo fod yn gais Rhyddid Gwybodaeth dilys yn ôl y gyfraith. Gweler y <a href="https://ico.org.uk/for-organisations/foi-eir-and-access-to-information/freedom-of-information-and-environmental-information-regulations/recognising-a-request-made-under-the-freedom-of-information-act-section-8/#whatismeant">canllawiau hyn gan y Comisiynydd Gwybodaeth</a> (Ionawr 2009). </p>
     <p>Fodd bynnag, mae’r un canllawiau hefyd yn dweud ei fod yn arfer da i’r awdurdod cyhoeddus ystyried cais a wnaed gan ddefnyddio ffugenw amlwg. Dylech gyfeirio at hyn os bydd awdurdod cyhoeddus yn gwrthod cais am eich bod yn defnyddio ffugenw.</p>
     <p>Byddwch yn ofalus, serch hynny, hyd yn oed os yw’r awdurdod yn dilyn yr arfer da hwn, bydd y ffugenw yn ôl pob tebyg yn ei gwneud yn amhosibl i chi gwyno wrth y Comisiynydd Gwybodaeth yn ddiweddarach am y ffordd y cafodd eich cais ei drin. </p>
     <p>Mae yna nifer o ddewisiadau da eraill yn hytrach na defnyddio ffugenw.</p> <ul>
@@ -91,14 +128,35 @@
     <dd>
     <p>Os gwelwch unrhyw wybodaeth bersonol amdanoch chi ar y wefan yr hoffech i ni dtynnu neu guddio, yna rhowch <a href="<%= help_contact_path %>">wybod i ni</a> . Nodwch yn union pa wybodaeth yr ydych yn credu sy’n broblem a pham, a lle y mae’n ymddangos ar y wefan.</p>
     <p>Os yw’n wybodaeth bersonol sensitif sydd wedi cael ei phostio ar ddamwain, yna byddwn fel arfer yn ei dileu. Fel arfer, ni fyddwn ond yn ystyried ceisiadau i gael gwared ar wybodaeth bersonol a ddaw oddi wrth yr unigolyn dan sylw, ond am wybodaeth sensitif byddem yn gwerthfawrogi pe bai unrhyw un yn tynnu ein sylw ati.</p>
-    <p>Mae gennych hawl o dan <a
-    href="http://www.legislation.gov.uk/ukpga/1998/29/section/10">adran 10 y Ddeddf Ddiogelu Data</a>
-    i ofyn i ni ddileu eich gwybodaeth bersonol ar y sail ei bod yn achosi difrod neu ofid sylweddol a
-    diangen i chi. Byddwn ni’n ystyried unrhyw hysbysiad o’r fath, nad oes rhaid iddo’n sôn yn benodol
-    am y Ddeddf, ac yn ei gydbwyso yn erbyn unrhyw fudd a ddeuai i’r cyhoedd o gyhoeddi’r deunydd.
-    Ceir peth arweiniad ar yr hysbysiadau hyn <a
-      href="https://ico.org.uk/for-organisations/guide-to-data-protection/principle-6-rights/damage-or-distress/">
-    ar wefan y ICO</a>.
+      <p>
+        Mae gennych hawl o dan <a href="https://www.legislation.gov.uk/eur/2016/679/article/17">
+        Article 17 o Reoliadau Diogelu Data Cyffredinol y DU</a> (GDPR y DU) i ofyn i ni ddileu eich 
+        gwybodaeth personol.
+      </p>
+      <p>
+        I wneud cais, <%= link_to 'cysylltwch â ni', help_contact_path %>.
+      </p>
+      <p>
+        Byddwn yn ystyried unrhyw gais o'r fath, ac yn ei gydbwyso yn erbyn unrhyw fudd cyhoeddus 
+        mewn cyhoeddi'r deunydd.
+      </p>
+      <p>
+        Gallwch gael rhagor o wybodaeth am eich hawliau drwy ymweld â'r 
+        <a href="https://cy.ico.org.uk/your-data-matters/your-right-to-get-your-data-deleted/">
+        Gwefan y Comisiynydd Gwybodaeth</a>, neu drwy ffonio eu llinell gymorth.
+      </p>
+    </dd>
+    <dt id="right_to_access">
+      Eich hawl mynediad <a href="#right_to_access">#</a>
+    </dt>
+    <dd>
+      <p>
+        Gallwch <%= link_to 'contact us', help_contact_path %>gysylltu â ni</a> 
+        ar unrhyw adeg i ofyn i weld pa ddata personol rydym yn ei ddal amdanoch. 
+        Os ydych wedi defnyddio ein gwasanaeth i wneud cais, yna mae'r rhan helaethaf 
+        o'r wybodaeth sydd gennym amdanoch yn cael ei dangos yn gyhoeddus ar ein 
+        gwefan neu i'w gweld ar eich proffil defnyddiwr.
+      </p>
     </dd>
     <dt id="public_servant_takedown">Rwy&rsquo;n was cyhoeddus - a fedrwch dynnu gwybodaeth bersonol amdanaf i? <a href="#public_servant_takedown">#</a></dt>
     <dd>
@@ -110,7 +168,43 @@
       </ul>
     </p>
     </dd>
+    <dd>
+    <dt id="right_to_complain">
+      Eich hawl i wneud cwyn <a href="#right_to_complain">#</a>
+    </dt>
+    <dd>
+      <p>
+        Mae gennych hawl i gwyno os ydych yn credu ein bod wedi cam-lawio eich 
+        data personol. <%= link_to 'Cysylltwch â ni yn gyntaf', help_contact_path %>, 
+        fel y gallwn geisio helpu 
+        (gweler ein <%= link_to 'trefn gwyno', help_complaints_path %> yma).
+      </p>
+      <p>
+        Yn y DU, y corff goruchwylio perthnasol yw Swyddfa'r Comisiynydd Gwybodaeth (ICO). 
+        Ein rhif cofrestru diogelu data yw 
+        <a href="https://ico.org.uk/ESDWebPages/Entry/Z9602302">ZA9602302</a>.
+      </p>
+      <p>
+        Gallwch gysylltu â'r ICO gan ddefnyddio unrhyw un o'r dulliau canlynol:
+        <ul>
+        <li>
+          Ar-lein:&nbsp;&nbsp; <a href="https://cy.ico.org.uk/make-a-complaint/">
+          https://cy.ico.org.uk/make-a-complaint/</a>
+        </li>
+        <li>
+          Phone:&nbsp;&nbsp; 029 2067 8400 (0303 123 1113, yn Saesneg)
+        </li>
+        <li>
+          Post:&nbsp;&nbsp; Swyddfa'r Comisiynydd Gwybodaeth, 
+          Wycliffe House, Water Lane, WILMSLOW, SK9 5AF
+        </li>
+        </ul>
+      </p>
+    </dd>
   </dl>
-  <p><strong>Dysgwch fwy</strong> o’r cymorth i <a href="<%= help_officers_path %>">swyddogion Rhyddid Gwybodaeth</a> -&gt;
+  <p><strong>Dysgwch fwy</strong> o’r cymorth i <a href="<%= help_officers_path %>">swyddogion Rhyddid Gwybodaeth</a> -&gt;</p>
+  
+  <%= render partial: 'history' %>
+
   <div id="hash_link_padding"></div>
 </div>

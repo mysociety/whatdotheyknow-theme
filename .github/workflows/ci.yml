@@ -1,0 +1,125 @@
+name: CI
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  rspec:
+    name: Ruby ${{ matrix.ruby }} / PostgreSQL ${{ matrix.postgres }}
+    runs-on: ubuntu-20.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - { ruby: '3.2', postgres: 13.5 }
+
+    services:
+      postgres:
+        image: fixmystreet/postgres:${{ matrix.postgres }}
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+        - '5432:5432'
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/alaveteli_test
+      RAILS_ENV: test
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+    - name: Extract associated required Alaveteli PR number
+      id: pr_alaveteli_number
+      run: |
+        if [ "${{ github.event_name }}" = "pull_request" ]; then
+          PR_DESCRIPTION=$(gh pr view https://github.com/mysociety/whatdotheyknow-theme/pull/${{ github.event.pull_request.number }} --json body -q '.body')
+          echo "PR_ALAVETELI_NUMBER=$(echo $PR_DESCRIPTION | grep -o 'https://github.com/mysociety/alaveteli/pull/[0-9]*' | grep -o '[0-9]*$')" >> $GITHUB_ENV
+        fi
+
+    - name: Get Alaveteli branch name
+      id: pr_alaveteli_branch
+      run: |
+        if [[ ! -z "$PR_ALAVETELI_NUMBER" ]]; then
+          echo "PR_ALAVETELI_BRANCH=$(gh pr view https://github.com/mysociety/alaveteli/pull/$PR_ALAVETELI_NUMBER --json headRefName -q '.headRefName')" >> $GITHUB_ENV
+        else
+          echo "PR_ALAVETELI_BRANCH=develop" >> $GITHUB_ENV
+        fi
+
+    - name: Checkout Alaveteli
+      uses: actions/checkout@v2
+      with:
+        repository: mysociety/alaveteli
+        ref: ${{ env.PR_ALAVETELI_BRANCH }}
+        path: core
+        submodules: true
+        fetch-depth: 0
+
+    - name: Create Alaveteli theme directory
+      run: |
+        mkdir alaveteli-themes
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        path: alaveteli-themes/whatdotheyknow-theme
+
+    - name: Install packages
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y install exim4-daemon-light
+        sudo apt-get -y install `cut -d " " -f 1 config/packages.ubuntu-focal | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
+      working-directory: core
+
+    - name: Install Ruby ${{ matrix.ruby }}
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+        working-directory: core
+
+    - name: Setup database
+      run: |
+        psql postgres://postgres:postgres@localhost:5432 <<-EOSQL
+          CREATE DATABASE template_utf8 TEMPLATE template0 ENCODING "UTF-8";
+          UPDATE pg_database SET datistemplate=true WHERE datname='template_utf8';
+          CREATE DATABASE alaveteli_test TEMPLATE template_utf8;
+        EOSQL
+      working-directory: core
+
+    - name: Configure application and storage
+      run: |
+        cp config/general.yml-example config/general-whatdotheyknow-theme.yml
+        cp config/storage.yml-example config/storage.yml
+      working-directory: core
+
+    - name: Install theme
+      run: |
+        script/switch-theme.rb whatdotheyknow-theme
+        bundle exec rake themes:install
+      working-directory: core
+
+    - name: Migrate database
+      run: |
+        bundle exec rails db:migrate
+      working-directory: core
+
+    - name: Run tests
+      run: |
+        bundle exec rspec --format Fivemat lib/themes/whatdotheyknow-theme/spec
+      working-directory: core

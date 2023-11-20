@@ -14,7 +14,7 @@
         mySociety.
       </p>
       <p>
-        WhatDoTheyKnow has processed over 430,000 FOI requests since its launch
+        WhatDoTheyKnow has processed over 900,000 FOI requests since its launch
         in 2008, and is the UK’s most widely-known FOI service. We also campaign
         for citizen’s rights to information and for the strengthening of FOI
         laws.
@@ -100,7 +100,7 @@
         </li>
         <li>
           The Information Commissioner’s
-          <a href="https://ico.org.uk/for-organisations/guide-to-freedom-of-information/receiving-a-request/#1">
+          <a href="https://ico.org.uk/for-organisations/foi-eir-and-access-to-information/guide-to-freedom-of-information/receiving-a-request/">
           guidance for organisations</a> says <i>“A
           request must ... include an address for correspondence. This need not
           be the person’s residential or work address - it can be <strong>any
@@ -108,16 +108,14 @@
           address or <strong>email address;</strong>”</i>
         </li>
         <li>
-          Paragraph 107 of the <a href="https://ico.org.uk/media/for-organisations/documents/1164/recognising-a-request-made-under-the-foia.pdf#page=22"
+         The <a href="https://ico.org.uk/for-organisations/foi-eir-and-access-to-information/freedom-of-information-and-environmental-information-regulations/recognising-a-request-made-under-the-freedom-of-information-act-section-8/#dowehave"
               title="Recognising a request made under the FOIA">Information
           Commissioner’s Guidance on recognising a request</a> under the Freedom
           of Information Act now contains a section specifically on
           <%= link_to 'WhatDoTheyKnow', frontpage_path %> which states:
           <blockquote>
-            With respect to the address for correspondence, we consider the
-            <code>@whatdotheyknow.com</code> email address provided to
-            authorities when requests are made through the site to be a valid
-            contact address for the purposes of Section 8(1)(b).
+          We consider the <code>@whatdotheyknow.com</code> email address provided when requests are made through the site to be a 
+          valid contact address for the purposes of section 8(1)(b).
           </blockquote>
         </li>
         <li>
@@ -127,6 +125,21 @@
           WhatDoTheyKnow.
         </li>
       </ul>
+    </dd>
+      <dt id="identity_of_requester">
+      How can we be sure the requester is the same person we have dealt with previously?
+      <a href="#identity_of_requester">#</a>
+    </dt>
+    <dd>
+      <p>
+        We would advise public authorities not to assume that a person writing
+        to them via our site is the same as a person they have dealt with
+        previously under the same name.
+      </p>
+      <p>
+        UK Freedom of Information law is <a href="/help/glossary">applicant
+          blind</a> and so there is no requirement for identity checks.
+      </p>
     </dd>
     <dt id="vexatious">
       Aren’t you making lots of vexatious requests?
@@ -175,6 +188,26 @@
         needing any email, using the “Respond to request” link at the bottom of
         each request page.
       </p>
+    </dd>
+    <dt id="private_requests">
+      I've received a request by email but I can't see it on WhatDoTheyKnow.com!
+      <a href="#private_requests">#</a>
+    </dt>
+    <dd>
+      <p>
+       There are a number of reasons why a request may not be immediately visible on WhatDoTheyKnow. 
+      </p>
+      <ul>
+        <li>
+          The requests may have been made through our <a href"/help/pro">WhatDoTheyKnow Pro</a> service. WhatDoTheyKnow allows journalists, activists and campaigners to keep requests and responses private while they work on their investigations.
+        </li>
+        <li>
+          We may have hidden the requests from other users because they contained personal information, or other material that was in breach of our <a href"/help/house_rules">house rules</a>.
+        </li>
+      </ul>
+        <p>
+         The fact that a request is not visible on WhatDoTheyKnow does not affect your duty to respond to it, so if you have received a valid request for information, you should process it in the usual way.
+        </p>
     </dd>
     <dt id="days">
       How do you calculate the deadline shown on request pages?
@@ -419,12 +452,14 @@
     </dt>
     <dd>
       <p>
-        After three months of inactivity, WhatDoTheyKnow limits who can respond
-        to a request to stop spammers targeting old requests. At that point, the
-        request can only be responded to by someone who’s from the authority.
-        After six months, the request is closed to responses from anyone. If you
-        need an old request to be re-opened so that you can respond to it,
-        please <a href="<%= help_contact_path %>"> contact us</a>.
+        After <%= InfoRequest.requests_old_after_months %> months of inactivity,
+        WhatDoTheyKnow limits who can respond to a request to stop spammers
+        targeting old requests. At that point, the request can only be responded
+        to by someone who’s from the authority. After 
+        <%= InfoRequest.requests_very_old_after_months %> months, the request
+        is closed to responses from anyone. If you need an old request to be
+        re-opened so that you can respond to it, please
+        <a href="<%= help_contact_path %>"> contact us</a>.
       </p>
     </dd>
   </dl>
@@ -435,6 +470,15 @@
     <br><strong>Otherwise</strong>, the <a href="<%= help_credits_path %>">
     credits</a> or the <a href="<%= help_api_path %>">programmers API</a> --&gt;
   </p>
+
+  <div class="article-grid__item with-background">
+    <img class="item-content__img" src="<%= image_path('disclosure-log.webp') %>" alt="Cover of SocietyWorks' disclosure log" loading="lazy">
+    <div class="article-grid__item-content">
+      <h2 class="item-content__heading">Disclosure logs: a best practice guide for local authorities</h2>
+      <p>When used effectively, a well-maintained disclosure log can save local authorities a huge amount of time and effort when it comes to responding to Freedom of Information requests. This guide explains how to successfully set up and use a disclosure log, featuring advice from Freedom of Information experts.</p>
+      <a class="button" href="https://www.societyworks.org/research-and-guidance/disclosure-logs-guide/">Read more</a>
+    </div>
+  </div>
 
   <%= render partial: 'history' %>
 

@@ -7,7 +7,7 @@
           <%= _("You have the <strong>right</strong> to request information " \
                 "from any public body, and get answers. " \
                 "{{site_name}} helps you make a Freedom of Information " \
-                "request. It also publishes all requests online.",
+                "request for free. It also publishes all requests online.",
                 :site_name => site_name) %>
         </p>
       </div>
@@ -39,7 +39,7 @@
           </li>
         </ol>
         <div class="learn-more-foi">
-          <a href="https://ico.org.uk/for-the-public/official-information/" class="button-secondary learn-more-foi__link"><%= _("Learn more about the Freedom of Information act &rarr;") %></a>
+          <%= link_to _("Learn more about the Freedom of Information act &rarr;"), help_about_foi_path, class: 'button-secondary learn-more-foi__link' %>
         </div>
       </div>
     </div>

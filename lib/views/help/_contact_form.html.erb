@@ -79,5 +79,6 @@
         <%= hidden_field_tag(:submitted_contact_form, 1) %>
         <%= submit_tag "Send message to WhatDoTheyKnow team", :data => { :disable_with => "Sending..." } %>
     </div>
+    <%= render :partial => "contact_form_privacy_notice" %>
 
 <% end %>
