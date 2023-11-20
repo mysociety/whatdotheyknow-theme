@@ -8,41 +8,67 @@ Rails.configuration.to_prepare do
   lse_tsai = PublicBody.find_by_url_name('lse')
   uol_tsai = PublicBody.find_by_url_name('university_of_london')
   uolww_tsai = PublicBody.find_by_url_name('university_of_london_worldwide')
-
-  ## Generic boilerplate templates for reuse
-
-  ## public body specific templates
   dfc = PublicBody.find_by_url_name('dfc')
   dwp = PublicBody.find_by_url_name('dwp')
   socsecscot = PublicBody.find_by_url_name('social_security_scotland')
+  ## Generic boilerplate templates for reuse
 
-  home_office_deny_response = _(
-    <<-HTML.strip_heredoc.squish
+    generic_deny_boilerplate = _(<<-HTML.strip_heredoc.squish
+      <hr>  
       <p>
-        We understand that it can be difficult to get a response from the Home
-        Office to personal immigration queries. We suggest writing to the Home
-        Office via a local Member of Parliament, if you <a
-        href="http://www.writetothem.com/">send your correspondence to your MP
-        </a>, they or their office, can pass it on to the Home Office and ensure
-        you get a response. This has the benefit of highlighting difficulties
-        communicating with the Home Office to MPs.
-      </p>
-
-      <p>
-          You could also try contacting the Home Office by email at: <a
-        href="mailto:public.enquiries@homeoffice.gov.uk">public.enquiries@
-        homeoffice.gov.uk</a>.
-      </p>
-
-      <p>
-        Misusing our service, <strong>which makes all correspondence
-        public</strong>, won't help you pursue your individual case as the Home
-        Office will not enter into correspondence about individual cases via our
+       <p>
+        <h4>Important</h4>
+        Misusing our service, <strong><u>which makes all correspondence public
+        </u></strong>, won't help you pursue your individual case. This is 
+        because, to keep your personal information safe, organisations will not 
+        discuss your personal circumstances when you contact them using our 
         service.
       </p>
+      <p>
+        Please also take care to read our <a href="/help/house_rules">House 
+        Rules</a>. These rules tell you how we expect you to use our site, and 
+        they also tell you what we might do if you misuse it.
+      </p>
+      <div style="text-align:center">
+        <a class="button" 
+        href="/help/house_rules"
+        title="View our House Rules">
+        View our House Rules »
+        </a>
+      </div>
     HTML
+    # we reuse this multiple times with #{generic_deny_boilerplate}
   )
   ## Generic boilerplate templates for reuse
+
+  generic_deny_askcouncil  = _(<<-HTML.strip_heredoc.squish
+      <p>
+        Your local Council might also offer a Welfare Rights 
+        service, or be able to signpost you to a service in your area 
+        that can help.
+      </p>
+    HTML
+    # we reuse this multiple times with #{generic_deny_askcouncil}
+  )
+  generic_deny_gdpr_rightofaccess = _(<<-HTML.strip_heredoc.squish
+      <h3>You cannot do this using WhatDoTheyKnow</h3>
+      <p>
+        You have the right to access personal information that an organisation 
+        holds about you. This can sometimes be called a Subject Access or Right
+        of Access Request (SAR / RoAR).
+      </p>
+      <p>
+        Each organisation will have their own processes for this; but it is 
+        generally quick, and free of charge. You can get advice on your rights, 
+        at no cost, from the <a href="https://ico.org.uk/your-data-matters/">
+        Information Commisioner's Office</a>.
+      </p>
+      <hr>
+    HTML
+    # we reuse this multiple times with #{generic_deny_gdpr_rightofaccess}
+  )
+
+  ## public body specific templates
 
   ## LSE
 
@@ -119,50 +145,33 @@ Rails.configuration.to_prepare do
       HTML
   )
 
-  ## build public body questions
+  ## home office
 
-  dwp_deny_response_1 = _(<<-HTML.strip_heredoc.squish
-  ## public body specific templates
-
-  generic_deny_boilerplate = _(<<-HTML.strip_heredoc.squish
-      <hr>  
+    home_office_deny_response = _(
+    <<-HTML.strip_heredoc.squish
       <p>
-        <strong>Remember:</strong> Misusing our service, <strong><u>which makes 
-        all correspondence public</u></strong>, won't help you pursue your 
-        individual case. This is because, to keep your personal information 
-        safe, organisations will not discuss your personal circumstances when
-        you contact them using our service. Please read our 
-        <a href="/help/house_rules">House Rules</a> for further details.
+        We understand that it can be difficult to get a response from the Home
+        Office to personal immigration queries. We suggest writing to the Home
+        Office via a local Member of Parliament, if you <a
+        href="http://www.writetothem.com/">send your correspondence to your MP
+        </a>, they or their office, can pass it on to the Home Office and ensure
+        you get a response. This has the benefit of highlighting difficulties
+        communicating with the Home Office to MPs.
+      </p>
+
+      <p>
+          You could also try contacting the Home Office by email at: <a
+        href="mailto:public.enquiries@homeoffice.gov.uk">public.enquiries@
+        homeoffice.gov.uk</a>.
+      </p>
+
+      <p>
+        Misusing our service, <strong>which makes all correspondence
+        public</strong>, won't help you pursue your individual case as the Home
+        Office will not enter into correspondence about individual cases via our
+        service.
       </p>
     HTML
-    # we reuse this multiple times with #{generic_deny_boilerplate}
-  )
-
-  generic_deny_askcouncil  = _(<<-HTML.strip_heredoc.squish
-      <p>
-        Your local Council might also offer a Welfare Rights 
-        service, or be able to signpost you to a service in your area 
-        that can help.
-      </p>
-    HTML
-    # we reuse this multiple times with #{generic_deny_askcouncil}
-  )
-  generic_deny_gdpr_rightofaccess = _(<<-HTML.strip_heredoc.squish
-      <h3>You cannot do this using WhatDoTheyKnow</h3>
-      <p>
-        You have the right to access personal information that an organisation 
-        holds about you. This can sometimes be called a Subject Access or Right
-        of Access Request (SAR / RoAR).
-      </p>
-      <p>
-        Each organisation will have their own processes for this; but it is 
-        generally quick, and free of charge. You can get advice on your rights, 
-        at no cost, from the <a href="https://ico.org.uk/your-data-matters/">
-        Information Commisioner's Office</a>.
-      </p>
-      <hr>
-    HTML
-    # we reuse this multiple times with #{generic_deny_gdpr_rightofaccess}
   )
   
   home_office_deny_response_immi = _(
@@ -298,6 +307,8 @@ Rails.configuration.to_prepare do
       #{generic_deny_boilerplate}
     HTML
   )
+
+  ## department for communities (DfC)
 
   dfc_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot do this using WhatDoTheyKnow</h3>
@@ -556,6 +567,8 @@ Rails.configuration.to_prepare do
       #{generic_deny_boilerplate}
     HTML
   )
+
+  ## department for work and pensions (DWP)
 
   dwp_deny_response_contact_boilerplate = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot do this using WhatDoTheyKnow</h3>
@@ -1000,7 +1013,9 @@ Rails.configuration.to_prepare do
     HTML
   )
 
-socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
+  ## social security scotland
+
+  socsecscot_deny_response_benefits_claim = _(<<-HTML.strip_heredoc.squish
       <h3>You cannot do this using WhatDoTheyKnow</h3>
 
       <p>
