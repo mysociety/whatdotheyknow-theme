@@ -39,7 +39,15 @@ module DataBreach
     private
 
     def report_params
-      params.require(:data_breach_report).permit(:url, :special_category_or_criminal_offence_data, :message, :contact_email, :is_public_body)
+      permittable_attrs = %i[
+        url
+        special_category_or_criminal_offence_data
+        message
+        contact_email
+        is_public_body
+      ]
+
+      params.require(:data_breach_report).permit(permittable_attrs)
     end
   end
 
@@ -53,6 +61,7 @@ module DataBreach
       from = MailHandler.address_from_name_and_email(
         'WhatDoTheyKnow.com data breach report', blackhole_email
       )
+
       if report.contact_email
         set_reply_to_headers(nil, 'Reply-To' => report.contact_email)
       end
