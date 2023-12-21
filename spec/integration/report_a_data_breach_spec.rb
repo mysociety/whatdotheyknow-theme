@@ -7,7 +7,7 @@ RSpec.describe 'report a data breach page' do
 
     expect(page).to have_css('input[name="data_breach_report[url]"]')
     expect(page).to have_css('textarea[name="data_breach_report[message]"]')
-    expect(page).to have_css('input[name="data_breach_report[contact_email]"]')
+    expect(page).to have_css('input[name="data_breach_report[dpo_contact_email]"]')
     expect(page).to have_css('input[name="data_breach_report[url]"]')
   end
 
@@ -26,7 +26,7 @@ RSpec.describe 'report a data breach page' do
     visit help_report_a_data_breach_path
     fill_in 'data_breach_report[url]', with: 'https://example.com'
     fill_in 'data_breach_report[message]', with: 'A data breach occurred'
-    fill_in 'data_breach_report[contact_email]', with: 'test@example.com'
+    fill_in 'data_breach_report[dpo_contact_email]', with: 'dpo@example.com'
     choose 'data_breach_report[is_public_body]', option: 'true'
     check 'data_breach_report[special_category_or_criminal_offence_data]'
     click_button 'Send'
@@ -37,10 +37,10 @@ RSpec.describe 'report a data breach page' do
     expect(last_email.from).to eq(['do-not-reply-to-this-address@localhost'])
     expect(last_email.to).to eq(['postmaster@localhost'])
     expect(last_email.subject).to match(/New data breach report \[BR\/.*\]/)
-    expect(last_email.header["Reply-To"].value).to eq('test@example.com')
+    expect(last_email.header["Reply-To"].value).to eq('dpo@example.com')
     expect(last_email.body).to include('URL: https://example.com')
     expect(last_email.body).to include('Special category or criminal offence data: Yes')
-    expect(last_email.body).to include('DPO email: test@example.com')
+    expect(last_email.body).to include('DPO email: dpo@example.com')
     expect(last_email.body).to include('Reporting on behalf of public body: Yes')
     expect(last_email.body).to include("Message:\nA data breach occurred")
   end
