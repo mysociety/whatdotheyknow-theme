@@ -40,7 +40,7 @@ RSpec.describe 'report a data breach page' do
     expect(last_email.from).to eq(['do-not-reply-to-this-address@localhost'])
     expect(last_email.to).to eq(['postmaster@localhost'])
     expect(last_email.subject).to match(/New data breach report \[BR\/.*\]/)
-    expect(last_email.header["Reply-To"].value).to eq('dpo@example.com')
+    expect(last_email.header["Reply-To"].value).to eq('test@example.com')
     expect(last_email.body).to include('URL: https://example.com')
     expect(last_email.body).to include('Special category or criminal offence data: Yes')
     expect(last_email.body).to include('DPO email: dpo@example.com')
@@ -73,6 +73,7 @@ RSpec.describe 'report a data breach page' do
 
       user_url = show_user_url(user.url_name, host: 'test.host')
       last_email = ActionMailer::Base.deliveries.last
+      expect(last_email.header["Reply-To"].value).to eq(user.email)
       expect(last_email.body).to include("logged in as user #{user_url}")
     end
   end
