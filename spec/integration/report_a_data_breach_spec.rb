@@ -21,6 +21,7 @@ RSpec.describe 'report a data breach page' do
     expect(page).to have_content('Please enter the URL of the page where the data breach occurred')
     expect(page).to have_content('Please describe the data breach')
     expect(page).to have_content('Please confirm whether you are reporting on behalf of the public body responsible for the data breach')
+    expect(page).to have_content('Please include your email address')
   end
 
   it 'user can submit the form and the result is emailed' do
@@ -45,6 +46,7 @@ RSpec.describe 'report a data breach page' do
     expect(last_email.body).to include('DPO email: dpo@example.com')
     expect(last_email.body).to include('Reporting on behalf of public body: Yes')
     expect(last_email.body).to include("Message:\nA data breach occurred")
+    expect(last_email.body).to include("contact email: test@example.com")
   end
 
   context 'when user is logged in' do
@@ -56,6 +58,8 @@ RSpec.describe 'report a data breach page' do
 
     it 'does not require email address' do
       expect(page).to have_no_field('data_breach_report[contact_email]')
+      click_button 'Send'
+      expect(page).to have_no_content('Please include your email address')
     end
 
     it 'includes logged in user in emailed report' do

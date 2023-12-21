@@ -9,9 +9,11 @@ module DataBreach
     attribute :contact_email, :string
     attribute :dpo_contact_email, :string
     attribute :is_public_body, :boolean
+    attribute :current_user
 
     validates_presence_of :url, :message => N_("Please enter the URL of the page where the data breach occurred")
     validates_presence_of :message, :message => N_("Please describe the data breach")
+    validates_presence_of :contact_email, message: N_('Please include your email address'), unless: :current_user
 
     validates :is_public_body, inclusion: { in: [true, false], message: N_("Please confirm whether you are reporting on behalf of the public body responsible for the data breach") }
   end
@@ -22,7 +24,7 @@ module DataBreach
     end
 
     def report_a_data_breach_handle_form_submission
-      @report = Report.new(report_params)
+      @report = Report.new(report_params_with_current_user)
       if @report.valid?
         # TODO: Handle a successful submission
         ContactMailer.data_breach(@report, current_user).deliver_now
@@ -50,6 +52,10 @@ module DataBreach
       ]
 
       params.require(:data_breach_report).permit(permittable_attrs)
+    end
+
+    def report_params_with_current_user
+      report_params.merge(current_user: current_user)
     end
   end
 
