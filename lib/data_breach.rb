@@ -62,6 +62,8 @@ module DataBreach
   module MailerMethods
     def data_breach(report, logged_in_user)
       @report = report
+      # Setup a case reference so we can find this in the mailbox
+      @caseref = case_reference('BR')
       @logged_in_user = logged_in_user
 
       # From is an address we control so that strict DMARC senders don't get
@@ -78,12 +80,13 @@ module DataBreach
 
       # Set a header so we can filter in the mailbox
       headers['X-WDTK-Contact'] = 'wdtk-data-breach-report'
+      headers['X-WDTK-CaseRef'] = @caseref
 
       mail(
         from: from,
         to: contact_from_name_and_email,
         subject: _('New data breach report [{{reference}}]',
-                   reference: case_reference('BR'))
+                   reference: @caseref)
       )
     end
   end

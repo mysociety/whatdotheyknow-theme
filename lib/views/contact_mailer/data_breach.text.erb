@@ -14,4 +14,6 @@ Message:
 <%= @logged_in_user ?
   _("logged in as user {{user_name}}", user_name: user_url(@logged_in_user)) :
   _("contact email: {{email}}", email: @report.contact_email) %>
+
+Case reference: <%= @caseref %>
 ---------------------------------------------------------------------
