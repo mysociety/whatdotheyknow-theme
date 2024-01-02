@@ -7,6 +7,7 @@ RSpec.describe 'report a data breach page' do
 
     expect(page).to have_css('input[name="data_breach_report[url]"]')
     expect(page).to have_css('textarea[name="data_breach_report[message]"]')
+    expect(page).to have_css('input[name="data_breach_report[contact_email]"]')
     expect(page).to have_css('input[name="data_breach_report[dpo_contact_email]"]')
     expect(page).to have_css('input[name="data_breach_report[url]"]')
   end
@@ -26,6 +27,7 @@ RSpec.describe 'report a data breach page' do
     visit help_report_a_data_breach_path
     fill_in 'data_breach_report[url]', with: 'https://example.com'
     fill_in 'data_breach_report[message]', with: 'A data breach occurred'
+    fill_in 'data_breach_report[contact_email]', with: 'test@example.com'
     fill_in 'data_breach_report[dpo_contact_email]', with: 'dpo@example.com'
     choose 'data_breach_report[is_public_body]', option: 'true'
     check 'data_breach_report[special_category_or_criminal_offence_data]'
@@ -50,6 +52,10 @@ RSpec.describe 'report a data breach page' do
 
     around do |example|
       using_session(login(user, r: help_report_a_data_breach_path), &example)
+    end
+
+    it 'does not require email address' do
+      expect(page).to have_no_field('data_breach_report[contact_email]')
     end
 
     it 'includes logged in user in emailed report' do

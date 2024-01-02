@@ -52,6 +52,14 @@
         <% end %>
     </p>
 
+    <% unless @user %>
+      <p>
+        <%= f.label :contact_email, 'My email:' %>
+        <%= f.email_field :contact_email %>
+        (or <%= link_to 'sign in', signin_url(r: request.fullpath) %>)
+      </p>
+    <% end %>
+
     <div class="actions">
       <%= f.submit "Send" %>
     </div>

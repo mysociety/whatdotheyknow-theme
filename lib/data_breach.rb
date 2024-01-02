@@ -6,6 +6,7 @@ module DataBreach
     attribute :url, :string
     attribute :special_category_or_criminal_offence_data, :boolean
     attribute :message, :string
+    attribute :contact_email, :string
     attribute :dpo_contact_email, :string
     attribute :is_public_body, :boolean
 
@@ -43,6 +44,7 @@ module DataBreach
         url
         special_category_or_criminal_offence_data
         message
+        contact_email
         dpo_contact_email
         is_public_body
       ]
