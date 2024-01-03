@@ -44,4 +44,26 @@ RSpec.describe 'report a data breach page' do
     expect(last_email.body).to include('Reporting on behalf of public body: Yes')
     expect(last_email.body).to include("Message:\nA data breach occurred")
   end
+
+  context 'when user is logged in' do
+    let(:user) { FactoryBot.create(:user) }
+
+    around do |example|
+      using_session(login(user, r: help_report_a_data_breach_path), &example)
+    end
+
+    it 'includes logged in user in emailed report' do
+      fill_in 'data_breach_report[url]', with: 'https://example.com'
+      fill_in 'data_breach_report[message]', with: 'A data breach occurred'
+      choose 'data_breach_report[is_public_body]', option: 'true'
+      check 'data_breach_report[special_category_or_criminal_offence_data]'
+      click_button 'Send'
+
+      expect(page).to have_content('Thank you for reporting a data breach')
+
+      user_url = show_user_url(user.url_name, host: 'test.host')
+      last_email = ActionMailer::Base.deliveries.last
+      expect(last_email.body).to include("logged in as user #{user_url}")
+    end
+  end
 end
