@@ -75,4 +75,7 @@ Rails.application.routes.draw do
 
   get '/help/no_response' => 'help#no_response',
       as: :help_no_response
+
+  get '/help/appeals' => 'help#appeals',
+      as: :help_appeals
 end
