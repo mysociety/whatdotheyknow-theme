@@ -2,7 +2,7 @@ Someone has submitted a data breach report.
 
 URL: <%= @report.url %>
 Special category or criminal offence data: <%= @report.special_category_or_criminal_offence_data ? 'Yes' : 'No' %>
-DPO email: <%= @report.contact_email %>
+DPO email: <%= @report.dpo_contact_email %>
 Reporting on behalf of public body: <%= @report.is_public_body ? 'Yes' : 'No' %>
 
 Message:
@@ -10,9 +10,10 @@ Message:
 
 ---------------------------------------------------------------------
 <%= _('Message sent using {{site_name}} data breach form, ',
-      :site_name => site_name.html_safe) -%>
+      site_name: site_name.html_safe) -%>
 <%= @logged_in_user ?
-  _("logged in as user {{user_name}}",
-    :user_name => user_url(@logged_in_user)) :
-  _("not logged in") %>
+  _("logged in as user {{user_name}}", user_name: user_url(@logged_in_user)) :
+  _("contact email: {{email}}", email: @report.contact_email) %>
+
+Case reference: <%= @caseref %>
 ---------------------------------------------------------------------

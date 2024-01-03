@@ -7,10 +7,13 @@ module DataBreach
     attribute :special_category_or_criminal_offence_data, :boolean
     attribute :message, :string
     attribute :contact_email, :string
+    attribute :dpo_contact_email, :string
     attribute :is_public_body, :boolean
+    attribute :current_user
 
     validates_presence_of :url, :message => N_("Please enter the URL of the page where the data breach occurred")
     validates_presence_of :message, :message => N_("Please describe the data breach")
+    validates_presence_of :contact_email, message: N_('Please include your email address'), unless: :current_user
 
     validates :is_public_body, inclusion: { in: [true, false], message: N_("Please confirm whether you are reporting on behalf of the public body responsible for the data breach") }
   end
@@ -21,7 +24,7 @@ module DataBreach
     end
 
     def report_a_data_breach_handle_form_submission
-      @report = Report.new(report_params)
+      @report = Report.new(report_params_with_current_user)
       if @report.valid?
         # TODO: Handle a successful submission
         ContactMailer.data_breach(@report, current_user).deliver_now
@@ -39,13 +42,28 @@ module DataBreach
     private
 
     def report_params
-      params.require(:data_breach_report).permit(:url, :special_category_or_criminal_offence_data, :message, :contact_email, :is_public_body)
+      permittable_attrs = %i[
+        url
+        special_category_or_criminal_offence_data
+        message
+        contact_email
+        dpo_contact_email
+        is_public_body
+      ]
+
+      params.require(:data_breach_report).permit(permittable_attrs)
+    end
+
+    def report_params_with_current_user
+      report_params.merge(current_user: current_user)
     end
   end
 
   module MailerMethods
     def data_breach(report, logged_in_user)
       @report = report
+      # Setup a case reference so we can find this in the mailbox
+      @caseref = case_reference('BR')
       @logged_in_user = logged_in_user
 
       # From is an address we control so that strict DMARC senders don't get
@@ -53,18 +71,22 @@ module DataBreach
       from = MailHandler.address_from_name_and_email(
         'WhatDoTheyKnow.com data breach report', blackhole_email
       )
-      if report.contact_email
+
+      if @logged_in_user
+        set_reply_to_headers(nil, 'Reply-To' => @logged_in_user.email)
+      elsif report.contact_email
         set_reply_to_headers(nil, 'Reply-To' => report.contact_email)
       end
 
       # Set a header so we can filter in the mailbox
       headers['X-WDTK-Contact'] = 'wdtk-data-breach-report'
+      headers['X-WDTK-CaseRef'] = @caseref
 
       mail(
         from: from,
         to: contact_from_name_and_email,
         subject: _('New data breach report [{{reference}}]',
-                   reference: case_reference('BR'))
+                   reference: @caseref)
       )
     end
   end
