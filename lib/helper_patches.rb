@@ -17,4 +17,6 @@ Rails.configuration.to_prepare do
       uri.to_s
     end
   end
+
+  DatasetteHelper.datasette_url = 'https://data.mysociety.org/datasette/'
 end
