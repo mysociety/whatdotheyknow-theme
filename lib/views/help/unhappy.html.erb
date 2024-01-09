@@ -60,10 +60,9 @@
 <details>
   <summary>
     <% if @info_request %>
-      <% path = new_request_followup_url(request_id: @info_request.id) +
-                "?internal_review=1#followup" %>
-
-      Choose <%= link_to "request an internal review", path %> and then write a
+      Choose <%= link_to "request an internal review", new_request_followup_url(
+        @info_request.url_title, anchor: 'followup', internal_review: 1
+      ) %> and then write a
       message asking the authority to review your request.
     <% else %>
       At the bottom of the relevant request page on WhatDoTheyKnow choose
