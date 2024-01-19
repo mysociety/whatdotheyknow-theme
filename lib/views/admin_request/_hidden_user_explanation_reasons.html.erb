@@ -16,6 +16,12 @@
                                 message: 'immigration_correspondence' %>
 <% end %>
 
+<% if @info_request.public_body_id == 93723 %>
+    <%= hidden_user_explanation label: 'Immigration correspondence (ATAS)',
+                                state: 'not_foi',
+                                message: 'immigration_correspondence_atas' %>
+<% end %>
+
 <%= hidden_user_explanation label: 'A vexatious request',
                             state: 'vexatious',
                             message: 'vexatious' %>
