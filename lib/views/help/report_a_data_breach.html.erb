@@ -36,8 +36,8 @@
     </p>
 
     <p>
-      <%= f.label :contact_email, "Please provide the email address for the Data Protection Officer (if known):" %>
-      <%= f.email_field :contact_email %>
+      <%= f.label :dpo_contact_email, "Please provide the email address for the Data Protection Officer (if known):" %>
+      <%= f.email_field :dpo_contact_email %>
     </p>
 
     <p>
@@ -51,6 +51,14 @@
           No
         <% end %>
     </p>
+
+    <% unless @user %>
+      <p>
+        <%= f.label :contact_email, 'My email:' %>
+        <%= f.email_field :contact_email, required: true %>
+        (or <%= link_to 'sign in', signin_url(r: request.fullpath) %>)
+      </p>
+    <% end %>
 
     <div class="actions">
       <%= f.submit "Send" %>
