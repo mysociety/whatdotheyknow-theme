@@ -2,18 +2,18 @@
       'circumstances, via our service, and we have therefore hidden it ' \
       'from other users.') %>
 
-<%= _('👉 Getting the help you need') %>
-
-<%= _('{{site_name}} is an independent website which helps people make ' \
+<%= _('👉 Getting the help you need' \
+      '{{site_name}} is an independent website which helps people make ' \
       'Freedom of Information requests in public. We are not part of the ' \
       'Government.',
       site_name: site_name) %>
-
-<%= _('You should contact the Foreign, Commonwealth, and Developmen Office '\
-'(FCDO) directly. They are the department responsible for the ATAS scheme, ') %>
+      
+<%= _('You should contact the Foreign, Commonwealth, and Development Office '\
+      '(FCDO) directly. They are the department responsible for the ATAS '\
+      'scheme. ') %>
 
 <%= _('To get in touch with the FCDO, you need to refer to their website, '\
-'where they have direct contact details for the ATAS team.') %>
+      'where they have direct contact details for the ATAS team.') %>
 
 <%= _('You can find their contact details at: ') %>
 
@@ -24,26 +24,28 @@ https://www.gov.uk/guidance/guidance-on-how-to-apply-for-an-atas-certificate#con
 <%= _('ℹ️ If you need help getting progress') %>
 
 <%= _('We know that it can sometimes be difficult to get a response from '\
-'the FCDO. Although we cannot help you directly, we wanted to remind you '\
-'that you can often get help from your local Citizens Advice.') %>
+      'the FCDO. Although we cannot help you directly, we wanted to remind '\
+      'you that you can often get help from your local Citizens Advice.') %>
 
 <%= _('You can find your local Citizens Advice at: ') %>
 https://www.citizensadvice.org.uk/about-us/contact-us/contact-us/contact-us/
 
 <%= _('If you are stuck, you could also ask your local MP for help. MPs '\
-'offices can ask the FCDO to look at things for you, and can often help '\
-'to solve problems.') %>
+      'offices can ask the FCDO to look at things for you, and can often help '\
+      'to solve problems.') %>
 
 <%= _('You can write to your MP using WriteToThem, a free service from '\
-'mySociety, at https://www.WriteToThem.com') %>
+      'mySociety, at https://www.WriteToThem.com') %>
 
 <%= _('You will still be able to view any existing correspondence with FCDO, '\
-'at the link above, but we would respectfully ask that you do not send them '\
-'any further messages using our service, as it is not designed to be '\
-'used in this way.') %>
+      'at the link above, but we would respectfully ask that you do not send '\
+      'them any further messages using our service, as it is not designed to '\
+      'be used in this way.') %>
 
-<%= _('Although we are sure you did not intend to misuse our service, '\
-'we just wanted to bring our House rules, which explain the conditions for '\ 
-'using our service, to your attention. You can find them at: ') %>
+<%= _('ℹ️ Our House Rules ') %>
 
-https://www.whatdotheyknow.com/help/house_rules
+<%= _('Finally, although we are sure that you would not have intended '\
+      'to misuse our service, we wanted to remind you of our house rules, '\
+      'which are the conditions of use for our service.'\
+      'You can find them at: {{help_house_rules}}',
+      help_house_rules: help_house_rules_url) %>
