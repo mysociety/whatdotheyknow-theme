@@ -71,6 +71,18 @@
                     "https://get-information-schools.service.gov.uk/Groups/Group/Details/#{ tag_value }" %><br>
   <% end %>
 <% end %>
+<% if public_body.has_tag?('ror') %>
+  <% public_body.get_tag_values('ror').each do |tag_value| %>
+      <%= link_to _('Research Organization Registry'),
+                    "https://ror.org/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+<% if public_body.has_tag?('lon') %>
+  <% public_body.get_tag_values('lon').each do |tag_value| %>
+      <%= link_to _('London Stock Exchange'),
+                    "https://www.londonstockexchange.com/stock/#{ tag_value }"/company-page %><br>
+  <% end %>
+<% end %>
 
 <% if public_body.has_tag?('su_parent') %>
   <% public_body.get_tag_values('su_parent').each do |tag_value| %>
