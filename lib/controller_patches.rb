@@ -23,6 +23,7 @@ Rails.configuration.to_prepare do
     def about_foisa; end
     def no_response; end
     def appeals; end
+    def removing_information; end
 
     private
 

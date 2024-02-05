@@ -78,4 +78,7 @@ Rails.application.routes.draw do
 
   get '/help/appeals' => 'help#appeals',
       as: :help_appeals
+
+  get '/help/removing_information' => 'help#removing_information',
+      as: :help_removing_information
 end
