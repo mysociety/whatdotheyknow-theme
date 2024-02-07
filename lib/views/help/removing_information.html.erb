@@ -1,0 +1,241 @@
+<% @title = 'Removing Information' %>
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="title">
+    <%= @title %>
+    <%= link_to '#', '#title' %>
+  </h1>
+
+  <p>
+    If you would like to ask for information to be removed from WhatDoTheyKnow,
+    please read this page first.
+  </p>
+
+  <p>
+    WhatDoTheyKnow is a permanent, public archive of Freedom of Information
+    requests. We do not usually remove information unless we are required to by
+    law, it breaches our house rules, or there is a risk to the safety of our
+    users or others.
+  </p>
+
+  <p>
+    We consider all requests to remove information on a case-by-case basis. We
+    are committed to acting in the public interest when making decisions related
+    to the archive. In addition, we will sometimes remove information on
+    compassionate grounds.
+  </p>
+
+  <h2 id="inappropriate">
+    Inappropriate content
+    <%= link_to '#', '#inappropriate' %>
+  </h2>
+
+  <p>We are keen to act quickly to remove problematic material that shouldn’t
+  be on the site. This would include:
+  </p>
+
+  <ul>
+    <li>Requests for a user’s own personal information (sometimes called ‘subject
+    access requests’).</li>
+    <li>Personal correspondence not related to freedom of information requests.</li>
+    <li>Material that is offensive or abusive.</li>
+    <li>Material that is threatening or that may form part of a pattern of
+    harassment.</li>
+    <li>Material that unfairly damages the reputation of a person, a business, or
+    an organisation (sometimes called defamatory or libellous material).</li>
+    <li>Material that it is against the law to publish.</li>
+    <li>Any other material that would breach our House Rules.</li>
+  </ul>
+
+  <p>You can find a link to report a request on every request page.</p>
+
+  <h2 id="officers">
+    For FOI Officers and other employees of public authorities
+    <%= link_to '#', '#officers' %>
+  </h2>
+
+  <h3 id="abusive">
+    I would like to remove a message that is abusive, threatening or
+    inappropriate
+    <%= link_to '#', '#abusive' %>
+  </h3>
+
+  <p>We do not allow users to send messages that are unlawful, harassing,
+  abusive, threatening, harmful, obscene, discriminatory, profane, defamatory or
+  potentially defamatory. If you have received a message of this nature, please
+  <%= link_to 'contact us', help_contact_path %>.
+  To enable us to assist you as quickly as possible, please include
+  a link to the message or document where it appears on WhatDoTheyKnow or the
+  unique email address that is associated with the request. Please see our House
+  Rules for more information about what we expect from our users.</p>
+
+  <h3 id="data_breach">
+    There has been a data breach, and I would like to remove personal
+    information that has been released in error
+    <%= link_to '#', '#data_breach' %>
+  </h3>
+
+  <p>Please use our <%= link_to 'dedicated form', help_report_a_data_breach_path %>
+  to report a data breach. To enable us to act as quickly as possible, please
+  include a link to the request, or the @whatdotheyknow.com email address that
+  you sent your response to. If the accidentally released information was included
+  in an attachment, please state this.
+  </p>
+
+  <h3 id="officer_pii">
+    I would like my own personal information to be removed from requests and
+    responses
+    <%= link_to '#', '#officer_pii' %>
+  </h3>
+
+  <p>If you work for a public authority, and need to remove your personal
+  details from responses that you’ve issued, please refer to our <%= link_to 'Privacy Notice', help_privacy_path %>.
+  </p>
+
+  <h3 id="vexatious">
+    We have received a vexatious request
+    <%= link_to '#', '#vexatious' %>
+  </h3>
+
+  <p>We remove vexatious requests from our site when they are brought to our
+  attention. We consider that vexatious request is one that has no serious
+  purpose, or is intended to be disruptive to the work of a public authority. In
+  deciding whether a request is vexatious, we take into account the ICO’s
+  guidance on vexatious requests. We will not treat a request as vexatious
+  simply because the public authority has concluded that the request is
+  vexatious.</p>
+
+  <h3 id="old">
+    I would like to update or remove an old or inaccurate FOI response
+    <%= link_to '#', '#old' %>
+  </h3>
+
+  <p>As a permanent public archive of Freedom of Information requests and
+  responses, we never remove material from the site just because it is old or
+  because a newer version of the material exists.</p>
+
+  <h3 id="change_of_mind">
+    We have changed our mind about information released in the past
+    <%= link_to '#', '#change_of_mind' %>
+  </h3>
+
+  <p>If you have released information which you now believe should have been
+  withheld using one of the exemptions or exceptions within access to information
+  law, please let us know. We will consider requests to remove information on a
+  case-by-case basis. We will not usually remove information in this situation
+  unless it is problematic.</p>
+
+  <h2 id="users">
+    For WhatDoTheyKnow Users
+    <%= link_to '#', '#users' %>
+  </h2>
+
+  <h3 id="user_pii">
+    I would like my own personal information to be removed from requests and
+    responses
+    <%= link_to '#', '#user_pii' %>
+  </h3>
+
+  <p>
+    We’re happy to consider your request, just contact us using
+    <%= link_to 'our contact form', help_contact_path %>. For more information
+    about how we handle these types of requests, along with an explanation of
+    your rights, please see our <%= link_to 'Privacy Notice', help_privacy_path %>.
+  </p>
+
+  <h3 id="username">
+    I would like to change my username
+    <%= link_to '#', '#username' %>
+  </h3>
+
+  <p>You can change your username by following the “Change your name” link from
+  your user profile page. If you change your name, the name on your old requests
+  won't change. When you send a request, we use the name you gave us. This makes
+  it hard to stop your old and new names from being connected. This means your
+  old name will still show up on requests that you've already sent and on your
+  public profile page.
+  </p>
+
+  <p>If you don't want your new name to be linked to your old one, it's a good
+  idea to make a new account instead.
+  </p>
+
+  <h3 id="remove_request">
+    I would like to remove a request that I have made
+    <%= link_to '#', '#remove_request' %>
+  </h3>
+
+  <p>We don’t remove substantive FOI requests and responses other than in
+  exceptional circumstances. This is because the information may be useful to
+  others. We will however, consider requests to remove your name. For more
+  information about how we handle these types of requests, along with an
+  explanation of your rights, please see our
+  <%= link_to 'Privacy Notice', help_privacy_path %>.</p>
+
+  <p>We don’t consider anonymised requests and responses to be users’ personal
+  information which they have a right to have removed from our service on
+  request.</p>
+
+  <h2 id="everyone_else">
+    For everyone else
+    <%= link_to '#', '#everyone_else' %>
+  </h2>
+
+  <h3 id="other_pii">
+    I would like my own personal information to be removed from requests and
+    responses
+    <%= link_to '#', '#other_pii' %>
+  </h3>
+
+  <p>If your personal information has been published as part of a request or
+    response to a request, please refer to our
+    <%= link_to 'Privacy Notice', help_privacy_path %>.
+  </p>
+
+  <h3 id="compassionate_grounds">
+    I would like information about someone who has died to be removed from
+    requests and responses
+    <%= link_to '#', '#compassionate_grounds' %>
+  </h3>
+
+  <p>
+    If you would like to request the removal of information about someone who
+    has died, please <%= link_to 'contact our support team', help_contact_path %>.
+    All requests to remove information in these circumstances will be treated
+    sensitively and on a case-by-case basis.
+  </p>
+
+  <p>Where information requests relate to individuals who have died, we have a
+  presumption towards removing material on compassionate grounds where the
+  request was made by a family member or friend who may not have fully considered
+  the potential consequences of using our service.</p>
+
+  <h3 id="copyright">
+    I would like you to remove information that breaches my copyright
+    <%= link_to '#', '#copyright' %>
+  </h3>
+
+  <p>While many responses are accompanied by a notice saying that the material
+  provided is protected by copyright, we only consider taking content down
+  following contact from someone raising specific concerns. If you believe that
+  material we are publishing infringes your copyright, please
+  <%= link_to 'contact us', help_contact_path %>.</p>
+
+  <p>We believe that it is legitimate to request copyrighted material under
+  access to information laws. Access to information laws are “applicant blind”,
+  so anyone in the world can request the same document and get a copy of it. We
+  want to save public money by preventing duplicate requests.</p>
+
+  <h3 id"commercial">
+    I would like you to remove commercially sensitive information
+    <%= link_to '#', '#commercial' %>
+  </h3>
+
+  <p>If you would like us to remove information that is commercially sensitive
+  please <%= link_to 'let us know', help_contact_path %>. We would normally only
+  remove such information where we are legally required to do so.
+  </p>
+
+  <%= render partial: 'history' %>
+</div>
