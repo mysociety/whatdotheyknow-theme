@@ -80,7 +80,7 @@
 <% if public_body.has_tag?('lon') %>
   <% public_body.get_tag_values('lon').each do |tag_value| %>
       <%= link_to _('London Stock Exchange'),
-                    "https://www.londonstockexchange.com/stock/#{ tag_value }"/company-page %><br>
+                    "https://www.londonstockexchange.com/stock/#{ tag_value }/company-page" %><br>
   <% end %>
 <% end %>
 
