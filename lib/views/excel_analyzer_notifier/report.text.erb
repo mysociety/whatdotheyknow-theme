@@ -1,0 +1,11 @@
+ExcelAnalyzer has flagged and automatically set hidden prominence of a received
+spreadsheet due to the detection of potentially suspect hidden data.
+
+Admin URL: <%= edit_admin_foi_attachment_url(@foi_attachment) %>
+
+The following was detected:
+<% @metadata.each do |key, value| %>
+  <%= key %>: <%= value %>
+<% end %>
+
+Please review the file carefully.
