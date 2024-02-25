@@ -9,7 +9,7 @@ ExcelAnalyzer.on_hidden_metadata = ->(attachment_blob, metadata) do
     prominence: 'hidden',
     event: {
       editor: User.internal_admin_user,
-      reason: 'ExcelAnalyzer: hidden data dectected'
+      reason: 'ExcelAnalyzer: hidden data detected'
     }
   )
 
@@ -26,10 +26,10 @@ Rails.configuration.to_prepare do
       @metadata = metadata
 
       from = email_address_with_name(
-        blackhole_email, 'WhatDoTheyKnow.com Execl Analyzer report'
+        blackhole_email, 'WhatDoTheyKnow.com Excel Analyzer report'
       )
 
-      headers['X-WDTK-Contact'] = 'wdtk-excel-anaylzer-report'
+      headers['X-WDTK-Contact'] = 'wdtk-excel-analyzer-report'
       headers['X-WDTK-CaseRef'] = @foi_attachment.id
 
       mail(
