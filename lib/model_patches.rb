@@ -189,6 +189,7 @@ Rails.configuration.to_prepare do
     donotreply@hillingdon.gov.uk
     no-reply@fcdo.ecase.co.uk
     foiresponses_NO-REPLY@york.gov.uk
+    pt&e.rfi@bcpcouncil.gov.uk
   )
 
   User.content_limits = {
