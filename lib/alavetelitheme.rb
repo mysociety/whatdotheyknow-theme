@@ -1,5 +1,3 @@
-require 'routingfilter'
-
 class ActionController::Base
     before_action :set_whatdotheyknow_view_paths
 
