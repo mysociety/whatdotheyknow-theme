@@ -190,6 +190,7 @@ Rails.configuration.to_prepare do
     no-reply@fcdo.ecase.co.uk
     foiresponses_NO-REPLY@york.gov.uk
     pt&e.rfi@bcpcouncil.gov.uk
+    NoReply@tandridge.gov.uk
   )
 
   User.content_limits = {
