@@ -30,6 +30,7 @@ $main_menu-search_bg: $color_light_grey;
 $main_menu-link_bg: $main_menu-bg;
 $main_menu-active_link_bg: $body-bg;
 $main_menu-active_link_text: $main_menu-link_bg;
+$submenu-highlight: rgba(0, 0, 0, 0.2);
 
 $incoming-correspondence-color: $color_violet;
 $incoming-correspondence-background: $color_white;
@@ -354,6 +355,13 @@ a.link_button_green_large {
   }
 }
 
+.subnav {
+  background-color: $main_menu-active_link_bg;
+  @media( min-width: $main_menu-mobile_menu_cutoff ) {
+    border-bottom: 1px solid $submenu-highlight;
+  }
+}
+
 .navigation{
   border-bottom: none;
   a {
@@ -372,6 +380,32 @@ a.link_button_green_large {
   // change this for alaveteli pro
   .navigation li.selected a {
     color: $color_pro_blue;
+  }
+}
+
+.subnav .navigation {
+  li { position: relative }
+
+  a {
+    color: $main_menu-active_link_text;
+
+    &:hover, &:active, &:focus {
+      background-color: darken($main_menu-active_link_bg, 5%);
+    }
+  }
+
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    li.selected a::after {
+      content: '';
+      position: absolute;
+      bottom: -9px;
+      left: calc(50% - 4px);
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid $submenu-highlight;
+    }
   }
 }
 
