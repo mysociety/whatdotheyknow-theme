@@ -10,11 +10,7 @@ Rails.configuration.to_prepare do
     end
 
     def request_url_with_query
-      uri = URI.parse(request.original_url);
-      uri.query = URI.encode_www_form(
-        URI.decode_www_form(String(uri.query)).push(['query', @query])
-      );
-      uri.to_s
+      add_query_params_to_url(request.original_url, query: @query)
     end
   end
 
