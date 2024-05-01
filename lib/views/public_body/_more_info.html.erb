@@ -16,6 +16,13 @@
   <%= link_to _('Disclosure log'), public_body.disclosure_log %><br>
 <% end %>
 
+<% twfy_utm_params = { utm_source: 'whatdotheyknow.com',
+                       utm_medium: 'link',
+                       utm_campaign: 'body_page_more_info' } %>
+<% twfy_url = %Q[https://www.theyworkforyou.com/search/?q="#{public_body.name}"] %>
+
+<%= link_to _('Mentions in Parliament'), add_query_params_to_url(twfy_url, twfy_utm_params) %><br>
+
 <% if public_body.has_tag?('charity') %>
   <% public_body.get_tag_values('charity').each do |tag_value| %>
     <% if tag_value.match(/^SC/) %>
