@@ -1,5 +1,9 @@
 <h2><%= _('More about this authority')%></h2>
 
+<%= link_to _('View FOI email address'), view_public_body_email_path(public_body.url_name) %><br>
+
+<%= link_to _("Ask us to update FOI email"), new_change_request_body_path(:body => public_body.url_name) %><br>
+
 <% if !public_body.calculated_home_page.nil? %>
   <%= link_to _('Home page of authority'), public_body.calculated_home_page %><br>
 <% end %>
@@ -11,6 +15,13 @@
 <% unless public_body.disclosure_log.blank? %>
   <%= link_to _('Disclosure log'), public_body.disclosure_log %><br>
 <% end %>
+
+<% twfy_utm_params = { utm_source: 'whatdotheyknow.com',
+                       utm_medium: 'link',
+                       utm_campaign: 'body_page_more_info' } %>
+<% twfy_url = %Q[https://www.theyworkforyou.com/search/?q="#{public_body.name}"] %>
+
+<%= link_to _('Mentions in Parliament'), add_query_params_to_url(twfy_url, twfy_utm_params) %><br>
 
 <% if public_body.has_tag?('charity') %>
   <% public_body.get_tag_values('charity').each do |tag_value| %>
@@ -123,7 +134,3 @@
     <br>
   <% end %>
 <% end %>
-
-<%= link_to _('View FOI email address'), view_public_body_email_path(public_body.url_name) %><br>
-
-<%= link_to _("Ask us to update FOI email"), new_change_request_body_path(:body => public_body.url_name) %><br>
