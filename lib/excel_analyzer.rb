@@ -23,6 +23,7 @@ Rails.configuration.to_prepare do
 
     def report(foi_attachment, metadata)
       @foi_attachment = foi_attachment
+      @incoming_message = foi_attachment.incoming_message
       @metadata = metadata
 
       from = email_address_with_name(
