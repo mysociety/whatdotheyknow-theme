@@ -191,6 +191,7 @@ Rails.configuration.to_prepare do
     foiresponses_NO-REPLY@york.gov.uk
     pt&e.rfi@bcpcouncil.gov.uk
     NoReply@tandridge.gov.uk
+    final@homeoffice.gov.uk
   )
 
   User.content_limits = {
