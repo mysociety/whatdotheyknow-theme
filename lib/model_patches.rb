@@ -73,6 +73,8 @@ Rails.configuration.to_prepare do
     prepend ProAccountBans::ModelMethods
   end
 
+  PublicBody.batch_excluded_tags += %w[school]
+
   PublicBody.excluded_calculated_home_page_domains += %w[
     aol.co.uk
     blueyonder.co.uk
