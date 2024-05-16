@@ -35,7 +35,7 @@ Rails.configuration.to_prepare do
 
       mail(
         from: from,
-        to: pro_contact_from_name_and_email,
+        to: ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL'],
         subject: _('ExcelAnalyzer: hidden data detected [{{reference}}]',
                    reference: @foi_attachment.id)
       )
