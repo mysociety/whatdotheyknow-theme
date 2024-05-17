@@ -79,7 +79,7 @@ module VolunteerContactForm
       reply_to_address = MailHandler.address_from_name_and_email(
         contact.name, contact.email
       )
-      set_reply_to_headers(nil, 'Reply-To' => reply_to_address)
+      set_reply_to_headers('Reply-To' => reply_to_address)
 
       # Set a header so we can filter in the mailbox
       headers['X-WDTK-Contact'] = 'wdtk-volunteer'
