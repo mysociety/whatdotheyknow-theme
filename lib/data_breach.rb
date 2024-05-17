@@ -73,9 +73,9 @@ module DataBreach
       )
 
       if @logged_in_user
-        set_reply_to_headers(nil, 'Reply-To' => @logged_in_user.email)
+        set_reply_to_headers('Reply-To' => @logged_in_user.email)
       elsif report.contact_email
-        set_reply_to_headers(nil, 'Reply-To' => report.contact_email)
+        set_reply_to_headers('Reply-To' => report.contact_email)
       end
 
       # Set a header so we can filter in the mailbox
