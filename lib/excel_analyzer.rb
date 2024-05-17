@@ -7,6 +7,9 @@ ExcelAnalyzer.on_hidden_metadata = ->(attachment_blob, metadata) do
 
   foi_attachment.update_and_log_event(
     prominence: 'hidden',
+    prominence_reason: "We've found a problem with this file, so it's been " \
+                       "hidden while we review it. We might not be able to " \
+                       "give more details until then.",
     event: {
       editor: User.internal_admin_user,
       reason: 'ExcelAnalyzer: hidden data detected'
