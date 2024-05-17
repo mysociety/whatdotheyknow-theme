@@ -194,6 +194,7 @@ Rails.configuration.to_prepare do
     pt&e.rfi@bcpcouncil.gov.uk
     NoReply@tandridge.gov.uk
     final@homeoffice.gov.uk
+    no-reply@oxford.ecase.co.uk
   )
 
   User.content_limits = {
