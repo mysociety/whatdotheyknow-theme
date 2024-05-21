@@ -3,10 +3,11 @@ module ExcelAnalyzer
     include Rails.application.routes.url_helpers
     default_url_options[:host] = AlaveteliConfiguration.domain
 
-    def report(foi_attachment, metadata)
-      @foi_attachment = foi_attachment
-      @incoming_message = foi_attachment.incoming_message
-      @metadata = metadata
+    def report(attachment_blob)
+      @foi_attachment = FoiAttachment.joins(:file_blob).
+        find_by(active_storage_blobs: { id: attachment_blob })
+      @incoming_message = @foi_attachment.incoming_message
+      @metadata = attachment_blob.metadata
 
       from = email_address_with_name(
         blackhole_email, 'WhatDoTheyKnow.com Excel Analyzer report'

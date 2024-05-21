@@ -41,8 +41,7 @@ RSpec.describe ExcelAnalyzer::PIIBadgerJob, type: :job do
     deliveries = ActionMailer::Base.deliveries
     expect(deliveries.size).to eq(0)
 
-    expect(ExcelAnalyzer::NotifierMailer).to receive(:report).
-      with(attachment, blob.metadata[:excel]).
+    expect(ExcelAnalyzer::NotifierMailer).to receive(:report).with(blob).
       and_call_original
     perform
     expect(deliveries.size).to eq(1)

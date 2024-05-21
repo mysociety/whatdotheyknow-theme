@@ -6,7 +6,7 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
   let(:blob) { attachment.file_blob }
 
   let(:mail) do
-    described_class.report(attachment, blob.metadata).deliver_now
+    described_class.report(blob).deliver_now
     ActionMailer::Base.deliveries[-1]
   end
 
@@ -15,6 +15,10 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
     ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL'] = 'excel@localhost'
     example.call
     ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL'] = to
+  end
+
+  before do
+    allow(blob).to receive(:metadata).and_return(excel: {})
   end
 
   after { ActionMailer::Base.deliveries.clear }
@@ -42,7 +46,7 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
   end
 
   it 'includes the metadata in the body' do
-    allow(blob).to receive(:metadata).and_return(foo: 'bar')
+    allow(blob).to receive(:metadata).and_return(excel: { foo: 'bar' })
     expect(mail.body).to include('foo: bar')
   end
 end

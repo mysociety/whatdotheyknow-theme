@@ -5,7 +5,7 @@ Admin request URL: <%= admin_request_url(@incoming_message.info_request_id) %>
 Admin attachment URL: <%= edit_admin_foi_attachment_url(@foi_attachment) %>
 
 The following was detected:
-<% @metadata.each do |key, value| %>
+<% @metadata[:excel].each do |key, value| %>
   <%= key %>: <%= value %>
 <% end %>
 
