@@ -46,7 +46,10 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
   end
 
   it 'includes the metadata in the body' do
-    allow(blob).to receive(:metadata).and_return(excel: { foo: 'bar' })
+    allow(blob).to receive(:metadata).and_return(
+      excel: { foo: 'bar' }, pii_badger: { baz: 'qux' }
+    )
     expect(mail.body).to include('"foo": "bar"')
+    expect(mail.body).to include('"baz": "qux"')
   end
 end
