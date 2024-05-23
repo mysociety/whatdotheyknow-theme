@@ -4,9 +4,6 @@ spreadsheet due to the detection of potentially suspect hidden data.
 Admin request URL: <%= admin_request_url(@incoming_message.info_request_id) %>
 Admin attachment URL: <%= edit_admin_foi_attachment_url(@foi_attachment) %>
 
-The following was detected:
-<% @metadata[:excel].each do |key, value| %>
-  <%= key %>: <%= value %>
-<% end %>
+Excel Analyzer metadata: <%= JSON.pretty_generate(@metadata[:excel]) %>
 
 Please review the file carefully.
