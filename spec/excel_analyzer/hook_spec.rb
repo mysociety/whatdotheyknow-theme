@@ -26,17 +26,9 @@ RSpec.describe 'ExcelAnalyzer on_hidden_metadata hook' do
     TXT
   end
 
-  it 'sents report email' do
-    deliveries = ActionMailer::Base.deliveries
-    expect(deliveries.size).to eq(0)
-
-    expect(ExcelAnalyzer::NotifierMailer).to receive(:report).
-      with(attachment, blob.metadata).
-      and_call_original
+  it 'queues PII Badger job' do
+    expect(ExcelAnalyzer::PIIBadgerJob).to receive(:perform_later).with(blob)
     ExcelAnalyzer.on_hidden_metadata.call(blob, blob.metadata)
-    expect(deliveries.size).to eq(1)
-
-    deliveries.clear
   end
 
   context 'when message was sent more than 1 day ago' do

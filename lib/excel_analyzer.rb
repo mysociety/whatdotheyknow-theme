@@ -4,9 +4,11 @@ Rails.application.config.before_initialize do
   Dir[File.join(File.dirname(__FILE__), 'excel_analyzer', '**/')].each do
     loader.push_dir(_1, namespace: ExcelAnalyzer)
   end
+
+  loader.inflector.inflect("pii_badger_job" => "PIIBadgerJob")
 end
 
-ExcelAnalyzer.on_hidden_metadata = ->(attachment_blob, metadata) do
+ExcelAnalyzer.on_hidden_metadata = ->(attachment_blob, _) do
   foi_attachment = FoiAttachment.joins(:file_blob).
     find_by(active_storage_blobs: { id: attachment_blob })
 
@@ -24,5 +26,5 @@ ExcelAnalyzer.on_hidden_metadata = ->(attachment_blob, metadata) do
     }
   )
 
-  ExcelAnalyzer::NotifierMailer.report(foi_attachment, metadata).deliver_now
+  ExcelAnalyzer::PIIBadgerJob.perform_later(attachment_blob)
 end
