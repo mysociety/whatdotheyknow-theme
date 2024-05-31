@@ -22,7 +22,7 @@ module ExcelAnalyzer
         ))
       end
 
-      ExcelAnalyzer::NotifierMailer.report(attachment_blob).deliver_now
+      ExcelAnalyzer::RepublishOrReportJob.perform_later(attachment_blob)
     end
   end
 end
