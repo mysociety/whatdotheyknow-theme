@@ -9,12 +9,9 @@ RSpec.describe ExcelAnalyzer::PIIBadgerJob, type: :job do
   let(:pii_metadata) { { bar: 'baz' } }
 
   around do |example|
-    to = ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL']
     cmd = ENV['EXCEL_ANALYZER_PII_BADGER_COMMAND']
-    ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL'] = 'excel@localhost'
     ENV['EXCEL_ANALYZER_PII_BADGER_COMMAND'] = '/usr/bin/pii_badger.sh'
     example.call
-    ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL'] = to
     ENV['EXCEL_ANALYZER_PII_BADGER_COMMAND'] = cmd
   end
 
@@ -37,15 +34,9 @@ RSpec.describe ExcelAnalyzer::PIIBadgerJob, type: :job do
     expect(blob.metadata).to include(pii_badger: pii_metadata)
   end
 
-  it 'sents report email' do
-    deliveries = ActionMailer::Base.deliveries
-    expect(deliveries.size).to eq(0)
-
-    expect(ExcelAnalyzer::NotifierMailer).to receive(:report).with(blob).
-      and_call_original
+  it 'queues Republish or Report job' do
+    expect(ExcelAnalyzer::RepublishOrReportJob).to receive(:perform_later).
+      with(blob)
     perform
-    expect(deliveries.size).to eq(1)
-
-    deliveries.clear
   end
 end
