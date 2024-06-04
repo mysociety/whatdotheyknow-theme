@@ -195,6 +195,7 @@ Rails.configuration.to_prepare do
     NoReply@tandridge.gov.uk
     final@homeoffice.gov.uk
     no-reply@oxford.ecase.co.uk
+    noreply.digitalservices@emails.lisburncastlereagh.gov.uk
     noreply@ams-sar.com
   )
 
