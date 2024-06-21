@@ -15,4 +15,20 @@ Rails.configuration.to_prepare do
   end
 
   DatasetteHelper.datasette_url = 'https://data.mysociety.org/datasette/'
+
+  ProminenceHelper::Base.class_eval do
+    module ExcelAnalyzerDisableContactUs
+      def contact_us
+        return if hidden_by_excel_analyzer?
+        super
+      end
+
+      def hidden_by_excel_analyzer?
+        prominenceable.prominence == 'hidden' &&
+          prominenceable.prominence_reason == ExcelAnalyzer::PROMINENCE_REASON
+      end
+    end
+
+    prepend ExcelAnalyzerDisableContactUs
+  end
 end
