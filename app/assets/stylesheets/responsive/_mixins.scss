@@ -47,7 +47,7 @@
 
 @mixin button-secondary {
   @include button-base;
-  background-color: $color_light_grey;
+  background-color: mix($color_light_grey, $color_yellow, 95%);
   color: $color_black;
   font-weight: normal;
   &:hover,
@@ -102,7 +102,7 @@
 /* Menu items */
 @mixin menu-item {
   text-decoration: none;
-  color: transparentize($main_menu-link_text, 0.2);
+  color: transparentize($main_menu-link_text, 0.1);
   @include ie8 {
     color: $main_menu-link_text;
   }
