@@ -9,6 +9,7 @@ module ExcelAnalyzer
     queue_as :excel_analyzer
 
     attr_reader :attachment_blob
+    delegate :info_request, :incoming_message, to: :attachment
 
     def perform(attachment_blob)
       @attachment_blob = attachment_blob
