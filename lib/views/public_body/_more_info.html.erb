@@ -53,6 +53,13 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('society') %>
+  <% public_body.get_tag_values('society').each do |tag_value| %>
+      <%= link_to _('Mutual registration'),
+                    "https://mutuals.fca.org.uk/Search/Society/#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('urn') %>
   <% public_body.get_tag_values('urn').each do |tag_value| %>
       <%= link_to _('Establishment information'),
