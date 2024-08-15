@@ -977,7 +977,7 @@ div.correspondence {
 
   font-weight: 600;
   strong {
-    color: $color_mid_grey;
+    color: $color_dark_grey;
   }
 }
 
@@ -1205,7 +1205,7 @@ p.locale-list-trigger {
   transition: background-color 0.5s ease-out;
   color: #fff;
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: darken($color_dark_grey, 10%);
+    background-color: darken($color_mid_grey, 15%);
     display: block;
     padding: 0.5em 1em;
     width: 100%;
@@ -1217,7 +1217,7 @@ p.locale-list-trigger {
   border-bottom: none;
   background-color: rgba(0,0,0,0.1);
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: darken($color_mid_grey, 10%);
+    background-color: darken($color_dark_grey, 10%);
   }
   color: $color_white;
 
@@ -1259,7 +1259,7 @@ p.locale-list-trigger {
 .latest-requests {
   h4 {
     font-size: 1.125em;
-    color: $color_mid_grey;
+    color: $color_dark_grey;
     font-weight: normal;
     margin-top: 0;
     line-height: 1.5em;
@@ -1301,7 +1301,7 @@ p.locale-list-trigger {
 
 .request-body__time-ago {
   font-size: 0.875em;
-  color: $color_mid_grey;
+  color: $color_dark_grey;
   margin-top: 0.25em;
 }
 
@@ -1470,7 +1470,7 @@ p.locale-list-trigger {
 
 .hiw__subtitle {
   font-size: 1.125em;
-  color: $color_mid_grey;
+  color: $color_dark_grey;
   font-weight: normal;
   margin-top: 0;
   line-height: 1.5em;
@@ -1876,7 +1876,7 @@ dd {
 
     a, .no-entries {
       padding: 0.25em 0.3em;
-      border: 1px dotted $color_mid_grey;
+      border: 1px dotted $color_dark_grey;
       font-family: monospace;
 
     }
@@ -1888,7 +1888,7 @@ dd {
     }
 
     .no-entries {
-      color: $color_mid_grey;
+      color: $color_dark_grey;
     }
   }
 }
