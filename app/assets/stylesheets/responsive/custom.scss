@@ -1205,7 +1205,7 @@ p.locale-list-trigger {
   transition: background-color 0.5s ease-out;
   color: #fff;
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: darken($color_dark_grey, 10%);
+    background-color: darken($color_mid_grey, 15%);
     display: block;
     padding: 0.5em 1em;
     width: 100%;
