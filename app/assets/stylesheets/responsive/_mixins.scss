@@ -41,13 +41,13 @@
   @include button-base;
   color: $color_white;
   background-color: $button-bg;
-  border: none;
+  border: 1.5px solid $button-bg;
   &:hover,
   &:active,
   &:visited:hover,
   &:visited:active {
-    background-color: darken($button-bg, 10%);
-    color: $color_white;
+    background: linear-gradient(-180deg, lighten($button-bg, 40%) 0%, lighten($button-bg, 42%) 100%);
+    color: $button-bg;
   }
 
   @include focus-state;
@@ -59,10 +59,12 @@
   background-color: mix($color_light_grey, $color_yellow, 95%);
   color: $color_black;
   font-weight: normal;
+  border: 1.5px solid lighten($color_black, 10%);
   &:hover,
   &:active {
-    background-color: darken($color_light_grey, 7.5%);
-    color: $color_black;
+    background-color: $color_black;
+    color: $color_white;
+    border: 1.5px solid $color_white;
   }
 
   @include focus-state;
@@ -71,13 +73,17 @@
 @mixin button-tertiary {
   @include button-base;
   background-color: transparent;
-  color: $color_black;
+  color: $link-color;
   font-weight: normal;
-  border: 1px solid $color_light_grey;
+  border: 1.5px solid $link-color;
   &:hover,
-  &:active {
-    background-color: darken($color_light_grey, 7.5%);
-    border: 1px solid darken($color_light_grey, 12.5%);
+  &:active,
+  &:visited:hover,
+  &:visited:active {
+    color: $color_white;
+    // We are darkening the background and border for cases there is a defaul button and a tertiary button together. In this case when we are hovering over the tertiary one it won't look just like the default button nect to it.
+    background-color: darken($link-color, 15%);
+    border: 1.5px solid darken($link-color, 15%);
   }
 
   @include focus-state;
