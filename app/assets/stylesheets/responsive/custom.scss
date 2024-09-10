@@ -203,6 +203,9 @@ a.button-secondary,
 
 .button-tertiary {
   @include button-tertiary;
+  .alaveteli-pro & {
+    @include  button-pro-tertiary;
+  }
 }
 
 .button-disabled {
