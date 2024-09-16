@@ -12,6 +12,7 @@
   &:visited:focus {
     background-color: $color_yellow;
     color: $color_black;
+    background: $color_yellow !important;
   }
 }
 
@@ -21,7 +22,10 @@
   display: inline-block;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 300ms ease-out;
+  -webkit-transition: background 300ms ease-out, color 300ms ease-out, border 300ms ease-out;
+  -moz-transition: background 300ms ease-out, color 300ms ease-out, border 300ms ease-out;
+  -o-transition: background 300ms ease-out, color 300ms ease-out, border 300ms ease-out;
+  transition: background 300ms ease-out, color 300ms ease-out, border 300ms ease-out;
   line-height: normal;
   margin-bottom: 0;
   font-family: $font-family;
@@ -29,7 +33,6 @@
   &:active,
   &:focus {
       text-decoration: none;
-      transition: background-color 300ms ease-out;
   }
 
   &:disabled {
@@ -40,7 +43,7 @@
 @mixin button {
   @include button-base;
   color: $color_white;
-  background-color: $button-bg;
+  background: $button-bg;
   border: 1.5px solid $button-bg;
   &:hover,
   &:active,
@@ -56,13 +59,13 @@
 
 @mixin button-secondary {
   @include button-base;
-  background-color: mix($color_light_grey, $color_yellow, 95%);
+  background: mix($color_light_grey, $color_yellow, 95%);
   color: $color_black;
   font-weight: normal;
   border: 1.5px solid lighten($color_black, 10%);
   &:hover,
   &:active {
-    background-color: $color_black;
+    background: $color_black;
     color: $color_white;
     border: 1.5px solid $color_white;
   }
@@ -72,7 +75,7 @@
 
 @mixin button-tertiary {
   @include button-base;
-  background-color: transparent;
+  background: transparent;
   color: $link-color;
   font-weight: normal;
   border: 1.5px solid $link-color;
@@ -82,7 +85,7 @@
   &:visited:active {
     color: $color_white;
     // We are darkening the background and border for cases there is a defaul button and a tertiary button together. In this case when we are hovering over the tertiary one it won't look just like the default button nect to it.
-    background-color: darken($link-color, 15%);
+    background: darken($link-color, 15%);
     border: 1.5px solid darken($link-color, 15%);
   }
 
@@ -94,7 +97,7 @@
   &:hover,
   &:active,
   &:focus {
-    background-color: inherit;
+    background: inherit;
   }
 }
 
@@ -147,11 +150,11 @@
   @include ie8 {
     color: $main_menu-link_text;
   }
-  transition: background-color 0.5s ease-out;
+  transition: background 0.5s ease-out;
   &:hover,
   &:active,
   &:focus {
-    background-color: darken($main_menu-bg, 10%);
+    background: darken($main_menu-bg, 10%);
     color: transparentize($main_menu-link_text, 0);
   }
 }
@@ -159,10 +162,10 @@
 @mixin selected-menu-item {
   font-weight: 600;
   color: $main_menu-active_link_text;
-  background-color: $main_menu-active_link_bg;
+  background: $main_menu-active_link_bg;
   &:hover,
   &:active,
   &:focus {
-      background-color: $main_menu-active_link_bg;
+      background: $main_menu-active_link_bg;
   }
 }
