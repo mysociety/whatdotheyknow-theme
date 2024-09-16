@@ -49,7 +49,7 @@
   &:active,
   &:visited:hover,
   &:visited:active {
-    background: linear-gradient(-180deg, lighten($button-bg, 40%) 0%, lighten($button-bg, 42%) 100%);
+    background:lighten($button-bg, 40%);
     color: $button-bg;
   }
 

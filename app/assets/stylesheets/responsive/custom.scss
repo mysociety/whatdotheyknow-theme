@@ -203,9 +203,6 @@ a.button-secondary,
 
 .button-tertiary {
   @include button-tertiary;
-  .alaveteli-pro & {
-    @include  button-pro-tertiary;
-  }
 }
 
 .button-disabled {
@@ -1332,17 +1329,15 @@ p.locale-list-trigger {
   }
 
   a.button {
-    background-color: $color_yellow;
+    background: $color_yellow;
     border-color: darken($color_yellow, 15%);
     color: $color_black;
-    transition: color 300ms ease-out;
     &:hover,
     &:active,
     &:focus {
       color: $color_white;
-      background-color: $color_blue;
+      background: $color_blue;
       border-color: darken($color_blue, 15%);
-      transition: color 300ms ease-out;
     }
   }
 }
