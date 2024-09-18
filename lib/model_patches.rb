@@ -128,7 +128,7 @@ Rails.configuration.to_prepare do
     alias original_data data
 
     def data
-      original_data.sub(/
+      original_data&.sub(/
         ^(Date: [^\n]+\n)
         \s+(To: [^\n]+\n)
         \s+(From: [^\n]+)
