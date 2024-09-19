@@ -791,7 +791,7 @@ $mysoc-footer-background-color: $color_black;
 $mysoc-footer-text-color: lighten($color_mid_grey, 4%); // tweak color to pass WCAG AA contrast check
 $mysoc-footer-site-name-text-color: #fff;
 $mysoc-footer-link-text-color: $color_white;
-$mysoc-footer-link-hover-text-color: $button-bg;
+$mysoc-footer-link-hover-text-color: lighten($button-bg, 20%); // tweak color to pass WCAG AA contrast check
 $mysoc-footer-divider-color: #4C4C4C;
 $mysoc-footer-donate-background-color: #434343;
 $mysoc-footer-donate-text-color: #fff;

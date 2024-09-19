@@ -56,7 +56,8 @@ $high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi
   a {
     color: $mysoc-footer-link-text-color;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $mysoc-footer-link-hover-text-color;
     }
   }
