@@ -59,8 +59,6 @@ $high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi
     &:hover {
       color: $mysoc-footer-link-hover-text-color;
     }
-
-    @include focus-state;
   }
 }
 
@@ -136,12 +134,13 @@ $high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi
   font-weight: bold;
   text-decoration: none;
 
-  &:hover,
-  &:focus {
+  &:hover{
     text-decoration: none;
     background-color: $mysoc-footer-donate-button-hover-background-color;
     color: $mysoc-footer-donate-button-hover-text-color !important;
   }
+
+  @include focus-state;
 }
 
 .mysoc-footer__orgs {
