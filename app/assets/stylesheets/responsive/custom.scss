@@ -203,6 +203,9 @@ a.button-secondary,
 
 .button-tertiary {
   @include button-tertiary;
+  .alaveteli-pro & {
+    @include button-pro-tertiary;
+  }
 }
 
 .button-disabled {
@@ -795,7 +798,9 @@ $mysoc-footer-link-hover-text-color: lighten($button-bg, 20%); // tweak color to
 $mysoc-footer-divider-color: #4C4C4C;
 $mysoc-footer-donate-background-color: #434343;
 $mysoc-footer-donate-text-color: #fff;
+$mysoc-footer-donate-button-hover-text-color: $button-bg;
 $mysoc-footer-donate-button-background-color: $button-bg;
+$mysoc-footer-donate-button-hover-background-color: lighten($mysoc-footer-donate-button-background-color, 50%);
 $mysoc-footer-legal-text-color: $mysoc-footer-text-color;
 $mysoc-footer-image-path: '/assets/mysoc-footer/';
 $mysoc-footer-breakpoint-sm: 42em;
@@ -1329,17 +1334,16 @@ p.locale-list-trigger {
   }
 
   a.button {
-    background-color: $color_yellow;
+    background: $color_yellow;
     border-color: darken($color_yellow, 15%);
     color: $color_black;
-    transition: color 300ms ease-out;
     &:hover,
     &:active,
-    &:focus {
+    &:visited:hover,
+    &:visited:active {
       color: $color_white;
-      background-color: $color_blue;
+      background: $color_blue;
       border-color: darken($color_blue, 15%);
-      transition: color 300ms ease-out;
     }
   }
 }
