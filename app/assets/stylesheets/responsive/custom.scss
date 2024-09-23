@@ -317,14 +317,14 @@ a.link_button_green_large {
 /* Popups */
 
 .popup {
-  background-color: $color_black;
+  background: linear-gradient(90deg, rgba(140, 210, 130, 1) 0%, rgba(192, 246, 185, 1) 100%);
   border: 0;
-  color: $color_white;
+  color: $color_black;
   a, a:hover, a:active, a:focus, a:visited,
   a:visited:hover,
   a:visited:active,
   a:visited:focus {
-    color: $color_white;
+    color: $color_black;
   }
 }
 
