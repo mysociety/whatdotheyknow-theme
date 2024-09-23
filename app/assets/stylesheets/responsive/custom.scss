@@ -1,5 +1,6 @@
 $color_orange: #f4a140;
 $color_blue: #2078C2;
+$color_blue_light: #A2D2FA;
 $color_green: #62b356;
 $color_yellow: #ffd836;
 $color_red: #e04b4b;
@@ -317,7 +318,7 @@ a.link_button_green_large {
 /* Popups */
 
 .popup {
-  background: linear-gradient(90deg, rgba(140, 210, 130, 1) 0%, rgba(192, 246, 185, 1) 100%);
+  background-color: $color_blue_light;
   border: 0;
   color: $color_black;
   a, a:hover, a:active, a:focus, a:visited,
