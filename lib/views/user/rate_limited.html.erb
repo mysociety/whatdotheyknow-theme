@@ -28,6 +28,12 @@
           'investigations.',
           pro_site_link: link_to(pro_site_name, account_request_index_path)) %>
   </p>
+
+  <p>
+    <%= _('Commercial and for-profit use requires a ' \
+          '{{pro_site_link}} subscription.',
+          pro_site_link: link_to(pro_site_name, account_request_index_path)) %>
+  </p>
 <% end %>
 
 <% if @info_request %>

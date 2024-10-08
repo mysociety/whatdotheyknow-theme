@@ -65,5 +65,14 @@
                      tabindex: 50,
                      data: { disable_with: _('Sending...') } %>
     </div>
+
+    <div class="form_item_note">
+      <%= _('By signing up you agree to our ' \
+            '<a href="{{house_rules_url}}">house rules</a>. Commercial and ' \
+            'for-profit use requires a ' \
+            '<a href="{{pro_url}}">WhatDoTheyKnow Pro</a> subscription.',
+            house_rules_url: help_house_rules_path,
+            pro_url: account_request_index_path) %>
+    </div>
   <% end %>
 </div>
