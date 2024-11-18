@@ -84,9 +84,12 @@ Rails.configuration.to_prepare do
     btconnect.com
     btinternet.com
     btopenworld.com
+    gmail.com
+    googlemail.com
     hotmail.co.uk
     live.co.uk
     ntlworld.com
+    outlook.com
     sky.com
     talk21.com
     talktalk.net
