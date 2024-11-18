@@ -201,6 +201,7 @@ Rails.configuration.to_prepare do
     noreply.digitalservices@emails.lisburncastlereagh.gov.uk
     noreply@ams-sar.com
     foi@cheshireeast.gov.uk
+    OneTrustEmail@surrey.ac.uk
   )
 
   User.content_limits = {
