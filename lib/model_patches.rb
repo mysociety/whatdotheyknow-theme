@@ -200,6 +200,7 @@ Rails.configuration.to_prepare do
     no-reply@oxford.ecase.co.uk
     noreply.digitalservices@emails.lisburncastlereagh.gov.uk
     noreply@ams-sar.com
+    foi@cheshireeast.gov.uk
   )
 
   User.content_limits = {
