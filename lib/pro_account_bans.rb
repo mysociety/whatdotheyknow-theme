@@ -2,7 +2,9 @@ module ProAccountBans
   module ModelMethods
     PRO_ACCOUNT_BANS_CONFIG = Rails.root.join('config/pro_account_bans.yml')
 
-    def update_source
+    def update_stripe_customer
+      return unless feature_enabled?(:pro_pricing)
+      return super unless @token
       return super unless pro_account_banned?
 
       sleep (4...10).to_a.sample unless Rails.env.test? # simulate random delay

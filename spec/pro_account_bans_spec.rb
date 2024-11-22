@@ -11,7 +11,7 @@ RSpec.describe ProAccountBans, feature: :pro_pricing do
     let(:card_params) { { number: '4242424242424242', address_zip: 'AB1 1AB' } }
 
     let(:pro_account) { FactoryBot.build(:pro_account, token: stripe_token) }
-    let(:customer) { Stripe::Customer.new(id: 'test_cus_123') }
+    let(:customer) { Stripe::Customer.create(id: 'test_cus_123') }
 
     let(:stripe_token) do
       token_id = stripe_helper.generate_card_token(card_params)
@@ -21,13 +21,13 @@ RSpec.describe ProAccountBans, feature: :pro_pricing do
     before do
       allow(pro_account).to receive(:bans_config).and_return(bans_config)
       allow(pro_account).to receive(:stripe_customer).and_return(customer)
-      allow(customer).to receive(:save)
+      allow(Stripe::Customer).to receive(:update).and_return(customer)
     end
 
     context 'with a valid token' do
       it 'updates the Stripe customer successfully' do
         expect(pro_account.update_stripe_customer).to be_truthy
-        expect(customer).to have_received(:save)
+        expect(Stripe::Customer).to have_received(:update)
       end
     end
 
