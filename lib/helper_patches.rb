@@ -1,8 +1,10 @@
 # Load our helpers
 require 'helpers/donation_helper'
+require 'helpers/alaveteli_pro/alternative_price_text_helper'
 
 Rails.configuration.to_prepare do
   ActionView::Base.send(:include, DonationHelper)
+  ActionView::Base.send(:include, AlaveteliPro::AlternativePriceTextHelper)
 
   ApplicationHelper.class_eval do
     def is_contact_page?
@@ -30,31 +32,5 @@ Rails.configuration.to_prepare do
     end
 
     prepend ExcelAnalyzerDisableContactUs
-  end
-
-  AlaveteliPro::PriceHelper.class_eval do
-    module AlternativePriceText
-      def short_alternative_price_text(price)
-        amount = format_currency(
-          price.unit_amount_with_tax, no_cents_if_whole: true
-        )
-
-        if interval(price) == 'day' && interval_count(price) == 1
-          _('or {{amount}} daily', amount: amount)
-        elsif interval(price) == 'week' && interval_count(price) == 1
-          _('or {{amount}} weekly', amount: amount)
-        elsif interval(price) == 'month' && interval_count(price) == 1
-          _('or {{amount}} monthly', amount: amount)
-        elsif interval(price) == 'year' && interval_count(price) == 1
-          _('or {{amount}} annually', amount: amount)
-        else
-          _('or {{amount}} every {{interval}}',
-            amount: amount,
-            interval: pluralize_interval(price))
-        end
-      end
-    end
-
-    prepend AlternativePriceText
   end
 end
