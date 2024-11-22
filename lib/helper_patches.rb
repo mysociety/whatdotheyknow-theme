@@ -1,8 +1,10 @@
 # Load our helpers
 require 'helpers/donation_helper'
+require 'helpers/alaveteli_pro/alternative_price_text_helper'
 
 Rails.configuration.to_prepare do
   ActionView::Base.send(:include, DonationHelper)
+  ActionView::Base.send(:include, AlaveteliPro::AlternativePriceTextHelper)
 
   ApplicationHelper.class_eval do
     def is_contact_page?

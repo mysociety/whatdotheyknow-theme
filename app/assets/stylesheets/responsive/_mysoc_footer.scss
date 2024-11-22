@@ -55,6 +55,11 @@ $high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi
 
   a {
     color: $mysoc-footer-link-text-color;
+    // Included in the link so it also affects a.mysoc-footer__donate__button
+    -webkit-transition: background 300ms ease-out, color 300ms ease-out;
+    -moz-transition: background 300ms ease-out, color 300ms ease-out;
+    -o-transition: background 300ms ease-out, color 300ms ease-out;
+    transition: background 300ms ease-out, color 300ms ease-out;
 
     &:hover,
     &:focus {
@@ -126,21 +131,25 @@ $high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi
   }
 }
 
-.mysoc-footer__donate__button {
+a.mysoc-footer__donate__button {
   display: inline-block;
   background-color: $mysoc-footer-donate-button-background-color;
-  color: $mysoc-footer-donate-button-text-color !important;
+  color: $mysoc-footer-donate-button-text-color;
   padding: 0.5em 1em;
   border-radius: 0.3em;
   font-weight: bold;
   text-decoration: none;
 
   &:hover,
-  &:focus {
+  &:active,
+  &:visited:hover,
+  &:visited:active {
     text-decoration: none;
-    background-color: $mysoc-footer-donate-button-hover-background-color;
-    color: $mysoc-footer-donate-button-hover-text-color !important;
+    background:$mysoc-footer-donate-button-hover-background-color;
+    color: $mysoc-footer-donate-button-hover-text-color;
   }
+
+  @include focus-state;
 }
 
 .mysoc-footer__orgs {

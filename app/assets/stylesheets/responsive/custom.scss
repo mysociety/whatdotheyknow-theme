@@ -1,5 +1,6 @@
 $color_orange: #f4a140;
 $color_blue: #2078C2;
+$color_blue_light: #A2D2FA;
 $color_green: #62b356;
 $color_yellow: #ffd836;
 $color_red: #e04b4b;
@@ -203,6 +204,9 @@ a.button-secondary,
 
 .button-tertiary {
   @include button-tertiary;
+  .alaveteli-pro & {
+    @include button-pro-tertiary;
+  }
 }
 
 .button-disabled {
@@ -317,14 +321,14 @@ a.link_button_green_large {
 /* Popups */
 
 .popup {
-  background-color: $color_green;
+  background-color: $color_blue_light;
   border: 0;
-  color: #fff;
+  color: $color_black;
   a, a:hover, a:active, a:focus, a:visited,
   a:visited:hover,
   a:visited:active,
   a:visited:focus {
-    color: #fff;
+    color: $color_black;
   }
 }
 
@@ -791,11 +795,13 @@ $mysoc-footer-background-color: $color_black;
 $mysoc-footer-text-color: lighten($color_mid_grey, 4%); // tweak color to pass WCAG AA contrast check
 $mysoc-footer-site-name-text-color: #fff;
 $mysoc-footer-link-text-color: $color_white;
-$mysoc-footer-link-hover-text-color: $button-bg;
+$mysoc-footer-link-hover-text-color: lighten($button-bg, 20%); // tweak color to pass WCAG AA contrast check
 $mysoc-footer-divider-color: #4C4C4C;
 $mysoc-footer-donate-background-color: #434343;
 $mysoc-footer-donate-text-color: #fff;
+$mysoc-footer-donate-button-hover-text-color: $button-bg;
 $mysoc-footer-donate-button-background-color: $button-bg;
+$mysoc-footer-donate-button-hover-background-color: lighten($mysoc-footer-donate-button-background-color, 50%);
 $mysoc-footer-legal-text-color: $mysoc-footer-text-color;
 $mysoc-footer-image-path: '/assets/mysoc-footer/';
 $mysoc-footer-breakpoint-sm: 42em;
@@ -1329,17 +1335,16 @@ p.locale-list-trigger {
   }
 
   a.button {
-    background-color: $color_yellow;
+    background: $color_yellow;
     border-color: darken($color_yellow, 15%);
     color: $color_black;
-    transition: color 300ms ease-out;
     &:hover,
     &:active,
-    &:focus {
+    &:visited:hover,
+    &:visited:active {
       color: $color_white;
-      background-color: $color_blue;
+      background: $color_blue;
       border-color: darken($color_blue, 15%);
-      transition: color 300ms ease-out;
     }
   }
 }
