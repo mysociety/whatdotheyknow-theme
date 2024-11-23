@@ -76,7 +76,14 @@ Rails.configuration.to_prepare do
     prepend ProAccountBans::ModelMethods
   end
 
-  PublicBody.batch_excluded_tags += %w[school]
+  PublicBody.batch_excluded_tags += %w[
+    hmp_imb
+    irc_imb
+    school 
+    special_imb
+    sthf_imb
+    yoi_imb
+  ]
 
   PublicBody.excluded_calculated_home_page_domains += %w[
     aol.co.uk
