@@ -77,6 +77,7 @@ Rails.configuration.to_prepare do
   end
 
   PublicBody.batch_excluded_tags += %w[
+    academies
     hmp_imb
     irc_imb
     school 
