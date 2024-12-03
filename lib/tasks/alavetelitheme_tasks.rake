@@ -11,6 +11,9 @@ namespace :subscriptions do
     count = scope.data.size
 
     scope.auto_paging_each.with_index do |subscription, index|
+      next if subscription.status != "active"
+      next if subscription.canceled_at
+
       coupon = subscription.discount&.coupon
       next if coupon&.percent_off == 100 && coupon&.duration == "forever"
 
