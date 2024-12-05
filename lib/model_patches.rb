@@ -89,16 +89,18 @@ Rails.configuration.to_prepare do
     sthf_imb
     yoi_imb
   # Local government — lowest tier
+    city_parish_council
     community_council
     town_council
     parish_council
     parish_meeting
-  # Healthcare — smaller providers only subject to FOI in respect of specific functions
+  # Healthcare — smaller healthcare providers only subject to FOI in respect of specific functions
     dentist
     optician
     pharmacy
     surgery
   # Other
+    engrsl
     signpost
     unit
   ]
