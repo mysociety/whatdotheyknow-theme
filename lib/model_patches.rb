@@ -81,7 +81,11 @@ Rails.configuration.to_prepare do
     academies
     fei
     school 
-  #Health
+  # Health
+    dentist
+    optician
+    pharmacy
+    surgery
   # Independent Monitoring Boards for prisons etc
     hmp_imb
     irc_imb
