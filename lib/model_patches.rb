@@ -77,13 +77,30 @@ Rails.configuration.to_prepare do
   end
 
   PublicBody.batch_excluded_tags += %w[
+  # Educational institutions
     academies
+    fei
+    school 
+  #Health
+  # Independent Monitoring Boards for prisons etc
     hmp_imb
     irc_imb
-    school 
     special_imb
     sthf_imb
     yoi_imb
+  # Local government — lowest tier
+    community_council
+    town_council
+    parish_council
+    parish_meeting
+  # Healthcare — smaller providers only subject to FOI in respect of specific functions
+    dentist
+    optician
+    pharmacy
+    surgery
+  # Other
+    signpost
+    unit
   ]
 
   PublicBody.excluded_calculated_home_page_domains += %w[
