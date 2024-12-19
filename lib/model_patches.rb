@@ -202,6 +202,7 @@ Rails.configuration.to_prepare do
     noreply@ams-sar.com
     foi@cheshireeast.gov.uk
     OneTrustEmail@surrey.ac.uk
+    Unmonitored.ACCOUNT@education.gov.uk
   )
 
   User.content_limits = {
