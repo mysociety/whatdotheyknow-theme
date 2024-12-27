@@ -74,6 +74,13 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('ucas') %>
+  <% public_body.get_tag_values('ucas').each do |tag_value| %>
+      <%= link_to _('UCAS provider'),
+                    "https://www.ucas.com/explore/search/providers?query=#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('matuid') %>
   <% public_body.get_tag_values('matuid').each do |tag_value| %>
       <%= link_to _('Establishment group information'),
