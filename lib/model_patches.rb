@@ -202,6 +202,8 @@ Rails.configuration.to_prepare do
     noreply@ams-sar.com
     foi@cheshireeast.gov.uk
     OneTrustEmail@surrey.ac.uk
+    account-security-noreply@accountprotection.microsoft.com
+    msonlineservicesteam@microsoftonline.com
   )
 
   User.content_limits = {
