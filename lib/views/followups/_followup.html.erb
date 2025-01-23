@@ -73,9 +73,6 @@
                 'to reply, they should normally have responded by ' \
                 '<strong>{{date}}</strong>',
                 date: simple_date(@info_request.date_response_required_by)) %>
-
-          (<%= link_to _('details'),
-                       help_requesting_path(anchor: 'authorities') %>).
         <% elsif @info_request.public_body.is_school? %>
           <%= _('The response to your request has been <strong>delayed</strong>. ' \
                 'You can say that, by law, the authority should normally have ' \
@@ -88,10 +85,9 @@
                 'normally have responded <strong>promptly</strong> and by ' \
                 '<strong>{{date}}</strong>',
                 date: simple_date(@info_request.date_response_required_by)) %>
+        <% end %>
 
-          (<%= link_to _('details'),
-                       help_requesting_path(anchor: 'quickly_response') %>).
-       <% end %>
+        (<%= details_help_link(@info_request.public_body) %>).
       </p>
     <% elsif status == 'waiting_response_very_overdue' %>
       <p>
@@ -99,17 +95,13 @@
           <%= _('The response to your request is <strong>long overdue' \
                 '</strong>. Although the authority has no legal obligation ' \
                 'to reply, they should have responded by now') %>
-
-          (<%= link_to _('details'),
-                       help_requesting_path(anchor: 'authorities') %>).
         <% else %>
           <%= _('The response to your request is <strong>long overdue' \
                 '</strong>. You can say that, by law, under all ' \
                 'circumstances, the authority should have responded by now') %>
-
-          (<%= link_to _('details'),
-                       help_requesting_path(anchor: 'quickly_response') %>).
         <% end %>
+
+        (<%= details_help_link(@info_request.public_body) %>).
       </p>
     <% end %>
 
@@ -127,13 +119,24 @@
       </div>
     <% end %>
 
+    <% if @info_request.from_name != @info_request.user_name %>
+      <div class="warning">
+        <%= _('Your name has been changed since your last message in this ' \
+              'request. Please consider mentioning this to the authority ' \
+              'and explain that you are the original requester.') %>
+      </div>
+    <% end %>
+
     <% form_url =
          if incoming_message.nil?
-           preview_request_followups_url(request_id: @info_request.id)
+           preview_request_followups_url(
+             request_url_title: @info_request.url_title
+           )
          else
            preview_request_followups_url(
-             request_id: @info_request.id,
-             incoming_message_id: incoming_message.id)
+             request_url_title: @info_request.url_title,
+             incoming_message_id: incoming_message.id
+           )
          end -%>
     <%= form_for @outgoing_message,
                  html: { id: 'followup_form' },
