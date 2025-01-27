@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get '/help/report-a-data-breach/thank-you' => 'help#report_a_data_breach_thank_you',
       as: :help_report_a_data_breach_thank_you
 
+  get "/donate" => redirect("https://www.mysociety.org/donate/support-whatdotheyknow-and-mysociety"),
+      as: :donate_to_mysociety   
+
   get "/help/ico-guidance-for-authorities" => redirect("https://ico.org.uk/media/for-organisations/documents/2021/2618998/how-to-disclose-information-safely-20201224.pdf"),
       as: :ico_guidance
 
