@@ -14,3 +14,8 @@ module AuthorityOnlyResponseGatekeeper
     super
   end
 end
+
+Rails.configuration.to_prepare do
+  InfoRequest::ResponseGatekeeper::AuthorityOnly.
+    prepend AuthorityOnlyResponseGatekeeper
+end
