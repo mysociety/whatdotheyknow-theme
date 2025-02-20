@@ -58,9 +58,6 @@ Rails.configuration.to_prepare do
     end
   end
 
-  InfoRequest::ResponseGatekeeper::AuthorityOnly.
-    prepend AuthorityOnlyResponseGatekeeper
-
   Legislation.refusals = {
     foi: [
       's 11', 's 12', 's 14', 's 21', 's 22', 's 30', 's 31', 's 35', 's 38',

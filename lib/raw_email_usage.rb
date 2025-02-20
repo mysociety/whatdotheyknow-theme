@@ -1,0 +1,50 @@
+##
+# Module so we can track when raw emails are used, the context, and how often.
+#
+module RawEmailUsage
+  def data
+    non_app_paths = Regexp.union(
+      *Gem.path.join('|'), RbConfig::CONFIG["exec_prefix"]
+    )
+
+    app_call_stack = caller.grep_v(non_app_paths).map do |line|
+      line.sub(Rails.root.to_s, '.')
+    end
+
+    params = {
+      method: 'RawEmail#data',
+      raw_email_id: id,
+      caller: app_call_stack
+    }
+
+    ActiveSupport::Notifications.instrument('raw_email_usage', params) do
+      super
+    end
+  end
+end
+
+Rails.configuration.to_prepare do
+  RawEmail.prepend RawEmailUsage
+end
+
+Rails.application.config.before_initialize do
+  ActiveSupport::Notifications.subscribe('raw_email_usage') do |event|
+    logger = Logger.new(Rails.root.join('log', 'raw_email_usage.log'))
+
+    context =
+      if ActsAsXapian.writable_db
+        'xapian'
+      elsif defined?(Rails::Server)
+        'web'
+      elsif defined?(Rails::Command)
+        'command'
+      else
+        ActiveSupport::ExecutionContext.to_h[:job]&.class || 'unknown'
+      end
+
+    logger.info(
+      "#{event.name} (#{event.duration.round(1)}ms) [#{context}] " +
+      event.payload.inspect
+    )
+  end
+end
