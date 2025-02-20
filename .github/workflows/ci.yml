@@ -106,6 +106,7 @@ jobs:
       run: |
         cp config/general.yml-example config/general-whatdotheyknow-theme.yml
         cp config/storage.yml-example config/storage.yml
+        mkdir log
       working-directory: core
 
     - name: Install theme
