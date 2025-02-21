@@ -3,11 +3,10 @@
 #
 module RawEmailUsage
   def data
-    non_app_paths = Regexp.union(
-      *Gem.path.join('|'), RbConfig::CONFIG["exec_prefix"]
-    )
+    app_path = /#{Rails.root}/
+    non_app_paths = Regexp.union(*Gem.path.join('|'))
 
-    app_call_stack = caller.grep_v(non_app_paths).map do |line|
+    app_call_stack = caller.grep(app_path).grep_v(non_app_paths).map do |line|
       line.sub(Rails.root.to_s, '.')
     end
 
