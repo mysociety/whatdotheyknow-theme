@@ -30,16 +30,10 @@ Rails.application.config.before_initialize do
   ActiveSupport::Notifications.subscribe('raw_email_usage') do |event|
     logger = Logger.new(Rails.root.join('log', 'raw_email_usage.log'))
 
-    context =
-      if ActsAsXapian.writable_db
-        'xapian'
-      elsif defined?(Rails::Server)
-        'web'
-      elsif defined?(Rails::Command)
-        'command'
-      else
-        ActiveSupport::ExecutionContext.to_h[:job]&.class || 'unknown'
-      end
+    context = 'xapian' if ActsAsXapian.writable_db
+    context ||= ActiveSupport::ExecutionContext.to_h[:controller]&.class
+    context ||= ActiveSupport::ExecutionContext.to_h[:job]&.class
+    context ||= Rails.env
 
     logger.info(
       "#{event.name} (#{event.duration.round(1)}ms) [#{context}] " +
