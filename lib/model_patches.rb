@@ -201,6 +201,8 @@ Rails.configuration.to_prepare do
     OneTrustEmail@surrey.ac.uk
     account-security-noreply@accountprotection.microsoft.com
     msonlineservicesteam@microsoftonline.com
+    DataRightsDONOTREPLY@met.police.uk
+    no.reply@met.police.uk 
   )
 
   User.content_limits = {
