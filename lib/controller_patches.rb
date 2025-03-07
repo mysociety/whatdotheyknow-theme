@@ -24,6 +24,7 @@ Rails.configuration.to_prepare do
     def no_response; end
     def appeals; end
     def removing_information; end
+    def books; end
 
     private
 
