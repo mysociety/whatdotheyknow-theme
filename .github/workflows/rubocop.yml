@@ -8,10 +8,10 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Alaveteli
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: mysociety/alaveteli
         ref: develop
@@ -19,7 +19,7 @@ jobs:
         fetch-depth: 0
 
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         path: lib/themes/whatdotheyknow-theme
 
@@ -30,7 +30,7 @@ jobs:
         bundler-cache: true
 
     - name: Run RuboCop linter
-      uses: reviewdog/action-rubocop@v1
+      uses: reviewdog/action-rubocop@v2
       with:
         github_token: ${{ secrets.github_token }}
         rubocop_flags: -DES lib/themes/whatdotheyknow-theme

@@ -15,7 +15,7 @@ permissions:
 jobs:
   rspec:
     name: Ruby ${{ matrix.ruby }} / PostgreSQL ${{ matrix.postgres }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
@@ -60,7 +60,7 @@ jobs:
         fi
 
     - name: Checkout Alaveteli
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: mysociety/alaveteli
         ref: ${{ env.PR_ALAVETELI_BRANCH }}
@@ -73,7 +73,7 @@ jobs:
         mkdir alaveteli-themes
 
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         path: alaveteli-themes/whatdotheyknow-theme
 
@@ -83,7 +83,7 @@ jobs:
       run: |
         sudo apt-get -y update
         sudo apt-get -y install exim4-daemon-light
-        sudo apt-get -y install `cut -d " " -f 1 config/packages.ubuntu-focal | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
+        sudo apt-get -y install `cut -d " " -f 1 config/packages | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
       working-directory: core
 
     - name: Install Ruby ${{ matrix.ruby }}
