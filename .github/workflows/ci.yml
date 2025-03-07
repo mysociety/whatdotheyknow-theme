@@ -83,7 +83,7 @@ jobs:
       run: |
         sudo apt-get -y update
         sudo apt-get -y install exim4-daemon-light
-        sudo apt-get -y install `cut -d " " -f 1 config/packages.ubuntu-focal | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
+        sudo apt-get -y install `cut -d " " -f 1 config/packages | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
       working-directory: core
 
     - name: Install Ruby ${{ matrix.ruby }}
