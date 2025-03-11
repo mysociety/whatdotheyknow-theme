@@ -73,7 +73,33 @@ Rails.configuration.to_prepare do
     prepend ProAccountBans::ModelMethods
   end
 
-  PublicBody.batch_excluded_tags += %w[school]
+  PublicBody.batch_excluded_tags += %w[
+  # Educational institutions
+    academies
+    fei
+    school 
+  # Independent Monitoring Boards for prisons etc
+    hmp_imb
+    irc_imb
+    special_imb
+    sthf_imb
+    yoi_imb
+  # Local government — lowest tier
+    city_parish_council
+    community_council
+    town_council
+    parish_council
+    parish_meeting
+  # Healthcare — smaller healthcare providers only subject to FOI in respect of specific functions
+    dentist
+    optician
+    pharmacy
+    surgery
+  # Other
+    engrsl
+    signpost
+    unit
+  ]
 
   PublicBody.excluded_calculated_home_page_domains += %w[
     aol.co.uk
