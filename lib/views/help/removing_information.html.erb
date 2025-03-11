@@ -45,7 +45,8 @@
     <li>Material that unfairly damages the reputation of a person, a business, or
     an organisation (sometimes called defamatory or libellous material).</li>
     <li>As defined in the Online Safety Act (2023), material that is terrorism
-    content, CSEA content and other priority illegal content.</li>
+    content, Child Sexual Exploitation and Abuse (CSEA) content and other 
+    priority illegal content.</li>
     <li>Material more widely that it is against the law to publish.</li>
     <li>Any other material that would breach our House Rules.</li>
   </ul>
@@ -63,23 +64,39 @@
     <%= link_to '#', '#illegal' %>
   </h3>
 
-  <p>We do not tolerate the publication of illegal material on the site, in particular
-  that which falls under the scope of the Online Safety Act (2023). This includes
-  terrorism content, CESA content and other forms of priority illegal content as defined
-  in the act. We have assessed that the risk of the majority of this type of content is
-  low accross the site, but see below for specific notes on abusive or threatening content.
-  Requests made through this site are sent to public bodies and as such are unlikely
-  to contain this sort of material and can be quickly flagged if they do. Should we identify
-  areas where there may be a risk of this sort of content, such as unused user profiles, we
-  take steps to minimise the risk of these being viewed.
-  If you come across any material of this nature, please
-  <%= link_to 'contact us', help_contact_path %> and we will assess and remove any
-  content. To enable us to assist you as quickly as possible, please include
-  a link to the message or document where it appears on WhatDoTheyKnow or the
-  unique email address that is associated with the request so that we can act quickly
-  to hide the content while it is assessed.
-  If you think that we have removed content in error, you can let us know as well. See
-  our <%= link_to 'complaints procedure here', help_complaints_path %>.</p>
+  <p>
+    We do not tolerate the publication of illegal material on the site, in particular
+    that which falls under the scope of the 
+    <a href="https://www.legislation.gov.uk/ukpga/2023/50/contents">
+    Online Safety Act (2023)</a>.
+  </p>
+  <p>
+    This includes terrorism content, <abbr title="Child Sexual Exploitation and Abuse">CSEA</abbr> 
+    content, and other forms of priority illegal content as defined in the act.
+  </p>
+  <p>
+    We have assessed that the risk of the majority of this type of content is
+    low accross the site, but see below for specific notes on abusive or threatening content.
+    Requests made through this site are sent to public bodies and as such are unlikely
+    to contain this sort of material and can be quickly flagged if they do. Should we identify
+    areas where there may be a risk of this sort of content, such as unused user profiles, we
+    take steps to minimise the risk of these being viewed.
+  </p>
+  <h4 id="illegal-removal">
+    What to do if you've become aware of this content
+  </h4>
+  <p>
+    If you come across any material of this nature, please
+    <%= link_to 'contact us', help_contact_path %> and we will assess and remove any
+    content. To enable us to assist you as quickly as possible, please include
+    a link to the message or document where it appears on WhatDoTheyKnow or the
+    unique email address that is associated with the request so that we can act quickly
+    to hide the content while it is assessed.
+  </p>
+  <p>
+    If you think that we have removed content in error, you can let us know as well. See
+    our <%= link_to 'complaints procedure here', help_complaints_path %>.
+  </p>
 
   <h3 id="abusive">
     I would like to remove a message that is abusive, threatening or
