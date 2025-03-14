@@ -5,10 +5,9 @@ RSpec.describe RequestMailer do
   describe "when mail to a user through RequestMailer" do
 
     let(:info_request) { FactoryBot.create(:info_request) }
-    let(:mail) { RequestMailer.old_unclassified_updated(info_request) }
+    let(:mail) { RequestMailer.overdue_alert(info_request, info_request.user) }
 
     before do
-      allow(info_request).to receive(:display_status).and_return("refused.")
       allow(AlaveteliConfiguration).to receive(:site_name).and_return("Test")
     end
 
