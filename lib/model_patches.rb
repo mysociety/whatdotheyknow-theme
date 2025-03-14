@@ -202,7 +202,8 @@ Rails.configuration.to_prepare do
     account-security-noreply@accountprotection.microsoft.com
     msonlineservicesteam@microsoftonline.com
     DataRightsDONOTREPLY@met.police.uk
-    no.reply@met.police.uk 
+    no.reply@met.police.uk
+    noreply@casetracker.uk
   )
 
   User.content_limits = {
