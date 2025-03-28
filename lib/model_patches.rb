@@ -204,6 +204,7 @@ Rails.configuration.to_prepare do
     DataRightsDONOTREPLY@met.police.uk
     no.reply@met.police.uk
     noreply@casetracker.uk
+    foi@westlondon.nhs.uk
   )
 
   User.content_limits = {
