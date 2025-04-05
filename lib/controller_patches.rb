@@ -1,5 +1,15 @@
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
+  AdminCensorRuleController.class_eval do
+    before_action :block_global_censor_rule_creation, only: [:create]
+
+    private
+
+    def block_global_censor_rule_creation
+      raise NotImplementedError if @censor_rule.is_global?
+    end
+  end
+
   HelpController.class_eval do
     prepend VolunteerContactForm::ControllerMethods
     prepend DataBreach::ControllerMethods
