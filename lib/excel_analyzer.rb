@@ -9,7 +9,7 @@ Rails.application.config.before_initialize do
 end
 
 ExcelAnalyzer::PROMINENCE_REASON = "We've found a problem with this file, so " \
-  "it's been hidden while we review it. We might not be able to give more " \
+  "it's been hidden while we review it. We won't be able to give more " \
   "details until then."
 
 ExcelAnalyzer.on_hidden_metadata = ->(attachment_blob, _) do
