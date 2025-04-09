@@ -23,6 +23,14 @@ jobs:
       with:
         path: lib/themes/whatdotheyknow-theme
 
+    - name: Install packages
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo apt-get -y update
+        sudo apt-get -y install exim4-daemon-light
+        sudo apt-get -y install `cut -d " " -f 1 config/packages | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
+
     - name: Install Ruby
       uses: ruby/setup-ruby@v1
       with:
