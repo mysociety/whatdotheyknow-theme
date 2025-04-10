@@ -274,7 +274,7 @@ form input[type="number"] {
 
 input.use-datepicker[type=text] {
   width: 130px;
-  background:image-url('calendar.png') no-repeat 100px 5px $main_menu-link_text;
+  background:image-url('calendar.svg') no-repeat 100px 50% $main_menu-link_text;
 }
 
 form input[type=submit], a.link_button_green, a.link_button_green_large {
@@ -2367,5 +2367,119 @@ $color_asktheeu_dark_green: #C4DDB9;
     &:focus {
       color: $color_yellow;
     }
+  }
+}
+
+/*
+ * Learn
+*/
+
+.learn-content-container {
+
+  p {
+    max-width: 37.5rem; // On desktop and wide screens we want to avoid extense lines of text that make it harder to jump from one line to the next one.
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(15.625rem, 16rem), 1fr));
+  gap: 2rem;
+
+  $card-padding: 1rem;
+  $transition: 0.35s cubic-bezier(0.30, 1, 0.7, 1);
+  .card {
+    border: 1px solid transparentize($color_blue, 0.8);
+    padding: $card-padding;
+    border-radius: $card-padding;
+    overflow: hidden;
+    background:linear-gradient(45deg, rgba(229, 234, 246, 40%), #d9e5ff);
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border $transition, background $transition, box-shadow $transition;
+
+    &-header {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &-number {
+      color: $color_white;
+      background: $color_blue;
+      display: inline-block;
+      width: 4rem;
+      height: 2rem;
+      border-radius: 50%;
+      text-align: center;
+      vertical-align: initial;
+      line-height: 1.75rem;
+      position: absolute;
+      top: $card-padding;
+      left: 0;
+      overflow: hidden;
+      background: linear-gradient(45deg, #3291cf, #1f70b5);
+      border-top-right-radius: 25rem;
+      border-bottom-right-radius: 25rem;
+
+      .number {
+        position: relative;
+        z-index: 2;
+      }
+
+      &::before {
+        content: "";
+        position: relative;
+        display: block;
+        position: absolute;
+        left: -100%;
+        transform: skewX(-25deg);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        transition: transform $transition;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        filter: blur(0.5rem);
+      }
+    }
+
+    &-image {
+      min-width: 120%;
+      max-height: 12rem;
+      margin: -$card-padding;
+      margin-bottom: 0.5rem;
+      object-fit: cover;
+    }
+
+    p {
+      color: $color_black;
+    }
+
+    &:hover {
+      background:linear-gradient(230deg, rgba(229, 234, 246, 40%), #d9e5ff);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      border: 1px solid transparentize($color_blue, 0.8);
+
+      .card-number {
+        &::before {
+          animation: shimmer 1s forwards;;
+        }
+      }
+    }
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    left: 150%;
   }
 }
