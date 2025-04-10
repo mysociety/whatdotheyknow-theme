@@ -1,17 +1,114 @@
 <script>
-  jQuery('#user_locale_switcher').find('.locale-list-trigger').each(function() {
-    jQuery(this).click(function(){
-      jQuery(this).parent().toggleClass('active');
-    });
-  });
+ jQuery('#user_locale_switcher').find('.locale-list-trigger').each(function() {
+   jQuery(this).click(function(){
+     jQuery(this).parent().toggleClass('active');
+   });
+ });
+ 
+ $(document).ready(function() {
+   // Store last focused element to return focus when modal is closed
+   let lastFocusedElement;
+   
+   // Add click event to all modal buttons
+   $('.modal-button').on('click', function(e) {
+     e.preventDefault();
+     
+     // Find the next modal-content element
+     const $modalContent = $(this).next('.modal-content');
+     
+     if ($modalContent.length) {
+       // Store currently focused element
+       lastFocusedElement = document.activeElement;
+       
+       // Show the modal
+       $modalContent.removeClass('modal-hidden').attr('aria-hidden', 'false');
+       
+       // Focus the first focusable element in the modal
+       const focusableElements = $modalContent.find('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+       if (focusableElements.length) {
+         focusableElements.first().focus();
+       }
+       
+       // Add overlay to prevent interaction with background content
+       $('body').append('<div class="modal-overlay"></div>');
+       
+       // Prevent page scrolling while modal is open
+       $('body').css('overflow', 'hidden');
+     }
+   });
+   
+   // Close modal when clicking the close button
+   $(document).on('click', '.modal-close', closeModal);
+   
+   // Close modal when clicking the overlay
+   $(document).on('click', '.modal-overlay', closeModal);
+   
+   // NEW: Close modal when clicking outside the modal container but inside modal content
+   $(document).on('click', '.modal-content', function(e) {
+     // Only close if the click was directly on the modal-content element
+     // (not on any of its children)
+     if (e.target === this) {
+       closeModal();
+     }
+   });
+   
+   // Close modal when pressing Escape key
+   $(document).on('keydown', function(e) {
+     if (e.key === 'Escape' && $('.modal-content[aria-hidden="false"]').length) {
+       closeModal();
+     }
+   });
+   
+   // Trap focus within modal using keydown event
+   $(document).on('keydown', '.modal-content[aria-hidden="false"]', function(e) {
+     if (e.key === 'Tab') {
+       const $modal = $(this);
+       const $focusableElements = $modal.find('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+       const $firstFocusableElement = $focusableElements.first();
+       const $lastFocusableElement = $focusableElements.last();
+       
+       // If shift + tab and focus is on first element, move to last element
+       if (e.shiftKey && document.activeElement === $firstFocusableElement[0]) {
+         e.preventDefault();
+         $lastFocusableElement.focus();
+       }
+       // If tab and focus is on last element, move to first element
+       else if (!e.shiftKey && document.activeElement === $lastFocusableElement[0]) {
+         e.preventDefault();
+         $firstFocusableElement.focus();
+       }
+     }
+   });
+   
+   // Function to close the modal
+   function closeModal() {
+     const $openModal = $('.modal-content[aria-hidden="false"]');
+     
+     if ($openModal.length) {
+       // Hide the modal
+       $openModal.addClass('modal-hidden').attr('aria-hidden', 'true');
+       
+       // Remove overlay
+       $('.modal-overlay').remove();
+       
+       // Re-enable page scrolling
+       $('body').css('overflow', '');
+       
+       // Return focus to last focused element
+       if (lastFocusedElement) {
+         lastFocusedElement.focus();
+       }
+     }
+   }
+ });
 </script>
 
 <%# Google Analytics tracking code for WhatDoTheyKnow %>
 <% if @total_hits %>
-  <%# we're on a search page; make it look to Google Analytics like we're using a query string, so it can track the search keywords %>
-  <script type="text/javascript">
-    gtag('send', 'page_view', {
-      page_location: '<%= request_url_with_query %>'
-    });
-  </script>
+ <%# we're on a search page; make it look to Google Analytics like we're using a query string, so it can track the search keywords %>
+ <script type="text/javascript">
+   gtag('send', 'page_view', {
+     page_location: '<%= request_url_with_query %>'
+   });
+ </script>
 <% end %>
