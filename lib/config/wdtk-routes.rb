@@ -1,6 +1,8 @@
 # Here you can override or add to the pages in the core website
 
 Rails.application.routes.draw do
+  get '/learn' => 'learn#index', :as => :learn
+
   get '/england' => redirect('/body?tag=england', status: 302)
   get '/london' => redirect('/body?tag=london', status: 302)
   get '/scotland' => redirect('/body?tag=scotland', status: 302)
@@ -17,13 +19,13 @@ Rails.application.routes.draw do
       as: :help_report_a_data_breach_thank_you
 
   get "/donate" => redirect("https://www.mysociety.org/donate/support-whatdotheyknow-and-mysociety"),
-      as: :donate_to_mysociety   
+      as: :donate_to_mysociety
 
   get "/help/ico-guidance-for-authorities" => redirect("https://ico.org.uk/media/for-organisations/documents/2021/2618998/how-to-disclose-information-safely-20201224.pdf"),
       as: :ico_guidance
 
   get "/help/microsoft-hidden-data" => redirect("http://support.microsoft.com/en-us/office/remove-hidden-data-and-personal-information-by-inspecting-documents-presentations-or-workbooks-356b7b5d-77af-44fe-a07f-9aa4d085966f#ID0EBBD=Excel"),
-      as: :excel_guidance      
+      as: :excel_guidance
 
   get "/help/ico-anonymisation-code" => redirect("https://ico.org.uk/media/1061/anonymisation-code.pdf"),
      as: :ico_anonymisation_code
@@ -82,9 +84,30 @@ Rails.application.routes.draw do
   get '/help/appeals' => 'help#appeals',
       as: :help_appeals
 
+  get '/help/commercial_interests_exemptions' => 'help#commercial_interests_exemptions',
+      as: :help_commercial_interests_exemptions
+
   get '/help/removing_information' => 'help#removing_information',
       as: :help_removing_information
 
   get '/help/books' => 'help#books',
       as: :help_books
+
+  get '/learn/understanding_rights' => 'learn#understanding_rights',
+      as: :learn_understanding_rights
+
+  get '/learn/how_to_make_requests' => 'learn#how_to_make_requests',
+      as: :learn_how_to_make_requests
+
+  get '/learn/effective_requests' => 'learn#effective_requests',
+      as: :learn_effective_requests
+
+  get '/learn/privacy_anonymity' => 'learn#privacy_anonymity',
+      as: :learn_privacy_anonymity
+
+  get '/learn/request_refused_delayed' => 'learn#request_refused_delayed',
+      as: :learn_request_refused_delayed
+
+  get '/learn/foi_myths' => 'learn#foi_myths',
+      as: :learn_foi_myths
 end
