@@ -36,7 +36,9 @@ body,
 .learn-more-foi,
 #header_right,
 #user_profile_search form,
-#user_not_logged_in  {
+#user_not_logged_in,
+.page-position-controller-wrapper,
+.sticky-sidebar-mobile-button {
     display: none !important;
 }
 

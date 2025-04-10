@@ -1,0 +1,90 @@
+<% @title = "Privacy and anonymity" %>
+
+<div class="two-col-content-grid">
+  <%
+  links = [
+    ['Real names and anonymity', '#real-names-and-anonymity']
+  ]
+
+  next_link = {
+    text: "Don’t let an unsuccessful request put you off",
+    url: learn_request_refused_delayed_path
+  }
+  %>
+
+  <%= render partial: 'sticky_sidebar', locals: { links: links, next_link: next_link } %>
+
+  <div>
+    <div class="hero-section">
+      <div>
+        <a href="/learn">Learn</a> &rsaquo; <%= @title %>
+      </div>
+      <h1 id="main-title" class="hero-content-title">
+        <%= @title %>
+      </h1>
+
+      <p class="hero-subtitle">Some people might feel worried about making requests using their own name. A common concern is that you might be treated differently by the organisation that you are asking if you do ask. </p>
+    </div>
+
+    <section class="section-medium">
+      <h2 id="real-names-and-anonymity">Real names and anonymity</h2>
+      <p>There is a legal requirement to use your real name for a request to be valid.</p>
+      <p>The law does not provide detailed guidance on exactly what counts as a real name and what does not.</p>
+      <p>However, the Information Commissioner’s Office (ICO) has issued guidance as to what counts as a real name.</p>
+      <p>If your name is Janet Smith:</p>
+
+      <div class="card-grid">
+        <div class="card card-green">
+          <ul class="unstyled-list">
+            <li>&#9989; Janet Smith</li>
+            <li>&#9989; J. Smith</li>
+            <li>&#9989; Ms Smith</li>
+            <li>&#9989; Mrs Smith</li>
+            <li>&#9989; Mx Smith</li>
+          </ul>
+
+        </div>
+        <div class="card card-red card-align-self-start">
+          <ul class="unstyled-list">
+            <li>&#10060; Janet </li>
+            <li>&#10060; Janet S.</li>
+            <li>&#10060; JS.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Notes</h3>
+      <ul>
+        <li>If your full name is James Brown but everyone calls you Jim then you can make a request using the name Jim Brown.</li>
+        <li>You don’t need to include a middle name even if you have one.</li>
+        <li>If you changed your name when you got married you can make an FOI request either using your current name or your previous name.</li>
+        <li>If you are making a request on behalf of an organisation, you can sign the request using the name of the organisation.</li>
+        <li>In practice, a lot of authorities will still ask for the name of an individual as well, so it is best to still include the name of a contact person so as not to delay your request.</li>
+      </ul>
+
+      <div class="card card-alert">
+        <p class="card-header text-with-icon">
+          <svg aria-hidden="true" role="presentation" width="16" height="24" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 12V11.25C6.5 10.3438 7.48563 9.48658 8.125 8.87502C9.02625 8.01346 9.5 6.85596 9.5 5.50002C9.5 3.00002 7.50844 1.00002 5 1.00002C4.40859 0.998368 3.82269 1.11364 3.27598 1.3392C2.72927 1.56476 2.23254 1.89617 1.81434 2.31436C1.39615 2.73255 1.06475 3.22928 0.839184 3.77599C0.613622 4.3227 0.498353 4.90861 0.500002 5.50002C0.500002 6.80752 0.994065 8.04346 1.875 8.87502C2.51094 9.47533 3.5 10.3344 3.5 11.25V12M4 15H6M3.5 13.5H6.5M5 12V8.00002" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.1875 7.5C6.1875 7.5 5.51531 8 5 8C4.48469 8 3.8125 7.5 3.8125 7.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Concerned about using your real name?
+        </p>
+
+        <p>If you are concerned about using your real name because you are requesting information that is sensitive or you work for the authority, then there are some ways to make an anonymous request.</p>
+        <p>You can ask a friend or family member to submit an FOI request for you using their name. That way, your request is legally valid and this gives your identity some protection.</p>
+        <p>If you have no one who can ask for you and still want anonymity, you could create an alias, or pseudonym, that looks like a normal name and try using that.</p>
+        <p>Many requesters have done so and had the information that they are interested in be released, but there are some downsides:</p>
+        <ul>
+            <li>If you need to go to the ICO because the request was refused, you might be unable to do so.</li>
+            <li>If the authority has good reason to suspect that you are using a pseudonym, they may not respond to you and will instead refuse to process your request unless you provide ID.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <big>
+      Up next:
+      <a href="/learn/request_refused_delayed" aria-label="Don’t let an unsuccessful request put you off">Don’t let an unsuccessful request put you off &#8594;</a>
+    </big>
+  </div>
+</div>

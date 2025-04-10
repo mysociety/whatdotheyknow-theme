@@ -1,0 +1,180 @@
+<% @title = "Taking the first steps" %>
+
+<div class="two-col-content-grid">
+  <%
+  links = [
+    ['1. Decide what you want to know', '#decide-what-you-want-to-know'],
+    ['2. Find out who might have the information', '#find-out-who-might-have-the-information'],
+    ['3. Write your request', '#write-your-request'],
+    ['4. Send the request', '#send-the-request'],
+    ['5. Receive a response', '#receive-a-response'],
+    ['6. Use the information', '#use-the-information'],
+    ['Reasonable adjustments', '#reasonable-adjustments']
+  ]
+
+  next_link = {
+    text: "Writing effective requests",
+    url: learn_effective_requests_path
+  }
+  %>
+
+  <%= render partial: 'sticky_sidebar', locals: { links: links, next_link: next_link } %>
+
+  <div>
+    <div class="hero-section">
+      <div>
+        <a href="/learn">Learn</a> &rsaquo; <%= @title %>
+      </div>
+      <h1 id="main-title" class="hero-content-title">
+        <%= @title %>
+      </h1>
+
+      <p class="hero-subtitle">In this section we’ll show you how to make your first Freedom of Information (FOI) request.</p>
+    </div>
+
+    <section class="section-medium">
+      <h3 id="decide-what-you-want-to-know"><span class="label-tag">1</span>Decide what you want to know</h3>
+      <p>Try to be as specific as you can about exactly what information you want.</p>
+      <p>Start by thinking what issue or problem you are concerned about. Then think about what records or data the authority might hold that could contain information that you are interested in.</p>
+      <p>If you are not entirely sure what records might exist, don’t worry, you can describe the general topic of the request. The FOI officer who responds to your request has a duty to provide advice and assistance.</p>
+      <p>Here are a few examples of requests:</p>
+
+      <div class="card card-red">
+        <div class="card-header"><strong>Problem:</strong></div>
+        <p>You are worried about how safe your local park is at night.</p>
+      </div>
+
+      <svg class="progression-arrow" role="presentation" aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.94 20.56c.28.28.66.44 1.06.44s.78-.16 1.06-.44l5.66-5.66c.28-.28.44-.66.44-1.06s-.16-.78-.44-1.06c-.28-.28-.66-.44-1.06-.44s-.78.16-1.06.44l-3.1 3.1V4.34c0-.4-.16-.78-.44-1.06-.28-.28-.66-.44-1.06-.44s-.78.16-1.06.44c-.28.28-.44.66-.44 1.06v11.54l-3.1-3.1c-.14-.14-.3-.25-.48-.33-.18-.07-.38-.11-.58-.11s-.39.04-.57.11-.34.19-.48.33c-.14.14-.25.3-.33.48-.7.18-.11.38-.11.58s.04.39.11.57c.08.18.19.34.33.48l5.66 5.66z" fill="currentColor"/></svg>
+
+      <div class="card card-yellow">
+        <div class="card-header"><strong>Information that you could ask for:</strong></div>
+        <p>Crime statistics for the park from the last year, or any plans that the council might have to install better lighting or CCTV.</p>
+      </div>
+
+      <svg class="progression-arrow" role="presentation" aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.94 20.56c.28.28.66.44 1.06.44s.78-.16 1.06-.44l5.66-5.66c.28-.28.44-.66.44-1.06s-.16-.78-.44-1.06c-.28-.28-.66-.44-1.06-.44s-.78.16-1.06.44l-3.1 3.1V4.34c0-.4-.16-.78-.44-1.06-.28-.28-.66-.44-1.06-.44s-.78.16-1.06.44c-.28.28-.44.66-.44 1.06v11.54l-3.1-3.1c-.14-.14-.3-.25-.48-.33-.18-.07-.38-.11-.58-.11s-.39.04-.57.11-.34.19-.48.33c-.14.14-.25.3-.33.48-.7.18-.11.38-.11.58s.04.39.11.57c.08.18.19.34.33.48l5.66 5.66z" fill="currentColor"/></svg>
+
+      <div class="card card-green">
+        <div class="card-header"><strong>Possible FOI requests:</strong></div>
+        <p><strong>&#8594; To your local police force:</strong> How many crimes were reported in [Park Name] during the past 12 months? Please provide a breakdown by month and type of incident.</p>
+        <p><strong>&#8594; To your local council:</strong> Please provide any internal reports or assessments about safety or lighting in [Park Name] in the last three years.</p>
+      </div>
+
+    </section>
+
+    <section class="section-medium">
+      <h3 id="find-out-who-might-have-the-information"><span class="label-tag">2</span>Find out who might have the information</h3>
+      <p>Once you know what you want to ask, the next step is to work out who is likely to hold that information.</p>
+      <p>This is important because your FOI request needs to be made to the organisation that holds the information. If you send it to the wrong place, you could get a “not held” response. You would then need to write to another organisation and that could take more time.</p>
+      <p>If the information that you are interested in is local information, it might be held by your local council, police force or NHS trust.</p>
+      <p>If you have a question about a national policy, it might be held by a government department such as the Home Office or DWP.</p>
+      <p>Sometimes it might not be obvious who would hold the information you want.</p>
+      <p>If you are not sure, you can try checking an authority’s website, or contacting the authority in advance.</p>
+      <p>You can also search an authority’s name or a keyword on WhatDoTheyKnow, and find previous requests that others have made. This can give you a good idea about the types of information that an authority holds.</p>
+      <p>Sometimes more than one organisation could have the relevant information.</p>
+      <p>For example, if you wanted to find out information about a local community policing initiative, both the police and your local council might hold separate pieces of useful information (the police for crime statistics, the council for community safety meeting minutes). In that case, you might want to make a separate request to each authority.</p>
+      <p>If you’re really unsure, don’t worry. If the authority that you ask doesn’t have the information, they will usually tell you who does.</p>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="write-your-request"><span class="label-tag">3</span>Write your request</h3>
+      <p>There is no strict format that you need to use, but it helps to be clear and specific.</p>
+      <p>To be valid, a request needs to contain your real name, an address that you would like the information to be sent to, and a description of the information you are interested in. The address can be an email address or a postal address.</p>
+      <p>You should clearly describe the information that you want, including information like dates, places or departments where applicable.</p>
+      <p>You don’t need to justify why you are asking for the information. Try to focus on describing the information itself.</p>
+      <p>Although the wider context of your request might be important to you, you should avoid including extra background information, unless it would help the FOI officer to locate the information that you are asking for.</p>
+      <p>Requests to authorities in Wales can be made either in English or Welsh.</p>
+      <p>If you would like to receive the information in a set format, for example in electronic format, you should say so at the time that you make your request. The authority has to comply with your request if it is reasonable for them to do so. If you need a special format due to accessibility (such as large print or an audio recording), you can request that too.</p>
+
+      <div class="card card-yellow">
+        <div class="card-header text-with-icon">
+          <svg viewBox="0 0 16 16" width="1.5rem" height="1.5rem" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+            <path d="M15.4648 10.5156L10.6528 2.62742C10.0212 1.59237 9.05504 1 8.00017 1C6.9453 1 5.97915 1.59237 5.34753 2.62582L0.5355 10.5156C-0.104258 11.5634 -0.174257 12.6809 0.344224 13.5815C0.861892 14.4829 1.87281 15 3.11651 15H12.8838C14.1275 15 15.1384 14.4829 15.6561 13.5823C16.1738 12.6817 16.1046 11.5642 15.4648 10.5156ZM8.00017 12.2375C7.30506 12.2375 6.73856 11.6811 6.73856 10.9975C6.73856 10.3131 7.30425 9.7559 8.00017 9.7559C8.69609 9.7559 9.26178 10.3131 9.26178 10.9975C9.26178 11.6811 8.69527 12.2375 8.00017 12.2375ZM9.32934 6.29453C9.32038 6.31934 8.189 9.07067 8.189 9.07067C8.15807 9.14592 8.08319 9.19555 8.00098 9.19555C7.91877 9.19555 7.84389 9.14592 7.81296 9.07067L6.68077 6.31854C6.61283 6.15173 6.57722 5.9739 6.57577 5.79421C6.57577 5.02173 7.21471 4.39333 8.00017 4.39333C8.23085 4.39391 8.45795 4.44953 8.66198 4.5554C8.86601 4.66128 9.04088 4.81425 9.17158 5.0012C9.30228 5.18815 9.38491 5.4035 9.41239 5.62876C9.43987 5.85402 9.41137 6.08248 9.32934 6.29453Z" fill="currentColor"/>
+            </svg>
+            Try to avoid broad requests
+        </div>
+        <p>Such as “all documents relating to [topic]”. These are more likely to be refused, as the law allows authorities to refuse to respond to requests if it would take too long for them to do so. If possible, try to narrow your request to a set time period or a specific project/event.</p>
+      </div>
+      <br>
+      <div class="highlight-text">
+        <p>Here is a quick checklist of the things that your request needs to contain:</p>
+        <ul>
+        <li>Your name.</li>
+        <li>An email address or postal address for the authority to send the response to.</li>
+        <li>A clear description of the information that you want.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="send-the-request"><span class="label-tag">4</span>Send the request</h3>
+      <p>Once you’ve written your request, and checked that it contains the necessary information, the next step is to send it to the authority.</p>
+
+      <div class="card-grid">
+        <div class="card card-spawn-2">
+          <h4 class="card-header">WhatDoTheyKnow</h4>
+          <p>WhatDoTheyKnow is a website that enables you to make requests for free.</p>
+          <p>There are over 45,000 public authorities listed on WhatDoTheyKnow and you can make requests to any of them.</p>
+          <p>Your request, and any response that the authority provides, are published on the site. This automatic record is available in a public archive to help others.</p>
+          <p>Please note that WhatDoTheyKnow will publish your request on the internet along with your username. If you are worried about your privacy or don’t want your request to be public, you are better off contacting the authority directly.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Email</h4>
+          <p>Almost every public authority has a dedicated email address for FOI requests.</p>
+          <p>You can usually find it on their website on the “Freedom of Information” or “Contact us” pages.</p>
+          <p>If not, any official email address will do. The law doesn’t require requests to be sent to a specific address. If you are using the general contact address, it’s a good idea to ask for your message to be forwarded to the FOI team.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Online form</h4>
+          <p>Some authorities have a dedicated webform on their website for making requests.</p>
+          <p>These are often easy to use, but one downside is that you usually won’t have a copy of your request if you need it later on.</p>
+          <p>You might want to take a screenshot or save the text of your request in a separate document so that you have a record of it. Make sure you note down the date your request was sent.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Letter</h4>
+          <p>FOI requests can be made by post.</p>
+          <p>If you post your request at your local Post Office, you can ask for a free ‘proof of posting’ to show that you sent it.</p>
+          <p>You should also keep a copy of the request that you sent for your records, as this will be helpful if you need to appeal.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">In person</h4>
+          <p>You can hand deliver a request to the offices of the public authority.</p>
+          <p>Some authorities have a postbox that you can leave letters in. You might be able to ask the receptionist to give you a receipt, as proof of the date they received it.</p>
+          <p>As with a request made by post, you should keep a copy of the request that you sent, as this will be helpful if you need to appeal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="receive-a-response"><span class="label-tag">5</span>Receive a response</h3>
+      <p>You should receive a response from the authority within 20 working days (around four weeks).</p>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="use-the-information"><span class="label-tag">6</span>Use the information</h3>
+      <p>You might just have wanted the information for your own purposes.</p>
+      <p>Or you can share the information you receive with others. It might be useful for a campaign, or to share on a blog or community group, in a letter to the newspaper or in a research paper.</p>
+      <p>Some authorities will claim copyright over the material contained in the FOI request, but in practice authorities generally allow requesters to share FOI responses with others who may be interested.</p>
+    </section>
+
+    <section>
+      <h2 id="reasonable-adjustments">Reasonable adjustments</h2>
+      <p>The FOI process is supposed to be accessible to everyone. Public authorities have a legal duty to remove barriers to people accessing their services.</p>
+      <p>If you cannot easily make a request in writing due to a disability, you can ask the authority to accept your request in an alternative way. ICO guidance explicitly states that you can make a verbal request if you need a reasonable adjustment and the authority should help you to do so.</p>
+      <p>You can also ask to receive the information in an accessible format. This might include receiving the information in braille, as a large print version or as an audio recording.</p>
+      <p>When asking for an adjustment, it’s helpful to clearly explain what you need and why. If an authority fails to accommodate you, you can get advice from the Equality Advisory Support Service (EASS) or Citizens Advice.</p>
+    </section>
+
+    <section>
+      <p class="highlight-text">You’ve now completed the step-by-step guide to making a request. In the next section we’ll cover how to write a request in a way that gives the best possible chance of getting useful information released without refusals or delays.</p>
+    </section>
+
+    <big>
+      Up next:
+      <a href="/learn/effective_requests" aria-label="Go to next topic: Writing effective requests">Writing effective requests &#8594;</a>
+    </big>
+  </div>
+</div>
