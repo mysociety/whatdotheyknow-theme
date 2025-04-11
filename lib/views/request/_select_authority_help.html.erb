@@ -20,14 +20,3 @@
              ).html_safe %>
   </p>
 </div>
-
-<div>
-  <p class="info"><% _('Looking for an EU Authority?') %></p>
-  <p class="actions">
-    <% eu_link = link_to('AskTheEU.org', 'http://asktheeu.org/?utm_source=whatdotheyknow&utm_medium=banner&utm_content=select_authority&utm_campaign=alaveteli-experiments-54') %>
-
-    <%= _('You can request documents directly from EU Institutions at our ' \
-          'sister site {{ask_the_eu_link}}.',
-          ask_the_eu_link: eu_link) %>
-  </p>
-</div>

@@ -2258,51 +2258,6 @@ div.pagination span.disabled {
   visibility: hidden;
 }
 
-
-/* AsktheEU.org promos */
-
-$color_asktheeu_green: #E2EBE1;
-$color_asktheeu_mint_green: #00989E;
-$color_asktheeu_dark_green: #C4DDB9;
-
-.asktheeu-promo {
-  background-color: $color_asktheeu_green;
-  padding: 1.5em;
-  border: 1px solid $color_asktheeu_dark_green;
-  border-radius: 3px;
-  position: relative;
-  margin-bottom: 2em;
-  p {
-    font-size: 1.125em;
-    @include respond-min($main_menu-mobile_menu_cutoff) {
-      margin-right: 8.5em;
-    }
-  }
-  .asktheeu-promo__header{
-    color: $color_asktheeu_mint_green;
-    font-weight: bold;
-    font-size: 1.4375em;
-    margin-top: 0;
-  }
-}
-
-.asktheeu-promo--homepage {
-  margin-top: 2em;
-  margin-bottom: 0;
-}
-
-.asktheeu-promo__image {
-  display: block;
-  max-width: 7.5em;
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    position: absolute;
-    top: 1.5em;
-    right: 1.5em;
-    float: none;
-  }
-
-}
-
 /*
  * Houdini customisations
  */
