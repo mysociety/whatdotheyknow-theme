@@ -22,7 +22,7 @@ RSpec.describe 'ExcelAnalyzer on_hidden_metadata hook' do
     expect(attachment.prominence).to eq('hidden')
     expect(attachment.prominence_reason).to eq(<<~TXT.squish)
       We've found a problem with this file, so it's been hidden while we review
-      it. We might not be able to give more details until then.
+      it. We won't be able to give more details until then.
     TXT
   end
 
