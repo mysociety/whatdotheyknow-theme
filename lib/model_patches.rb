@@ -244,6 +244,7 @@ Rails.configuration.to_prepare do
     no.reply@met.police.uk
     noreply@casetracker.uk
     foi@westlondon.nhs.uk
+    no-reply@south-ayrshire.gov.uk
   )
 
   User.content_limits = {
