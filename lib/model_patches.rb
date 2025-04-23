@@ -246,6 +246,7 @@ Rails.configuration.to_prepare do
     foi@westlondon.nhs.uk
     no-reply@south-ayrshire.gov.uk
     noreply@north-ayrshire.gov.uk
+    noreply@corestream.co.uk
   )
 
   User.content_limits = {
