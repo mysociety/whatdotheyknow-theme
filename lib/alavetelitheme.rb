@@ -60,7 +60,8 @@ for patch in ['patch_mailer_paths.rb',
               'data_breach.rb',
               'excel_analyzer.rb',
               'authority_only_response_gatekeeper.rb',
-              'raw_email_usage.rb']
+              'raw_email_usage.rb',
+              'immigration_detection.rb']
     require File.expand_path "../#{patch}", __FILE__
 end
 
