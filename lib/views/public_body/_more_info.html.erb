@@ -14,6 +14,21 @@
   <%= link_to _('Disclosure log'), public_body.disclosure_log %><br>
 <% end %>
 
+<% ons_statistics_tags = [] %>
+<% if public_body.has_tag?('statistical_geography') %>
+  <% ons_statistics_tags += public_body.get_tag_values('statistical_geography') %>
+<% end %>
+<% if public_body.has_tag?('gss') %>
+  <% ons_statistics_tags += public_body.get_tag_values('gss') %>
+<% end %>
+
+<% unless ons_statistics_tags.empty? %>
+  <% ons_statistics_tags.each do |tag_value| %>
+    <%= link_to _('Explore local statistics'),
+          "https://www.ons.gov.uk/explore-local-statistics/areas/#{ ERB::Util.url_encode(tag_value) }" %><br>
+  <% end %>
+<% end %>
+
 <% twfy_utm_params = { utm_source: 'whatdotheyknow.com',
                        utm_medium: 'link',
                        utm_campaign: 'body_page_more_info' } %>
