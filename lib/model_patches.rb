@@ -160,6 +160,18 @@ Rails.configuration.to_prepare do
     end
   end
 
+  PublicBody.instance_eval do
+    module SignpostMissingEmail
+      def update_missing_email_tag
+        return remove_tag('missing_email') if has_tag?('signpost')
+
+        super
+      end
+    end
+
+    prepend SignpostMissingEmail
+  end
+
   RawEmail.class_eval do
     alias original_data data
 
