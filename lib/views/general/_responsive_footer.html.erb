@@ -13,20 +13,20 @@
         <div class="col-sm-4">
             <nav class="mysoc-footer__links">
                 <ul>
-                    <li role="presentation"><%= link_to 'Make a request', select_authority_path %></li>
-                    <li role="presentation"><%= link_to 'Browse requests', request_list_successful_path %></li>
-                    <li role="presentation"><%= link_to 'View authorities', list_public_bodies_default_path %></li>
-                    <li role="presentation"><%= link_to 'Campaigners', pro_page_path('campaigners') %></li>
-                    <li role="presentation"><%= link_to 'Journalists', pro_page_path('journalists') %></li>
-                    <li role="presentation"><%= link_to 'Researchers', pro_page_path('researchers') %></li>
+                    <li><%= link_to 'Make a request', select_authority_path %></li>
+                    <li><%= link_to 'Browse requests', request_list_successful_path %></li>
+                    <li><%= link_to 'View authorities', list_public_bodies_default_path %></li>
+                    <li><%= link_to 'Campaigners', pro_page_path('campaigners') %></li>
+                    <li><%= link_to 'Journalists', pro_page_path('journalists') %></li>
+                    <li><%= link_to 'Researchers', pro_page_path('researchers') %></li>
                 </ul>
                 <ul>
-                    <li role="presentation"><%= link_to 'Help', help_path %></li>
-                    <li role="presentation"><%= link_to 'Contact us', help_contact_path %></li>
-                    <li role="presentation"><%= link_to 'Become a volunteer', help_volunteers_path %></li>
-                    <li role="presentation"><%= link_to 'House rules', help_house_rules_path %></li>
-                    <li role="presentation"><%= link_to 'Privacy and cookies', help_privacy_path %></li>
-                    <li role="presentation"><%= link_to 'API', help_api_path %></li>
+                    <li><%= link_to 'Help', help_path %></li>
+                    <li><%= link_to 'Contact us', help_contact_path %></li>
+                    <li><%= link_to 'Become a volunteer', help_volunteers_path %></li>
+                    <li><%= link_to 'House rules', help_house_rules_path %></li>
+                    <li><%= link_to 'Privacy and cookies', help_privacy_path %></li>
+                    <li><%= link_to 'API', help_api_path %></li>
                     <% if feature_enabled?(:pro_pricing) %>
                       <li>
                         <%= link_to 'Pro Terms', pro_page_path(:id => 'legal') %>
@@ -69,14 +69,14 @@
 
         <div class="col-sm-3">
             <ul class="mysoc-footer__badges">
-                <li role="presentation"><a href="https://github.com/mysociety/whatdotheyknow-theme" class="mysoc-footer__badge mysoc-footer__badge--github">Github</a></li>
+                <li><a href="https://github.com/mysociety/whatdotheyknow-theme" class="mysoc-footer__badge mysoc-footer__badge--github">Github</a></li>
               <% unless AlaveteliConfiguration::twitter_username.blank? %>
-                <li role="presentation">
+                <li>
                   <a href="https://twitter.com/<%= AlaveteliConfiguration::twitter_username %>" class="mysoc-footer__badge mysoc-footer__badge--twitter" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::TWITTER_EXIT, :label => 'Footer link')%>">@<%= AlaveteliConfiguration::twitter_username %></a>
                 </li>
               <% end %>
               <% unless AlaveteliConfiguration::facebook_username.blank? %>
-                <li role="presentation"><a href="https://facebook.com/whatdotheyknowcom" class="mysoc-footer__badge mysoc-footer__badge--facebook" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::FACEBOOK_EXIT, :label => 'Footer link')%>">Facebook</a></li>
+                <li><a href="https://facebook.com/whatdotheyknowcom" class="mysoc-footer__badge mysoc-footer__badge--facebook" onclick="<%= track_analytics_event(AnalyticsEvent::Category::OUTBOUND, AnalyticsEvent::Action::FACEBOOK_EXIT, :label => 'Footer link')%>">Facebook</a></li>
               <% end %>
             </ul>
         </div>

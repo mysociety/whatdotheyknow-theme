@@ -9,7 +9,7 @@
         <img class="badge-mobile" src="<%= image_path('badge-mysociety-mobile@2x.png') %>" width="48" height="60" alt="A service from mySociety">
       </a>
       <div class="banner_site-title">
-        <h1><%= link_to site_name, frontpage_path, :id => 'logo', :class => 'site-title__logo' %></h1>
+        <%= link_to site_name, frontpage_path, :id => 'logo', :class => 'site-title__logo' %>
       </div>
 
       <div class="rsp_menu_button">
@@ -26,7 +26,7 @@
           <label class="visually-hidden" for="navigation_search_button">
             <%= _("Search") %>
           </label>
-          <%= text_field_tag 'query', params[:query], { :class => "navigation_search_button", :id => "navigation_search_button", :type => "search", :placeholder => _("Search"), :title => _("type your search term here") } %>
+          <%= text_field_tag 'query', params[:query], { :class => "navigation_search_button", :id => "navigation_search_button", :type => "search", :placeholder => _("Search"), "aria-label" => _("To search type your term here") } %>
           <button type="submit">
             <span class="visually-hidden">
               <%= _("Submit Search") %>
