@@ -47,6 +47,7 @@ Rails.configuration.to_prepare do
     def appeals; end
     def removing_information; end
     def books; end
+    def commercial_interests_exemptions; end
 
     private
 

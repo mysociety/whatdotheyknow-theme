@@ -84,11 +84,11 @@ Rails.application.routes.draw do
   get '/help/appeals' => 'help#appeals',
       as: :help_appeals
 
+  get '/help/commercial_interests_exemptions' => 'help#commercial_interests_exemptions',
+      as: :help_commercial_interests_exemptions
+
   get '/help/removing_information' => 'help#removing_information',
       as: :help_removing_information
-
-  get '/help/books' => 'help#books',
-      as: :help_books
 
   get '/learn/understanding_rights' => 'learn#understanding_rights',
       as: :learn_understanding_rights
@@ -107,5 +107,4 @@ Rails.application.routes.draw do
 
   get '/learn/foi_myths' => 'learn#foi_myths',
       as: :learn_foi_myths
-
 end

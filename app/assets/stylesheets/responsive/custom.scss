@@ -2381,7 +2381,6 @@ $color_asktheeu_dark_green: #C4DDB9;
  * /help/books
  */
 
-
 #help_books .book-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2434,14 +2433,16 @@ $color_asktheeu_dark_green: #C4DDB9;
   }
 
   .section-intro {
-    max-width: 38.5rem; // On desktop and wide screens we want to avoid extense lines of text that make it harder to jump from one line to the next one.
-    margin: 0 auto 2rem;
-    text-align: center;
+    margin: 0 0 2rem;
+    &-centre {
+      max-width: 38.5rem; // On desktop and wide screens we want to avoid extense lines of text that make it harder to jump from one line to the next one.
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
   }
 
   .subtitle {
     font-size: 1.1rem;
-    text-align: center;
   }
 }
 
@@ -3111,5 +3112,15 @@ $button-page-controller-size: 2.75rem;
 
   li {
     margin-bottom: 0.5rem;
+  }
+}
+
+/*
+ * sup
+*/
+
+sup {
+  a {
+    text-decoration: none; // It looks a bit confusing if we add the default underline because of the size of the element itself.
   }
 }
