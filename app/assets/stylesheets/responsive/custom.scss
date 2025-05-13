@@ -3124,3 +3124,11 @@ sup {
     text-decoration: none; // It looks a bit confusing if we add the default underline because of the size of the element itself.
   }
 }
+
+/*
+ * abbr
+*/
+
+abbr[title] {
+  border-bottom: none;
+}
