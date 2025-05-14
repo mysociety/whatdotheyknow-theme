@@ -69,6 +69,20 @@ Rails.configuration.to_prepare do
     ]
   }
 
+  OutgoingMessage::Template::InitialRequest.class_eval do
+    private
+    
+    # Override the template_string method to add our text
+    def template_string(replacements)
+      msg = salutation(replacements)
+      msg += "\n\nPlease provide me with the following information:\n\n"
+      msg += letter(replacements)
+      msg += "\n\n\n\n"
+      msg += signoff(replacements)
+      msg += "\n\n"
+    end
+  end
+  
   ProAccount.class_eval do
     prepend ProAccountBans::ModelMethods
   end
