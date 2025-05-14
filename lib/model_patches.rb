@@ -70,9 +70,9 @@ Rails.configuration.to_prepare do
   }
 
   OutgoingMessage::Template::InitialRequest.class_eval do
+    # Adds a line to the default request template after the salutation
     private
     
-    # Override the template_string method to add our text
     def template_string(replacements)
       msg = salutation(replacements)
       msg += "\n\nPlease provide me with the following information:\n\n"
