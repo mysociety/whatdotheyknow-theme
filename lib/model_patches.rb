@@ -7,7 +7,7 @@
 #
 # Please arrange overridden classes alphabetically.
 Rails.configuration.to_prepare do
-  SPAM_TERMS_CONFIG = Rails.root + 'config/spam_terms.txt'
+  SPAM_TERMS_CONFIG ||= Rails.root + 'config/spam_terms.txt'
 
   if File.exist?(SPAM_TERMS_CONFIG)
     custom_terms =
