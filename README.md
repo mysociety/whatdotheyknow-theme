@@ -1,6 +1,8 @@
 # Alaveteli theme for WhatDoTheyKnow
 
-This is the Alaveteli theme that is used on whatdotheyknow.com
+This is the Alaveteli theme that is used on whatdotheyknow.com (WhatDoTheyKnow).
+
+WhatDoTheyKnow is a website for making freedom of information request to UK public authorities.
 
 To install:
 
@@ -12,4 +14,4 @@ To run tests, in the Alaveteli Rails.root (with this theme installed):
 
     bundle exec rspec lib/themes/whatdotheyknow-theme/spec
 
-Copyright (c) 2013 mySociety, released under the MIT license
+Copyright © 2013–2025 mySociety, released under the MIT license
