@@ -11,9 +11,8 @@
       <p>You might use FOI to find out facts within your own local area, or you might obtain stats across the whole of the UK. You could be following your own curiosity, or pursuing a wider societal benefit. Whatever is behind your need to know, FOI is a great tool for bringing information into the open, where everyone can access it.</p>
     </div>
 
-    <!-- TODO add HREF -->
      <div class="card-grid">
-       <a class="card" href="/learn/understanding_rights">
+       <a class="card" href="<%= learn_understanding_rights_path %>">
         <%= image_tag "learn/learn-illustration-1.png", class: "card-image", alt: "A bright yellow light bulb with a hand-drawn filament on a teal background", loading: "lazy" %>
         <h2 class="card-header">
           <span class="card-number"><span class="number">1</span></span>
@@ -24,7 +23,7 @@
          </div>
        </a>
 
-       <a class="card" href="/learn/how_to_make_requests">
+       <a class="card" href="<%= learn_how_to_make_requests_path %>">
         <%= image_tag "learn/learn-illustration-2.png", class: "card-image", alt: "A pair of blue shoes with yellow trim worn by someone in pink striped pants", loading: "lazy" %>
         <h2 class="card-header">
           <span class="card-number"><span class="number">2</span></span>
@@ -34,7 +33,7 @@
         </div>
       </a>
 
-      <a class="card" href="/learn/effective_requests">
+      <a class="card" href="<%= learn_effective_requests_path %>">
         <%= image_tag "learn/learn-illustration-3.png", class: "card-image", alt: "A green pencil drawing a curvy line on a pale yellow background", loading: "lazy" %>
         <h2 class="card-header">
           <span class="card-number"><span class="number">3</span></span>
@@ -45,7 +44,7 @@
         </div>
       </a>
 
-      <a class="card" href="/learn/privacy_anonymity">
+      <a class="card" href="<%= learn_privacy_anonymity_path %>">
         <%= image_tag "learn/learn-illustration-4.png", class: "card-image", alt: "A question mark shape in teal and cream tones on a light yellow background", loading: "lazy" %>
         <h2 class="card-header">
           <span class="card-number"><span class="number">4</span></span>
@@ -57,7 +56,7 @@
         </div>
       </a>
 
-      <a class="card" href="/learn/request_refused_delayed">
+      <a class="card" href="<%= learn_request_refused_delayed_path %>">
         <%= image_tag "learn/learn-illustration-5.png", class: "card-image", alt: "Two hands with open palms on a teal background, one hand making an ‘OK’ gesture", loading: "lazy" %>
         <h2 class="card-header">
           <span class="card-number"><span class="number">5</span></span>
@@ -68,7 +67,7 @@
         </div>
       </a>
 
-      <a class="card" href="/learn/foi_myths">
+      <a class="card" href="<%= learn_foi_myths_path %>">
         <%= image_tag "learn/learn-illustration-6.png", class: "card-image", alt: "Colorful arrows in yellow, green, and teal pointing in different directions with a curved red path", loading: "lazy" %>
         <h2 class="card-header">
           <span class="card-number"><span class="number">6</span></span>
@@ -259,21 +258,19 @@
     <div class="card-grid">
       <div class="grid-item">
         <h3 class="grid-item-title">More about FOI</h3>
-        <a class="card card-link" href="/help/glossary">Key terms & glossary</a>
-        <a class="card card-link" href="/help/exemptions">Reasons authorities can withhold information</a>
+        <a class="card card-link" href="<%= help_glossary_path %>">Key terms & glossary</a>
+        <a class="card card-link" href="<%= help_exemptions_path %>">Reasons authorities can withhold information</a>
       </div>
 
       <div class="grid-item">
         <h3 class="grid-item-title">Advanced topics</h3>
-        <!-- TODO Updated href -->
-        <a class="card card-link" href="/help/commercial_interests_exemptions">Commercial interests exemptions</a>
-        <a class="card card-link" href="/help/accessing_information">Making the most of public requests on WhatDoTheyKnow</a>
+        <a class="card card-link" href="<%= help_commercial_interests_exemptions_path %>">Commercial interests exemptions</a>
+        <a class="card card-link" href="<%= help_accessing_information_path %>">Making the most of public requests on WhatDoTheyKnow</a>
       </div>
 
       <div class="grid-item">
         <h3 class="grid-item-title">Other places to go</h3>
-        <!-- <a class="card card-link" href="/help/glossary">Other organisations</a> -->
-        <a class="card card-link" href="/help/books">FOI books</a>
+        <a class="card card-link" href="<%= help_books_path %>">FOI books</a>
       </div>
     </div>
 
