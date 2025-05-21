@@ -10,13 +10,19 @@
   <%= link_to _("View authorities"), list_public_bodies_default_path %>
 </li>
 
-<% if Blog.enabled? %>
-  <li class="<%= 'selected' if controller?('general') && action?('blog') %>"><%= link_to _("Read blog"), blog_path %></li>
-<% end %>
+<li class="<%= 'selected' if controller?('learn') %>">
+  <%= link_to learn_path do %>
+    Learn <span class="label-tag-nav label-tag-nav-absolute">New</span>
+  <% end %>
+</li>
 
 <li class="<%= 'selected' if controller?('help') && !action?('volunteers') %>">
   <%= link_to _("Help"), help_about_path %>
 </li>
+
+<% if Blog.enabled? %>
+  <li class="<%= 'selected' if controller?('general') && action?('blog') %>"><%= link_to _("Blog"), blog_path %></li>
+<% end %>
 
 <li class="<%= 'selected' if controller?('alaveteli_pro/account_request', 'alaveteli_pro/plans') %>">
   <%= link_to _('Pro'), account_request_index_path %>
@@ -25,3 +31,4 @@
 <li class="<%= 'selected' if controller?('help') && action?('volunteers') %>">
   <%= link_to _("Volunteer"), help_volunteers_path %>
 </li>
+
