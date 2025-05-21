@@ -2847,7 +2847,7 @@ $button-page-controller-size: 2.75rem;
   margin-top: 1rem;
   display: none; // Hidden on mobile
   max-height: 80dvh; // In case there are a loot of items inside
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 1;
 
   &-mobile-button {
