@@ -17,7 +17,7 @@
 
   next_link = {
     text: "Putting knowledge to use",
-    url: "/learn#Putting knowledge to use",
+    url: "/learn#seminars",
     heading: "Related:"
   }
   %>
@@ -27,7 +27,7 @@
   <div>
     <div class="hero-section">
       <div>
-        <a href="/learn">Learn</a> &rsaquo; <%= @title %>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
       </div>
       <h1 id="main-title" class="hero-content-title">
         <%= @title %>
@@ -153,7 +153,7 @@
         <p>The Freedom of Information Act makes public information accessible to all. Authorities can&rsquo;t charge you for making requests, or for the time spent looking for information.</p>
         <p>The only charge that there might be is for photocopying or postage charges, but you will always be given the option not to pay, and electronic delivery (ie by email) will be free.</p>
         <p>There is a &ldquo;cost exemption&rdquo; under the Act, but that applies to the cost to the authority and not to you. It means that if your request would cost the authority too much money to answer in full, they can refuse it.</p>
-        <p>It may help to think of this as a limit to the amount of time that an authority has to spend answering your request. <a href="/learn/request_refused_delayed">There&rsquo;s some advice about this here</a>.</p>
+        <p>It may help to think of this as a limit to the amount of time that an authority has to spend answering your request. <a href="<%= learn_request_refused_delayed_path %>">There&rsquo;s some advice about this here</a>.</p>
       </div>
     </section>
     
@@ -168,7 +168,7 @@
         <big><p>The Freedom of Information Act gives you the right to access recorded information that is held by public authorities.</p></big>
         <p>It doesn&rsquo;t require authorities to create new information, or provide you with explanations for things &mdash; unless those explanations are already written down.</p>
         <p>The information that you receive might help you to better understand how a decision was made &mdash; for example, you might receive minutes from a meeting where the question is being discussed, or a vote is taken.</p>
-        <p>But the authority doesn&rsquo;t have to answer your questions, justify decisions they&rsquo;ve taken, or create any new data in response to your specific request. A &ldquo;why&rdquo; question is usually not a good basis for an FOI request &mdash; <a href="/learn/effective_requests">see our guidance here</a>.</p>
+        <p>But the authority doesn&rsquo;t have to answer your questions, justify decisions they&rsquo;ve taken, or create any new data in response to your specific request. A &ldquo;why&rdquo; question is usually not a good basis for an FOI request &mdash; <a href="<%= learn_effective_requests_path %>">see our guidance here</a>.</p>
         <p>That said, although they are not obliged to do so, many authorities will provide context or explanations alongside the information that they send to you, to help you to understand it better.</p>
         <p>Otherwise, if you are looking for explanations rather than specific recorded information, you might want to try different methods, like <a href="https://www.writetothem.com/">writing to elected officials</a> or attending public meetings.</p>
       </div>

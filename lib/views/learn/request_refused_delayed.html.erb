@@ -19,7 +19,7 @@
   <div>
     <div class="hero-section">
       <div>
-        <a href="/learn">Learn</a> &rsaquo; <%= @title %>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
       </div>
       <h1 id="main-title" class="hero-content-title">
         <%= @title %>
@@ -220,7 +220,7 @@
 
     <big>
       Up next:
-      <a href="/learn/foi_myths" aria-label="Common misconceptions about FOI">Common misconceptions about FOI &#8594;</a>
+      <a href="<%= learn_foi_myths_path %>" aria-label="Common misconceptions about FOI">Common misconceptions about FOI &#8594;</a>
     </big>
   </div>
 </div>

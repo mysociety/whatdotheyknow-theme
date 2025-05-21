@@ -23,7 +23,7 @@
   <div>
     <div class="hero-section">
       <div>
-        <a href="/learn">Learn</a> &rsaquo; <%= @title %>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
       </div>
       <h1 id="main-title" class="hero-content-title">
         <%= @title %>
@@ -174,7 +174,7 @@
 
     <big>
       Up next:
-      <a href="/learn/effective_requests" aria-label="Go to next topic: Writing effective requests">Writing effective requests &#8594;</a>
+      <a href="<%= learn_effective_requests_path %>" aria-label="Go to next topic: Writing effective requests">Writing effective requests &#8594;</a>
     </big>
   </div>
 </div>

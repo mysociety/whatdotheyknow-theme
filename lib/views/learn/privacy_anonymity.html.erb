@@ -17,7 +17,7 @@
   <div>
     <div class="hero-section">
       <div>
-        <a href="/learn">Learn</a> &rsaquo; <%= @title %>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
       </div>
       <h1 id="main-title" class="hero-content-title">
         <%= @title %>
@@ -84,7 +84,7 @@
 
     <big>
       Up next:
-      <a href="/learn/request_refused_delayed" aria-label="Don’t let an unsuccessful request put you off">Don’t let an unsuccessful request put you off &#8594;</a>
+      <a href="<%= learn_request_refused_delayed_path %>" aria-label="Don’t let an unsuccessful request put you off">Don’t let an unsuccessful request put you off &#8594;</a>
     </big>
   </div>
 </div>

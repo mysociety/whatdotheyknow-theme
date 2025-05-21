@@ -21,7 +21,7 @@
   <div>
     <div class="hero-section">
       <div>
-        <a href="/learn">Learn</a> &rsaquo; <%= @title %>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
       </div>
       <h1 id="main-title" class="hero-content-title">
         <%= @title %>
@@ -298,7 +298,7 @@
 
     <big>
       Up next:
-      <a href="/learn/privacy_anonymity" aria-label="Go to next topic: Privacy and anonymity">Privacy and anonymity &#8594;</a>
+      <a href="<%= learn_privacy_anonymity_path %>" aria-label="Go to next topic: Privacy and anonymity">Privacy and anonymity &#8594;</a>
     </big>
   </div>
 </div>
