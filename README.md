@@ -2,7 +2,7 @@
 
 This is the Alaveteli theme that is used on whatdotheyknow.com (WhatDoTheyKnow).
 
-WhatDoTheyKnow is a website for making freedom of information request to UK public authorities.
+WhatDoTheyKnow is a website for making freedom of information requests to UK public authorities.
 
 To install:
 
