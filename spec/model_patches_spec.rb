@@ -134,6 +134,20 @@ RSpec.describe PublicBody do
 
   end
 
+  describe '#update_missing_email_tag' do
+
+    it 'removed missing_email tag if public body is a signpost' do
+      public_body = FactoryBot.create(:blank_email_public_body)
+      expect(public_body.has_tag?('missing_email')).to eq(true)
+
+      public_body.add_tag_if_not_already_present('signpost')
+      public_body.save
+
+      expect(public_body.has_tag?('missing_email')).to eq(false)
+    end
+
+  end
+
 end
 
 RSpec.describe User::EmailAlerts do
