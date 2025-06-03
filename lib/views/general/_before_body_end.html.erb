@@ -98,13 +98,13 @@ $(document).ready(function() {
       .filter(':visible')
       .toArray();
   }
-  
+
   // Close modal when clicking the close button
   $(document).on('click', '.modal-close', closeModal);
-  
+
   // Close modal when clicking the overlay
   $(document).on('click', '.modal-overlay', closeModal);
-  
+
   // Close modal when clicking outside the modal container but inside modal content
   $(document).on('click', '.modal-content', function(e) {
     // Only close if the click was directly on the modal-content element
@@ -113,7 +113,7 @@ $(document).ready(function() {
       closeModal();
     }
   });
-  
+
   // Close modal when pressing Escape key
   $(document).on('keydown', function(e) {
     if ((e.key === 'Escape' || e.keyCode === 27) && $('.modal-content[aria-hidden="false"]').length) {
@@ -129,15 +129,15 @@ $(document).ready(function() {
         // This uses the YouTube iframe API to send a 'stopVideo' command
         this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
       });
-      
+
       // Remove sentinel elements
       $('.focus-trap-start, .focus-trap-end').remove();
-      
+
       // Hide modal
       $openModal.addClass('modal-hidden').attr('aria-hidden', 'true');
       $('.modal-overlay').remove();
       $('body').css('overflow', '');
-      
+
       // Return focus to the last focused element
       if (lastFocusedElement) {
         setTimeout(function() {
@@ -157,7 +157,7 @@ $(document).ready(function() {
     const $sidebar = $("#table-of-contents");
     const $button = $(this);
     const isExpanded = $button.attr("aria-expanded") === "true";
-    
+
     $button.attr("aria-expanded", !isExpanded);
     $sidebar.slideToggle(300, function() {
       if ($sidebar.is(":visible")) {
@@ -169,7 +169,7 @@ $(document).ready(function() {
       }
     });
   });
-  
+
   // Prevent clicks inside the sidebar from closing it
   $("#table-of-contents").click(function(event) {
     event.stopPropagation();
@@ -192,14 +192,14 @@ $(document).ready(function() {
 $(document).ready(function() {
   $('.page-position-controller').on('click', function(e) {
     e.preventDefault();
-    
+
     const target = $(this).attr('href');
     const $targetElement = $(target);
 
     if ($targetElement.length) {
       $('html, body').animate({
         scrollTop: $targetElement.offset().top
-      }, 400); 
+      }, 400);
     }
   });
 });
