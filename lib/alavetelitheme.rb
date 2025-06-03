@@ -33,6 +33,13 @@ Rails.application.config.to_prepare do
   end
 end
 
+# Setup importmap for theme JS
+Rails::Application.send(:attr_accessor, :theme_importmap)
+Rails.application.theme_importmap = Importmap::Map.new.tap do |map|
+  importmap_path = theme_root.join('config/importmap.rb')
+  map.draw(importmap_path) if File.exist?(importmap_path)
+end
+
 # Monkey patch app code
 [
   'patch_mailer_paths.rb',
