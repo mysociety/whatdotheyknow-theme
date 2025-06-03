@@ -1,16 +1,16 @@
 class ActionController::Base
-    before_action :set_whatdotheyknow_view_paths
+  before_action :set_whatdotheyknow_view_paths
 
-    def set_whatdotheyknow_view_paths
-        self.prepend_view_path File.join(File.dirname(__FILE__), "views")
-    end
+  def set_whatdotheyknow_view_paths
+    self.prepend_view_path File.join(File.dirname(__FILE__), "views")
+  end
 
-    # Note that set_view_paths is called by Alaveteli from the
-    # rescue_action_in_public method, in order that error pages
-    # may be themed correctly. Since whatdotheyknow-theme is a
-    # primary theme that ought to style error pages, we define
-    # this as an alias
-    alias :set_view_paths :set_whatdotheyknow_view_paths
+  # Note that set_view_paths is called by Alaveteli from the
+  # rescue_action_in_public method, in order that error pages
+  # may be themed correctly. Since whatdotheyknow-theme is a
+  # primary theme that ought to style error pages, we define
+  # this as an alias
+  alias :set_view_paths :set_whatdotheyknow_view_paths
 end
 
 # Append individual theme assets to the asset path
@@ -46,23 +46,23 @@ Rails.application.config.to_prepare do
 end
 
 # Monkey patch app code
-for patch in ['patch_mailer_paths.rb',
-              'controller_patches.rb',
-              'model_patches.rb',
-              'helper_patches.rb',
-              'mailer_patches.rb',
-              'analytics_event.rb',
-              'help_page_history.rb',
-              'pro_account_bans.rb',
-              'public_body_questions.rb',
-              'school_late_calculator.rb',
-              'volunteer_contact_form.rb',
-              'data_breach.rb',
-              'excel_analyzer.rb',
-              'authority_only_response_gatekeeper.rb',
-              'raw_email_usage.rb']
-    require File.expand_path "../#{patch}", __FILE__
-end
+[
+  'patch_mailer_paths.rb',
+  'controller_patches.rb',
+  'model_patches.rb',
+  'helper_patches.rb',
+  'mailer_patches.rb',
+  'analytics_event.rb',
+  'help_page_history.rb',
+  'pro_account_bans.rb',
+  'public_body_questions.rb',
+  'school_late_calculator.rb',
+  'volunteer_contact_form.rb',
+  'data_breach.rb',
+  'excel_analyzer.rb',
+  'authority_only_response_gatekeeper.rb',
+  'raw_email_usage.rb'
+].each { |patch| require File.expand_path "../#{patch}", __FILE__ }
 
 $alaveteli_route_extensions << 'wdtk-routes.rb'
 
