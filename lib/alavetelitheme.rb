@@ -1,7 +1,10 @@
+theme_root = Pathname.new(File.dirname(__FILE__)).join('..').cleanpath
+
 class ActionController::Base
   before_action :set_whatdotheyknow_view_paths
 
   def set_whatdotheyknow_view_paths
+    # Can't use the `theme_root` as its scoped to lib/alavetelitheme.rb
     prepend_view_path File.join(File.dirname(__FILE__), "views")
   end
 
@@ -14,35 +17,20 @@ class ActionController::Base
 end
 
 # Append individual theme assets to the asset path
-theme_asset_path = File.join(File.dirname(__FILE__),
-                             '..',
-                             'app',
-                             'assets')
-theme_asset_path = Pathname.new(theme_asset_path).cleanpath.to_s
-
 loose_theme_assets = lambda do |logical_path, filename|
-  filename.start_with?(theme_asset_path) &&
-  !['.js', '.css', ''].include?(File.extname(logical_path))
+  filename.start_with?(theme_root.join('app/assets').to_s) &&
+    !['.js', '.css', ''].include?(File.extname(logical_path))
 end
-
 Rails.application.config.assets.precompile.unshift(loose_theme_assets)
 
-Rails.application.config.assets.precompile << ["tests.js"]
+# Append theme assets to be precompiled
+Rails.application.config.assets.precompile.unshift(%w[tests.js])
 
-def prepend_theme_assets
-  # Prepend the asset directories in this theme to the asset path:
-  ['stylesheets', 'images', 'javascripts'].each do |asset_type|
-      theme_asset_path = File.join(File.dirname(__FILE__),
-                                   '..',
-                                   'app',
-                                   'assets',
-                                   asset_type)
-      Rails.application.config.assets.paths.unshift theme_asset_path
-  end
-end
-
+# Prepend the asset directories in this theme to the asset path
 Rails.application.config.to_prepare do
-  prepend_theme_assets
+  theme_root.glob('app/assets/*').each do |asset_type_path|
+    Rails.application.config.assets.paths.unshift(asset_type_path)
+  end
 end
 
 # Monkey patch app code
@@ -62,7 +50,7 @@ end
   'excel_analyzer.rb',
   'authority_only_response_gatekeeper.rb',
   'raw_email_usage.rb'
-].each { |patch| require File.expand_path "../#{patch}", __FILE__ }
+].each { |patch| require theme_root.join('lib', patch) }
 
 $alaveteli_route_extensions << 'wdtk-routes.rb'
 
@@ -70,7 +58,7 @@ $alaveteli_route_extensions << 'wdtk-routes.rb'
 # locale-theme directory for a translation in the first place, and if
 # it isn't found, look in the Alaveteli locale directory next:
 paths = []
-paths << File.join(File.dirname(__FILE__), '..', 'locale-theme')
+paths << theme_root.join('locale-theme')
 paths << 'locale_alaveteli_pro' if AlaveteliConfiguration.enable_alaveteli_pro
 paths << 'locale'
 repos = paths.map do |path|
