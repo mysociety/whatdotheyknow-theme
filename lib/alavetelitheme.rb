@@ -23,8 +23,8 @@ loose_theme_assets = lambda do |logical_path, filename|
 end
 Rails.application.config.assets.precompile.unshift(loose_theme_assets)
 
-# Append theme assets to be precompiled
-Rails.application.config.assets.precompile.unshift(%w[tests.js])
+# Append theme manifest to precompile included linked assets first
+Rails.application.config.assets.precompile.unshift(%w[theme_manifest.js])
 
 # Prepend the asset directories in this theme to the asset path
 Rails.application.config.to_prepare do
