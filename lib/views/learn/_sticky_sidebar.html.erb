@@ -1,3 +1,7 @@
+<% content_for :javascript_head do %>
+  <%= javascript_importmap_tags("learn", importmap: Rails.application.theme_importmap) %>
+<% end %>
+
 <div>
   <a href="#main-title" class="show-with-keyboard-focus-only skip-to-link">Skip table of contents</a>
   <nav id="table-of-contents" class="sticky-sidebar" role="navigation" aria-label="Table of contents">
