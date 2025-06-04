@@ -1,0 +1,304 @@
+<% @title = "Writing effective requests" %>
+
+<div class="two-col-content-grid">
+  <%
+  links = [
+    ['How to frame your question', '#how-to-frame-your-question'],
+    ['Be specific', '#be-specific'],
+    ['Format and summaries', '#format-and-summaries'],
+    ['Common mistakes', '#common-mistakes'],
+    ['Request Templates', '#request-templates']
+  ]
+
+  next_link = {
+    text: "Privacy and anonymity",
+    url: learn_privacy_anonymity_path
+  }
+  %>
+
+  <%= render partial: 'sticky_sidebar', locals: { links: links, next_link: next_link } %>
+
+  <div>
+    <div class="hero-section">
+      <div>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
+      </div>
+      <h1 id="main-title" class="hero-content-title">
+        <%= @title %>
+      </h1>
+
+      <p class="hero-subtitle">A well written request can make things easier for you and the authority. This section covers things you can do to increase the chances of your request being successful.</p>
+    </div>
+
+    <section class="section-medium">
+      <h2 id="how-to-frame-your-question">How to frame your question</h2>
+      <p>FOI gives you the right to get copies of recorded information, not explanations.</p>
+
+      <p>If you have a question that you want answering, it is best to try to ask for the documents or records that might hold the answer.</p>
+
+      <div class="card card-red card-upper-side">
+        &#10060; <i>&ldquo;Why did the council decide to close the community centre?&rdquo;</i>
+      </div>
+      <div class="card card-green card-lower-side">
+        &#9989; <i>&ldquo;Please provide me with a copy of the minutes of meetings from the past 12 months where the closure of the community centre was discussed.&rdquo;</i>
+      </div>
+
+      <div class="card card-red card-upper-side">
+        &#10060; <i>&ldquo;What is the council’s position on affordable housing?&rdquo;</i>
+      </div>
+      <div class="card card-green card-lower-side">
+        &#9989; <i>&ldquo;Please provide me with a copy of the council’s current policy on affordable housing, and any related targets for 2024-2025&rdquo;</i>
+      </div>
+
+      <div class="card card-red card-upper-side">
+        &#10060; <i>&ldquo;Does our local hospital have enough MRI scanners?&rdquo;</i>
+      </div>
+      <div class="card card-green card-lower-side">
+        &#9989; <i>&ldquo;Please provide me with a copy of the following information:<br>
+        The current number of operational MRI scanners at [hospital name].<br>
+        The average waiting time for a non-urgent MRI scan at [hospital name], for the past 12 months, broken down by calendar month.&rdquo;</i>
+      </div>
+
+      <div class="card card-red card-upper-side">
+        &#10060; <i>&ldquo;Are the police taking too long to respond to emergency calls?&rdquo;</i>
+      </div>
+      <div class="card card-green card-lower-side">
+        &#9989; <i>&ldquo;Please provide me with the average response times for 999 calls in [name of the area] for each calendar month in 2024&rdquo;.</i>
+      </div>
+
+      <p>Starting your request with the words “Please provide” is a good way to start.</p>
+
+      <p>You should then describe the information you want. Try to avoid starting your request with words like “What”, “Why” and “How” — these are often used at the start of general questions.</p>
+
+      <p>Authorities can only provide you with information that they already have recorded in some form. They do not have to create new information for you.</p>
+    </section>
+
+    <section class="section-medium">
+      <h2 id="be-specific">Be specific</h2>
+      <h3>Focus on a set timeframe</h3>
+      <p>If appropriate, it is a good idea to narrow your request down to a set time period:</p>
+
+
+      <div class="card card-red card-upper-side">
+        &#10060; <i>&ldquo;Please send me all housing inspection reports.&rdquo;</i>
+      </div>
+      <div class="card card-green card-lower-side">
+        &#9989; <i>&ldquo;Please send me a copy of any housing inspection reports for inspections that were carried out between 1 January 2024 and 31 March 2024.&rdquo;</i>
+      </div>
+
+      <div class="card card-red card-upper-side">
+        &#10060; <i>&ldquo;I want information about all grants awarded by the council.&rdquo;</i>
+      </div>
+      <div class="card card-green card-lower-side">
+        &#9989; <i>&ldquo;Please provide me with the number of grants awarded by the council to community organisations during the 2024/25 financial year, including the recipient, amount, and purpose of the grant.&rdquo;</i>
+      </div>
+
+      <p>By narrowing your request down, you will reduce the chance that your request is going to be refused because it would take the authority too long to answer.</p>
+
+      <p>If you are looking for up to date information, you could ask for the most recent copy of a report or information from the past three months.</p>
+
+      <p>Try to be as clear and specific as possible.</p>
+
+      <p>If you are asking for information for the last three years, make sure you say “calendar years” or “financial years” or even “school years”.</p>
+
+      <p>The term “calendar year” refers to the year that runs from 1 January to 31 December. Some public bodies also have financial years that end on 31 March.</p>
+
+      <h3>Break your query down</h3>
+      <p>If you are asking for a lot of information, try breaking it into smaller parts by using a numbered list. This will help to ensure that your question is clearer.</p>
+
+      <p>Each question should ideally be asking for a separate piece of information. If you are asking for a very large amount of information, you should consider whether you would be better off making multiple requests.</p>
+
+      <div class="card card-red card-upper-side">
+        &#10060; <i>&ldquo;I want to know about road repairs in [county name] including which roads were repaired, how much was spent, which contractors were used, how decisions were made about which roads to prioritise, and complaints form the public.&rdquo;</i>
+      </div>
+      <div class="card card-green card-lower-side">
+        &#9989; <i>&ldquo;Please provide me with a copy of the following information for the financial year 2024/25:&rdquo;
+        <ul>
+          <li>The total budget allocated by the council for road maintenance.</li>
+          <li>The total expenditure by the council on road maintenance.</li>
+          <li>A copy of any criteria used to prioritise roads for resurfacing.</li>
+          <li>The number of public complaints received about road conditions.</li>
+        </ul></i>
+      </div>
+
+      <p>Try not to ask for too much information. As a guide, try not to include more than ten separate items in a single request.</p>
+
+      <p>Think carefully about how you order your list. It is usually best to start with a short simple request for information that you think the authority will find easy to answer.</p>
+
+      <h3>Be flexible</h3>
+      <p>If you can be flexible, you are more likely to get some information from the authority.</p>
+
+      <p>For example, you might want to include the following wording if you are asking for numbers:</p>
+
+      <p>“If exact figures are not available, please provide an approximation based on the records you hold.”</p>
+
+      <p>If you are asking for a list then you may want to add the following:</p>
+
+      <p>“Please provide a partial list if a full list is not available.”</p>
+
+      <h3>Be polite</h3>
+      <p>Be polite to the staff working for the authority.</p>
+      <p>Even if the authority has done something wrong, the person dealing with your FOI request should be treated with respect. The staff answering FOI requests are more likely to give you the information you want if you are polite and reasonable to them.</p>
+
+      <h3>Read your request carefully before you send it</h3>
+      <p>Check what you have written, and correct any mistakes.</p>
+
+      <p>Try to think about whether there are any parts of what you have written that could be unclear to someone else who reads it.</p>
+    </section>
+
+    <section class="section-medium">
+      <h2 id="format-and-summaries">Format and summaries</h2>
+      <p>When making your request, you can ask for the information to be sent to you in a particular format.</p>
+
+      <p>This might be a digital format such as an Excel spreadsheet or PDF file, a paper copy, or a large print version.</p>
+
+      <p>If you don’t ask for a format, the authority will send the information in the format they find most convenient, which might not meet your needs.</p>
+
+      <p>If you ask for a specific format when you make your request, authorities have to comply with your wishes where it is reasonably practical to do so.</p>
+
+      <p>You can also ask for a shorter version or a summary of the information, rather than a full copy of it.</p>
+
+      <p>Authorities do not have to create new information, but may honour this request by extracting key information from a long report, or giving you the summary from the report.</p>
+    </section>
+
+    <section class="section-medium">
+      <h2 class="text-with-icon" id="common-mistakes"><svg style="vertical-align: sub;" viewBox="0 0 16 16" width="2rem" height="2rem" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+        <path d="M15.4648 10.5156L10.6528 2.62742C10.0212 1.59237 9.05504 1 8.00017 1C6.9453 1 5.97915 1.59237 5.34753 2.62582L0.5355 10.5156C-0.104258 11.5634 -0.174257 12.6809 0.344224 13.5815C0.861892 14.4829 1.87281 15 3.11651 15H12.8838C14.1275 15 15.1384 14.4829 15.6561 13.5823C16.1738 12.6817 16.1046 11.5642 15.4648 10.5156ZM8.00017 12.2375C7.30506 12.2375 6.73856 11.6811 6.73856 10.9975C6.73856 10.3131 7.30425 9.7559 8.00017 9.7559C8.69609 9.7559 9.26178 10.3131 9.26178 10.9975C9.26178 11.6811 8.69527 12.2375 8.00017 12.2375ZM9.32934 6.29453C9.32038 6.31934 8.189 9.07067 8.189 9.07067C8.15807 9.14592 8.08319 9.19555 8.00098 9.19555C7.91877 9.19555 7.84389 9.14592 7.81296 9.07067L6.68077 6.31854C6.61283 6.15173 6.57722 5.9739 6.57577 5.79421C6.57577 5.02173 7.21471 4.39333 8.00017 4.39333C8.23085 4.39391 8.45795 4.44953 8.66198 4.5554C8.86601 4.66128 9.04088 4.81425 9.17158 5.0012C9.30228 5.18815 9.38491 5.4035 9.41239 5.62876C9.43987 5.85402 9.41137 6.08248 9.32934 6.29453Z" fill="currentColor"/>
+        </svg>
+        Common mistakes
+      </h2>
+
+      <div class="card card-red">
+        <h3 class="card-header">The request is not actually for recorded information</h3>
+        <p>FOI gives you the right to access recorded information, not to have questions answered or to receive explanations.</p>
+        <p>Authorities are not obliged to create new information in response to your request</p>
+      </div>
+      <br>
+      <div class="card card-red">
+        <h3 class="card-header">Not including your name or using a fake name</h3>
+
+        <p>For a request to be valid it needs to include your real name.</p>
+      </div>
+      <br>
+      <div class="card card-red">
+        <h3 class="card-header">Combining FOI with other issues</h3>
+
+        <p>Don’t combine a request for information with a complaint, or general correspondence with the public authority.</p>
+
+        <p>If you want to request your own personal information, it’s best to ask for this separately, as it is covered by different laws.</p>
+      </div>
+      <br>
+      <div class="card card-red">
+        <h3 class="card-header">Forgetting to check public information first</h3>
+
+        <p>Where possible, it is always a good idea to see if the information that you are interested in is already published somewhere first.</p>
+
+        <p>FOI requests take about four weeks to answer, which is a long time to wait if the information you want is already available somewhere else.</p>
+
+        <p>If you can, we recommend searching the internet and checking the public authority’s own website before making an FOI request.</p>
+
+        <p>See also: <a href="https://ico.org.uk/for-the-public/official-information/">https://ico.org.uk/for-the-public/official-information/</a>.</p>
+      </div>
+
+      <br>
+      <div class="card card-red">
+        <h3 class="card-header">Sending too many requests</h3>
+
+        <p>If you send multiple requests for information on the same topic to an authority, they are more likely to refuse to answer them.</p>
+      </div>
+      <br>
+      <div class="card card-red">
+        <h3 class="card-header">Not specifying a format</h3>
+
+        <p>If you would like information in a certain format, always say that format that you want the information to be in at the time of making the request.</p>
+
+        <p>Authorities have to comply with your request if it is reasonably practicable to do so.</p>
+      </div>
+    </section>
+
+    <section class="section-medium">
+      <h2 id="request-templates">Request Templates</h2>
+      <p>Here are few example requests that you can use to ask for common types of information.</p>
+
+      <h3>Statistics</h3>
+      <div class="letter">
+        <p>Dear [name of council],</p>
+
+        <p>Please provide me with a copy of the following information separately for each calendar year from 2022 to 2024:</p>
+
+        <ol>
+          <li>The number of households in the [name of council] area that were assessed as homeless.</li>
+          <li>The number of households in the council area that were placed into temporary accommodation.</li>
+          <li>The total expenditure by the council on temporary accommodation for homeless households.</li>
+        </ol>
+
+        <p>I would prefer to receive the response via email in Excel or CSV format.</p>
+
+        <p>If you require any clarification, please let me know as soon as possible.</p>
+
+        <p>Yours faithfully,</p>
+
+        <p>[Your name]</p>
+      </div>
+
+      <h3>Documents</h3>
+      <div class="letter">
+        <p>Dear [authority name],</p>
+
+        <p>Please provide me with a copy of the following information:</p>
+
+        <ul>
+          <li>[Name of report or document] produced by [authority or department]</li>
+        </ul>
+
+        <p>I would like to receive the latest version of the document in electronic format.</p>
+
+        <p>Yours faithfully,</p>
+
+        <p>[Your name]</p>
+      </div>
+
+      <h3>Agreements and contracts</h3>
+      <div class="letter">
+        <p>Dear [Authority Name],</p>
+        <p>Please provide me with a copy of any contracts or agreements (formal or informal) between the [public body] and the [name of company, group or organisation] that are currently in force.</p>
+        <p>Yours faithfully,<br>
+        [Your name]</p>
+      </div>
+
+      <h3>Minutes of meetings</h3>
+      <div class="letter">
+        <p>Dear [Authority name],</p>
+        <p>Please provide me with a copy of the minutes of the last two meetings of the [name of committee] for which approved minutes are available.</p>
+
+        <p>Yours faithfully,<br>
+        [Your Name]</p>
+      </div>
+
+      <h3>Consultation response</h3>
+      <div class="letter">
+        <p>Dear [Authority name],</p>
+
+        <p>Please provide me with a copy of the response from [name of company/organisation] to the consultation on [subject matter] in [year].</p>
+
+        <p>Yours faithfully,<br>
+        [Your name]</p>
+      </div>
+
+      <h3>Correspondence</h3>
+      <div class="letter">
+        <p>Dear [Authority name],</p>
+
+        <p>Please provide me with a copy of all correspondence between the [name of public body] and [name of company, group or organisation], its agents and representatives about [subject] during the last three months.</p>
+
+        <p>Yours faithfully,<br>
+        [Your Name]</p>
+      </div>
+    </section>
+
+    <big>
+      Up next:
+      <a href="<%= learn_privacy_anonymity_path %>" aria-label="Go to next topic: Privacy and anonymity">Privacy and anonymity &#8594;</a>
+    </big>
+  </div>
+</div>

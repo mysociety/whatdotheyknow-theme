@@ -1,0 +1,226 @@
+<% @title = "Don’t let an unsuccessful request put you off" %>
+
+<div class="two-col-content-grid">
+  <%
+  links = [
+    ['Common reasons for refusals', '#common-reasons-for-refusals'],
+    ['Handling delays', '#handling-delays'],
+    ['Appeals process', '#appeals-process']
+  ]
+
+  next_link = {
+    text: "Common misconceptions about FOI",
+    url: learn_foi_myths_path
+  }
+  %>
+
+  <%= render partial: 'sticky_sidebar', locals: { links: links, next_link: next_link } %>
+
+  <div>
+    <div class="hero-section">
+      <div>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
+      </div>
+      <h1 id="main-title" class="hero-content-title">
+        <%= @title %>
+      </h1>
+
+      <p class="hero-subtitle">No matter how hard you’ve worked to write a good request, sometimes the answer that you get might be unsatisfactory.</p>
+      <p>Your request might be refused, or worse still, you might not get an answer at all within the time limit.</p>
+      <p>But don’t let one or two unsuccessful requests put you off. FOI law gives you the right to appeal, and this is a normal part of the process. </p>
+      <span>Finding things out using FOI requests often takes perseverance. Often people who have made requests that are unsuccessful will learn something from the process, for example the name of another organisation that may hold the information.</span>
+    </div>
+
+    <section>
+      <h2>Common reasons for refusals</h2>
+      <p>Here are some of the most common refusal reasons you might see, and how to tackle them.</p>
+
+      <div class="card-grid">
+        <div class="card" style="grid-row: span 3;">
+          <h3 class="card-header">Cost</h3>
+          <p>The cost of providing a response is a common reason for refusal, especially if you have asked for a lot of information.</p>
+
+          <p>If it would take more than 18 hours for the authority to respond to your request for information, they can refuse to answer it.</p>
+
+          <p>The best thing to do is to think if you could narrow down your request. This may be restricting your question to a smaller time period, or a specific service area. The authority will often let you know if they could comply with a more limited request for information.</p>
+
+          <p>They are not allowed to include the time taken to redact information when working out the cost limit, so make sure they have not done so.</p>
+
+        </div>
+
+        <div class="card" style="grid-row: span 2;">
+          <h3 class="card-header">The information is already public</h3>
+          <p>Authorities are able to refuse a request if the information that you are asking for is already available to you by other means.</p>
+
+          <p>Usually they will point you to where you can find it, for example by sending you a link.</p>
+
+          <p>If you disagree that the information is reasonably accessible to you due to access needs, it might be worth appealing.</p>
+        </div>
+
+        <div class="card" style="grid-row: span 2;">
+          <h3 class="card-header">Personal information</h3>
+          <p>If you made a request for information about yourself, they’ll refuse this under FOI and tell you to make a Subject Access Request instead.</p>
+
+          <p>If the information that you have asked for includes the personal information of others, you are unlikely to get it.</p>
+
+          <p>Authorities have to balance your right to access information with the rights of others to privacy. In general, this means that the more powerful the person is, and the more the information relates to their public role, the more likely you are to receive the information, as it is in the public interest.</p>
+        </div>
+        <div class="card" style="grid-row: span 2;">
+          <h3 class="card-header">Partial refusals and redaction</h3>
+          <p>Sometimes, the authority might only send you part of what you are asking for.</p>
+
+          <p>For example, you might receive a copy of a document with certain words hidden behind black boxes. When words or images are removed from the response or covered up with black boxes etc this is called "redaction".</p>
+
+          <p>When this happens, the authority must explain why they are withholding information, and clearly show where they have removed information.</p>
+
+          <p>If you think the authority has given you some information but redacted more information than they should have, you can challenge this in the same way as you can challenge a full refusal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-medium">
+      <h2>Handling delays</h2>
+      <p>Public authorities normally have to respond to requests within 20 working days. A working day means Monday to Friday, excluding UK bank holidays.</p>
+
+      <p>If, after this time, they have not responded to your request at all, the next step is to send a quick reminder to the authority.</p>
+
+      <p>If they don’t respond to that, you can complain to the ICO by one of these methods:</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-header text-with-icon">
+            <svg width="1.5rem" height="1.5rem" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+              <path d="M14.9783 0.90283L4.07315 9.99083M6.64229 12.5714L9.13143 15.0491C9.2843 15.2058 9.47542 15.3198 9.68588 15.38C9.89635 15.4401 10.1189 15.4442 10.3314 15.392C10.5451 15.3421 10.7424 15.2381 10.9043 15.09C11.0662 14.9419 11.1873 14.7547 11.256 14.5463L15.3429 2.29483C15.4284 2.06537 15.4461 1.81617 15.394 1.5769C15.3419 1.33763 15.2222 1.11837 15.049 0.945218C14.8759 0.772066 14.6566 0.652318 14.4174 0.600228C14.1781 0.548137 13.9289 0.5659 13.6994 0.651401L1.44801 4.7394C1.23244 4.81299 1.04042 4.94276 0.891749 5.11534C0.743083 5.28791 0.64316 5.49703 0.602293 5.72112C0.560303 5.9251 0.569651 6.13633 0.629495 6.33581C0.68934 6.53529 0.797807 6.71678 0.94515 6.86397L4.07315 9.99197L3.97029 13.9531L6.64229 12.5714Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Via email</div>
+          <a href="mailto:ICOCasework@ico.org.uk">ICOCasework@ico.org.uk</a>
+        </div>
+        <div class="card">
+          <div class="card-header text-with-icon">
+            <svg viewBox="0 0 16 16" width="1.5rem" height="1.5rem" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+              <path d="M2.18182 6.90909C2.18182 6.42688 2.37338 5.96442 2.71435 5.62344C3.05533 5.28247 3.51779 5.09091 4 5.09091C4.48221 5.09091 4.94467 5.28247 5.28565 5.62344C5.62662 5.96442 5.81818 6.42688 5.81818 6.90909C5.81818 7.3913 5.62662 7.85376 5.28565 8.19474C4.94467 8.53572 4.48221 8.72727 4 8.72727C3.51779 8.72727 3.05533 8.53572 2.71435 8.19474C2.37338 7.85376 2.18182 7.3913 2.18182 6.90909ZM4 6.18182C3.80712 6.18182 3.62213 6.25844 3.48574 6.39483C3.34935 6.53122 3.27273 6.71621 3.27273 6.90909C3.27273 7.10198 3.34935 7.28696 3.48574 7.42335C3.62213 7.55974 3.80712 7.63636 4 7.63636C4.19288 7.63636 4.37787 7.55974 4.51426 7.42335C4.65065 7.28696 4.72727 7.10198 4.72727 6.90909C4.72727 6.71621 4.65065 6.53122 4.51426 6.39483C4.37787 6.25844 4.19288 6.18182 4 6.18182ZM4 10.1818C3.51779 10.1818 3.05533 10.3734 2.71435 10.7144C2.37338 11.0553 2.18182 11.5178 2.18182 12C2.18182 12.4822 2.37338 12.9447 2.71435 13.2856C3.05533 13.6266 3.51779 13.8182 4 13.8182C4.48221 13.8182 4.94467 13.6266 5.28565 13.2856C5.62662 12.9447 5.81818 12.4822 5.81818 12C5.81818 11.5178 5.62662 11.0553 5.28565 10.7144C4.94467 10.3734 4.48221 10.1818 4 10.1818ZM3.27273 12C3.27273 11.8071 3.34935 11.6221 3.48574 11.4857C3.62213 11.3494 3.80712 11.2727 4 11.2727C4.19288 11.2727 4.37787 11.3494 4.51426 11.4857C4.65065 11.6221 4.72727 11.8071 4.72727 12C4.72727 12.1929 4.65065 12.3779 4.51426 12.5143C4.37787 12.6507 4.19288 12.7273 4 12.7273C3.80712 12.7273 3.62213 12.6507 3.48574 12.5143C3.34935 12.3779 3.27273 12.1929 3.27273 12ZM7.27273 6.72727C7.27273 6.58261 7.3302 6.44387 7.43249 6.34158C7.53478 6.23929 7.67352 6.18182 7.81818 6.18182H13.2727C13.4174 6.18182 13.5561 6.23929 13.6584 6.34158C13.7607 6.44387 13.8182 6.58261 13.8182 6.72727C13.8182 6.87194 13.7607 7.01067 13.6584 7.11297C13.5561 7.21526 13.4174 7.27273 13.2727 7.27273H7.81818C7.67352 7.27273 7.53478 7.21526 7.43249 7.11297C7.3302 7.01067 7.27273 6.87194 7.27273 6.72727ZM7.81818 11.2727C7.67352 11.2727 7.53478 11.3302 7.43249 11.4325C7.3302 11.5348 7.27273 11.6735 7.27273 11.8182C7.27273 11.9628 7.3302 12.1016 7.43249 12.2039C7.53478 12.3062 7.67352 12.3636 7.81818 12.3636H13.2727C13.4174 12.3636 13.5561 12.3062 13.6584 12.2039C13.7607 12.1016 13.8182 11.9628 13.8182 11.8182C13.8182 11.6735 13.7607 11.5348 13.6584 11.4325C13.5561 11.3302 13.4174 11.2727 13.2727 11.2727H7.81818ZM2.18182 3.09091C2.18182 2.94625 2.23929 2.80751 2.34158 2.70521C2.44387 2.60292 2.58261 2.54545 2.72727 2.54545H13.2727C13.4174 2.54545 13.5561 2.60292 13.6584 2.70521C13.7607 2.80751 13.8182 2.94625 13.8182 3.09091C13.8182 3.23557 13.7607 3.37431 13.6584 3.4766C13.5561 3.5789 13.4174 3.63636 13.2727 3.63636H2.72727C2.58261 3.63636 2.44387 3.5789 2.34158 3.4766C2.23929 3.37431 2.18182 3.23557 2.18182 3.09091ZM2.72727 0C2.00396 0 1.31026 0.287337 0.7988 0.7988C0.287337 1.31026 0 2.00396 0 2.72727V13.2727C0 13.996 0.287337 14.6897 0.7988 15.2012C1.31026 15.7127 2.00396 16 2.72727 16H13.2727C13.996 16 14.6897 15.7127 15.2012 15.2012C15.7127 14.6897 16 13.996 16 13.2727V2.72727C16 2.00396 15.7127 1.31026 15.2012 0.7988C14.6897 0.287337 13.996 0 13.2727 0H2.72727ZM1.09091 2.72727C1.09091 2.29328 1.26331 1.87707 1.57019 1.57019C1.87707 1.26331 2.29328 1.09091 2.72727 1.09091H13.2727C13.7067 1.09091 14.1229 1.26331 14.4298 1.57019C14.7367 1.87707 14.9091 2.29328 14.9091 2.72727V13.2727C14.9091 13.7067 14.7367 14.1229 14.4298 14.4298C14.1229 14.7367 13.7067 14.9091 13.2727 14.9091H2.72727C2.29328 14.9091 1.87707 14.7367 1.57019 14.4298C1.26331 14.1229 1.09091 13.7067 1.09091 13.2727V2.72727Z" fill="currentColor"/>
+              </svg>
+            Using their online form
+          </div>
+          <a href="https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/foi-and-eir-complaints/">ICO online form</a>
+        </div>
+        <div class="card card-spawn-2">
+          <div class="card-header text-with-icon">
+            <svg viewBox="0 0 16 16" width="1.5rem" height="1.5rem" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"><path d="M14.5 13.8529H1.5C0.67 13.8529 0 13.1432 0 12.2641V2.73163C0 1.85252 0.67 1.14288 1.5 1.14288H14.5C15.33 1.14288 16 1.85252 16 2.73163V12.2641C16 13.1432 15.33 13.8529 14.5 13.8529ZM1.5 2.20205C1.22 2.20205 1 2.43507 1 2.73163V12.2641C1 12.5607 1.22 12.7937 1.5 12.7937H14.5C14.78 12.7937 15 12.5607 15 12.2641V2.73163C15 2.43507 14.78 2.20205 14.5 2.20205H1.5Z" fill="currentColor"/><path d="M8 10.24C7.3 10.24 6.66 9.92 6.18 9.33715L0.93 2.96C0.74 2.73143 0.75 2.36572 0.95 2.14858C1.15 1.93143 1.47 1.94286 1.66 2.17143L6.91 8.54858C7.48 9.24572 8.52 9.24572 9.09 8.54858L14.34 2.18286C14.53 1.95429 14.85 1.94286 15.05 2.16C15.25 2.37715 15.26 2.74286 15.07 2.97143L9.82 9.34858C9.34 9.93143 8.7 10.2514 8 10.2514V10.24Z" fill="currentColor"/>
+              </svg>
+            By post
+          </div>
+          <p>Information Commissioner’s Office, Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF</p>
+        </div>
+      </div>
+      <br>
+      <p>You should include copies of the correspondence that you have had with the public authority, or a link to your request on WhatDoTheyKnow.</p>
+    </section>
+
+    <section class="section-medium">
+      <h2>Appeals process</h2>
+      <h3>Internal review</h3>
+      <p>If you are unhappy with a response that you have received, you can ask the authority to check that their decision was fair and in line with the law.</p>
+
+      <p>This is called asking for an internal review.</p>
+
+      <p>Internal reviews are free of charge and are usually carried out by someone who works for the public authority, but who was not involved in dealing with your request.</p>
+
+      <p>You should try to ask for an internal review as soon as possible, and within 40 working days (about eight weeks) of receiving the response.</p>
+
+      <p>You should clearly state that you would like an internal review. You do not need to give reasons, but if you can, it is better to explain exactly why you are unhappy.</p>
+
+      <p>The authority will normally respond to your request for an internal review within 20 working days, which is around four weeks.</p>
+
+      <h3>Internal review templates</h3>
+      <h4>Internal review request template 1 – short version</h4>
+      <div class="letter">
+        <p>Please carry out an internal review of the FOI request I sent on [date]. I would be grateful if you could look again at the way my request was handled and see whether any additional information should have been released.</p>
+
+        <p>Thank you,</p>
+
+        <p>[Your name]</p>
+      </div>
+
+      <h4>Internal review request template 2 – longer version</h4>
+      <div class="letter">
+        <p>Dear [Name of authority],</p>
+
+        <p>Please carry out an internal review of the FOI request I sent on [date]. I would be grateful if you could look again at the way my request was handled and see whether any additional information should have been released.</p>
+
+        <p>For the information that I asked for which was not provided, I would like you to check that the exemptions claimed apply to my request. I would also ask that you reconsider whether, overall, the public interest favours releasing the information. In doing, so please consider the benefits of releasing additional information which could include:</p>
+
+        <ul>
+          <li>Promoting accountability of public authorities and public officials for their decisions and actions.</li>
+          <li>Ensuring transparency around the spending of public money.</li>
+          <li>Increasing public understanding of decision making and allowing more people to take part in public debate and decision making.</li>
+        </ul>
+
+        <p>Thank you,</p>
+
+        <p>[Your name]</p>
+      </div>
+      <br>
+      <p>When asking for an internal review, you can also add your own specific reasons why you think the information should be made public.</p>
+
+      <h4>Template for following up on an internal review request</h4>
+      <div class="letter">
+        <p>Dear [Name of authority],</p>
+
+        <p>Please provide an update on the internal review for the FOI request I sent on [date].</p>
+
+        <p>Thank you,</p>
+
+        <p>[Your name]</p>
+      </div>
+
+      <br>
+      <h3>ICO appeals</h3>
+      <p>If you are unhappy with the result of an internal review, you can complain to the ICO.</p>
+
+      <p>The ICO is independent, and will look at all the evidence to decide if the public authority was wrong to refuse some or all of your request.</p>
+
+      <p>The ICO’s job is to reach a fair decision and they often do not take the side of the authority. There is no cost to complain to the ICO.</p>
+
+      <p>You can contact them in several ways:</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-header text-with-icon">
+            <svg width="1.5rem" height="1.5rem" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+              <path d="M14.9783 0.90283L4.07315 9.99083M6.64229 12.5714L9.13143 15.0491C9.2843 15.2058 9.47542 15.3198 9.68588 15.38C9.89635 15.4401 10.1189 15.4442 10.3314 15.392C10.5451 15.3421 10.7424 15.2381 10.9043 15.09C11.0662 14.9419 11.1873 14.7547 11.256 14.5463L15.3429 2.29483C15.4284 2.06537 15.4461 1.81617 15.394 1.5769C15.3419 1.33763 15.2222 1.11837 15.049 0.945218C14.8759 0.772066 14.6566 0.652318 14.4174 0.600228C14.1781 0.548137 13.9289 0.5659 13.6994 0.651401L1.44801 4.7394C1.23244 4.81299 1.04042 4.94276 0.891749 5.11534C0.743083 5.28791 0.64316 5.49703 0.602293 5.72112C0.560303 5.9251 0.569651 6.13633 0.629495 6.33581C0.68934 6.53529 0.797807 6.71678 0.94515 6.86397L4.07315 9.99197L3.97029 13.9531L6.64229 12.5714Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Via email</div>
+          <a href="mailto:ICOCasework@ico.org.uk">ICOCasework@ico.org.uk</a>
+        </div>
+        <div class="card">
+          <div class="card-header text-with-icon">
+            <svg viewBox="0 0 16 16" width="1.5rem" height="1.5rem" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation">
+              <path d="M2.18182 6.90909C2.18182 6.42688 2.37338 5.96442 2.71435 5.62344C3.05533 5.28247 3.51779 5.09091 4 5.09091C4.48221 5.09091 4.94467 5.28247 5.28565 5.62344C5.62662 5.96442 5.81818 6.42688 5.81818 6.90909C5.81818 7.3913 5.62662 7.85376 5.28565 8.19474C4.94467 8.53572 4.48221 8.72727 4 8.72727C3.51779 8.72727 3.05533 8.53572 2.71435 8.19474C2.37338 7.85376 2.18182 7.3913 2.18182 6.90909ZM4 6.18182C3.80712 6.18182 3.62213 6.25844 3.48574 6.39483C3.34935 6.53122 3.27273 6.71621 3.27273 6.90909C3.27273 7.10198 3.34935 7.28696 3.48574 7.42335C3.62213 7.55974 3.80712 7.63636 4 7.63636C4.19288 7.63636 4.37787 7.55974 4.51426 7.42335C4.65065 7.28696 4.72727 7.10198 4.72727 6.90909C4.72727 6.71621 4.65065 6.53122 4.51426 6.39483C4.37787 6.25844 4.19288 6.18182 4 6.18182ZM4 10.1818C3.51779 10.1818 3.05533 10.3734 2.71435 10.7144C2.37338 11.0553 2.18182 11.5178 2.18182 12C2.18182 12.4822 2.37338 12.9447 2.71435 13.2856C3.05533 13.6266 3.51779 13.8182 4 13.8182C4.48221 13.8182 4.94467 13.6266 5.28565 13.2856C5.62662 12.9447 5.81818 12.4822 5.81818 12C5.81818 11.5178 5.62662 11.0553 5.28565 10.7144C4.94467 10.3734 4.48221 10.1818 4 10.1818ZM3.27273 12C3.27273 11.8071 3.34935 11.6221 3.48574 11.4857C3.62213 11.3494 3.80712 11.2727 4 11.2727C4.19288 11.2727 4.37787 11.3494 4.51426 11.4857C4.65065 11.6221 4.72727 11.8071 4.72727 12C4.72727 12.1929 4.65065 12.3779 4.51426 12.5143C4.37787 12.6507 4.19288 12.7273 4 12.7273C3.80712 12.7273 3.62213 12.6507 3.48574 12.5143C3.34935 12.3779 3.27273 12.1929 3.27273 12ZM7.27273 6.72727C7.27273 6.58261 7.3302 6.44387 7.43249 6.34158C7.53478 6.23929 7.67352 6.18182 7.81818 6.18182H13.2727C13.4174 6.18182 13.5561 6.23929 13.6584 6.34158C13.7607 6.44387 13.8182 6.58261 13.8182 6.72727C13.8182 6.87194 13.7607 7.01067 13.6584 7.11297C13.5561 7.21526 13.4174 7.27273 13.2727 7.27273H7.81818C7.67352 7.27273 7.53478 7.21526 7.43249 7.11297C7.3302 7.01067 7.27273 6.87194 7.27273 6.72727ZM7.81818 11.2727C7.67352 11.2727 7.53478 11.3302 7.43249 11.4325C7.3302 11.5348 7.27273 11.6735 7.27273 11.8182C7.27273 11.9628 7.3302 12.1016 7.43249 12.2039C7.53478 12.3062 7.67352 12.3636 7.81818 12.3636H13.2727C13.4174 12.3636 13.5561 12.3062 13.6584 12.2039C13.7607 12.1016 13.8182 11.9628 13.8182 11.8182C13.8182 11.6735 13.7607 11.5348 13.6584 11.4325C13.5561 11.3302 13.4174 11.2727 13.2727 11.2727H7.81818ZM2.18182 3.09091C2.18182 2.94625 2.23929 2.80751 2.34158 2.70521C2.44387 2.60292 2.58261 2.54545 2.72727 2.54545H13.2727C13.4174 2.54545 13.5561 2.60292 13.6584 2.70521C13.7607 2.80751 13.8182 2.94625 13.8182 3.09091C13.8182 3.23557 13.7607 3.37431 13.6584 3.4766C13.5561 3.5789 13.4174 3.63636 13.2727 3.63636H2.72727C2.58261 3.63636 2.44387 3.5789 2.34158 3.4766C2.23929 3.37431 2.18182 3.23557 2.18182 3.09091ZM2.72727 0C2.00396 0 1.31026 0.287337 0.7988 0.7988C0.287337 1.31026 0 2.00396 0 2.72727V13.2727C0 13.996 0.287337 14.6897 0.7988 15.2012C1.31026 15.7127 2.00396 16 2.72727 16H13.2727C13.996 16 14.6897 15.7127 15.2012 15.2012C15.7127 14.6897 16 13.996 16 13.2727V2.72727C16 2.00396 15.7127 1.31026 15.2012 0.7988C14.6897 0.287337 13.996 0 13.2727 0H2.72727ZM1.09091 2.72727C1.09091 2.29328 1.26331 1.87707 1.57019 1.57019C1.87707 1.26331 2.29328 1.09091 2.72727 1.09091H13.2727C13.7067 1.09091 14.1229 1.26331 14.4298 1.57019C14.7367 1.87707 14.9091 2.29328 14.9091 2.72727V13.2727C14.9091 13.7067 14.7367 14.1229 14.4298 14.4298C14.1229 14.7367 13.7067 14.9091 13.2727 14.9091H2.72727C2.29328 14.9091 1.87707 14.7367 1.57019 14.4298C1.26331 14.1229 1.09091 13.7067 1.09091 13.2727V2.72727Z" fill="currentColor"/>
+              </svg>
+            Using their online form
+          </div>
+          <a href="https://ico.org.uk/make-a-complaint/foi-and-eir-complaints/foi-and-eir-complaints/">ICO online form</a>
+        </div>
+        <div class="card card-spawn-2">
+          <div class="card-header text-with-icon">
+            <svg viewBox="0 0 16 16" width="1.5rem" height="1.5rem" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"><path d="M14.5 13.8529H1.5C0.67 13.8529 0 13.1432 0 12.2641V2.73163C0 1.85252 0.67 1.14288 1.5 1.14288H14.5C15.33 1.14288 16 1.85252 16 2.73163V12.2641C16 13.1432 15.33 13.8529 14.5 13.8529ZM1.5 2.20205C1.22 2.20205 1 2.43507 1 2.73163V12.2641C1 12.5607 1.22 12.7937 1.5 12.7937H14.5C14.78 12.7937 15 12.5607 15 12.2641V2.73163C15 2.43507 14.78 2.20205 14.5 2.20205H1.5Z" fill="currentColor"/><path d="M8 10.24C7.3 10.24 6.66 9.92 6.18 9.33715L0.93 2.96C0.74 2.73143 0.75 2.36572 0.95 2.14858C1.15 1.93143 1.47 1.94286 1.66 2.17143L6.91 8.54858C7.48 9.24572 8.52 9.24572 9.09 8.54858L14.34 2.18286C14.53 1.95429 14.85 1.94286 15.05 2.16C15.25 2.37715 15.26 2.74286 15.07 2.97143L9.82 9.34858C9.34 9.93143 8.7 10.2514 8 10.2514V10.24Z" fill="currentColor"/>
+              </svg>
+            By post
+          </div>
+          <p>Information Commissioner’s Office, Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF</p>
+        </div>
+      </div>
+      <br>
+
+      <p>You should include copies of the correspondence that you have had with the public authority, or a link to your request on WhatDoTheyKnow. You should also briefly explain why you disagree with the outcome of the internal review.</p>
+
+      <p>It could take up to six months for the ICO to look into your case and reach a decision.</p>
+    </section>
+
+    <big>
+      Up next:
+      <a href="<%= learn_foi_myths_path %>" aria-label="Common misconceptions about FOI">Common misconceptions about FOI &#8594;</a>
+    </big>
+  </div>
+</div>

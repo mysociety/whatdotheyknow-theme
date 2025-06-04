@@ -1,0 +1,216 @@
+<% @title = "Common misconceptions about FOI" %>
+
+<div class="two-col-content-grid">
+  <%
+  links = [
+    ['1. FOI is an adversarial or confrontational process', '#foi-is-an-adversarial-process'],
+    ['2. You need personal connections or insider contacts to get information', '#you-need-personal-connections'],
+    ['3. FOI is for experts, journalists or large organisations only', '#foi-is-for-experts'],
+    ['4. Making an FOI request is too complicated', '#making-an-foi-request-is-too-complicated'],
+    ['5. I have to explain why I want the information', '#i-have-to-explain-why-i-want-the-information'],
+    ['6. FOI requests take a long time', '#foi-requests-take-a-long-time'],
+    ['7. FOI requests cost money to make', '#foi-requests-cost-money-to-make'],
+    ['8. FOI lets me interrogate the authority', '#foi-lets-me-interrogate-the-authority'],
+    ['9. You can only make requests to central government', '#you-can-only-make-requests-to-central-government'],
+    ['10. FOI is just for getting documents released', '#foi-is-just-for-getting-documents-released']
+  ]
+
+  next_link = {
+    text: "Putting knowledge to use",
+    url: "/learn#seminars",
+    heading: "Related:"
+  }
+  %>
+
+  <%= render partial: 'sticky_sidebar', locals: { links: links, next_link: next_link } %>
+
+  <div>
+    <div class="hero-section">
+      <div>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
+      </div>
+      <h1 id="main-title" class="hero-content-title">
+        <%= @title %>
+      </h1>
+
+      <p class="hero-subtitle">Don’t believe everything you hear about Freedom of Information!</p>
+      <p>People often get muddled up, or confuse FOI with other similar concepts, so it’s easy to be misled. On this page we’ve listed some of the most common mistakes people make about FOI.</p>
+    </div>
+
+    <section class="section-medium" id="foi-is-an-adversarial-process">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 1</span>
+
+        <small class="card-header">
+          <h2>Sending an FOI request is confrontational: it’s you vs the public authority</h2>
+        </small>
+
+        <big><p>Making a request for information is not meant to be adversarial, and can in fact be a collaborative process between you and the authority.</p></big>
+
+        <p>Handling FOI requests is part of the normal day-to-day work that staff working at public authorities do. In fact, FOI Officers often take up the job because they believe in transparency and they want to help the public access the information that matters to them.</p>
+        <p>FOI Officers are generally very professional and will often write to you to clarify your request or to help you find what you are looking for.</p>
+        <p>Under section 16 of the Freedom of Information Act 2000, public authorities have a duty to advise and assist requesters. You can contact the FOI team before making your request if you would like to understand what information an authority might hold in advance — and this can be a very useful step to take.</p>
+        <p>Public authorities have to follow a legal process when answering FOI requests, and because of the bits of law that they might have to quote, responses can sometimes come across as defensive.</p>
+        <p>It may help to remember that you are making a legitimate request for information that you have a legal right to receive — and the FOI team is there to facilitate that.</p>
+      </div>
+    </section>
+
+    <section id="you-need-personal-connections" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 2</span>
+
+        <small class="card-header">
+          <h2>You need personal connections or insider contacts to get information</h2>
+        </small>
+
+        <big><p>Anyone can make a Freedom of information request, regardless of who they are or &lsquo;who they know&rsquo;. FOI opens up official information to anyone who wishes to access it.</p></big>
+        <p>FOI is described as being &lsquo;applicant blind&rsquo;. This means that public authorities have to treat all requests equally.</p>
+        <p>Who the requester is, or where they come from should — by law — make no difference to whether information is released. There is no requirement under FOI for you to explain why you want the information or to justify your request.</p>
+        <p>A release under FOI is deemed to be a release to the whole world. Some organisations and individuals do approach their contacts at authorities to obtain information outside of the Act. This might be because they think that the FOI process would be too slow or too formal for their needs — and there is nothing to stop them asking for information informally in this way.</p>
+        <p>But FOI does have some benefits. It is a safeguard that ensures that anyone can access information. When you make an FOI request, the authority has to respond to you, and you have a formal right of appeal to an independent regulator to help protect your rights.</p>
+      </div>
+    </section>
+
+    <section id="foi-is-for-experts" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 3</span>
+
+        <small class="card-header">
+          <h2>FOI is for experts, journalists or large organisations</h2>
+        </small>
+
+        <big><p>FOI is for everyone.</p></big>
+        <p>Every year thousands of &ldquo;ordinary&rdquo; people use WhatDoTheyKnow to make requests covering a wide range of topics &mdash; and they are successful in getting information released.</p>
+        <p>The process is designed to be accessible, and FOI requests are handled by most public sector organisations as routine, business-as-usual activity.</p>
+        <p>Requests cover things like parking revenues, or routine planning decisions, that are unlikely to ever be headline news stories, but matter to the people who have asked them all the same.</p>
+        <p>It&rsquo;s true that journalists and NGOs are frequent users of FOI, and some of the requests they make are more complex, sometimes requiring multiple appeals before information is released. But they are the exception rather than the rule.</p>
+        <p>Most requests made using WhatDoTheyKnow result in some or all of the information being released, and there&rsquo;s no need to be an expert.</p>
+        <p>If you did need to challenge the way your request has been handled for any reason, you could get help at that stage and get guidance as and when needed &mdash; there&rsquo;s lots on <a href="/help/unhappy">WhatDoTheyKnow</a>, for example.</p>
+      </div>
+    </section>
+
+    <section id="making-an-foi-request-is-too-complicated" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 4</span>
+
+        <small class="card-header">
+          <h2>Making an FOI request is too complicated for non-specialists. You have to use legal language or special forms for your request to be valid</h2>
+        </small>
+
+        <big><p>FOI requests are really easy to make... in fact you could make one without realising!</p></big>
+        <p>In order to be valid, a request needs to be in writing, include your full name and an address for the authority to reply to (email is fine) and describe the information that you want. That&rsquo;s it!</p>
+        <p>You do not need to mention the Freedom of Information Act, though it might help to do so if you are making your request to a general contact at the authority, rather than to the FOI team.</p>
+        <p>Far from needing to use complicated legal language, it&rsquo;s best if you stick to clear natural language when writing requests. This makes it easier for the FOI team to know where to look for the information that you are interested in.</p>
+        <p>Your request won&rsquo;t be ignored for using plain language, and if it is unclear, the authority will ask you to clarify rather than reject it outright.</p>
+      </div>
+    </section>
+
+    <section id="i-have-to-explain-why-i-want-the-information" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 5</span>
+
+        <small class="card-header">
+          <h2>I have to explain why I want the information (and if they don&rsquo;t like my reason, they&rsquo;ll say no)</h2>
+        </small>
+
+        <big><p>You don&rsquo;t need to justify why you are making an FOI request.</p></big>
+        <p>The FOI process is centered around what is being asked for, not why or who is asking.</p>
+        <p>FOI law is &ldquo;applicant blind&rdquo;, which means that public authorities must treat all requests in the same way.</p>
+        <p>They can&rsquo;t demand to know why you are asking for information.</p>
+        <p>They are not allowed to say no just because the information might be embarrassing or paint them in an unfavourable light.</p>
+        <p>They can&rsquo;t refuse to answer an FOI request without a reason. The default is that the information should be released unless one of the limited number of exemptions applies.</p>
+        <p>And even then, if you believe an exemption has been wrongly applied, you have the right to challenge that decision through making an internal review and appealing to the Information Commissioner.</p>
+        <p>These checks and balances help to ensure that information is only being withheld when there is a valid reason.</p>
+      </div>
+    </section>
+
+    <section id="foi-requests-take-a-long-time" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 6</span>
+
+        <small class="card-header">
+          <h2>FOI requests take a long time — I won&rdquo;t get the information quickly enough for it to be useful</h2>
+        </small>
+
+        <big><p>Public authorities are legally required to answer FOI requests within 20 working days.</p></big>
+        <p>This means that you can expect an answer or a valid refusal roughly within a month.</p>
+        <p>If an authority hasn&rsquo;t responded to you within this time, you can complain to the Information Commissioner&rsquo;s Office (ICO), who will write to them to tell them to answer your request.</p>
+        <p>Unlike more complicated ICO appeals following a refusal, these are regularly handled much more quickly.</p>
+        <p>Most authorities take their responsibility to answer requests on time seriously, and will respond to you within the deadline.</p>
+        <p>You might find that if your request is simple to answer that you will get a response much more quickly. While delays do happen, these are the exception rather than the norm.</p>
+      </div>
+    </section>
+
+    <section id="foi-requests-cost-money-to-make" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 7</span>
+
+        <small class="card-header">
+          <h2>I might be charged for putting in an FOI request </h2>
+        </small>
+
+        <big><p>Making a Freedom of Information request won&rsquo;t cost you money.</p></big>
+        <p>The Freedom of Information Act makes public information accessible to all. Authorities can&rsquo;t charge you for making requests, or for the time spent looking for information.</p>
+        <p>The only charge that there might be is for photocopying or postage charges, but you will always be given the option not to pay, and electronic delivery (ie by email) will be free.</p>
+        <p>There is a &ldquo;cost exemption&rdquo; under the Act, but that applies to the cost to the authority and not to you. It means that if your request would cost the authority too much money to answer in full, they can refuse it.</p>
+        <p>It may help to think of this as a limit to the amount of time that an authority has to spend answering your request. <a href="<%= learn_request_refused_delayed_path %>">There&rsquo;s some advice about this here</a>.</p>
+      </div>
+    </section>
+
+    <section id="foi-lets-me-interrogate-the-authority" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 8</span>
+
+        <small class="card-header">
+          <h2>FOI lets me interrogate the authority and they have to explain things to me</h2>
+        </small>
+
+        <big><p>The Freedom of Information Act gives you the right to access recorded information that is held by public authorities.</p></big>
+        <p>It doesn&rsquo;t require authorities to create new information, or provide you with explanations for things &mdash; unless those explanations are already written down.</p>
+        <p>The information that you receive might help you to better understand how a decision was made &mdash; for example, you might receive minutes from a meeting where the question is being discussed, or a vote is taken.</p>
+        <p>But the authority doesn&rsquo;t have to answer your questions, justify decisions they&rsquo;ve taken, or create any new data in response to your specific request. A &ldquo;why&rdquo; question is usually not a good basis for an FOI request &mdash; <a href="<%= learn_effective_requests_path %>">see our guidance here</a>.</p>
+        <p>That said, although they are not obliged to do so, many authorities will provide context or explanations alongside the information that they send to you, to help you to understand it better.</p>
+        <p>Otherwise, if you are looking for explanations rather than specific recorded information, you might want to try different methods, like <a href="https://www.writetothem.com/">writing to elected officials</a> or attending public meetings.</p>
+      </div>
+    </section>
+
+    <section id="you-can-only-make-requests-to-central-government" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 9</span>
+
+        <small class="card-header">
+          <h2>You can only make requests to central government</h2>
+        </small>
+
+        <big><p>You can make a request to most public bodies. Public bodies are the authorities that we pay for through our taxes.</p></big>
+        <p>So you could make a request to your local council, state school, university, police force, fire brigade, NHS trust... and many more bodies.</p>
+        <p>WhatDoTheyKnow lists more than 45,000 different organisations that are subject to FOI, and you can use the site to send your request to any of them.</p>
+        <p>If you are not sure whether the organisation that you want to ask is covered, don&rsquo;t worry. You can <a href="https://ico.org.uk/global/contact-us/contact-us-public/public-advice/">ask the Information Commissioner&rsquo;s Office (ICO)</a>, who will be happy to help.</p>
+        <p>While private companies are not normally subject to FOI, you can often use the Act to get information about them.</p>
+        <p>For example, you could ask your local council for a copy of a contract with a supplier, and related letters and emails.</p>
+        <p>Also, most UK regulators are subject to FOI and can be asked for information about the companies they regulate.</p>
+      </div>
+    </section>
+
+    <section id="foi-is-just-for-getting-documents-released" class="section-medium">
+      <div class="card">
+        <span class="label-tag label-tag-block">Myth 10</span>
+
+        <small class="card-header">
+          <h2>FOI is just for getting documents released</h2>
+        </small>
+
+        <big><p>The Freedom of Information Act gives you the right to access <strong>all</strong> types of recorded information that is held by public authorities.</p></big>
+
+        <p>Recorded information is simply information that has been written down, printed or stored somewhere on a computer system or in another permanent format.</p>
+        <p>This includes data, documents, letters, reports, emails, minutes of meetings, maps, photographs, sound and video recordings&hellip; and much more. If the information has been recorded, then you can ask for it.</p>
+        <p>WhatDoTheyKnow contains a lot of this material in responses received by other people, and it can be fun &mdash; and educational! &mdash; to have a browse through it.</p>
+      </div>
+    </section>
+
+    <big>
+      Up next:
+      <a href="/learn#seminars" aria-label="Go to next topic: Putting knowledge to use">Putting knowledge to use &#8594;</a>
+    </big>
+  </div>
+</div>

@@ -1,4 +1,16 @@
 # Please arrange overridden classes alphabetically.
+Rails.application.config.after_initialize do
+  class LearnController < ApplicationController
+    def index; end
+    def understanding_rights; end
+    def how_to_make_requests; end
+    def effective_requests; end
+    def privacy_anonymity; end
+    def request_refused_delayed; end
+    def foi_myths; end
+  end
+end
+
 Rails.configuration.to_prepare do
   AdminCensorRuleController.class_eval do
     before_action :block_global_censor_rule_creation, only: [:create]
@@ -35,6 +47,7 @@ Rails.configuration.to_prepare do
     def appeals; end
     def removing_information; end
     def books; end
+    def commercial_interests_exemptions; end
 
     private
 

@@ -1,0 +1,23 @@
+<% content_for :javascript_head do %>
+  <%= javascript_importmap_tags("learn", importmap: Rails.application.theme_importmap) %>
+<% end %>
+
+<div>
+  <a href="#main-title" class="show-with-keyboard-focus-only skip-to-link">Skip table of contents</a>
+  <nav id="table-of-contents" class="sticky-sidebar" role="navigation" aria-label="Table of contents">
+    <h2 class="sticky-sidebar-header">Table of contents</h2>
+    <ul>
+      <% links.each do |text, anchor| %>
+        <li>
+          <%= link_to_unless_current text, anchor %>
+        </li>
+      <% end %>
+    </ul>
+    <% if next_link.present? %>
+      <strong><%= next_link[:heading] || "Up next:" %></strong>
+      <div><a href="<%= next_link[:url].to_s %>"><%= next_link[:text] %> &#8594;</a></div>
+    <% end %>
+  </nav>
+  <%= render :partial => 'learn/mobile_position_page_controller' %>
+  <%= render :partial => 'learn/mobile_sticky_sidebar_button' %>
+</div>

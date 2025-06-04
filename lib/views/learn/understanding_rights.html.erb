@@ -1,0 +1,245 @@
+<% @title = "Understanding your rights" %>
+
+<div class="two-col-content-grid">
+  <%
+  links = [
+    ['What is recorded information?', '#what-is-recorded-information'],
+    ['How do you ask for it?', '#how-do-you-ask-for-it'],
+    ['Requests for information vs questions', '#requests-for-information-vs-questions'],
+    ['What can\'t you get?', '#what-cant-you-get'],
+    ['Environmental information', '#environmental-information'],
+    ['Who can you ask?', '#who-can-you-ask'],
+    ['Scottish authorities', '#scottish-authorities'],
+    ['Who can make a request?', '#who-can-make-a-request'],
+    ['Time limits and what to expect', '#time-limits-and-what-to-expect'],
+    ['What response will you get?', '#what-response-will-you-get']
+  ]
+
+  next_link = {
+    text: "Taking the first steps",
+    url: learn_how_to_make_requests_path
+  }
+  %>
+
+  <%= render partial: 'sticky_sidebar', locals: { links: links, next_link: next_link } %>
+
+  <div>
+    <div class="hero-section">
+      <div>
+        <a href="<%= learn_path %>">Learn</a> &rsaquo; <%= @title %>
+      </div>
+      <h1 id="main-title" class="hero-content-title">
+        <%= @title %>
+      </h1>
+
+      <p class="hero-subtitle">In this section, you will learn what your rights under FOI are. This includes what information you can ask for, who you can ask, and how long it might take to get an answer.</p>
+    </div>
+
+    <h2>FOI basics</h2>
+
+    <section>
+      <h3 id="what-is-recorded-information">What is recorded information?</h3>
+      <p>FOI gives you the right to access <strong>recorded information</strong> that is held by <strong>public authorities</strong>.</p>
+      <ul>
+        <li><strong>Public authorities</strong> include government departments, local councils, hospitals, schools, universities, prisons and many more.</li>
+        <li><strong>Recorded information</strong> is simply information that has been written down, printed or stored somewhere on a computer system. This includes data, documents, letters, reports, emails, minutes of meetings, maps, photographs, sound and video recordings and much more. If the information has been recorded, you can ask to see it.</li>
+      </ul>
+    </section>
+
+    <section class="section-medium">
+
+      <h3 id="how-do-you-ask-for-it">How do you ask for it?</h3>
+      <p>You can find more about the exact format a request needs to take later on, but the important thing to remember is that you don’t need to worry about using a special form of words or formal language.</p>
+      <p>A short and simple note saying what information you want is absolutely fine. You can write an FOI request using the same language you would use when writing a note to a friend or family member.</p>
+
+      <div class="card card-alert">
+        <p class="card-header text-with-icon">
+          <svg aria-hidden="true" role="presentation" width="16" height="24" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 12V11.25C6.5 10.3438 7.48563 9.48658 8.125 8.87502C9.02625 8.01346 9.5 6.85596 9.5 5.50002C9.5 3.00002 7.50844 1.00002 5 1.00002C4.40859 0.998368 3.82269 1.11364 3.27598 1.3392C2.72927 1.56476 2.23254 1.89617 1.81434 2.31436C1.39615 2.73255 1.06475 3.22928 0.839184 3.77599C0.613622 4.3227 0.498353 4.90861 0.500002 5.50002C0.500002 6.80752 0.994065 8.04346 1.875 8.87502C2.51094 9.47533 3.5 10.3344 3.5 11.25V12M4 15H6M3.5 13.5H6.5M5 12V8.00002" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.1875 7.5C6.1875 7.5 5.51531 8 5 8C4.48469 8 3.8125 7.5 3.8125 7.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Any topic you want
+        </p>
+
+        <p>You can make FOI requests on any topic you can think of, including education, health, housing and policing — and many more. You might find out how public money is spent and how decisions are being made.</p>
+      </div>
+
+      <p>You do not need to mention the Freedom of Information Act to make a request for information. If your request is in writing and describes the information that you want, it should be treated as an FOI request.</p>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="requests-for-information-vs-questions">Requests for information vs questions</h3>
+      <p>An FOI request must ask for information that an organisation may already have. It is not a way to get general questions answered. For example:</p>
+
+      <div class="card-grid">
+        <div class="card card-red">
+          <div class="card-header">
+            &#10060; <small><i class="text-red">&ldquo;Why are the traffic lights broken?&rdquo;</i></small>
+          </div>
+
+          <p>It is not a valid FOI request.</p>
+        </div>
+
+        <div class="card card-green">
+          <div class="card-header">
+            &#x2705; <small><i class="text-green">&ldquo;Please send me any emails or meeting minutes about broken traffic lights in our city&rdquo;</i></small>
+          </div>
+
+          <p>It would be a valid FOI request.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="what-cant-you-get">What can’t you get?</h3>
+      <p>There are three main types of information that you can’t get using FOI.</p>
+
+      <h4>Information that is not held by the authority</h4>
+      <p>If the authority doesn’t have the information that you have asked for, they can’t give it to you.</p>
+      <p>Information that the staff at the public authority know, but that is not written down anywhere, can’t be obtained using FOI.</p>
+      <p>If the information is held by someone else, they will usually tell you who you need to contact instead.</p>
+
+      <h4>Your own personal information.</h4>
+      <p>You have a separate right to access information about yourself under data protection laws.</p>
+      <p>If you want to find out what information a public body holds about you, you will need to make a Right of Access request.</p>
+      <p>If you try to make a request for your own information under FOI, the authority will refuse it, but should handle your request under GDPR instead. They may require proof of identity before doing so.</p>
+
+      <h4>Information that is exempt from disclosure.</h4>
+      <p>The Freedom of Information Act allows authorities to withhold information for various reasons.</p>
+      <p>This can cover things like other people&rsquo;s personal information, or information where the release could harm national security.</p>
+      <p>Don’t worry about these details right now. Just know that the law allows authorities to withhold information for certain reasons. If they do withhold information in this way, they must explain why, and you have the right to appeal.</p>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="environmental-information">Environmental information</h3>
+      <p>There is a specific law, the Environmental Information Regulations (EIR), that covers requests about the environment from public authorities.</p>
+      <p>You can ask for information about topics like water quality, air pollution and recycling.</p>
+      <p>The EIR gives you similar rights to FOI. You don’t need to worry about exactly what law you are asking for information under to make a request – the authority should handle your request under the correct law. In general, it works in much the same way that FOI does.</p>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="who-can-you-ask">Who can you ask?</h3>
+      <p>You can make a request to most public bodies. This includes central and local government, and some other organisations that are publicly funded.</p>
+      <p>Here are some examples of who you can make a request to:</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4 class="card-header">Your local council</h4>
+          <p>Councils are responsible for things like housing, schools, social services, libraries, roads, and planning.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Schools, colleges and universities</h4>
+          <p>State schools (including academies), further education colleges and universities are subject to FOI.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Central government</h4>
+          <p>This includes government departments such as the Home Office, Ministry of Justice and the Department for Education, and other bodies forming part of the government such as the Environment Agency.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Devolved governments</h4>
+          <p>This includes your local NHS Trust and GP surgery, but also NHS dentists, pharmacists and opticians.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">The National Health Service (NHS)</h4>
+          <p>This includes your local NHS Trust and GP surgery, but also NHS dentists, pharmacists and opticians.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Emergency Services</h4>
+          <p>All police forces, fire brigades and ambulance services are covered.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Regulators</h4>
+          <p>Like the Pensions Ombudsman, the Independent Office for Police Conduct, the British Board of Film Classification and more. This even includes the ICO (the body which oversees Freedom of Information).</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">Publicly-owned companies</h4>
+          <p>Companies that are wholly owned by public bodies are subject to FOI, including the BBC, Channel 4, the Post Office and the Student Loans Company.</p>
+        </div>
+
+        <div class="card">
+          <h4 class="card-header">The Army, Royal Navy and the Royal Air Force</h4>
+        </div>
+      </div>
+
+      <div class="card card-yellow card-alert">
+        <p class="card-header text-with-icon">
+          <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16c2.12 0 4.16-.84 5.66-2.34 1.5-1.5 2.34-3.54 2.34-5.66 0-2.12-.84-4.16-2.34-5.66C12.16.84 10.12 0 8 0 5.88 0 3.84.84 2.34 2.34.84 3.84 0 5.88 0 8c0 2.12.84 4.16 2.34 5.66C3.84 15.16 5.88 16 8 16zM9 5c0 .27-.1.52-.3.7-.18.2-.43.3-.7.3-.26 0-.52-.1-.7-.3C7.1 5.52 7 5.27 7 5c0-.27.1-.52.3-.7.18-.2.44-.3.7-.3.27 0 .52.1.7.3.2.18.3.43.3.7zM7 7c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h.25v2H6.25c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h3.5c.2 0 .39-.08.53-.22.14-.14.22-.33.22-.53 0-.2-.08-.39-.22-.53-.14-.14-.33-.22-.53-.22H8.75V7H7z" fill="currentColor"/></svg>
+
+          This is not a complete list
+        </p>
+
+        <p>Thousands of organisations are covered by UK FOI law. You can find all the ones included on WhatDoTheyKnow at &#8594; <a href="https://www.whatdotheyknow.com/body/list/all">whatdotheyknow.com/body/list/all</a>.</p>
+
+        <p>If you are not sure whether the organisation that you want to ask is covered by FOI law, don’t worry. You can always ask the <a href="https://ico.org.uk/" aria-label="Go to Information Commissioner&rsquo;s Office">ICO</a> who will be happy to help.</p>
+      </div>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="scottish-authorities">Scottish authorities</h3>
+      <p>Scotland has its own FOI law covering authorities based only in Scotland, and its own Information Commissioner.</p>
+      <p>In general, if you are asking for information from a Scottish body such as a local council in Scotland, a Scottish Government agency or Police Scotland, the Scottish law will apply.</p>
+      <p>If you are asking a UK-wide authority that happens to operate in Scotland, such as the DWP, then the UK FOI Act will apply.</p>
+      <p class="highlight-text">As the requester, you don’t need to worry about this. If you send your request to the authority you want to find out information from, they will process it under the correct law. Your rights are very similar, and the processes are, too.</p>
+      <p>The advice in this guide generally applies to requests made in Scotland too, but you should note that appeals in Scotland go to the Scottish Commissioner and the reasons that authorities are allowed to refuse requests are slightly different.</p>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="who-can-make-a-request">Who can make a request?</h3>
+      <p>Anyone can make a request to a UK public authority:</p>
+      <ul>
+        <li>You <strong>do not</strong> need to be a UK citizen or resident. There is no age limit – FOI requests can be made by children and teenagers. Requests can also be made in the name of an organisation, or on behalf of someone else.</li>
+        <li>Usually, you won’t be asked to provide ID when making an FOI request.</li>
+        <li>You don’t need to have money to make an FOI request.</li>
+        <li>You don’t normally need to have a lot of time either – it can take as little as ten minutes to write a good FOI request.</li>
+        <li>Making FOI requests is a right that everyone has and is not restricted to certain groups of people.</li>
+      </ul>
+
+      <div class="card card-alert">
+        <p class="card-header text-with-icon">
+          <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16c2.12 0 4.16-.84 5.66-2.34 1.5-1.5 2.34-3.54 2.34-5.66 0-2.12-.84-4.16-2.34-5.66C12.16.84 10.12 0 8 0 5.88 0 3.84.84 2.34 2.34.84 3.84 0 5.88 0 8c0 2.12.84 4.16 2.34 5.66C3.84 15.16 5.88 16 8 16zM9 5c0 .27-.1.52-.3.7-.18.2-.43.3-.7.3-.26 0-.52-.1-.7-.3C7.1 5.52 7 5.27 7 5c0-.27.1-.52.3-.7.18-.2.44-.3.7-.3.27 0 .52.1.7.3.2.18.3.43.3.7zM7 7c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h.25v2H6.25c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h3.5c.2 0 .39-.08.53-.22.14-.14.22-.33.22-.53 0-.2-.08-.39-.22-.53-.14-.14-.33-.22-.53-.22H8.75V7H7z" fill="currentColor"/></svg>
+          FOIs are for everyone
+        </p>
+
+        <p>Journalists and campaigners make a lot of FOI requests, but you can too. Public authorities have to treat all requests the same, regardless of who made them.</p>
+      </div>
+
+      <div class="card card-yellow card-alert">
+        <p class="card-header text-with-icon">
+          <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16c2.12 0 4.16-.84 5.66-2.34 1.5-1.5 2.34-3.54 2.34-5.66 0-2.12-.84-4.16-2.34-5.66C12.16.84 10.12 0 8 0 5.88 0 3.84.84 2.34 2.34.84 3.84 0 5.88 0 8c0 2.12.84 4.16 2.34 5.66C3.84 15.16 5.88 16 8 16zM9 5c0 .27-.1.52-.3.7-.18.2-.43.3-.7.3-.26 0-.52-.1-.7-.3C7.1 5.52 7 5.27 7 5c0-.27.1-.52.3-.7.18-.2.44-.3.7-.3.27 0 .52.1.7.3.2.18.3.43.3.7zM7 7c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h.25v2H6.25c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h3.5c.2 0 .39-.08.53-.22.14-.14.22-.33.22-.53 0-.2-.08-.39-.22-.53-.14-.14-.33-.22-.53-.22H8.75V7H7z" fill="currentColor"/></svg>
+          You don’t have to say why you need the information
+        </p>
+
+        <p>The important thing to remember is that requests must include the name of the requester. This needs to be your real name, which means that you can’t send a request signed “Anonymous” or using an obviously fake name such as Donald Duck.</p>
+        <p>We’ll discuss ways to protect your identity later on, if you are concerned about having your name attached to a request.</p>
+      </div>
+    </section>
+
+    <section class="section-medium">
+      <h3 id="time-limits-and-what-to-expect">Time limits and what to expect</h3>
+      <p>Usually, the authority has to reply to your request within <strong>20 working days</strong>.</p>
+      <p>A working day means Monday to Friday, excluding UK bank holidays, which means you’ll typically need to wait for four weeks to get an answer.</p>
+      <p>Many authorities will respond more quickly if your request is simple and the information is easy to locate.</p>
+    </section>
+
+    <section>
+      <h3 id="what-response-will-you-get">What response will you get?</h3>
+      <p>You will usually receive a response to your request in writing.</p>
+      <p>This will normally contain the information that you asked for, or explain why the authority can’t give you what you are looking for.</p>
+      <p>When an authority refuses a request, they will often use quite formal legal language, but don’t be put off by this. We’ll cover a few of the common reasons for refusing to provide information later in this guide. You can always ask the ICO for help if you need advice.</p>
+      <p>If your request was unclear, the authority might ask you for more information to help them find the information that you want to know. This is called a request for clarification. Try to respond to this as quickly as possible so that your request is not delayed.</p>
+      <p>You’re now ready to make your first request.</p>
+      <p>In the next section, we’ll walk you through the process step-by-step. If you want some tips on how to phrase your request effectively, you might want to jump ahead to the section on <a href="<%= learn_effective_requests_path %>">Writing effective requests</a>.</p>
+    </section>
+
+    <big>
+      Up next:
+      <a href="<%= learn_how_to_make_requests_path %>" aria-label="Go to next topic: Taking the first steps">Taking the first steps &#8594;</a>
+    </big>
+  </div>
+</div>
