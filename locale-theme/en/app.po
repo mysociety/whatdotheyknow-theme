@@ -1,2 +1,5 @@
 msgid "simple_date_format"
 msgstr "%e %B %Y"
+
+msgid "You can <strong>complain</strong> by"
+msgstr "The person who made the request can <strong>complain</strong> by"
