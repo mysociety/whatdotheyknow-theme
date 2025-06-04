@@ -43,7 +43,7 @@
 }
 
 $card-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-$card-background: linear-gradient(45deg, rgba(229, 234, 246, 40%), #d9e5ff);
+$card-background: linear-gradient(45deg, rgba(229, 234, 246, 40), #d9e5ff);
 $card-background-yellow: linear-gradient(45deg, #fff7cb, #fffed9);
 $card-background-red: linear-gradient(45deg, #f6e5e5, #ffd9d9);
 $card-background-green: linear-gradient(45deg, #e9f6e5, #d9ffd9);
@@ -230,7 +230,7 @@ a.card, button.card {
   }
 
   &:hover {
-    background: linear-gradient(230deg, rgba(229, 234, 246, 40%), #d9e5ff);
+    background: linear-gradient(230deg, rgba(229, 234, 246, 40), #d9e5ff);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     border: 1px solid transparentize($color_blue, 0.8);
 
@@ -461,7 +461,7 @@ $button-page-controller-size: 2.75rem;
   position: fixed;
   bottom: $button-page-controller-size + 1.5rem;
   right: 1rem;
-  background: rgba(255, 255, 255, 50%);
+  background: rgba(255, 255, 255, 50);
   padding: 1rem;
   border-radius: 1rem;
   margin-top: 1rem;
@@ -570,8 +570,8 @@ $button-page-controller-size: 2.75rem;
 */
 
 :root {
-  --label-tag-background: $color_blue;
-  --label-tag-text-color: $color_white;
+  --label-tag-background: #{$color_blue};
+  --label-tag-text-color: #{$color_white};
   --label-tag-font-size: 1em;
 }
 
