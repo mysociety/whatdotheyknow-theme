@@ -23,6 +23,8 @@ RSpec.describe DonationHelper, type: :helper do
       context 'with pro enabled' do
         before(:each) do
           allow(AlaveteliFeatures.backend).
+            to receive(:enabled?).and_call_original
+          allow(AlaveteliFeatures.backend).
             to receive(:enabled?).with(:alaveteli_pro).and_return(true)
         end
 
