@@ -1,0 +1,514 @@
+<% @title = "Commercial interests exemptions" %>
+
+<div class="two-col-content-grid">
+  <%
+  links = [
+    ['Introduction', '#introduction'],
+    ['Explanation of the exemptions', '#explanation-of-the-exemptions'],
+    ['Common use cases for the exemptions', '#common-use-cases-for-the-exemptions'],
+    ['How to challenge the exemption', '#how-to-challenge-the-exemption'],
+    ['Walkthrough of the appeal process', '#walkthrough-of-the-appeal-process'],
+    ['How to structure requests to make it less likely to apply', '#how-to-structure-requests'],
+    ['Templates for requests/appeals', '#templates-for-requests-appeals'],
+    ['Glossary', '#glossary'],
+    ['Further information', '#further-information']
+  ]
+
+  next_link = {}
+  %>
+
+  <%= render partial: 'learn/sticky_sidebar', locals: { links: links, next_link: next_link } %>
+
+  <div>
+    <div class="hero-section">
+      <div>
+        <a href="/">Home</a> &rsaquo; <a href="/help">Help</a> &rsaquo; <%= @title %>
+      </div>
+      <h1 id="main-title" class="hero-content-title">
+        <%= @title %>
+      </h1>
+    </div>
+
+    <section id="introduction">
+      <h2>Introduction</h2>
+
+      <p>Overview and purpose of the guide</p>
+
+      <p>In the UK, freedom of information laws include exemptions to protect the commercial interests of public authorities and businesses. This guide explains what these exemptions cover and what public authorities need to do to apply them.</p>
+
+      <p>By the end of this guide, you should understand the types of information that can be withheld as being commercially sensitive, and how to appeal against the use of the exemptions when you believe that information has been incorrectly withheld.</p>
+    </section>
+
+    <section id="explanation-of-the-exemptions" class="section-medium">
+      <h2>Explanation of the exemptions</h2>
+
+      <h3>Section 43 FOI</h3>
+
+      <h4>What Section 43 covers</h4>
+
+      <p>Section 43 (S43) applies to information that, if disclosed, could harm the commercial interests of an authority or a third party, or that is a trade secret.</p>
+
+      <ul>
+        <li>S43(1) – Trade secrets – A trade secret is something that is genuinely secret, has real commercial value due to its secrecy and is something that an organisation makes efforts to keep secret. This could be something like a secret formula or secret recipe.</li>
+        <li>S43(2) Prejudice to commercial interests – S43(2) is much broader and covers a wide range of business information. Commercial interests could broadly be defined as relating to a company or organisation’s ability to be competitive for business reasons, such as selling goods or providing services.</li>
+      </ul>
+
+      <p>A third party could be a supplier or potential supplier to the public authority but it could also be a company that the public authority holds information about for other reasons e.g. if where the company is regulated by the public authority.</p>
+
+      <p>Section 43 is a qualified exemption, which means that a public interest test must be conducted. In other words, even if Section 43 applies, an authority should only withhold information where it is in the public interest to do so. In some cases, public authorities are required to release information that will harm the commercial interests of a business. When is it used?</p>
+
+      <p>Public authorities will most commonly withhold information that involves private companies supplying services to the authority or that relates to the authority’s own commercial activity. Campaigners will often come across it when they are asking for financial or contractual information, particularly in relation to outsourced services where a private company is carrying out work that the public authority would otherwise be doing itself. For example, some councils outsource the collection of bins to private companies.</p>
+
+      <h4>What public authorities need to show to use the exemption to withhold information</h4>
+
+      <p>Some public authorities will try to overuse section 43 to withhold all or almost all commercial information. Requesters can and should challenge the overuse of section 43. The law actually makes it relatively difficult for authorities to withhold information under section 43.</p>
+
+      <h5>The prejudice test and likelihood of harm</h5>
+
+      <p>To withhold information under s43, public authorities must carry out a harm or prejudice test to determine if the exemption applies. The key question that they need to answer is: <strong><em>Would the disclosure of this information cause (or be likely to cause) harm to someone’s commercial interests?</em></strong></p>
+
+      <p>The authority should start by identifying whose interests might be harmed by the release of the information, and what the commercial interests that might be harmed are. For example, If you have asked for pricing information for a commercial contract with a supplier, the interest might be the supplier’s ability to negotiate future contracts, or the public authority’s ability to ensure best value in future contract tenders.</p>
+
+      <p>Next, the authority needs to explain how the disclosure of the specific information that has been requested would, or would be likely to, cause the harm. There needs to be a direct connection between the release of the information and the harm occurring. Using the example above, they may argue that disclosing unit prices in the contract would enable rival firms to undercut the supplier’s standard rates, placing them at a significant disadvantage.</p>
+
+      <p>The claimed harm need not be certain but it must be likely. It does not need to be certain or even more likely than not, but it does need to be real and significant. The claimed harm cannot be hypothetical or very unlikely. Continuing with the above example, the authority wouldn’t be able to claim that releasing the supplier’s pricing information would crash the entire economy, as that would be ridiculous, but the claim that a rival could use the information to gain a competitive advantage over the supplier is much more plausible. The ICO would expect such claims to be evidenced, and as a result, it is common for public authorities to consult with third parties where there is a chance that their interests might be harmed.</p>
+
+      <h4>The public interest test</h4>
+
+      <p>If the prejudice test is met, the authority is still required to carry out a public interest test. This involves balancing the harm or potential harm that has been identified against the public benefit of releasing the information. We’ll talk about this more later on in the guide, but if the information reveals evidence of wrongdoing, or if the contract involves a significant use public funds where there is concern over value for money, the balance may well favour release.</p>
+
+      <h3>Section 33 FOISA</h3>
+
+      <h4>What Section 33 covers</h4>
+
+      <h5>Trade secrets</h5>
+
+      <p>Section 33(1)(a) covers trade secrets. As with section 43 of the UK Act, this covers things that are genuinely secret, have real commercial value due to its secrecy and that an organisation makes efforts to keep secret.</p>
+
+      <h5>Prejudice to commercial interests</h5>
+
+      <p>Section 33(1)(b) is the exemption that you are most likely to encounter. This applies to information that “would, or would be likely to, prejudice substantially the commercial interests of any person (including a Scottish public authority).”</p>
+
+      <p>It can only be applied to information that is less than 30 years old. After that time, it is felt that the potential for there to be any harm will have reduced. As with section 43 of the UK Act, the harm needs to me more than speculative or hypothetical.</p>
+
+      <p>It is subject to a public interest test, meaning that the Scottish public authority needs to consider if the public interest in releasing the information outweighs any harm or potential harm.</p>
+
+      <h5>Economic and financial interests</h5>
+
+      <p>Section 33(2)(a) and 33(2)(b) cover information that, if released, could harm the economic or financial interests of all or part of the United Kingdom, or an administration in the United Kingdom. This is more equivalent to section 29 of the UK Act, and as such we won’t cover it in more detail here.</p>
+
+      <h4>Differences between the UK and Scotland</h4>
+
+      <h5>Substantial harm:</h5>
+
+      <p>FOISA uses “prejudice substantially” to refer to the level of harm that an authority needs to show, whereas the UK act uses “would, or would be likely to, prejudice” without the word “substantial.” As the ICO makes clear in its guidance, under FOI the prejudice has to be real and of substance. The Scottish Commissioner has emphasized that the harm must be of “real and demonstrable significance” to meet the test. When refusing a request under 33(1)(b), authorities in Scotland may need to show more evidence of the severity of the claimed harm as a result. While the UK Act and FOISA are broadly aligned, the Scottish legislation makes it slightly more difficult for authorities to withhold information about commercial activity.</p>
+
+      <h5>Differences in guidance</h5>
+
+      <p>The Scottish Information Commissioner issues guidance as to how the section 33 exemption should be interpreted and details of the decisions that it has taken. If you want to know their recommendations as to how the law should be interpreted, or view past decisions that are relevant to Scottish public authorities, then you will need to visit the Scottish Information Commissioner</p>
+    </section>
+
+    <section id="common-use-cases-for-the-exemptions" class="section-medium">
+      <h2>Common use cases for the exemptions</h2>
+
+      <p>The commercial interest exemptions are commonly applied where the public sector meets private interests. Here are some examples of where you might come across it.</p>
+
+      <h3>PPP/PFI and outsourcing</h3>
+
+      <p>Public-Private Partnerships (PPP) and Private Finance Initiatives (PFI) involve public bodies and private companies working together to deliver key infrastructure projects or other public services and this can include private sector financing of long-term projects. Information relating to these initiatives is commonly withheld under commercial interest exemptions. This can include information that the authority argues could undermine the private partner’s competitive position or affect future procurement processes.</p>
+
+      <h3>NHS/private sector partnerships</h3>
+
+      <p>The NHS often works in collaboration with private healthcare providers and pharmaceutical companies. You may find that the commercial interest exemptions are applied to information about pricing agreements, rebate schemes, research and development, or supply arrangements.</p>
+
+      <h3>Universities</h3>
+
+      <p>Universities often carry out activities that are commercial, such as business activity to make money from research, providing consultancy services, and running facilities such as conference centres or sports facilities. To some extent, they can be said to compete with each other for research funding and students, which they would also see as being related to their own commercial interests.</p>
+
+      <p>It is not uncommon for universities to withhold information on commercial interests grounds that relate to contracts with private companies, details of sponsorships or donations, information about university-owned companies or course materials.</p>
+
+      <h3>Local government outsourcing</h3>
+
+      <p>Many local authorities outsource services such as road repair, waste collection, IT services, or social care provision. They might use the commercial interest exemption to withhold information about pricing structures, performance metrics, and profit-sharing agreements with the providers of the outsourced services.</p>
+    </section>
+
+    <section id="how-to-challenge-the-exemption" class="section-medium">
+      <h2>How to challenge the exemption</h2>
+
+      <p>If an authority uses the commercial interests exemption to withhold some or all of the information that you have asked for, don’t be discouraged. You have the right to appeal. Here are some ways in which you can challenge the decision.</p>
+
+      <h3>Public interest test</h3>
+
+      <p>Section 43 is a qualified exemption. This means that even if the exemption applies, the public authority has to conduct a public interest test. When challenging the use of the commercial interests exemption, you should explicitly argue that the public interest in disclosure outweighs the interest in withholding the information.</p>
+
+      <p>There are general public interest arguments that will apply in almost every case which you can use some of which are listed below. You don’t need to use all of these. It is probably best to pick the three of four that you think are most applicable to the information you are seeking. Once you have done that, you should try to add specific public interest arguments that help to show why the information you are asking for should be disclosed.</p>
+
+      <h4>Ensuring good value for money and efficiency</h4>
+
+      <p>There is a strong public interest in confirming that purchases by public bodies and public sector contracts provide good value for money. Disclosure of information about pricing and performance can provide reassurance that the public authority negotiated effectively to ensure a fair deal for the taxpayer.</p>
+
+      <h4>Improving accountability</h4>
+
+      <p>There is a strong public interest in favour of promoting accountability of public authorities and public officials for their decisions and actions.</p>
+
+      <h4>Increased public trust in decision making</h4>
+
+      <p>A lack of public information about commercial deals can lead to suspicion and creates a space for misinformation to be spread. There is a strong public interest in releasing information about how commercial decisions have been made to increase public confidence that the decisions were above board. This is even more the case if the project is a high profile or controversial one.</p>
+
+      <h4>Monitoring the performance of contracts</h4>
+
+      <p>The release of information such as performance reviews, key performance indicators and similar information allows the public to see that a provider is delivering on their obligations. The public interest is particularly strong with regard to outsourced services and contracts that would otherwise be delivered by the public authority itself.</p>
+
+      <h4>Ensuring best value in any future bids</h4>
+
+      <p>The release of information such as expected service levels or pricing information can drive better value offers the next time a contract goes to tender. Where potential suppliers have knowledge of the terms and pricing agreed by the current supplier, they are incentivised to offer more competitive pricing and higher performance standards.</p>
+
+      <h4>Learning from past procurement exercises</h4>
+
+      <p>There is a public interest in understanding how past procurement exercises were carried out, including any lessons learned. Transparency in this area can allow the public and other public authorities to learn from the successes and failures of others to improve future procurement. This can ultimately lead to the more efficient use of public money, and greater accountability for past decision making.</p>
+
+      <h4>Revealing hidden costs</h4>
+
+      <p>There is a strong public interest in releasing information about the hidden costs that are often contained in commercial contracts, and which may not show up in the headline numbers. These can include things like break clauses or penalties to be paid in certain scenarios that can significantly affect the cost to the public. Releasing this information increases transparency around the use of public money and allows the public to assess whether contracts deliver good value for money.</p>
+
+      <h4>Independent oversight</h4>
+
+      <p>There is a strong public interest in allowing there to be independent scrutiny of the commercial arrangements entered into by public authorities. Disclosure of information such as contracts and key performance data can allow independent experts, academics or journalists to properly analyse these agreements. This is an important safeguard against inefficient use of public funds that can help identify improvements that can be made when the agreement is next up for negotiation.</p>
+
+      <h4>Level playing field for businesses</h4>
+
+      <p>It is in the public interest that there is fair competition for public contracts, as this can help grow the local and national economy. Large companies and current contract holders often have knowledge of systems and procedures that new entrants to the market may not. This gives them an advantage in bidding at the expense of innovation. Publishing details of current contracts can make the bidding process more accessible to a wider range of suppliers.</p>
+
+      <h4>Quality of outsourced services</h4>
+
+      <p>There is a significant public interest in the release of information that can help ensure that public services that have been outsourced to private companies are being delivered to an appropriate standard of quality. The release of information such as performance standards, service level agreements and quality assurance data enables the public to assess how the outsourced service is performing.</p>
+
+      <h4>Corporate social responsibility</h4>
+
+      <p>Public sector contracts may include clauses around corporate social responsibility, obliging providers to adhere to certain ethical or environmental factors. There is a public interest in releasing information that confirms that these obligations are being met and that public funds are not being used to support bad commercial practices.</p>
+
+      <h4>Meeting environmental targets</h4>
+
+      <p>Many public authorities have climate-related targets concerning the environmental impact of their activities. There is a public interest in allowing the public to assess how commercial arrangements support progress towards environmental targets, particularly in the areas of carbon reduction and waste management. If the public authority has declared a climate emergency this can be used as an argument in favour of the release of any relevant information.</p>
+
+      <h4>Preventing misinformation</h4>
+
+      <p>If accurate and timely information about public contracts is not available, there is a risk of misinformation and uninformed speculation about what these agreements contain. There is a strong public interest in the release of factual information that tackles these misconceptions and provides clear evidence for a more informed public debate.</p>
+
+      <h4>Informed public debate and participation.</h4>
+
+      <p>Increased transparency will lead to an improved public understanding of decision-making which will allow more people to take part in public debate.</p>
+
+      <h3>Challenge claimed prejudice to commercial interests</h3>
+
+      <p>Sometimes authorities make quite broad statements about the harm that a disclosure might cause. Where this is the case, you should ask for more specific information to be provided</p>
+
+      <p>If the response did not clearly explain whose commercial interests would be harmed, or the nature of the harm, then you should ask for this to be explained. Authorities are expected to provide reasons and not make blanket assertions without showing any evidence.</p>
+
+      <p>Where information would be likely to prejudice, there needs to be a real and significant risk that the harm would arise from the application of the exemption, not just a possibility.</p>
+
+      <p>If the information you are asking for is older, you might be able to argue that the commercial sensitivity might have reduced over time. For example, if a contract was signed more than five years ago, pricing information might be outdated, reducing any competitive advantage that might have come from keeping these secret.</p>
+
+      <p>If the commercial activity is being carried out by the public authority itself then it will often be the case that the authority has a monopoly or near monopoly over the provision of the goods or services in question. In such cases, the authority’s commercial interests are unlikely to be significantly harmed by disclosure because there is no real competition.</p>
+
+      <p>If section 43 has been applied to a full document, argue against the blanket application. Even if some parts of the contract or meeting minutes are commercially sensitive, the rest should still be released.</p>
+
+      <h3>Refer to ICO guidance</h3>
+
+      <p>The ICO has produced some excellent guidance that is aimed at public authorities, but you can use this to your advantage too. Reading this can help you to better understand the tests that authorities are meant to apply. Where these have not been followed, pointing the authority to ICO guidance can be effective in getting them to change their mind at internal review. You might also want to quote parts of relevant decision notices showing how the exemption has been found to apply or not apply to similar information. These can be particularly useful where they are issued against the authority that you have asked for information.</p>
+    </section>
+
+    <section id="walkthrough-of-the-appeal-process" class="section-medium">
+      <h2>Walkthrough of the appeal process</h2>
+
+      <h3>Ask for an internal review</h3>
+
+      <p>If you are unhappy with a response that has been provided to your request, you can ask for an internal review. This is an official reconsideration of your request by the authority. It is often carried out by someone who was not involved in the original decision to withhold information, but it doesn’t have to be. To engage the internal review process, it is enough to say that you are unhappy with the original response and would like an internal review to be carried out. You don’t have to give reasons, but it will help your case if you do, particularly If there are strong public interest arguments to be made. If there are, you should clearly set these out. Remember, this is your chance to convince the authority to change its mind without needing to appeal to the ICO. Sometimes authorities do release more information at this stage, particularly if you have made a strong case, so it is worth putting the time in. If they don’t you can also use the arguments for any subsequent appeal to the ICO.</p>
+
+      <p>In Scotland, the process is largely the same, but you do need to set out reasons as to why you think the exemption should not apply.</p>
+
+      <h3>Complain to the regulator</h3>
+
+      <p>If the internal review doesn’t result in the release of the information, you can complain to the ICO. The ICO is independent of the government and will investigate your complaint to see if the authority should have given you more information. In your complaint to the ICO, you should include a copy of the correspondence with the authority, and any arguments why you think the authority was wrong to withhold the information. The ICO will then assign your case to a caseworker, who will investigate. They will often obtain a copy of the information that is being withheld from the authority and reach their own judgement having had sight of the information. Once they have done this, they will issue a decision notice. If they agree with you, they’ll order the authority to release some or all of the information to you.</p>
+
+      <p>In Scotland, the process is similar, but any complaint needs to be made to the Scottish Information Commissioner.</p>
+
+      <p>The decisions of both the ICO and the Scottish Information Commissioner are published online, so you can look at past cases to help you develop your own arguments.</p>
+
+      <h3>First-tier Tribunal (Information Rights)</h3>
+
+      <p>If the ICO upholds the exemption and you believe that they are wrong, then the next step is to appeal to the independent tribunal. If the ICO rules in your favour, then the authority also has the right to appeal here. Many requesters represent themselves, so you don’t necessarily need a lawyer at this stage, but it is a more formal and legalistic process. If you want to appeal, you’ll need to fill in the form that you can find on the Tribunal website and set out your reasons for disagreeing with the original decision. The tribunal will consider all the evidence afresh. They have the power to review the withheld information themselves and will usually do so. Tribunal rulings can help to create case law, which might make it easier to get similar information released in future.</p>
+
+      <p>In Scotland, appeals against a decision by the Scottish Information Commissioner are made to the Court of Session on points of law. As this is a higher bar, most cases are not appealed to this stage.</p>
+    </section>
+
+    <section id="how-to-structure-requests" class="section-medium">
+      <h2>How to structure requests to make it less likely to apply</h2>
+
+      <h3>Be specific and targeted</h3>
+
+      <p>Where possible target specific documents or pieces of data, rather than asking for everything. For example, instead of asking for <em>“all information about the contract with Company Ltd”</em> you might want to ask for <em>“a copy of the signed contract with Company Ltd from [date] and the most recent annual performance report.”</em> Being specific makes it less likely that your request will be refused on cost grounds and makes it hard for authorities to justify withholding everything.</p>
+
+      <h3>Focus on accountability and performance</h3>
+
+      <p>If you can, consider asking for information about the parts of contracts or supplier agreements that relate to public accountability. This might include things like service level agreements, performance metrics, compliance monitoring reports, risk assessments, impact assessments, timelines and key deliverables. These elements are often harder to exempt due to the strong public interest in transparency in ensuring that there is proper monitoring of how public money is being spent.</p>
+
+      <h3>Ask for a summary or aggregated data</h3>
+
+      <p>Under FOI, you can ask to be provided with a summary or digest or information that an authority might hold. Such a request is less likely to trigger exemptions due to the nature of the information being asked for.</p>
+
+      <p>In some cases, an FOI request for information about a single company may be refused on the grounds of a claimed prejudice to commercial interests but you may be able to get similar information that has been aggregated. For example, you could ask for aggregate information on complaints to all private sector prison operators.</p>
+
+      <p>You could also ask a Council for its total spend on consultancy for a given year and the proportion of the total that related to the three suppliers with the highest spend. You might find for example that the Council spent over £4 million a year on consultancy and that more than half of the total was spent with just three suppliers. Depending on what you are working on, this might be useful information even if you don’t know the names of the suppliers.</p>
+
+      <p>Instead of asking for a line-by-line breakdown of pricing information, consider asking for aggregate data, such as total contract values or expenditure numbers.</p>
+
+      <h3>Request historical information</h3>
+
+      <p>Though not always the case, older material may be less sensitive and more likely to be released than information about ongoing negotiation and future commercial plans.</p>
+
+      <p>The Section 43 FOI and Section 31(1) FOISA exemptions cannot be used to withhold information from a record created more than 30 years ago due to a special rule covering historical records (see also <a href="https://www.legislation.gov.uk/ukpga/2000/36/section/63">section 63</a> of the Freedom of Information Act 2000 and <a href="https://www.legislation.gov.uk/asp/2002/13/section/58">section 58</a> of the Freedom of Information (Scotland) Act 2002).</p>
+
+      <h3>If possible, wait until the deal is done</h3>
+
+      <p>If you want information about a contract that is currently being negotiated, it might be an idea to consider timing your request to go in just after the key contracts have been signed.</p>
+
+      <h3>Request environmental information</h3>
+
+      <p>Requests for environmental information are dealt with under separate legislation:</p>
+
+      <ul>
+        <li>The Environmental Information Regulations 2004 (“the UK EIR”)</li>
+        <li>The Environmental Information (Scotland) Regulations 2004 (“the Scottish EIR”)</li>
+      </ul>
+
+      <p>The UK version of the regulations applies to the UK Parliament, UK Central Government and public authorities in England, Wales and Northern Ireland. The Scottish version applies to the Scottish Government and Scottish Parliament and other public authorities in Scotland. Both sets of regulations are very similar and are referred to in this guide as “the EIR”. The regulatory references given in this guide are for the UK version of the regulations only.</p>
+
+      <p>Your rights to access environmental information are generally stronger than your rights to access other types of information under FOI. There are a smaller number of reasons that authorities can use to withhold information under the EIR. In addition, the EIR covers some bodies not subject to FOI such as port authorities and water companies.</p>
+
+      <p>Environmental information includes information about the physical environment, including rural, urban and marine environments. The definition of environmental information contained in the EIR is wide and covers matters such as biodiversity, energy, land use, planning, pollution, transport and waste as well as the impact of the environment on human health.</p>
+
+      <p>Under Regulation 5(e) of the UK EIR, information can be withheld if its disclosure would affect <em>“the confidentiality of commercial or industrial information where such confidentiality is provided by law to protect a legitimate economic interest”.</em></p>
+
+      <p>There is also a more general exemption for information provided in confidence under 5(f) of the EIR.</p>
+
+      <p>These exceptions are subject to a public interest test meaning that confidential commercial and industrial information and other confidential information has to be released unless it can be shown that it is not in the public interest to do so.</p>
+
+      <p>The commercial and industrial information exception in the EIR cannot be used to withhold information relating to illegitimate activities for example information about activities that are against the law. In addition, there must be a legally binding duty of confidence for the exemption to be applied. Most information received from suppliers will be subject to confidentiality clauses in contracts or other laws regarding confidentiality. Information that a public authority holds about its own business activities will not necessarily be subject to any legal restrictions meaning that the authority may not be able to use the exception to withhold information.</p>
+
+      <p>There are special rules about accessing information on emissions (pollution) which are explained in the next section.</p>
+
+      <h3>Request information about emissions</h3>
+
+      <p>There are special rules that make data on emissions very difficult to withhold which puts more power in the hands of the requester. Emissions include pollution of air, water and land as well as noise, light pollution<sup><a href="#footnote1">1</a></sup> and radiation. Information on emissions cannot be withheld under the commercial and industrial information exception in 12(5)(e) or the more general exception for confidentiality in 12(5)(f).</p>
+
+      <p>Information on emissions can only be withheld if the authority can show that it would have a negative effect on one or more of the following:</p>
+
+      <ul>
+        <li>International relations.</li>
+        <li>National security including defence.</li>
+        <li>Public safety.</li>
+        <li>Intellectual property rights.</li>
+        <li>Justice including fair trials, investigation of crimes and disciplinary procedures.</li>
+      </ul>
+
+      <p>Even if the authority can show that one of the above applies, it must still release the information unless it can be shown that the public interest favours withholding the information from the public.</p>
+
+      <p id="footnote1"><sup>1</sup> <a href="https://ico.org.uk/media2/migrated/decision-notices/4032036/ic-314248-v1n1.pdf">https://ico.org.uk/media2/migrated/decision-notices/4032036/ic-314248-v1n1.pdf</a></p>
+    </section>
+
+    <section id="templates-for-requests-appeals" class="section-medium">
+      <h2>Templates for requests/appeals</h2>
+
+      <p>Here are some templates that you can adapt for your own use.</p>
+
+      <h3>Request template – copy of a commercial contract</h3>
+
+      <div class="letter">
+        <p>Dear [authority name],</p>
+
+        <p>I am writing to request information regarding the contract between your authority and [company Name] for [brief description of services/goods], which I understand was agreed on [approximate date if known].</p>
+
+        <p>Please provide me with a copy of the following information:</p>
+
+        <ol>
+          <li>A copy of the final contract between your authority and [company Name], including all schedules, annexes, and amendments.</li>
+        </ol>
+
+        <p>I would like to receive the information in electronic format, preferably as a searchable PDF document. If any of the information is already publicly available, please point me to where I can access it.</p>
+
+        <p>If you require any clarification please let me know.</p>
+
+        <p>Yours faithfully,</p>
+
+        <p><strong>[Your name]</strong></p>
+      </div>
+
+      <h3>Request template – performance monitoring for a specific contract</h3>
+
+      <div class="letter">
+        <p>Dear [authority name],</p>
+
+        <p>I am writing to request performance monitoring data relating to the contract between your authority and [Company Name] for [brief description of services/goods], which I understand was agreed on [approximate date if known].</p>
+
+        <p>Please provide me with a copy of the following information:</p>
+
+        <ol>
+          <li>Any key performance indicators (KPIs) agreed with [Company Name], including any targets they are required to meet.</li>
+          <li>Any performance reports submitted by [Company Name] to your authority during the previous 12 months.</li>
+          <li>The results of any performance reviews, audits, or evaluations conducted by your authority regarding this contract during the last 12 months.</li>
+        </ol>
+
+        <p>I would like to receive the information in electronic format, preferably as a searchable PDF document and/or Excel spreadsheet. If any of the information is already publicly available, please point me to where I can access it.</p>
+
+        <p>If you require any clarification please let me know.</p>
+
+        <p>Yours faithfully,</p>
+
+        <p><strong>[Your name]</strong></p>
+      </div>
+
+      <h3>Request template – environmental commitments in a specific contract</h3>
+
+      <div class="letter">
+        <p>Dear [authority name],</p>
+
+        <p>I am writing to request information about the environmental commitments in the contract between your authority and [company name] for [brief description of services/goods], which I understand was agreed on [approximate date if known].</p>
+
+        <p>Please provide me with a copy of the following information:</p>
+
+        <ol>
+          <li>The environmental standards or targets that [company name] is required to meet under the contract.</li>
+          <li>Data showing [company name]’s performance against these standards or targets for the most recent reporting period for which data is available.</li>
+        </ol>
+
+        <p>I would like to receive the information in electronic format, preferably as a searchable PDF document and/or Excel spreadsheet. If any of the information is already publicly available, please point me to where I can access it.</p>
+
+        <p>If you require any clarification please let me know.</p>
+
+        <p>Yours faithfully,</p>
+
+        <p><strong>[Your name]</strong></p>
+      </div>
+
+      <h3>Internal review template where no reasons were given for applying the section 43 exemption</h3>
+
+      <div class="letter">
+        <p>Dear [authority name],</p>
+
+        <p>I am writing to request an internal review of the FOI request I sent on [date] regarding [brief description of the information that you requested]. I would be grateful if you could look again at the way my request was handled and see whether any additional information should have been released. For the information that I asked for which was not provided, I would like you to check that the exemptions claimed apply to my request.</p>
+
+        <p>I would like you to reconsider whether the exemption at Section 43 of the Act was correctly applied in this case. The response did not fully explain whose commercial interests would be harmed by disclosure or provide specific evidence of how that harm would occur, or that that harm would be likely to occur.</p>
+
+        <p>[If applicable] The exemption appears to have been applied as a blanket to withhold all requested information, rather than being applied to specific elements.</p>
+
+        <p>I would also ask that you reconsider whether, overall, the public interest favors releasing the information. In doing so, please consider the benefits of releasing additional information which could include:</p>
+
+        <ul>
+          <li>Allowing greater accountability of public authorities and public officials</li>
+          <li>Ensuring transparency around the use of public funds.</li>
+          <li>Increasing public understanding of decision making, which allows more people to take part in public debate.</li>
+        </ul>
+
+        <p>[Add any specific public interest arguments relevant to your case – for ideas of what to include, please see the public interest test section of this guide]</p>
+
+        <p>[If applicable] The ICO has ruled in similar cases that the public interest favors disclosure of this type of information, particularly where it relates to [add relevant part, e.g., “essential public services” or “significant expenditure of public funds”].</p>
+
+        <p>Yours sincerely,</p>
+
+        <p><strong>[Your name]</strong></p>
+      </div>
+    </section>
+
+    <section id="glossary">
+      <h2>Glossary</h2>
+
+      <dl>
+        <dt>Authority or public authority</dt>
+        <dd>An organisation or body that is covered by Freedom of Information law. This includes central government departments, local councils, NHS Trusts, the police, and other publicly owned bodies.</dd>
+
+        <dt>Emissions</dt>
+        <dd>Emissions include pollution of air, water and land as well as noise, light pollution and radiation. It is very difficult for authorities to withhold information about emissions.</dd>
+
+        <dt>Environmental information</dt>
+        <dd>Environmental information includes information about the physical environment, including rural, urban and marine environments. The definition of environmental information contained in the EIR is wide and covers matters such as biodiversity, energy, land use, planning, pollution, transport and waste as well as the impact of the environment on human health.</dd>
+
+        <dt>Environmental Information Regulations (EIR)</dt>
+        <dd>The law or laws providing a right of access to environmental information. The Environmental Information (Scotland) Regulations 2004 apply to the Scottish Parliament and the Scottish Government and other public authorities based in Scotland. The Environmental Information Regulations 2004 apply to the UK Parliament, UK Central Government and other public authorities based in England, Wales and Northern Ireland.</dd>
+
+        <dt>Exception</dt>
+        <dd>Specific reasons set out in the EIR that allow public authorities not to release environmental information in response to a request for example a request can be refused if it is for someone’s personal data.</dd>
+
+        <dt>Exemption</dt>
+        <dd>Specific reasons set out in FOI law that allow public authorities not to release information in response to a request for example a request can be refused if the information is already public or if it is for someone’s personal data.</dd>
+
+        <dt>Freedom of Information (FOI)</dt>
+        <dd>The right to request and receive recorded information held by public authorities.</dd>
+
+        <dt>Freedom of Information Act 2000</dt>
+        <dd>The FOI law that applies to the UK Parliament and UK Central Government and public authorities based in England, Wales and Northern Ireland.</dd>
+
+        <dt>Freedom of Information (Scotland) Act 2002 (FOISA)</dt>
+        <dd>The FOI law that applies to the Scottish Government and Scottish Parliament and other public authorities based in Scotland.</dd>
+
+        <dt>Information Commissioner’s Office (ICO)</dt>
+        <dd>An independent regulator for FOI. You can complain to the ICO if you are unhappy with how your request was handled and the outcome of the related internal review.</dd>
+
+        <dt>Internal review</dt>
+        <dd>Where a public authority reviews its decision to refuse (or partially refuse) a request for information.</dd>
+
+        <dt>Private Finance Initiative (PFI)</dt>
+        <dd>The term “PFI” refers to a long-term contract between a private sector company and a public sector body where the private sector designs, builds, finances and operates a public asset and associated services.</dd>
+
+        <dt>Public Private Partnership (PPP)</dt>
+        <dd>The term “PPP” refers to partnerships between public sector bodies and private sector companies which can include private business operating facilities and providing services on behalf of the public sector as well as methods of financing these services.</dd>
+
+        <dt>Public interest</dt>
+        <dd>Something that will benefit the public. Not necessarily something the public will find interesting. The term is difficult to define but anything that makes life better for most people would normally be viewed as being in the public interest for example things that will improve democracy and human rights, help the environment, improve people’s health, reduce crime or lead to better use of public money. In FOI law, certain exemptions cannot be used to withhold information unless the public interest favours the information being withheld.</dd>
+
+        <dt>Public interest test</dt>
+        <dd>The assessment as to whether the release of specific information that has been requested would be in the public interest. In FOI law, certain exemptions cannot be used to withhold information unless the public interest favours the information being withheld.</dd>
+
+        <dt>Trade secret</dt>
+        <dd>Information that is genuinely secret, has real commercial value due to its secrecy and is something that an organisation makes efforts to keep secret. This could be something like a customer list, an invention, a customer list, a secret formula or a secret recipe.</dd>
+
+        <dt>WhatDoTheyKnow</dt>
+        <dd>A free website run by mySociety that helps people to make FOI requests online. The requests and responses are published online so others can search and read them.</dd>
+
+        <dt>Working days</dt>
+        <dd>Any day from Monday to Friday excluding bank holidays (UK public holidays).</dd>
+      </dl>
+    </section>
+
+    <section id="further-information" class="section-medium">
+      <h2>Further information</h2>
+
+      <p><strong>Information Commissioner’s Office (ICO) guidance on Section 43</strong><br>
+      <a href="https://ico.org.uk/for-organisations/foi/freedom-of-information-and-environmental-information-regulations/section-43-commercial-interests/">https://ico.org.uk/for-organisations/foi/freedom-of-information-and-environmental-information-regulations/section-43-commercial-interests/</a></p>
+
+      <p><strong>Scottish Information Commissioner’s (OSIC) guidance on Section 33</strong><br>
+      <a href="https://www.foi.scot/sites/default/files/2023-06/BriefingSection33CommercialInterestsandtheEconomy.pdf">https://www.foi.scot/sites/default/files/2023-06/BriefingSection33CommercialInterestsandtheEconomy.pdf</a></p>
+
+      <p><strong>FOI Decision Notices Database (ICO Search)</strong><br>
+      <a href="https://ico.org.uk/action-weve-taken/decision-notices/">https://ico.org.uk/action-weve-taken/decision-notices/</a></p>
+
+      <p><strong>FOISA Decision Notices Database (OSIC Search)</strong><br>
+      <a href="https://www.foi.scot/decisions">https://www.foi.scot/decisions</a></p>
+
+      <p><strong>Information Rights Tribunal rulings</strong><br>
+      <a href="https://caselaw.nationalarchives.gov.uk/search/advanced?per_page=10&order=-date&query=UKFTT-GRC+Information+Rights">https://caselaw.nationalarchives.gov.uk/search/advanced?per_page=10&order=-date&query=UKFTT-GRC+Information+Rights</a></p>
+
+      <p><strong>Information Commissioner’s Office</strong><br>
+      <a href="https://ico.org.uk/">https://ico.org.uk/</a></p>
+
+      <p><strong>Scottish Information Commissioner</strong><br>
+      <a href="https://www.foi.scot/">https://www.foi.scot/</a></p>
+
+      <p><strong>WhatDoTheyKnow</strong><br>
+      <a href="https://www.whatdotheyknow.com/">https://www.whatdotheyknow.com/</a></p>
+
+      <p><strong>Campaign for Freedom of Information (CFOI)</strong><br>
+      <a href="https://www.cfoi.org.uk/">https://www.cfoi.org.uk/</a></p>
+    </section>
+  </div>
+</div>

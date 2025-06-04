@@ -68,6 +68,7 @@ body{
 
 a,
 a:visited {
+  text-underline-offset: 2px;
   color: $link-color;
   &:hover,
   &:active,
@@ -142,7 +143,7 @@ a.link-with-icon {
   background-repeat: no-repeat;
   background-size: contain;
 
-  &.youtube-icon { 
+  &.youtube-icon {
     background-image: image-url("youtube-blue.png");
     // https://css-tricks.com/a-complete-guide-to-svg-fallbacks/
     background-image: image-url("youtube-blue.svg");
@@ -275,7 +276,7 @@ form input[type="number"] {
 
 input.use-datepicker[type=text] {
   width: 130px;
-  background:image-url('calendar.png') no-repeat 100px 5px $main_menu-link_text;
+  background:image-url('calendar.svg') no-repeat 100px 50% $main_menu-link_text;
 }
 
 form input[type=submit], a.link_button_green, a.link_button_green_large {
@@ -374,6 +375,11 @@ a.link_button_green_large {
       padding: 0.875em 1em;
     }
   }
+
+  li {
+    position: relative;
+  }
+
   /* Show which section is currently selected */
   li.selected a{
     @include selected-menu-item;
@@ -685,8 +691,8 @@ a.link_button_green_large {
 
   $mysoc-badge-mobile-width:    55px;
   $mysoc-badge-desktop-width:   83px;
-  $badge-horizontal-shadow-mobile: 10px; 
-  $badge-horizontal-shadow-desktop: 8px; 
+  $badge-horizontal-shadow-mobile: 10px;
+  $badge-horizontal-shadow-desktop: 8px;
   #mysociety-badge {
       position: absolute;
       display: block;
@@ -2330,7 +2336,6 @@ div.pagination span.disabled {
  * /help/books
  */
 
-
 #help_books .book-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2372,3 +2377,5 @@ div.pagination span.disabled {
 #help_books .book a:hover {
   text-decoration: underline;
 }
+
+@import "learn";
