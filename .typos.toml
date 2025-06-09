@@ -1,0 +1,9 @@
+[files]
+extend-exclude = [
+  "*.cy.html.erb",
+]
+
+[default]
+extend-ignore-re = [
+  "FOIs",
+]

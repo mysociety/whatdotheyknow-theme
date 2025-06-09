@@ -105,7 +105,7 @@ module VolunteerContactForm
     validates_presence_of :email, :message => N_("Please enter your email address")
     validates_presence_of :why, :message => N_("Please tell us why you're interested in becoming a volunteer")
     validates_presence_of :experience, :message => N_("Please list any relevant experience")
-    validates_presence_of :age, :message => N_("Please confim your age")
+    validates_presence_of :age, :message => N_("Please confirm your age")
     validate :email_format
     validate :repeated_text
     validate :external_links
