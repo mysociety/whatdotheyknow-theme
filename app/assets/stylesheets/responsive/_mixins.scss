@@ -86,7 +86,7 @@
   &:visited:hover,
   &:visited:active {
     color: $color_white;
-    // We are darkening the background and border for cases there is a defaul button and a tertiary button together. In this case when we are hovering over the tertiary one it won't look just like the default button nect to it.
+    // We are darkening the background and border for cases there is a default button and a tertiary button together. In this case when we are hovering over the tertiary one it won't look just like the default button next to it.
     background: darken($link-color, 15%);
     border: 1.5px solid darken($link-color, 15%);
   }
