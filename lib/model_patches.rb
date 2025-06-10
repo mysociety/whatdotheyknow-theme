@@ -259,6 +259,7 @@ Rails.configuration.to_prepare do
     no-reply@south-ayrshire.gov.uk
     noreply@north-ayrshire.gov.uk
     noreply@corestream.co.uk
+    NHSFife@axlr8.com
   )
 
   User.content_limits = {
