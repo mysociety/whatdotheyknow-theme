@@ -25,7 +25,7 @@ Rails.configuration.to_prepare do
   Insight.register_template :immigration_detection,
     title: 'Dected immigration-related correspondence',
     attributes: {
-      model: 'Toast:latest', temperature: 0.3, prompt_template: <<~TXT
+      model: 'Toast_Llama:latest', temperature: 0.3, prompt_template: <<~TXT
         <|start_header_id|>system<|end_header_id|>
         Cutting Knowledge Date: December 2023
         You are an AI assistant tasked with analyzing text to determine if it is an Immigration-related request or a general Freedom of Information (FOI) request.
