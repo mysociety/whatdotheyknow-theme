@@ -45,6 +45,14 @@
     <% end %>
   <% end %>
 
+    <% if @is_owning_user %>
+    <div class="requester-warning-message">
+      <i class="icon-standalone icon_attention_requested"></i>
+      <p>Email addresses and phone numbers may have been automatically redacted from this response and any attachments, by WhatDoTheyKnow. <a href="https://www.whatdotheyknow.com/help/officers#mobiles">Find out why.</a>
+      </p>
+    </div>
+    <% end %>
+
   <% if @show_bottom_describe_state_form %>
     <div class="describe_state_form box" id="describe_state_form_2">
       <%= render partial: 'request/describe_state',
@@ -79,7 +87,7 @@
     </div>
   <% end %>
 
-  <% if show_donation_button? && !flash[:request_sent] %>
+  <% if show_donation_button? && !flash[:request_sent] && !@is_owning_user %>
     <div class="donate-cta">
       <h2 class="donate-cta__header"><%= _('We work to defend the right to FOI for everyone') %></h2>
       <p class="donate-cta__para"><%= _('Help us protect your right to hold public authorities to account. Donate and support our work.') %></p>
