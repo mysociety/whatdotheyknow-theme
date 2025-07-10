@@ -27,7 +27,7 @@ module UserCheckIntegration
     end
 
     def check_domain(domain)
-      return { valid: true, disposable: false, risky: false } unless enabled?
+      return { disposable: false } unless enabled?
 
       cache_key = "usercheck_domain_#{domain}"
       cached_result = Rails.cache.read(cache_key)
@@ -63,10 +63,8 @@ module UserCheckIntegration
         data = JSON.parse(response.body)
         {
           success: true,
-          valid: data['valid'] != false,
           disposable: data['disposable'] == true,
-          risky: data['risky'] == true || data['status'] == 'risky',
-          mx_valid: data['mx_valid'] == true,
+          mx_valid: data['mx'] == true,
           raw_data: data
         }
       when '401'
@@ -102,16 +100,6 @@ Rails.application.config.after_initialize do
       proc do |user|
         result = UserCheckIntegration.check_domain(user.email_domain)
         result[:success] && result[:disposable]
-      end
-    )
-
-    # Check if domain is risky
-    UserSpamScorer.register_custom_scoring_method(
-      :email_domain_is_risky,
-      5, # Medium score for risky domains
-      proc do |user|
-        result = UserCheckIntegration.check_domain(user.email_domain)
-        result[:success] && result[:risky]
       end
     )
 

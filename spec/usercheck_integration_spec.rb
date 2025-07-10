@@ -5,7 +5,6 @@ RSpec.describe UserCheckIntegration do
   let(:api_key) { 'test_api_key_123' }
   let(:test_domain) { 'example.com' }
   let(:disposable_domain) { 'tempmail.com' }
-  let(:risky_domain) { 'suspicious.com' }
 
   before do
     WebMock.disable_net_connect!
@@ -88,7 +87,7 @@ RSpec.describe UserCheckIntegration do
 
       it 'returns default safe values' do
         result = described_class.check_domain(test_domain)
-        expect(result).to eq({ valid: true, disposable: false, risky: false })
+        expect(result).to eq({ disposable: false })
       end
 
       it 'does not make API requests' do
@@ -103,11 +102,9 @@ RSpec.describe UserCheckIntegration do
       context 'with successful API response' do
         let(:api_response) do
           {
-            'valid' => true,
             'disposable' => false,
-            'risky' => false,
-            'mx_valid' => true,
-            'status' => 'valid'
+            'mx' => true,
+            'status' => 200
           }
         end
 
@@ -124,9 +121,7 @@ RSpec.describe UserCheckIntegration do
           result = described_class.check_domain(test_domain)
           expect(result).to include(
             success: true,
-            valid: true,
             disposable: false,
-            risky: false,
             mx_valid: true,
             raw_data: api_response
           )
@@ -148,11 +143,9 @@ RSpec.describe UserCheckIntegration do
       context 'with disposable domain response' do
         let(:api_response) do
           {
-            'valid' => true,
             'disposable' => true,
-            'risky' => false,
-            'mx_valid' => true,
-            'status' => 'disposable'
+            'mx' => true,
+            'status' => 200
           }
         end
 
@@ -166,71 +159,19 @@ RSpec.describe UserCheckIntegration do
           result = described_class.check_domain(disposable_domain)
           expect(result).to include(
             success: true,
-            valid: true,
             disposable: true,
-            risky: false
+            mx_valid: true,
+            raw_data: api_response
           )
-        end
-      end
-
-      context 'with risky domain response' do
-        let(:api_response) do
-          {
-            'valid' => true,
-            'disposable' => false,
-            'risky' => true,
-            'mx_valid' => true,
-            'status' => 'risky'
-          }
-        end
-
-        before do
-          stub_request(
-            :get, "https://api.usercheck.com/domain/#{risky_domain}"
-          ).to_return(status: 200, body: api_response.to_json)
-        end
-
-        it 'correctly identifies risky domains' do
-          result = described_class.check_domain(risky_domain)
-          expect(result).to include(
-            success: true,
-            valid: true,
-            disposable: false,
-            risky: true
-          )
-        end
-      end
-
-      context 'with risky status in response' do
-        let(:api_response) do
-          {
-            'valid' => true,
-            'disposable' => false,
-            'risky' => false,
-            'mx_valid' => true,
-            'status' => 'risky'
-          }
-        end
-
-        before do
-          stub_request(:get, api_url).
-            to_return(status: 200, body: api_response.to_json)
-        end
-
-        it 'marks domain as risky when status is risky' do
-          result = described_class.check_domain(test_domain)
-          expect(result[:risky]).to be true
         end
       end
 
       context 'with invalid MX records' do
         let(:api_response) do
           {
-            'valid' => true,
             'disposable' => false,
-            'risky' => false,
-            'mx_valid' => false,
-            'status' => 'valid'
+            'mx' => false,
+            'status' => 200
           }
         end
 
@@ -243,7 +184,9 @@ RSpec.describe UserCheckIntegration do
           result = described_class.check_domain(test_domain)
           expect(result).to include(
             success: true,
-            mx_valid: false
+            disposable: false,
+            mx_valid: false,
+            raw_data: api_response
           )
         end
       end
