@@ -260,6 +260,8 @@ Rails.configuration.to_prepare do
     noreply@north-ayrshire.gov.uk
     noreply@corestream.co.uk
     NHSFife@axlr8.com
+    do-not-reply=midlothian.gov.uk@email.firmstep.com
+    do-not-reply@midlothian.gov.uk
   )
 
   User.content_limits = {
