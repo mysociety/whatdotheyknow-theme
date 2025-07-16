@@ -1050,9 +1050,25 @@ input#reedit_button {
   color: $status-success;
 }
 
-.request-status-message {
+.request-status-message,
+.requester-warning-message {
   color: #333;
   border-radius: 3px
+}
+
+.requester-warning-message {
+  background-color: mix(#fff, $status-failure, 70%);
+  padding: 1.25em 1.25em;
+  margin-bottom: 1.5em;
+  margin-top: -0.5em;
+
+  .icon-standalone {
+    float: left;
+    margin-right: 11px;
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 
 /* Attachments*/
