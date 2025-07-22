@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 require 'webmock/rspec'
 
-RSpec.describe UserCheckIntegration do
+RSpec.describe UserCheck do
   let(:api_key) { 'test_api_key_123' }
   let(:test_domain) { 'example.com' }
   let(:disposable_domain) { 'tempmail.com' }
@@ -341,16 +341,16 @@ RSpec.describe UserCheckIntegration do
 
   describe 'constants' do
     it 'defines correct API base URL' do
-      expect(UserCheckIntegration::API_BASE_URL).
+      expect(UserCheck::API_BASE_URL).
         to eq('https://api.usercheck.com')
     end
 
     it 'defines reasonable request timeout' do
-      expect(UserCheckIntegration::REQUEST_TIMEOUT).to eq(5.seconds)
+      expect(UserCheck::REQUEST_TIMEOUT).to eq(5.seconds)
     end
 
     it 'defines reasonable cache duration' do
-      expect(UserCheckIntegration::CACHE_DURATION).to eq(28.days)
+      expect(UserCheck::CACHE_DURATION).to eq(28.days)
     end
   end
 end
