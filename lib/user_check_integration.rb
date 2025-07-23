@@ -27,7 +27,7 @@ module UserCheck
     end
 
     def check_domain(domain)
-      return { disposable: false } unless enabled?
+      return { disposable: false, relay_domain: false } unless enabled?
 
       cache_key = "usercheck_domain_#{domain}"
       cached_result = Rails.cache.read(cache_key)
@@ -64,6 +64,7 @@ module UserCheck
         {
           success: true,
           disposable: data['disposable'] == true,
+          relay_domain: data['relay_domain'] == true,
           mx_valid: data['mx'] == true,
           raw_data: data
         }
@@ -100,6 +101,16 @@ Rails.application.config.after_initialize do
       proc do |user|
         result = UserCheck.check_domain(user.email_domain)
         result[:success] && result[:disposable]
+      end
+    )
+
+    # Check if domain is a relay
+    UserSpamScorer.register_custom_scoring_method(
+      :email_domain_is_relay,
+      5, # Medium score for relay domains
+      proc do |user|
+        result = UserCheck.check_domain(user.email_domain)
+        result[:success] && result[:relay_domain]
       end
     )
 
