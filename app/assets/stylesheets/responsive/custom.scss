@@ -966,6 +966,17 @@ div.correspondence {
   }
 }
 
+.correspondence_info {
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  background-color: mix($color_yellow, $body-bg, 15%);
+  color: $color_yellow_aa;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
 .js-loaded .js-collapsible {
   .correspondence__header {
     &.hover {
