@@ -2074,7 +2074,7 @@ dd {
 
 .donate-cta {
   padding: 1em 1.5em 1.5em;
-  background-color: lighten($color_red, 25%);
+  background-color: lighten($color_green, 25%);
   margin-top: 2em;
   border-radius: 0.3em;
 
@@ -2088,14 +2088,7 @@ dd {
   font-size: 1.125em;
 }
 
-a.donate-cta__button {
-  background-color: $color_red;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: darken($color_red, 10%);
-  }
-}
+a.donate-cta__button {@include button-green;}
 
 // blog
 #blog {
