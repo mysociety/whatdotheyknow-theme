@@ -2378,5 +2378,26 @@ div.pagination span.disabled {
   text-decoration: underline;
 }
 
+/*
+ * /welcome
+*/
+.welcome-rules-page {
+  max-width: 50rem;
+
+  .hero-section {
+    .hero-big-title {
+      img {
+        margin-top: 0;
+        max-width: 100%;
+  
+        @media screen and (min-width: 768px) {
+          margin-top: 1rem;
+          max-width: 75%;
+        }
+      }
+    }
+  }
+}
+
 @import "learn";
 @import "read_container";
