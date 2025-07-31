@@ -9,6 +9,9 @@ Rails.application.config.after_initialize do
     def request_refused_delayed; end
     def foi_myths; end
   end
+  class RulesController < ApplicationController
+    def welcome; end
+  end
 end
 
 Rails.configuration.to_prepare do
