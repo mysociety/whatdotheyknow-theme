@@ -10,7 +10,7 @@
   </div>
 
   <div class="list-rules js-read-container">
-    <p class="list-rules__message">Please read WhatDoTheyKnow rules before continue</p>
+    <p class="list-rules__message"><strong>Please read WhatDoTheyKnow rules before continue:</strong></p>
     <ol>
       <li>Only use WhatDoTheyKnow to <strong class="gradient-text">request specific information</strong>. Don't use it to send general messages to public authorities or for personal messages.</li>
       <li><strong class="gradient-text">Don't include things that could be seen as harmful or untrue in your requests and comments</strong>. Don't make allegations.</li>
@@ -122,3 +122,149 @@
     background: #9b9b9b;
   }
 </style>
+
+<!-- JS styles and script -->
+<style>
+  /* Link disabled state - adjust if needed */
+  .js-read-container-continue-button[disabled],
+  .js-read-container-continue-button.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+  }
+
+  /* Button enable animation */
+  .js-read-container-continue-button.enabled-animation {
+      animation: buttonEnable 0.5s ease;
+  }
+  
+  @keyframes buttonEnable {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .js-read-container:focus {
+      outline: 2px solid #0066cc;
+      outline-offset: 2px;
+  }
+
+  .js-read-container-continue-button.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof jQuery !== 'undefined') {
+        jQuery(function($) {
+            const $container = $('.js-read-container');
+            const $button = $('.js-read-container-continue-button');
+            
+            // Create screen reader announcement
+            const $announcer = $('<div>')
+                .attr('role', 'status')
+                .attr('aria-live', 'polite')
+                .attr('aria-atomic', 'true')
+                .addClass('sr-only')
+                .appendTo('body');
+            
+            // Add helpful attributes to container
+            $container
+                .attr('role', 'region')
+                .attr('aria-label', 'Terms and conditions text')
+                .attr('tabindex', '0'); // Make focusable for keyboard users
+
+            // Disable continue button
+            $button
+                .addClass('disabled')
+                .attr('aria-disabled', 'true')
+                .attr('aria-describedby', 'scroll-instruction');
+
+            // Add instruction text for screen readers
+            $('<span>')
+                .attr('id', 'scroll-instruction')
+                .addClass('sr-only')
+                .text('Please read the entire text above before continuing')
+                .insertAfter($button);
+
+            let hasScrolledToBottom = false;
+
+            // Check scroll position
+            function checkScroll() {
+                const container = $container[0];
+                if (!container) return;
+                
+                const scrollTop = container.scrollTop;
+                const scrollHeight = container.scrollHeight;
+                const clientHeight = container.clientHeight;
+                
+                // Check if scrolled to bottom (with 10px tolerance)
+                if (scrollHeight - (scrollTop + clientHeight) <= 10) {
+                    if (!hasScrolledToBottom) {
+                        hasScrolledToBottom = true;
+                        
+                        // Enable the button
+                        $button
+                            .removeClass('disabled')
+                            .removeAttr('aria-disabled')
+                            .removeAttr('aria-describedby')
+                            .addClass('enabled-animation');
+                        
+                        // Announce to screen readers
+                        $announcer.text('You have finished reading. The continue button is now enabled.');
+                        
+                        // Focus the button for keyboard users
+                        $button.focus();
+                    }
+                }
+            }
+
+            // Scroll event listener
+            let scrollTimer;
+            $container.on('scroll', function() {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(checkScroll, 50);
+                checkScroll();
+            });
+
+            // Check initial state
+            setTimeout(checkScroll, 100);
+
+            // Prevent link click when disabled
+            $button.on('click', function(e) {
+                if ($(this).hasClass('disabled')) {
+                    e.preventDefault();
+                    // Announce to screen readers
+                    $announcer.text('Please scroll to the bottom of the text before continuing.');
+                    // Focus the container so keyboard users know where to scroll
+                    $container.focus();
+                    return false;
+                }
+            });
+
+            // Navigate with keyboard
+            $container.on('keydown', function(e) {
+                // Arrow keys, Page Up/Down, Home, End
+                const scrollKeys = [33, 34, 35, 36, 38, 40];
+                if (scrollKeys.includes(e.keyCode)) {
+                    setTimeout(checkScroll, 100);
+                }
+            });
+        });
+    }
+});
+</script>
