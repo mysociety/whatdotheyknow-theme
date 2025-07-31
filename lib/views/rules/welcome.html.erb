@@ -1,0 +1,124 @@
+<div class="welcome-rules-page">
+  <div class="hero-section">
+    <h1 class="hero-big-title">Welcome to
+      <%= image_tag('wdtk-logo-black.svg', alt: 'WhatDoTheyKnow', class: 'hero-logo') %>
+    </h1>
+    <div class="hero-subtitle">
+      <p>If you break any of these rules, we may suspend your account. This means you won't be able to make requests or updates on WhatDoTheyKnow.</p>
+      <p>When rules are broken, our volunteers have to spend a lot of time fixing things. This could make it harder for mySociety to keep running this service.</p>
+    </div>
+  </div>
+
+  <div class="list-rules js-read-container">
+    <p class="list-rules__message">Please read WhatDoTheyKnow rules before continue</p>
+    <ol>
+      <li>Only use WhatDoTheyKnow to <strong class="gradient-text">request specific information</strong>. Don't use it to send general messages to public authorities or for personal messages.</li>
+      <li><strong class="gradient-text">Don't include things that could be seen as harmful or untrue in your requests and comments</strong>. Don't make allegations.</li>
+      <li><strong class="gradient-text">Don't post anything that is against the law, threatening, abusive, or offensive</strong>. Any such content will be <%= link_to 'removed', help_removing_information_path %>.</li>
+      <li><strong class="gradient-text">Only request information that anyone could expect to get</strong>. If you have a special right to certain information, like your personal data, contact the public body directly. The same goes for personal information about your family 
+      members. Requests for your own data are called Subject Access Requests. The Information Commissioner (ICO) has 
+      <a href="https://ico.org.uk/for-the-public/getting-copies-of-your-information-subject-access-request/" title="Guidance from the Information Commissioner on your right of access">
+      advice on making these requests</a>.</li>
+      <li>Keep your messages short and focused on the information you want. Follow our <%= link_to help_requesting_path(anchor: 'responsible') do %>tips for making good requests.<% end %></li>
+      <li>Don't pretend to be someone else.</li>
+      <li>Don't use language that might offend people in your requests and comments.</li>
+      <li>No spamming.</li>
+      <li>Write requests using both upper and lowercase letters.</li>
+      <li>Don't make vexatious requests that have no real purpose or are meant to cause problems for a public body. The ICO has 
+      <a href="https://ico.org.uk/for-organisations/foi/freedom-of-information-and-environmental-information-regulations/section-14-dealing-with-vexatious-requests/" title="Guidance from the Information Commissioner on vexatious requests">
+      guidance on this type of request</a>.</li>
+      <li><strong class="gradient-text">Don't use WhatDoTheyKnow to ask for other people's personal information</strong>. Don't include this type of information in requests, comments or follow-ups, unless it's fair to do so.</li>
+      <li>Don't try to get around the site limits or actions of site administrators. For example, don't make new accounts to avoid a ban or limits on how many requests you can make. Don't repost things you know moderators have removed.</li>
+      <li>Commercial and for-profit use requires a <%= link_to 'WhatDoTheyKnow Pro', account_request_index_path %> subscription.</li>
+      <li><strong class="gradient-text">Don’t ask for email addresses in your requests</strong>. Email addresses are automatically redacted, and you will not be able to access them if they are provided in the response.</li>
+    </ol>
+  </div>
+
+  <div class="card card-yellow card-alert">
+    <p class="card-header text-with-icon">
+      <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16c2.12 0 4.16-.84 5.66-2.34 1.5-1.5 2.34-3.54 2.34-5.66 0-2.12-.84-4.16-2.34-5.66C12.16.84 10.12 0 8 0 5.88 0 3.84.84 2.34 2.34.84 3.84 0 5.88 0 8c0 2.12.84 4.16 2.34 5.66C3.84 15.16 5.88 16 8 16zM9 5c0 .27-.1.52-.3.7-.18.2-.43.3-.7.3-.26 0-.52-.1-.7-.3C7.1 5.52 7 5.27 7 5c0-.27.1-.52.3-.7.18-.2.44-.3.7-.3.27 0 .52.1.7.3.2.18.3.43.3.7zM7 7c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h.25v2H6.25c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h3.5c.2 0 .39-.08.53-.22.14-.14.22-.33.22-.53 0-.2-.08-.39-.22-.53-.14-.14-.33-.22-.53-.22H8.75V7H7z" fill="currentColor"></path></svg>
+      If you break these rules, you could be banned from the site
+    </p>
+
+    <p>We may also remove your requests or annotations. We'll usually contact you first to give advice on how to use the service better.</p>
+    <p>If you use threats or abusive language, mySociety staff and volunteers will stop responding to you. You'll also be banned from using the site.</p>
+  </div>
+
+  <!-- TODO: call to action, which takes the user onwards to the location stored in the PostRedirect -->
+  <a class="link_button_green js-read-container-continue-button" href="">Continue to WhatDoTheyKnow</a>
+</div>
+<style>
+  .welcome-rules-page {
+    max-width: 50rem;
+  }
+  .hero-section .hero-big-title img {
+    margin-top: 0;
+    max-width: 100%;
+  }
+  .list-rules {
+    border: 1px solid #dcdbd9;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    --primary-gradient-text-color:  #595959;
+    --secondary-gradient-text--color: #6f6565;
+    max-height: 70dvh;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+    position: relative;
+  }
+  .list-rules ol {
+    padding-inline-start: 1rem;
+    margin-top: 3rem;
+  }
+  .list-rules li { 
+    margin-bottom: 1.5rem
+  }
+  .list-rules li::marker { 
+    color: #747474;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  .list-rules .list-rules__message {
+    position: sticky;
+    top: -1.5rem;
+    margin: -1.5rem;
+    background: linear-gradient(45deg, #f6e5e5, #ffd9d9);
+    padding: 0.75rem 1.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .hero-section .hero-big-title img {
+      margin-top: 1rem;
+      max-width: 75%;
+    }
+    .list-rules {
+      max-height: 50dvh;
+    }
+  }
+
+  /* Make scrollbar always visible and styled */
+  ::-webkit-scrollbar {
+    width: 12px;
+    display: block; /* Ensures it's always visible */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e7e7e7;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9b9b9b;
+  }
+</style>
