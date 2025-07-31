@@ -1,0 +1,104 @@
+.read-container {
+  $primary-text-color: #595959;
+  $secondary-text-color: #6f6565;
+  $marker-color: $color_dark_grey;
+  $scrollbar-track: #e7e7e7;
+  $scrollbar-thumb: $color_light_grey;
+  $scrollbar-thumb-hover: $color_mid_grey;
+  --primary-gradient-text-color: #{$primary-text-color};
+  --secondary-gradient-text--color: #{$secondary-text-color};
+
+  border: 1px solid $color_light_grey;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-height: 70dvh;
+  overflow-y: auto;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    max-height: 50dvh;
+  }
+
+  ol {
+    padding-inline-start: 1rem;
+    margin-top: 3rem;
+  }
+
+  li {
+    margin-bottom: 1.5rem;
+
+    &::marker {
+      color: $marker-color;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__announcement {
+    position: sticky;
+    top: -1.5rem;
+    margin: -1.5rem;
+    background: linear-gradient(45deg, #fff7cb, #fffed9);
+    padding: 0.75rem 1.5rem;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    display: block; // Ensures it's always visible
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+    &:hover {
+      background: $scrollbar-thumb-hover;
+    }
+  }
+}
+
+
+// Button States and Animations
+.js-read-container-continue-button {
+  &[disabled],
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &.enabled-animation {
+    animation: buttonEnable 0.5s ease;
+  }
+}
+
+@keyframes buttonEnable {
+  0% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+  100% { 
+    transform: scale(1); 
+  }
+}
+
+.js-read-container {
+  &:focus {
+    outline: 2px solid $color_blue;
+    outline-offset: 2px;
+  }
+}
