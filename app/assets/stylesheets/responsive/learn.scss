@@ -118,6 +118,27 @@ $card-transition: 0.35s cubic-bezier(0.30, 1, 0.7, 1);
     }
   }
 
+  // An extended version of &-red
+  &-myth {
+    background: $card-background-red;
+    --label-tag-background: #{darken($color_red, 5%)};
+    overflow: visible; // allow .label-tag to overlap
+    padding: 1.5rem 1rem; // extra space for .label-tag
+
+    .label-tag {
+      position: absolute;
+      transform: rotate(-1deg);
+      top: -1em;
+      left: 1rem;
+    }
+
+    p {
+      font-weight: 600;
+      font-size: 1.25em;
+      line-height: 1.1;
+    }
+  }
+
   & > *:last-child {
     margin-bottom: 0;
   }
@@ -628,6 +649,9 @@ $button-page-controller-size: 2.75rem;
 .section {
   &-medium {
     margin: 3rem 0;
+  }
+  &-large {
+    margin: 5rem 0;
   }
 }
 
