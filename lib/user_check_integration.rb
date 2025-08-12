@@ -111,7 +111,7 @@ Rails.application.config.after_initialize do
     # Check if domain is disposable/temporary
     UserSpamScorer.register_custom_scoring_method(
       :email_domain_is_disposable,
-      8, # High score for disposable emails
+      20, # High score for disposable emails
       proc do |user|
         result = UserCheck.check_domain(user.email_domain)
         result[:success] && result[:disposable]
@@ -121,7 +121,7 @@ Rails.application.config.after_initialize do
     # Check if domain is a relay
     UserSpamScorer.register_custom_scoring_method(
       :email_domain_is_relay,
-      5, # Medium score for relay domains
+      10, # Medium score for relay domains
       proc do |user|
         result = UserCheck.check_domain(user.email_domain)
         result[:success] && result[:relay_domain]
@@ -131,7 +131,7 @@ Rails.application.config.after_initialize do
     # Check if domain has invalid MX records
     UserSpamScorer.register_custom_scoring_method(
       :email_domain_invalid_mx,
-      3, # Lower score for MX issues (might be temporary)
+      5, # Lower score for MX issues (might be temporary)
       proc do |user|
         result = UserCheck.check_domain(user.email_domain)
         result[:success] && result[:mx_valid] == false
