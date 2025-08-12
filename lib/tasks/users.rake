@@ -11,15 +11,9 @@ namespace :users do
       next unless result[:success] && result[:disposable]
 
       tag = 'disposable_email'
-
       users = User.where("split_part(email, '@', 2) = ?", email_domain).
         without_tag(tag)
-
-      users.pluck(:id).each do |user_id|
-        HasTagStringTag.create(
-          model_type: 'User', model_id: user_id, name: tag
-        )
-      end
+      users.find_each { |user| user.add_tag_if_not_already_present(tag) }
     end
 
     erase_line
