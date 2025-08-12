@@ -1,198 +1,190 @@
-$(document).ready(function() {
-  // Store last focused element to return focus when modal is closed
-  let lastFocusedElement;
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarButton = document.querySelector('.sticky-sidebar-mobile-button');
+    const sidebar = document.getElementById('table-of-contents');
 
-  // Add click event to all modal buttons
-  $('.modal-button').on('click', function(e) {
-    e.preventDefault();
-    openModal($(this));
-  });
+    // SVG icons
+    const HAMBURGER_ICON = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 17H21M3 12H21M3 7H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Table of contents';
+    const CLOSE_ICON = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Table of contents';
 
-  // Add keydown event to modal buttons for accessibility
-  $('.modal-button').on('keydown', function(e) {
-    // Check if Enter key is pressed
-    if (e.key === 'Enter' || e.keyCode === 13) {
-      e.preventDefault();
-      openModal($(this));
-    }
-  });
+    // Slide toggle
+    function slideToggle(element, duration = 300, callback) {
+        const isHidden = window.getComputedStyle(element).display === 'none';
 
-  function openModal($button) {
-    const $modalContent = $button.next('.modal-content');
-
-    if ($modalContent.length) {
-      // Store currently focused element
-      lastFocusedElement = document.activeElement;
-
-      $modalContent.removeClass('modal-hidden').attr('aria-hidden', 'false');
-
-      // Make YouTube videos autoplay when modal opens
-      $modalContent.find('iframe[src*="youtube"]').each(function() {
-        let currentSrc = $(this).attr('src');
-
-        // Check if the URL already has parameters
-        if (currentSrc.indexOf('?') > 0) {
-          // Already has parameters, add autoplay=1
-          if (currentSrc.indexOf('autoplay=') === -1) {
-            currentSrc += '&autoplay=1';
-          }
+        if (isHidden) {
+            slideDown(element, duration, callback);
         } else {
-          // No parameters yet, add autoplay=1 as first parameter
-          currentSrc += '?autoplay=1';
+            slideUp(element, duration, callback);
         }
+    }
 
-        // Update the src to include autoplay
-        $(this).attr('src', currentSrc);
-      });
-
-      // Create overlay
-      $('body').append('<div class="modal-overlay"></div>');
-
-      // Prevent page scrolling while modal is open
-      $('body').css('overflow', 'hidden');
-
-      // Adding fake elements so the keyboard navgation loop within the modal actually works
-      // After adding Youtube videos inside the loop was not working anymore.
-      // Insert hidden sentinel elements at the beginning and end of the modal
-      // These help us detect when focus is about to leave the modal
-      $modalContent.prepend('<div tabindex="0" class="focus-trap-start" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;"></div>');
-      $modalContent.append('<div tabindex="0" class="focus-trap-end" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;"></div>');
-
-      // Add event listeners to the sentinel elements
-      $('.focus-trap-start').on('focus', function() {
-        // When the start sentinel gets focus, move focus to the last focusable element
-        const focusableElements = getFocusableElements($modalContent);
-        if (focusableElements.length > 0) {
-          focusableElements[focusableElements.length - 1].focus();
+    function slideDown(element, duration = 300, callback) {
+        element.style.removeProperty('display');
+        let display = window.getComputedStyle(element).display;
+        if (display === 'none') {
+            display = 'block';
         }
-      });
+        element.style.display = display;
 
-      $('.focus-trap-end').on('focus', function() {
-        // When the end sentinel gets focus, move focus to the first focusable element
-        const focusableElements = getFocusableElements($modalContent);
-        if (focusableElements.length > 0) {
-          focusableElements[0].focus();
-        }
-      });
+        const height = element.offsetHeight;
 
-      // Focus the first focusable element
-      const focusableElements = getFocusableElements($modalContent);
-      if (focusableElements.length > 0) {
-        setTimeout(function() {
-          focusableElements[0].focus();
-        }, 100);
-      }
+        // Set initial state style
+        element.style.overflow = 'hidden';
+        element.style.height = 0;
+        element.style.paddingTop = 0;
+        element.style.paddingBottom = 0;
+        element.style.marginTop = 0;
+        element.style.marginBottom = 0;
+        element.offsetHeight; // Force reflow
+
+        // Transition
+        element.style.boxSizing = 'border-box';
+        element.style.transitionProperty = 'height, margin, padding';
+        element.style.transitionDuration = duration + 'ms';
+        element.style.height = height + 'px';
+        element.style.removeProperty('padding-top');
+        element.style.removeProperty('padding-bottom');
+        element.style.removeProperty('margin-top');
+        element.style.removeProperty('margin-bottom');
+
+        // Clean up after transition
+        setTimeout(() => {
+            element.style.removeProperty('height');
+            element.style.removeProperty('overflow');
+            element.style.removeProperty('transition-duration');
+            element.style.removeProperty('transition-property');
+            if (callback) callback();
+        }, duration);
     }
-  }
 
-  // Get all focusable elements in a container (returns DOM elements, not jQuery objects)
-  function getFocusableElements($container) {
-    return $container.find('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not(.focus-trap-start):not(.focus-trap-end), iframe[src*="youtube"]')
-      .filter(':visible')
-      .toArray();
-  }
+    function slideUp(element, duration = 300, callback) {
+        // Set initial state
+        element.style.transitionProperty = 'height, margin, padding';
+        element.style.transitionDuration = duration + 'ms';
+        element.style.boxSizing = 'border-box';
+        element.style.height = element.offsetHeight + 'px';
+        element.offsetHeight; // Force reflow
 
-  // Close modal when clicking the close button
-  $(document).on('click', '.modal-close', closeModal);
+        // Start transition
+        element.style.overflow = 'hidden';
+        element.style.height = 0;
+        element.style.paddingTop = 0;
+        element.style.paddingBottom = 0;
+        element.style.marginTop = 0;
+        element.style.marginBottom = 0;
 
-  // Close modal when clicking the overlay
-  $(document).on('click', '.modal-overlay', closeModal);
-
-  // Close modal when clicking outside the modal container but inside modal content
-  $(document).on('click', '.modal-content', function(e) {
-    // Only close if the click was directly on the modal-content element
-    // (not on any of its children)
-    if (e.target === this) {
-      closeModal();
+        // Clean up after transition
+        setTimeout(() => {
+            element.style.display = 'none';
+            element.style.removeProperty('height');
+            element.style.removeProperty('padding-top');
+            element.style.removeProperty('padding-bottom');
+            element.style.removeProperty('margin-top');
+            element.style.removeProperty('margin-bottom');
+            element.style.removeProperty('overflow');
+            element.style.removeProperty('transition-duration');
+            element.style.removeProperty('transition-property');
+            if (callback) callback();
+        }, duration);
     }
-  });
 
-  // Close modal when pressing Escape key
-  $(document).on('keydown', function(e) {
-    if ((e.key === 'Escape' || e.keyCode === 27) && $('.modal-content[aria-hidden="false"]').length) {
-      closeModal();
+    function isVisible(element) {
+        return element && window.getComputedStyle(element).display !== 'none';
     }
-  });
 
-  function closeModal() {
-    const $openModal = $('.modal-content[aria-hidden="false"]');
-    if ($openModal.length) {
-      // Find any YouTube iframes and stop playback
-      $openModal.find('iframe[src*="youtube"]').each(function() {
-        // This uses the YouTube iframe API to send a 'stopVideo' command
-        this.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
-      });
+    // Display sticky sidebar on mobile
+    if (sidebarButton && sidebar) {
+        sidebarButton.addEventListener('click', function(event) {
+            event.stopPropagation();
 
-      // Remove sentinel elements
-      $('.focus-trap-start, .focus-trap-end').remove();
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
 
-      // Hide modal
-      $openModal.addClass('modal-hidden').attr('aria-hidden', 'true');
-      $('.modal-overlay').remove();
-      $('body').css('overflow', '');
+            slideToggle(sidebar, 300, () => {
+                if (isVisible(sidebar)) {
+                    // Change to close icon
+                    this.innerHTML = CLOSE_ICON;
+                } else {
+                    // Change back to hamburger icon
+                    this.innerHTML = HAMBURGER_ICON;
+                }
+            });
+        });
 
-      // Return focus to the last focused element
-      if (lastFocusedElement) {
-        setTimeout(function() {
-          lastFocusedElement.focus();
-        }, 10);
-      }
+        // Prevent clicks inside the sidebar from closing it (except for links)
+        sidebar.addEventListener('click', function(event) {
+            // Check if the clicked element is a link
+            if (event.target.tagName === 'A' || event.target.closest('a')) {
+                // Close the sidebar when a link is clicked
+                if (sidebarButton.getAttribute('aria-expanded') === 'true') {
+                    slideUp(sidebar, 300);
+                    sidebarButton.setAttribute('aria-expanded', 'false');
+                    sidebarButton.innerHTML = HAMBURGER_ICON;
+                }
+            } else {
+                // Prevent other clicks from closing the sidebar
+                event.stopPropagation();
+            }
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function() {
+            if (sidebarButton.getAttribute('aria-expanded') === 'true' && isVisible(sidebar)) {
+                slideUp(sidebar, 300);
+                sidebarButton.setAttribute('aria-expanded', 'false');
+                sidebarButton.innerHTML = HAMBURGER_ICON;
+            }
+        });
     }
-  }
-});
 
-$(document).ready(function() {
-  // Display stickyside bar on mobile
-  $(".sticky-sidebar-mobile-button").click(function(event) {
+    const smoothScrollLinks = document.querySelectorAll('.page-position-controller');
 
-    event.stopPropagation();
+    smoothScrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
 
-    const $sidebar = $("#table-of-contents");
-    const $button = $(this);
-    const isExpanded = $button.attr("aria-expanded") === "true";
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
 
-    $button.attr("aria-expanded", !isExpanded);
-    $sidebar.slideToggle(300, function() {
-      if ($sidebar.is(":visible")) {
-        // You could change the icon to an X here if you want
-        $button.html('<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Table of contents');
-      } else {
-        // Change back to hamburger icon
-        $button.html('<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 17H21M3 12H21M3 7H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Table of contents');
-      }
+            if (targetElement) {
+                // Calculate the position
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+
+                // Smooth scroll to target
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Alternative for browsers that don't support smooth scrolling
+                if (!('scrollBehavior' in document.documentElement.style)) {
+                    smoothScrollTo(targetPosition, 400);
+                }
+            }
+        });
     });
-  });
 
-  // Prevent clicks inside the sidebar from closing it
-  $("#table-of-contents").click(function(event) {
-    event.stopPropagation();
-  });
+    // Fallback smooth scroll function for older browsers
+    function smoothScrollTo(targetY, duration) {
+        const startY = window.pageYOffset;
+        const difference = targetY - startY;
+        const startTime = performance.now();
 
-  // Close sidebar when clicking outside
-  $(document).click(function() {
-    const $button = $(".sticky-sidebar-mobile-button");
-    const $sidebar = $("#table-of-contents");
+        function step() {
+            const currentTime = performance.now();
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
 
-    if ($button.attr("aria-expanded") === "true" && $sidebar.is(":visible")) {
-      $sidebar.slideUp(300);
-      $button.attr("aria-expanded", "false");
-      $button.html('<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 17H21M3 12H21M3 7H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Table of contents');
+            const easeInOut = progress < 0.5
+                ? 2 * progress * progress
+                : -1 + (4 - 2 * progress) * progress;
+
+            window.scrollTo(0, startY + difference * easeInOut);
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+
+        requestAnimationFrame(step);
     }
-  });
-});
-
-// Smooth scroll
-$(document).ready(function() {
-  $('.page-position-controller').on('click', function(e) {
-    e.preventDefault();
-
-    const target = $(this).attr('href');
-    const $targetElement = $(target);
-
-    if ($targetElement.length) {
-      $('html, body').animate({
-        scrollTop: $targetElement.offset().top
-      }, 400);
-    }
-  });
 });
