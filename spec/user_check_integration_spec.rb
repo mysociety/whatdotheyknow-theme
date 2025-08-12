@@ -5,6 +5,7 @@ RSpec.describe UserCheck do
   let(:api_key) { 'test_api_key_123' }
   let(:test_domain) { 'example.com' }
   let(:disposable_domain) { 'tempmail.com' }
+  let(:relay_domain) { 'duck.com' }
 
   before do
     WebMock.disable_net_connect!
@@ -87,7 +88,7 @@ RSpec.describe UserCheck do
 
       it 'returns default safe values' do
         result = described_class.check_domain(test_domain)
-        expect(result).to eq({ disposable: false })
+        expect(result).to eq({ disposable: false, relay_domain: false })
       end
 
       it 'does not make API requests' do
@@ -103,6 +104,7 @@ RSpec.describe UserCheck do
         let(:api_response) do
           {
             'disposable' => false,
+            'relay_domain' => false,
             'mx' => true,
             'status' => 200
           }
@@ -122,6 +124,7 @@ RSpec.describe UserCheck do
           expect(result).to include(
             success: true,
             disposable: false,
+            relay_domain: false,
             mx_valid: true,
             raw_data: api_response
           )
@@ -144,6 +147,7 @@ RSpec.describe UserCheck do
         let(:api_response) do
           {
             'disposable' => true,
+            'relay_domain' => false,
             'mx' => true,
             'status' => 200
           }
@@ -160,6 +164,35 @@ RSpec.describe UserCheck do
           expect(result).to include(
             success: true,
             disposable: true,
+            relay_domain: false,
+            mx_valid: true,
+            raw_data: api_response
+          )
+        end
+      end
+
+      context 'with relay domain response' do
+        let(:api_response) do
+          {
+            'disposable' => false,
+            'relay_domain' => true,
+            'mx' => true,
+            'status' => 200
+          }
+        end
+
+        before do
+          stub_request(
+            :get, "https://api.usercheck.com/domain/#{relay_domain}"
+          ).to_return(status: 200, body: api_response.to_json)
+        end
+
+        it 'correctly identifies relay domains' do
+          result = described_class.check_domain(relay_domain)
+          expect(result).to include(
+            success: true,
+            disposable: false,
+            relay_domain: true,
             mx_valid: true,
             raw_data: api_response
           )
@@ -170,6 +203,7 @@ RSpec.describe UserCheck do
         let(:api_response) do
           {
             'disposable' => false,
+            'relay_domain' => false,
             'mx' => false,
             'status' => 200
           }
@@ -185,6 +219,7 @@ RSpec.describe UserCheck do
           expect(result).to include(
             success: true,
             disposable: false,
+            relay_domain: false,
             mx_valid: false,
             raw_data: api_response
           )
