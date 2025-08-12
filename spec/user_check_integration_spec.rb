@@ -354,3 +354,39 @@ RSpec.describe UserCheck do
     end
   end
 end
+
+RSpec.describe UserCheck::User do
+  it 'module is prepended to User' do
+    ancestors = User.ancestors
+    expect(ancestors).to include(UserCheck::User)
+    expect(ancestors.index(UserCheck::User)).to be < ancestors.index(User)
+  end
+
+  describe '#content_limit' do
+    let(:user) { FactoryBot.create(:user) }
+    let(:default_limit) { double(6) }
+
+    around do |example|
+      default_content_limits = User.content_limits
+      User.content_limits = { info_requests: default_limit }
+      example.call
+      User.content_limits = default_content_limits
+    end
+
+    context 'user tagged with disposable_email' do
+      before do
+        user.add_tag_if_not_already_present('disposable_email')
+      end
+
+      it 'returns 1' do
+        expect(user.content_limit(:info_requests)).to eq(1)
+      end
+    end
+
+    context 'user not tagged with disposable_email' do
+      it 'returns the default limit' do
+        expect(user.content_limit(:info_requests)).to eq(default_limit)
+      end
+    end
+  end
+end

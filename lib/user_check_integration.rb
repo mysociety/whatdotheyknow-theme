@@ -89,6 +89,20 @@ module UserCheck
       { success: false, error: e.message }
     end
   end
+
+  module User
+    extend ActiveSupport::Concern
+
+    def content_limit(content)
+      return 1 if has_tag?('disposable_email')
+
+      super
+    end
+  end
+end
+
+Rails.configuration.to_prepare do
+  User.prepend UserCheck::User
 end
 
 Rails.application.config.after_initialize do
