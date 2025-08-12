@@ -5,6 +5,7 @@ namespace :users do
     email_domains.each_with_index do |email_domain, index|
       erase_line
       print "Checking disposable email domains #{index + 1}/#{count} (#{email_domain})"
+      sleep 0.25 # rate limiting API queries
 
       result = UserCheck.check_domain(email_domain)
       next unless result[:success] && result[:disposable]
