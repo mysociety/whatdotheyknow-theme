@@ -1,0 +1,34 @@
+// Essential carousel styles only
+.js-carousel {
+  position: relative;
+  overflow: hidden;
+
+  &__wrapper {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  &__item {
+    flex: 0 0 100%;
+    min-width: 100%;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+
+  button {
+    &[aria-disabled="true"] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
