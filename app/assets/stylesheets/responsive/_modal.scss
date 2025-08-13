@@ -72,7 +72,7 @@ $modal-transition-speed: 0.3s;
   width: 90dvw;
   overflow-y: auto;
   position: relative;
-  max-height: 80vh;
+  max-height: 90dvh;
 
   @media screen and (min-width: 768px) {
     max-width: var(--modal-container-max-width-tablet);
