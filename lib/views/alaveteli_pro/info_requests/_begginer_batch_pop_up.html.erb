@@ -1,0 +1,80 @@
+<% content_for :javascript_head do %>
+  <%= javascript_importmap_tags("modal", importmap: Rails.application.theme_importmap) %>
+<% end %>
+
+<div class="modal-content modal-hidden"  aria-hidden="true" data-auto-open="true" data-open-delay="1000" data-click-outside-close="false">
+  <div class="modal-container">
+    <div class="js-carousel" role="region" aria-label="Featured content" aria-roledescription="carousel">
+      <div class="js-carousel__wrapper">
+        <div class="js-carousel__item" js-carousel-order="0" aria-roledescription="slide" aria-label="Slide 1 of 4">
+          <h2>Responsible use of Batch</h2>
+          <p>
+            <span class="label-tag">1</span><span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span>
+          </p>
+          <p>
+            <span class="label-tag">2</span><span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span>
+          </p>
+          <p>
+            <span class="label-tag">3</span><span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span>
+          </p>
+        </div>
+  
+        <div class="js-carousel__item" js-carousel-order="1" aria-roledescription="slide" aria-label="Slide 1 of 4">
+          <button class="modal-close">×</button>
+        </div>
+      </div>
+  
+      <div class="carousel-nav">
+        <button class="js-carousel-button-previous" aria-label="Previous slide">
+          ← Previous
+        </button>
+        <button class="js-carousel-button-next" aria-label="Next slide">
+          Next →
+        </button>
+      </div>
+
+      <!-- Live region for SR announcements -->
+      <div aria-live="polite" aria-atomic="true" class="js-carousel__announcement visually-hidden"></div>
+  </div>
+  </div>
+</div>
+
+
+
+
+    <style>
+
+        
+        .slide-content {
+            background: #f5f5f5;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .carousel-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .carousel-nav button {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .carousel-nav button:hover {
+            background: #555;
+        }
+        
+        .carousel-nav button[aria-disabled="true"] {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
