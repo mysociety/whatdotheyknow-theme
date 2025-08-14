@@ -18,6 +18,10 @@
   margin-top: -1rem;
   position: relative;
 
+  .modal-container & {
+    margin-top: 0;
+  }
+
   @media screen and (min-width: 768px) {
     max-height: var(--read-container-max-height-desktop, 50dvh);
   }
