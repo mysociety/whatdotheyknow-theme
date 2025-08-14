@@ -17,46 +17,11 @@ $(document).ready(function() {
       this.$modalParent = this.$carousel.closest('.modal-content');
       if (this.$modalParent.length > 0) {
         this.isInModal = true;
-        this.setupModalHandlers();
       }
 
       this.init();
     }
 
-    setupModalHandlers() {
-      // Handle modal close button clicks to prevent focus issues
-      this.$modalParent.on('click', '.modal-close', () => {
-        // Move focus away from close button before modal hides
-        // Focus the modal parent temporarily
-        this.$modalParent.focus();
-      });
-
-      // Also handle when modal is about to be hidden. This should prevents console warning like "Blocked aria-hidden on an element because its descendant retained focus"
-      const self = this;
-      const modalObserver = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-          if (mutation.type === 'attributes' && 
-              (mutation.attributeName === 'aria-hidden' || mutation.attributeName === 'class')) {
-            const $target = $(mutation.target);
-
-            if ($target.attr('aria-hidden') === 'true' || $target.hasClass('modal-hidden')) {
-              // Ensure no element inside has focus
-              const $focused = $(':focus');
-              if ($focused.length && $.contains($target[0], $focused[0])) {
-                $focused.blur();
-              }
-            }
-          }
-        });
-      });
-
-      // Observe the modal for changes
-      modalObserver.observe(this.$modalParent[0], {
-        attributes: true,
-        attributeFilter: ['aria-hidden', 'class']
-      });
-    }
-    
     init() {
       this.sortItemsByOrder();
       this.updateAriaAttributes();
@@ -78,11 +43,7 @@ $(document).ready(function() {
     bindEvents() {
       this.$prevBtn.on('click', () => this.previous());
       this.$nextBtn.on('click', () => this.next());
-      
-      // Keyboard navigation
       this.$carousel.on('keydown', (e) => this.handleKeyboard(e));
-      
-      // Touch/swipe support
       this.addSwipeSupport();
     }
 
@@ -202,19 +163,13 @@ $(document).ready(function() {
     }
 
     updateButtonStates() {
-      // Disable/enable buttons at boundaries
       this.$prevBtn.attr('aria-disabled', this.currentIndex === 0);
       this.$nextBtn.attr('aria-disabled', this.currentIndex === this.totalItems - 1);
     }
-    
+
     announceSlideChange() {
-      // Announce slide change to screen readers
       const message = `Slide ${this.currentIndex + 1} of ${this.totalItems}`;
       this.$announcement.text(message);
-    }
-
-    refresh() {
-      this.goToSlide(this.currentIndex, false);
     }
   }
 
@@ -228,7 +183,7 @@ $(document).ready(function() {
     }
   }
 
-  // Initialize carousels that are NOT in modals immediately
+  // Initialize carousels based on modal context
   $('.js-carousel').each(function() {
     const $carousel = $(this);
     const $modalParent = $carousel.closest('.modal-content');
@@ -236,10 +191,8 @@ $(document).ready(function() {
     if ($modalParent.length === 0) {
       // Not in a modal, initialize immediately
       initCarousel(this);
-    } else {
-      // In a modal, mark for lazy initialization
-      $carousel.attr('data-carousel-lazy', 'true');
     }
+    // If in modal, will be initialized by MutationObserver when visible
   });
   
   // Listen for modal visibility changes using MutationObserver
@@ -254,14 +207,13 @@ $(document).ready(function() {
             $target.attr('aria-hidden') === 'false') {
           
           // Find any uninitialized carousels inside
-          $target.find('.js-carousel[data-carousel-lazy="true"]').each(function() {
-            const $carousel = $(this);
-            
-            // Small delay to ensure modal is fully rendered
-            setTimeout(() => {
-              initCarousel(this);
-              $carousel.attr('data-carousel-lazy', 'false');
-            }, 100);
+          $target.find('.js-carousel').each(function() {
+            if (!$(this).data('carousel-initialized')) {
+              // Small delay to ensure modal is fully rendered
+              setTimeout(() => {
+                initCarousel(this);
+              }, 100);
+            }
           });
         }
       }
@@ -273,17 +225,5 @@ $(document).ready(function() {
       attributes: true,
       attributeFilter: ['class', 'aria-hidden']
     });
-  });
-
-  $(document).on('modal:opened', function(e, $modalContent) {
-    if ($modalContent) {
-      $modalContent.find('.js-carousel').each(function() {
-        if (!$(this).data('carousel-initialized')) {
-          setTimeout(() => {
-            initCarousel(this);
-          }, 100);
-        }
-      });
-    }
   });
 });
