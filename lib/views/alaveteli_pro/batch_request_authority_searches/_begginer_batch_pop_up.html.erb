@@ -1,0 +1,53 @@
+<% content_for :javascript_head do %>
+  <%= javascript_importmap_tags("modal", importmap: Rails.application.theme_importmap) %>
+<% end %>
+
+<div class="modal-content modal-hidden batch-request-pop-up"  aria-hidden="true" data-auto-open="true" data-open-delay="100" data-click-outside-close="false">
+  <div class="modal-container">
+    <div class="js-carousel" role="region" aria-label="Featured content" aria-roledescription="carousel" carousel-current-slide="0">
+      <div class="js-carousel__wrapper">
+        <div class="js-carousel__item" js-carousel-order="0" aria-roledescription="slide" aria-label="Slide 1 of 2">
+          <div class="modal-header">
+            <h2 class="modal-title">Responsible use of Batch</h2>
+          </div>
+          <p>
+            <span class="label-tag">1</span><span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</span>
+          </p>
+          <p>
+            <span class="label-tag">2</span><span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</span>
+          </p>
+          <p>
+            <span class="label-tag">3</span><span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non providenta</span>
+          </p>
+        </div>
+
+        <div class="js-carousel__item" js-carousel-order="1" aria-roledescription="slide" aria-label="Slide 2 of 2">
+          <div class="modal-header">
+            <h2 class="modal-title">Lorem ipsum</h2>
+          </div>
+          <%= render partial: 'rules/list_of_rules' %>
+        </div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="button js-carousel-button-previous" aria-label="Previous slide">
+          ← Previous
+        </button>
+        <button class="button js-carousel-button-next" aria-label="Next slide">
+          Next →
+        </button>
+        <button class="modal-close" aria-label="close modal">×</button>
+      </div>
+
+      <!-- Live region for SR announcements -->
+      <div aria-live="polite" aria-atomic="true" class="js-carousel__announcement visually-hidden"></div>
+  </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --read-container-max-height-mobile: 70dvh;
+    --read-container-max-height-desktop: 30dvh;
+  }
+</style>

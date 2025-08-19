@@ -2403,3 +2403,20 @@ div.pagination span.disabled {
     }
   }
 }
+
+/*
+ * Batch request
+*/
+.batch-request-pop-up {
+  .js-carousel {
+    .modal-close {
+      display: none;
+    }
+  }
+
+  .js-carousel[carousel-current-slide="last-slide"] {
+    .modal-close {
+      display: block;
+    }
+  }
+}
