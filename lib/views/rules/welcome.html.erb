@@ -1,0 +1,32 @@
+<% content_for :javascript_head do %>
+  <%= javascript_importmap_tags("read_container", importmap: Rails.application.theme_importmap) %>
+<% end %>
+
+<div class="welcome-rules-page">
+  <div class="hero-section">
+    <h1 class="hero-big-title">Welcome to
+      <%= image_tag('wdtk-logo-black.svg', alt: 'WhatDoTheyKnow', class: 'hero-logo') %>
+    </h1>
+    <div class="hero-subtitle">
+      <p>WhatDoTheyKnow is a free service from the charity <a href="https://www.mysociety.org/">mySociety</a>, making it as simple as possible to ask public authorities for information.</p>
+    </div>
+    <p>Much of the admin and user support for WhatDoTheyKnow is handled by dedicated volunteers, who are contributing their time and knowledge because they believe in the value of transparency.</p>
+    <p>The following rules are based on our experience of running the site since 2008. These rules help you, and us, keep on the right side of the law, and make a better environment for everyone.</p>
+    <p>By reading and following these simple rules, you help us spend less time on fixing problems, and more time on improving WhatDoTheyKnow. And that's great for everyone.</p>
+  </div>
+
+  <%= render partial: 'rules/list_of_rules' %>
+
+  <div class="card card-alert">
+    <p class="card-header text-with-icon">
+      <svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16c2.12 0 4.16-.84 5.66-2.34 1.5-1.5 2.34-3.54 2.34-5.66 0-2.12-.84-4.16-2.34-5.66C12.16.84 10.12 0 8 0 5.88 0 3.84.84 2.34 2.34.84 3.84 0 5.88 0 8c0 2.12.84 4.16 2.34 5.66C3.84 15.16 5.88 16 8 16zM9 5c0 .27-.1.52-.3.7-.18.2-.43.3-.7.3-.26 0-.52-.1-.7-.3C7.1 5.52 7 5.27 7 5c0-.27.1-.52.3-.7.18-.2.44-.3.7-.3.27 0 .52.1.7.3.2.18.3.43.3.7zM7 7c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h.25v2H6.25c-.2 0-.4.08-.53.22-.14.14-.22.33-.22.53 0 .2.08.39.22.53.13.14.33.22.53.22h3.5c.2 0 .39-.08.53-.22.14-.14.22-.33.22-.53 0-.2-.08-.39-.22-.53-.14-.14-.33-.22-.53-.22H8.75V7H7z" fill="currentColor"></path></svg>
+      If you break these rules, you could be banned from the site
+    </p>
+
+    <p>We may also remove your requests or annotations. We'll usually contact you first to give advice on how to use the service better.</p>
+    <p>If you use threats or abusive language, mySociety staff and volunteers will stop responding to you. You'll also be banned from using the site.</p>
+  </div>
+
+  <!-- TODO: call to action, which takes the user onwards to the location stored in the PostRedirect -->
+  <a class="link_button_green js-read-container-continue-button" href="">Continue to WhatDoTheyKnow</a>
+</div>

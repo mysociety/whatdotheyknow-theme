@@ -2378,4 +2378,45 @@ div.pagination span.disabled {
   text-decoration: underline;
 }
 
+@import "carousel";
+@import "modal";
 @import "learn";
+@import "read_container";
+
+/*
+ * /welcome
+*/
+.welcome-rules-page {
+  max-width: 50rem;
+
+  .hero-section {
+    .hero-big-title {
+      img {
+        margin-top: 0;
+        max-width: 100%;
+
+        @media screen and (min-width: 768px) {
+          margin-top: 1rem;
+          max-width: 75%;
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Batch request
+*/
+.batch-request-pop-up {
+  .js-carousel {
+    .modal-close {
+      display: none;
+    }
+  }
+
+  .js-carousel[carousel-current-slide="last-slide"] {
+    .modal-close {
+      display: block;
+    }
+  }
+}
