@@ -194,7 +194,12 @@ $(document).ready(function() {
 
   $(document).on('keydown', function(e) {
     if ((e.key === 'Escape' || e.keyCode === 27) && $('.modal-content[aria-hidden="false"]').length) {
-      closeModal();
+      const $openModal = $('.modal-content[aria-hidden="false"]');
+
+      // Check if click-outside-close is disabled
+      if ($openModal.data('click-outside-close') !== false) {
+        closeModal();
+      }
     }
   });
 
