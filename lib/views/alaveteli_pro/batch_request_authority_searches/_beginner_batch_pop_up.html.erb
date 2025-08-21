@@ -25,7 +25,10 @@
           <div class="modal-header">
             <h2 class="modal-title">Lorem ipsum</h2>
           </div>
-          <%= render partial: 'rules/list_of_rules' %>
+            <div class="read-container js-read-container">
+              <p class="read-container__announcement"><strong>Please read WhatDoTheyKnow's rules before continuing:</strong></p>
+              <%= render partial: 'help/house_rules/list_of_house_rules' %>
+            </div>
         </div>
       </div>
 

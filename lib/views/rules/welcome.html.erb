@@ -15,7 +15,10 @@
     <p>By reading and following these simple rules, you help us spend less time on fixing problems, and more time on improving WhatDoTheyKnow. And that's great for everyone.</p>
   </div>
 
-  <%= render partial: 'rules/list_of_rules' %>
+  <div class="read-container js-read-container">
+    <p class="read-container__announcement"><strong>Please read WhatDoTheyKnow's rules before continuing:</strong></p>
+    <%= render partial: 'help/house_rules/list_of_house_rules' %>
+  </div>
 
   <div class="card card-alert">
     <p class="card-header text-with-icon">
