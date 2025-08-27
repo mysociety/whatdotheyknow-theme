@@ -17,7 +17,7 @@
 	        "please <a href='{{help_contact_path}}'>get in touch</a>.",
 	     :help_contact_path => help_contact_path) %></p>
 
-<% if feature_enabled?(:alaveteli_pro) && !user.has_tag?('disposable_email') %>
+<% if feature_enabled?(:alaveteli_pro) && !@user.has_tag?('disposable_email') %>
   <div class="pro-upsell">
     <div class="pro-upsell__headers">
       <div class="pro-upsell__header">
