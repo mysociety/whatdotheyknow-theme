@@ -1,0 +1,13 @@
+<% # Header %>
+Weekly email domain report <%= @date_range.begin.strftime('%d %B %Y') %>
+
+Different email domains used for new user registrations in the
+past week compared with the preceding month.
+
+<% # Table header %>
+Domain                           Weekly   Monthly   Change
+================================================================
+<% # Table rows %>
+<% @data.each do |row| %>
+<%= "%-30s %8d %9d %+7s" % [row[:domain], row[:weekly], row[:monthly], row[:delta].infinite? ? '-' : "%d%%" % [row[:delta]]] %>
+<% end %>

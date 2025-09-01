@@ -59,7 +59,8 @@ end
   'raw_email_usage.rb',
   'immigration_detection.rb',
   'user_check_integration.rb',
-  'user_email_variations.rb'
+  'user_email_variations.rb',
+  'email_domain_report.rb'
 ].each { |patch| require theme_root.join('lib', patch) }
 
 $alaveteli_route_extensions << 'wdtk-routes.rb'
