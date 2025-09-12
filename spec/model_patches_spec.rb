@@ -37,6 +37,11 @@ RSpec.describe InfoRequest do
         to be_instance_of(SchoolLateCalculator)
     end
 
+    it 'returns a SchoolLateCalculator if the associated body is an acedemy' do
+      subject.public_body = FactoryBot.build(:public_body, tag_string: 'academy_trust')
+      expect(subject.late_calculator).
+        to be_instance_of(SchoolLateCalculator)
+    end
   end
 end
 
