@@ -20,7 +20,7 @@ end
 RSpec.describe InfoRequest do
 
   describe '#late_calculator' do
-    subject { InfoRequest.new(:public_body => FactoryBot.build(:public_body)) }
+    subject { InfoRequest.new(public_body: FactoryBot.build(:public_body)) }
 
     it 'returns a DefaultLateCalculator' do
       expect(subject.late_calculator).
@@ -32,13 +32,12 @@ RSpec.describe InfoRequest do
     end
 
     it 'returns a SchoolLateCalculator if the associated body is a school' do
-      subject.public_body = FactoryBot.build(:public_body, :tag_string => 'school')
+      subject.public_body = FactoryBot.build(:public_body, tag_string: 'school')
       expect(subject.late_calculator).
         to be_instance_of(SchoolLateCalculator)
     end
 
   end
-
 end
 
 RSpec.describe InfoRequest, "when calculating the status for a school" do
