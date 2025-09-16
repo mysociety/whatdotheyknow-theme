@@ -26,8 +26,11 @@
 
         <div class="js-carousel__item" js-carousel-order="1" aria-roledescription="slide" aria-label="Slide 2 of 2">
           <div class="modal-header">
-            <h2 class="modal-title">Lorem ipsum</h2>
+            <h2 class="modal-title">Just a reminder</h2>
           </div>
+            <p>
+              <em>Pro users are still bound by our <%= link_to 'House Rules', help_house_rules_path %>, which includes making <%= link_to 'responsible requests', help_requesting_path(anchor: 'responsible') %>.</em>
+            </p>
             <div class="read-container js-read-container">
               <p class="read-container__announcement"><strong>Please read WhatDoTheyKnow's rules before continuing:</strong></p>
               <%= render partial: 'help/house_rules/list_of_house_rules' %>
