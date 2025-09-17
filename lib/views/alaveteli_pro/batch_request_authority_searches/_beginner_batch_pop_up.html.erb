@@ -28,7 +28,7 @@
           <div class="modal-header">
             <h2 class="modal-title">Just a reminder</h2>
           </div>
-            <p>
+            <p class="lead">
               <em>Pro users are still bound by our <%= link_to 'House Rules', help_house_rules_path %>, which includes making <%= link_to 'responsible requests', help_requesting_path(anchor: 'responsible') %>.</em>
             </p>
             <div class="read-container js-read-container">
@@ -61,6 +61,7 @@
   }
 
   .modal-container {
+    --modal-container-max-width-tablet: 60dvw;
     --modal-container-max-width-desktop: 35dvw;
   }
 </style>
