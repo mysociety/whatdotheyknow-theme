@@ -71,6 +71,7 @@ $modal-transition-speed: 0.3s;
 }
 
 .modal-container {
+  --modal-container-max-width-desktop: 50dvw;
   background-color: $color_off_white;
   padding: 1rem;
   border-radius: 1rem;
@@ -80,9 +81,13 @@ $modal-transition-speed: 0.3s;
   max-height: 80vh;
 
   @media screen and (min-width: 768px) {
-    max-width: 50dvw;
+    max-width: var(--modal-container-max-width-desktop);
     padding: 2rem;
     width: 90%;
+  }
+
+  .lead {
+    font-size: 1.2rem;
   }
 }
 
