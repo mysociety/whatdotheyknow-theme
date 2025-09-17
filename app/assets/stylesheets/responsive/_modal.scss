@@ -73,6 +73,7 @@ $modal-transition-speed: 0.3s;
 .modal-container {
   --modal-container-max-width-tablet: 80dvw;
   --modal-container-max-width-desktop: 50dvw;
+  --modal-container-max-width-desktop-xl: 50dvw;
   background-color: $color_off_white;
   padding: 1rem;
   border-radius: 1rem;
@@ -89,6 +90,10 @@ $modal-transition-speed: 0.3s;
 
   @media screen and (min-width: 1280px) {
     max-width: var(--modal-container-max-width-desktop);
+  }
+
+  @media screen and (min-width: 1536px) {
+    max-width: var(--modal-container-max-width-desktop-xl);
   }
 
   .lead {
