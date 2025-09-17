@@ -7,7 +7,7 @@
  * 
  * <button class="modal-button">Open Video</button>
  * <div class="modal-content modal-hidden" aria-hidden="true">
- *    <button class="modal-close">×</button>
+ *    <button class="button modal-close">×</button>
  *    <div class="modal-container">
  *      <h2>Video Title</h2>
  *      <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
@@ -21,7 +21,7 @@
  *      data-auto-open="true"
  *      data-open-delay="2000"
  *      data-click-outside-close="false">
- *   <button class="modal-close">×</button>
+ *   <button class="button modal-close">×</button>
  *   <div class="modal-container">
  *     <h2>Welcome!</h2>
  *     <p>This popup appears automatically after 2 seconds.</p>
