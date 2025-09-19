@@ -131,6 +131,10 @@ Rails.configuration.to_prepare do
     yahoo.co.uk
   ]
 
+  PublicBody.excluded_foi_officer_access_domains += %w[
+    nhs.net
+  ]
+
   PublicBody.class_eval do
     # Return the domain part of an email address, canonicalised and with common
     # extra UK Government server name parts removed.
