@@ -32,6 +32,24 @@ Rails.configuration.to_prepare do
                      "to government services.")
   end
 
+  # Add UK-specific domains and providers
+  Domains.webmail_providers += %w[
+    aol.co.uk
+    blueyonder.co.uk
+    btconnect.com
+    btinternet.com
+    btopenworld.com
+    hotmail.co.uk
+    live.co.uk
+    ntlworld.com
+    sky.com
+    talk21.com
+    talktalk.net
+    tiscali.co.uk
+    virginmedia.com
+    yahoo.co.uk
+  ]
+
   InfoRequest.class_eval do
     def email_subject_request(opts = {})
       html = opts.fetch(:html, true)
@@ -112,23 +130,6 @@ Rails.configuration.to_prepare do
     engrsl
     signpost
     unit
-  ]
-
-  PublicBody.excluded_calculated_home_page_domains += %w[
-    aol.co.uk
-    blueyonder.co.uk
-    btconnect.com
-    btinternet.com
-    btopenworld.com
-    hotmail.co.uk
-    live.co.uk
-    ntlworld.com
-    sky.com
-    talk21.com
-    talktalk.net
-    tiscali.co.uk
-    virginmedia.com
-    yahoo.co.uk
   ]
 
   PublicBody.excluded_foi_officer_access_domains += %w[
