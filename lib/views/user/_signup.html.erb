@@ -67,11 +67,13 @@
     </div>
 
     <div class="form_item_note">
-      <%= _('By signing up you agree to our ' \
-            '<a href="{{house_rules_url}}">house rules</a>. Commercial and ' \
-            'for-profit use requires a ' \
+      <%= _('By signing up, you agree to our ' \
+            '<a href="{{house_rules_url}}">house rules</a> and confirm ' \
+            'you’ve read our <a href="{{privacy_policy_url}}">privacy policy</a>. ' \
+            'Commercial and for-profit use requires a ' \
             '<a href="{{pro_url}}">WhatDoTheyKnow Pro</a> subscription.',
             house_rules_url: help_house_rules_path,
+            privacy_policy_url: help_privacy_path,
             pro_url: account_request_index_path) %>
     </div>
   <% end %>
