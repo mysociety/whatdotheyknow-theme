@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Announce to screen readers
             announcer.textContent = 'Please scroll to the bottom of the text before continuing.';
-            
+
             // Focus the container so keyboard users know where to scroll
             container.focus();
             return false;
