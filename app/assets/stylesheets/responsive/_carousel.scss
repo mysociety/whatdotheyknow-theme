@@ -32,12 +32,12 @@
     }
   }
 
-  @media (max-width: 450px) { 
+  @media (max-width: 450px) {
     overflow-y: auto;
     --carousel-max-height-mobile: 400px;
     max-height: var(--carousel-max-height-mobile);
-    
-    .carousel-nav { 
+
+    .carousel-nav {
       position: sticky;
       bottom: -1px;
       background: transparentize($color: $color_off_white, $amount: 0.6);
@@ -46,4 +46,3 @@
     }
   }
 }
-
