@@ -1,10 +1,10 @@
 /**
  * Combined Modal & Popup
- * 
+ *
  * USAGE EXAMPLES:
- * 
+ *
  * 1. Modal (triggered by button):
- * 
+ *
  * <button class="modal-button">Open Video</button>
  * <div class="modal-content modal-hidden" aria-hidden="true">
  *    <button class="button modal-close">×</button>
@@ -13,10 +13,10 @@
  *      <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
  *    </div>
  * </div>
- * 
+ *
  * 2. Auto-opening Popup:
- * 
- * <div class="modal-content modal-hidden" 
+ *
+ * <div class="modal-content modal-hidden"
  *      aria-hidden="true"
  *      data-auto-open="true"
  *      data-open-delay="2000"
@@ -27,7 +27,7 @@
  *     <p>This popup appears automatically after 2 seconds.</p>
  *   </div>
  * </div>
- * 
+ *
  * DATA ATTRIBUTES:
  * - data-auto-open="true" - Makes it open automatically on page load
  * - data-open-delay="[milliseconds]" - Delay before auto-opening (optional)
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function setupModalButtons() {
         const modalButtons = document.querySelectorAll('.modal-button');
-        
+
         modalButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     openModal(modalContent);
                 }
             });
-            
+
             button.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.keyCode === 13) {
                     e.preventDefault();
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
             iframe.setAttribute('src', currentSrc);
         });
     }
-    
+
     function setupFocusTrap(modalContent) {
         // Add sentinel elements for focus trap
         const focusTrapStart = document.createElement('div');

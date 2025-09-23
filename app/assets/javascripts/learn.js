@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Slide toggle
     function slideToggle(element, duration = 300, callback) {
         const isHidden = window.getComputedStyle(element).display === 'none';
-        
+
         if (isHidden) {
             slideDown(element, duration, callback);
         } else {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !isExpanded);
-            
+
             slideToggle(sidebar, 300, () => {
                 if (isVisible(sidebar)) {
                     // Change to close icon
@@ -141,20 +141,20 @@ document.addEventListener('DOMContentLoaded', function() {
     smoothScrollLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 // Calculate the position
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                
+
                 // Smooth scroll to target
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
+
                 // Alternative for browsers that don't support smooth scrolling
                 if (!('scrollBehavior' in document.documentElement.style)) {
                     smoothScrollTo(targetPosition, 400);
@@ -174,12 +174,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
 
-            const easeInOut = progress < 0.5 
-                ? 2 * progress * progress 
+            const easeInOut = progress < 0.5
+                ? 2 * progress * progress
                 : -1 + (4 - 2 * progress) * progress;
 
             window.scrollTo(0, startY + difference * easeInOut);
-            
+
             if (progress < 1) {
                 requestAnimationFrame(step);
             }
