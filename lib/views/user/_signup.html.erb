@@ -61,9 +61,11 @@
       <%= hidden_field_tag 'token', params[:token], id: 'signup_token' %>
       <%= hidden_field_tag :modal, params[:modal], id: 'signup_modal' %>
 
-      <%= submit_tag _('Sign up'),
-                     tabindex: 50,
-                     data: { disable_with: _('Sending...') } %>
+      <p>
+        <%= submit_tag _('Sign up'),
+                       tabindex: 50,
+                       data: { disable_with: _('Sending...') } %>
+      </p>
     </div>
 
     <div class="form_item_note">
