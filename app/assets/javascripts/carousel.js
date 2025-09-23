@@ -1,9 +1,9 @@
 /**
  * Carousel component
- * 
+ *
  * USAGE EXAMPLE:
- * 
- * <div class="js-carousel" role="region" aria-label="Featured content" 
+ *
+ * <div class="js-carousel" role="region" aria-label="Featured content"
  *      aria-roledescription="carousel" carousel-current-slide="0">
  *   <div class="js-carousel__wrapper">
  *     <div class="carousel-item" js-carousel-order="1">Slide 1 content</div>
@@ -14,7 +14,7 @@
  *   <button class="js-carousel-button-next" aria-label="Next slide">Next</button>
  *   <div class="js-carousel__announcement" aria-live="polite" aria-atomic="true"></div>
  * </div>
- * 
+ *
  * The carousel-current-slide attribute updates dynamically as users navigate (0-indexed)
  */
 
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.carousel.addEventListener('touchend', (e) => {
                 endX = e.changedTouches[0].clientX;
                 const diff = startX - endX;
-                
+
                 if (Math.abs(diff) > 50) { // Minimum swipe distance
                     if (diff > 0) {
                         this.next();
@@ -240,8 +240,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Helper function to check if element is truly visible
     function isElementVisible(element) {
-        return element.offsetWidth > 0 && 
-               element.offsetHeight > 0 && 
+        return element.offsetWidth > 0 &&
+               element.offsetHeight > 0 &&
                getComputedStyle(element).visibility !== 'hidden';
     }
 
