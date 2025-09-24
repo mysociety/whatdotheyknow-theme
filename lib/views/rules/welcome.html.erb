@@ -30,8 +30,7 @@
     <p>If you use threats or abusive language, mySociety staff and volunteers will stop responding to you. You'll also be banned from using the site.</p>
   </div>
 
-  <!-- TODO: call to action, which takes the user onwards to the location stored in the PostRedirect -->
-  <a class="link_button_green js-read-container-continue-button" href="">Continue to WhatDoTheyKnow</a>
+  <%= link_to 'Continue to WhatDoTheyKnow', welcome_path, data: { method: :post }, class: 'link_button_green js-read-container-continue-button' %>
 </div>
 
 <style>
