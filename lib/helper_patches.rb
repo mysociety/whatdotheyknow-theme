@@ -16,6 +16,12 @@ Rails.configuration.to_prepare do
     end
   end
 
+  AlaveteliPro::BatchRequestAuthoritySearchesHelper.class_eval do
+    def new_batch_user?
+      current_user.info_request_batches.size < 3
+    end
+  end
+
   DatasetteHelper.datasette_url = 'https://data.mysociety.org/datasette/'
 
   ProminenceHelper::Base.class_eval do
