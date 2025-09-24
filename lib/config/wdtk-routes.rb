@@ -113,4 +113,6 @@ Rails.application.routes.draw do
 
   get '/welcome' => 'rules#welcome',
       as: :welcome
+
+  post '/welcome' => 'users/confirmations#force_confirm'
 end

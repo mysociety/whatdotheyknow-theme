@@ -31,8 +31,7 @@
   </div>
 
   <p class="card card-red" style="width:fit-content"><strong>Important:</strong> Please read the house rules before continuing.</p>
-  <!-- TODO: call to action, which takes the user onwards to the location stored in the PostRedirect -->
-  <a class="link_button_green js-read-container-continue-button" href="">Continue to WhatDoTheyKnow</a>
+  <%= link_to 'Continue to WhatDoTheyKnow', welcome_path, data: { method: :post }, class: 'link_button_green js-read-container-continue-button' %>
 </div>
 
 <style>

@@ -9,6 +9,7 @@ Rails.application.config.after_initialize do
     def request_refused_delayed; end
     def foi_myths; end
   end
+
   class RulesController < ApplicationController
     def welcome; end
   end
@@ -120,6 +121,38 @@ Rails.configuration.to_prepare do
         []
       end
     end
+  end
+
+  Users::ConfirmationsController.class_eval do
+    module RulesConfirmation
+      def confirm
+        if !@force_confirm && post_redirect.circumstance == 'normal'
+          session[:post_redirect_token] = post_redirect.token
+          redirect_to(welcome_path) && return
+        end
+
+        super
+      end
+
+      def force_confirm
+        @force_confirm = true
+        confirm
+      end
+
+      private
+
+      def post_redirect
+        @post_redirect ||= (
+          if params[:email_token]
+            PostRedirect.find_by(email_token: params[:email_token])
+          else
+            PostRedirect.find_by(token: session[:post_redirect_token])
+          end
+        )
+      end
+    end
+
+    prepend RulesConfirmation
   end
 
   Users::MessagesController.class_eval do
