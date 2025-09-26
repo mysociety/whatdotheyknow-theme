@@ -2,7 +2,9 @@ $color_orange: #f4a140;
 $color_blue: #2078C2;
 $color_blue_light: #A2D2FA;
 $color_green: #62b356;
+$color_green_aa: #39852e; // Pass AA test
 $color_yellow: #ffd836;
+$color_yellow_aa: #6b5a13; // Pass AA test
 $color_red: #e04b4b;
 $color_violet: #a94ca6;
 $color_purple: #5c377f;
@@ -961,6 +963,17 @@ div.correspondence {
       linear-gradient(to left, $body-bg 2px, transparent 0),
       linear-gradient(to bottom, transparent 5px, $outgoing-correspondence-color 0),
       radial-gradient(circle at 0 5px, $outgoing-correspondence-color 5px, $body-bg 0);
+  }
+}
+
+.correspondence_info {
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+  background-color: mix($color_yellow, $body-bg, 15%);
+  color: $color_yellow_aa;
+
+  :last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -2072,7 +2085,7 @@ dd {
 
 .donate-cta {
   padding: 1em 1.5em 1.5em;
-  background-color: lighten($color_red, 25%);
+  background-color: lighten($color_green, 25%);
   margin-top: 2em;
   border-radius: 0.3em;
 
@@ -2086,14 +2099,7 @@ dd {
   font-size: 1.125em;
 }
 
-a.donate-cta__button {
-  background-color: $color_red;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: darken($color_red, 10%);
-  }
-}
+a.donate-cta__button {@include button-green;}
 
 // blog
 #blog {
