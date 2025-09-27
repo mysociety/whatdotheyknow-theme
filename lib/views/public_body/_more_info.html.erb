@@ -82,6 +82,20 @@
   <% end %>
 <% end %>
 
+<% if public_body.has_tag?('la') %>
+  <% public_body.get_tag_values('la').each do |tag_value| %>
+      <%= link_to _('Local authority'),
+                    "https://www.whatdotheyknow.com/body/list/lea:#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
+<% if public_body.has_tag?('la') %>
+  <% public_body.get_tag_values('la').each do |tag_value| %>
+      <%= link_to _('Other schools in the same local authority area'),
+                    "https://www.whatdotheyknow.com/body/list/la:#{ tag_value }" %><br>
+  <% end %>
+<% end %>
+
 <% if public_body.has_tag?('ofs') %>
   <% public_body.get_tag_values('ofs').each do |tag_value| %>
       <%= link_to _('Provider register'),
