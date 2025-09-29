@@ -275,20 +275,6 @@ Rails.configuration.to_prepare do
     user_messages: 2
   }
 
-  User.class_eval do
-    alias_method :orig_can_make_comments?, :can_make_comments?
-    def can_make_comments?
-      return true if no_limit?
-      orig_can_make_comments?
-    end
-
-    private
-
-    def exceeded_user_message_limit?
-      !Time.zone.now.between?(Time.zone.parse('9am'), Time.zone.parse('5pm'))
-    end
-  end
-
   User::EmailAlerts.instance_eval do
     module DisableWithProtection
       def disable
