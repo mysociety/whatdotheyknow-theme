@@ -92,6 +92,23 @@
   }
 }
 
+@mixin button-green {
+  @include button-base;
+  background: $color_green_aa; // Adding a colour instead of transparent, that way we can use this button even in dark backgrounds
+  color: $color_white;
+  font-weight: normal;
+  border-color: $color_green_aa;
+  &:hover,
+  &:active,
+  &:visited:hover,
+  &:visited:active {
+    color: $color_green_aa;
+    // We are darkening the background and border for cases there is a default button and a tertiary button together. In this case when we are hovering over the tertiary one it won't look just like the default button next to it.
+    background: $color_white;
+    border-color: $color_green_aa;
+  }
+}
+
 @mixin button-disabled {
   opacity: 0.333;
   &:hover,
