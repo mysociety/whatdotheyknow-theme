@@ -1,0 +1,60 @@
+<% content_for :javascript_head do %>
+  <%= javascript_importmap_tags("modal", importmap: Rails.application.theme_importmap) %>
+<% end %>
+
+<div class="modal-content modal-hidden batch-request-pop-up"  aria-hidden="true" data-auto-open="true" data-open-delay="100" data-click-outside-close="false">
+  <div class="modal-container">
+    <div class="js-carousel" role="region" aria-label="Featured content" aria-roledescription="carousel" carousel-current-slide="0">
+      <div class="js-carousel__wrapper">
+        <div class="js-carousel__item" js-carousel-order="0" aria-roledescription="slide" aria-label="Slide 1 of 2">
+          <div class="modal-header">
+            <h2 class="modal-title">Responsible use of Batch</h2>
+          </div>
+          <p class="lead">
+            <em>Remember that multiple people are going to spend time answering your request. Targeting lots of authorities can swamp both them and you with unnecessary work and information you can’t use.</em>
+          </p>
+          <p>
+            <span><strong>Write a targeted request:</strong> A clear, specific, and proportionate request is more likely to get you usable information quickly. Vague or excessive demands risk refusal, delay, or inconsistent results that are difficult to compare.</span>
+          </p>
+          <p>
+            <span><strong>Send a pilot:</strong> Trial the request on a small sample of authorities and wait for responses before sending to the full list. This helps you check that they’re likely to hold the information you’re asking for and spot unclear wording, overly broad scope, or practical snags early – saving you and the authorities from wasted effort.</span>
+          </p>
+          <p>
+            <span><strong>Choose recipients carefully:</strong> Before making a request to a large number of authorities, try to find out if the information is compiled centrally, or pick a representative sample so that the project stays manageable and the results are still meaningful. Make sure the request is relevant to all authorities that you select.</span>
+          </p>
+        </div>
+
+        <div class="js-carousel__item" js-carousel-order="1" aria-roledescription="slide" aria-label="Slide 2 of 2">
+          <div class="modal-header">
+            <h2 class="modal-title">Just a reminder</h2>
+          </div>
+            <p class="lead">
+              <em>Pro users are still bound by our <%= link_to 'House Rules', help_house_rules_path %>, which includes making <%= link_to 'responsible requests', help_requesting_path(anchor: 'responsible') %>.</em>
+            </p>
+              <%= render partial: 'help/house_rules/list_of_house_rules' %>
+        </div>
+      </div>
+
+      <div class="carousel-nav">
+        <button class="button js-carousel-button-previous" aria-label="Previous slide">
+          ← Previous
+        </button>
+        <button class="button js-carousel-button-next" aria-label="Next slide">
+          Next →
+        </button>
+        <button class="button modal-close" aria-label="close modal and continue">Continue</button>
+      </div>
+
+      <!-- Live region for SR announcements -->
+      <div aria-live="polite" aria-atomic="true" class="js-carousel__announcement visually-hidden"></div>
+  </div>
+  </div>
+</div>
+
+<style>
+  .modal-container {
+    --modal-container-max-width-tablet: 40.625rem;
+    --modal-container-max-width-desktop: 40.625rem;
+    --modal-container-max-width-desktop-xl: 40.625rem;
+  }
+</style>

@@ -110,4 +110,9 @@ Rails.application.routes.draw do
 
   get '/learn/foi_myths' => 'learn#foi_myths',
       as: :learn_foi_myths
+
+  get '/welcome' => 'rules#welcome',
+      as: :welcome
+
+  post '/welcome' => 'users/confirmations#force_confirm'
 end
