@@ -10,6 +10,7 @@
   <ul>
     <li><%= link_to 'Private requests', '#private-requests' %></li>
     <li><%= link_to 'Batch', '#batch' %></li>
+    <li><%= link_to 'Projects', '#projects' %></li>
   </ul>
 
   <h2 id="private-requests">
@@ -191,6 +192,209 @@
     are required to abide by our guidelines about writing
     <%= link_to 'responsible requests',
       help_requesting_path(anchor: 'responsible') %>.
+  </p>
+
+  <h2 id="projects">
+    Projects
+   <a href="#projects">#</a>
+  </h2>
+
+  <p>
+    Projects helps manage large FOI investigations by grouping requests,
+    coordinating contributors, and extracting structured data — making complex
+    research faster and more collaborative. <a
+    href="https://www.mysociety.org/2020/07/24/whatdotheyknow-projects/">Read
+  our announcement</a> for more info.
+  </p>
+
+  <h3 id="projects-setup">
+    Setting Up a New Project
+    <a href="#projects-setup">#</a>
+  </h3>
+
+  <h4>Step 1: Create a new Project</h4>
+
+  <p>From your Dashboard, click on the “Projects” link in the sidebar.</p>
+
+  <p>Click on <strong>“Create a new Project”</strong> to start setting up your project.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-dashboard.jpg',
+                  alt: 'Creating a new project' %>
+  </p>
+
+  <h4>Step 2: Write a Description of Your Project</h4>
+
+  <p>Enter the details of your project. This information will be shown to contributors when they join the project, so you might want to explain what the aim of your project is, or add some basic instructions here.</p>
+
+  <p>You will be able to edit these later if you need to.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-create.jpg',
+                  alt: 'Adding a description to your project' %>
+  </p>
+
+  <h4>Step 3: Add Requests to Your Project</h4>
+
+  <p>You can add specific requests or entire batches of requests to your project.</p>
+
+  <p>Requests can be filtered by title using the search box.</p>
+
+  <p>The requests you’ve added will appear in the right column.</p>
+
+  <p>You will be able to edit these later if you need to.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-add-requests.jpg',
+                  alt: 'Adding requests to your project' %>
+  </p>
+
+  <h4>Step 4: Add Questions to Your Project</h4>
+
+  <p>Next, add the questions that you would like contributors to extract the answers for.</p>
+
+  <p>You can set the type of answer you expect to get for each question (Numeric, Text, Yes/No, or a set of options to choose from).</p>
+
+  <p>You can include as many questions as you like, but over 10 can feel like too much. You can make multiple projects using the same requests to break the work into smaller pieces.</p>
+
+  <p>You can change the order of the questions by dragging and dropping them using the dots on the left hand side of each question.</p>
+
+  <p>You will be able to edit these later if you need to.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-add-questions.jpg',
+                  alt: 'Adding questions to your project' %>
+  </p>
+
+  <h4>Step 5: Invite Contributors (Optional)</h4>
+
+  <p>You can generate an invite link that you can share with your contributors to allow them to join your project.</p>
+
+  <p><a href="#projects-contributing">Contributors</a> can help you classify the responses and extract structured data from the information released.</p>
+
+  <p>You will be able to do this later if you need to.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-invite-contributors.jpg',
+                  alt: 'Inviting contributors to your project' %>
+  </p>
+
+  <h4>Step 6: You’re Done!</h4>
+
+  <p>After creating your project, you will be redirected to the project overview page.</p>
+
+  <p>You’ll find some options here for editing your project, should you need to do so.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-homepage.jpg',
+                  alt: 'Projects homepage' %>
+  </p>
+
+  <h3 id="projects-contributing">
+    Contributing to a Project
+    <a href="#projects-contributing">#</a>
+  </h3>
+
+  <p>There are two main stages to a successful project:</p>
+
+  <ul>
+    <li><strong>Classification</strong> - Identifying if responses to a request contain useful data</li>
+    <li><strong>Extraction</strong> - Extracting useful data from the responses to create a dataset</li>
+  </ul>
+
+  <h3 id="projects-classify">
+    Classify responses
+    <a href="#projects-classify">#</a>
+  </h3>
+
+  <h4>Step 1 - Visit the Project overview page</h4>
+
+  <p>To start classifying requests, click on the <strong>“Start Classifying”</strong> button on the project overview page.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-homepage.jpg',
+                  alt: 'Projects homepage' %>
+  </p>
+
+  <h4>Step 2: Read the response to the request</h4>
+
+  <p>When you start classifying, you’ll be shown all of the correspondence that forms part of the request.</p>
+
+  <p>In the sidebar on the right hand side of the page, you’ll see options to update the status of the request based on the response.</p>
+
+  <p>You can quickly navigate between messages using the arrow buttons.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-classify-1.jpg',
+                  alt: 'Read the response' %>
+  </p>
+
+  <h3>Step 3: Decide which status is the best match</h3>
+
+  <p>Click the radio button next to the status that you think best describes the response, and click on the <strong>“Submit Status”</strong> button to, to classify the request and move to the next request.</p>
+
+  <p>If you are unsure, or would like to skip this request for any reason, click on the <strong>“Skip”</strong> button to move to the next request without the need to pick a status.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-classify-2.jpg',
+                  alt: 'Pick the classification' %>
+  </p>
+
+  <p>You have the following statuses to choose from:</p>
+
+  <ul>
+    <li><strong>No response has been received</strong> - The authority has just sent an acknowledgment.</li>
+    <li><strong>Clarification has been requested</strong> - The requester has been asked to clarify their request</li>
+    <li><strong>A response will be sent by postal mail</strong> - The authority is planning to respond outside of WhatDoTheyKnow</li>
+    <li><strong>The authority does not have the information</strong> - The information is not held</li>
+    <li><strong>Some of the information has been sent</strong> - Use this if part of the information asked for has been withheld by the authority, or they only hold part of the information.</li>
+    <li><strong>The request has been refused</strong> - The entire request has been refused</li>
+    <li><strong>An error message has been received</strong> - Use this for delivery errors, such as bounce messages.</li>
+  </ul>
+
+  <h3 id="projects-extract">
+    Extract the data
+    <a href="#projects-extract">#</a>
+  </h3>
+
+  <h4>Step 1: Visit the Project overview page</h4>
+
+  <p>To start classifying requests, click on the <strong>“Start extracting”</strong> button on the main project page.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-homepage.jpg',
+                  alt: 'Projects homepage' %>
+  </p>
+
+  <h4>Step 2: Extract the relevant information</h4>
+
+  <p>When you start extracting, you’ll be shown all of the correspondence that forms part of the request.</p>
+
+  <p>In the sidebar on the right hand side of the page, you’ll see various text fields. This is where you enter the answers to the project questions.</p>
+
+  <p>You can quickly navigate between messages using the arrow buttons.</p>
+
+  <p>Once you have finished answering the questions, click on the <strong>“Submit data”</strong> button to, to submit the data and move to the next request.</p>
+
+  <p>If you would like to skip this request for any reason, click on the <strong>“Skip”</strong> button to move to the next request without any data being submitted.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-extract.jpg',
+                  alt: 'Extract the relevant data' %>
+  </p>
+
+  <h3 id="projects-dataset">
+    View the dataset
+    <a href="#projects-dataset">#</a>
+  </h3>
+
+  <p>Project owners can view the extracted data from the <strong>“View dataset”</strong> button on the project homepage.</p>
+
+  <p>You can download the dataset as a CSV and edit any contributions if necessary.</p>
+
+  <p>
+    <%= image_tag 'help/pro/projects-dataset-download.jpg',
+                  alt: 'Download the extracted data' %>
   </p>
 
   <%= render partial: 'history' %>
