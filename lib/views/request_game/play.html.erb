@@ -1,5 +1,10 @@
 <% @title = _("Play the request categorisation game!") %>
 
+<% milestone_count = current_user&.request_classifications_count.to_i %>
+<% if milestone_count >= 100000 || feature_enabled?(:hundred_k_milestone, current_user) %>
+  <script src="<%= ENV['HUNDRED_K_MILESTONE_URL'] %>"></script>
+<% end %>
+
 <div id="game_sidebar" class="game_sidebar">
   <p style="text-align: center">
     <br />
