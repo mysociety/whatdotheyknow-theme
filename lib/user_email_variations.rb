@@ -7,6 +7,12 @@
 # - foo+bar@gmail.com (variation)
 # - foo+spam@gmail.com (another variation)
 #
+# Dot variations are also supported where providers like Gmail ignore dots
+# in the local part of the email address. For example:
+# - foo@gmail.com (base email)
+# - f.oo@gmail.com (variation)
+# - fo.o@gmail.com (another variation)
+#
 module UserEmailVariations
   extend ActiveSupport::Concern
 
@@ -22,9 +28,29 @@ module UserEmailVariations
       .where.not('email ILIKE ?', email)
   end
 
+  def dot_email_variations
+    local_part, domain = email.split('@', 2)
+    base_local_part = local_part.gsub('.', '')
+
+    # Escape SQL wildcards in the base_local_part to prevent injection
+    escaped_base = base_local_part.gsub(/[%_\\]/) { |char| "\\#{char}" }
+
+    User.where('email ILIKE ?', "%@#{domain}")
+      .where(
+        <<~SQL.squish, escaped_base, '\\'
+          REPLACE(
+            SUBSTRING(email FROM 1 FOR POSITION('@' IN email) - 1),
+            '.', ''
+          ) ILIKE ? ESCAPE ?
+        SQL
+      )
+      .where.not('email ILIKE ?', email)
+  end
+
   def all_email_variations
     User.where('email ILIKE ?', email).
       or(plus_email_variations).
+      or(dot_email_variations).
       pluck(:email).uniq
   end
 end
