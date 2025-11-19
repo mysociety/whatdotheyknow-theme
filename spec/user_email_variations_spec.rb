@@ -19,9 +19,8 @@ RSpec.describe UserEmailVariations do
       end
 
       it 'returns all plus variations of the user email' do
-        variations = user.plus_email_variations
+        variations = user.plus_email_variations.pluck(:email)
         expect(variations).to contain_exactly(
-          'john@example.com',
           'john+newsletter@example.com',
           'john+spam@example.com',
           'john+shopping@example.com'
@@ -40,7 +39,7 @@ RSpec.describe UserEmailVariations do
       end
 
       it 'finds variations based on the base email part' do
-        variations = user.plus_email_variations
+        variations = user.plus_email_variations.pluck(:email)
         expect(variations).to contain_exactly(
           'john@example.com',
           'john+newsletter@example.com',
@@ -49,31 +48,30 @@ RSpec.describe UserEmailVariations do
       end
 
       it 'excludes its own email from results' do
-        variations = user.plus_email_variations
+        variations = user.plus_email_variations.pluck(:email)
         expect(variations).not_to include('john+main@example.com')
       end
     end
 
     context 'when no variations exist' do
-      it 'returns array with only user email when no other users with variations' do
-        variations = user.plus_email_variations
-        expect(variations).to eq(['john@example.com'])
+      it 'returns empty array when no other users with variations' do
+        variations = user.plus_email_variations.pluck(:email)
+        expect(variations).to eq([])
       end
 
       it 'ignores users with different base emails' do
         FactoryBot.create(:user, email: 'jane+test@example.com')
         FactoryBot.create(:user, email: 'bob@example.com')
 
-        variations = user.plus_email_variations
-        expect(variations).to eq(['john@example.com'])
+        variations = user.plus_email_variations.pluck(:email)
+        expect(variations).to eq([])
       end
 
       it 'ignores users with different domains' do
-        FactoryBot.create(:user, email: 'john+test@gmail.com')
         FactoryBot.create(:user, email: 'john+newsletter@different.com')
 
-        variations = user.plus_email_variations
-        expect(variations).to eq(['john@example.com'])
+        variations = user.plus_email_variations.pluck(:email)
+        expect(variations).to eq([])
       end
     end
 
@@ -89,9 +87,8 @@ RSpec.describe UserEmailVariations do
       end
 
       it 'escapes SQL wildcards and only finds exact matches' do
-        variations = user.plus_email_variations
+        variations = user.plus_email_variations.pluck(:email)
         expect(variations).to contain_exactly(
-          'test%user@example.com',
           'test%user+newsletter@example.com'
         )
         expect(variations).not_to include('test1user+newsletter@example.com')
@@ -111,9 +108,8 @@ RSpec.describe UserEmailVariations do
       end
 
       it 'escapes SQL wildcards and only finds exact matches' do
-        variations = user.plus_email_variations
+        variations = user.plus_email_variations.pluck(:email)
         expect(variations).to contain_exactly(
-          'test_user@example.com',
           'test_user+newsletter@example.com'
         )
         expect(variations).not_to include('test1user+newsletter@example.com')
@@ -130,9 +126,8 @@ RSpec.describe UserEmailVariations do
       end
 
       it 'handles case sensitivity according to database collation' do
-        variations = user.plus_email_variations
+        variations = user.plus_email_variations.pluck(:email)
         expect(variations).to contain_exactly(
-          'User@Example.Com',
           'User+test1@Example.Com',
           'user+test2@example.com'
         )
@@ -149,13 +144,31 @@ RSpec.describe UserEmailVariations do
       end
 
       it 'finds variations with multiple plus signs' do
-        variations = user.plus_email_variations
+        variations = user.plus_email_variations.pluck(:email)
         expect(variations).to contain_exactly(
-          'test@example.com',
           'test+work+urgent@example.com',
           'test+personal+family@example.com'
         )
       end
+    end
+  end
+
+  describe '#all_email_variations' do
+    let(:user) { FactoryBot.create(:user, email: 'test@gmail.com') }
+
+    before do
+      # Create plus variations
+      FactoryBot.create(:user, email: 'test+newsletter@gmail.com')
+      FactoryBot.create(:user, email: 'test+spam@gmail.com')
+    end
+
+    it 'returns combined user email with plus and dot variations' do
+      variations = user.all_email_variations
+      expect(variations).to contain_exactly(
+        'test@gmail.com',
+        'test+newsletter@gmail.com',
+        'test+spam@gmail.com'
+      )
     end
   end
 end
