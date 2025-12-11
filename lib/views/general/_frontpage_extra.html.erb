@@ -3,5 +3,6 @@
 <%= render partial: 'how_do_we_help' %>
 <%= render partial: 'frontpage_newsletter_signup' %>
 <%= render partial: 'frontpage_blog' if Blog.enabled? %>
+<%= render partial: 'frontpage_ati_showcase_cta' if AtiNetworkController.showcase_enabled? %>
 <%= render partial: 'frontpage_videos' %>
 <%= render partial: 'frontpage_articles' %>
