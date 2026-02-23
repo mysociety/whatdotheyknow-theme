@@ -19,6 +19,13 @@ Rails.configuration.to_prepare do
       AlaveteliSpamTermChecker::DEFAULT_SPAM_TERMS + custom_terms
   end
 
+  AlaveteliConfiguration.instance_eval do
+    def donation_url
+      ['https://www.mysociety.org/donate/support-whatdotheyknow-and-mysociety/',
+       'https://www.mysociety.org/donate/'].sample
+    end
+  end
+
   ContactValidator.class_eval do
     attr_accessor :understand
 
