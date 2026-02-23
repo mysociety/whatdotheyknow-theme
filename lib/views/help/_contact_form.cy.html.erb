@@ -1,85 +1,173 @@
-<%= form_for :contact,
-             :url => help_contact_path + '#' +  form_id,
-             :html => {:class => 'contact-form'} do |f| %>
+<% @title = "Cysylltwch â ni" %>
 
-    <p class="contact-form__understand">
-        <%= f.check_box :understand, :required => true %>
-        <label for="contact_understand" class="form_label">
-            Rwy'n deall <strong>nad yw WhatDoTheyKnow yn cael ei redeg gan y 
-            llywodraeth</strong>, ac ni fydd tîm WhatDoTheyKnow 
-            <strong>yn gallu helpu</strong> gyda materion personol sy'n 
-            gysylltiedig â gwasanaethau'r llywodraeth.
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+<h1><%= @title %></h1>
+<p>Pwy hoffech gysylltu â nhw?</p>
+
+<div class="contact-page">
+
+    <h2 class="contact-page__goal" id="government">
+        <label class="houdini-label" for="goal1">
+            Rwyf am gysylltu ag <strong>adran o'r llywodraeth</strong>
+             – er enghraifft, Fisâu a Mewnfudo, y Swyddfa Gartref, CThEM,
+             neu'r Adran Gwaith a Phensiynau.
         </label>
-    </p>
-    <% if not @user %>
-        <p>
-            <label class="form_label" for="contact_name">Eich enw:</label>    
-            <%= f.text_field :name, :size => 20, :required => true %>
-            (Neu  <%= link_to "fewngofnodwch",
-                            signin_url(
-                              :r => request.fullpath + '#' + form_id) %>)
-            <%= f.text_field :name, :size => 20 %>
-        </p>
+    </h2>
 
-        <p>
-            <label class="form_label" for="contact_email">Eich e-bost:</label>
-            <%= f.text_field :email, :size => 20 %>
-        </p>
-    <% end %>
-
-    <p>
-        <label class="form_label" for="contact_subject">Pwnc:</label>
-        <%= f.text_field :subject,
-                         :size => 50,
-                         :required => true,
-                         :class => "message-subject" %>
-    </p>
-
-    <p>
-        <label class="form_label" for="contact_message">
-            Fy neges i dîm WhatDoTheyKnow:
-        </label>
-        <%= f.text_area :message, :rows => 10, :cols => 60, :required => true %>
-    </p>
-
-    <p style="display:none;">
-        <%= f.label :comment, 'Peidiwch â llenwi’r yn y maes hwn' %>
-        <%= f.text_field :comment %>
-    </p>
-
-    <% if !@last_request.nil? %>
-        <p>
-            <label class="form_label" for="contact_message">Cynnwys dolen i ofyn am:</label>
-            <%=request_link(@last_request) %>
-            <%= submit_tag "remove", :name => 'remove' %>
-        </p>
-    <% end %>
-    <% if !@last_body.nil? %>
-        <p>
-            <label class="form_label" for="contact_message">Cynnwys dolen i awdurdod:</label>
-            <%=public_body_link(@last_body) %>
-            <%= submit_tag "remove", :name => 'remove' %>
-        </p>
-    <% end %>
-
-    <% if @recaptcha_required %>
-      <%= recaptcha_tags %><br />
-    <% end %>
-
-    <div class="form_button">
-        <script><!--
-            if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
-                $('#contact_understand').removeAttr('required');
-                $('#contact_name').removeAttr('required');
-                $('#contact_email').removeAttr('required');
-                $('#contact_subject').removeAttr('required');
-                $('#contact_message').removeAttr('required');
-            }
-        //--></script>
-        <%= hidden_field_tag(:current_form, form_id) %>
-        <%= hidden_field_tag(:submitted_contact_form, 1) %>
-        <%= submit_tag "Anfon neges i dîm WhatDoTheyKnow", :data => { :disable_with => "Anfon…" } %>
+    <input class="houdini-input" type="radio" name="goals" id="goal1">
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                <a href="<%= select_authority_path %>">Ewch yma</a> i wneud 
+                cais, yn gyhoeddus, am wybodaeth gan awdurdodau cyhoeddus 
+                yn y DU.
+            </li>
+            <li>
+                Os oes angen i chi drafod materion personol gyda chyngor y DU, 
+                dylech <a href="https://www.gov.uk/cymraeg/">
+                find wyf nhw ar GOV.UK</a>.
+            </li>
+            <li>
+                Os ydych yn cael trafferth cael y gwasanaeth mae arnoch ei angen
+                o gorff llywodraeth yna gall swyddfa eich AS yn aml
+                helpu. Gallwch <a href="https://www.writetothem.com/">ysgrifen
+                at eich AS ar WriteToThem.com</a>.
+            </li>
+        </ul>
     </div>
-    <%= render :partial => "contact_form_privacy_notice" %>
 
-<% end %>
+    <h2 class="contact-page__goal" id="authority">
+        <label class="houdini-label" for="goal2">
+            Rwyf am gysylltu ag awdurdod cyhoeddus, fel fy
+            <strong>cyngor lleol, ysbyty, neu ysgol</strong>.
+        </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal2">
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                Os ydych eisiau gwneud cais Rhyddid Gwybodaeth i gyngor DU neu 
+                awdurdod cyhoeddus, gallwch 
+                <a href="<%= select_authority_path %>">find nhw yma</a>.
+            </li>
+            <li>
+                Os oes angen i chi drafod materion personol gyda chyngor y DU, 
+                dylech <a href="https://www.gov.uk/cymraeg/">
+                find wyf nhw ar GOV.UK</a>.
+            </li>
+            <li>
+                Os ydych chi eisiau ysgrifennu at eich AS, cynghorydd lleol, 
+                neu gynrychiolydd arall, gallwch 
+                <a href="https://www.writetothem.com/">
+                ysgrifen i'ch AS ar WriteToThem.com</a>.
+            </li>
+        </ul>
+    </div>
+
+
+    <h2 class="contact-page__goal" id="writing-help">
+        <label class="houdini-label" for="goal3">
+            Rydw i angen <strong>help i ysgrifennu cais rhyddid 
+            gwybodaeth</strong>.
+        </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal3"
+        <% if params["contact"] && params[:current_form] == 'writing-help' %>checked<% end %>>
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                Cysylltwch yn uniongyrchol â'r tîm sy'n rhedeg WhatDoTheyKnow:
+
+                <%= foi_error_messages_for :contact %>
+
+                <%= render :partial => "help/contact_form",
+                           :locals => { :form_id => 'writing-help' } %>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="contact-page__goal" id="wdtk-volunteer">
+        <label class="houdini-label" for="goal4">
+            Hoffwn gymryd rhan a dod yn <strong>wirfoddolwr</strong>.
+        </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal4"
+        <% if params["contact"] && params[:current_form] == 'wdtk-volunteer' %>checked<% end %>>
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                Defnyddiwch y ffurflen hon os oes gennych ddiddordeb mewn gwirfoddoli ar gyfer
+                WhatDoTheyKnow
+            </li>
+            <li>
+                Os hoffech fwy o wybodaeth am ba wirfoddoli, gweld 
+                <%= link_to _("ein tudalen cymryd rhan"), help_volunteers_path %>.
+            </li>
+            <li>
+                <%= foi_error_messages_for :contact %>
+
+                <%= render :partial => "help/contact_volunteer_form",
+                           :locals => { :form_id => 'wdtk-volunteer' } %>
+            </li>
+        </ul>
+    </div>
+
+    <h2 class="contact-page__goal" id="report-data-breach">
+      <label class="houdini-label" for="goal5">
+        Hoffwn <strong>adrodd am dor diogelwch data</strong>.
+      </label>
+    </h2>
+
+    <input class="houdini-input" type="radio" name="goals" id="goal5"
+      <% if params["contact"] && params[:current_form] == 'report-data-breach' %>checked<% end %>>
+    <div class="houdini-target contact-page__options">
+      <ul>
+        <li>
+          Rydym yn awyddus i ddeall eich pryderon, a byddwn yn gweithredu yn 
+          unol 
+          <%= link_to "â'n gweithdrefn ar drin gwybodaeth bersonol a ryddhawyd yn ddamweiniol", help_how_path(anchor: 'accidentally_released') %>.
+        </li>
+
+        <li style="font-size: larger;">
+          Er mwyn caniatáu i ni helpu'n gyflymach, defnyddiwch ein ffurflen 
+          <%= link_to 'adrodd am dor diogelwch data', help_report_a_data_breach_path %>
+          form.
+        </li>
+      </ul>
+    </div>
+
+    <h2 class="contact-page__goal" id="wdtk">
+        <label class="houdini-label" for="goal6">
+            Mae gen i fater arall, neu adborth yn ymwneud â'r
+            WhatDoTheyKnow.com wefan, fy mod am godi gyda'r
+            <strong>tîm sy'n rhedeg WhatDoTheyKnow</strong>.
+        </label>
+    </h2>
+
+   <input class="houdini-input" type="radio" name="goals" id="goal6"
+        <% if params["contact"] && params[:current_form] == 'wdtk' %>checked<% end %>>
+    <div class="houdini-target contact-page__options">
+        <ul>
+            <li>
+                Yn gyntaf, rhowch gynnig ar wirio <a href="<%= help_about_path %>">our
+                tudalennau cymorth helaeth</a>, sy'n cynnwys ateb i'r rhan fwyaf
+                materion a chwestiynau sydd gennych.
+            </li>
+            <li>
+                Os nad yw eich problem yn dod o dan ein tudalennau cymorth, gallwch 
+                gysylltu'n uniongyrchol â'r tîm sy'n rhedeg WhatDoTheyKnow:
+
+                <%= foi_error_messages_for :contact %>
+
+                <%= render :partial => "help/contact_form",
+                           :locals => { :form_id => 'wdtk' } %>
+            </li>
+        </ul>
+    </div>
+
+</div>
+</div>
