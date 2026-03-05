@@ -7,6 +7,10 @@ RSpec.describe DonationHelper, type: :helper do
     subject { show_donation_button? }
 
     context 'without donation URL' do
+      before do
+        allow(AlaveteliConfiguration).to receive(:donation_url).and_return('')
+      end
+
       it { is_expected.to eq false }
     end
 
