@@ -267,6 +267,7 @@ Rails.configuration.to_prepare do
     NHSFife@axlr8.com
     do-not-reply=midlothian.gov.uk@email.firmstep.com
     do-not-reply@midlothian.gov.uk
+    FOIenquiries=aberdeencity.gov.uk@email.firmstep.com
   )
 
   User.content_limits = {
