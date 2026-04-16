@@ -268,6 +268,7 @@ Rails.configuration.to_prepare do
     do-not-reply=midlothian.gov.uk@email.firmstep.com
     do-not-reply@midlothian.gov.uk
     FOIenquiries=aberdeencity.gov.uk@email.firmstep.com
+    Unmonitored.ACCOUNT@education.gov.uk
   )
 
   User.content_limits = {
