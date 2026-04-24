@@ -19,7 +19,7 @@ RSpec.describe AuthorityOnlyResponseGatekeeper do
   end
 
   def receive_from(from)
-    info_request.receive Mail.new(from: from), ''
+    info_request.receive Mail.new(from: from)
   end
 
   it 'allows responses from main request email and extra addresses' do
