@@ -136,6 +136,8 @@ Rails.configuration.to_prepare do
   PublicBody.batch_excluded_tags += %w[
     engrsl
     signpost
+    forthcoming
+    defunct
     unit
   ]
 
