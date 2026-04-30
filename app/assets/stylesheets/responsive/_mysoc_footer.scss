@@ -1,4 +1,4 @@
-// Standard mySociety Footer v1.0.2
+// Standard mySociety Footer v1.0.10
 // https://github.com/mysociety/standard-footer
 
 $mysoc-footer-background-color: #fff !default;
@@ -24,9 +24,8 @@ $mysoc-footer-donate-button-hover-text-color: $mysoc-footer-donate-button-text-c
 
 $mysoc-footer-legal-text-color: #6C6B68 !default;
 
+$mysoc-footer-image-path: '../img/mysoc-footer/' !default;
 $mysoc-footer-breakpoint-sm: 768px !default;
-
-$high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi' !default;
 
 .mysoc-footer {
   -webkit-box-sizing: border-box;
@@ -55,11 +54,6 @@ $high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi
 
   a {
     color: $mysoc-footer-link-text-color;
-    // Included in the link so it also affects a.mysoc-footer__donate__button
-    -webkit-transition: background 300ms ease-out, color 300ms ease-out;
-    -moz-transition: background 300ms ease-out, color 300ms ease-out;
-    -o-transition: background 300ms ease-out, color 300ms ease-out;
-    transition: background 300ms ease-out, color 300ms ease-out;
 
     &:hover,
     &:focus {
@@ -131,25 +125,21 @@ $high-dpi-screen: '-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi
   }
 }
 
-a.mysoc-footer__donate__button {
+.mysoc-footer__donate__button {
   display: inline-block;
   background-color: $mysoc-footer-donate-button-background-color;
-  color: $mysoc-footer-donate-button-text-color;
+  color: $mysoc-footer-donate-button-text-color !important;
   padding: 0.5em 1em;
   border-radius: 0.3em;
   font-weight: bold;
   text-decoration: none;
 
   &:hover,
-  &:active,
-  &:visited:hover,
-  &:visited:active {
+  &:focus {
     text-decoration: none;
-    background:$mysoc-footer-donate-button-hover-background-color;
-    color: $mysoc-footer-donate-button-hover-text-color;
+    background-color: $mysoc-footer-donate-button-hover-background-color;
+    color: $mysoc-footer-donate-button-hover-text-color !important;
   }
-
-  @include focus-state;
 }
 
 .mysoc-footer__orgs {
@@ -172,12 +162,9 @@ a.mysoc-footer__donate__button {
 
 .mysoc-footer__org__logo--mysociety {
   width: 152px;
-  background: transparent image-url('mysoc-footer/logo-mysociety.png') 0 0 no-repeat;
+  background: transparent url('#{$mysoc-footer-image-path}logo-mysociety.png') 0 0 no-repeat;
   background-size: 152px 32px;
-  @media ($high-dpi-screen) {
-    background-image: image-url('mysoc-footer/logo-mysociety@2x.png');
-  }
-  background-image: image-url('mysoc-footer/logo-mysociety.svg'), none;
+  background-image: url('#{$mysoc-footer-image-path}logo-mysociety.svg'), none;
 }
 
 .mysoc-footer__legal {
@@ -208,31 +195,40 @@ a.mysoc-footer__donate__button {
   padding-top: 32px;
   overflow: hidden;
   border-radius: 100%;
+  background-size: 32px 32px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &:focus {
+    transform: scale(1.2);
+    outline: 0;
+    box-shadow: 0 0 0 2px #000, 0 0 0 4px #fc0;
+  }
 }
 
 .mysoc-footer__badge--github {
-  background: transparent image-url('mysoc-footer/icon-github.png') 0 0 no-repeat;
-  background-size: 32px 32px;
-  @media ($high-dpi-screen) {
-    background-image: image-url('mysoc-footer/icon-github@2x.png');
-  }
-  background-image: image-url('mysoc-footer/icon-github.svg'), none;
-}
-
-.mysoc-footer__badge--twitter {
-  background: transparent image-url('mysoc-footer/icon-twitter.png') 0 0 no-repeat;
-  background-size: 32px 32px;
-  @media ($high-dpi-screen) {
-    background-image: image-url('mysoc-footer/icon-twitter@2x.png');
-  }
-  background-image: image-url('mysoc-footer/icon-twitter.svg'), none;
+  background-image: url('#{$mysoc-footer-image-path}icon-github.svg'), none;
 }
 
 .mysoc-footer__badge--facebook {
-  background: transparent image-url('mysoc-footer/icon-facebook.png') 0 0 no-repeat;
-  background-size: 32px 32px;
-  @media ($high-dpi-screen) {
-    background-image: image-url('mysoc-footer/icon-facebook@2x.png');
-  }
-  background-image: image-url('mysoc-footer/icon-facebook.svg'), none;
+  background-image: url('#{$mysoc-footer-image-path}icon-facebook.svg'), none;
+}
+
+.mysoc-footer__badge--linkedin {
+  background-image: url('#{$mysoc-footer-image-path}icon-linkedin.svg'), none;
+}
+
+.mysoc-footer__badge--bluesky {
+  background-image: url('#{$mysoc-footer-image-path}icon-bluesky.svg'), none;
+}
+
+.mysoc-footer__badge--instagram {
+  background-image: url('#{$mysoc-footer-image-path}icon-instagram.svg'), none;
+}
+
+.mysoc-footer__badge--tiktok {
+  background-image: url('#{$mysoc-footer-image-path}icon-tiktok.svg'), none;
 }
