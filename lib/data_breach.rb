@@ -30,7 +30,6 @@ module DataBreach
         ContactMailer.data_breach(@report, current_user).deliver_now
 
         # Redirect to a thank you page
-        flash[:notice] = _('Thank you for reporting a data breach. We will review your report and get back to you if we need any more information.')
         redirect_to help_report_a_data_breach_thank_you_path
       else
         render :report_a_data_breach
