@@ -66,7 +66,7 @@
     <% end %>
 
     <div class="form_button">
-        <script><!--
+        <%= javascript_tag nonce: true do %>
             if (!!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/)) {
                 $('#contact_understand').removeAttr('required');
                 $('#contact_name').removeAttr('required');
@@ -74,7 +74,7 @@
                 $('#contact_subject').removeAttr('required');
                 $('#contact_message').removeAttr('required');
             }
-        //--></script>
+        <% end %>
         <%= hidden_field_tag(:current_form, form_id) %>
         <%= hidden_field_tag(:submitted_contact_form, 1) %>
         <%= submit_tag "Send message to WhatDoTheyKnow team", :data => { :disable_with => "Sending..." } %>
