@@ -2,7 +2,7 @@
 
 <% milestone_count = current_user&.request_classifications_count.to_i %>
 <% if milestone_count >= 100000 || feature_enabled?(:hundred_k_milestone, current_user) %>
-  <script src="<%= ENV['HUNDRED_K_MILESTONE_URL'] %>"></script>
+  <%= javascript_include_tag ENV['HUNDRED_K_MILESTONE_URL'], nonce: true %>
 <% end %>
 
 <div id="game_sidebar" class="game_sidebar">
