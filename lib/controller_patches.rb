@@ -16,7 +16,7 @@ Rails.application.config.after_initialize do
 end
 
 Rails.configuration.to_prepare do
-  AdminCensorRuleController.class_eval do
+  Admin::CensorRulesController.class_eval do
     before_action :block_global_censor_rule_creation, only: [:create]
 
     private
