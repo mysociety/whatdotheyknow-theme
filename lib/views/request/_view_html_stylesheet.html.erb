@@ -11,7 +11,7 @@
 <!--<![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<script type="text/javascript" src="//use.typekit.net/csi1ugd.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<%= javascript_include_tag "https://use.typekit.net/csi1ugd.js", nonce: true %>
+<%= javascript_tag nonce: true do %>try{Typekit.load();}catch(e){}<% end %>
 
 <%= render :partial => 'layouts/favicon' %>
