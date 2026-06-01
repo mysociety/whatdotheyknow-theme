@@ -8,7 +8,8 @@ RSpec.describe 'creating a request with spam terms' do
   let(:spammy_message) { 'potato is a lower case spam term' }
 
   before do
-    File.write(Rails.root + 'tmp/spam_terms.txt', "Potato\n")
+    allow_any_instance_of(AlaveteliSpamTermChecker).
+      to receive(:spam?).and_return(true)
     stub_request(:get, /research\.mysociety\.org/)
   end
 

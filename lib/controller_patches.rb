@@ -105,21 +105,7 @@ Rails.configuration.to_prepare do
     end
 
     def spammer?(text)
-      return false unless spam_terms.any?
-      # https://stackoverflow.com/a/43278823/387558
-      # String#match? is Ruby 2.4.0 only so need to tweak
-      # Need to make a case-insensitive regexp for each term then join them all
-      # together
-      text =~ Regexp.union(spam_terms.map { |t| Regexp.new(/#{t}/i) })
-    end
-
-    def spam_terms
-      config = Rails.root + 'tmp/spam_terms.txt'
-      if File.exist?(config)
-        File.read(config).split("\n")
-      else
-        []
-      end
+      AlaveteliSpamTermChecker.new.spam?(text)
     end
   end
 
