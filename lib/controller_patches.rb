@@ -26,6 +26,9 @@ Rails.configuration.to_prepare do
     end
   end
 
+  # Require administrators to have authenticator-app (TOTP) two factor enabled.
+  AdminController.require_two_factor_auth = true
+
   HelpController.class_eval do
     prepend VolunteerContactForm::ControllerMethods
     prepend DataBreach::ControllerMethods
