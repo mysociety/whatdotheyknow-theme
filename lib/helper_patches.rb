@@ -17,8 +17,9 @@ Rails.configuration.to_prepare do
   end
 
   AlaveteliPro::BatchRequestAuthoritySearchesHelper.class_eval do
-    def new_batch_user?
-      current_user.info_request_batches.size < 3
+    def show_batch_rules_reminder?
+      current_user.info_request_batches.size < 3 ||
+        current_user.info_request_batches.first.created_at > 6.months.ago
     end
   end
 
