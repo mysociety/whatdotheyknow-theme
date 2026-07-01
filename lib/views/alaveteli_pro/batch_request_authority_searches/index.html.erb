@@ -1,6 +1,8 @@
 <% @title = _('Add authorities to your batch') %>
 
-<%= render partial: 'alaveteli_pro/batch_request_authority_searches/beginner_batch_pop_up' if new_batch_user? %>
+<% if show_batch_rules_reminder? %>
+  <%= render partial: 'alaveteli_pro/batch_request_authority_searches/beginner_batch_pop_up' %>
+<% end %>
 
 <div class="inner-canvas">
 
