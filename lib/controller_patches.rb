@@ -38,6 +38,7 @@ Rails.configuration.to_prepare do
     def complaints; end
     def volunteers; end
     def beginners; end
+    def account_management; end
     def ico_officers; end
     def glossary; end
     def environmental_information; end

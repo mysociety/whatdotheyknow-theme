@@ -34,6 +34,11 @@
       </li>
 
       <li>
+        <%= link_to_unless_current 'Account Management',
+                                   help_account_management_path %>
+      </li>
+
+      <li>
         <%= link_to_unless_current 'Advanced search', advanced_search_path %>
       </li>
 

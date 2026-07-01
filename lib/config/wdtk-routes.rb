@@ -51,6 +51,9 @@ Rails.application.routes.draw do
   get '/help/beginners' => 'help#beginners',
       as: :help_beginners
 
+  get '/help/account_management' => 'help#account_management',
+      as: :help_account_management
+
   get '/help/ico_officers' => 'help#ico_officers',
       as: :help_ico_officers
 
