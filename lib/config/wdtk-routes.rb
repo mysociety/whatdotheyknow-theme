@@ -3,6 +3,10 @@
 Rails.application.routes.draw do
   get '/learn' => 'learn#index', :as => :learn
 
+  # Same-origin proxy for MapIt area boundaries, used to draw maps on the
+  # pages of bodies tagged with mapit:<area_id>
+  get '/map_areas/:id' => 'map_areas#show', as: :map_area, id: /\d+/
+
   get '/england' => redirect('/body?tag=england', status: 302)
   get '/london' => redirect('/body?tag=london', status: 302)
   get '/scotland' => redirect('/body?tag=scotland', status: 302)

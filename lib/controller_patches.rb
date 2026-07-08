@@ -10,6 +10,63 @@ Rails.application.config.after_initialize do
     def foi_myths; end
   end
 
+  class MapAreasController < ApplicationController
+    MAPIT_BASE_URL = 'https://mapit.mysociety.org'.freeze
+
+    def show
+      geojson = cached_geojson(params[:id])
+
+      if geojson
+        expires_in 1.week, public: true
+        render json: geojson, content_type: 'application/json'
+      else
+        head :bad_gateway
+      end
+    end
+
+    private
+
+    def cached_geojson(area_id)
+      cache_key = "mapit_area_geojson/#{area_id}"
+
+      cached = Rails.cache.read(cache_key)
+      return (cached == :unavailable ? nil : cached) if cached
+
+      geojson = fetch_geojson(area_id)
+
+      if geojson
+        Rails.cache.write(cache_key, geojson, expires_in: 1.month)
+      else
+        # Cache failures briefly so an unresponsive MapIt doesn't tie up
+        # app workers on every map view
+        Rails.cache.write(cache_key, :unavailable, expires_in: 5.minutes)
+      end
+
+      geojson
+    end
+
+    def fetch_geojson(area_id)
+      uri = URI.parse(
+        "#{MAPIT_BASE_URL}/area/#{area_id}.geojson?simplify_tolerance=0.0001"
+      )
+
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.open_timeout = 5
+      http.read_timeout = 10
+
+      user_agent = "Alaveteli MapIt proxy (#{AlaveteliConfiguration.domain})"
+      response = http.get(uri.request_uri, 'User-Agent' => user_agent)
+      return unless response.is_a?(Net::HTTPSuccess)
+
+      JSON.parse(response.body) # check MapIt sent valid JSON before we cache it
+      response.body
+    rescue JSON::ParserError, Timeout::Error, SocketError, SystemCallError,
+           OpenSSL::SSL::SSLError
+      nil
+    end
+  end
+
   class RulesController < ApplicationController
     def welcome; end
   end

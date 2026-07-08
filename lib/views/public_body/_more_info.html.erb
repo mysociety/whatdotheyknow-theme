@@ -165,6 +165,8 @@
 <% end %>
 
 <% if public_body.has_tag?('mapit') %>
+  <% mapit_area_ids = public_body.get_tag_values('mapit').select { |id| id.match?(/\A\d+\z/) } %>
+
   <% public_body.get_tag_values('mapit').each do |tag_value| %>
     <%= link_to _('Area covered'), "https://mapit.mysociety.org/area/#{tag_value}.html" %>
 
@@ -173,5 +175,23 @@
     </small>
 
     <br>
+  <% end %>
+
+  <% unless mapit_area_ids.empty? %>
+    <div class="authority-map js-authority-map"
+         data-area-urls="<%= mapit_area_ids.map { |id| map_area_path(id) }.to_json %>"
+         role="region"
+         aria-label="<%= _('Map of the area covered by {{public_body_name}}',
+                           public_body_name: public_body.name) %>"
+         hidden></div>
+
+    <% content_for :javascript_head do %>
+      <%= stylesheet_link_tag 'leaflet' %>
+    <% end %>
+
+    <% content_for :javascript do %>
+      <%= javascript_include_tag 'leaflet.js', nonce: true %>
+      <%= javascript_include_tag 'authority_map.js', nonce: true %>
+    <% end %>
   <% end %>
 <% end %>

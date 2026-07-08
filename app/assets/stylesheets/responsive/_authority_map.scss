@@ -1,0 +1,9 @@
+.authority-map {
+  height: 16em;
+  margin: 0.5em 0 1em;
+  border: 1px solid $color_light_grey;
+  // Contain Leaflet's internal z-indexes so the map never overlaps
+  // the site header or dropdown menus
+  position: relative;
+  z-index: 0;
+}
