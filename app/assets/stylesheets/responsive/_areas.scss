@@ -1,0 +1,217 @@
+/*
+ * Area landing pages, e.g. /isle-of-wight
+ * https://github.com/mysociety/whatdotheyknow-theme/issues/416
+*/
+
+.area-page {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem 2rem;
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.area-page__banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 1rem 0 1.5rem;
+  background-color: darken($color_blue, 20%);
+
+  .area-page__banner-image {
+    display: block;
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+
+    @media screen and (min-width: 768px) {
+      height: 18rem;
+    }
+  }
+
+  .area-page__banner-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 3rem 1.5rem 1.25rem;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.2) 1.25rem,
+      rgba(0, 0, 0, 0.5) 2.75rem,
+      rgba(0, 0, 0, 0.65)
+    );
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+    h1 {
+      color: $color_white;
+      margin: 0 0 0.25rem;
+    }
+
+    .area-page__tagline {
+      color: $color_white;
+      margin: 0;
+      max-width: 40rem;
+    }
+  }
+}
+
+.area-page__overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .area-page__stat {
+    flex: 1 1 10rem;
+    background-color: $color_white;
+    border-radius: 4px;
+    padding: 1rem;
+    text-align: center;
+
+    strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1.2;
+      color: $link-color;
+    }
+
+    span {
+      color: $color_dark_grey;
+    }
+  }
+}
+
+.area-page__categories {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid $color_light_grey;
+    border-radius: 1rem;
+    background-color: $color_white;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $link-color;
+    }
+
+    &.selected {
+      background-color: $link-color;
+      border-color: $link-color;
+      color: $color_white;
+    }
+  }
+}
+
+.area-page__list-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+
+  .area-page__search {
+    label {
+      margin-right: 0.5rem;
+    }
+
+    input[type="text"] {
+      width: 14rem;
+      max-width: 100%;
+    }
+  }
+
+  .area-page__sort {
+    span {
+      color: $color_dark_grey;
+    }
+
+    a {
+      margin-left: 0.5rem;
+
+      &.selected {
+        font-weight: bold;
+        text-decoration: none;
+        color: $body-font-color;
+      }
+    }
+  }
+}
+
+.area-page__body {
+  position: relative;
+  background-color: $color_white;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+
+  .area-page__body-header a {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+
+  .area-page__body-desc {
+    color: $color_dark_grey;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .area-page__body-stats {
+    margin-top: 0.25rem;
+    color: $color_dark_grey;
+
+    .area-page__body-success {
+      color: $color_green_aa;
+    }
+  }
+
+  .area-page__body-action {
+    margin-top: 0.75rem;
+
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      margin-top: 0;
+    }
+  }
+}
+
+.area-page__notable-requests {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    background-color: $color_white;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .area-page__notable-meta {
+    display: block;
+    color: $color_dark_grey;
+  }
+}
+
+.area-page__no-results {
+  background-color: $color_white;
+  border-radius: 4px;
+  padding: 1rem;
+}

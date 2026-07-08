@@ -1,0 +1,137 @@
+<% @title = _("Freedom of Information in {{area_name}}",
+              area_name: @area.name) %>
+
+<div class="area-page">
+  <header class="area-page__banner">
+    <% if @area.banner_image %>
+      <%= image_tag @area.banner_image, class: "area-page__banner-image",
+                    alt: "" %>
+    <% end %>
+    <div class="area-page__banner-content">
+      <h1><%= _("Freedom of Information in {{area_name}}",
+                area_name: @area.name) %></h1>
+      <p class="area-page__tagline"><%= @area.tagline %></p>
+    </div>
+  </header>
+
+  <section class="area-page__overview" aria-label="<%= _('Overview') %>">
+    <div class="area-page__stat">
+      <strong><%= number_with_delimiter(@stats[:bodies]) %></strong>
+      <span><%= n_('public authority',
+                   'public authorities',
+                   @stats[:bodies]) %></span>
+    </div>
+    <div class="area-page__stat">
+      <strong><%= number_with_delimiter(@stats[:requests]) %></strong>
+      <span><%= n_('request made',
+                   'requests made',
+                   @stats[:requests]) %></span>
+    </div>
+    <div class="area-page__stat">
+      <strong><%= number_with_delimiter(@stats[:successful]) %></strong>
+      <span><%= n_('successful request',
+                   'successful requests',
+                   @stats[:successful]) %></span>
+    </div>
+  </section>
+
+  <section class="area-page__authorities">
+    <h2><%= _("Public authorities in {{area_name}}",
+              area_name: @area.name) %></h2>
+
+    <% if @category_counts.any? %>
+      <ul class="area-page__categories">
+        <li>
+          <%= link_to _('All ({{count}})', count: @stats[:bodies]),
+                      area_filter_path(@area, category: nil),
+                      class: ("selected" unless @category) %>
+        </li>
+        <% @category_counts.each do |category_tag, count| %>
+          <li>
+            <%= link_to "#{area_category_title(category_tag)} (#{count})",
+                        area_filter_path(@area, category: category_tag),
+                        class: ("selected" if @category == category_tag) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="area-page__list-controls">
+      <%= form_tag(area_path(@area), method: "get",
+                   class: "area-page__search") do %>
+        <%= hidden_field_tag(:category, @category) if @category %>
+        <%= hidden_field_tag(:sort, @sort) unless @sort == 'name' %>
+        <label for="public_body_query">
+          <%= _('Find an authority') %>
+        </label>
+        <%= text_field_tag(:public_body_query,
+                           params[:public_body_query]) %>
+        <%= submit_tag(_('Search')) %>
+      <% end %>
+
+      <div class="area-page__sort">
+        <span><%= _('Sort by:') %></span>
+        <%= link_to _('A to Z'),
+                    area_filter_path(@area, sort: nil),
+                    class: ("selected" if @sort == 'name') %>
+        <%= link_to _('Most requests'),
+                    area_filter_path(@area, sort: 'requests'),
+                    class: ("selected" if @sort == 'requests') %>
+      </div>
+    </div>
+
+    <% if @public_bodies.any? %>
+      <div class="area-page__bodies">
+        <%= render partial: "areas/body_listing",
+                   collection: @public_bodies,
+                   as: :public_body %>
+      </div>
+      <%= will_paginate(@public_bodies) %>
+    <% else %>
+      <p class="area-page__no-results">
+        <%= _('No authorities found matching your search.') %>
+      </p>
+    <% end %>
+
+    <p>
+      <%= link_to _("Can't find the one you want?"),
+                  help_requesting_path(anchor: 'missing_body') %>
+    </p>
+  </section>
+
+  <% if @notable_requests.any? %>
+    <section class="area-page__notable">
+      <h2><%= _('FOI gets results in {{area_name}}',
+                area_name: @area.name) %></h2>
+      <p>
+        <%= _('Recent requests where authorities in the area released ' \
+              'some or all of the information asked for.') %>
+      </p>
+      <ul class="area-page__notable-requests">
+        <% @notable_requests.each do |info_request| %>
+          <li>
+            <%= link_to info_request.title, request_path(info_request) %>
+            <span class="area-page__notable-meta">
+              <%= _('to {{public_body_name}}',
+                    public_body_name: info_request.public_body.name) %>
+              &middot;
+              <%= simple_date((info_request.last_event_time ||
+                               info_request.created_at).to_date) %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <section class="area-page__national">
+    <h2><%= _('Looking for a national authority?') %></h2>
+    <p>
+      <%= _('Many decisions affecting {{area_name}} are made by UK-wide ' \
+            'bodies such as government departments and regulators.',
+            area_name: @area.name) %>
+      <%= link_to _('Browse all authorities'),
+                  list_public_bodies_default_path %>
+    </p>
+  </section>
+</div>

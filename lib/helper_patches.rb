@@ -1,8 +1,10 @@
 # Load our helpers
+require 'helpers/areas_helper'
 require 'helpers/donation_helper'
 require 'helpers/alaveteli_pro/alternative_price_text_helper'
 
 Rails.configuration.to_prepare do
+  ActionView::Base.send(:include, AreasHelper)
   ActionView::Base.send(:include, DonationHelper)
   ActionView::Base.send(:include, AlaveteliPro::AlternativePriceTextHelper)
 

@@ -1,5 +1,44 @@
 # Please arrange overridden classes alphabetically.
 Rails.application.config.after_initialize do
+  # Area landing pages, e.g. /isle-of-wight
+  # https://github.com/mysociety/whatdotheyknow-theme/issues/416
+  class AreasController < ApplicationController
+    SORT_ORDERS = %w[name requests].freeze
+    BODIES_PER_PAGE = 50
+
+    def show
+      long_cache
+
+      @area = WdtkAreas.find!(params[:area])
+      @sort = SORT_ORDERS.include?(params[:sort]) ? params[:sort] : 'name'
+      @category = params[:category].presence
+      @category = nil unless @area.category_tags.include?(@category)
+
+      @public_bodies = list_public_bodies
+      @stats = @area.stats
+      @category_counts = @area.category_counts
+      @notable_requests = @area.notable_requests
+    end
+
+    private
+
+    # All statistics shown on the page come from the counter cache columns
+    # on public_bodies, so listing is a single indexed query per page.
+    def list_public_bodies
+      bodies = @area.public_bodies
+      bodies = bodies.with_tag(@category) if @category
+      bodies = bodies.with_query(params[:public_body_query], @area.tag)
+
+      if @sort == 'requests'
+        bodies = bodies.reorder(info_requests_visible_count: :desc, id: :asc)
+      end
+
+      # Tags are preloaded for the defunct?/not_apply? checks in the listing
+      bodies.includes(:tags).
+        paginate(page: params[:page], per_page: BODIES_PER_PAGE)
+    end
+  end
+
   class LearnController < ApplicationController
     def index; end
     def understanding_rights; end

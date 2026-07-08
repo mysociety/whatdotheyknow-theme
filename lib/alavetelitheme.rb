@@ -42,6 +42,7 @@ end
 
 # Monkey patch app code
 [
+  'wdtk_areas.rb',
   'patch_mailer_paths.rb',
   'controller_patches.rb',
   'model_patches.rb',

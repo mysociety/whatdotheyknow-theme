@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stylised illustration of the Needles, Isle of Wight">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8ec9ef"/>
+      <stop offset="1" stop-color="#d8ecf9"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2078c2"/>
+      <stop offset="1" stop-color="#155a95"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1200" height="260" fill="url(#sky)"/>
+
+  <!-- Sun -->
+  <circle cx="980" cy="80" r="42" fill="#ffd836" opacity="0.9"/>
+
+  <!-- Clouds -->
+  <g fill="#ffffff" opacity="0.85">
+    <ellipse cx="240" cy="70" rx="70" ry="18"/>
+    <ellipse cx="300" cy="58" rx="50" ry="14"/>
+    <ellipse cx="700" cy="110" rx="90" ry="16"/>
+    <ellipse cx="770" cy="98" rx="55" ry="12"/>
+  </g>
+
+  <!-- Sea -->
+  <rect y="260" width="1200" height="140" fill="url(#sea)"/>
+
+  <!-- Headland cliff -->
+  <path d="M0 400 L0 150 Q90 120 170 150 L260 210 Q300 240 330 260 L360 400 Z" fill="#f3f1eb"/>
+  <path d="M0 400 L0 320 Q120 290 240 320 L360 400 Z" fill="#5d9e52"/>
+
+  <!-- Chalk stacks -->
+  <g fill="#f3f1eb" stroke="#d5d2c8" stroke-width="3">
+    <path d="M420 400 L445 235 Q455 215 465 235 L495 400 Z"/>
+    <path d="M540 400 L562 260 Q572 242 582 260 L608 400 Z"/>
+    <path d="M650 400 L668 285 Q676 270 684 285 L704 400 Z"/>
+  </g>
+
+  <!-- Lighthouse -->
+  <g>
+    <path d="M760 400 L768 300 L800 300 L808 400 Z" fill="#e04b4b"/>
+    <rect x="768" y="330" width="40" height="22" fill="#ffffff"/>
+    <rect x="771" y="285" width="26" height="18" fill="#333333"/>
+    <rect x="766" y="280" width="36" height="6" fill="#333333"/>
+    <circle cx="784" cy="294" r="6" fill="#ffd836"/>
+  </g>
+
+  <!-- Waves -->
+  <g stroke="#a2d2fa" stroke-width="4" fill="none" opacity="0.7" stroke-linecap="round">
+    <path d="M60 330 q20 -10 40 0 q20 10 40 0"/>
+    <path d="M880 320 q20 -10 40 0 q20 10 40 0"/>
+    <path d="M1020 360 q20 -10 40 0 q20 10 40 0"/>
+    <path d="M480 370 q20 -10 40 0 q20 10 40 0"/>
+  </g>
+
+  <!-- Sailing boat -->
+  <g>
+    <path d="M930 368 L1000 368 L985 384 L945 384 Z" fill="#333333"/>
+    <path d="M962 368 L962 316 L992 360 Z" fill="#ffffff"/>
+    <path d="M958 368 L958 326 L936 362 Z" fill="#f3f1eb"/>
+  </g>
+
+  <!-- Gulls -->
+  <g stroke="#333333" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M520 120 q10 -10 20 0 M540 120 q10 -10 20 0"/>
+    <path d="M580 150 q8 -8 16 0 M596 150 q8 -8 16 0"/>
+  </g>
+</svg>

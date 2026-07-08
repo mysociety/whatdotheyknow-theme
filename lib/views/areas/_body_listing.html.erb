@@ -1,0 +1,44 @@
+<%# Stats come from the counter cache columns on public_bodies, and the
+    requestability checks use preloaded tags, so rendering an authority
+    adds no queries. %>
+<div class="body_listing area-page__body">
+  <div class="area-page__body-header">
+    <%= link_to public_body.name, public_body_path(public_body) %>
+  </div>
+
+  <div class="area-page__body-desc">
+    <% unless public_body.short_name.blank? %>
+      <%= _('Also called {{other_name}}.',
+            other_name: public_body.short_name) %>
+    <% end %>
+    <% if public_body.defunct? %>
+      <%= _('Defunct.') %>
+    <% elsif public_body.not_apply? %>
+      <%= _('FOI law does not apply to this authority.') %>
+    <% end %>
+  </div>
+
+  <div class="area-page__body-stats">
+    <span class="area-page__body-count">
+      <%= n_('{{count}} request made',
+             '{{count}} requests made',
+             public_body.info_requests_visible_count,
+             count: public_body.info_requests_visible_count) %>
+    </span>
+    <% if (success_rate = area_success_rate(public_body)) %>
+      &middot;
+      <span class="area-page__body-success">
+        <%= _('{{success_rate}}% at least partially successful',
+              success_rate: success_rate) %>
+      </span>
+    <% end %>
+  </div>
+
+  <% unless public_body.special_not_requestable_reason? %>
+    <div class="area-page__body-action">
+      <%= link_to _('Make a request'),
+                  new_request_to_body_path(url_name: public_body.url_name),
+                  class: 'link_button_green' %>
+    </div>
+  <% end %>
+</div>

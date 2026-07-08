@@ -1,7 +1,15 @@
 # Here you can override or add to the pages in the core website
 
+require 'wdtk_areas'
+
 Rails.application.routes.draw do
   get '/learn' => 'learn#index', :as => :learn
+
+  # Area landing pages, e.g. /isle-of-wight
+  # https://github.com/mysociety/whatdotheyknow-theme/issues/416
+  get '/:area' => 'areas#show',
+      :as => :area,
+      :constraints => { area: Regexp.union(WdtkAreas.slugs) }
 
   get '/england' => redirect('/body?tag=england', status: 302)
   get '/london' => redirect('/body?tag=london', status: 302)
