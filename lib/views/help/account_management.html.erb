@@ -1,0 +1,129 @@
+<% @title = "Account Management" %>
+<%= render :partial => 'sidebar' %>
+<div id="left_column_flip" class="left_column_flip">
+  <h1>
+    <%= @title %>
+  </h1>
+
+  <p>
+    You can manage your WhatDoTheyKnow account from your profile page when
+    you are signed in. This includes using two factor authentication to improve 
+    the security of your account.
+  </p>
+
+  <h2 id="two_factor_authentication">
+    Two Factor Authentication
+    <a href="#two_factor_authentication">#</a>
+  </h2>
+
+  <p>
+    Two factor authentication adds an extra check when you
+    use your account. After entering your password, you will be asked to enter a
+    six-digit code from an authenticator app. This helps protect your account
+    if someone has access to your password.
+  </p>
+
+  <p>
+    Two factor authentication is optional. To enable it you will need an
+    authenticator app such as Google Authenticator, Microsoft Authenticator,
+    Authy, or any other app that can create one-time codes.
+  </p>
+
+  <h3 id="turn_on_2fa">
+    How to turn on two factor authentication
+    <a href="#turn_on_2fa">#</a>
+  </h3>
+
+  <ol>
+    <li>Sign in to your WhatDoTheyKnow account.</li>
+    <li>
+      Open your profile page and choose
+      <strong>Improve your account security</strong>.
+    </li>
+    <li>Click on <strong>Enable two factor authentication</strong>.</li>
+    <li>
+      Open your authenticator app of choice and add a new account. You can
+      scan the QR code shown, or enter the secret code manually.
+    </li>
+    <li>
+      Enter the six-digit code from your authenticator app to finish setting
+      up two factor authentication.
+    </li>
+  </ol>
+
+  <p>
+    If you are already signed in, you can go straight to your
+    <%= link_to 'two factor authentication settings',
+                one_time_password_path %>.
+  </p>
+
+  <h3 id="backup_codes">
+    Backup codes
+    <a href="#backup_codes">#</a>
+  </h3>
+
+  <p>
+    When you turn on two factor authentication, you will be given a list of
+    backup codes. You should save them somewhere safe, such as in a password
+    manager. You can also print them and keep the printed copy somewhere
+    secure.
+  </p>
+
+  <p>
+    Each backup code can be used once in place of a code from your
+    authenticator app. This can help you to log into your account if you
+    lose your phone or cannot use your app for any other reason.
+  </p>
+
+  <p>
+    You can generate new backup codes from the two factor authentication
+    settings page. Generating new backup codes will replace your old ones.
+  </p>
+
+  <h3 id="signing_in_with_2fa">
+    Signing in with two factor authentication
+    <a href="#signing_in_with_2fa">#</a>
+  </h3>
+
+  <p>
+    When two factor authentication is turned on, you should sign in with your
+    email address and password as usual. You will then be asked to enter a code
+    from your authenticator app. If you cannot use your app, you can enter one
+    of your backup codes instead.
+  </p>
+
+  <h3 id="change_or_disable_2fa">
+    Changing or disabling two factor authentication
+    <a href="#change_or_disable_2fa">#</a>
+  </h3>
+
+  <p>
+    You can manage backup codes or disable two factor authentication from
+    <%= link_to 'two factor authentication settings',
+                one_time_password_path %>.
+    If you disable 2FA, your account will only be protected by your password.
+  </p>
+
+  <p>
+    Some older accounts may have a printable one-time passcode instead of a
+    code from an authenticator app. If this applies to your account, you can
+    upgrade to use the new system. After upgrading, the old
+    printed passcode will stop working.
+  </p>
+
+  <h3 id="locked_out">
+    If you cannot sign in
+    <a href="#locked_out">#</a>
+  </h3>
+
+  <p>
+    If you cannot use your authenticator app and you do not have access to a
+    backup code,
+    <%= link_to 'contact the WhatDoTheyKnow team', help_contact_path %>.
+    Use the email address that is linked to your account if you can. Two factor
+    authentication is designed to secure your account, so if we are unable to
+    verify your identity, we may be unable to help you to regain access.
+  </p>
+
+  <%= render partial: 'history' %>
+</div>
