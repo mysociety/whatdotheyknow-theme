@@ -22,7 +22,7 @@ Rails.configuration.to_prepare do
     private
 
     def block_global_censor_rule_creation
-      raise NotImplementedError if @censor_rule.is_global?
+      raise NotImplementedError if @censor_rule.global?
     end
   end
 
