@@ -118,6 +118,11 @@
         <td><a href="/body/list/eir_charges"><b><%= pluralize(PublicBody.visible.with_tag('eir_charges').size, 'Authority') %></b> tagged <code>eir_charges</code></a></td>
         <td><a href="/search/tag:eir_charges/requests"><b><%= pluralize(InfoRequest.is_public.with_tag('eir_charges').size, 'Request') %></b> tagged <code>eir_charges</code></a></td>
       </tr>
+      <tr>
+        <td>Authority requests excessive personal information or motives</td>
+        <td><a href="/body/list/excessive_requester_info"><b><%= pluralize(PublicBody.visible.with_tag('excessive_requester_info').size, 'Authority') %></b> tagged <code>excessive_requester_info</code></a></td>
+        <td><a href="/search/tag:excessive_requester_info/requests"><b><%= pluralize(InfoRequest.is_public.with_tag('excessive_requester_info').size, 'Request') %></b> tagged <code>excessive_requester_info</code></a></td>
+      </tr>
     </tbody>
 </table>
 
