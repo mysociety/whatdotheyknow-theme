@@ -1,0 +1,19 @@
+<% @title = "Attachment #{foi_attachment.id} of FOI request '#{info_request.title}'" %>
+<h1>Attachment <%= foi_attachment.id %></h1>
+
+<ul class="breadcrumb">
+  <li>FOI request: <%= both_links(info_request) %> <span class="divider">/</span></li>
+  <li>Message: <%= both_links(incoming_message) %> <span class="divider">/</span></li>
+  <li class="active">Attachment: <%= both_links(foi_attachment) %></li>
+</ul>
+
+<% if ExcelAnalyzer.content_types.include?(foi_attachment.file_blob&.content_type) %>
+  <div>
+    <%= button_to 'Re-scan for hidden data',
+                  admin_foi_attachment_scan_path(foi_attachment),
+                  class: 'btn' %>
+    <span class="muted">
+      Re-runs the automated analysis and repopulates the file's metadata.
+    </span>
+  </div>
+<% end %>
