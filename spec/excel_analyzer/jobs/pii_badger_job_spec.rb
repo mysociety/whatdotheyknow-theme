@@ -16,7 +16,11 @@ RSpec.describe ExcelAnalyzer::PIIBadgerJob, type: :job do
   end
 
   before do
-    blob.update(metadata: blob.metadata.merge(excel: excel_metadata))
+    # Seed :excel via a separate instance so the job's in-memory blob is stale,
+    # mirroring ActiveStorage persisting the analyzer metadata concurrently.
+    other = ActiveStorage::Blob.find(blob.id)
+    other.update(metadata: other.metadata.merge(excel: excel_metadata))
+
     allow(IO).to receive(:popen).and_return(pii_metadata)
   end
 
@@ -32,6 +36,12 @@ RSpec.describe ExcelAnalyzer::PIIBadgerJob, type: :job do
   it 'updates the blob metadata' do
     expect { perform }.to change(blob, :metadata)
     expect(blob.metadata).to include(pii_badger: pii_metadata)
+  end
+
+  it 'preserves concurrently persisted excel metadata' do
+    perform
+    expect(blob.reload.metadata).
+      to include(excel: excel_metadata, pii_badger: pii_metadata)
   end
 
   it 'queues Republish or Report job' do
