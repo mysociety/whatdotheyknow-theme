@@ -118,4 +118,9 @@ Rails.application.routes.draw do
       as: :welcome
 
   post '/welcome' => 'users/confirmations#force_confirm'
+
+  # Re-run ExcelAnalyzer analysis on an attachment from the admin UI
+  post '/admin/attachments/:foi_attachment_id/scan' =>
+         'excel_analyzer/scans#create',
+       as: :admin_foi_attachment_scan
 end
