@@ -17,9 +17,14 @@ module ExcelAnalyzer
 
         pii_badger_metadata = IO.popen(cmd) { JSON.parse(_1.read) }
 
-        attachment_blob.update(metadata: attachment_blob.metadata.merge(
-          pii_badger: pii_badger_metadata
-        ))
+        # Lock and reload before merging so the analyzer's :excel metadata,
+        # which ActiveStorage persists concurrently, is not clobbered by a
+        # stale in-memory copy.
+        attachment_blob.with_lock do
+          attachment_blob.update(metadata: attachment_blob.metadata.merge(
+            pii_badger: pii_badger_metadata
+          ))
+        end
       end
 
       ExcelAnalyzer::RepublishOrReportJob.perform_later(attachment_blob)
