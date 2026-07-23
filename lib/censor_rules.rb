@@ -1,7 +1,7 @@
 # On a first deploy, these tables don't exist yet, so skip this step:
 if ['info_requests', 'censor_rules'].all? { |table_name|
         ActiveRecord::Base.connection.table_exists? table_name
-    }
+    } && ActiveRecord::Base.connection.column_exists?(:censor_rules, :censorable_id)
 
     rules_data = [{:text => '\*\*\*+\s+Polly Tucker.*',
                       :replacement => '',
