@@ -293,6 +293,7 @@ Rails.configuration.to_prepare do
     FOIenquiries=aberdeencity.gov.uk@email.firmstep.com
     icaseworkinformationrequests@lambeth.gov.uk
     noreply@eastleigh.gov.uk
+    FOI@hmpo.gov.uk
   )
 
   User.content_limits = {
