@@ -83,6 +83,20 @@ Rails.configuration.to_prepare do
     end
   end
 
+  InfoRequestBatch.class_eval do
+    # Override to remove the `sleep 60` between requests present in core.
+    def create_batch!
+      requestable_public_bodies.each do |public_body|
+        info_request = transaction do
+          create_request!(public_body)
+        end
+
+        send_request(info_request)
+      end
+      reload
+    end
+  end
+
   Legislation.refusals = {
     foi: [
       's 11', 's 12', 's 14', 's 21', 's 22', 's 30', 's 31', 's 35', 's 38',
@@ -279,6 +293,7 @@ Rails.configuration.to_prepare do
     FOIenquiries=aberdeencity.gov.uk@email.firmstep.com
     icaseworkinformationrequests@lambeth.gov.uk
     noreply@eastleigh.gov.uk
+    FOI@hmpo.gov.uk
   )
 
   User.content_limits = {
