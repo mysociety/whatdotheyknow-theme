@@ -1,14 +1,41 @@
-<% @title = "House rules" %>
+<% @title = 'House rules' %>
+
 <%= render partial: 'sidebar' %>
+
 <div id="left_column_flip" class="left_column_flip">
-  <h1><%= @title %></h1>
-  <p>If you break any of these rules, we may suspend your account. This means you won't be able to make requests or updates on WhatDoTheyKnow.</p>
-  <p>When rules are broken, our volunteers have to spend a lot of time fixing things. This could make it harder for mySociety to keep running this service.</p>
+  <h1>
+    <%= @title %>
+  </h1>
+
+  <p>
+    If you break any of these rules, we may suspend your account. This means
+    you won't be able to make requests or updates on WhatDoTheyKnow.
+  </p>
+
+  <p>
+    When rules are broken, our volunteers have to spend a lot of time fixing
+    things. This could make it harder for mySociety to keep running this
+    service.
+  </p>
 
   <%= render partial: 'help/house_rules/list_of_house_rules' %>
 
-  <p>If you break these rules, you could be banned from the site. We may also remove your requests or annotations. We'll usually contact you first to give advice on how to use the service better.</p>
-  <p>If you use threats or abusive language, mySociety staff and volunteers will stop responding to you. You'll also be banned from using the site.</p>
+  <p>
+    If you break these rules, you could be banned from the site. We may also
+    remove your requests or annotations.
+  </p>
+
+  <p>
+    We will usually contact you first and explain how to use the service
+    properly, but we may act straight away if the behaviour is clearly malicious
+    or there has been serious or repeated misuse.
+  </p>
+
+  <p>
+    If you use threats or abusive language, we will stop responding to you.
+    You will also be banned from using the site.
+  </p>
+
   <%= render partial: 'history' %>
 
   <div id="hash_link_padding"></div>
