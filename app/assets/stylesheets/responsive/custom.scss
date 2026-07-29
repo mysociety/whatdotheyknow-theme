@@ -374,7 +374,7 @@ a.link_button_green_large {
   a {
     @include menu-item;
     @media( min-width: $main_menu-mobile_menu_cutoff ) {
-      padding: 0.875em 1em;
+      padding: 0.875em;
     }
   }
 
