@@ -2425,3 +2425,14 @@ div.pagination span.disabled {
     }
   }
 }
+
+/*
+ * /newsletter
+*/
+.newsletter-page {
+  @include grid-column(12);
+
+  @media #{$medium-up} {
+    @include grid-column(8);
+  }
+}
