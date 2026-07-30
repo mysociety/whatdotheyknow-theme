@@ -117,6 +117,8 @@ Rails.application.routes.draw do
   get '/welcome' => 'rules#welcome',
       as: :welcome
 
+  get '/newsletter' => 'newsletter#index', as: :newsletter
+
   post '/welcome' => 'users/confirmations#force_confirm'
 
   # Re-run ExcelAnalyzer analysis on an attachment from the admin UI
