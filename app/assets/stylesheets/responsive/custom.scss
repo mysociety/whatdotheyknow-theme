@@ -449,6 +449,9 @@ a.link_button_green_large {
     @include respond-min( $main_menu-mobile_menu_cutoff ){
       width: auto;
       padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+
     }
   }
 
@@ -476,6 +479,16 @@ a.link_button_green_large {
         color: #fff;
       }
     }
+
+    @include respond-min( $main_menu-mobile_menu_cutoff ){
+      display: block;
+    }
+  }
+}
+
+li:has(#donate-link), li:has(#newsletter-link) {
+  @include respond-min( $main_menu-mobile_menu_cutoff ){
+    display: none;
   }
 }
 
@@ -518,6 +531,11 @@ a.link_button_green_large {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     padding-top: 1.1em;
     width: 20%;
+
+    a {
+      text-align: left;
+      padding-left: 0;
+    }
   }
 }
 
@@ -796,6 +814,16 @@ a.link_button_green_large {
   #user_locale_switcher {
     @include respond-min( $main_menu-mobile_menu_cutoff ) {
       left: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  #logged_in_bar {
+    @include respond-min( $main_menu-mobile_menu_cutoff ) {
+      width: fit-content;
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 
@@ -1189,6 +1217,7 @@ input#reedit_button {
     position: relative;
     background-color: transparent;
     left: -80px;
+    width: 9%;
   }
 }
 
