@@ -40,3 +40,7 @@
     </svg>
   <% end %>
 </li>
+
+<li class="<%= 'selected' if controller?('newsletter') %>">
+  <%= link_to _("Newsletter"), newsletter_path, :id => 'newsletter-link' %>
+</li>
