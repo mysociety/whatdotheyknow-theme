@@ -294,6 +294,7 @@ Rails.configuration.to_prepare do
     icaseworkinformationrequests@lambeth.gov.uk
     noreply@eastleigh.gov.uk
     FOI@hmpo.gov.uk
+    Unmonitored.ACCOUNT@education.gov.uk
   )
 
   User.content_limits = {
