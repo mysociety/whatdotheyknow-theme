@@ -1,0 +1,31 @@
+  <div class="cta-box">
+    <%= image_tag "cta/cta-donation-newsletter-mobile.png", class: "cta-box--image-mobile", alt: "", loading: "lazy" %>
+
+    <% if !show_donation_button? %>
+      <%= image_tag "cta/cta-newsletter.png", class: "cta-box--image", alt: "", loading: "lazy" %>
+    <% end %>
+
+    <% if show_donation_button? %>
+      <%= image_tag "cta/cta-donation-newsletter.png", class: "cta-box--image", alt: "", loading: "lazy" %>
+    <% end %>
+    <div>
+      <% if show_donation_button? %>
+      <div class="cta-box--item what-next">
+        <h2 class="what-next__heading"><%= _("We work to defend the right to FOI for everyone") %></h2>
+        <p class="what-next__para"><%= _("Help us protect your right to hold public authorities to account. Donate and support our work.") %></p>
+
+        <%= donate_now_link 'successful request donate now',
+        utm_params: {
+          utm_content: 'successful request donate now',
+          utm_campaign: 'successful_request'
+        },
+        class: 'button what-next__button' %>
+      </div>
+      <% end %>
+      <div class="cta-box--item what-next">
+        <h2 class="what-next__heading"><%= _("Like what we do here?") %></h2>
+        <p class="what-next__para"><%= _("Subscribe to hear from WhatDoTheyKnow, and <a href='https://www.mysociety.org/'>mySociety</a>, the charity that runs it.") %></p>
+        <%= render 'general/newsletter_form' %>
+      </div>
+    </div>
+</div>
