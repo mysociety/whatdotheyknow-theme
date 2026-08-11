@@ -36,7 +36,7 @@ $main_menu-active_link_text: $main_menu-link_bg;
 $submenu-highlight: rgba(0, 0, 0, 0.2);
 
 $incoming-correspondence-color: $color_violet;
-$incoming-correspondence-background: $color_white;
+$incoming-correspondence-background: transparent;
 $outgoing-correspondence-color: $color_orange;
 $outgoing-correspondence-background: $color_white;
 $comment-color: darken($color_light_grey, 10%);
@@ -939,30 +939,6 @@ div.correspondence {
   }
   &::after {
     right: -2px;
-  }
-  .incoming &::before {
-    background-image:
-      linear-gradient(to right, $body-bg 2px, transparent 0),
-      linear-gradient(to bottom, transparent 5px, $incoming-correspondence-color 0),
-      radial-gradient(circle at 7px 5px, $incoming-correspondence-color 5px, $body-bg 0);
-  }
-  .outgoing &::before {
-    background-image:
-      linear-gradient(to right, $body-bg 2px, transparent 0),
-      linear-gradient(to bottom, transparent 5px, $outgoing-correspondence-color 0),
-      radial-gradient(circle at 7px 5px, $outgoing-correspondence-color 5px, $body-bg 0);
-  }
-  .incoming &::after {
-    background-image:
-      linear-gradient(to left, $body-bg 2px, transparent 0),
-      linear-gradient(to bottom, transparent 5px, $incoming-correspondence-color 0),
-      radial-gradient(circle at 0 5px, $incoming-correspondence-color 5px, $body-bg 0);
-  }
-  .outgoing &::after {
-    background-image:
-      linear-gradient(to left, $body-bg 2px, transparent 0),
-      linear-gradient(to bottom, transparent 5px, $outgoing-correspondence-color 0),
-      radial-gradient(circle at 0 5px, $outgoing-correspondence-color 5px, $body-bg 0);
   }
 }
 
