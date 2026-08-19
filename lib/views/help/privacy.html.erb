@@ -4,7 +4,11 @@
   <h1 id="privacy"><%= @title %> <a href="#privacy">#</a> </h1>
 
   <p>
-    WhatDoTheyKnow is run by the charity mySociety.
+    WhatDoTheyKnow is run by the charity
+    <a href="http://www.mysociety.org/?utm_source=whatdotheyknow.com&utm_medium=link">mySociety</a>,
+    with the commercial service, <%= link_to 'WhatDoTheyKnow Pro', account_request_index_path %>,
+    operated by mySociety’s commercial subsidiary,
+    <a href="http://www.societyworks.org/?utm_source=whatdotheyknow.com&utm_medium=link">SocietyWorks Ltd</a>.
   </p>
   <p>
     For full details of mySociety’s structure, governance, and details of the
@@ -72,6 +76,24 @@
     As with any other email, this results in us holding your
     email address and, if provided, your name, along with the content of your
     message.
+  </p>
+
+  <h3 id="personal_information_pro">
+    When you pay for a WhatDoTheyKnow Pro subscription
+    <a href="#personal_information_pro">#</a>
+  </h3>
+  <p>
+    When you pay for a WhatDoTheyKnow Pro subscription, your name, contact 
+    details, payment, and security details are held by the payment processor
+    Stripe, whose usage terms and privacy policy can be seen here:
+    <a href="https://stripe.com/gb/privacy">stripe.com/gb/privacy</a>.
+  </p>
+  <p>
+    Your name, email address, the billing address of your card and the last
+    few digits of your card or bank account number are made available to us
+    along with your payment history. We use this information only for the 
+    processing of your subscription, and company accounting — which may
+    involve sharing it with our accountant or HMRC.
   </p>
 
   <h2 id="personal_information_who">
@@ -241,6 +263,20 @@
     “They are going to reply by postal mail”, and it will give you an
     email address to use for that purpose.
   </p>
+
+  <h3 id="payment_details">
+    Your payment details (for WhatDoTheyKnow Pro subscribers)
+    <a href="#payment_details">#</a>
+  </h3>
+  <p>
+    As noted above, when you pay for a WhatDoTheyKnow Pro subscription,
+    your name, email address, the billing address of your card and the last
+    few digits of your card or bank account number are made available to us
+    along with your payment history. We use this information only for the 
+    processing of your subscription, and company accounting — which may
+    involve sharing it with our accountant or HMRC.
+  </p>
+
   <h3 id="our_logging">
     Our own logging
     <a href="#our_logging">#</a>
@@ -640,6 +676,21 @@
     it when the retention period is complete.
   </p>
 
+  <h3 id="retention_payment_details">
+    Payment details
+    <a href="#retention_payment_details">#</a>
+  </h3>
+  <p>
+    We are obliged to keep records relating to financial transactions for at
+    least six years following the end of the accounting period in which the
+    transaction took place. We destroy our records after this point.
+  </p>
+  <p>
+    If you require further information on the retention policies of our
+    payment processor, Stripe, please
+    <a href="https://stripe.com/gb/privacy#contact-us">contact them directly</a>.
+  </p>
+
   <h3 id="retention_support">
     Support emails
     <a href="#retention_support">#</a>
@@ -682,6 +733,12 @@
     when they use our service. We make clear how we handle users’ data, and
     link to this page, at appropriate places within our service, including
     during the process of signing up, and making a request.
+  </p>
+  <p>
+    If you purchase WhatDoTheyKnow Pro, you consent to the processing of your
+    personal data and payment data for the performance of the contract (<a
+    href="https://www.legislation.gov.uk/eur/2016/679/article/6">6(1)(b)</a> of
+    the UK GDPR).
   </p>
   <p>
     On rare occasions the legal basis of "compliance with a legal obligation"
@@ -949,7 +1006,7 @@
     Below, we list the cookies and services that this site may use.
   </p>
 
-  <table>
+  <table class="dataset">
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Typical Content</th>
