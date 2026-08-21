@@ -41,6 +41,7 @@ Rails.configuration.to_prepare do
 
     # Using WhatDoTheyKnow
     def beginners; end
+    def reasons; end
     def authorities; end
     def responses; end
     def accessing_information; end
