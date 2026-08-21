@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   get '/help/authorities' => 'help#authorities',
       as: :help_authorities
 
+  get '/help/responses' => 'help#responses',
+      as: :help_responses
+
   get '/help/accessing_information' => 'help#accessing_information',
       as: :help_accessing_information
 
