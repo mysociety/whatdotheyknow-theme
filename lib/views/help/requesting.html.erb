@@ -1,10 +1,12 @@
 <% @title = "Making requests" %>
+
 <%= render partial: 'sidebar' %>
+
 <div id="left_column_flip" class="left_column_flip">
   <h1 id="making_requests"><%= @title %> <a href="#making_requests">#</a></h1>
+
   <strong>Never made a request before?</strong> Follow our
-  <a href="https://www.mysociety.org/2014/08/15/how-to-make-a-freedom-of-information-request-with-whatdotheyknow/?utm_source=whatdotheyknow.com&utm_medium=link"
-  title="How to make a Freedom of Information request with WhatDoTheyKnow">beginners’ guide.</a>
+  <%= link_to 'beginners’ guide', help_beginners_path %>.
 
     <dt id="focused">
       Why must I keep my request focused?
