@@ -321,6 +321,28 @@ a.link_button_green_large {
   color: $color_dark_grey;
 }
 
+.sign_together {
+  .newsletter-signup-form {
+    border-top:1px solid #d3cec5;
+
+    &--desktop {
+      display: none;
+      @include respond-min( $main_menu-mobile_menu_cutoff ){
+        display: block;
+        margin-top: 2rem;
+      }
+    }
+
+    &--mobile {
+      display: block;
+      margin-top: 4rem;
+      @include respond-min( $main_menu-mobile_menu_cutoff ){
+        display: none;
+      }
+    }
+  }
+}
+
 /* Popups */
 
 .popup {
