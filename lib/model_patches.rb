@@ -256,6 +256,7 @@ Rails.configuration.to_prepare do
     noreply-horsham@axlr8.com
     donotreply@plymouth.gov.uk
     do_not_reply@sandwell.gov.uk
+    do_not_reply=sandwell.gov.uk@email.firmstep.com
     request@ig.northlincs.gov.uk
     noreply@infreemation.co.uk
     noreply@leeds.gov.uk
