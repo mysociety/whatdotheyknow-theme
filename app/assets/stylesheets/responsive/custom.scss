@@ -321,6 +321,28 @@ a.link_button_green_large {
   color: $color_dark_grey;
 }
 
+.sign_together {
+  .newsletter-signup-form {
+    border-top:1px solid #d3cec5;
+
+    &--desktop {
+      display: none;
+      @include respond-min( $main_menu-mobile_menu_cutoff ){
+        display: block;
+        margin-top: 2rem;
+      }
+    }
+
+    &--mobile {
+      display: block;
+      margin-top: 4rem;
+      @include respond-min( $main_menu-mobile_menu_cutoff ){
+        display: none;
+      }
+    }
+  }
+}
+
 /* Popups */
 
 .popup {
@@ -374,7 +396,7 @@ a.link_button_green_large {
   a {
     @include menu-item;
     @media( min-width: $main_menu-mobile_menu_cutoff ) {
-      padding: 0.875em 1em;
+      padding: 0.875em;
     }
   }
 
@@ -605,6 +627,46 @@ a.link_button_green_large {
   h1 {
     margin-top: 0;
   }
+
+  &:has(.cta-box) {
+    padding-bottom: 0;
+  }
+
+  .cta-box {
+    margin: 2em -1.5em 0;
+    background-color: #d6ecff;
+    display: flex;
+    flex-direction: column;
+
+    &--image {
+      max-width: 30%;
+      object-fit: cover;
+      display: none;
+    }
+
+    &--item {
+      padding: 0.5em 1.5em 0;
+    }
+
+  // divider only when there is a second item.
+  .cta-box--item + .cta-box--item .what-next__heading {
+    border-top: 1px solid #8dc7f8;
+    padding-top: 1em;
+    margin-top: 1em;
+  }
+
+    @include respond-min( 35em ) { 
+      flex-direction: row;
+
+      &--image {
+        display:block;
+      }
+
+      &--image-mobile {
+        display:none;
+      }
+    }
+  }
 }
 
 #notice {
@@ -644,16 +706,7 @@ a.link_button_green_large {
 }
 
 .what-next {
-  background-color: $error-bg;
-  margin-bottom: 1em;
-  .what-next__button {
-    background-color: $color_red;
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: darken($color_red, 10%);
-    }
-  }
+  background-color: transparent;
 }
 
 .what-next__heading {
@@ -2423,5 +2476,16 @@ div.pagination span.disabled {
     .modal-close {
       display: block;
     }
+  }
+}
+
+/*
+ * /newsletter
+*/
+.newsletter-page {
+  @include grid-column(12);
+
+  @media #{$medium-up} {
+    @include grid-column(8);
   }
 }

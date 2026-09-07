@@ -1,45 +1,27 @@
 <% info_request = InfoRequest.find(info_request_id) %>
 
-<h1><%= _("Great result!") %></h1>
-<div class="request-sent-message__row">
-  <div class="request-sent-message__column-1">
+<div class="request-sent-message" id="notice">
+  <h1><%= _("Great result!") %></h1>
+  <% if annotations_enabled %>
+  <p class="subtitle">
+    <%= _("Please come back and add annotations to update this page with any further news or links") %>
+  </p>
+  <% else %>
+  <p class="subtitle">
+    <%= _("We're glad you got all the information that you wanted.") %>
+  </p>
+  <% end %>
 
-    <% if annotations_enabled %>
-    <p>
-      <%= _("Please come back and add annotations to update this page with any further news or links") %>
-    </p>
-    <% else %>
-    <p>
-      <%= _("We're glad you got all the information that you wanted.") %>
-    </p>
-    <% end %>
+  <a href="<%= request.url %>"
+    class="button button-share js-share-request"
+    role="button"
+    data-share-title="<%= @info_request.title %>"
+    data-share-url="<%= request.url %>"
+    data-clipboard-text="<%= request.url %>"
+    data-clipboard-success="<%= _('Link copied!') %>">
+    <%= File.read(Rails.root.join("app/assets/images/share-icon.svg")).html_safe %>
+    <span><%= _("Share this request") %></span>
+  </a>
 
-    <a href="<%= request.url %>"
-      class="button button-share js-share-request"
-      role="button"
-      data-share-title="<%= @info_request.title %>"
-      data-share-url="<%= request.url %>"
-      data-clipboard-text="<%= request.url %>"
-      data-clipboard-success="<%= _('Link copied!') %>">
-      <%= File.read(Rails.root.join("app/assets/images/share-icon.svg")).html_safe %>
-      <span><%= _("Share this request") %></span>
-    </a>
+  <%= render 'request/describe_notices/cta_donation_newsletter' %>
   </div>
-  <div class="request-sent-message__column-2">
-    <% if show_donation_button? %>
-    <div class="what-next donate">
-      <h2 class="what-next__heading"><%= _("Help keep this site running") %></h2>
-      <p class="what-next__para"><%= _("Your donations help us make " \
-                                       "Freedom of Information more " \
-                                       "accessible, for everyone.") %></p>
-
-      <%= donate_now_link 'successful request donate now',
-                          utm_params: {
-                            utm_content: 'successful request donate now',
-                            utm_campaign: 'successful_request'
-                          },
-                          class: 'button what-next__button' %>
-    </div>
-    <% end %>
-  </div>
-</div>
