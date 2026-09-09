@@ -35,27 +35,46 @@ Rails.configuration.to_prepare do
 
     before_action :set_history, except: [:index, :report_a_data_breach_handle_form_submission]
 
+    # About WhatDoTheyKnow
     def principles; end
-    def house_rules; end
     def how; end
-    def complaints; end
-    def volunteers; end
+
+    # Using WhatDoTheyKnow
     def beginners; end
-    def account_management; end
-    def ico_officers; end
-    def glossary; end
-    def environmental_information; end
+    def reasons; end
+    def authorities; end
+    def responses; end
+    def using; end
     def accessing_information; end
-    def exemptions; end
-    def authority_performance_tracking; end
-    def search_engines; end
+    def account_management; end
+
+    # Access to Information Help
     def about_foi; end
     def about_foisa; end
+    def environmental_information; end
+    def exemptions; end
+    def commercial_interests_exemptions; end
     def no_response; end
     def appeals; end
-    def removing_information; end
+    def glossary; end
     def books; end
-    def commercial_interests_exemptions; end
+
+    # Rules & Complaints
+    def house_rules; end
+    def complaints; end
+    def removing_information; end
+
+    # Your Privacy
+    def search_engines; end
+
+    # Information Officers
+    def ico_officers; end
+
+    # Learn More
+    def volunteers; end
+
+    # UNLISTED IN SIDEBAR
+    def authority_performance_tracking; end
 
     private
 

@@ -1,0 +1,124 @@
+<% @title = "Finding the right authority to send your request to" %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="finding_authorities"><%= @title %> <a href="#finding_authorities">#</a></h1>
+
+  <strong>Never made a request before?</strong> Follow our
+  <%= link_to 'beginners’ guide', help_beginners_path %>.
+
+  <dl>
+    <dt id="which_authority">
+      I&rsquo;m not sure which authority to make my request to, how can I find
+      out?
+      <a href="#which_authority">#</a>
+    </dt>
+    <dd>
+      <p>Understanding the structure of the government and finding the information you need can be tricky. 
+      Here are a few tips to help you:
+      </p>
+      <ul>
+        <li>
+          Browse or <a href="<%= search_redirect_path %>">search</a> WhatDoTheyKnow for similar requests to 
+          yours. Check who they were sent to, and if they were successful. If they were, that's 
+          probably the right authority for your request.
+        </li>
+        <li>
+          It&rsquo;s always a good idea to double-check. When you&rsquo;ve found an
+          authority that might have the information, use the
+          &ldquo;home page&rdquo; link on the right hand side of their page. This 
+          will take you to their website where you can see what their responsibilities are.
+        </li>
+        <li>
+          You can also contact the authority by phone or email to ask if they
+          have the kind of information you&rsquo;re looking for.
+        </li>
+        <li>
+          But don&rsquo;t worry too much about finding the right authority. If you make 
+          a mistake, they should tell you who to contact instead.
+        </li>
+        <li>
+          If you have a tricky case, please
+          <a href="<%= help_contact_path %>">contact us</a>. We have a
+          great team of volunteer administrators who are ready to help you.
+        </li>
+      </ul>
+    </dd>
+
+    <dt id="missing_body">
+      You&rsquo;re missing the public authority that I want to ask!
+      <a href="#missing_body">#</a>
+    </dt>
+    <dd>
+      <p>
+        Please <a href="<%= new_change_request_path %>">contact us</a> with the
+        name of the public authority and, if possible, their contact email
+        address for Freedom of Information requests.
+      </p>
+      <p>
+        If you&rsquo;d like to help add a whole category of public authorities
+        to the site, we&rsquo;d love to hear from you.
+      </p>
+    </dd>
+
+    <dt id="authorities">
+      Why do you include some authorities that aren’t formally subject to laws
+      on access to public information?
+      <a href="#authorities">#</a>
+    </dt>
+    <dd>
+      <p>
+        WhatDoTheyKnow not only provides a simple way to make Freedom of Information
+        requests, but also actively campaigns to expand the scope of Freedom of 
+        Information law to cover more public bodies.
+      </p>
+      <p>
+        Via the site, you can make requests for information to a range of
+        organisations:
+      </p>
+      <ul>
+        <li>
+          Those subject to the Freedom of Information Act (FOI).
+        </li>
+        <li>
+          Those subject to The Environmental Information Regulations (EIR). This group is broader 
+          and includes bodies subject to FOI, as well as other organisations with a public 
+          role, such as water companies.
+        </li>
+        <li>
+          Those subject to access to information law in Scotland.
+        </li>
+        <li>
+          Organisations which voluntarily comply with FOI even though
+          they don't have to.
+        </li>
+        <li>
+          Those which are not subject to the Act
+          <a href="https://www.whatdotheyknow.com/body/list/foi_no">but which we
+          think should be</a>, for example because they have significant public
+          responsibilities. These include those who enforce rules,
+          choose people for public roles, or give out a lot of public money.
+        </li>
+      </ul>
+    </dd>
+
+    <dt id="multiple">
+      Can I make the same request to lots of authorities, e.g. all councils?
+      <a href="#multiple">#</a>
+    </dt>
+    <dd>
+      <p>
+        This is possible, under some circumstances. There is a daily cap on the 
+        number of requests that can be using WhatDoTheyKnow. This is to help prevent 
+        spam. We would recommend sending a test version of your request to a few authorities. 
+        Their responses will help you improve the wording of your request.
+      </p>
+      <p>
+        If you are a journalist, activist, campaigner or someone else who would
+        find it useful to have a tool enabling you to make requests to multiple
+        bodies at the same time, then you might be interested in our
+        <%= link_to 'WhatDoTheyKnow Pro service', account_request_index_path %>.
+      </p>
+    </dd>
+</div>
