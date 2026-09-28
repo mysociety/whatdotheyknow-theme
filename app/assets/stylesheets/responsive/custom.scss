@@ -818,9 +818,13 @@ $mysoc-footer-breakpoint-sm: 42em;
 
 .mysoc-footer {
   margin-top: 5em;
-  a {
-    text-decoration: none;
+
+  .mysoc-footer__links {
+    a {
+      text-decoration: none;
+    }
   }
+
   .row {
     @include grid-row();
   }
