@@ -774,7 +774,7 @@ a.link_button_green_large {
   background-repeat: no-repeat;
   background-position: 0 0;
   display: block;
-  @include respond-min( 18.75em ){
+  @include respond-min( 21.875em ){
     width: 220px;
     height: 24px;
     background-size: 220px 24px;
@@ -789,7 +789,7 @@ a.link_button_green_large {
   width: 177px;
   height: 18px;
   background-size: 177px 18px;
-  @include respond-min( 18.75em ){
+  @include respond-min( 21.875em ){
     width: 236px;
     height: 24px;
     background-size: 236px 24px;
