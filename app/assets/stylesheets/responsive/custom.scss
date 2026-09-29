@@ -25,7 +25,7 @@ $heading-color: $color_black;
 $font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 
-$main_menu-bg: darken($color_blue, 3%);
+$main_menu-bg: darken($color_blue, 6%);
 $main_menu-search_text: $color_black;
 $main_menu-link_text: $color_white;
 $main_menu-search_bg: $color_light_grey;
@@ -774,7 +774,7 @@ a.link_button_green_large {
   background-repeat: no-repeat;
   background-position: 0 0;
   display: block;
-  @include respond-min( 18.75em ){
+  @include respond-min( 21.875em ){
     width: 220px;
     height: 24px;
     background-size: 220px 24px;
@@ -789,7 +789,7 @@ a.link_button_green_large {
   width: 177px;
   height: 18px;
   background-size: 177px 18px;
-  @include respond-min( 18.75em ){
+  @include respond-min( 21.875em ){
     width: 236px;
     height: 24px;
     background-size: 236px 24px;
@@ -818,9 +818,13 @@ $mysoc-footer-breakpoint-sm: 42em;
 
 .mysoc-footer {
   margin-top: 5em;
-  a {
-    text-decoration: none;
+
+  .mysoc-footer__links {
+    a {
+      text-decoration: none;
+    }
   }
+
   .row {
     @include grid-row();
   }
@@ -1250,7 +1254,8 @@ p.locale-list-trigger {
 
 /* JS interactivity */
 .no-js .locale-list .available-languages,
-.locale-list.active .available-languages {
+.locale-list.active .available-languages,
+#user_locale_switcher:focus-within .available-languages {
   display: block;
 }
 
@@ -2030,7 +2035,7 @@ dd {
     font-size: 1em;
   }
   a {
-    color: #777;
+    color: #6a6a6a;
     text-decoration: none;
     &:hover,
     &:active,
