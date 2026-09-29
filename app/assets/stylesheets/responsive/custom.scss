@@ -1254,7 +1254,8 @@ p.locale-list-trigger {
 
 /* JS interactivity */
 .no-js .locale-list .available-languages,
-.locale-list.active .available-languages {
+.locale-list.active .available-languages,
+#user_locale_switcher:focus-within .available-languages {
   display: block;
 }
 
