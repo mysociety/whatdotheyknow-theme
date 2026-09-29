@@ -15,3 +15,14 @@ jQuery('#user_locale_switcher').find('.locale-list-trigger').each(function() {
    });
  <% end %>
 <% end %>
+
+<% if controller_name == 'help' %>
+  <%= javascript_tag nonce: true do %>
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      if (a.textContent.trim() !== '#') return;
+      const heading = a.parentElement.textContent.replace(/#\s*$/, '').trim();
+      a.setAttribute('aria-label', `Link to this section: ${heading}`);
+      a.setAttribute('title', 'Link to this section');
+    });
+  <% end %>
+<% end %>
