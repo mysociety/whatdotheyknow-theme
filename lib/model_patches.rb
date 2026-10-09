@@ -289,6 +289,8 @@ Rails.configuration.to_prepare do
     noreply@eastleigh.gov.uk
     FOI@hmpo.gov.uk
     Unmonitored.ACCOUNT@education.gov.uk
+    noreply@luton.gov.uk
+    no-reply@luton.localgovmailer.net
   )
 
   User.content_limits = {
