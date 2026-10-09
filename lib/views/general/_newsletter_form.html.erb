@@ -1,0 +1,36 @@
+<% content_for :javascript_head do %>
+  <%= javascript_importmap_tags("newsletter_signup", importmap: Rails.application.theme_importmap) %>
+<% end %>
+
+<div class="js-newsletter-signup">
+  <form
+    action="https://mysociety.us9.list-manage.com/subscribe/post?u=53d0d2026dea615ed488a8834&amp;id=287dc28511&amp;f_id=002b44e1f0"
+    method="post">
+
+    <div class="newsletter-signup__fields">
+      <div class="newsletter-signup__field">
+        <label for="mce-EMAIL"><%= _("Email Address") %> <span aria-hidden="true">*</span></label>
+        <input type="email" name="EMAIL" id="mce-EMAIL" autocomplete="email" value="<%= current_user&.email %>" required>
+      </div>
+      <input type="submit" name="subscribe" value="<%= _('Subscribe') %>">
+    </div>
+
+    <%# mySociety Newsletter interest %>
+    <input type="checkbox" name="group[11745][32]" value="" checked hidden>
+    <%# FOI, transparency and journalism interest %>
+    <input type="checkbox" name="group[11745][2]" value="" checked hidden>
+
+    <%# Tag: WDTK %>
+    <input type="hidden" name="tags" value="11866270">
+
+    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+      <input type="text" name="b_53d0d2026dea615ed488a8834_287dc28511" tabindex="-1" value="">
+    </div>
+  </form>
+
+  <p class="newsletter-signup__message" role="status" aria-live="polite" hidden></p>
+
+  <div class="newsletter-signup__success" hidden>
+    <p><%= _("Thanks — you’re subscribed! Please check your inbox to confirm.") %></p>
+  </div>
+</div>
