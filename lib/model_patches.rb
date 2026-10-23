@@ -290,6 +290,8 @@ Rails.configuration.to_prepare do
     FOI@hmpo.gov.uk
     Unmonitored.ACCOUNT@education.gov.uk
     milton-keynes.gov.uk@email.firmstep.com
+    noreply@luton.gov.uk
+    no-reply@luton.localgovmailer.net
   )
 
   User.content_limits = {
