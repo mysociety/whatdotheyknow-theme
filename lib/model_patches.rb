@@ -289,6 +289,7 @@ Rails.configuration.to_prepare do
     noreply@eastleigh.gov.uk
     FOI@hmpo.gov.uk
     Unmonitored.ACCOUNT@education.gov.uk
+    milton-keynes.gov.uk@email.firmstep.com
   )
 
   User.content_limits = {
