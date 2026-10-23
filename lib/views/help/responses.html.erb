@@ -1,0 +1,59 @@
+<% @title = "Getting responses" %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="getting_responses"><%= @title %> <a href="#getting_responses">#</a></h1>
+
+  <strong>Never made a request before?</strong> Follow our
+  <%= link_to 'beginners’ guide', help_beginners_path %>.
+
+  <dt id="quickly_response">
+    How quickly will I get a response?
+    <a href="#quickly_response">#</a>
+  </dt>
+  <dd>
+    <p>
+      Public authorities must respond <i>“promptly”</i> to requests.
+      This means that you should expect a response as soon as
+      is practical for the authority to answer, taking into consideration
+      the amount of information you have asked for, their
+      workload, and the staff available to deal with your request.
+    </p>
+    <p>
+      The law states that they must respond within 20 working
+      days, with a couple of exceptions: if you had to clarify your request,
+      or your request is to a school, or in one or two other scenarios, then
+      they may have more time — <a
+      href="https://www.whatdotheyknow.com/help/officers#days">you can read
+      more about timescales here</a>.
+    </p>
+    <p>
+      We will automatically send you an email reminder if you don’t
+      get a response within the time limit. You can then send the public
+      authority a message to prompt them to reply.
+    </p>
+  </dd>
+
+  <dt id="no_response">
+    What if I don’t get a response?
+    <a href="#no_response">#</a>
+  </dt>
+  <dd>
+    <p>
+      You can read more about what to do if you don't get a response at all on our <a href="<%= help_general_path(template: 'no_response') %>">
+      dedicated help page</a>.
+    </p>
+  </dd>
+
+  <dt id="not_satisfied">
+    What if I&rsquo;m not satisfied with the response?
+    <a href="#not_satisfied">#</a>
+  </dt>
+  <dd>
+    If you didn&rsquo;t get the information you asked for, or you
+    didn&rsquo;t get it in time, then read our page &lsquo;<a
+    href="<%= help_general_path(:template => 'unhappy') %>">Unhappy about the
+    response you got?</a>&rsquo;.
+  </dd>
+</div>

@@ -1,0 +1,67 @@
+<% @title = "Using the information you receive" %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="using_information"><%= @title %> <a href="#using_information">#</a></h1>
+
+  <strong>Never made a request before?</strong> Follow our
+  <%= link_to 'beginners’ guide', help_beginners_path %>.
+
+  <dt id="format">
+    Will I get the information in the format I want?
+    <a href="#format">#</a>
+  </dt>
+  <dd>
+    <p>
+      If you ask for the information to be provided in a particular format, the public authority has to do so, so long as
+      it is reasonably practicable. If you want to receive the information in a specific format, you must 
+      ask for this when you make your request.
+    </p>
+    <p>
+      You might want to explicitly request data in a reusable format such as a
+      .csv file. This helps prevent the response being provided as images, or 
+      screenshots of spreadsheets that are harder to extract data from.
+    </p>
+    <p>
+      There’s no need to explicitly request a response ‘via email’. By making your request via WhatDoTheyKnow, 
+      you are already making this clear.
+    </p>
+  </dd>
+
+  <dt id="reuse">
+    It says I can&rsquo;t re-use the information I got!
+    <a href="#reuse">#</a>
+  </dt>
+  <dd>
+    <p>
+      Authorities often add legal boilerplate citing the
+
+
+      “<a href="http://www.opsi.gov.uk/si/si2005/20051515">Re-Use of Public Sector
+      Information Regulations 2005</a>”. They also sometimes put copyright
+      notices on material.
+    </p>
+    <p>
+      If the information you have received is Crown Copyright then you are able to
+      reproduce it under the
+      <a href="http://www.nationalarchives.gov.uk/information-management/government-licensing/about-the-ogl.htm">Open
+      Government Licence</a> but there are some conditions — check that link for
+      more details.
+    </p>
+  </dd>
+
+  <dt id="offsite">
+    I made a request off the site, how do I upload it to the archive?
+    <a href="#offsite">#</a>
+  </dt>
+  <dd>
+    <p>
+      WhatDoTheyKnow is an archive of requests made using our service. We don’t 
+      allow users to upload requests that were made by other means. We have no 
+      plans to add this feature in the future. This is because we can’t verify 
+      that responses received from outside of our system actually came from the 
+      authority. We want to make sure that all content on WhatDoTheyKnow is 100% verifiable.
+    </p>
+  </dd>
+</div>

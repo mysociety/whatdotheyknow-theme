@@ -21,7 +21,23 @@
 
     <ul>
       <li>
+        <%= link_to_unless_current 'Reasons to request', help_reasons_path %>
+      </li>
+
+      <li>
+        <%= link_to_unless_current 'Finding authorities', help_authorities_path %>
+      </li>
+
+      <li>
         <%= link_to_unless_current 'Making requests', help_requesting_path %>
+      </li>
+
+      <li>
+        <%= link_to_unless_current 'Getting responses', help_responses_path %>
+      </li>
+
+      <li>
+        <%= link_to_unless_current 'Using information', help_using_path %>
       </li>
 
       <li>
