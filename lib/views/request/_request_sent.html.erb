@@ -9,57 +9,44 @@
             law_used_full: @info_request.legislation.to_s(:full)) %>
     </h1>
 
-    <div class="request-sent-message__row">
-      <div class="request-sent-message__column-1">
-        <p class="subtitle">
-          <%= _("<strong>We will email you</strong> when there is a response, or after " \
-                "{{late_number_of_days}} working days if the authority still hasn't " \
-                "replied by then.",
-                :late_number_of_days => AlaveteliConfiguration.reply_late_after_days) %>
+      <p class="subtitle">
+        <%= _("<strong>We will email you</strong> when there is a response, or after " \
+              "{{late_number_of_days}} working days if the authority still hasn't " \
+              "replied by then.",
+              :late_number_of_days => AlaveteliConfiguration.reply_late_after_days) %>
+      </p>
+
+      <a href="<%= request.url %>"
+        class="button button-share js-share-request"
+        role="button"
+        data-share-title="<%= @info_request.title %>"
+        data-share-url="<%= request.url %>"
+        data-clipboard-text="<%= request.url %>"
+        data-clipboard-success="<%= _('Link copied!') %>">
+        <%= File.read(Rails.root.join("app/assets/images/share-icon.svg")).html_safe %>
+        <span><%= _("Share this request") %></span>
+      </a>
+
+      <h2><%= _("Keep your request up to date") %></h2>
+
+      <% if feature_enabled?(:annotations) %>
+        <p class="request-sent-message__para">
+          <%= _('If you write about this request ' \
+                '(for example in a forum or a blog) ' \
+                'please link to this page, and <a href="{{url}}">add an ' \
+                'annotation</a> below telling people ' \
+                'about your writing.',
+                :url => new_comment_url(:url_title => @info_request.url_title).html_safe) %>
         </p>
+      <% else %>
+        <p class="request-sent-message__para">
+          <%= _('If you write about this request ' \
+                '(for example in a forum or a blog) ' \
+                'please link to this page.') %>
+        </p>
+      <% end %>
 
-        <a href="<%= request.url %>"
-          class="button button-share js-share-request"
-          role="button"
-          data-share-title="<%= @info_request.title %>"
-          data-share-url="<%= request.url %>"
-          data-clipboard-text="<%= request.url %>"
-          data-clipboard-success="<%= _('Link copied!') %>">
-          <%= File.read(Rails.root.join("app/assets/images/share-icon.svg")).html_safe %>
-          <span><%= _("Share this request") %></span>
-        </a>
-
-        <h2><%= _("Keep your request up to date") %></h2>
-
-        <% if feature_enabled?(:annotations) %>
-          <p class="request-sent-message__para">
-            <%= _('If you write about this request ' \
-                  '(for example in a forum or a blog) ' \
-                  'please link to this page, and <a href="{{url}}">add an ' \
-                  'annotation</a> below telling people ' \
-                  'about your writing.',
-                  :url => new_comment_url(:url_title => @info_request.url_title).html_safe) %>
-          </p>
-        <% else %>
-          <p class="request-sent-message__para">
-            <%= _('If you write about this request ' \
-                  '(for example in a forum or a blog) ' \
-                  'please link to this page.') %>
-          </p>
-        <% end %>
-      </div>
-
-      <div class="request-sent-message__column-2">
-        <% if show_donation_button? %>
-        <div class="what-next donate">
-          <h2 class="what-next__heading"><%= _("We work to defend the right to FOI for everyone") %></h2>
-          <p class="what-next__para"><%= _("Help us protect your right to hold public authorities to account. Donate and support our work.
-") %></p>
-          <%= donate_now_link 'request sent donate now', :class => 'button what-next__button' %>
-        </div>
-        <% end %>
-      </div>
-    </div>
+      <%= render 'request/describe_notices/cta_donation_newsletter' %>
   </div>
 </div>
 
