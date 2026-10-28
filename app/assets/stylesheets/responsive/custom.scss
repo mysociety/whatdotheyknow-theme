@@ -1160,7 +1160,7 @@ p.locale-list-trigger {
 }
 
 .locale-list-trigger .current-locale,
-.locale-list .available-languages a {
+.locale-list .available-languages .available-languages__option {
   display: block;
   cursor: pointer;
   font-weight: normal;
@@ -1203,9 +1203,7 @@ p.locale-list-trigger {
   }
 }
 
-.locale-list .available-languages a,
-.locale-list .available-languages a:link,
-.locale-list .available-languages a:visited {
+.locale-list .available-languages .available-languages__option {
   text-decoration: none;
   transition: background-color 0.5s ease-out;
   color: #fff;
@@ -1217,8 +1215,8 @@ p.locale-list-trigger {
   }
 }
 
-.locale-list .available-languages a:hover,
-.locale-list .available-languages a:focus {
+.locale-list .available-languages .available-languages__option:hover,
+.locale-list .available-languages .available-languages__option:focus {
   border-bottom: none;
   background-color: rgba(0,0,0,0.1);
   @include respond-min($main_menu-mobile_menu_cutoff) {
