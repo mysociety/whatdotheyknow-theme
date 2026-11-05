@@ -2,10 +2,14 @@
   <%= javascript_importmap_tags("newsletter_signup", importmap: Rails.application.theme_importmap) %>
 <% end %>
 
-<div class="js-newsletter-signup">
+<div data-controller="newsletter-signup"
+     data-newsletter-signup-error-message-value="<%= _('Sorry, something went wrong. Please try again.') %>"
+     data-newsletter-signup-retry-message-value="<%= _('Please try again.') %>">
   <form
     action="https://mysociety.us9.list-manage.com/subscribe/post?u=53d0d2026dea615ed488a8834&amp;id=287dc28511&amp;f_id=002b44e1f0"
-    method="post">
+    method="post"
+    data-newsletter-signup-target="form"
+    data-action="newsletter-signup#submit">
 
     <div class="newsletter-signup__fields">
       <div class="newsletter-signup__field">
@@ -28,9 +32,11 @@
     </div>
   </form>
 
-  <p class="newsletter-signup__message" role="status" aria-live="polite" hidden></p>
+  <p class="newsletter-signup__message" role="status" aria-live="polite" hidden
+     data-newsletter-signup-target="message"></p>
 
-  <div class="newsletter-signup__success" hidden>
+  <div class="newsletter-signup__success" hidden
+       data-newsletter-signup-target="success">
     <p><%= _("Thanks — you’re subscribed! Please check your inbox to confirm.") %></p>
   </div>
 </div>
