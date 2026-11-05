@@ -706,7 +706,16 @@ a.link_button_green_large {
 }
 
 .what-next {
-  background-color: transparent;
+  background-color: $notice-bg;
+  margin-bottom: 1em;
+  .what-next__button {
+    background-color: $color_red;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: darken($color_red, 10%);
+    }
+  }
 }
 
 .what-next__heading {
