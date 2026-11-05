@@ -1,3 +1,5 @@
+pin "@hotwired/stimulus", to: "stimulus.min.js"
+
 pin "carousel"
 pin "learn"
 pin "modal"

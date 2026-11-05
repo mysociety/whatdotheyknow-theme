@@ -1,88 +1,68 @@
-// Submits the Mailchimp form without leaving the site.
+import { Application, Controller } from "@hotwired/stimulus"
 
-(function () {
-  'use strict';
+// Submits the Mailchimp form over JSONP so the user stays on the site.
+// Mailchimp has no CORS endpoint, so fetch is not an option.
+class NewsletterSignupController extends Controller {
+  static targets = ["form", "message", "success"]
+  static values = { errorMessage: String, retryMessage: String }
 
-  // Find every newsletter sign-up form and prevent default behaviour.
-  function init() {
-    document.querySelectorAll('.js-newsletter-signup').forEach(function (container) {
-      if (container.dataset.newsletterInit) return;
-      container.dataset.newsletterInit = '1';
-      var form = container.querySelector('form');
-      if (!form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        submit(form, container);
-      });
-    });
-  }
+  submit(event) {
+    event.preventDefault()
 
-  function submit(form, container) {
-    var base = form.getAttribute('action').replace('/post?', '/post-json?');
-    var params = new URLSearchParams(new FormData(form));
-    var cb = 'mcCallback_' + Date.now();
-    params.append('c', cb);
+    const callback = `mcCallback_${Date.now()}`
+    const params = new URLSearchParams(new FormData(this.formTarget))
+    params.append("c", callback)
 
-    var script = document.createElement('script');
-    script.src = base + '&' + params.toString();
+    const script = document.createElement("script")
+    const action = this.formTarget.getAttribute("action")
+    script.src = `${action.replace("/post?", "/post-json?")}&${params}`
 
-    var timer = setTimeout(function () {
-      cleanup();
-      showErrorMessage(container, 'Sorry, something went wrong. Please try again.');
-    }, 10000);
-
-    // Clean the JSONP request (timer, window callback, script tag).
-    function cleanup() {
-      clearTimeout(timer);
-      try { delete window[cb]; } catch (e) { window[cb] = undefined; }
-      if (script.parentNode) script.parentNode.removeChild(script);
+    const cleanup = () => {
+      clearTimeout(timer)
+      delete window[callback]
+      script.remove()
     }
 
-    window[cb] = function (res) {
-      cleanup();
-      var already = res.msg && /already subscribed/i.test(res.msg);
-      if (res.result === 'success' || already) {
-        showSuccess(container, form);
+    const fail = () => {
+      cleanup()
+      this.showError(this.errorMessageValue)
+    }
+
+    const timer = setTimeout(fail, 10000)
+    script.onerror = fail
+
+    window[callback] = (response) => {
+      cleanup()
+      const already = /already subscribed/i.test(response.msg || "")
+      if (response.result === "success" || already) {
+        this.showSuccess()
       } else {
-        showErrorMessage(container, clean(res.msg));
+        this.showError(this.clean(response.msg))
       }
-    };
+    }
 
-    script.onerror = function () {
-      cleanup();
-      showErrorMessage(container, 'Sorry, something went wrong. Please try again.');
-    };
-
-    document.body.appendChild(script);
+    document.body.appendChild(script)
   }
 
-  function showSuccess(container, form) {
-    form.hidden = true;
-    var msg = container.querySelector('.newsletter-signup__message');
-    if (msg) msg.hidden = true;
-    var ok = container.querySelector('.newsletter-signup__success');
-    if (ok) ok.hidden = false;
+  showSuccess() {
+    this.formTarget.hidden = true
+    this.messageTarget.hidden = true
+    this.successTarget.hidden = false
   }
 
-  function showErrorMessage(container, text) {
-    var msg = container.querySelector('.newsletter-signup__message');
-    if (!msg) return;
-    msg.textContent = text;
-    msg.hidden = false;
+  showError(text) {
+    this.messageTarget.textContent = text
+    this.messageTarget.hidden = false
   }
 
-  function clean(msg) {
-  if (!msg) return 'Please try again.';
-  // Replaces Mailchimp prefixes errors "0 - " and includes HTML.
-  var text = String(msg).replace(/^\d+\s*-\s*/, '');
-  var tmp = document.createElement('div');
-  tmp.innerHTML = text;
-  return (tmp.textContent || tmp.innerText || '').trim() || 'Please try again.';
-  }
+  // Strips Mailchimp's "0 - " prefix and any HTML from its messages.
+  clean(msg) {
+    if (!msg) return this.retryMessageValue
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+    const text = String(msg).replace(/^\d+\s*-\s*/, "")
+    const doc = new DOMParser().parseFromString(text, "text/html")
+    return doc.body.textContent.trim() || this.retryMessageValue
   }
-})();
+}
+
+Application.start().register("newsletter-signup", NewsletterSignupController)
