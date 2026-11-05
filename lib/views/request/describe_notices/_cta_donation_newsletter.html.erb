@@ -15,10 +15,7 @@
         <p class="what-next__para"><%= _("Help us protect your right to hold public authorities to account. Donate and support our work.") %></p>
 
         <%= donate_now_link 'successful request donate now',
-        utm_params: {
-          utm_content: 'successful request donate now',
-          utm_campaign: 'successful_request'
-        },
+        utm_params: utm_params,
         class: 'button what-next__button' %>
       </div>
       <% end %>

@@ -46,7 +46,11 @@
         </p>
       <% end %>
 
-      <%= render 'request/describe_notices/cta_donation_newsletter' %>
+      <%= render 'request/describe_notices/cta_donation_newsletter',
+          utm_params: {
+            utm_content: 'request sent donate now',
+            utm_campaign: 'sent_request'
+          } %>
   </div>
 </div>
 
@@ -67,4 +71,3 @@
   </div>
 </noscript>
 <% end %>
-

@@ -23,5 +23,9 @@
     <span><%= _("Share this request") %></span>
   </a>
 
-  <%= render 'request/describe_notices/cta_donation_newsletter' %>
+  <%= render 'request/describe_notices/cta_donation_newsletter',
+      utm_params: {
+        utm_content: 'successful request donate now',
+        utm_campaign: 'successful_request'
+      } %>
   </div>
