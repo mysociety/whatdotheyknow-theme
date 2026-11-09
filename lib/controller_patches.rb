@@ -13,6 +13,10 @@ Rails.application.config.after_initialize do
   class RulesController < ApplicationController
     def welcome; end
   end
+
+  class NewsletterController < ApplicationController
+    def index; end
+  end
 end
 
 Rails.configuration.to_prepare do
