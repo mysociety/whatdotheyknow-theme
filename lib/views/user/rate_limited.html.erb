@@ -10,9 +10,9 @@
 </p>
 
 <p>
-  <%= _('There is also a limit on the speed at which you are able to create ' \
-        'requests. Please try again later if you have not hit your daily ' \
-        'limit.') %>
+  <%= _('If you submitted requests in quick succession, you might hit a' \
+        'secondary limit, even if you have not reached the daily limit.' \
+        'Please try submitting your request again later.') %>
 </p>
 
 <p><%= _("There is a limit on the number of requests you can make in a day, " \
@@ -29,19 +29,19 @@
         <h2><%= _('Sending to multiple authorities at once?') %></h2>
         <div>
           <p>
-            <%= _('<strong class="marketing-highlight">Make a request to ' \
-                  'multiple authorities:</strong> select authorities at the ' \
-                  'click of a button.') %>
+            <%=_('<strong class="marketing-highlight">Make a request to ' \
+                 'multiple authorities</strong>: select authorities at the ' \
+                 'click of a button.') %>
           </p>
           <p>
-            <%= _('<strong class="marketing-highlight">Manage large volumes ' \
-                  'of responses:</strong> easily keep track of the status of ' \
-                  'each request.') %>
+            <%=_('<strong class="marketing-highlight">Manage large volumes of ' \
+                 'responses</strong>: easily keep track of the status of each ' \
+                 'request.') %>
           </p>
           <p>
-            <%= _('<strong class="marketing-highlight">Get regular updates:' \
-                  '</strong> as the responses come in — without overwhelming ' \
-                  'your inbox.') %>
+            <%=_('<strong class="marketing-highlight">Get regular updates' \
+                 '</strong> as the responses come in — without overwhelming ' \
+                 'your inbox.') %>
           </p>
         </div>
         <p>
@@ -52,7 +52,7 @@
       </div>
 
       <div class="pro-upsell__header">
-        <h2><%= _('<h2>Journalist, Academic or Power User?</h2>') %></h2>
+        <h2><%= _('Journalist, Academic or Power User?') %></h2>
         <p>
             <%= _('{{pro_site_link}} is an all-in-one FOI toolkit including ' \
                   'everything you need to keep on top of complex FOI-driven ' \
@@ -60,6 +60,7 @@
                   pro_site_link: link_to(pro_site_name,
                                          account_request_index_path)) %>
         </p>
+
         <div>
           <p>
             <%= _('<strong class="marketing-highlight">No fear of getting ' \

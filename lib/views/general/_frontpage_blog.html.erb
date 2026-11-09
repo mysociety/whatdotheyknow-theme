@@ -1,4 +1,4 @@
-<% cache_if_caching_fragments("frontpage-blog-#{@locale}", expires_in: 1.hour) do %>
+<% cache_if_caching_fragments("frontpage-blog", expires_in: 1.hour) do %>
   <% if blog_posts_for_frontpage.any? %>
     <div class="homepage-blog-section" id="homepage-blog">
       <div class="row homepage-blog-section__ar-content">

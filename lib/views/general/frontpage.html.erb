@@ -1,8 +1,18 @@
-<% cache_if_caching_fragments("frontpage-#{@locale}", expires_in: 5.minutes) do %>
+<% content_for :head do %>
+  <%= canonical_tag frontpage_url %>
+<% end %>
+
+<% content_for :body_class, 'front' %>
+
+<% cache_if_caching_fragments("frontpage", expires_in: 5.minutes) do %>
+  <%# rendered in general/_responsive_header = render partial: 'frontpage_how_it_works' %>
+
   <div id="frontpage_examples" class="frontpage_examples">
     <%= render partial: 'frontpage_bodies_list' %>
     <%= render partial: 'frontpage_requests_list' %>
   </div>
 
+  <%# rendered in general/_frontpage_extra = render partial: 'frontpage_ati_showcase_cta' if AtiNetworkController.showcase_enabled? %>
+  <%# rendered in general/_frontpage_extra = render partial: 'frontpage_blog' if Blog.enabled? %>
   <%= render partial: 'frontpage_extra' %>
 <% end %>
