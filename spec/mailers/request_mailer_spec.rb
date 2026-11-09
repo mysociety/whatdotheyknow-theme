@@ -15,7 +15,6 @@ RSpec.describe RequestMailer do
       expected = <<-EOF.strip_heredoc
         -- the Test team
 
-        --------------------------------------------------------------------------------
 
         WhatDoTheyKnow is a project of mySociety run by a small team of staff and
         dedicated volunteers.
