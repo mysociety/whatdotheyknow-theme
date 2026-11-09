@@ -57,7 +57,6 @@ end
   'excel_analyzer.rb',
   'authority_only_response_gatekeeper.rb',
   'raw_email_usage.rb',
-  'immigration_detection.rb',
   'user_check_integration.rb',
   'user_email_variations.rb',
   'email_domain_report.rb'
