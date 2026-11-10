@@ -69,7 +69,7 @@ jobs:
         ref: ${{ env.PR_ALAVETELI_BRANCH }}
         path: core
         submodules: true
-        fetch-depth: 0
+        fetch-depth: 1
 
     - name: Start PostgreSQL
       run: |
@@ -99,13 +99,23 @@ jobs:
       with:
         path: alaveteli-themes/whatdotheyknow-theme
 
+    - name: Make apt archives writable for the cache
+      run: sudo chown $USER /var/cache/apt/archives
+
+    - name: Cache apt packages
+      uses: actions/cache@v6
+      with:
+        path: /var/cache/apt/archives/*.deb
+        key: apt-${{ matrix.os }}-${{ hashFiles('core/config/packages') }}
+
     - name: Install packages
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo apt-get -y update
-        sudo apt-get -y install exim4-daemon-light
-        sudo apt-get -y install `cut -d " " -f 1 config/packages | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
+        sudo apt-get -y install --no-install-recommends \
+          exim4-daemon-light \
+          $(cut -d ' ' -f 1 config/packages | grep -Ev '(^#|wkhtml|bundler|^ruby|^rake)')
       working-directory: core
 
     - name: Install Ruby ${{ matrix.ruby || env.ALAVETELI_RUBY }}
