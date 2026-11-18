@@ -59,13 +59,13 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
       to eq('No data breach found after automated review')
   end
 
-  shared_examples :attachment_reported do
+  shared_examples :attachment_reported do |reasons|
     it 'sents report email' do
       deliveries = ActionMailer::Base.deliveries
       expect(deliveries.size).to eq(0)
 
-      expect(ExcelAnalyzer::NotifierMailer).to receive(:report).with(blob).
-        and_call_original
+      expect(ExcelAnalyzer::NotifierMailer).to receive(:report).
+        with(blob, reasons).and_call_original
       perform
       expect(deliveries.size).to eq(1)
 
@@ -75,33 +75,33 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
 
   context 'when PII Badger failed' do
     let(:pii_metadata) { { error: 'Exited with status 1' } }
-    include_examples :attachment_reported
+    include_examples :attachment_reported, [:pii_badger_failed]
   end
 
   context 'when potential PII leaks were detected' do
     let(:pii_metadata) { { potential_pii_leaks: [:foo] } }
-    include_examples :attachment_reported
+    include_examples :attachment_reported, [:potential_pii_leaks]
   end
 
   context 'when XLS and pivot cache present' do
-    let(:excel_metadata) { { pivot_cache: 1 } }
+    let(:excel_metadata) { super().merge(pivot_cache: 1) }
     before { blob.content_type = ExcelAnalyzer::XlsAnalyzer::CONTENT_TYPE }
-    include_examples :attachment_reported
+    include_examples :attachment_reported, [:xls_pivot_cache]
   end
 
   context 'when named ranges and external links present' do
-    let(:excel_metadata) do
-      { pivot_cache: 0, named_ranges: 1, external_links: 1 }
-    end
-
-    include_examples :attachment_reported
+    let(:excel_metadata) { super().merge(named_ranges: 1, external_links: 1) }
+    include_examples :attachment_reported, [:external_links]
   end
 
   context 'when data model present' do
-    let(:excel_metadata) do
-      { pivot_cache: 0, named_ranges: 0, external_links: 0, data_model: 1 }
-    end
+    let(:excel_metadata) { super().merge(data_model: 1) }
+    include_examples :attachment_reported, [:data_model]
+  end
 
-    include_examples :attachment_reported
+  context 'when more than one reason applies' do
+    let(:pii_metadata) { { potential_pii_leaks: [:foo] } }
+    let(:excel_metadata) { super().merge(data_model: 1) }
+    include_examples :attachment_reported, [:potential_pii_leaks, :data_model]
   end
 end

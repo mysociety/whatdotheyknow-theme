@@ -5,8 +5,10 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
   let(:attachment) { message.foi_attachments.first }
   let(:blob) { attachment.file_blob }
 
+  let(:reasons) { [:potential_pii_leaks, :data_model] }
+
   let(:mail) do
-    described_class.report(blob).deliver_now
+    described_class.report(blob, reasons).deliver_now
     ActionMailer::Base.deliveries[-1]
   end
 
@@ -36,6 +38,14 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
   it 'has attachment ID in the subject' do
     expect(mail.subject).
       to eq("ExcelAnalyzer: hidden data detected [#{attachment.id}]")
+  end
+
+  it 'lists the reasons in the body' do
+    expect(mail.body).to include(<<~TXT)
+      It needs a review because:
+      - PII Badger found possible personal data
+      - Data model present
+    TXT
   end
 
   it 'includes the admin URL in the body' do

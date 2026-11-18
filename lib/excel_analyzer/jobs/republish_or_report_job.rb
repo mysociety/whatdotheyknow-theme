@@ -14,7 +14,9 @@ module ExcelAnalyzer
     def perform(attachment_blob)
       @attachment_blob = attachment_blob
 
-      if safe_to_republish?
+      reasons = report_reasons
+
+      if reasons.empty?
         # Republish attachment
         attachment.update_and_log_event(
           prominence: hide_event.params[:old_prominence],
@@ -27,18 +29,26 @@ module ExcelAnalyzer
         })
       else
         # Report attachment
-        ExcelAnalyzer::NotifierMailer.report(attachment_blob).deliver_now
+        ExcelAnalyzer::NotifierMailer.report(attachment_blob, reasons).
+          deliver_now
       end
     end
 
     private
 
-    def safe_to_republish?
-      !pii_badger_failed? &&
-        !potential_pii_leaks? &&
-        !(xls? && pivot_cache?) &&
-        !(named_ranges? && external_links?) &&
-        !(data_model?)
+    def report_reasons
+      reasons = []
+
+      if pii_badger_failed?
+        reasons << :pii_badger_failed
+      elsif potential_pii_leaks?
+        reasons << :potential_pii_leaks
+      end
+
+      reasons << :xls_pivot_cache if xls? && pivot_cache?
+      reasons << :external_links if named_ranges? && external_links?
+      reasons << :data_model if data_model?
+      reasons
     end
 
     def pii_badger_failed?
