@@ -30,6 +30,14 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
     expect(mail['X-WDTK-CaseRef'].value).to eq(attachment.to_param)
   end
 
+  it 'refers to the same thread for each report on the attachment' do
+    thread_id = "excel-analyzer-#{attachment.id}@" \
+      "#{AlaveteliConfiguration.incoming_email_domain}"
+    expect(mail.in_reply_to).to eq(thread_id)
+    expect(mail.references).to eq(thread_id)
+    expect(mail.message_id).not_to eq(thread_id)
+  end
+
   it 'sents mail from and to the correct addresses' do
     expect(mail.from).to include(blackhole_email)
     expect(mail.to).to include(ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL'])

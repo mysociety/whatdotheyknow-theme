@@ -28,6 +28,13 @@ module ExcelAnalyzer
       headers['X-WDTK-Contact'] = 'wdtk-excel-analyzer-report'
       headers['X-WDTK-CaseRef'] = @foi_attachment.id
 
+      # Refer every report for an attachment to the same ID, which no email
+      # has, so that mail clients thread the reports together.
+      thread_id = "<excel-analyzer-#{@foi_attachment.id}@" \
+        "#{AlaveteliConfiguration.incoming_email_domain}>"
+      headers['In-Reply-To'] = thread_id
+      headers['References'] = thread_id
+
       mail(
         from: from,
         to: ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL'],
