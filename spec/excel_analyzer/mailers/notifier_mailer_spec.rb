@@ -83,6 +83,20 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
     TXT
   end
 
+  it 'includes how long PII Badger ran for in the body' do
+    allow(blob).to receive(:metadata).and_return(
+      excel: {}, pii_badger: { duration: 9.6, potential_pii_leaks: [] }
+    )
+    expect(mail.body).to include('PII Badger ran for 9.6 seconds.')
+  end
+
+  it 'rounds a PII Badger run time over a minute to whole seconds' do
+    allow(blob).to receive(:metadata).and_return(
+      excel: {}, pii_badger: { duration: 605.3, potential_pii_leaks: [] }
+    )
+    expect(mail.body).to include('PII Badger ran for 10 minutes and 5 seconds.')
+  end
+
   it 'includes the PII Badger error as plain text in the body' do
     allow(blob).to receive(:metadata).and_return(
       excel: {}, pii_badger: { error: "Exited with status 1\nValueError" }

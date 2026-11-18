@@ -19,6 +19,7 @@ module ExcelAnalyzer
       @reasons = REASONS.values_at(*reasons)
       @excel_findings = @metadata[:excel].reject { |_name, value| value == 0 }
       @pii_findings = pii_findings(@metadata[:pii_badger])
+      @pii_badger_duration = duration(@metadata.dig(:pii_badger, :duration))
 
       from = email_address_with_name(
         blackhole_email, 'WhatDoTheyKnow.com Excel Analyzer report'
@@ -36,6 +37,13 @@ module ExcelAnalyzer
     end
 
     private
+
+    def duration(seconds)
+      return unless seconds
+
+      seconds = seconds.round if seconds >= 60
+      ActiveSupport::Duration.build(seconds).inspect
+    end
 
     def pii_findings(metadata)
       Array(metadata&.dig(:potential_pii_leaks)).map do |leak|

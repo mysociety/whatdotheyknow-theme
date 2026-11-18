@@ -16,7 +16,10 @@ module ExcelAnalyzer
 
     def perform(attachment_blob)
       attachment_blob.open(tmpdir: ENV['EXCEL_ANALYZER_TMP_DIR']) do |file|
-        pii_badger_metadata = run_pii_badger(file.path)
+        started_at = Time.current
+        pii_badger_metadata = run_pii_badger(file.path).merge(
+          duration: (Time.current - started_at).round(1)
+        )
 
         # Lock and reload before merging so the analyzer's :excel metadata,
         # which ActiveStorage persists concurrently, is not clobbered by a

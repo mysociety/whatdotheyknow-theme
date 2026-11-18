@@ -18,6 +18,10 @@ Excel Analyzer findings:
 - None
 <% end -%>
 
+<% if @pii_badger_duration -%>
+PII Badger ran for <%= @pii_badger_duration %>.
+
+<% end -%>
 <% if @metadata[:pii_badger]&.key?(:error) -%>
 PII Badger could not scan this file for personal data.
 

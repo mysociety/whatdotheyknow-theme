@@ -50,13 +50,26 @@ RSpec.describe ExcelAnalyzer::PIIBadgerJob, type: :job do
 
   it 'updates the blob metadata' do
     expect { perform }.to change(blob, :metadata)
-    expect(blob.metadata).to include(pii_badger: pii_metadata)
+    expect(blob.metadata).to include(pii_badger: hash_including(pii_metadata))
+  end
+
+  it 'stores how long PII Badger ran for' do
+    freeze_time
+    allow(xc).to receive(:run) do
+      travel(10.seconds)
+      xc
+    end
+    perform
+    expect(blob.reload.metadata[:pii_badger]).
+      to eq('bar' => 'baz', 'duration' => 10.0)
   end
 
   it 'preserves concurrently persisted excel metadata' do
     perform
     expect(blob.reload.metadata).
-      to include(excel: excel_metadata, pii_badger: pii_metadata)
+      to include(
+        excel: excel_metadata, pii_badger: hash_including(pii_metadata)
+      )
   end
 
   it 'queues Republish or Report job' do
