@@ -64,6 +64,10 @@ end
 
 $alaveteli_route_extensions << 'wdtk-routes.rb'
 
+ActiveSupport.on_load(:action_mailer) do
+  preview_paths << theme_root.join('spec/mailers/previews').to_s
+end
+
 # Tell FastGettext about the theme's translations: look in the theme's
 # locale-theme directory for a translation in the first place, and if
 # it isn't found, look in the Alaveteli locale directory next:
