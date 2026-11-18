@@ -73,6 +73,11 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
     end
   end
 
+  context 'when PII Badger failed' do
+    let(:pii_metadata) { { error: 'Exited with status 1' } }
+    include_examples :attachment_reported
+  end
+
   context 'when potential PII leaks were detected' do
     let(:pii_metadata) { { potential_pii_leaks: [:foo] } }
     include_examples :attachment_reported

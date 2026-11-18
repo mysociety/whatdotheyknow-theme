@@ -34,10 +34,15 @@ module ExcelAnalyzer
     private
 
     def safe_to_republish?
-      !potential_pii_leaks? &&
+      !pii_badger_failed? &&
+        !potential_pii_leaks? &&
         !(xls? && pivot_cache?) &&
         !(named_ranges? && external_links?) &&
         !(data_model?)
+    end
+
+    def pii_badger_failed?
+      attachment_blob.metadata[:pii_badger].key?(:error)
     end
 
     def potential_pii_leaks?
