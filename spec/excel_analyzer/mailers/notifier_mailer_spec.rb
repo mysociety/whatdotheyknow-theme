@@ -102,7 +102,8 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
       excel: {}, pii_badger: { error: "Exited with status 1\nValueError" }
     )
     expect(mail.body).to include(<<~TXT)
-      PII Badger could not scan this file for personal data.
+      PII Badger could not scan this file for personal data. To try again, use
+      "Re-run PII Badger" on the admin attachment page.
 
       PII Badger error:
       Exited with status 1

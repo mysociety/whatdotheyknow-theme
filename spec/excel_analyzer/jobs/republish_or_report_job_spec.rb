@@ -32,7 +32,10 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
     )
 
     # hide attachment
-    attachment.update(prominence: 'hidden')
+    attachment.update(
+      prominence: 'hidden',
+      prominence_reason: ExcelAnalyzer::PROMINENCE_REASON
+    )
 
     # create hide event
     message.info_request.info_request_events.create(
@@ -61,6 +64,15 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
     expect(event.params[:type]).to eq('excel-analyzer-safe')
     expect(event.params[:reason]).
       to eq('No data breach found after automated review')
+  end
+
+  context 'when an admin changed the prominence' do
+    before { attachment.update(prominence_reason: 'Hidden after review') }
+
+    it 'does not republish the attachment' do
+      expect { perform; attachment.reload }.
+        not_to change(attachment, :prominence)
+    end
   end
 
   shared_examples :attachment_reported do |reasons|

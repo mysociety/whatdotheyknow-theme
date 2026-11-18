@@ -16,6 +16,9 @@ module ExcelAnalyzer
 
       reasons = report_reasons
 
+      # An admin may have changed the prominence while PII Badger ran
+      return if reasons.empty? && !ExcelAnalyzer.hidden?(attachment)
+
       if reasons.empty?
         # Republish attachment
         attachment.update_and_log_event(

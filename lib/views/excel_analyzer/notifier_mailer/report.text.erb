@@ -23,7 +23,8 @@ PII Badger ran for <%= @pii_badger_duration %>.
 
 <% end -%>
 <% if @metadata[:pii_badger]&.key?(:error) -%>
-PII Badger could not scan this file for personal data.
+PII Badger could not scan this file for personal data. To try again, use
+"Re-run PII Badger" on the admin attachment page.
 
 PII Badger error:
 <%= @metadata[:pii_badger][:error] %>
