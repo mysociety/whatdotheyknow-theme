@@ -10,8 +10,27 @@ Requested from: <%= @incoming_message.info_request.public_body.name %>
 Admin request URL: <%= admin_request_url(@incoming_message.info_request_id) %>
 Admin attachment URL: <%= edit_admin_foi_attachment_url(@foi_attachment) %>
 
-Excel Analyzer metadata: <%= JSON.pretty_generate(@metadata[:excel]) %>
+Excel Analyzer findings:
+<% @excel_findings.each do |name, value| -%>
+- <%= name %>: <%= value %>
+<% end -%>
+<% if @excel_findings.empty? -%>
+- None
+<% end -%>
 
-PII Badger metadata: <%= JSON.pretty_generate(@metadata[:pii_badger]) %>
+<% if @metadata[:pii_badger]&.key?(:error) -%>
+PII Badger could not scan this file for personal data.
+
+PII Badger error:
+<%= @metadata[:pii_badger][:error] %>
+<% else -%>
+PII Badger findings:
+<% @pii_findings.each do |finding| -%>
+- <%= finding %>
+<% end -%>
+<% if @pii_findings.empty? -%>
+- None
+<% end -%>
+<% end -%>
 
 Please review the file carefully.

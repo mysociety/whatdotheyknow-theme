@@ -55,11 +55,45 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
       to include("http://test.host/admin/attachments/#{attachment.id}/edit")
   end
 
-  it 'includes the metadata in the body' do
+  it 'lists the Excel Analyzer counts that are not zero in the body' do
     allow(blob).to receive(:metadata).and_return(
-      excel: { foo: 'bar' }, pii_badger: { baz: 'qux' }
+      excel: { hidden_rows: 112, hidden_sheets: 0, named_ranges: 1 }
     )
-    expect(mail.body).to include('"foo": "bar"')
-    expect(mail.body).to include('"baz": "qux"')
+    expect(mail.body).to include(<<~TXT)
+      Excel Analyzer findings:
+      - hidden_rows: 112
+      - named_ranges: 1
+
+    TXT
+  end
+
+  it 'summarises the PII Badger leaks in the body' do
+    allow(blob).to receive(:metadata).and_return(
+      excel: {},
+      pii_badger: {
+        potential_pii_leaks: [
+          { source: 'Pivot Cache', pii_type: 'PERSON', count: 2965,
+            average_confidence: 0.8499999999999526 }
+        ]
+      }
+    )
+    expect(mail.body).to include(<<~TXT)
+      PII Badger findings:
+      - Pivot Cache: PERSON (2965 matches, average confidence 0.85)
+    TXT
+  end
+
+  it 'includes the PII Badger error as plain text in the body' do
+    allow(blob).to receive(:metadata).and_return(
+      excel: {}, pii_badger: { error: "Exited with status 1\nValueError" }
+    )
+    expect(mail.body).to include(<<~TXT)
+      PII Badger could not scan this file for personal data.
+
+      PII Badger error:
+      Exited with status 1
+      ValueError
+    TXT
+    expect(mail.body).not_to include('PII Badger findings')
   end
 end

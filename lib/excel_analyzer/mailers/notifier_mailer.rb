@@ -17,6 +17,8 @@ module ExcelAnalyzer
       @incoming_message = @foi_attachment.incoming_message
       @metadata = attachment_blob.metadata
       @reasons = REASONS.values_at(*reasons)
+      @excel_findings = @metadata[:excel].reject { |_name, value| value == 0 }
+      @pii_findings = pii_findings(@metadata[:pii_badger])
 
       from = email_address_with_name(
         blackhole_email, 'WhatDoTheyKnow.com Excel Analyzer report'
@@ -31,6 +33,18 @@ module ExcelAnalyzer
         subject: _('ExcelAnalyzer: hidden data detected [{{reference}}]',
                    reference: @foi_attachment.id)
       )
+    end
+
+    private
+
+    def pii_findings(metadata)
+      Array(metadata&.dig(:potential_pii_leaks)).map do |leak|
+        format(
+          '%s: %s (%s matches, average confidence %.2f)',
+          *leak.values_at(:source, :pii_type, :count),
+          leak[:average_confidence].to_f
+        )
+      end
     end
   end
 end
