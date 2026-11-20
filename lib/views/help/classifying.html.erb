@@ -1,0 +1,195 @@
+<% @title = 'Classifying the status of your request' %>
+
+<%= render partial: 'sidebar' %>
+
+<div id="left_column_flip" class="left_column_flip">
+  <h1 id="classifying_requests"><%= @title %> <a href="#classifying_requests">#</a></h1>
+
+  <p>When you receive a response to your FOI request, we ask you to <strong>classify</strong> it.</p>
+  <p>At the most basic level, this means that you check a box to say whether you received the information you asked for, or not. But there's also a bit more to it than that.</p>
+
+  <h2 id="why">Why classify? <a href="#why">#</a></h2>
+
+  <p>It's useful for you, because once you classify your request, we can show you the advice that is most relevant to your situation. Request refused? We tell you what to do next. Request delayed? Likewise. And if there's some other situation, we can help with that too.</p>
+
+  <p>But there's a wider good, as well: by classifying your request, you're helping everyone find the information they're looking for on WhatDoTheyKnow.</p>
+
+  <p>People using the search function can filter the results so they only see requests that had a response, not having to wade through unfinished or unsuccessful requests.</p>
+
+  <p>On the other hand, some people might look <em>only</em> at refused requests, so they can learn from what has been turned down in the past.</p>
+
+  <p>Either way, that top-level classification is really useful, and, as the person most familiar with your request, you're the best person to do it.</p>
+
+  <h2 id="options">Possible classifications <a href="#options">#</a></h2>
+
+  <p>Responses can take a number of different forms, and you're likely to receive at least two of them — often more — during the request process.</p>
+
+  <p>We ask you to classify your request every time you get a new piece of communication. Here are the options, and when you should apply each of them:</p>
+
+  <h3 id="in-progress">In progress <a href="#in-progress">#</a></h3>
+
+  <ul>
+    <li>
+      <p><strong>I'm still waiting for my information:</strong></p>
+      <ul>
+        <li>You might have received an initial acknowledgement from the authority.</li>
+        <li>The authority might have told you that there will be a delay in responding.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>I've been asked to clarify my request:</strong></p>
+      <ul>
+        <li>This can happen if the authority wants to make sure they understand exactly what you are asking for.</li>
+        <li>A request for clarification <a href="https://ico.org.uk/for-organisations/foi/freedom-of-information-and-environmental-information-regulations/interpreting-and-clarifying-requests">resets the clock</a> on the due date for a response: the period allowed for a response begins again the day after the authority receives your clarification.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>They are going to reply by postal mail:</strong></p>
+      <ul>
+        <li>It's not that common, but it does happen. If the correspondence has gone offline, you can indicate that here — and when you receive your information, you can potentially upload it in an annotation on your request page.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 id="finished">Finished <a href="#finished">#</a></h3>
+
+  <ul>
+    <li>
+      <p><strong>I've received all of the information</strong></p>
+      <ul>
+        <li>The best, and most straightforward scenario: the authority has provided everything you asked for.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>I've received some of the information:</strong></p>
+      <ul>
+        <li>Responses don't always contain everything you've asked for. The authority might have released some of the information, while withholding the rest under an <a href="https://www.whatdotheyknow.com/help/exemptions">exemption</a>.</li>
+        <li>If you've asked for several pieces of information, they might have overlooked one.</li>
+        <li>They might have provided information that only partially answers your request.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>They do not have the information:</strong></p>
+      <ul>
+        <li>You might have asked for an answer that doesn't exist — or at least, not in the form of <a href="https://www.whatdotheyknow.com/learn/effective_requests">recorded information</a>.</li>
+        <li>You might have asked for information that <em>does</em> exist, but is not held by that authority. Ideally, if that's the case, they should suggest a better one to try.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>My request has been refused</strong></p>
+      <ul>
+        <li>The authority has applied <a href="https://www.whatdotheyknow.com/help/exemptions">an exemption</a> — in other words, one of the reasons listed in the FOI Act, which means they do not have to provide the information you have asked for.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Selecting any of these classifications does not have to be the end of your request: when you add a classification, you'll see suggestions for what you can do next.</p>
+
+  <p>Sometimes, these will unlock a new classification:</p>
+
+  <ul>
+    <li><strong>I'm waiting for an internal review response</strong>
+      <ul>
+        <li>This is when you are unsatisfied that a refusal should have been applied, and you've used your right to ask the authority to look at your request again.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 id="problems">Letting us know about an issue <a href="#problems">#</a></h3>
+
+  <p>You can find these options when you select <em>Actions &gt; Update the status of this request</em>.</p>
+
+  <ul>
+    <li>
+      <p><strong>I've received an error message</strong></p>
+      <ul>
+        <li>Sometimes emails bounce, or hit spam filters and are refused. If this happens, check this button and you'll see guidance on what to do next.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>This request requires administrator attention</strong></p>
+      <ul>
+        <li>You might use this option if you need help: for example an attachment to a response can't be opened, or you need advice on how to reply..</li>
+        <li>Please do <em>not</em> use this function to do anything other than alert the WhatDoTheyKnow admin team of a technical problem or an issue with the request such as those described above. For example, you should not use this function to dispute the authority's response or to add an annotation, both of which can be done by more suitable means.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>I would like to withdraw my request</strong></p>
+      <ul>
+        <li>Sometimes, you might wish to withdraw your request — if, for example, you no longer need the information you were asking for, or perhaps have found it by another means.</li>
+        <li>From the 'Actions' drop-down, choose <em>Update the status of this request</em> &gt; <em>Other</em> &gt; <em>I would like to withdraw this request.</em></li>
+        <li>Then send a message to the authority, via the same page, to let them know you are withdrawing your request: this does not happen automatically when you classify it that way.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2 id="other">How to classify your request when it doesn't fit any of these categories <a href="#other">#</a></h2>
+
+  <p>As with any attempts to classify, we know there will be some responses that don't fit into a neat box. For these, we would encourage you to use whichever one is the closest fit.</p>
+
+  <p>Here are some of the circumstances you might come across:</p>
+
+  <ul>
+    <li>
+      <p><strong>The authority has asked me to confirm my name or ID:</strong></p>
+      <ul>
+        <li>Choose <em>Still in progress &gt; I've been asked to clarify my request.</em></li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>The authority has replied to give advice on how I can make your request more likely to succeed</strong> — for example suggesting a differently-worded request that reflects the data they hold.</p>
+      <ul>
+        <li>Choose <em>Still in progress &gt; I've been asked to clarify my request.</em></li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>I've received information, but I can't access it</strong> — perhaps it is password-protected, or in a format that won't display properly.</p>
+      <ul>
+        <li>Choose <em>Other &gt; Update the status of this request</em> &gt;<em>This request requires administrator attention</em>, and ask the WhatDoTheyKnow admin team to help you access it. We'll do what we can, or advise you to get back in touch with the authority if we're also unable to open the response.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>I've received the information, but not in the format I asked for</strong></p>
+      <ul>
+        <li>Decide whether you can work with the format provided: if so, choose <em>Finished &gt; I've received all the information</em>.</li>
+        <li>If not, choose <em>Finished &gt; I've received some of the information</em>, and respond to the authority to ask them to re-send the data in your preferred format. There is <a href="https://www.whatdotheyknow.com/help/requesting#format">more about requesting information in a specified format here</a>.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>I asked for several pieces of information, and most, but not all, of them have been refused</strong></p>
+      <ul>
+        <li>If you've requested, say, five pieces of information and just one of them has been provided, you could mark your request as <em>Partially successful</em>.</li>
+        <li>If that one piece was very minor, though, and the other four points would actually have provided the main substance of a response, you might decide that overall the request was unsuccessful, and mark it that way — it's your call.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>The authority has replied directly to my personal email address</strong></p>
+      <ul>
+        <li>This can happen if, for example, the authority already has your details on file from previous communication — but it is poor practice from them, as there is no guarantee that you are not a different person who happens to have the same name. An email address is a more reliable unique identifier.</li>
+        <li>Ideally, you should respond via your request page on WhatDoTheyKnow and ask the authority to rerelease the information via your preferred means of contact, ie the unique email address that WhatDoTheyKnow generates when you make a request, and which ensures that the response is published on the site — and is therefore available for everyone to benefit from.</li>
+      </ul>
+    </li>
+
+    <li>
+      <p><strong>The authority has responded with a link to a page where I have to log in to see the information I requested</strong></p>
+      <ul>
+        <li>This is a rather unsatisfactory method for an authority to respond, because the link, or the information hosted on it, can expire — meaning the information is no longer available for everyone to access.</li>
+        <li>Click on Report at the foot of the response on your WhatDoTheyKnow request page, and ask the admin team for assistance. They will ensure the information still gets published on your page.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <%= render partial: 'history' %>
+</div>
