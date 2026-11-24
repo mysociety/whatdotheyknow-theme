@@ -631,6 +631,8 @@ a.link_button_green_large {
 
     &--item {
       padding: 0.5em 1.5em 0;
+      margin-bottom: 0;
+      background-color: transparent;
     }
 
   // divider only when there is a second item.
