@@ -63,32 +63,12 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
       to include("http://test.host/admin/attachments/#{attachment.id}/edit")
   end
 
-  it 'lists the Excel Analyzer counts that are not zero in the body' do
+  it 'includes the metadata in the body' do
     allow(blob).to receive(:metadata).and_return(
-      excel: { hidden_rows: 112, hidden_sheets: 0, named_ranges: 1 }
+      excel: { foo: 'bar' }, pii_badger: { baz: 'qux' }
     )
-    expect(mail.body).to include(<<~TXT)
-      Excel Analyzer findings:
-      - hidden_rows: 112
-      - named_ranges: 1
-
-    TXT
-  end
-
-  it 'summarises the PII Badger leaks in the body' do
-    allow(blob).to receive(:metadata).and_return(
-      excel: {},
-      pii_badger: {
-        potential_pii_leaks: [
-          { source: 'Pivot Cache', pii_type: 'PERSON', count: 2965,
-            average_confidence: 0.8499999999999526 }
-        ]
-      }
-    )
-    expect(mail.body).to include(<<~TXT)
-      PII Badger findings:
-      - Pivot Cache: PERSON (2965 matches, average confidence 0.85)
-    TXT
+    expect(mail.body).to include('"foo": "bar"')
+    expect(mail.body).to include('"baz": "qux"')
   end
 
   it 'includes how long PII Badger ran for in the body' do
@@ -105,18 +85,13 @@ RSpec.describe ExcelAnalyzer::NotifierMailer do
     expect(mail.body).to include('PII Badger ran for 10 minutes and 5 seconds.')
   end
 
-  it 'includes the PII Badger error as plain text in the body' do
+  it 'explains how to re-run PII Badger after an error in the body' do
     allow(blob).to receive(:metadata).and_return(
-      excel: {}, pii_badger: { error: "Exited with status 1\nValueError" }
+      excel: {}, pii_badger: { error: 'Exited with status 1' }
     )
     expect(mail.body).to include(<<~TXT)
       PII Badger could not scan this file for personal data. To try again, use
       "Re-run PII Badger" on the admin attachment page.
-
-      PII Badger error:
-      Exited with status 1
-      ValueError
     TXT
-    expect(mail.body).not_to include('PII Badger findings')
   end
 end

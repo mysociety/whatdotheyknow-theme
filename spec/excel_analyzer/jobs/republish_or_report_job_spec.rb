@@ -9,10 +9,6 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
     { pivot_cache: 0, named_ranges: 0, external_links: 0, data_model: 0 }
   end
   let(:pii_metadata) { { potential_pii_leaks: [] } }
-  let(:leak) do
-    { source: 'Pivot Cache', pii_type: 'PERSON', count: 1,
-      average_confidence: 0.85 }
-  end
 
   around do |example|
     to = ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL']
@@ -95,7 +91,7 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
   end
 
   context 'when potential PII leaks were detected' do
-    let(:pii_metadata) { { potential_pii_leaks: [leak] } }
+    let(:pii_metadata) { { potential_pii_leaks: [:foo] } }
     include_examples :attachment_reported, [:potential_pii_leaks]
   end
 
@@ -116,7 +112,7 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
   end
 
   context 'when more than one reason applies' do
-    let(:pii_metadata) { { potential_pii_leaks: [leak] } }
+    let(:pii_metadata) { { potential_pii_leaks: [:foo] } }
     let(:excel_metadata) { super().merge(data_model: 1) }
     include_examples :attachment_reported, [:potential_pii_leaks, :data_model]
   end

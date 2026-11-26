@@ -17,8 +17,6 @@ module ExcelAnalyzer
       @incoming_message = @foi_attachment.incoming_message
       @metadata = attachment_blob.metadata
       @reasons = REASONS.values_at(*reasons)
-      @excel_findings = @metadata[:excel].reject { |_name, value| value == 0 }
-      @pii_findings = pii_findings(@metadata[:pii_badger])
       @pii_badger_duration = duration(@metadata.dig(:pii_badger, :duration))
 
       from = email_address_with_name(
@@ -50,16 +48,6 @@ module ExcelAnalyzer
 
       seconds = seconds.round if seconds >= 60
       ActiveSupport::Duration.build(seconds).inspect
-    end
-
-    def pii_findings(metadata)
-      Array(metadata&.dig(:potential_pii_leaks)).map do |leak|
-        format(
-          '%s: %s (%s matches, average confidence %.2f)',
-          *leak.values_at(:source, :pii_type, :count),
-          leak[:average_confidence].to_f
-        )
-      end
     end
   end
 end
