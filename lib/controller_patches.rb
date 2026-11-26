@@ -48,6 +48,7 @@ Rails.configuration.to_prepare do
     def reasons; end
     def authorities; end
     def responses; end
+    def classifying; end
     def using; end
     def accessing_information; end
     def account_management; end
