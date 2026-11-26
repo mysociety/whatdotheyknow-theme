@@ -164,4 +164,9 @@ Rails.application.routes.draw do
   post '/admin/attachments/:foi_attachment_id/scan' =>
          'excel_analyzer/scans#create',
        as: :admin_foi_attachment_scan
+
+  # Re-run PII Badger on an attachment that ExcelAnalyzer hid
+  post '/admin/attachments/:foi_attachment_id/pii_badger' =>
+         'excel_analyzer/scans#pii_badger',
+       as: :admin_foi_attachment_pii_badger
 end

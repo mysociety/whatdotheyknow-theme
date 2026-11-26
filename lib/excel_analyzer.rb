@@ -12,6 +12,11 @@ ExcelAnalyzer::PROMINENCE_REASON = "We've found a problem with this file, so " \
   "it's been hidden while we review it. We won't be able to give more " \
   "details until then."
 
+def ExcelAnalyzer.hidden?(foi_attachment)
+  foi_attachment.prominence == 'hidden' &&
+    foi_attachment.prominence_reason == ExcelAnalyzer::PROMINENCE_REASON
+end
+
 ExcelAnalyzer.on_hidden_metadata = ->(attachment_blob, _) do
   foi_attachment = FoiAttachment.joins(:file_blob).
     find_by(active_storage_blobs: { id: attachment_blob })

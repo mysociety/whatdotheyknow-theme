@@ -17,3 +17,15 @@
     </span>
   </div>
 <% end %>
+
+<% if ExcelAnalyzer.hidden?(foi_attachment) %>
+  <div>
+    <%= button_to 'Re-run PII Badger',
+                  admin_foi_attachment_pii_badger_path(foi_attachment),
+                  class: 'btn' %>
+    <span class="muted">
+      Checks the file for personal data again, then republishes it or sends
+      a new report.
+    </span>
+  </div>
+<% end %>

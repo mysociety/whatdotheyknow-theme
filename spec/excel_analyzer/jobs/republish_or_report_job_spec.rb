@@ -9,6 +9,10 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
     { pivot_cache: 0, named_ranges: 0, external_links: 0, data_model: 0 }
   end
   let(:pii_metadata) { { potential_pii_leaks: [] } }
+  let(:leak) do
+    { source: 'Pivot Cache', pii_type: 'PERSON', count: 1,
+      average_confidence: 0.85 }
+  end
 
   around do |example|
     to = ENV['EXCEL_ANALYZER_NOTIFICATION_EMAIL']
@@ -28,7 +32,10 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
     )
 
     # hide attachment
-    attachment.update(prominence: 'hidden')
+    attachment.update(
+      prominence: 'hidden',
+      prominence_reason: ExcelAnalyzer::PROMINENCE_REASON
+    )
 
     # create hide event
     message.info_request.info_request_events.create(
@@ -59,13 +66,22 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
       to eq('No data breach found after automated review')
   end
 
-  shared_examples :attachment_reported do
+  context 'when an admin changed the prominence' do
+    before { attachment.update(prominence_reason: 'Hidden after review') }
+
+    it 'does not republish the attachment' do
+      expect { perform; attachment.reload }.
+        not_to change(attachment, :prominence)
+    end
+  end
+
+  shared_examples :attachment_reported do |reasons|
     it 'sents report email' do
       deliveries = ActionMailer::Base.deliveries
       expect(deliveries.size).to eq(0)
 
-      expect(ExcelAnalyzer::NotifierMailer).to receive(:report).with(blob).
-        and_call_original
+      expect(ExcelAnalyzer::NotifierMailer).to receive(:report).
+        with(blob, reasons).and_call_original
       perform
       expect(deliveries.size).to eq(1)
 
@@ -73,30 +89,35 @@ RSpec.describe ExcelAnalyzer::RepublishOrReportJob, type: :job do
     end
   end
 
+  context 'when PII Badger failed' do
+    let(:pii_metadata) { { error: 'Exited with status 1' } }
+    include_examples :attachment_reported, [:pii_badger_failed]
+  end
+
   context 'when potential PII leaks were detected' do
-    let(:pii_metadata) { { potential_pii_leaks: [:foo] } }
-    include_examples :attachment_reported
+    let(:pii_metadata) { { potential_pii_leaks: [leak] } }
+    include_examples :attachment_reported, [:potential_pii_leaks]
   end
 
   context 'when XLS and pivot cache present' do
-    let(:excel_metadata) { { pivot_cache: 1 } }
+    let(:excel_metadata) { super().merge(pivot_cache: 1) }
     before { blob.content_type = ExcelAnalyzer::XlsAnalyzer::CONTENT_TYPE }
-    include_examples :attachment_reported
+    include_examples :attachment_reported, [:xls_pivot_cache]
   end
 
   context 'when named ranges and external links present' do
-    let(:excel_metadata) do
-      { pivot_cache: 0, named_ranges: 1, external_links: 1 }
-    end
-
-    include_examples :attachment_reported
+    let(:excel_metadata) { super().merge(named_ranges: 1, external_links: 1) }
+    include_examples :attachment_reported, [:external_links]
   end
 
   context 'when data model present' do
-    let(:excel_metadata) do
-      { pivot_cache: 0, named_ranges: 0, external_links: 0, data_model: 1 }
-    end
+    let(:excel_metadata) { super().merge(data_model: 1) }
+    include_examples :attachment_reported, [:data_model]
+  end
 
-    include_examples :attachment_reported
+  context 'when more than one reason applies' do
+    let(:pii_metadata) { { potential_pii_leaks: [leak] } }
+    let(:excel_metadata) { super().merge(data_model: 1) }
+    include_examples :attachment_reported, [:potential_pii_leaks, :data_model]
   end
 end

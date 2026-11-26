@@ -31,5 +31,26 @@ RSpec.describe Admin::FoiAttachmentsController, type: :controller do
         expect(response.body).not_to have_button('Re-scan for hidden data')
       end
     end
+
+    context 'when ExcelAnalyzer hid the attachment' do
+      before do
+        attachment.update(
+          prominence: 'hidden',
+          prominence_reason: ExcelAnalyzer::PROMINENCE_REASON
+        )
+      end
+
+      it 'shows the re-run PII Badger button' do
+        get :edit, params: { id: attachment.id }
+        expect(response.body).to have_button('Re-run PII Badger')
+      end
+    end
+
+    context 'when ExcelAnalyzer did not hide the attachment' do
+      it 'does not show the re-run PII Badger button' do
+        get :edit, params: { id: attachment.id }
+        expect(response.body).not_to have_button('Re-run PII Badger')
+      end
+    end
   end
 end
