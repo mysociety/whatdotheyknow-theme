@@ -14,27 +14,16 @@ permissions:
 
 jobs:
   rspec:
-    name: Ruby ${{ matrix.ruby }} / PostgreSQL ${{ matrix.postgres }}
-    runs-on: ubuntu-latest
+    name: Core ${{ matrix.core }} / Ruby ${{ matrix.ruby || 'deployed' }} / PostgreSQL ${{ matrix.postgres }}
+    runs-on: ${{ matrix.os }}
 
     strategy:
       fail-fast: false
       matrix:
         include:
-        - { ruby: '3.4', postgres: 13.5 }
-
-    services:
-      postgres:
-        image: fixmystreet/postgres:${{ matrix.postgres }}
-        env:
-          POSTGRES_PASSWORD: postgres
-        ports:
-        - '5432:5432'
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+        - { core: develop, os: ubuntu-latest, ruby: '3.4', postgres: 15.19 }
+        # Ubuntu 26.04 has no setup-ruby builds of older Ruby patch releases.
+        - { core: deployed, os: ubuntu-24.04, postgres: 15.19 }
 
     env:
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/alaveteli_test
@@ -50,10 +39,24 @@ jobs:
           echo "PR_ALAVETELI_NUMBER=$(echo $PR_DESCRIPTION | grep -o 'https://github.com/mysociety/alaveteli/pull/[0-9]*' | grep -o '[0-9]*$')" >> $GITHUB_ENV
         fi
 
+    # Cloudflare lets version.json through only with the token header. An
+    # empty ref checks out the default branch, so check the values.
     - name: Get Alaveteli branch name
       id: pr_alaveteli_branch
+      env:
+        VERSION_JSON_TOKEN: ${{ secrets.VERSION_JSON_TOKEN }}
       run: |
-        if [[ ! -z "$PR_ALAVETELI_NUMBER" ]]; then
+        if [ "${{ matrix.core }}" = "deployed" ]; then
+          VERSION=$(curl -fsS -H "X-CI-Token: $VERSION_JSON_TOKEN" https://www.whatdotheyknow.com/version.json || true)
+          SHA=$(echo "$VERSION" | jq -r .alaveteli_git_commit)
+          RUBY=$(echo "$VERSION" | jq -r .ruby_version)
+          if [[ ! "$SHA" =~ ^[0-9a-f]{40}$ || ! "$RUBY" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "No core SHA or Ruby version in https://www.whatdotheyknow.com/version.json" >&2
+            exit 1
+          fi
+          echo "PR_ALAVETELI_BRANCH=$SHA" >> $GITHUB_ENV
+          echo "ALAVETELI_RUBY=$RUBY" >> $GITHUB_ENV
+        elif [[ ! -z "$PR_ALAVETELI_NUMBER" ]]; then
           echo "PR_ALAVETELI_BRANCH=$(gh pr view https://github.com/mysociety/alaveteli/pull/$PR_ALAVETELI_NUMBER --json headRefName -q '.headRefName')" >> $GITHUB_ENV
         else
           echo "PR_ALAVETELI_BRANCH=develop" >> $GITHUB_ENV
@@ -66,7 +69,26 @@ jobs:
         ref: ${{ env.PR_ALAVETELI_BRANCH }}
         path: core
         submodules: true
-        fetch-depth: 0
+        fetch-depth: 1
+
+    - name: Start PostgreSQL
+      run: |
+        docker build \
+          --build-arg POSTGRES_VERSION=${{ matrix.postgres }} \
+          --file docker/Dockerfile-postgres --tag alaveteli-postgres .
+        docker run --detach --name postgres \
+          --env POSTGRES_PASSWORD=postgres --publish 5432:5432 \
+          alaveteli-postgres
+        for _ in $(seq 60); do
+          if docker exec postgres \
+               pg_isready -q -h 127.0.0.1 -U postgres -d alaveteli_test; then
+            exit 0
+          fi
+          sleep 2
+        done
+        docker logs postgres
+        exit 1
+      working-directory: core
 
     - name: Create Alaveteli theme directory
       run: |
@@ -77,30 +99,31 @@ jobs:
       with:
         path: alaveteli-themes/whatdotheyknow-theme
 
+    - name: Make apt archives writable for the cache
+      run: sudo chown $USER /var/cache/apt/archives
+
+    - name: Cache apt packages
+      uses: actions/cache@v6
+      with:
+        path: /var/cache/apt/archives/*.deb
+        key: apt-${{ matrix.os }}-${{ hashFiles('core/config/packages') }}
+
     - name: Install packages
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo apt-get -y update
-        sudo apt-get -y install exim4-daemon-light
-        sudo apt-get -y install `cut -d " " -f 1 config/packages | egrep -v "(^#|wkhtml|bundler|^ruby|^rake)"`
+        sudo apt-get -y install --no-install-recommends \
+          exim4-daemon-light \
+          $(cut -d ' ' -f 1 config/packages | grep -Ev '(^#|wkhtml|bundler|^ruby|^rake)')
       working-directory: core
 
-    - name: Install Ruby ${{ matrix.ruby }}
+    - name: Install Ruby ${{ matrix.ruby || env.ALAVETELI_RUBY }}
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby }}
+        ruby-version: ${{ matrix.ruby || env.ALAVETELI_RUBY }}
         bundler-cache: true
         working-directory: core
-
-    - name: Setup database
-      run: |
-        psql postgres://postgres:postgres@localhost:5432 <<-EOSQL
-          CREATE DATABASE template_utf8 TEMPLATE template0 ENCODING "UTF-8";
-          UPDATE pg_database SET datistemplate=true WHERE datname='template_utf8';
-          CREATE DATABASE alaveteli_test TEMPLATE template_utf8;
-        EOSQL
-      working-directory: core
 
     - name: Configure application and storage
       run: |
